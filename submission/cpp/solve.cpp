@@ -1,468 +1,1030 @@
-// TechArena 2026, кейс 3 — решатель на C++ (один файл, только стандартная библиотека).
+// TechArena 2026, кейс 3 "Service Zone Optimization" — решатель на C++.
+// Один файл, только стандартная библиотека (+ pthread).
 //
 // Читает instance.json, пишет solution.json в текущем каталоге.
-// Отладка: ./solve [instance.json] [solution.json] [секунды]; лимит также задаётся TL=...
+// Отладка: ./solve [in.json] [out.json] [секунды] ; лимит также через TL=...
 //
-// Схема (как в Python-версии solver/solve.py):
-//   1) быстрая оценка множества офисов через power diagram (веса h и генераторы G):
-//      ячейки выпуклы и не пересекаются, значит оболочки зон не делят точек;
-//   2) выбор офисов: жадное добавление + локальный поиск add/drop/swap;
-//   3) перенос лучших вариантов в точную модель (геометрия как у валидатора,
-//      навыки с назначением рабочих, ёмкости, баланс числа сайтов),
-//      имитация отжига по ходам «сайт -> офис / снять», затем спуск;
-//   4) оставшееся время — повторные отжиги от лучшего решения.
-// Ответ пишется при каждом улучшении, чтобы TLE не оставил пустой файл.
+// Схема:
+//   1) конструкторы стартовых разбиений (power diagram, секторы, дорожная близость,
+//      разрезы прямыми) — все дают геометрически допустимое разбиение;
+//   2) точный DP "какие сайты оставить" при фиксированных зонах: окно нагрузки
+//      [lo,hi] + 0/1-рюкзак по числу задач. Удаление сайтов не ломает геометрию,
+//      поэтому DP точен внутри зон;
+//   3) LNS (ruin & recreate) + отжиг по одиночным ходам, многопоточно;
+//   4) защита от TLE: пред-сериализованный буфер + обработчик сигналов.
 
 #include <algorithm>
 #include <array>
-#include <climits>
-#include <memory>
+#include <atomic>
 #include <chrono>
+#include <climits>
 #include <cmath>
+#include <cstdint>
 #include <cstdio>
 #include <cstdlib>
 #include <cstring>
 #include <fstream>
-#include <map>
+#include <iterator>
+#include <memory>
+#include <mutex>
 #include <numeric>
 #include <random>
 #include <set>
 #include <sstream>
 #include <stdexcept>
 #include <string>
-#include <utility>
+#include <thread>
+#include <unistd.h>
+#include <fcntl.h>
+#include <csignal>
 #include <vector>
+#include <map>
+
+#ifndef M_PI
+#define M_PI 3.14159265358979323846
+#endif
 
 using namespace std;
 using Clock = chrono::steady_clock;
 static const Clock::time_point T0 = Clock::now();
-static double elapsed() { return chrono::duration<double>(Clock::now() - T0).count(); }
+static inline double elapsed() { return chrono::duration<double>(Clock::now() - T0).count(); }
 
-// ------------------------------------------------------------------ JSON
-struct JVal {
-    enum Kind { NUL, BOOL, NUM, STR, ARR, OBJ } kind = NUL;
-    double num = 0;
-    string str;
-    vector<JVal> arr;
-    vector<pair<string, JVal>> obj;
-    const JVal& operator[](const string& k) const {
-        for (auto& kv : obj)
-            if (kv.first == k) return kv.second;
-        throw runtime_error("missing key " + k);
-    }
-};
+static const double NEG = -1e300;
+static bool DBG = false, DBG2 = false;
 
-struct JParser {
-    const string& s;
-    size_t i = 0;
-    explicit JParser(const string& src) : s(src) {
-        if (s.size() >= 3 && (unsigned char)s[0] == 0xEF && (unsigned char)s[1] == 0xBB && (unsigned char)s[2] == 0xBF) i = 3;
-    }
-    void ws() { while (i < s.size() && isspace((unsigned char)s[i])) i++; }
-    JVal parse() {
+// ===================================================================== JSON
+// Специализированный парсер под известную схему: не строит дерево.
+struct JReader {
+    const char* p;
+    const char* e;
+    JReader(const char* b, const char* en) : p(b), e(en) {}
+    void ws() { while (p < e && (unsigned char)*p <= ' ') p++; }
+    bool eat(char c) { ws(); if (p < e && *p == c) { p++; return true; } return false; }
+    void need(char c) { if (!eat(c)) throw runtime_error(string("expected ") + c); }
+    double num() {
         ws();
-        JVal v;
-        char c = s.at(i);
-        if (c == '{') {
-            v.kind = JVal::OBJ; i++; ws();
-            if (s[i] == '}') { i++; return v; }
-            while (true) {
-                ws(); string k = pstr(); ws(); i++;  // ':'
-                v.obj.emplace_back(k, parse()); ws();
-                if (s[i] == ',') { i++; continue; }
-                i++; break;  // '}'
-            }
-        } else if (c == '[') {
-            v.kind = JVal::ARR; i++; ws();
-            if (s[i] == ']') { i++; return v; }
-            while (true) {
-                v.arr.push_back(parse()); ws();
-                if (s[i] == ',') { i++; continue; }
-                i++; break;  // ']'
-            }
-        } else if (c == '"') {
-            v.kind = JVal::STR; v.str = pstr();
-        } else if (c == 't') { v.kind = JVal::BOOL; v.num = 1; i += 4; }
-        else if (c == 'f') { v.kind = JVal::BOOL; i += 5; }
-        else if (c == 'n') { i += 4; }
-        else {
-            v.kind = JVal::NUM;
-            const char* b = s.c_str() + i;
-            char* e;
-            v.num = strtod(b, &e);
-            i += e - b;
-        }
+        char* q;
+        double v = strtod(p, &q);
+        if (q == p) throw runtime_error("bad number");
+        p = q;
         return v;
     }
-    string pstr() {
-        string r; i++;  // '"'
-        while (s[i] != '"') {
-            if (s[i] == '\\') { i++; r += s[i] == 'n' ? '\n' : s[i]; if (s[i] == 'u') i += 4; }
-            else r += s[i];
-            i++;
+    string str() {
+        ws();
+        need('"');
+        string r;
+        while (p < e && *p != '"') {
+            if (*p == '\\') {
+                p++;
+                char c = *p++;
+                switch (c) {
+                    case 'n': r += '\n'; break;
+                    case 't': r += '\t'; break;
+                    case 'r': r += '\r'; break;
+                    case 'b': r += '\b'; break;
+                    case 'f': r += '\f'; break;
+                    case 'u': p += 4; r += '?'; break;
+                    default: r += c;
+                }
+            } else r += *p++;
         }
-        i++;
+        need('"');
         return r;
+    }
+    void skip() {  // пропустить произвольное значение
+        ws();
+        if (p >= e) return;
+        if (*p == '"') { str(); return; }
+        if (*p == '{' || *p == '[') {
+            char open = *p, close = open == '{' ? '}' : ']';
+            int d = 0;
+            bool instr = false;
+            while (p < e) {
+                char c = *p;
+                if (instr) {
+                    if (c == '\\') p++;
+                    else if (c == '"') instr = false;
+                } else if (c == '"') instr = true;
+                else if (c == open) d++;
+                else if (c == close) { d--; if (!d) { p++; return; } }
+                p++;
+            }
+            return;
+        }
+        while (p < e && *p != ',' && *p != '}' && *p != ']') p++;
     }
 };
 
-// ---------------------------------------------------------------- геометрия
-struct Pt { double x, y; };
-static inline bool operator<(const Pt& a, const Pt& b) { return a.x < b.x || (a.x == b.x && a.y < b.y); }
-static inline bool operator==(const Pt& a, const Pt& b) { return a.x == b.x && a.y == b.y; }
-static inline double cr(const Pt& o, const Pt& a, const Pt& b) { return (a.x - o.x) * (b.y - o.y) - (a.y - o.y) * (b.x - o.x); }
+// ================================================================ геометрия
+struct Pt { double x = 0, y = 0; };
+static inline bool ptless(const Pt& a, const Pt& b) { return a.x < b.x || (a.x == b.x && a.y < b.y); }
+static inline bool pteq(const Pt& a, const Pt& b) { return a.x == b.x && a.y == b.y; }
+static inline double cr(const Pt& o, const Pt& a, const Pt& b) {
+    return (a.x - o.x) * (b.y - o.y) - (a.y - o.y) * (b.x - o.x);
+}
 
-// Монотонная цепь: вершины CCW без коллинеарных (1, 2 или >=3 точки).
-static vector<Pt> hull_of(vector<Pt> p) {
-    sort(p.begin(), p.end());
-    p.erase(unique(p.begin(), p.end()), p.end());
-    if (p.size() <= 2) return p;
-    vector<Pt> h(2 * p.size());
+// Выпуклая оболочка (монотонная цепь), CCW, без коллинеарных. 1, 2 или >=3 точки.
+static void hull_of(vector<Pt>& p) {
+    sort(p.begin(), p.end(), ptless);
+    p.erase(unique(p.begin(), p.end(), pteq), p.end());
+    size_t n = p.size();
+    if (n <= 2) return;
+    vector<Pt> h(2 * n);
     size_t k = 0;
-    for (size_t i = 0; i < p.size(); i++) {
+    for (size_t i = 0; i < n; i++) {
         while (k >= 2 && cr(h[k - 2], h[k - 1], p[i]) <= 0) k--;
         h[k++] = p[i];
     }
-    for (size_t i = p.size() - 1, t = k + 1; i-- > 0;) {
+    for (size_t i = n - 1, t = k + 1; i-- > 0;) {
         while (k >= t && cr(h[k - 2], h[k - 1], p[i]) <= 0) k--;
         h[k++] = p[i];
     }
     h.resize(k - 1);
-    return h;
+    p.swap(h);
 }
 
-// ----------------------------------------------------------------- инстанс
+// =================================================================== инстанс
 struct Inst {
-    int ns = 0, no = 0, nw = 0, nsk = 0, A = 0;
+    int ns = 0, no = 0, nw = 0, nsk = 0;
+    long long A = 0;
     double alpha = 0;
-    vector<double> reward, ntask, cost;
+    vector<double> reward, cost;
+    vector<int> ntask;                 // число задач сайта (с повторами)
     vector<int> maxsize;
-    vector<vector<int>> skillset;     // уникальные навыки сайта
-    vector<vector<char>> wskill;      // рабочий -> есть ли навык
-    vector<int> wcount;               // число навыков у рабочего
-    vector<vector<double>> D, profit; // [o][s]
+    vector<vector<int>> skillset;      // уникальные навыки сайта
+    vector<vector<int>> wskills;       // навыки рабочего
+    vector<vector<char>> wmask;        // рабочий -> маска навыков
+    vector<int> wcount;
+    vector<int> Nk;                    // число рабочих с навыком k
+    vector<double> D;                  // [o*ns + s]
+    vector<double> prof;               // reward[s] - D[o][s]
     vector<char> servable;
-    vector<Pt> P;                     // сайты, затем офисы
-    double eps_len = 0, eps_cr = 0, ext = 1;
+    vector<Pt> P;                      // сайты, затем офисы
+    vector<vector<int>> cand;          // сайт -> офисы по возрастанию расстояния
+    bool simple_workers = true;        // у каждого рабочего ровно один навык
+    double ext = 1, eps_len = 0, eps_cr = 0;
+    int totalTasks = 0;
+
+    inline double d(int o, int s) const { return D[(size_t)o * ns + s]; }
+    inline double pr(int o, int s) const { return prof[(size_t)o * ns + s]; }
 };
 
-static Inst load(const string& path) {
+static Inst load_instance(const string& path) {
     ifstream f(path, ios::binary);
-    if (!f) throw runtime_error("no input");
-    stringstream ss; ss << f.rdbuf();
-    string src = ss.str();
-    JParser jp(src);
-    JVal J = jp.parse();
+    if (!f) throw runtime_error("no input file");
+    string src((istreambuf_iterator<char>(f)), istreambuf_iterator<char>());
+    size_t off = 0;
+    if (src.size() >= 3 && (unsigned char)src[0] == 0xEF) off = 3;
+    JReader R(src.data() + off, src.data() + src.size());
     Inst I;
-    auto& S = J["sites"].arr;
-    auto& O = J["offices"].arr;
-    auto& W = J["workers"].arr;
-    I.ns = S.size(); I.no = O.size(); I.nw = W.size();
-    int maxsk = 0;
-    for (auto& s : S) for (auto& t : s["tasks"].arr) maxsk = max(maxsk, (int)t.num + 1);
-    for (auto& w : W) for (auto& t : w.arr) maxsk = max(maxsk, (int)t.num + 1);
-    I.nsk = maxsk;
-    for (auto& s : S) {
-        I.P.push_back({s["x"].num, s["y"].num});
-        I.reward.push_back(s["reward"].num);
-        I.ntask.push_back((double)s["tasks"].arr.size());
-        set<int> u;
-        for (auto& t : s["tasks"].arr) u.insert((int)t.num);
-        I.skillset.emplace_back(u.begin(), u.end());
-    }
-    for (auto& o : O) {
-        I.P.push_back({o["x"].num, o["y"].num});
-        I.cost.push_back(o["cost"].num);
-        I.maxsize.push_back((int)o["maxSize"].num);
-    }
-    vector<char> any(I.nsk, 0);
-    for (auto& w : W) {
-        vector<char> m(I.nsk, 0);
-        int c = 0;
-        for (auto& t : w.arr) { if (!m[(int)t.num]) c++; m[(int)t.num] = 1; any[(int)t.num] = 1; }
-        I.wskill.push_back(m);
-        I.wcount.push_back(c);
-    }
-    auto& Dm = J["distances"].arr;
-    I.D.assign(I.no, vector<double>(I.ns));
-    I.profit.assign(I.no, vector<double>(I.ns));
-    for (int o = 0; o < I.no; o++)
-        for (int s = 0; s < I.ns; s++) {
-            I.D[o][s] = Dm[o].arr[s].num;
-            I.profit[o][s] = I.reward[s] - I.D[o][s];
+    vector<vector<int>> tasks;
+    vector<double> flatD;
+    vector<Pt> sitePts, offPts;
+    bool haveA = false, haveAl = false;
+    R.need('{');
+    if (!R.eat('}')) {
+        while (true) {
+            string key = R.str();
+            R.need(':');
+            if (key == "sites") {
+                R.need('[');
+                if (!R.eat(']')) while (true) {
+                    R.need('{');
+                    Pt q; double rw = 0; vector<int> tk;
+                    if (!R.eat('}')) while (true) {
+                        string k2 = R.str(); R.need(':');
+                        if (k2 == "x") q.x = R.num();
+                        else if (k2 == "y") q.y = R.num();
+                        else if (k2 == "reward") rw = R.num();
+                        else if (k2 == "tasks") {
+                            R.need('[');
+                            if (!R.eat(']')) while (true) { tk.push_back((int)llround(R.num())); if (R.eat(',')) continue; R.need(']'); break; }
+                        } else R.skip();
+                        if (R.eat(',')) continue;
+                        R.need('}'); break;
+                    }
+                    sitePts.push_back(q); I.reward.push_back(rw); tasks.push_back(move(tk));
+                    if (R.eat(',')) continue;
+                    R.need(']'); break;
+                }
+            } else if (key == "offices") {
+                R.need('[');
+                if (!R.eat(']')) while (true) {
+                    R.need('{');
+                    Pt q; double c = 0; long long ms = 0;
+                    if (!R.eat('}')) while (true) {
+                        string k2 = R.str(); R.need(':');
+                        if (k2 == "x") q.x = R.num();
+                        else if (k2 == "y") q.y = R.num();
+                        else if (k2 == "cost") c = R.num();
+                        else if (k2 == "maxSize") ms = (long long)llround(R.num());
+                        else R.skip();
+                        if (R.eat(',')) continue;
+                        R.need('}'); break;
+                    }
+                    I.cost.push_back(c);
+                    I.maxsize.push_back((int)max(0LL, min(ms, (long long)INT_MAX)));
+                    offPts.push_back(q);
+                    if (R.eat(',')) continue;
+                    R.need(']'); break;
+                }
+            } else if (key == "workers") {
+                R.need('[');
+                if (!R.eat(']')) while (true) {
+                    vector<int> sk;
+                    R.need('[');
+                    if (!R.eat(']')) while (true) { sk.push_back((int)llround(R.num())); if (R.eat(',')) continue; R.need(']'); break; }
+                    I.wskills.push_back(move(sk));
+                    if (R.eat(',')) continue;
+                    R.need(']'); break;
+                }
+            } else if (key == "distances") {
+                R.need('[');
+                if (!R.eat(']')) while (true) {
+                    R.need('[');
+                    if (!R.eat(']')) while (true) { flatD.push_back(R.num()); if (R.eat(',')) continue; R.need(']'); break; }
+                    if (R.eat(',')) continue;
+                    R.need(']'); break;
+                }
+            } else if (key == "maxDifference") { I.A = (long long)llround(R.num()); haveA = true; }
+            else if (key == "balanceCoefficient") { I.alpha = R.num(); haveAl = true; }
+            else R.skip();
+            if (R.eat(',')) continue;
+            R.need('}'); break;
         }
-    I.A = (int)J["maxDifference"].num;
-    I.alpha = J["balanceCoefficient"].num;
+    }
+    I.ns = tasks.size();
+    I.no = I.cost.size();
+    I.nw = I.wskills.size();
+    if (!haveA) I.A = I.ns;
+    if (!haveAl) I.alpha = 0;
+    if (I.A < 0) I.A = 0;
+    I.P.clear();
+    I.P.reserve(I.ns + I.no);
+    I.P.insert(I.P.end(), sitePts.begin(), sitePts.end());
+    I.P.insert(I.P.end(), offPts.begin(), offPts.end());
+    int maxsk = 0;
+    for (auto& t : tasks) for (int k : t) maxsk = max(maxsk, k + 1);
+    for (auto& w : I.wskills) for (int k : w) maxsk = max(maxsk, k + 1);
+    I.nsk = max(1, maxsk);
+    I.ntask.resize(I.ns);
+    I.skillset.resize(I.ns);
+    for (int s = 0; s < I.ns; s++) {
+        I.ntask[s] = tasks[s].size();
+        I.totalTasks += I.ntask[s];
+        set<int> u(tasks[s].begin(), tasks[s].end());
+        I.skillset[s].assign(u.begin(), u.end());
+    }
+    I.Nk.assign(I.nsk, 0);
+    I.wmask.assign(I.nw, vector<char>(I.nsk, 0));
+    I.wcount.assign(I.nw, 0);
+    for (int w = 0; w < I.nw; w++) {
+        set<int> u(I.wskills[w].begin(), I.wskills[w].end());
+        for (int k : u) { I.wmask[w][k] = 1; I.Nk[k]++; }
+        I.wcount[w] = u.size();
+        if ((int)u.size() != 1) I.simple_workers = false;
+    }
     I.servable.assign(I.ns, 1);
     for (int s = 0; s < I.ns; s++)
-        for (int k : I.skillset[s]) if (!any[k]) I.servable[s] = 0;
+        for (int k : I.skillset[s]) if (I.Nk[k] == 0) I.servable[s] = 0;
+    // расстояния
+    I.D.assign((size_t)I.no * I.ns, 0.0);
+    if ((long long)flatD.size() == (long long)I.no * I.ns)
+        copy(flatD.begin(), flatD.end(), I.D.begin());
+    else if (!flatD.empty())
+        for (size_t i = 0; i < min(flatD.size(), I.D.size()); i++) I.D[i] = flatD[i];
+    I.prof.resize(I.D.size());
+    for (int o = 0; o < I.no; o++)
+        for (int s = 0; s < I.ns; s++) I.prof[(size_t)o * I.ns + s] = I.reward[s] - I.D[(size_t)o * I.ns + s];
     double mnx = 1e300, mxx = -1e300, mny = 1e300, mxy = -1e300;
-    for (auto& p : I.P) { mnx = min(mnx, p.x); mxx = max(mxx, p.x); mny = min(mny, p.y); mxy = max(mxy, p.y); }
+    for (auto& q : I.P) { mnx = min(mnx, q.x); mxx = max(mxx, q.x); mny = min(mny, q.y); mxy = max(mxy, q.y); }
     I.ext = I.P.empty() ? 1.0 : max(mxx - mnx, mxy - mny);
-    if (I.ext <= 0) I.ext = 1.0;
+    if (!(I.ext > 0)) I.ext = 1.0;
     I.eps_len = 1e-9 * I.ext;
     I.eps_cr = 1e-9 * I.ext * I.ext;
+    // кандидаты: офисы по возрастанию расстояния
+    I.cand.resize(I.ns);
+    {
+        vector<int> all(I.no);
+        iota(all.begin(), all.end(), 0);
+        for (int s = 0; s < I.ns; s++) {
+            vector<int> v = all;
+            sort(v.begin(), v.end(), [&](int a, int b) { return I.d(a, s) < I.d(b, s); });
+            I.cand[s] = move(v);
+        }
+    }
     return I;
 }
 
-// Маска точек, покрытых оболочкой (с допуском в сторону «покрыто»).
-static void covers(const Inst& I, const vector<Pt>& h, vector<char>& out) {
-    size_t n = I.P.size();
-    out.assign(n, 0);
-    if (h.size() == 1) {
-        for (size_t i = 0; i < n; i++) out[i] = hypot(I.P[i].x - h[0].x, I.P[i].y - h[0].y) <= I.eps_len;
-        return;
-    }
-    if (h.size() == 2) {
-        double ax = h[0].x, ay = h[0].y, dx = h[1].x - ax, dy = h[1].y - ay;
-        double L2 = dx * dx + dy * dy, L = sqrt(L2);
-        for (size_t i = 0; i < n; i++) {
-            double X = I.P[i].x, Y = I.P[i].y;
-            double c = dx * (Y - ay) - dy * (X - ax), d = dx * (X - ax) + dy * (Y - ay);
-            out[i] = fabs(c) <= I.eps_cr + I.eps_len * L && d >= -I.eps_len * L && d <= L2 + I.eps_len * L;
-        }
-        return;
-    }
-    size_t m = h.size();
-    vector<double> tol(m);
-    for (size_t e = 0; e < m; e++) {
-        const Pt &a = h[e], &b = h[(e + 1) % m];
-        tol[e] = -I.eps_cr - I.eps_len * hypot(b.x - a.x, b.y - a.y);
-    }
-    for (size_t i = 0; i < n; i++) {
-        bool in = true;
-        for (size_t e = 0; e < m && in; e++) {
-            const Pt &a = h[e], &b = h[(e + 1) % m];
-            in = (b.x - a.x) * (I.P[i].y - a.y) - (b.y - a.y) * (I.P[i].x - a.x) >= tol[e];
-        }
-        out[i] = in;
-    }
-}
-
-// ---------------------------------------------------------------- решение
+// ================================================================== решение
+// Инвариант: cov[i] = число открытых офисов, чья оболочка покрывает точку i.
+// Допустимо, пока cov[i] <= 1 для всех i.
 struct Sol {
-    const Inst* I;
-    vector<int> opened;
+    const Inst* I = nullptr;
     vector<char> isopen;
-    vector<int> asg, size, wof;
-    vector<double> load;
-    vector<vector<int>> members;     // по офисам
-    vector<int> pos;                 // позиция сайта в members[asg]
-    vector<vector<int>> need;        // [o][skill]
+    vector<int> asg, pos, size_;
+    vector<long long> load;
+    vector<vector<int>> members;
+    vector<vector<int>> need;      // [o][k] сколько сайтов офиса требуют навык k
+    vector<int> cntSkill;          // сколько офисов требуют навык k
     vector<vector<Pt>> hull;
-    vector<vector<char>> inhull;
-    vector<int> cov;
-    double prof_sum = 0;
+    vector<vector<int>> covlist;   // точки, покрытые оболочкой o
+    vector<char> incov;            // [o*np + i]
+    vector<int16_t> cov;
+    double psum = 0;
+    int np = 0;
+    uint64_t sig = 0;              // хэш «какой офис какие навыки требует»
+    vector<uint64_t> sigkey;       // [o*nsk+k] и [no*nsk+o] для isopen
 
-    Sol(const Inst& In, const vector<int>& op) : I(&In), opened(op) {
+    void init(const Inst& In) {
+        I = &In;
+        np = I->ns + I->no;
         isopen.assign(I->no, 0);
-        for (int o : op) isopen[o] = 1;
         asg.assign(I->ns, -1);
         pos.assign(I->ns, -1);
-        size.assign(I->no, 0);
+        size_.assign(I->no, 0);
         load.assign(I->no, 0);
-        wof.assign(I->nw, -1);
         members.assign(I->no, {});
         need.assign(I->no, vector<int>(I->nsk, 0));
+        cntSkill.assign(I->nsk, 0);
         hull.assign(I->no, {});
-        inhull.assign(I->no, {});
-        cov.assign(I->P.size(), 0);
-        for (int o : op) set_hull(o, {I->P[I->ns + o]});
+        covlist.assign(I->no, {});
+        incov.assign((size_t)I->no * np, 0);
+        cov.assign(np, 0);
+        psum = 0;
+        sigkey.resize((size_t)I->no * I->nsk + I->no);
+        mt19937_64 r(0xC0FFEE123ULL);
+        for (auto& v : sigkey) v = r();
+        sig = 0;
     }
+    inline void sig_need(int o, int k) { sig ^= sigkey[(size_t)o * I->nsk + k]; }
+    inline void sig_open(int o) { sig ^= sigkey[(size_t)I->no * I->nsk + o]; }
 
+    // --- геометрия
+    void clear_cov(int o) {
+        char* row = &incov[(size_t)o * np];
+        for (int i : covlist[o]) { row[i] = 0; cov[i]--; }
+        covlist[o].clear();
+    }
+    void apply_cov(int o, const vector<Pt>& h) {
+        char* row = &incov[(size_t)o * np];
+        const auto& P = I->P;
+        int n = np;
+        if (h.empty()) return;
+        if (h.size() == 1) {
+            for (int i = 0; i < n; i++)
+                if (fabs(P[i].x - h[0].x) <= I->eps_len && fabs(P[i].y - h[0].y) <= I->eps_len) {
+                    row[i] = 1; cov[i]++; covlist[o].push_back(i);
+                }
+            return;
+        }
+        if (h.size() == 2) {
+            double ax = h[0].x, ay = h[0].y, dx = h[1].x - ax, dy = h[1].y - ay;
+            double L2 = dx * dx + dy * dy, L = sqrt(L2);
+            for (int i = 0; i < n; i++) {
+                double X = P[i].x - ax, Y = P[i].y - ay;
+                double c = dx * Y - dy * X, t = dx * X + dy * Y;
+                if (fabs(c) <= I->eps_cr + I->eps_len * L && t >= -I->eps_len * L && t <= L2 + I->eps_len * L) {
+                    row[i] = 1; cov[i]++; covlist[o].push_back(i);
+                }
+            }
+            return;
+        }
+        size_t m = h.size();
+        double mnx = 1e300, mxx = -1e300, mny = 1e300, mxy = -1e300;
+        for (auto& q : h) { mnx = min(mnx, q.x); mxx = max(mxx, q.x); mny = min(mny, q.y); mxy = max(mxy, q.y); }
+        mnx -= I->eps_len; mxx += I->eps_len; mny -= I->eps_len; mxy += I->eps_len;
+        for (int i = 0; i < n; i++) {
+            double X = P[i].x, Y = P[i].y;
+            if (X < mnx || X > mxx || Y < mny || Y > mxy) continue;
+            bool in = true;
+            for (size_t e2 = 0; e2 < m && in; e2++) {
+                const Pt& a = h[e2];
+                const Pt& b = h[(e2 + 1) % m];
+                double ex = b.x - a.x, ey = b.y - a.y;
+                double tol = -I->eps_cr - I->eps_len * sqrt(ex * ex + ey * ey);
+                in = ex * (Y - a.y) - ey * (X - a.x) >= tol;
+            }
+            if (in) { row[i] = 1; cov[i]++; covlist[o].push_back(i); }
+        }
+    }
     void set_hull(int o, vector<Pt> h) {
-        auto& m = inhull[o];
-        if (!m.empty())
-            for (size_t i = 0; i < m.size(); i++) cov[i] -= m[i];
-        covers(*I, h, m);
-        for (size_t i = 0; i < m.size(); i++) cov[i] += m[i];
+        clear_cov(o);
         hull[o] = move(h);
+        apply_cov(o, hull[o]);
     }
     void rebuild_hull(int o) {
         vector<Pt> pts;
         pts.reserve(members[o].size() + 1);
         for (int s : members[o]) pts.push_back(I->P[s]);
-        pts.push_back(I->P[I->ns + o]);
-        set_hull(o, hull_of(pts));
+        if (isopen[o]) pts.push_back(I->P[I->ns + o]);
+        hull_of(pts);
+        set_hull(o, move(pts));
     }
-    // ok и новая оболочка (пустая, если не меняется)
-    bool can_add_geo(int s, int o, vector<Pt>& h) {
-        h.clear();
-        if (inhull[o][s]) return true;
+    // можно ли добавить сайт s в офис o по геометрии; newh — новая оболочка (пусто = без изменений)
+    bool geo_ok(int s, int o, vector<Pt>& newh) const {
+        newh.clear();
+        if (incov[(size_t)o * np + s]) return true;
         vector<Pt> pts = hull[o];
         pts.push_back(I->P[s]);
-        h = hull_of(pts);
-        static vector<char> m;
-        covers(*I, h, m);
-        const auto& old = inhull[o];
-        for (size_t i = 0; i < m.size(); i++)
-            if (m[i] && !old[i] && cov[i] > 0) return false;
+        hull_of(pts);
+        // проверяем точки, которые станут покрытыми
+        const auto& P = I->P;
+        const char* row = &incov[(size_t)o * np];
+        size_t m = pts.size();
+        if (m >= 3) {
+            double mnx = 1e300, mxx = -1e300, mny = 1e300, mxy = -1e300;
+            for (auto& q : pts) { mnx = min(mnx, q.x); mxx = max(mxx, q.x); mny = min(mny, q.y); mxy = max(mxy, q.y); }
+            mnx -= I->eps_len; mxx += I->eps_len; mny -= I->eps_len; mxy += I->eps_len;
+            for (int i = 0; i < np; i++) {
+                if (row[i] || cov[i] == 0) continue;
+                double X = P[i].x, Y = P[i].y;
+                if (X < mnx || X > mxx || Y < mny || Y > mxy) continue;
+                bool in = true;
+                for (size_t e2 = 0; e2 < m && in; e2++) {
+                    const Pt& a = pts[e2];
+                    const Pt& b = pts[(e2 + 1) % m];
+                    double ex = b.x - a.x, ey = b.y - a.y;
+                    double tol = -I->eps_cr - I->eps_len * sqrt(ex * ex + ey * ey);
+                    in = ex * (Y - a.y) - ey * (X - a.x) >= tol;
+                }
+                if (in) return false;
+            }
+        } else if (m == 2) {
+            double ax = pts[0].x, ay = pts[0].y, dx = pts[1].x - ax, dy = pts[1].y - ay;
+            double L2 = dx * dx + dy * dy, L = sqrt(L2);
+            for (int i = 0; i < np; i++) {
+                if (row[i] || cov[i] == 0) continue;
+                double X = P[i].x - ax, Y = P[i].y - ay;
+                double c = dx * Y - dy * X, t = dx * X + dy * Y;
+                if (fabs(c) <= I->eps_cr + I->eps_len * L && t >= -I->eps_len * L && t <= L2 + I->eps_len * L) return false;
+            }
+        }
+        newh = move(pts);
         return true;
     }
 
     // --- навыки
-    vector<char> office_skills(int o) const {
-        vector<char> sk(I->nsk, 0);
-        for (int w = 0; w < I->nw; w++)
-            if (wof[w] == o)
-                for (int k = 0; k < I->nsk; k++) sk[k] |= I->wskill[w][k];
-        return sk;
+    bool skills_ok() const {
+        for (int k = 0; k < I->nsk; k++) if (cntSkill[k] > I->Nk[k]) return false;
+        if (I->simple_workers) return true;
+        return greedy_workers(nullptr);
     }
-    bool plan_skills(int s, int o, vector<int>& add) const {
-        add.clear();
-        vector<char> have = office_skills(o);
-        for (int k : I->skillset[s]) {
-            if (have[k]) continue;
-            int best = -1;
-            for (int w = 0; w < I->nw; w++)
-                if (wof[w] == -1 && I->wskill[w][k] && find(add.begin(), add.end(), w) == add.end())
-                    if (best < 0 || I->wcount[w] < I->wcount[best]) best = w;
-            if (best < 0) return false;
-            add.push_back(best);
-            for (int kk = 0; kk < I->nsk; kk++) have[kk] |= I->wskill[best][kk];
+    // жадное назначение рабочих; если out != null — записать wof
+    bool greedy_workers(vector<int>* out) const {
+        vector<int> wof(I->nw, -1);
+        vector<char> used(I->nw, 0);
+        for (int o = 0; o < I->no; o++) {
+            if (!isopen[o] || size_[o] == 0) continue;
+            vector<char> have(I->nsk, 0);
+            for (int k = 0; k < I->nsk; k++) {
+                if (need[o][k] == 0 || have[k]) continue;
+                // выбираем рабочего, закрывающего больше всего недостающих навыков
+                int bw = -1, bg = -1;
+                for (int w = 0; w < I->nw; w++) {
+                    if (used[w] || !I->wmask[w][k]) continue;
+                    int g = 0;
+                    for (int k2 = 0; k2 < I->nsk; k2++) if (need[o][k2] > 0 && !have[k2] && I->wmask[w][k2]) g++;
+                    if (g > bg) { bg = g; bw = w; }
+                }
+                if (bw < 0) return false;
+                used[bw] = 1; wof[bw] = o;
+                for (int k2 = 0; k2 < I->nsk; k2++) have[k2] |= I->wmask[bw][k2];
+            }
         }
+        if (out) *out = move(wof);
         return true;
-    }
-    void release_workers(int o) {
-        vector<int> ws;
-        for (int w = 0; w < I->nw; w++) if (wof[w] == o) ws.push_back(w);
-        sort(ws.begin(), ws.end(), [&](int a, int b) { return I->wcount[a] < I->wcount[b]; });
-        for (int w : ws) {
-            vector<char> rest(I->nsk, 0);
-            for (int w2 : ws) if (w2 != w && wof[w2] == o) for (int k = 0; k < I->nsk; k++) rest[k] |= I->wskill[w2][k];
-            bool ok = true;
-            for (int k = 0; k < I->nsk && ok; k++) if (need[o][k] > 0 && !rest[k]) ok = false;
-            if (ok) wof[w] = -1;
-        }
-    }
-
-    // --- целевая: считаются только непустые офисы (как в ответе)
-    double eval_tail(const vector<int>& sz, const vector<double>& ld) const {
-        double c = 0, mx = -1e300, mn = 1e300;
-        for (int o : opened) if (sz[o] > 0) { c += I->cost[o]; mx = max(mx, ld[o]); mn = min(mn, ld[o]); }
-        if (mx < mn) return 0;
-        return -c - I->alpha * (mx - mn);
-    }
-    double objective() const { return prof_sum + eval_tail(size, load); }
-    bool sizes_ok(const vector<int>& sz) const {
-        int mx = INT32_MIN, mn = INT32_MAX;
-        for (int o : opened) if (sz[o] > 0) {
-            if (sz[o] > I->maxsize[o]) return false;
-            mx = max(mx, sz[o]); mn = min(mn, sz[o]);
-        }
-        return mx < mn || mx - mn <= I->A;
     }
 
     // --- ходы
-    void remove(int s) {
+    void open_office(int o) {
+        if (isopen[o]) return;
+        isopen[o] = 1;
+        sig_open(o);
+        rebuild_hull(o);
+    }
+    void close_office(int o) {
+        if (!isopen[o]) return;
+        while (!members[o].empty()) remove_site(members[o].back());
+        isopen[o] = 0;
+        clear_cov(o);
+        hull[o].clear();
+    }
+    void remove_site(int s) {
         int o = asg[s];
+        if (o < 0) return;
         asg[s] = -1;
         int p = pos[s], last = members[o].back();
         members[o][p] = last; pos[last] = p; members[o].pop_back(); pos[s] = -1;
-        size[o]--; load[o] -= I->ntask[s]; prof_sum -= I->profit[o][s];
-        for (int k : I->skillset[s]) need[o][k]--;
-        const Pt& q = I->P[s];
-        if (find(hull[o].begin(), hull[o].end(), q) != hull[o].end()) rebuild_hull(o);
-        release_workers(o);
+        size_[o]--; load[o] -= I->ntask[s]; psum -= I->pr(o, s);
+        for (int k : I->skillset[s]) if (--need[o][k] == 0) { cntSkill[k]--; sig_need(o, k); }
+        bool onhull = false;
+        for (auto& q : hull[o]) if (pteq(q, I->P[s])) { onhull = true; break; }
+        if (onhull) rebuild_hull(o);
     }
-    void add(int s, int o, vector<Pt>& h, const vector<int>& wk) {
+    void add_site_raw(int s, int o, vector<Pt>& newh) {
         asg[s] = o;
-        pos[s] = members[o].size(); members[o].push_back(s);
-        size[o]++; load[o] += I->ntask[s]; prof_sum += I->profit[o][s];
-        for (int k : I->skillset[s]) need[o][k]++;
-        for (int w : wk) wof[w] = o;
-        if (!h.empty()) set_hull(o, move(h));
+        pos[s] = members[o].size();
+        members[o].push_back(s);
+        size_[o]++; load[o] += I->ntask[s]; psum += I->pr(o, s);
+        for (int k : I->skillset[s]) if (need[o][k]++ == 0) { cntSkill[k]++; sig_need(o, k); }
+        if (!newh.empty()) set_hull(o, move(newh));
     }
-    bool force_move(int s, int onew) {
-        int oold = asg[s];
-        if (onew == oold) return false;
-        vector<int> sz = size;
-        if (oold >= 0) sz[oold]--;
-        if (onew >= 0) sz[onew]++;
-        if (!sizes_ok(sz)) return false;
-        if (oold >= 0) remove(s);
-        if (onew < 0) return true;
-        vector<Pt> h; vector<int> wk;
-        bool ok = can_add_geo(s, onew, h) && plan_skills(s, onew, wk);
-        if (!ok) {
-            if (oold >= 0) {
-                vector<Pt> h2; vector<int> wk2;
-                can_add_geo(s, oold, h2);
-                plan_skills(s, oold, wk2);
-                add(s, oold, h2, wk2);
-            }
-            return false;
-        }
-        add(s, onew, h, wk);
-        return true;
-    }
-    // изменение точной цели при переводе s в onew (без проверки допустимости)
-    double delta(int s, int onew) const {
-        int oold = asg[s];
-        vector<int> sz = size; vector<double> ld = load;
-        double d = 0;
-        if (oold >= 0) { d -= I->profit[oold][s]; sz[oold]--; ld[oold] -= I->ntask[s]; }
-        if (onew >= 0) { d += I->profit[onew][s]; sz[onew]++; ld[onew] += I->ntask[s]; }
-        return d + eval_tail(sz, ld) - eval_tail(size, load);
+    void force_add(int s, int o) {  // без проверок (откат)
+        vector<Pt> h;
+        asg[s] = o;
+        pos[s] = members[o].size();
+        members[o].push_back(s);
+        size_[o]++; load[o] += I->ntask[s]; psum += I->pr(o, s);
+        for (int k : I->skillset[s]) if (need[o][k]++ == 0) { cntSkill[k]++; sig_need(o, k); }
+        rebuild_hull(o);
     }
 
-    struct State { vector<int> asg, wof; };
-    State snapshot() const { return {asg, wof}; }
-    static Sol from_state(const Inst& I, const vector<int>& op, const State& st) {
-        Sol sol(I, op);
-        sol.wof = st.wof;
-        for (int s = 0; s < I.ns; s++) {
-            int o = st.asg[s];
-            if (o < 0) continue;
-            sol.asg[s] = o; sol.pos[s] = sol.members[o].size(); sol.members[o].push_back(s);
-            sol.size[o]++; sol.load[o] += I.ntask[s]; sol.prof_sum += I.profit[o][s];
-            for (int k : I.skillset[s]) sol.need[o][k]++;
+    bool size_ok_after(int oadd, int orem) const {
+        int mx = INT_MIN, mn = INT_MAX;
+        for (int o = 0; o < I->no; o++) {
+            if (!isopen[o]) continue;
+            int sz = size_[o] + (o == oadd ? 1 : 0) - (o == orem ? 1 : 0);
+            if (sz == 0) continue;
+            if (sz > I->maxsize[o]) return false;
+            mx = max(mx, sz); mn = min(mn, sz);
         }
-        for (int o : op) sol.rebuild_hull(o);
-        return sol;
+        return mx < mn || (long long)(mx - mn) <= I->A;
+    }
+
+    // --- целевая
+    double objective() const {
+        double c = 0, p = 0;
+        long long mx = LLONG_MIN, mn = LLONG_MAX;
+        for (int o = 0; o < I->no; o++) {
+            if (!isopen[o] || size_[o] == 0) continue;
+            c += I->cost[o];
+            for (int s : members[o]) p += I->pr(o, s);
+            mx = max(mx, load[o]); mn = min(mn, load[o]);
+        }
+        if (mx == LLONG_MIN) return 0.0;
+        return p - c - I->alpha * (double)(mx - mn);
+    }
+    // быстрая версия через psum (может чуть плыть, пересчитываем в offer)
+    double objective_fast() const {
+        double c = 0;
+        long long mx = LLONG_MIN, mn = LLONG_MAX;
+        for (int o = 0; o < I->no; o++) {
+            if (!isopen[o] || size_[o] == 0) continue;
+            c += I->cost[o];
+            mx = max(mx, load[o]); mn = min(mn, load[o]);
+        }
+        if (mx == LLONG_MIN) return 0.0;
+        return psum - c - I->alpha * (double)(mx - mn);
+    }
+    double tail(const vector<int>& sz, const vector<long long>& ld) const {
+        double c = 0;
+        long long mx = LLONG_MIN, mn = LLONG_MAX;
+        for (int o = 0; o < I->no; o++) {
+            if (!isopen[o] || sz[o] == 0) continue;
+            c += I->cost[o];
+            mx = max(mx, ld[o]); mn = min(mn, ld[o]);
+        }
+        if (mx == LLONG_MIN) return 0.0;
+        return -c - I->alpha * (double)(mx - mn);
+    }
+
+    void recompute_psum() {
+        double p = 0;
+        for (int o = 0; o < I->no; o++) if (isopen[o]) for (int x : members[o]) p += I->pr(o, x);
+        psum = p;
+    }
+    vector<int> state() const { return asg; }
+    void load_state(const vector<int>& st, const vector<char>& op) {
+        // полная пересборка
+        for (int o = 0; o < I->no; o++) {
+            members[o].clear(); size_[o] = 0; load[o] = 0;
+            fill(need[o].begin(), need[o].end(), 0);
+        }
+        fill(cntSkill.begin(), cntSkill.end(), 0);
+        fill(pos.begin(), pos.end(), -1);
+        psum = 0;
+        isopen = op;
+        for (int s = 0; s < I->ns; s++) {
+            int o = st[s];
+            asg[s] = o;
+            if (o < 0) continue;
+            pos[s] = members[o].size();
+            members[o].push_back(s);
+            size_[o]++; load[o] += I->ntask[s]; psum += I->pr(o, s);
+            for (int k : I->skillset[s]) if (need[o][k]++ == 0) cntSkill[k]++;
+        }
+        sig = 0;
+        for (int o = 0; o < I->no; o++) {
+            if (isopen[o]) sig_open(o);
+            for (int k = 0; k < I->nsk; k++) if (need[o][k] > 0) sig_need(o, k);
+        }
+        for (int o = 0; o < I->no; o++) {
+            if (isopen[o]) rebuild_hull(o);
+            else { clear_cov(o); hull[o].clear(); }
+        }
     }
 };
 
-// Снимаем наименее выгодные сайты, пока не выполнены maxSize и баланс A.
-static void repair_sizes(Sol& sol) {
-    const Inst& I = *sol.I;
-    while (!sol.sizes_ok(sol.size)) {
-        int pick = -1;
-        for (int o : sol.opened) if (sol.size[o] > I.maxsize[o]) { pick = o; break; }
-        if (pick < 0) {
-            int mx = -1;
-            for (int o : sol.opened) if (sol.size[o] > mx) { mx = sol.size[o]; pick = o; }
+// ======================================================= проверка валидности
+// Полная проверка «как в валидаторе» (консервативная по eps).
+static bool verify(const Inst& I, const vector<int>& asg, const vector<char>& isopen,
+                   const vector<int>& wof, double* obj) {
+    int np = I.ns + I.no;
+    vector<int> sz(I.no, 0);
+    vector<long long> ld(I.no, 0);
+    vector<vector<int>> mem(I.no);
+    for (int s = 0; s < I.ns; s++) {
+        int o = asg[s];
+        if (o < 0) continue;
+        if (o >= I.no || !isopen[o]) return false;
+        mem[o].push_back(s); sz[o]++; ld[o] += I.ntask[s];
+    }
+    // ёмкость и баланс
+    int mx = INT_MIN, mn = INT_MAX;
+    for (int o = 0; o < I.no; o++) {
+        if (!isopen[o] || sz[o] == 0) continue;
+        if (sz[o] > I.maxsize[o]) return false;
+        mx = max(mx, sz[o]); mn = min(mn, sz[o]);
+    }
+    if (mx != INT_MIN && (long long)(mx - mn) > I.A) return false;
+    // навыки
+    for (int w = 0; w < I.nw; w++) if (wof[w] >= 0 && (wof[w] >= I.no || !isopen[wof[w]] || sz[wof[w]] == 0)) return false;
+    for (int o = 0; o < I.no; o++) {
+        if (!isopen[o] || sz[o] == 0) continue;
+        vector<char> have(I.nsk, 0);
+        for (int w = 0; w < I.nw; w++) if (wof[w] == o) for (int k = 0; k < I.nsk; k++) have[k] |= I.wmask[w][k];
+        for (int s : mem[o]) for (int k : I.skillset[s]) if (!have[k]) return false;
+    }
+    // геометрия
+    vector<int> cnt(np, 0);
+    for (int o = 0; o < I.no; o++) {
+        if (!isopen[o] || sz[o] == 0) continue;
+        vector<Pt> h;
+        for (int s : mem[o]) h.push_back(I.P[s]);
+        h.push_back(I.P[I.ns + o]);
+        hull_of(h);
+        size_t m = h.size();
+        for (int i = 0; i < np; i++) {
+            bool in;
+            if (m == 1) in = fabs(I.P[i].x - h[0].x) <= I.eps_len && fabs(I.P[i].y - h[0].y) <= I.eps_len;
+            else if (m == 2) {
+                double ax = h[0].x, ay = h[0].y, dx = h[1].x - ax, dy = h[1].y - ay;
+                double L2 = dx * dx + dy * dy, L = sqrt(L2);
+                double X = I.P[i].x - ax, Y = I.P[i].y - ay;
+                double c = dx * Y - dy * X, t = dx * X + dy * Y;
+                in = fabs(c) <= I.eps_cr + I.eps_len * L && t >= -I.eps_len * L && t <= L2 + I.eps_len * L;
+            } else {
+                in = true;
+                for (size_t e2 = 0; e2 < m && in; e2++) {
+                    const Pt& a = h[e2];
+                    const Pt& b = h[(e2 + 1) % m];
+                    double ex = b.x - a.x, ey = b.y - a.y;
+                    double tol = -I.eps_cr - I.eps_len * sqrt(ex * ex + ey * ey);
+                    in = ex * (I.P[i].y - a.y) - ey * (I.P[i].x - a.x) >= tol;
+                }
+            }
+            if (in && ++cnt[i] > 1) return false;
         }
-        int best = -1;
-        for (int s : sol.members[pick]) if (best < 0 || I.profit[pick][s] < I.profit[pick][best]) best = s;
-        sol.remove(best);
+    }
+    double p = 0, c = 0;
+    long long Lmx = LLONG_MIN, Lmn = LLONG_MAX;
+    for (int o = 0; o < I.no; o++) {
+        if (!isopen[o] || sz[o] == 0) continue;
+        c += I.cost[o];
+        for (int s : mem[o]) p += I.pr(o, s);
+        Lmx = max(Lmx, ld[o]); Lmn = min(Lmn, ld[o]);
+    }
+    *obj = Lmx == LLONG_MIN ? 0.0 : p - c - I.alpha * (double)(Lmx - Lmn);
+    return true;
+}
+
+// ========================================================== вывод (robust)
+// Пред-сериализованный буфер + обработчик сигналов: даже убитый по таймеру
+// процесс оставляет на диске валидный JSON.
+static int g_fd = -1;
+static string g_buf[2];
+static atomic<int> g_idx{-1};
+static atomic<bool> g_writing{false};
+
+static size_t g_lastlen = 0;
+static void raw_write(int which, bool sync) {
+    if (g_fd < 0 || which < 0) return;
+    const string& b = g_buf[which];
+    if (lseek(g_fd, 0, SEEK_SET) < 0) return;
+    size_t off = 0;
+    while (off < b.size()) {
+        ssize_t n = write(g_fd, b.data() + off, b.size() - off);
+        if (n <= 0) break;
+        off += n;
+    }
+    if (ftruncate(g_fd, off) != 0) { /* ignore */ }
+    g_lastlen = off;
+    if (sync) fsync(g_fd);
+}
+static void on_signal(int) {
+    raw_write(g_idx.load(memory_order_acquire), true);
+    _exit(0);
+}
+static mutex g_outmx;
+static void publish(const string& text) {
+    lock_guard<mutex> lk(g_outmx);
+    int cur = g_idx.load(memory_order_relaxed);
+    int nxt = cur == 0 ? 1 : 0;
+    g_buf[nxt] = text;
+    if (g_buf[nxt].size() < g_lastlen) g_buf[nxt].append(g_lastlen - g_buf[nxt].size(), ' ');
+    g_idx.store(nxt, memory_order_release);
+    raw_write(nxt, false);
+}
+
+static string serialize(const Inst& I, const vector<int>& asg, const vector<char>& isopen, const vector<int>& wof) {
+    vector<vector<int>> mem(I.no);
+    for (int s = 0; s < I.ns; s++) if (asg[s] >= 0) mem[asg[s]].push_back(s);
+    string out = "[";
+    bool first = true;
+    char tmp[32];
+    for (int o = 0; o < I.no; o++) {
+        if (!isopen[o] || mem[o].empty()) continue;
+        if (!first) out += ',';
+        first = false;
+        out += "{\"officeId\":";
+        snprintf(tmp, sizeof tmp, "%d", o); out += tmp;
+        out += ",\"sites\":[";
+        sort(mem[o].begin(), mem[o].end());
+        for (size_t i = 0; i < mem[o].size(); i++) {
+            if (i) out += ',';
+            snprintf(tmp, sizeof tmp, "%d", mem[o][i]); out += tmp;
+        }
+        out += "],\"workers\":[";
+        bool fw = true;
+        for (int w = 0; w < I.nw; w++) if (wof[w] == o) {
+            if (!fw) out += ',';
+            fw = false;
+            snprintf(tmp, sizeof tmp, "%d", w); out += tmp;
+        }
+        out += "]}";
+    }
+    out += "]\n";
+    return out;
+}
+
+// глобально лучшее
+static mutex g_best_mx;
+static atomic<double> g_best{0.0};
+static vector<int> g_best_asg;
+static vector<char> g_best_open;
+
+struct Elite { double f; vector<int> asg; vector<char> open; };
+static mutex g_el_mx;
+static vector<Elite> g_elite;
+
+static void push_elite(double f, const vector<int>& asg, const vector<char>& op) {
+    lock_guard<mutex> lk(g_el_mx);
+    for (auto& e : g_elite) if (fabs(e.f - f) <= 1e-9 * max(1.0, fabs(f))) return;
+    g_elite.push_back({f, asg, op});
+    sort(g_elite.begin(), g_elite.end(), [](const Elite& a, const Elite& b) { return a.f > b.f; });
+    if (g_elite.size() > 6) g_elite.resize(6);
+}
+// выбрать элитное решение (с уклоном в лучшие); false, если пул пуст
+static bool pick_elite(mt19937_64& rng, vector<int>& asg, vector<char>& op) {
+    lock_guard<mutex> lk(g_el_mx);
+    if (g_elite.empty()) return false;
+    size_t i = 0;
+    while (i + 1 < g_elite.size() && (rng() & 1)) i++;
+    asg = g_elite[i].asg;
+    op = g_elite[i].open;
+    return true;
+}
+
+static bool offer(const Inst& I, Sol& s) {
+    double f = s.objective();
+    {
+        lock_guard<mutex> lk(g_best_mx);
+        if (f <= g_best.load(memory_order_relaxed) + 1e-9) return false;
+    }
+    vector<int> wof;
+    if (!s.greedy_workers(&wof)) return false;
+    double obj = 0;
+    if (!verify(I, s.asg, s.isopen, wof, &obj)) return false;
+    lock_guard<mutex> lk(g_best_mx);
+    if (obj <= g_best.load(memory_order_relaxed) + 1e-9) return false;
+    g_best.store(obj, memory_order_relaxed);
+    g_best_asg = s.asg;
+    g_best_open = s.isopen;
+    publish(serialize(I, s.asg, s.isopen, wof));
+    push_elite(obj, s.asg, s.isopen);
+    return true;
+}
+
+// добавить решение в элиту, если оно близко к лучшему (с полной проверкой)
+static void try_elite(const Inst& I, Sol& s) {
+    double f = s.objective();
+    double b = g_best.load(memory_order_relaxed);
+    if (f <= 0 || f < b * (b > 0 ? 0.96 : 1.04)) return;
+    vector<int> wof;
+    double obj = 0;
+    if (!s.greedy_workers(&wof)) return;
+    if (!verify(I, s.asg, s.isopen, wof, &obj)) return;
+    push_elite(obj, s.asg, s.isopen);
+}
+
+// ============================================ точный выбор подмножества (DP)
+// При фиксированных зонах удаление сайтов не ломает геометрию (оболочка только
+// сжимается) и не ломает навыки. Значит «какие сайты оставить» решается точно:
+// 0/1-рюкзак по числу задач внутри офиса + перебор окна нагрузки [lo,hi].
+struct DPResult { bool ok = false; };
+
+static bool resize_dp(Sol& s, double deadline, bool allow_close = true) {
+    const Inst& I = *s.I;
+    if (I.alpha <= 0) {
+        // без штрафа за баланс: просто снять все убыточные сайты
+        bool ch = false;
+        for (int o = 0; o < I.no; o++) {
+            if (!s.isopen[o]) continue;
+            vector<int> mem = s.members[o];
+            for (int x : mem) if (I.pr(o, x) < 0) { s.remove_site(x); ch = true; }
+        }
+        return ch;
+    }
+    vector<int> ops;
+    for (int o = 0; o < I.no; o++) if (s.isopen[o] && s.size_[o] > 0) ops.push_back(o);
+    if (ops.size() <= 1) {
+        bool ch = false;
+        for (int o : ops) {
+            vector<int> mem = s.members[o];
+            for (int x : mem) if (I.pr(o, x) < 0) { s.remove_site(x); ch = true; }
+        }
+        return ch;
+    }
+    int K = ops.size();
+    // бюджет на DP
+    long long budget = 0;
+    vector<int> Wo(K, 0);
+    for (int b = 0; b < K; b++) {
+        int o = ops[b];
+        for (int x : s.members[o]) Wo[b] += I.ntask[x];
+        budget += (long long)s.members[o].size() * (Wo[b] + 1);
+    }
+    if (budget > 200000000LL) return false;
+    int Wmax = *max_element(Wo.begin(), Wo.end());
+    if (Wmax <= 0) return false;
+
+    vector<vector<double>> f(K);
+    vector<vector<uint64_t>> choice(K);
+    vector<vector<int>> items(K);
+    vector<double> const0(K, 0.0);
+    for (int b = 0; b < K; b++) {
+        int o = ops[b];
+        int W = Wo[b];
+        auto& fo = f[b];
+        fo.assign(W + 1, NEG);
+        fo[0] = 0;
+        vector<int>& it = items[b];
+        for (int x : s.members[o]) {
+            if (I.ntask[x] == 0) { if (I.pr(o, x) > 0) const0[b] += I.pr(o, x); }
+            else it.push_back(x);
+        }
+        size_t words = (size_t)(W + 1 + 63) / 64;
+        choice[b].assign(it.size() * words, 0ULL);
+        for (size_t i = 0; i < it.size(); i++) {
+            int x = it[i];
+            int w = I.ntask[x];
+            double p = I.pr(o, x);
+            uint64_t* row = &choice[b][i * words];
+            for (int l = W; l >= w; l--) {
+                double v = fo[l - w];
+                if (v <= NEG / 2) continue;
+                if (v + p > fo[l] + 1e-12) { fo[l] = v + p; row[l >> 6] |= 1ULL << (l & 63); }
+            }
+        }
+        for (int l = 0; l <= W; l++) if (fo[l] > NEG / 2) fo[l] += const0[b];
+        if (elapsed() > deadline) return false;
+    }
+    // сетка значений окна
+    vector<int> grid;
+    if (Wmax <= 2500) { grid.resize(Wmax + 1); iota(grid.begin(), grid.end(), 0); }
+    else {
+        set<int> g;
+        for (int i = 0; i <= 600; i++) g.insert((int)((long long)Wmax * i / 600));
+        for (int b = 0; b < K; b++) g.insert((int)s.load[ops[b]]);
+        grid.assign(g.begin(), g.end());
+    }
+    int G = grid.size();
+    // blk[b][j] = max f_b[l] для l из (grid[j-1], grid[j]]
+    vector<vector<double>> blk(K, vector<double>(G, NEG));
+    vector<vector<double>> at(K, vector<double>(G, NEG));
+    for (int b = 0; b < K; b++) {
+        int W = Wo[b];
+        for (int j = 0; j < G; j++) {
+            int hi = min(grid[j], W);
+            int lo = j == 0 ? 0 : min(grid[j - 1] + 1, W + 1);
+            double m = NEG;
+            for (int l = lo; l <= hi; l++) m = max(m, f[b][l]);
+            blk[b][j] = m;
+            at[b][j] = grid[j] <= W ? f[b][grid[j]] : NEG;
+        }
+    }
+    double bestScore = 0.0;  // вариант «все закрыты»
+    int bi = -1, bj = -1;
+    vector<double> run(K);
+    for (int i = 0; i < G; i++) {
+        if ((i & 31) == 0 && elapsed() > deadline) break;
+        for (int b = 0; b < K; b++) run[b] = at[b][i];
+        for (int j = i; j < G; j++) {
+            if (j > i) for (int b = 0; b < K; b++) run[b] = max(run[b], blk[b][j]);
+            double tot = 0;
+            bool anyopen = false, bad = false;
+            for (int b = 0; b < K; b++) {
+                double v = run[b] > NEG / 2 ? run[b] - I.cost[ops[b]] : NEG;
+                if (!allow_close) {
+                    if (v <= NEG / 2) { bad = true; break; }
+                    tot += v; anyopen = true;
+                } else if (v > 0) { tot += v; anyopen = true; }
+            }
+            if (bad || !anyopen) continue;
+            double sc = tot - I.alpha * (double)(grid[j] - grid[i]);
+            if (sc > bestScore + 1e-9) { bestScore = sc; bi = i; bj = j; }
+        }
+    }
+    if (bi < 0) return false;
+    int lo = grid[bi], hi = grid[bj];
+    bool changed = false;
+    for (int b = 0; b < K; b++) {
+        int o = ops[b], W = Wo[b];
+        int lstar = -1;
+        double bv = NEG;
+        for (int l = max(0, lo); l <= min(hi, W); l++) if (f[b][l] > bv) { bv = f[b][l]; lstar = l; }
+        if (lstar < 0 || bv <= NEG / 2 || (allow_close && bv - I.cost[o] <= 0)) {
+            if (allow_close) {
+                if (!s.members[o].empty()) { s.close_office(o); changed = true; }
+                continue;
+            }
+            if (lstar < 0 || bv <= NEG / 2) continue;
+        }
+        // восстановление выбора
+        vector<char> keep(I.ns, 0);
+        for (int x : s.members[o]) if (I.ntask[x] == 0 && I.pr(o, x) > 0) keep[x] = 1;
+        size_t words = (size_t)(W + 1 + 63) / 64;
+        int l = lstar;
+        for (int i = (int)items[b].size() - 1; i >= 0; i--) {
+            int x = items[b][i];
+            int w = I.ntask[x];
+            if (l - w < 0) continue;
+            const uint64_t* row = &choice[b][(size_t)i * words];
+            if (row[l >> 6] >> (l & 63) & 1ULL) { keep[x] = 1; l -= w; }
+        }
+        vector<int> mem = s.members[o];
+        for (int x : mem) if (!keep[x]) { s.remove_site(x); changed = true; }
+    }
+    return changed;
+}
+
+// снимаем наименее выгодные сайты, пока не выполнены maxSize и баланс A
+static void repair_sizes(Sol& s) {
+    const Inst& I = *s.I;
+    for (int guard = 0; guard < I.ns + 10; guard++) {
+        int mx = INT_MIN, mn = INT_MAX, omx = -1, over = -1;
+        for (int o = 0; o < I.no; o++) {
+            if (!s.isopen[o] || s.size_[o] == 0) continue;
+            if (s.size_[o] > I.maxsize[o]) over = o;
+            if (s.size_[o] > mx) { mx = s.size_[o]; omx = o; }
+            mn = min(mn, s.size_[o]);
+        }
+        if (mx == INT_MIN) return;
+        int pick = over >= 0 ? over : ((long long)(mx - mn) > I.A ? omx : -1);
+        if (pick < 0) return;
+        int worst = -1;
+        for (int x : s.members[pick])
+            if (worst < 0 || I.pr(pick, x) < I.pr(pick, worst)) worst = x;
+        if (worst < 0) return;
+        s.remove_site(worst);
     }
 }
 
-// ------------------------------------------------ быстрая оценка (power diagram)
+// =================================================== быстрая оценка офисов
+// Power diagram: ячейки выпуклы и не пересекаются, поэтому разбиение заведомо
+// геометрически допустимо. Используется для выбора множества офисов.
 struct Fast {
     const Inst& I;
     vector<int> skills, wcnt;
-    vector<vector<char>> req;  // [s][j]
+    vector<vector<char>> req;
     double scale2 = 1;
 
     explicit Fast(const Inst& In) : I(In) {
         set<int> u;
         for (auto& ss : I.skillset) for (int k : ss) u.insert(k);
         skills.assign(u.begin(), u.end());
-        for (int k : skills) {
-            int c = 0;
-            for (int w = 0; w < I.nw; w++) c += I.wskill[w][k];
-            wcnt.push_back(c);
-        }
+        for (int k : skills) wcnt.push_back(I.Nk[k]);
         req.assign(I.ns, vector<char>(skills.size(), 0));
         for (int s = 0; s < I.ns; s++)
-            for (int k : I.skillset[s]) req[s][lower_bound(skills.begin(), skills.end(), k) - skills.begin()] = 1;
+            for (int k : I.skillset[s])
+                req[s][lower_bound(skills.begin(), skills.end(), k) - skills.begin()] = 1;
         vector<double> mins;
         for (int s = 0; s < I.ns; s++) {
             double m = 1e300;
             for (int o = 0; o < I.no; o++) {
-                const Pt &a = I.P[s], &b = I.P[I.ns + o];
+                const Pt& a = I.P[s];
+                const Pt& b = I.P[I.ns + o];
                 m = min(m, (a.x - b.x) * (a.x - b.x) + (a.y - b.y) * (a.y - b.y));
             }
             mins.push_back(m);
@@ -473,24 +1035,9 @@ struct Fast {
         }
     }
 
-    // h: веса, G: генераторы (по индексам офисов); members — выход
-    double evaluate(const vector<int>& op, const vector<double>& h, const vector<Pt>& G,
-                    vector<vector<int>>* out = nullptr) const {
+    void cells(const vector<int>& op, const vector<double>& h, const vector<Pt>& G, vector<int>& c) const {
         int K = op.size();
-        // офис обязан лежать в своей ячейке
-        for (int a = 0; a < K; a++) {
-            const Pt& p = I.P[I.ns + op[a]];
-            int arg = 0; double best = 1e300;
-            for (int b = 0; b < K; b++) {
-                const Pt& g = G[op[b]];
-                double v = (p.x - g.x) * (p.x - g.x) + (p.y - g.y) * (p.y - g.y) - h[op[b]];
-                if (v < best) { best = v; arg = b; }
-            }
-            if (arg != a) return -1e300;
-        }
-        vector<int> c(I.ns);
-        vector<double> prof(I.ns);
-        vector<char> ok(I.ns);
+        c.assign(I.ns, 0);
         for (int s = 0; s < I.ns; s++) {
             const Pt& p = I.P[s];
             int arg = 0; double best = 1e300;
@@ -500,10 +1047,36 @@ struct Fast {
                 if (v < best) { best = v; arg = b; }
             }
             c[s] = arg;
-            prof[s] = I.profit[op[arg]][s];
+        }
+    }
+    bool offices_in_own_cell(const vector<int>& op, const vector<double>& h, const vector<Pt>& G) const {
+        int K = op.size();
+        for (int a = 0; a < K; a++) {
+            const Pt& p = I.P[I.ns + op[a]];
+            int arg = 0; double best = 1e300;
+            for (int b = 0; b < K; b++) {
+                const Pt& g = G[op[b]];
+                double v = (p.x - g.x) * (p.x - g.x) + (p.y - g.y) * (p.y - g.y) - h[op[b]];
+                if (v < best) { best = v; arg = b; }
+            }
+            if (arg != a) return false;
+        }
+        return true;
+    }
+
+    double evaluate(const vector<int>& op, const vector<double>& h, const vector<Pt>& G,
+                    vector<vector<int>>* out = nullptr) const {
+        int K = op.size();
+        if (!K) return 0.0;
+        if (!offices_in_own_cell(op, h, G)) return NEG;
+        vector<int> c;
+        cells(op, h, G, c);
+        vector<double> prof(I.ns);
+        vector<char> ok(I.ns);
+        for (int s = 0; s < I.ns; s++) {
+            prof[s] = I.pr(op[c[s]], s);
             ok[s] = prof[s] > 0 && I.servable[s];
         }
-        // дефицитные навыки отдаём офисам, где они приносят больше выгоды
         int J = skills.size();
         vector<vector<char>> allow(K, vector<char>(J, 1));
         for (int j = 0; j < J; j++) {
@@ -519,14 +1092,15 @@ struct Fast {
             for (int j = 0; j < J; j++) if (req[s][j] && !allow[c[s]][j]) { ok[s] = 0; break; }
         vector<vector<int>> mem(K);
         for (int s = 0; s < I.ns; s++) if (ok[s]) mem[c[s]].push_back(s);
-        int smin = INT32_MAX;
+        int smin = INT_MAX;
         for (int b = 0; b < K; b++) {
             auto& m = mem[b];
             sort(m.begin(), m.end(), [&](int x, int y) { return prof[x] > prof[y]; });
             if ((int)m.size() > I.maxsize[op[b]]) m.resize(I.maxsize[op[b]]);
             smin = min(smin, (int)m.size());
         }
-        for (int b = 0; b < K; b++) if ((int)mem[b].size() > smin + I.A) mem[b].resize(smin + I.A);
+        for (int b = 0; b < K; b++)
+            if ((long long)mem[b].size() > smin + I.A) mem[b].resize(smin + I.A);
         double base_cost = 0;
         for (int o : op) base_cost += I.cost[o];
         double P0 = 0;
@@ -535,28 +1109,27 @@ struct Fast {
             if (out) { out->assign(I.no, {}); for (int b = 0; b < K; b++) (*out)[op[b]] = mem[b]; }
             return P0 - base_cost;
         }
-        // уровень нагрузки t: в перегруженных офисах снимаем сайты, дешёвые за задачу
         vector<vector<int>> rm(K);
         vector<vector<double>> ct(K), cp(K);
         vector<double> L(K, 0);
         for (int b = 0; b < K; b++) {
             for (int s : mem[b]) { L[b] += I.ntask[s]; if (I.ntask[s] > 0) rm[b].push_back(s); }
-            sort(rm[b].begin(), rm[b].end(), [&](int x, int y) { return prof[x] / I.ntask[x] < prof[y] / I.ntask[y]; });
+            sort(rm[b].begin(), rm[b].end(), [&](int x, int y) {
+                return prof[x] / I.ntask[x] < prof[y] / I.ntask[y];
+            });
             double a = 0, q = 0;
             for (int s : rm[b]) { a += I.ntask[s]; q += prof[s]; ct[b].push_back(a); cp[b].push_back(q); }
         }
         double lo = *min_element(L.begin(), L.end()), hi = *max_element(L.begin(), L.end());
         vector<double> levels(L.begin(), L.end());
-        levels.push_back(hi);
-        for (int i = 0; i < 40; i++) levels.push_back(lo + (hi - lo) * i / 39.0);
+        for (int i = 0; i <= 40; i++) levels.push_back(lo + (hi - lo) * i / 40.0);
         sort(levels.begin(), levels.end());
         levels.erase(unique(levels.begin(), levels.end()), levels.end());
-        double bestf = -1e300;
-        vector<int> bestcut;
-        vector<int> cut(K);
+        double bestf = NEG;
+        vector<int> bestcut, cut(K);
         for (double t : levels) {
-            double cost = 0, mx = -1e300, mn = 1e300;
-            int smx = INT32_MIN, smn = INT32_MAX;
+            double cost = 0, mx = NEG, mn = 1e300;
+            int smx = INT_MIN, smn = INT_MAX;
             for (int b = 0; b < K; b++) {
                 double ex = L[b] - t, nl = L[b];
                 int k = 0;
@@ -571,7 +1144,7 @@ struct Fast {
                 smx = max(smx, sz); smn = min(smn, sz);
                 mx = max(mx, nl); mn = min(mn, nl);
             }
-            if (smx - smn > I.A) continue;
+            if ((long long)(smx - smn) > I.A) continue;
             double f = P0 - cost - base_cost - I.alpha * (mx - mn);
             if (f > bestf) { bestf = f; bestcut = cut; }
         }
@@ -585,7 +1158,6 @@ struct Fast {
         return bestf;
     }
 
-    // координатный поиск по весам h и положениям генераторов G
     double search(const vector<int>& op, vector<double>& h, vector<Pt>& G, int iters, double deadline) const {
         double best = evaluate(op, h, G);
         vector<array<double, 3>> step(I.no);
@@ -605,7 +1177,7 @@ struct Fast {
                         v -= d;
                     }
                     if (!moved) step[o][p] *= 0.5;
-                    if (step[o][p] > 1e-6 * (p == 0 ? scale2 : I.ext)) alive = true;
+                    if (step[o][p] > 1e-7 * (p == 0 ? scale2 : I.ext)) alive = true;
                 }
             if (!improved && !alive) break;
         }
@@ -613,168 +1185,1320 @@ struct Fast {
     }
 };
 
-// Переносит назначение в точную модель (недопустимые сайты пропускаются).
-static Sol build_sol(const Inst& I, const vector<int>& op, const vector<vector<int>>& mem) {
-    Sol sol(I, op);
-    vector<pair<int, int>> order;
-    for (int o : op) for (int s : mem[o]) order.push_back({s, o});
-    sort(order.begin(), order.end(), [&](auto& a, auto& b) { return I.profit[a.second][a.first] > I.profit[b.second][b.first]; });
-    for (auto [s, o] : order) {
-        if (sol.size[o] + 1 > I.maxsize[o]) continue;
-        vector<Pt> h; vector<int> wk;
-        if (sol.can_add_geo(s, o, h) && sol.plan_skills(s, o, wk)) sol.add(s, o, h, wk);
+// ============================================================ движок ходов
+struct Engine {
+    Sol& s;
+    const Inst& I;
+    struct Op { uint8_t t; int x, o; };   // 0 add, 1 remove, 2 open, 3 close
+    vector<Op> jr;
+    bool rec = false;
+    vector<char> ban;                     // [o*nsk+k] офису o запрещён навык k
+    bool hasban = false;
+
+    Engine(Sol& so) : s(so), I(*so.I) { ban.assign((size_t)I.no * I.nsk, 0); }
+
+    void set_ban(int o, int k, bool v) { ban[(size_t)o * I.nsk + k] = v; hasban = true; }
+    void clear_ban() { if (hasban) { fill(ban.begin(), ban.end(), 0); hasban = false; } }
+
+    bool can_add_skills(int x, int o) const {
+        for (int k : I.skillset[x]) {
+            if (hasban && ban[(size_t)o * I.nsk + k]) return false;
+            if (s.need[o][k] == 0 && s.cntSkill[k] + 1 > I.Nk[k]) return false;
+        }
+        return true;
     }
-    repair_sizes(sol);
-    return sol;
+    // насколько нарушен баланс числа сайтов (0 = всё хорошо)
+    long long size_viol(int oadd, int orem) const {
+        int mx = INT_MIN, mn = INT_MAX;
+        for (int o = 0; o < I.no; o++) {
+            if (!s.isopen[o]) continue;
+            int sz = s.size_[o] + (o == oadd ? 1 : 0) - (o == orem ? 1 : 0);
+            if (sz == 0) continue;
+            if (sz > I.maxsize[o]) return (long long)4e18;
+            mx = max(mx, sz); mn = min(mn, sz);
+        }
+        if (mx == INT_MIN) return 0;
+        return max(0LL, (long long)(mx - mn) - I.A);
+    }
+    void doRemove(int x) {
+        int o = s.asg[x];
+        if (o < 0) return;
+        s.remove_site(x);
+        if (rec) jr.push_back({1, x, o});
+    }
+    bool doAdd(int x, int o) {
+        if (s.asg[x] >= 0 || !I.servable[x] || !s.isopen[o]) return false;
+        if (s.size_[o] >= I.maxsize[o]) return false;
+        if (!can_add_skills(x, o)) return false;
+        vector<Pt> h;
+        if (!s.geo_ok(x, o, h)) return false;
+        s.add_site_raw(x, o, h);
+        if (rec) jr.push_back({0, x, o});
+        return true;
+    }
+    void doOpen(int o) {
+        if (s.isopen[o]) return;
+        if (s.cov[I.ns + o] > 0) return;          // точка офиса уже в чужой зоне
+        s.isopen[o] = 1;
+        s.sig_open(o);
+        s.rebuild_hull(o);
+        if (rec) jr.push_back({2, -1, o});
+    }
+    void doClose(int o) {
+        if (!s.isopen[o]) return;
+        while (!s.members[o].empty()) doRemove(s.members[o].back());
+        s.isopen[o] = 0;
+        s.sig_open(o);
+        s.clear_cov(o);
+        s.hull[o].clear();
+        if (rec) jr.push_back({3, -1, o});
+    }
+    void undo(size_t mark) {
+        while (jr.size() > mark) {
+            Op op = jr.back();
+            jr.pop_back();
+            bool r = rec; rec = false;
+            if (op.t == 0) s.remove_site(op.x);
+            else if (op.t == 1) s.force_add(op.x, op.o);
+            else if (op.t == 2) { s.isopen[op.o] = 0; s.sig_open(op.o); s.clear_cov(op.o); s.hull[op.o].clear(); }
+            else { s.isopen[op.o] = 1; s.sig_open(op.o); s.rebuild_hull(op.o); }
+            rec = r;
+        }
+    }
+};
+
+// ================================================================ сборка
+// Кому из офисов достаётся дефицитный навык: берём N_k зон с наибольшей
+// прибылью от сайтов, которым этот навык нужен. Пара итераций с учётом того,
+// что сайту нужны ВСЕ его навыки.
+static void plan_skills(const Inst& I, const vector<int>& ops, const vector<int>& cellOf,
+                        vector<char>& allow, mt19937_64* rng = nullptr, double temp = 0.0) {
+    int K = ops.size();
+    vector<int> idx(I.no, -1);
+    for (int b = 0; b < K; b++) idx[ops[b]] = b;
+    allow.assign((size_t)K * I.nsk, 1);
+    vector<char> ok(I.ns, 0);
+    for (int x = 0; x < I.ns; x++)
+        ok[x] = I.servable[x] && cellOf[x] >= 0 && idx[cellOf[x]] >= 0 && I.pr(cellOf[x], x) > 0;
+    for (int iter = 0; iter < 3; iter++) {
+        vector<char> prev = allow;
+        fill(allow.begin(), allow.end(), 1);
+        for (int k = 0; k < I.nsk; k++) {
+            if (I.Nk[k] >= K) continue;
+            vector<double> val(K, 0.0);
+            for (int x = 0; x < I.ns; x++) {
+                if (!ok[x]) continue;
+                if (!binary_search(I.skillset[x].begin(), I.skillset[x].end(), k)) continue;
+                val[idx[cellOf[x]]] += I.pr(cellOf[x], x);
+            }
+            vector<int> ord(K);
+            iota(ord.begin(), ord.end(), 0);
+            if (rng && temp > 0) {
+                // случайный выбор зон с весом по прибыли: распределение навыков —
+                // отдельное измерение поиска, жадный выбор застревает в одном варианте
+                vector<double> w(K);
+                double mx = *max_element(val.begin(), val.end());
+                double sc = max(1e-12, fabs(mx)) * temp;
+                for (int b = 0; b < K; b++) w[b] = exp((val[b] - mx) / sc);
+                vector<int> pick;
+                for (int r = 0; r < K; r++) {
+                    double tot = 0;
+                    for (int b = 0; b < K; b++) tot += w[b];
+                    if (tot <= 0) break;
+                    double u = (double)((*rng)() % 1000000) / 1000000.0 * tot, acc2 = 0;
+                    int sel = -1;
+                    for (int b = 0; b < K; b++) { acc2 += w[b]; if (acc2 >= u) { sel = b; break; } }
+                    if (sel < 0) break;
+                    pick.push_back(sel);
+                    w[sel] = 0;
+                }
+                for (int b = 0; b < K; b++) if (find(pick.begin(), pick.end(), b) == pick.end()) pick.push_back(b);
+                ord = pick;
+            } else
+                stable_sort(ord.begin(), ord.end(), [&](int a, int b) { return val[a] > val[b]; });
+            for (int r = I.Nk[k]; r < K; r++) allow[(size_t)ord[r] * I.nsk + k] = 0;
+        }
+        for (int x = 0; x < I.ns; x++) {
+            if (!I.servable[x] || cellOf[x] < 0 || idx[cellOf[x]] < 0 || I.pr(cellOf[x], x) <= 0) { ok[x] = 0; continue; }
+            ok[x] = 1;
+            for (int k : I.skillset[x]) if (!allow[(size_t)idx[cellOf[x]] * I.nsk + k]) { ok[x] = 0; break; }
+        }
+        if (allow == prev) break;
+    }
 }
 
-// ---------------------------------------------------------- отжиг и спуск
-static Sol anneal(Sol sol, mt19937_64& rng, double t_end, double lam_frac = 0.2) {
-    const Inst& I = *sol.I;
-    vector<int> cand;
-    for (int s = 0; s < I.ns; s++) if (I.servable[s]) cand.push_back(s);
-    if (cand.empty() || sol.opened.empty()) return sol;
-    double lam = I.alpha * lam_frac;
-    vector<vector<int>> nearest(I.ns);
-    for (int s : cand) {
-        vector<int> v = sol.opened;
-        sort(v.begin(), v.end(), [&](int a, int b) { return I.D[a][s] < I.D[b][s]; });
-        if (v.size() > 5) v.resize(5);
-        nearest[s] = v;
+// Ценность плана навыков: суммарная прибыль сайтов, которые при нём обслужимы.
+static double plan_value(const Inst& I, const vector<int>& cellOf, const vector<int>& idx,
+                         const vector<char>& allow) {
+    double v = 0;
+    for (int x = 0; x < I.ns; x++) {
+        int o = cellOf[x];
+        if (o < 0 || idx[o] < 0 || !I.servable[x]) continue;
+        double p = I.pr(o, x);
+        if (p <= 0) continue;
+        bool ok = true;
+        for (int k : I.skillset[x])
+            if (!allow[(size_t)idx[o] * I.nsk + k]) { ok = false; break; }
+        if (ok) v += p;
     }
-    double ps = 0; long cnt = 0;
-    for (int o : sol.opened) for (int s : cand) { ps += fabs(I.profit[o][s]); cnt++; }
-    ps = ps / max(1L, cnt) + 1e-9;
-    double T_hi = 0.3 * ps, T_lo = 1e-4 * ps, T = T_hi;
-    auto spread = [&](const vector<int>& sz, const vector<double>& ld) {
-        double m = 0; int n = 0;
-        for (int o : sol.opened) if (sz[o] > 0) { m += ld[o]; n++; }
-        if (!n) return 0.0;
+    return v;
+}
+
+// Локальный поиск по матрице allow[зона][навык]: добавить дефицитный навык
+// свободной зоне или перенести его между зонами. Один жадный проход, как было
+// раньше, сильно недобирает: офисы остаются без навыков и простаивают.
+static void optimize_skill_plan(const Inst& I, const vector<int>& ops, const vector<int>& cellOf,
+                                vector<char>& allow, double deadline) {
+    int K = ops.size();
+    if (!K) return;
+    vector<int> idx(I.no, -1);
+    for (int b = 0; b < K; b++) idx[ops[b]] = b;
+    vector<int> scarce;
+    for (int k = 0; k < I.nsk; k++) if (I.Nk[k] > 0 && I.Nk[k] < K) scarce.push_back(k);
+    if (scarce.empty()) return;
+    long long work = (long long)I.ns * scarce.size() * (K + K * K);
+    int rounds = work > 200000000LL ? 1 : (work > 40000000LL ? 3 : 8);
+    double best = plan_value(I, cellOf, idx, allow);
+    for (int r = 0; r < rounds; r++) {
+        bool imp = false;
+        for (int k : scarce) {
+            if (elapsed() > deadline) return;
+            int cnt = 0;
+            for (int b = 0; b < K; b++) cnt += allow[(size_t)b * I.nsk + k] ? 1 : 0;
+            if (cnt < I.Nk[k]) {                       // есть свободный рабочий — кому отдать
+                for (int b = 0; b < K; b++) {
+                    if (allow[(size_t)b * I.nsk + k]) continue;
+                    allow[(size_t)b * I.nsk + k] = 1;
+                    double v = plan_value(I, cellOf, idx, allow);
+                    if (v > best + 1e-9) { best = v; imp = true; cnt++; }
+                    else allow[(size_t)b * I.nsk + k] = 0;
+                }
+            }
+            for (int a = 0; a < K; a++) {              // перенести навык между зонами
+                if (!allow[(size_t)a * I.nsk + k]) continue;
+                for (int b = 0; b < K; b++) {
+                    if (b == a || allow[(size_t)b * I.nsk + k]) continue;
+                    allow[(size_t)a * I.nsk + k] = 0;
+                    allow[(size_t)b * I.nsk + k] = 1;
+                    double v = plan_value(I, cellOf, idx, allow);
+                    if (v > best + 1e-9) { best = v; imp = true; a = b; }
+                    else { allow[(size_t)a * I.nsk + k] = 1; allow[(size_t)b * I.nsk + k] = 0; }
+                }
+            }
+        }
+        if (!imp) break;
+    }
+}
+
+static void realize(Sol& s, const Inst& I, const vector<int>& ops, const vector<int>& cellOf,
+                    double deadline = 1e18, mt19937_64* rng = nullptr, double temp = 0.0) {
+    s.init(I);
+    for (int o : ops) {
+        if (s.cov[I.ns + o] > 0) continue;
+        s.isopen[o] = 1;
+        s.rebuild_hull(o);
+    }
+    Engine E(s);
+    vector<char> allow;
+    plan_skills(I, ops, cellOf, allow, rng, temp);
+    if (temp <= 0) optimize_skill_plan(I, ops, cellOf, allow, deadline);
+    for (size_t b = 0; b < ops.size(); b++)
+        for (int k = 0; k < I.nsk; k++)
+            if (!allow[b * I.nsk + k]) E.set_ban(ops[b], k, true);
+    vector<pair<double, pair<int, int>>> order;
+    order.reserve(I.ns);
+    for (int x = 0; x < I.ns; x++) {
+        int o = cellOf[x];
+        if (o < 0 || !s.isopen[o] || !I.servable[x]) continue;
+        order.push_back({I.pr(o, x), {x, o}});
+    }
+    sort(order.rbegin(), order.rend());
+    size_t i = 0;
+    for (auto& e : order) {
+        if ((++i & 63) == 0 && elapsed() > deadline) break;
+        E.doAdd(e.second.first, e.second.second);
+    }
+    E.clear_ban();
+    // вторым проходом добиваем то, что влезает и без плана
+    i = 0;
+    for (auto& e : order) {
+        if ((++i & 63) == 0 && elapsed() > deadline) break;
+        if (s.asg[e.second.first] < 0) E.doAdd(e.second.first, e.second.second);
+    }
+}
+
+// конструктор: ближайший по дороге открытый офис
+static vector<int> ctor_road(const Inst& I, const vector<int>& ops) {
+    vector<int> c(I.ns, -1);
+    for (int s = 0; s < I.ns; s++) {
+        int b = -1;
+        for (int o : ops) if (b < 0 || I.d(o, s) < I.d(b, s)) b = o;
+        c[s] = b;
+    }
+    return c;
+}
+// конструктор: угловые секторы вокруг центра (выпуклые клинья)
+static vector<int> ctor_sector(const Inst& I, const vector<int>& ops, Pt cen) {
+    int K = ops.size();
+    vector<pair<double, int>> ang;
+    for (int o : ops) ang.push_back({atan2(I.P[I.ns + o].y - cen.y, I.P[I.ns + o].x - cen.x), o});
+    sort(ang.begin(), ang.end());
+    vector<double> bnd(K);
+    for (int i = 0; i < K; i++) {
+        double a = ang[i].first, b = ang[(i + 1) % K].first;
+        if (b < a) b += 2 * M_PI;
+        bnd[i] = 0.5 * (a + b);
+    }
+    vector<int> c(I.ns, -1);
+    for (int s = 0; s < I.ns; s++) {
+        double a = atan2(I.P[s].y - cen.y, I.P[s].x - cen.x);
+        int pick = ang[0].second;
+        for (int i = 0; i < K; i++) {
+            double lo = i == 0 ? bnd[K - 1] - 2 * M_PI : bnd[i - 1];
+            double hi = bnd[i];
+            double aa = a;
+            if (aa < lo) aa += 2 * M_PI;
+            if (aa >= lo && aa < hi) { pick = ang[i].second; break; }
+        }
+        c[s] = pick;
+    }
+    return c;
+}
+
+// Конструктор «гильотина»: рекурсивно делим множество офисов прямой, выбирая
+// направление и положение разреза по честной сумме max(reward - dist, 0).
+// В отличие от power diagram опирается на дорожные расстояния, а не на
+// геометрическую близость — важно там, где они расходятся.
+static void guillotine_rec(const Inst& I, vector<int> ops, vector<int> sites,
+                           vector<int>& cellOf, mt19937_64& rng, int ndir) {
+    if (ops.empty()) return;
+    if (ops.size() == 1) { for (int x : sites) cellOf[x] = ops[0]; return; }
+    int K = ops.size();
+    double bestv = NEG, bdx = 1, bdy = 0, bcut = 0;
+    int bm = 1;
+    vector<int> bord;
+    vector<double> lv(sites.size()), rv(sites.size());
+    vector<pair<double, int>> sp(sites.size());
+    for (int di = 0; di < ndir; di++) {
+        double th = di < ndir / 2 ? M_PI * di / max(1, ndir / 2)
+                                  : 2 * M_PI * (double)(rng() % 10000) / 10000.0;
+        double dx = cos(th), dy = sin(th);
+        vector<pair<double, int>> op2;
+        for (int o : ops) op2.push_back({I.P[I.ns + o].x * dx + I.P[I.ns + o].y * dy, o});
+        sort(op2.begin(), op2.end());
+        for (size_t i = 0; i < sites.size(); i++)
+            sp[i] = {I.P[sites[i]].x * dx + I.P[sites[i]].y * dy, sites[i]};
+        sort(sp.begin(), sp.end());
+        for (int m = 1; m < K; m++) {
+            double lo = op2[m - 1].first, hi = op2[m].first;
+            if (hi - lo < 1e-12 * max(1.0, I.ext)) continue;
+            for (size_t i = 0; i < sp.size(); i++) {
+                int x = sp[i].second;
+                double a = NEG, b = NEG;
+                for (int j = 0; j < m; j++) a = max(a, I.pr(op2[j].second, x));
+                for (int j = m; j < K; j++) b = max(b, I.pr(op2[j].second, x));
+                lv[i] = max(0.0, a); rv[i] = max(0.0, b);
+            }
+            double cur = 0;
+            for (size_t i = 0; i < sp.size(); i++) cur += rv[i];   // разрез на уровне lo
+            double bc = lo, bv = NEG;
+            for (size_t i = 0;; i++) {
+                if (cur > bv) { bv = cur; bc = i == 0 ? lo : sp[i - 1].first; }
+                if (i >= sp.size() || sp[i].first > hi) break;
+                if (sp[i].first <= lo) { cur += lv[i] - rv[i]; continue; }
+                cur += lv[i] - rv[i];
+            }
+            if (bv > bestv) {
+                bestv = bv; bdx = dx; bdy = dy; bcut = bc; bm = m;
+                bord.clear();
+                for (auto& e : op2) bord.push_back(e.second);
+            }
+        }
+    }
+    if (bestv <= NEG / 2) { for (int x : sites) cellOf[x] = ops[0]; return; }
+    vector<int> lo_ops(bord.begin(), bord.begin() + bm), hi_ops(bord.begin() + bm, bord.end());
+    vector<int> lo_s, hi_s;
+    for (int x : sites)
+        (I.P[x].x * bdx + I.P[x].y * bdy <= bcut ? lo_s : hi_s).push_back(x);
+    guillotine_rec(I, lo_ops, lo_s, cellOf, rng, ndir);
+    guillotine_rec(I, hi_ops, hi_s, cellOf, rng, ndir);
+}
+
+static vector<int> ctor_guillotine(const Inst& I, const vector<int>& ops, mt19937_64& rng) {
+    vector<int> cellOf(I.ns, -1), all(I.ns);
+    iota(all.begin(), all.end(), 0);
+    guillotine_rec(I, ops, all, cellOf, rng, I.ns > 2000 ? 8 : 16);
+    return cellOf;
+}
+
+// ============================================================ LNS + отжиг
+// Штраф alpha*(max-min) близорук: одиночная вставка почти всегда выглядит
+// убыточной, даже когда набор в целом хорош. Поэтому поиск ведётся по
+// сглаженной цели: alpha*(max-min) + lam*sum|L_o - mean|.
+
+// Двойственность по балансу нагрузки:
+//   alpha*(max L - min L) = max_{pi in Pi} sum_o pi_o * L_o,
+//   Pi = { pi : sum_o pi_o = 0, sum_o max(pi_o,0) <= alpha }.
+// Значит при фиксированных ценах pi задача распадается по сайтам: сайт стоит
+// брать в офис o, если pr(o,s) - pi_o * tasks(s) > 0. Цены подтягиваются
+// субградиентным шагом по текущим нагрузкам. Это убирает «обрыв» штрафа
+// max-min: вместо цены alpha ровно на двух офисах получаем гладкие цены на всех.
+struct Guide {
+    Sol& s;
+    const Inst& I;
+    double lam;
+    vector<double> pi;
+    Guide(Sol& so, double l) : s(so), I(*so.I), lam(l) { pi.assign(I.no, 0.0); }
+
+    inline double eff(int o, int x) const { return I.pr(o, x) - pi[o] * I.ntask[x]; }
+
+    void dual_step(double rate) {
+        if (I.alpha <= 0) return;
+        double sum = 0;
+        int n = 0;
+        for (int o = 0; o < I.no; o++)
+            if (s.isopen[o] && s.size_[o] > 0) { sum += (double)s.load[o]; n++; }
+        if (n < 2) { fill(pi.begin(), pi.end(), 0.0); return; }
+        double mean = sum / n;
+        double scale = max(1.0, mean);
+        for (int o = 0; o < I.no; o++) {
+            if (!s.isopen[o] || s.size_[o] == 0) { pi[o] = 0; continue; }
+            pi[o] += rate * I.alpha * ((double)s.load[o] - mean) / scale;
+        }
+        double m = 0;
+        for (int o = 0; o < I.no; o++) if (s.isopen[o] && s.size_[o] > 0) m += pi[o];
         m /= n;
-        double r = 0;
-        for (int o : sol.opened) if (sz[o] > 0) r += fabs(ld[o] - m);
+        double pos = 0;
+        for (int o = 0; o < I.no; o++)
+            if (s.isopen[o] && s.size_[o] > 0) { pi[o] -= m; if (pi[o] > 0) pos += pi[o]; }
+        if (pos > I.alpha && pos > 0)
+            for (int o = 0; o < I.no; o++) pi[o] *= I.alpha / pos;
+    }
+
+    // -cost - alpha*(max-min) - lam*spread при гипотетических сдвигах двух офисов
+    double tail2(int o1, int d1sz, long long d1ld, int o2, int d2sz, long long d2ld) const {
+        double c = 0, sum = 0;
+        long long mx = LLONG_MIN, mn = LLONG_MAX;
+        int n = 0;
+        for (int o = 0; o < I.no; o++) {
+            if (!s.isopen[o]) continue;
+            int sz = s.size_[o] + (o == o1 ? d1sz : 0) + (o == o2 ? d2sz : 0);
+            if (sz <= 0) continue;
+            long long ld = s.load[o] + (o == o1 ? d1ld : 0) + (o == o2 ? d2ld : 0);
+            c += I.cost[o];
+            sum += (double)ld;
+            n++;
+            mx = max(mx, ld); mn = min(mn, ld);
+        }
+        if (!n) return 0.0;
+        double r = -c - I.alpha * (double)(mx - mn);
+        if (lam > 0 && n > 1) {
+            double mean = sum / n, sp = 0;
+            for (int o = 0; o < I.no; o++) {
+                if (!s.isopen[o]) continue;
+                int sz = s.size_[o] + (o == o1 ? d1sz : 0) + (o == o2 ? d2sz : 0);
+                if (sz <= 0) continue;
+                long long ld = s.load[o] + (o == o1 ? d1ld : 0) + (o == o2 ? d2ld : 0);
+                sp += fabs((double)ld - mean);
+            }
+            r -= lam * sp;
+        }
         return r;
+    }
+    double val() const { return s.psum + tail2(-1, 0, 0, -1, 0, 0); }
+
+    // то же, но для o1,o2 размер/нагрузка заданы абсолютно
+    double tail_abs(int o1, int sz1, long long ld1, int o2, int sz2, long long ld2) const {
+        double c = 0, sum = 0;
+        long long mx = LLONG_MIN, mn = LLONG_MAX;
+        int n = 0;
+        for (int o = 0; o < I.no; o++) {
+            if (!s.isopen[o]) continue;
+            int sz = o == o1 ? sz1 : (o == o2 ? sz2 : s.size_[o]);
+            if (sz <= 0) continue;
+            long long ld = o == o1 ? ld1 : (o == o2 ? ld2 : s.load[o]);
+            c += I.cost[o]; sum += (double)ld; n++;
+            mx = max(mx, ld); mn = min(mn, ld);
+        }
+        if (!n) return 0.0;
+        double r = -c - I.alpha * (double)(mx - mn);
+        if (lam > 0 && n > 1) {
+            double mean = sum / n, sp = 0;
+            for (int o = 0; o < I.no; o++) {
+                if (!s.isopen[o]) continue;
+                int sz = o == o1 ? sz1 : (o == o2 ? sz2 : s.size_[o]);
+                if (sz <= 0) continue;
+                long long ld = o == o1 ? ld1 : (o == o2 ? ld2 : s.load[o]);
+                sp += fabs((double)ld - mean);
+            }
+            r -= lam * sp;
+        }
+        return r;
+    }
+    // вклад всех офисов, кроме o1 и o2
+    double psum_other(int o1, int o2) const {
+        double p = 0;
+        for (int o = 0; o < I.no; o++) {
+            if (!s.isopen[o] || o == o1 || o == o2) continue;
+            for (int x : s.members[o]) p += I.pr(o, x);
+        }
+        return p;
+    }
+};
+
+// Сумма прибыли и нагрузки по m лучшим (по прибыли) элементам множества,
+// меняющегося по одному элементу. Нужна для развёртки разреза при жёстком maxSize.
+struct TopSum {
+    int m = 0;
+    const vector<int>* nt = nullptr;
+    set<pair<double, int>> top, rest;   // (профит, сайт); top — m лучших
+    double psum = 0;
+    long long lsum = 0;
+    void init(int mm, const vector<int>& ntask) { m = mm; nt = &ntask; top.clear(); rest.clear(); psum = 0; lsum = 0; }
+    void push_top(const pair<double, int>& e) { top.insert(e); psum += e.first; lsum += (*nt)[e.second]; }
+    void pop_top(const pair<double, int>& e) { top.erase(e); psum -= e.first; lsum -= (*nt)[e.second]; }
+    void balance() {
+        while ((int)top.size() > m) { auto e = *top.begin(); pop_top(e); rest.insert(e); }
+        while ((int)top.size() < m && !rest.empty()) { auto e = *prev(rest.end()); rest.erase(e); push_top(e); }
+    }
+    void insert(double p, int x) {
+        pair<double, int> e{p, x};
+        if ((int)top.size() < m || (!top.empty() && p > top.begin()->first)) push_top(e);
+        else rest.insert(e);
+        balance();
+    }
+    void erase(double p, int x) {
+        pair<double, int> e{p, x};
+        auto it = top.find(e);
+        if (it != top.end()) pop_top(e);
+        else rest.erase(e);
+        balance();
+    }
+    int size() const { return (int)top.size(); }
+};
+
+// Переразрезать две зоны новой прямой. Главный ход: при выпуклых зонах
+// одиночный перенос сайта почти всегда ломает геометрию, двигать нужно
+// границу целиком. Перебираем все положения разреза вдоль направления.
+static bool move_resplit(Engine& E, Guide& Gd, mt19937_64& rng, bool force,
+                         int fo1 = -1, int fo2 = -1, int ndir = 9, double hard = 1e18) {
+    Sol& s = E.s;
+    const Inst& I = E.I;
+    vector<int> op;
+    for (int o = 0; o < I.no; o++) if (s.isopen[o]) op.push_back(o);
+    if (op.size() < 2) return false;
+    int o1, o2;
+    if (fo1 >= 0 && fo2 >= 0) { o1 = fo1; o2 = fo2; }
+    else {
+        int a = rng() % op.size(), b = rng() % op.size();
+        if (a == b) b = (b + 1) % op.size();
+        o1 = op[a]; o2 = op[b];
+    }
+    if (o1 == o2 || !s.isopen[o1] || !s.isopen[o2]) return false;
+    const Pt& q1 = I.P[I.ns + o1];
+    const Pt& q2 = I.P[I.ns + o2];
+
+    // кандидаты: сайты обеих зон плюс свободные, чей ближайший открытый офис — один из двух
+    vector<int> U = s.members[o1];
+    U.insert(U.end(), s.members[o2].begin(), s.members[o2].end());
+    for (int x = 0; x < I.ns; x++) {
+        if (s.asg[x] >= 0 || !I.servable[x]) continue;
+        for (int o : I.cand[x]) if (s.isopen[o]) { if (o == o1 || o == o2) U.push_back(x); break; }
+    }
+    if (U.size() < 2) return false;
+
+    double pother = Gd.psum_other(o1, o2);
+    // текущее значение пары зон — базовая планка
+    double pcur = 0;
+    for (int x : s.members[o1]) pcur += I.pr(o1, x);
+    for (int x : s.members[o2]) pcur += I.pr(o2, x);
+    double curv = pother + pcur + Gd.tail_abs(o1, s.size_[o1], s.load[o1], o2, s.size_[o2], s.load[o2]);
+
+    // какие навыки доступны каждой из двух зон после снятия всех их сайтов
+    vector<char> alw1(I.nsk, 0), alw2(I.nsk, 0);
+    for (int k = 0; k < I.nsk; k++) {
+        int used = s.cntSkill[k] - (s.need[o1][k] > 0 ? 1 : 0) - (s.need[o2][k] > 0 ? 1 : 0);
+        int avail = I.Nk[k] - used;
+        if (avail >= 2) { alw1[k] = alw2[k] = 1; }
+        else if (avail == 1) {
+            double w1 = 0, w2 = 0;
+            for (int x : s.members[o1]) if (binary_search(I.skillset[x].begin(), I.skillset[x].end(), k)) w1 += max(0.0, I.pr(o1, x));
+            for (int x : s.members[o2]) if (binary_search(I.skillset[x].begin(), I.skillset[x].end(), k)) w2 += max(0.0, I.pr(o2, x));
+            if (w1 == w2 ? (rng() & 1) : (w1 > w2)) alw1[k] = 1; else alw2[k] = 1;
+        }
+    }
+    auto fits = [&](int x, int o) {
+        const vector<char>& A = (o == o1) ? alw1 : alw2;
+        for (int k : I.skillset[x]) if (!A[k]) return false;
+        return true;
     };
-    double best_f = sol.objective();
-    auto best = sol.snapshot();
-    double t_start = elapsed(), dur = max(1e-3, t_end - t_start);
+
+    double vx = q2.x - q1.x, vy = q2.y - q1.y;
+    double base = sqrt(vx * vx + vy * vy) < 1e-15 ? 0.0 : atan2(vy, vx);
+    double bestAll = NEG, bDx = 1, bDy = 0, bTh = base;
+    size_t bestkAll = 0;
+    int bLo = o1, bHi = o2;
+    vector<pair<double, int>> pr;
+    pr.reserve(U.size());
+    TopSum L, H;
+    auto sweep = [&](double th) {
+        double dx = cos(th), dy = sin(th);
+        double p1 = q1.x * dx + q1.y * dy, p2 = q2.x * dx + q2.y * dy;
+        int lo_off = o1, hi_off = o2;
+        if (p1 > p2) { swap(p1, p2); lo_off = o2; hi_off = o1; }
+        if (p2 - p1 < 1e-12 * max(1.0, I.ext)) return;
+        pr.clear();
+        for (int x : U) pr.push_back({I.P[x].x * dx + I.P[x].y * dy, x});
+        sort(pr.begin(), pr.end());
+        L.init(I.maxsize[lo_off], I.ntask);
+        H.init(I.maxsize[hi_off], I.ntask);
+        size_t start = 0;
+        while (start < pr.size() && pr[start].first <= p1) {
+            int x = pr[start].second;
+            double v = Gd.eff(lo_off, x);
+            if (v > 0 && fits(x, lo_off)) L.insert(v, x);
+            start++;
+        }
+        for (size_t i = start; i < pr.size(); i++) {
+            int x = pr[i].second;
+            double v = Gd.eff(hi_off, x);
+            if (v > 0 && fits(x, hi_off)) H.insert(v, x);
+        }
+        for (size_t k = start;; k++) {
+            int szL = L.size(), szH = H.size();
+            // истинная прибыль = сумма эффективных + pi_o * нагрузка
+            double trueL = L.psum + Gd.pi[lo_off] * (double)L.lsum;
+            double trueH = H.psum + Gd.pi[hi_off] * (double)H.lsum;
+            double v = pother + trueL + trueH + Gd.tail_abs(lo_off, szL, L.lsum, hi_off, szH, H.lsum);
+            if (v > bestAll) {
+                int mx = INT_MIN, mn = INT_MAX;
+                for (int o = 0; o < I.no; o++) {
+                    if (!s.isopen[o]) continue;
+                    int sz = o == lo_off ? szL : (o == hi_off ? szH : s.size_[o]);
+                    if (sz <= 0) continue;
+                    mx = max(mx, sz); mn = min(mn, sz);
+                }
+                if (mx == INT_MIN || (long long)(mx - mn) <= I.A) {
+                    bestAll = v; bestkAll = k; bDx = dx; bDy = dy; bTh = th;
+                    bLo = lo_off; bHi = hi_off;
+                }
+            }
+            if (k >= pr.size() || pr[k].first > p2) break;
+            int x = pr[k].second;
+            double vh = Gd.eff(hi_off, x), vl = Gd.eff(lo_off, x);
+            if (vh > 0 && fits(x, hi_off)) H.erase(vh, x);
+            if (vl > 0 && fits(x, lo_off)) L.insert(vl, x);
+        }
+    };
+    int ND = ndir;
+    for (int di = 0; di < ND; di++)
+        sweep(di == 0 ? base
+                      : base + ((double)(rng() % 20001) / 10000.0 - 1.0) * (di < 5 ? 0.8 : M_PI));
+    // уточнение направления вокруг лучшего
+    for (double del = 0.4; del > 0.012; del *= 0.5) {
+        double th0 = bTh, before = bestAll;
+        sweep(th0 + del);
+        sweep(th0 - del);
+        if (bestAll <= before + 1e-12) continue;
+    }
+    if (bestAll <= NEG / 2) return false;
+    if (!force && bestAll <= curv + 1e-9) return false;
+
+    pr.clear();
+    for (int x : U) pr.push_back({I.P[x].x * bDx + I.P[x].y * bDy, x});
+    sort(pr.begin(), pr.end());
+    for (int x : U) if (s.asg[x] >= 0) E.doRemove(x);
+    vector<pair<double, int>> sl, sh;
+    for (size_t i = 0; i < pr.size(); i++) {
+        int x = pr[i].second;
+        int o = i < bestkAll ? bLo : bHi;
+        double v = Gd.eff(o, x);
+        if (v <= 0 || !fits(x, o)) continue;
+        (o == bLo ? sl : sh).push_back({v, x});
+    }
+    sort(sl.rbegin(), sl.rend());
+    sort(sh.rbegin(), sh.rend());
+    if ((int)sl.size() > I.maxsize[bLo]) sl.resize(I.maxsize[bLo]);
+    if ((int)sh.size() > I.maxsize[bHi]) sh.resize(I.maxsize[bHi]);
+    vector<pair<double, pair<int, int>>> ord;
+    for (auto& e : sl) ord.push_back({e.first, {e.second, bLo}});
+    for (auto& e : sh) ord.push_back({e.first, {e.second, bHi}});
+    sort(ord.rbegin(), ord.rend());
+    int nadd = 0;
+    for (auto& e : ord) {
+        if ((++nadd & 127) == 0 && elapsed() > hard) break;
+        E.doAdd(e.second.first, e.second.second);
+    }
+    return true;
+}
+
+static void recreate(Engine& E, Guide& Gd, mt19937_64& rng, bool aggressive, int topk,
+                     double deadline = 1e18) {
+    Sol& s = E.s;
+    const Inst& I = E.I;
+    vector<int> un;
+    for (int x = 0; x < I.ns; x++) if (s.asg[x] < 0 && I.servable[x]) un.push_back(x);
+    if (un.empty()) return;
+    shuffle(un.begin(), un.end(), rng);
+    long long v0 = E.size_viol(-1, -1);
+    int nn = 0;
+    for (int x : un) {
+        if ((++nn & 63) == 0 && elapsed() > deadline) return;
+        int bo = -1;
+        double bs = NEG;
+        int tried = 0;
+        for (int o : I.cand[x]) {
+            if (!s.isopen[o]) continue;
+            if (++tried > topk) break;
+            if (s.size_[o] >= I.maxsize[o]) continue;
+            if (E.size_viol(o, -1) > max(v0, 0LL)) continue;
+            if (!E.can_add_skills(x, o)) continue;
+            double sc = Gd.eff(o, x);
+            if (sc > bs) { bs = sc; bo = o; }
+        }
+        if (bo < 0) continue;
+        if (!aggressive && bs <= 0) continue;
+        E.doAdd(x, bo);
+    }
+}
+
+// Перераспределить дефицитный навык: отобрать его у офиса-донора и отдать
+// другому (возможно, закрытому — тогда он открывается). Без этого хода поиск
+// намертво застревает: все рабочие разобраны, новые офисы открыть нечем.
+static bool move_skill_shift(Engine& E, Guide& Gd, mt19937_64& rng) {
+    Sol& s = E.s;
+    const Inst& I = E.I;
+    vector<int> ks;
+    for (int k = 0; k < I.nsk; k++) if (I.Nk[k] > 0) ks.push_back(k);
+    if (ks.empty()) return false;
+    int k = ks[rng() % ks.size()];
+    vector<int> users, others;
+    for (int o = 0; o < I.no; o++) {
+        if (s.isopen[o] && s.need[o][k] > 0) users.push_back(o);
+        else others.push_back(o);
+    }
+    if (others.empty()) return false;
+    int target = others[rng() % others.size()];
+    int donor = -1;
+    if ((int)users.size() >= I.Nk[k]) {
+        if (users.empty()) return false;
+        donor = users[rng() % users.size()];
+    }
+    if (donor == target) return false;
+    if (donor >= 0) {
+        E.set_ban(donor, k, true);
+        vector<int> mem = s.members[donor];
+        for (int x : mem)
+            if (binary_search(I.skillset[x].begin(), I.skillset[x].end(), k)) E.doRemove(x);
+    }
+    if (!s.isopen[target]) E.doOpen(target);
+    if (!s.isopen[target]) { E.clear_ban(); return false; }
+    // сначала сознательно заселяем получателя сайтами, которым нужен этот навык
+    vector<pair<double, int>> want;
+    for (int x = 0; x < I.ns; x++) {
+        if (s.asg[x] >= 0 || !I.servable[x]) continue;
+        if (!binary_search(I.skillset[x].begin(), I.skillset[x].end(), k)) continue;
+        double v = I.pr(target, x);
+        if (v > 0) want.push_back({v, x});
+    }
+    sort(want.rbegin(), want.rend());
+    for (auto& e : want) E.doAdd(e.second, target);
+    recreate(E, Gd, rng, false, 6);
+    E.clear_ban();
+    return true;
+}
+
+// Дозаполнение: добавляем все свободные сайты, которые улучшают честную цель.
+// Точный DP умеет только снимать сайты, переразрез работает парами зон, поэтому
+// без этого шага выгодные и допустимые сайты так и остаются неназначенными.
+static bool greedy_fill(Sol& s, Engine& E, double deadline) {
+    const Inst& I = *s.I;
+    Guide G0(s, 0.0);
+    bool any = false;
+    for (int pass = 0; pass < 3; pass++) {
+        vector<pair<double, int>> un;
+        for (int x = 0; x < I.ns; x++) {
+            if (s.asg[x] >= 0 || !I.servable[x]) continue;
+            double b = NEG;
+            for (int o = 0; o < I.no; o++) if (s.isopen[o]) b = max(b, I.pr(o, x));
+            if (b > 0) un.push_back({b, x});
+        }
+        if (un.empty()) break;
+        sort(un.rbegin(), un.rend());
+        bool changed = false;
+        int c = 0;
+        for (auto& e : un) {
+            if ((++c & 31) == 0 && elapsed() > deadline) return any;
+            int x = e.second;
+            double base = G0.tail2(-1, 0, 0, -1, 0, 0);
+            int bo = -1;
+            double bd = 1e-9;
+            int tried = 0;
+            for (int o : I.cand[x]) {
+                if (!s.isopen[o]) continue;
+                if (++tried > 6) break;
+                if (s.size_[o] >= I.maxsize[o]) continue;
+                if (E.size_viol(o, -1) > 0) continue;
+                if (!E.can_add_skills(x, o)) continue;
+                double d = I.pr(o, x) + G0.tail2(o, 1, I.ntask[x], -1, 0, 0) - base;
+                if (d > bd) { bd = d; bo = o; }
+            }
+            if (bo >= 0 && E.doAdd(x, bo)) {
+                if (!I.simple_workers && !s.greedy_workers(nullptr)) s.remove_site(x);
+                else changed = any = true;
+            }
+        }
+        if (!changed) break;
+    }
+    return any;
+}
+
+// Открыть закрытый офис, расчистив вокруг него место, и дозаполнить. Без
+// расчистки точка офиса почти всегда лежит в чужой зоне и открыть его нельзя,
+// а именно ёмкость часто и упирается (на instance4 — 33 сайта).
+static bool try_open_office(Sol& s, Engine& E, double deadline) {
+    const Inst& I = *s.I;
+    bool any = false;
+    for (int o = 0; o < I.no; o++) {
+        if (s.isopen[o] || elapsed() > deadline) continue;
+        if (I.maxsize[o] <= 0) continue;
+        const Pt& q = I.P[I.ns + o];
+        vector<pair<double, int>> near;
+        for (int x = 0; x < I.ns; x++)
+            if (s.asg[x] >= 0) {
+                double dx = I.P[x].x - q.x, dy = I.P[x].y - q.y;
+                near.push_back({dx * dx + dy * dy, x});
+            }
+        sort(near.begin(), near.end());
+        for (int kk : {0, 8, 20, 45, 90}) {
+            if (kk > (int)near.size()) break;
+            if (elapsed() > deadline) return any;
+            vector<int> sv = s.asg;
+            vector<char> so = s.isopen;
+            double f0 = s.objective();
+            for (int i = 0; i < kk; i++) s.remove_site(near[i].second);
+            if (s.cov[I.ns + o] == 0) {
+                s.isopen[o] = 1;
+                s.rebuild_hull(o);
+                s.recompute_psum();
+                greedy_fill(s, E, deadline);
+                repair_sizes(s);
+                s.recompute_psum();
+                if (s.objective() > f0 + 1e-9) { any = true; break; }
+            }
+            s.load_state(sv, so);
+        }
+    }
+    return any;
+}
+
+// Детерминированная доводка: прогоняем переразрез по всем парам открытых
+// офисов с плотным перебором направлений, пока хоть что-то улучшается, и
+// чередуем с точным DP. Снимает разброс между прогонами и поднимает плато.
+static void polish(Sol& s, mt19937_64& rng, double tend, double dp_deadline, bool lock_offices = false) {
+    const Inst& I = *s.I;
+    Engine E(s);
+    E.rec = false;
+    Guide G0(s, 0.0);   // чистая цель, без сглаживания
+    int maxr = I.ns > 2000 ? 3 : 12;
+    for (int round = 0; round < maxr; round++) {
+        bool improved = false;
+        vector<int> op;
+        for (int o = 0; o < I.no; o++) if (s.isopen[o] && s.size_[o] > 0) op.push_back(o);
+        if (op.size() >= 2) {
+            double pend = tend;
+            for (size_t i = 0; i < op.size() && elapsed() < pend; i++)
+                for (size_t j = i + 1; j < op.size() && elapsed() < pend; j++) {
+                    vector<int> sv = s.asg;
+                    vector<char> so = s.isopen;
+                    double f0 = s.objective();
+                    if (!move_resplit(E, G0, rng, false, op[i], op[j], I.ns > 2000 ? 12 : 36,
+                                          I.ns > 1500 ? pend + 1.0 : 1e18)) continue;
+                    s.recompute_psum();
+                    if (E.size_viol(-1, -1) == 0 && (I.simple_workers || s.greedy_workers(nullptr))
+                        && s.objective() > f0 + 1e-9) {
+                        improved = true;
+                        offer(I, s);
+                    } else s.load_state(sv, so);
+                }
+        }
+        if (greedy_fill(s, E, tend)) { improved = true; s.recompute_psum(); offer(I, s); }
+        if (!lock_offices && I.ns <= 2000 && try_open_office(s, E, tend)) {
+            improved = true; s.recompute_psum(); offer(I, s);
+        }
+        if (elapsed() < dp_deadline) {
+            vector<int> sv = s.asg;
+            vector<char> so = s.isopen;
+            double before = s.objective();
+            if (resize_dp(s, dp_deadline, !lock_offices)) {
+                repair_sizes(s);
+                s.recompute_psum();
+                if (s.objective() < before - 1e-9) s.load_state(sv, so);
+                else if (s.objective() > before + 1e-9) { improved = true; offer(I, s); }
+            }
+        }
+        if (!improved || elapsed() >= tend) break;
+    }
+    offer(I, s);
+}
+
+// Пересчитать план навыков под текущие зоны и перестроиться под него.
+static bool move_replan_skills(Engine& E, Guide& Gd, mt19937_64& rng) {
+    Sol& s = E.s;
+    const Inst& I = E.I;
+    vector<int> ops;
+    for (int o = 0; o < I.no; o++) if (s.isopen[o]) ops.push_back(o);
+    if (ops.size() < 2) return false;
+    bool scarce = false;
+    for (int k = 0; k < I.nsk; k++) if (I.Nk[k] > 0 && I.Nk[k] < (int)ops.size()) scarce = true;
+    if (!scarce) return false;
+    vector<int> cellOf(I.ns, -1);
+    for (int x = 0; x < I.ns; x++) {
+        if (s.asg[x] >= 0) { cellOf[x] = s.asg[x]; continue; }
+        if (!I.servable[x]) continue;
+        for (int o : I.cand[x]) if (s.isopen[o]) { cellOf[x] = o; break; }
+    }
+    vector<char> allow;
+    plan_skills(I, ops, cellOf, allow);
+    optimize_skill_plan(I, ops, cellOf, allow, elapsed() + 0.5);
+    vector<int> idx(I.no, -1);
+    for (size_t b = 0; b < ops.size(); b++) idx[ops[b]] = b;
+    for (size_t b = 0; b < ops.size(); b++)
+        for (int k = 0; k < I.nsk; k++)
+            if (!allow[b * I.nsk + k]) E.set_ban(ops[b], k, true);
+    for (int o : ops) {
+        vector<int> mem = s.members[o];
+        for (int x : mem) {
+            for (int k : I.skillset[x])
+                if (!allow[(size_t)idx[o] * I.nsk + k]) { E.doRemove(x); break; }
+        }
+    }
+    recreate(E, Gd, rng, false, 6, I.ns > 1500 ? elapsed() + 1.5 : 1e18);
+    E.clear_ban();
+    return true;
+}
+
+static void lns(Sol& s, mt19937_64& rng, double tend, double dp_deadline, bool deep,
+                double lam_frac = 0.25, double ruin_scale = 1.0, bool lock_offices = false) {
+    const Inst& I = *s.I;
+    Engine E(s);
+    E.rec = true;
+    vector<int> cand;
+    for (int x = 0; x < I.ns; x++) if (I.servable[x]) cand.push_back(x);
+    if (cand.empty()) return;
+
+    double scale = 0;
+    {
+        long cnt = 0;
+        for (int o = 0; o < I.no; o++) if (s.isopen[o])
+            for (int x = 0; x < I.ns; x += max(1, I.ns / 200)) { scale += fabs(I.pr(o, x)); cnt++; }
+        scale = cnt ? scale / cnt : 1.0;
+        if (!(scale > 0)) scale = 1.0;
+    }
+    Guide Gd(s, I.alpha * lam_frac);
+    double cur = Gd.val();
+    double T_hi = 0.25 * scale, T_lo = 1e-4 * scale, T = T_hi;
+    double t_start = elapsed();
+    // хвост чанка резервируем под детерминированную доводку
+    double tloop = max(t_start + 0.05 * (tend - t_start), tend - min(0.3 * (tend - t_start), 25.0));
+    const double hardcap = I.ns > 1500 ? tloop + 1.0 : 1e18;
+    double dur = max(1e-3, tloop - t_start);
     uniform_real_distribution<double> U(0, 1);
-    for (long it = 1;; it++) {
+    // при одном навыке на рабочего счётный критерий точен; иначе нужна проверка
+    // назначением — один рабочий не может закрыть навыки в двух офисах сразу
+    uint64_t wsig = ~0ULL;
+    bool wok = false;
+    auto feasible = [&]() {
+        if (E.size_viol(-1, -1) > 0) return false;
+        if (I.simple_workers) return true;
+        if (s.sig != wsig) { wsig = s.sig; wok = s.greedy_workers(nullptr); }
+        return wok;
+    };
+    vector<int> assigned;
+    long it = 0, acc = 0, dpn = 0; long cnt[4][4] = {};  // [kind][0 try,1 fail,2 viol,3 acc]
+    int since_dp = 0;
+    vector<Pt> hh;
+
+    auto try_dp = [&](void) {
+        vector<int> sv = s.asg;
+        vector<char> so = s.isopen;
+        double before = s.objective();
+        E.rec = false;
+        bool ch = resize_dp(s, min(tloop + 5.0, dp_deadline), !lock_offices);
+        if (ch) {
+            repair_sizes(s);
+            if (s.objective() < before - 1e-9) s.load_state(sv, so);
+            else offer(I, s);
+        }
+        s.recompute_psum();
+        if (greedy_fill(s, E, min(tloop + 2.0, dp_deadline))) { s.recompute_psum(); offer(I, s); }
+        E.rec = true;
+        E.jr.clear();
+        s.recompute_psum();
+        cur = Gd.val();
+        dpn++;
+    };
+
+    for (;; it++) {
         if ((it & 63) == 0) {
             double now = elapsed();
-            if (now >= t_end) break;
+            if (now >= tloop) break;
             T = T_hi * pow(T_lo / T_hi, (now - t_start) / dur);
+            if ((it & 1023) == 0) Gd.dual_step(0.08);
+            if ((it & 262143) == 0) { s.recompute_psum(); cur = Gd.val(); }
         }
-        int s = cand[rng() % cand.size()];
-        int oold = sol.asg[s];
-        auto& nr = nearest[s];
-        int onew = (oold >= 0 && U(rng) < 0.25) ? -1 : nr[rng() % nr.size()];
-        if (onew == oold) continue;
-        vector<int> sz = sol.size; vector<double> ld = sol.load;
-        double d = 0;
-        if (oold >= 0) { d -= I.profit[oold][s]; sz[oold]--; ld[oold] -= I.ntask[s]; }
-        if (onew >= 0) { d += I.profit[onew][s]; sz[onew]++; ld[onew] += I.ntask[s]; }
-        d += sol.eval_tail(sz, ld) - sol.eval_tail(sol.size, sol.load);
-        d -= lam * (spread(sz, ld) - spread(sol.size, sol.load));
-        if (d < 0 && U(rng) >= exp(d / T)) continue;
-        if (sol.force_move(s, onew)) {
-            double f = sol.objective();
-            if (f > best_f + 1e-9) { best_f = f; best = sol.snapshot(); }
+        size_t mark = E.jr.size();
+        int kind = rng() % 100;
+
+        if (kind < 7) {
+            // --- пересчитать план навыков целиком
+            cnt[3][0]++;
+            if (!move_replan_skills(E, Gd, rng)) { cnt[3][1]++; E.undo(mark); continue; }
+            if (!feasible()) { cnt[3][2]++; E.undo(mark); continue; }
+            {
+                double f = Gd.val();
+                double d = f - cur;
+                if (d > -1e-12 || U(rng) < exp(d / max(1e-12, T))) {
+                    cur = f; acc++; cnt[3][3]++; E.jr.clear();
+                    if (s.objective_fast() > g_best.load(memory_order_relaxed) + 1e-9) { offer(I, s); since_dp = 100000; }
+                    if (++since_dp > (deep ? 120 : 300) && elapsed() < dp_deadline) { since_dp = 0; try_dp(); }
+                } else E.undo(mark);
+            }
+            continue;
         }
+
+        if (kind < 16) {
+            // --- перераспределить навык между зонами
+            cnt[3][0]++;
+            if (!move_skill_shift(E, Gd, rng)) { cnt[3][1]++; E.undo(mark); continue; }
+            if (!feasible()) { cnt[3][2]++; E.undo(mark); continue; }
+            double f = Gd.val();
+            double d = f - cur;
+            if (d > -1e-12 || U(rng) < exp(d / max(1e-12, T))) {
+                cur = f; acc++; cnt[3][3]++; E.jr.clear();
+                if (s.objective_fast() > g_best.load(memory_order_relaxed) + 1e-9) { offer(I, s); since_dp = 100000; }
+                if (++since_dp > (deep ? 120 : 300) && elapsed() < dp_deadline) { since_dp = 0; try_dp(); }
+            } else E.undo(mark);
+            continue;
+        }
+
+        if (kind < 45) {
+            // --- переразрезать две зоны прямой
+            cnt[0][0]++;
+            if (!move_resplit(E, Gd, rng, U(rng) < 0.15, -1, -1, 9, hardcap)) { cnt[0][1]++; E.undo(mark); continue; }
+            if (!feasible()) { cnt[0][2]++; E.undo(mark); continue; }
+            double f = Gd.val();
+            double d = f - cur;
+            if (d > -1e-12 || U(rng) < exp(d / max(1e-12, T))) {
+                cur = f; acc++; cnt[0][3]++; E.jr.clear();
+                if (s.objective_fast() > g_best.load(memory_order_relaxed) + 1e-9) { offer(I, s); since_dp = 100000; }
+                if (++since_dp > (deep ? 120 : 300) && elapsed() < dp_deadline) { since_dp = 0; try_dp(); }
+            } else E.undo(mark);
+            continue;
+        }
+
+        if (kind < 72) {
+            // --- одиночный ход: перенести сайт в другой офис / снять
+            int x = cand[rng() % cand.size()];
+            int oold = s.asg[x];
+            int onew;
+            if (oold >= 0 && (rng() % 100) < 22) onew = -1;
+            else {
+                int tries = 0, pick = -1;
+                for (int o : I.cand[x]) { if (s.isopen[o]) { if (tries == 0 || (rng() % 4) == 0) pick = o; if (++tries >= 5) break; } }
+                onew = pick;
+            }
+            cnt[1][0]++;
+            if (onew == oold || (oold < 0 && onew < 0)) { cnt[1][1]++; continue; }
+            if (oold >= 0) E.doRemove(x);
+            if (onew >= 0 && !E.doAdd(x, onew)) { cnt[1][1]++; E.undo(mark); continue; }
+            if (!feasible()) { cnt[1][2]++; E.undo(mark); continue; }
+            double f = Gd.val();
+            double d = f - cur;
+            if (d > -1e-12 || U(rng) < exp(d / max(1e-12, T))) {
+                cur = f; acc++; cnt[1][3]++; E.jr.clear();
+                if (s.objective_fast() > g_best.load(memory_order_relaxed) + 1e-9) { offer(I, s); since_dp = 100000; }
+            } else E.undo(mark);
+            if (++since_dp > 20000 && elapsed() < dp_deadline) { since_dp = 0; try_dp(); }
+            continue;
+        }
+
+        // --- ruin & recreate
+        assigned.clear();
+        for (int x = 0; x < I.ns; x++) if (s.asg[x] >= 0) assigned.push_back(x);
+        int mode = rng() % 100;
+        if (mode < 40 && !assigned.empty()) {
+            int c = assigned[rng() % assigned.size()];
+            int q = max(1, (int)((3 + rng() % 25) * ruin_scale));
+            vector<pair<double, int>> v;
+            v.reserve(assigned.size());
+            for (int x : assigned) {
+                double dx = I.P[x].x - I.P[c].x, dy = I.P[x].y - I.P[c].y;
+                v.push_back({dx * dx + dy * dy, x});
+            }
+            if ((int)v.size() > q) nth_element(v.begin(), v.begin() + q, v.end());
+            for (int i = 0; i < min((int)v.size(), q); i++) E.doRemove(v[i].second);
+        } else if (mode < 62 && !assigned.empty()) {
+            int q = max(1, (int)((3 + rng() % 20) * ruin_scale));
+            shuffle(assigned.begin(), assigned.end(), rng);
+            for (int i = 0; i < min((int)assigned.size(), q); i++) E.doRemove(assigned[i]);
+        } else if (mode < 80) {
+            vector<int> op;
+            for (int o = 0; o < I.no; o++) if (s.isopen[o] && s.size_[o] > 0) op.push_back(o);
+            if (op.empty()) { E.undo(mark); continue; }
+            int o = op[rng() % op.size()];
+            vector<int> mem = s.members[o];
+            shuffle(mem.begin(), mem.end(), rng);
+            int q = max(1, (int)(mem.size() * (0.2 + 0.6 * U(rng))));
+            for (int i = 0; i < min((int)mem.size(), q); i++) E.doRemove(mem[i]);
+        } else if (mode < 91) {
+            if (lock_offices) { E.undo(mark); continue; }
+            vector<int> op;
+            for (int o = 0; o < I.no; o++) if (s.isopen[o]) op.push_back(o);
+            if (op.empty()) { E.undo(mark); continue; }
+            E.doClose(op[rng() % op.size()]);
+        } else {
+            vector<int> cl;
+            for (int o = 0; o < I.no; o++) if (!s.isopen[o]) cl.push_back(o);
+            if (cl.empty()) { E.undo(mark); continue; }
+            int o = cl[rng() % cl.size()];
+            const Pt& q = I.P[I.ns + o];
+            vector<pair<double, int>> v;
+            v.reserve(assigned.size());
+            for (int x : assigned) {
+                double dx = I.P[x].x - q.x, dy = I.P[x].y - q.y;
+                v.push_back({dx * dx + dy * dy, x});
+            }
+            int k = min((int)v.size(), 10 + (int)(rng() % 40));
+            if ((int)v.size() > k) nth_element(v.begin(), v.begin() + k, v.end());
+            for (int i = 0; i < k; i++) E.doRemove(v[i].second);
+            E.doOpen(o);
+        }
+        cnt[2][0]++;
+        recreate(E, Gd, rng, U(rng) < 0.3, 5, hardcap);
+        if (!feasible()) { cnt[2][2]++; E.undo(mark); continue; }
+        double f = Gd.val();
+        double d = f - cur;
+        if (d > -1e-12 || U(rng) < exp(d / max(1e-12, T))) {
+            cur = f; acc++; cnt[2][3]++; E.jr.clear();
+            if (s.objective_fast() > g_best.load(memory_order_relaxed) + 1e-9) { offer(I, s); since_dp = 100000; }
+            if (++since_dp > (deep ? 120 : 300) && elapsed() < dp_deadline) { since_dp = 0; try_dp(); }
+        } else E.undo(mark);
     }
-    return Sol::from_state(I, sol.opened, best);
+    if (elapsed() < dp_deadline) try_dp();
+    offer(I, s);
+    polish(s, rng, min(tend, dp_deadline), dp_deadline, lock_offices);
+    try_elite(I, s);
+    if (DBG)
+        fprintf(stderr, "   lns it=%ld acc=%ld dp=%ld obj=%.4f best=%.4f | split %ld/%ld/%ld/%ld  single %ld/%ld/%ld/%ld  ruin %ld/%ld/%ld/%ld  skill %ld/%ld/%ld/%ld\n",
+                it, acc, dpn, s.objective(), g_best.load(),
+                cnt[0][0],cnt[0][1],cnt[0][2],cnt[0][3], cnt[1][0],cnt[1][1],cnt[1][2],cnt[1][3], cnt[2][0],cnt[2][1],cnt[2][2],cnt[2][3], cnt[3][0],cnt[3][1],cnt[3][2],cnt[3][3]);
 }
 
-static void local_search(Sol& sol, mt19937_64& rng, double t_end) {
-    const Inst& I = *sol.I;
-    vector<vector<int>> nearest(I.ns);
-    for (int s = 0; s < I.ns; s++) {
-        vector<int> v = sol.opened;
-        sort(v.begin(), v.end(), [&](int a, int b) { return I.D[a][s] < I.D[b][s]; });
-        if (v.size() > 4) v.resize(4);
-        v.push_back(-1);
-        nearest[s] = v;
-    }
-    vector<int> order(I.ns);
-    iota(order.begin(), order.end(), 0);
-    bool improved = true;
-    while (improved && elapsed() < t_end) {
-        improved = false;
-        shuffle(order.begin(), order.end(), rng);
-        for (int s : order) {
-            if (elapsed() > t_end) break;
-            if (!I.servable[s]) continue;
-            vector<pair<double, int>> g;
-            for (int o : nearest[s]) if (o != sol.asg[s]) { double d = sol.delta(s, o); if (d > 1e-9) g.push_back({d, o}); }
-            sort(g.rbegin(), g.rend());
-            for (auto& [d, o] : g) if (sol.force_move(s, o)) { improved = true; break; }
+// Сколько потоков запускать. hardware_concurrency показывает ядра хоста, а
+// контейнер может быть ограничен квотой cgroup — учитываем и её.
+static int detect_cpus() {
+    double q = 1e9;
+    {
+        FILE* f = fopen("/sys/fs/cgroup/cpu.max", "r");
+        if (f) {
+            char a[64] = {0};
+            long long per = 0;
+            if (fscanf(f, "%63s %lld", a, &per) == 2 && per > 0 && strcmp(a, "max") != 0)
+                q = min(q, atof(a) / (double)per);
+            fclose(f);
         }
     }
+    {
+        FILE* f1 = fopen("/sys/fs/cgroup/cpu/cpu.cfs_quota_us", "r");
+        FILE* f2 = fopen("/sys/fs/cgroup/cpu/cpu.cfs_period_us", "r");
+        if (f1 && f2) {
+            long long qu = -1, pe = 0;
+            if (fscanf(f1, "%lld", &qu) == 1 && fscanf(f2, "%lld", &pe) == 1 && qu > 0 && pe > 0)
+                q = min(q, (double)qu / (double)pe);
+        }
+        if (f1) fclose(f1);
+        if (f2) fclose(f2);
+    }
+    if (getenv("NT")) return max(1, atoi(getenv("NT")));
+    unsigned hc = thread::hardware_concurrency();
+    double c = min((double)(hc ? hc : 1u), q);
+    int n = (int)floor(c + 1e-9);
+    if (n < 1) n = 1;
+    if (n > 16) n = 16;
+    return n;
 }
 
-// ------------------------------------------------------------------ вывод
-static void write_solution(const string& path, const Sol* sol) {
-    FILE* f = fopen(path.c_str(), "w");  // пишем прямо в файл, без rename
-    if (!f) return;
-    fputc('[', f);
-    bool first = true;
-    if (sol) {
-        for (int o : sol->opened) {
-            if (sol->size[o] == 0) continue;
-            vector<int> ss = sol->members[o];
-            sort(ss.begin(), ss.end());
-            fprintf(f, "%s{\"officeId\":%d,\"sites\":[", first ? "" : ",", o);
-            for (size_t i = 0; i < ss.size(); i++) fprintf(f, "%s%d", i ? "," : "", ss[i]);
-            fprintf(f, "],\"workers\":[");
-            bool fw = true;
-            for (int w = 0; w < sol->I->nw; w++) if (sol->wof[w] == o) { fprintf(f, "%s%d", fw ? "" : ",", w); fw = false; }
-            fprintf(f, "]}");
-            first = false;
+// ================================================================== main
+struct Cand { double f; vector<int> op; vector<double> h; vector<Pt> G; };
+
+static void worker(const Inst& I, const Fast& F, const vector<Cand>& cands,
+                   uint64_t seed, double tend, double dp_deadline, int tid) {
+    static const double LAMS[4] = {0.25, 0.10, 0.50, 0.0};
+    static const double RUINS[3] = {1.0, 0.4, 2.5};
+    const double PA = 0.25 * tend, P3 = 0.85 * tend;
+    mt19937_64 rng(seed);
+    Sol s;
+    uniform_real_distribution<double> U(0, 1);
+    Pt cen{0, 0};
+    for (int o = 0; o < I.no; o++) { cen.x += I.P[I.ns + o].x; cen.y += I.P[I.ns + o].y; }
+    if (I.no) { cen.x /= I.no; cen.y /= I.no; }
+    const int NC = 6;
+    if (cands.empty()) return;
+
+    // строит стартовое решение по связке (набор офисов, конструктор)
+    auto build = [&](int ci, int ctor, double deadline, bool refine, double skt = 0.0) {
+        const Cand& c = cands[ci];
+        vector<double> h = c.h;
+        vector<Pt> G = c.G;
+        if (h.empty()) { h.assign(I.no, 0.0); G.assign(I.P.begin() + I.ns, I.P.end()); }
+        vector<int> cellOf(I.ns, -1);
+        if (ctor <= 1) {
+            if (refine) F.search(c.op, h, G, 300, min(deadline, elapsed() + 3.0));
+            if (ctor == 0) {
+                vector<vector<int>> mem;
+                if (F.evaluate(c.op, h, G, &mem) > NEG / 2 && !mem.empty())
+                    for (int o : c.op) for (int x : mem[o]) cellOf[x] = o;
+            } else {
+                vector<int> cell;
+                F.cells(c.op, h, G, cell);
+                for (int x = 0; x < I.ns; x++) cellOf[x] = c.op[cell[x]];
+            }
+        } else if (ctor == 2) cellOf = ctor_road(I, c.op);
+        else if (ctor == 3) cellOf = ctor_sector(I, c.op, cen);
+        else if (ctor == 5) cellOf = ctor_guillotine(I, c.op, rng);
+        else {
+            Pt r{cen.x + (U(rng) - 0.5) * 2 * I.ext, cen.y + (U(rng) - 0.5) * 2 * I.ext};
+            cellOf = ctor_sector(I, c.op, r);
         }
+        realize(s, I, c.op, cellOf, deadline, &rng, skt);
+        repair_sizes(s);
+        Engine E(s);
+        if (elapsed() < dp_deadline) { resize_dp(s, dp_deadline); repair_sizes(s); }
+        s.recompute_psum();
+        greedy_fill(s, E, min(deadline, dp_deadline));
+        s.recompute_psum();
+        offer(I, s);
+    };
+
+    // --- фаза A: дешёвый отбор всех связок
+    int NCOMBO = (int)cands.size() * NC;
+    vector<pair<double, int>> rank;
+    for (int t = 0; t < NCOMBO && elapsed() < PA; t++) {
+        int combo = (t + tid * 7) % NCOMBO;
+        build(combo % cands.size(), combo / cands.size(), min(PA, dp_deadline), false);
+        rank.push_back({s.objective(), combo});
     }
-    fputs("]\n", f);
-    fclose(f);
+    // Ранжируем НАБОРЫ ОФИСОВ, а не связки: набор с большим числом офисов
+    // стартует хуже (навыки и геометрию ещё надо развести), но после глубокого
+    // поиска часто выигрывает. Берём для каждого набора его лучший конструктор.
+    {
+        vector<pair<double, int>> bestOf(cands.size(), {NEG, 0});
+        for (auto& e : rank) {
+            int ci = e.second % (int)cands.size();
+            if (e.first > bestOf[ci].first) bestOf[ci] = {e.first, e.second};
+        }
+        rank.clear();
+        for (size_t ci = 0; ci < cands.size(); ci++)
+            if (bestOf[ci].first > NEG / 2) rank.push_back(bestOf[ci]);
+        sort(rank.rbegin(), rank.rend());
+    }
+    if (rank.empty()) rank.push_back({0.0, tid % NCOMBO});
+    if (DBG && tid == 0) {
+        for (size_t i = 0; i < cands.size(); i++) {
+            fprintf(stderr, "cand%zu f=%.2f ops=", i, cands[i].f);
+            for (int o : cands[i].op) fprintf(stderr, "%d,", o);
+            fprintf(stderr, "\n");
+        }
+        for (size_t i = 0; i < rank.size() && i < 8; i++)
+            fprintf(stderr, "  rank%zu val=%.2f cand=%d ctor=%d\n", i, rank[i].first,
+                    rank[i].second % (int)cands.size(), rank[i].second / (int)cands.size());
+    }
+
+    // --- фаза B и C: глубокие прогоны по лучшим связкам и по общему лучшему
+    int round = 0;
+    while (elapsed() < tend - max(0.5, 0.02 * tend)) {
+        double now0 = elapsed();
+        double left = tend - now0;
+        bool last = now0 >= P3;
+        double chunk = last ? left : max(1.5, min(left, min(0.12 * tend, left / 2.0)));
+        double ce = now0 + chunk;
+        bool fromBest = false;
+        // половина потоков идёт независимо, чтобы выборка была разнообразнее
+        double pBest = last ? 1.0 : ((tid & 1) ? 0.0 : 0.5);
+        if (U(rng) < pBest) {
+            vector<int> ea;
+            vector<char> eo;
+            bool got = last ? false : pick_elite(rng, ea, eo);
+            if (!got) {
+                lock_guard<mutex> lk(g_best_mx);
+                ea = g_best_asg;
+                eo = g_best_open;
+                got = !ea.empty();
+            }
+            if (got) { s.init(I); s.load_state(ea, eo); fromBest = true; }
+        }
+        if (!fromBest) {
+            int r = round % max<size_t>(1, min<size_t>(rank.size(), 6));
+            int combo = rank[r].second;
+            // каждый третий глубокий прогон стартует со случайного плана навыков
+            double skt = (round % 3 == 2) ? 0.15 + 0.5 * U(rng) : 0.0;
+            build(combo % cands.size(), combo / cands.size(), min(ce, dp_deadline), true, skt);
+        }
+        round++;
+        if (!fromBest && !last) {
+            // сначала заставляем выбранный набор офисов заработать, потом отпускаем
+            lns(s, rng, now0 + 0.55 * chunk, dp_deadline, false, LAMS[tid % 4], RUINS[tid % 3], true);
+            lns(s, rng, ce, dp_deadline, true, LAMS[tid % 4], RUINS[tid % 3], false);
+        } else lns(s, rng, ce, dp_deadline, fromBest, LAMS[tid % 4], RUINS[tid % 3]);
+    }
 }
 
 int main(int argc, char** argv) {
     string inp = argc > 1 ? argv[1] : "instance.json";
     string outp = argc > 2 ? argv[2] : "solution.json";
-    double limit = argc > 3 ? atof(argv[3]) : (getenv("TL") ? atof(getenv("TL")) : 270.0);
-    write_solution(outp, nullptr);  // пустое решение валидно и даёт 0
+    double limit = argc > 3 ? atof(argv[3]) : (getenv("TL") ? atof(getenv("TL")) : 280.0);
+
+    DBG = getenv("DBG") != nullptr; DBG2 = getenv("DBG2") != nullptr;
+    g_fd = open(outp.c_str(), O_WRONLY | O_CREAT | O_TRUNC, 0644);
+    publish("[]\n");
+    struct sigaction sa;
+    memset(&sa, 0, sizeof sa);
+    sa.sa_handler = on_signal;
+    sigaction(SIGTERM, &sa, nullptr);
+    sigaction(SIGINT, &sa, nullptr);
+    sigaction(SIGALRM, &sa, nullptr);
+    sigaction(SIGHUP, &sa, nullptr);
+    sigaction(SIGUSR1, &sa, nullptr);
+    alarm((unsigned)max(5.0, limit + 14));
+
     try {
-        Inst I = load(inp);
+        Inst I = load_instance(inp);
         if (I.ns == 0 || I.no == 0) return 0;
-        mt19937_64 rng(12345);
-        double best_f = 0;
-        unique_ptr<Sol> best;
-        auto offer = [&](Sol& s) {
-            double f = s.objective();
-            if (f > best_f + 1e-9) {
-                best_f = f;
-                best = make_unique<Sol>(s);
-                write_solution(outp, best.get());
-            }
-        };
         Fast F(I);
-        double t_outer = 0.40 * limit;
-        struct Ent { double f; vector<double> h; vector<Pt> G; };
-        map<vector<int>, Ent> cache;
+        mt19937_64 rng(0x9E3779B97F4A7C15ULL);
+
+        double t_outer = min(0.22 * limit, 60.0);
+        map<vector<int>, Cand> cache;
         vector<Pt> G0(I.P.begin() + I.ns, I.P.end());
         auto ev = [&](vector<int> op) -> double {
             sort(op.begin(), op.end());
             if (op.empty()) return 0.0;
             auto it = cache.find(op);
             if (it != cache.end()) return it->second.f;
-            vector<double> h(I.no, 0.0);
-            vector<Pt> G = G0;
-            double f = F.search(op, h, G, 60, t_outer);
-            cache[op] = {f, h, G};
-            return f;
+            Cand c;
+            c.op = op;
+            c.h.assign(I.no, 0.0);
+            c.G = G0;
+            c.f = F.search(op, c.h, c.G, 40, t_outer);
+            cache.emplace(op, move(c));
+            return cache[op].f;
         };
-        // 1) жадное добавление офисов
-        vector<int> cur; double cur_f = 0;
+        // жадное добавление офисов
+        vector<int> cur;
+        double cur_f = 0;
         while (elapsed() < t_outer) {
-            double bf = -1e300; int bo = -1;
+            double bf = NEG; int bo = -1;
             for (int o = 0; o < I.no && elapsed() < t_outer; o++) {
                 if (find(cur.begin(), cur.end(), o) != cur.end()) continue;
                 vector<int> v = cur; v.push_back(o);
@@ -784,7 +2508,7 @@ int main(int argc, char** argv) {
             if (bo < 0 || bf <= cur_f + 1e-9) break;
             cur.push_back(bo); cur_f = bf;
         }
-        // 2) локальный поиск add / drop / swap
+        // локальный поиск add / drop / swap
         bool improved = true;
         while (improved && elapsed() < t_outer) {
             improved = false;
@@ -801,45 +2525,58 @@ int main(int argc, char** argv) {
                 if (f > cur_f + 1e-9) { cur = m; cur_f = f; improved = true; break; }
             }
         }
-        sort(cur.begin(), cur.end());
-        // 3) лучшие множества: точная модель + отжиг
-        vector<pair<double, vector<int>>> top;
-        for (auto& [k, e] : cache) top.push_back({e.f, k});
-        sort(top.rbegin(), top.rend());
-        vector<vector<int>> cands;
-        if (!cur.empty()) cands.push_back(cur);
-        for (auto& [f, k] : top) {
-            if ((int)cands.size() >= 3) break;
-            if (k != cur && f > -1e299) cands.push_back(k);
+        // одиночные офисы как запасные варианты
+        for (int o = 0; o < I.no && elapsed() < t_outer + 2; o++) { vector<int> v{o}; ev(v); }
+
+        vector<Cand> cands;
+        if (getenv("FORCE_OPS")) {               // отладка: задать набор офисов вручную
+            Cand c;
+            char* t = strdup(getenv("FORCE_OPS"));
+            for (char* q = strtok(t, ","); q; q = strtok(nullptr, ",")) c.op.push_back(atoi(q));
+            sort(c.op.begin(), c.op.end());
+            c.h.assign(I.no, 0.0);
+            c.G.assign(I.P.begin() + I.ns, I.P.end());
+            c.f = F.search(c.op, c.h, c.G, 300, elapsed() + 5.0);
+            cands.push_back(c);
+        } else {
+            vector<pair<double, const Cand*>> top;
+            for (auto& kv : cache) if (kv.second.f > NEG / 2) top.push_back({kv.second.f, &kv.second});
+            sort(top.rbegin(), top.rend());
+            for (size_t i = 0; i < top.size() && i < 5; i++) cands.push_back(*top[i].second);
+            // плюс лучший набор каждого размера: иначе варианты с другим числом
+            // офисов (и другим делением навыков) просто не попадают в перебор
+            map<size_t, const Cand*> bysize;
+            for (auto& e : top) {
+                size_t k = e.second->op.size();
+                if (k <= 8 && !bysize.count(k)) bysize[k] = e.second;
+            }
+            for (auto& kv : bysize) {
+                bool have = false;
+                for (auto& c : cands) if (c.op == kv.second->op) { have = true; break; }
+                if (!have) cands.push_back(*kv.second);
+            }
         }
-        for (size_t idx = 0; idx < cands.size(); idx++) {
-            double left = limit - elapsed();
-            if (left <= 0.5) break;
-            double share = left * (idx == 0 ? 0.45 : 0.4);
-            auto& op = cands[idx];
-            Ent& e = cache[op];
-            F.search(op, e.h, e.G, 300, elapsed() + 0.25 * share);
-            vector<vector<int>> mem;
-            if (F.evaluate(op, e.h, e.G, &mem) <= -1e299 || mem.empty()) continue;
-            Sol sol = build_sol(I, op, mem);
-            offer(sol);
-            sol = anneal(sol, rng, elapsed() + 0.6 * share);
-            local_search(sol, rng, elapsed() + 0.15 * share);
-            offer(sol);
+        if (cands.empty()) {
+            Cand c;
+            for (int o = 0; o < I.no; o++) c.op.push_back(o);
+            c.f = 0;
+            cands.push_back(c);
         }
-        // 4) оставшееся время: повторные отжиги от лучшего решения
-        while (best && elapsed() < limit - 1.0) {
-            double left = limit - elapsed();
-            double chunk = min(left - 0.5, max(2.0, left / 3));
-            if (chunk <= 0.2) break;
-            Sol sol = Sol::from_state(I, best->opened, best->snapshot());
-            sol = anneal(sol, rng, elapsed() + 0.85 * chunk, 0.2);
-            local_search(sol, rng, elapsed() + 0.15 * chunk);
-            offer(sol);
-        }
-        fprintf(stderr, "objective=%.3f fast_best=%.3f evals=%zu t=%.1fs\n", best_f, cur_f, cache.size(), elapsed());
+
+        double dp_deadline = limit - max(1.0, 0.05 * limit);
+        int nth = detect_cpus();
+        if (I.ns > 20000) nth = min(nth, 6);
+        vector<thread> th;
+        for (int i = 1; i < nth; i++)
+            th.emplace_back(worker, cref(I), cref(F), cref(cands),
+                            0xA5A5ULL * (i + 1) + 12345, limit, dp_deadline, i);
+        worker(I, F, cands, 777, limit, dp_deadline, 0);
+        for (auto& t : th) t.join();
+
+        fprintf(stderr, "objective=%.6f fast=%.3f sets=%zu threads=%d t=%.1f\n",
+                g_best.load(), cur_f, cache.size(), nth, elapsed());
     } catch (const exception& ex) {
-        fprintf(stderr, "error: %s\n", ex.what());  // лучшее решение уже записано
+        fprintf(stderr, "error: %s\n", ex.what());
     }
     return 0;
 }
