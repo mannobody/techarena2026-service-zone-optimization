@@ -1,0 +1,44 @@
+name: bench
+
+on:
+  pull_request:
+    paths: ["solver/**", "bench.py", "task/**", ".github/workflows/bench.yml"]
+  workflow_dispatch:
+    inputs:
+      seconds:
+        description: "Секунд на инстанс"
+        default: "30"
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  bench:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -q pydantic shapely numpy
+      - name: Run bench
+        run: |
+          python3 bench.py ${{ inputs.seconds || '30' }} --no-update | tee bench.txt
+      - name: Comment on PR
+        if: github.event_name == 'pull_request'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          {
+            echo "### bench (${{ inputs.seconds || '30' }} с на инстанс, C++, runner GitHub)"
+            echo '```'
+            cat bench.txt
+            echo '```'
+            echo "delta считается против results/best.csv (60 с). Строка INVALID — решение не прошло валидатор."
+          } > comment.md
+          gh pr comment ${{ github.event.pull_request.number }} --body-file comment.md --edit-last || \
+          gh pr comment ${{ github.event.pull_request.number }} --body-file comment.md
+      - name: Fail on invalid solution
+        run: "! grep -q INVALID bench.txt"
