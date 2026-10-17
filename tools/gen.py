@@ -1,8 +1,12 @@
 #!/usr/bin/env python3
 """Генератор синтетических инстансов под скрытые тесты.
 
-Режимы повторяют характер открытых: евклид, манхэттен, дорожные расстояния,
-антикоррелированные с геометрией, офисы в углу, дефицит навыков.
+    python3 tools/gen.py OUTDIR [N=12] [--edge]
+
+genK.json — случайные режимы (евклид, манхэттен, дороги, дороги против геометрии,
+офисы в углу/по периметру, дефицит навыков, многопрофильные рабочие).
+--edge добавляет edge_*.json: граничные случаи и самый крупный размер.
+Набор детерминирован (фиксированные зёрна), его гоняет `bench.py --synth`.
 """
 import json, math, random, sys
 
@@ -76,8 +80,43 @@ def gen(seed, ns, no, nw, nsk, mode, alpha_mode, A_mode, out):
                 tasks=total_tasks, cap=sum(cap))
 
 
+def edge(outdir):
+    """Граничные случаи из CLAUDE.md: решатель обязан выдать валидный ответ."""
+    def inst(name, sites, offices, workers, D=None, A=1, alpha=1.0):
+        if D is None:
+            D = [[math.dist((o['x'], o['y']), (s['x'], s['y'])) for s in sites] for o in offices]
+        json.dump({'sites': sites, 'offices': offices, 'workers': workers, 'distances': D,
+                   'maxDifference': A, 'balanceCoefficient': alpha}, open(f'{outdir}/edge_{name}.json', 'w'))
+    S = lambda x, y, r=10.0, t=(0,): {'x': x, 'y': y, 'reward': r, 'tasks': list(t)}
+    O = lambda x, y, c=1.0, m=5: {'x': x, 'y': y, 'cost': c, 'maxSize': m}
+    grid = [S(i % 7, i // 7) for i in range(40)]
+    two = [O(-1, -1), O(8, 7)]
+    inst('empty', [], [O(0, 0)], [[0]])
+    inst('no_offices', grid[:5], [], [[0]])
+    inst('one_site', [S(1, 1)], [O(0, 0)], [[0]])
+    inst('no_workers', grid, two, [])
+    inst('skill_missing', [S(i, 0, t=(1,)) for i in range(10)], two, [[0], [0]])
+    inst('maxsize0', grid, [O(-1, -1, m=0), O(8, 7, m=0)], [[0], [0]])
+    inst('same_point', [S(1, 1) for _ in range(20)] + [S(3, 3)], [O(1, 1), O(3, 3)], [[0], [0]])
+    inst('collinear', [S(i, 0) for i in range(30)], [O(-1, 0), O(30, 0), O(15, 0)], [[0], [0], [0]])
+    inst('alpha0', grid, two, [[0], [0]], alpha=0.0)
+    inst('alpha_huge', grid, two, [[0], [0]], alpha=1e12)
+    inst('A0', grid, two, [[0], [0]], A=0)
+    inst('A_big', grid, two, [[0], [0]], A=10**6)
+    inst('multiskill', [S(i % 9, i // 9, t=(i % 3, (i + 1) % 3)) for i in range(60)],
+         [O(-1, -1, m=30), O(9, 7, m=30), O(4, -2, m=30)], [[0, 1], [1, 2], [2, 0]])
+    inst('no_tasks', [S(i % 7, i // 7, t=()) for i in range(40)], two, [])
+    inst('unit_coords_big_dist', [S(rx / 50, (rx * 7 % 50) / 50, r=5e4) for rx in range(50)],
+         [O(0, 0, c=1e4, m=30), O(1, 1, c=1e4, m=30)], [[0], [0]],
+         D=[[1e5 * math.dist((ox, oy), (rx / 50, (rx * 7 % 50) / 50)) for rx in range(50)] for ox, oy in ((0, 0), (1, 1))])
+    gen(4242, 10000, 20, 40, 5, 'road', 'small', 'mid', f'{outdir}/edge_big10k.json')
+
+
 if __name__ == '__main__':
     outdir = sys.argv[1]
+    if '--edge' in sys.argv:
+        sys.argv.remove('--edge')
+        edge(outdir)
     cfgs = []
     rnd = random.Random(7)
     modes = ['euclid', 'manhattan', 'road', 'anti', 'corner', 'perimeter']
