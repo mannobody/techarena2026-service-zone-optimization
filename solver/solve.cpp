@@ -2102,7 +2102,8 @@ static void lns(Sol& s, mt19937_64& rng, double tend, double dp_deadline, bool d
     double t_start = elapsed();
     // хвост чанка резервируем под детерминированную доводку
     double tloop = max(t_start + 0.05 * (tend - t_start), tend - min(0.3 * (tend - t_start), 25.0));
-    const double hardcap = I.ns > 1500 ? tloop + 1.0 : 1e18;
+    // на больших инстансах один ход идёт десятки мс: не даём ему выйти за tend
+    const double hardcap = I.ns > 1500 ? min(tloop + 1.0, tend) : 1e18;
     double dur = max(1e-3, tloop - t_start);
     uniform_real_distribution<double> U(0, 1);
     // при одном навыке на рабочего счётный критерий точен; иначе нужна проверка
@@ -2141,7 +2142,7 @@ static void lns(Sol& s, mt19937_64& rng, double tend, double dp_deadline, bool d
     };
 
     for (;; it++) {
-        if ((it & 63) == 0) {
+        if ((it & 63) == 0 || I.ns > 1500) {  // большие: время на каждой итерации
             double now = elapsed();
             if (now >= tloop) break;
             T = T_hi * pow(T_lo / T_hi, (now - t_start) / dur);
