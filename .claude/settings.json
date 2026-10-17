@@ -1,0 +1,26 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 bench.py:*)",
+      "Bash(python3 tools/:*)",
+      "Bash(.venv/bin/python task/validate_solution.py:*)",
+      "Bash(.venv/bin/python tools/:*)",
+      "Bash(g++:*)",
+      "Bash(./solve:*)",
+      "Bash(./submission/make_zips.sh)",
+      "Bash(grep -n:*)",
+      "Bash(git status:*)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)",
+      "Bash(git fetch:*)",
+      "Bash(gh pr view:*)",
+      "Bash(gh pr checks:*)",
+      "Bash(gh run view:*)"
+    ],
+    "deny": [
+      "Read(./task/Techarena.pdf)",
+      "Read(./task/instance*/instance.json)",
+      "Read(./task/samples/*.zip)"
+    ]
+  }
+}

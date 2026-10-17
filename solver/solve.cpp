@@ -2,7 +2,8 @@
 // Один файл, только стандартная библиотека (+ pthread).
 //
 // Читает instance.json, пишет solution.json в текущем каталоге.
-// Отладка: ./solve [in.json] [out.json] [секунды] ; лимит также через TL=...
+// Отладка: ./solve [in.json] [out.json] [секунды] ; лимит также через TL=...,
+// потоки NT=..., зерно SEED=... (без SEED поведение как раньше).
 //
 // Схема:
 //   1) конструкторы стартовых разбиений (power diagram, секторы, дорожная близость,
@@ -2476,7 +2477,8 @@ int main(int argc, char** argv) {
         Inst I = load_instance(inp);
         if (I.ns == 0 || I.no == 0) return 0;
         Fast F(I);
-        mt19937_64 rng(0x9E3779B97F4A7C15ULL);
+        const uint64_t seed0 = getenv("SEED") ? strtoull(getenv("SEED"), nullptr, 10) * 0x9E3779B97F4A7C15ULL : 0;
+        mt19937_64 rng(0x9E3779B97F4A7C15ULL ^ seed0);
 
         double t_outer = min(0.22 * limit, 60.0);
         map<vector<int>, Cand> cache;
@@ -2569,8 +2571,8 @@ int main(int argc, char** argv) {
         vector<thread> th;
         for (int i = 1; i < nth; i++)
             th.emplace_back(worker, cref(I), cref(F), cref(cands),
-                            0xA5A5ULL * (i + 1) + 12345, limit, dp_deadline, i);
-        worker(I, F, cands, 777, limit, dp_deadline, 0);
+                            (0xA5A5ULL * (i + 1) + 12345) ^ seed0, limit, dp_deadline, i);
+        worker(I, F, cands, 777 ^ seed0, limit, dp_deadline, 0);
         for (auto& t : th) t.join();
 
         fprintf(stderr, "objective=%.6f fast=%.3f sets=%zu threads=%d t=%.1f\n",
