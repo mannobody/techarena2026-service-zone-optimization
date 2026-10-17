@@ -2,7 +2,10 @@ name: bench
 
 on:
   pull_request:
-    paths: ["solver/**", "bench.py", "task/**", ".github/workflows/bench.yml"]
+    paths: ["solver/**", "bench.py", "tools/gen.py", "submission/**", ".github/workflows/bench.yml"]
+  push:
+    branches: [main]
+    paths: ["solver/**", "submission/**"]
   workflow_dispatch:
     inputs:
       seconds:
@@ -13,32 +16,55 @@ permissions:
   contents: read
   pull-requests: write
 
+defaults:
+  run:
+    shell: bash   # явный bash включает pipefail: падение bench.py не теряется за tee
+
+concurrency:
+  group: bench-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   bench:
+    if: github.event_name != 'push'
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - run: pip install -q pydantic shapely numpy
-      - name: Run bench
+      - run: pip install -q pydantic shapely
+      - name: A/B against base (open instances)
         run: |
-          python3 bench.py ${{ inputs.seconds || '30' }} --no-update | tee bench.txt
+          base=origin/${{ github.base_ref || 'main' }}
+          python3 bench.py ${{ inputs.seconds || '30' }} --runs 2 --base $base | tee bench.txt
+      - name: Synthetic + edge cases (validity and time)
+        if: always()
+        run: python3 bench.py 15 --synth | tee synth.txt
       - name: Comment on PR
-        if: github.event_name == 'pull_request'
+        if: always() && github.event_name == 'pull_request'
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           {
-            echo "### bench (${{ inputs.seconds || '30' }} с на инстанс, C++, runner GitHub)"
-            echo '```'
-            cat bench.txt
-            echo '```'
-            echo "delta считается против results/best.csv (60 с). Строка INVALID — решение не прошло валидатор."
+            echo "### bench: ветка против \`${{ github.base_ref }}\` (${{ inputs.seconds || '30' }} с, 2 зерна, runner GitHub)"
+            echo '```'; cat bench.txt; echo '```'
+            echo "<details><summary>синтетика, 15 с (главное — нет INVALID/TIME)</summary>"
+            echo; echo '```'; cat synth.txt; echo '```'; echo "</details>"
           } > comment.md
           gh pr comment ${{ github.event.pull_request.number }} --body-file comment.md --edit-last || \
           gh pr comment ${{ github.event.pull_request.number }} --body-file comment.md
-      - name: Fail on invalid solution
-        run: "! grep -q INVALID bench.txt"
+
+  package:
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: ./submission/make_zips.sh
+      - uses: actions/upload-artifact@v4
+        with:
+          name: case03_cpp-${{ github.sha }}
+          path: dist/case03_cpp.zip
