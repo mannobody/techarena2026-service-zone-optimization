@@ -5,7 +5,7 @@
     python3 bench.py [сек=60] [--only 0,3] [--runs N] [--base REF] [--synth] [--record]
 
 --runs N   N зёрен (SEED=1..N) на инстанс: печатается медиана и максимум.
---base REF  A/B: тот же прогон для solver/solve.cpp из git-ревизии REF (напр. origin/main),
+--base REF  A/B: тот же прогон для solver/ из git-ревизии REF (напр. origin/main),
             колонка delta — медиана ветки против медианы базы на тех же зёрнах.
 --synth    вместо открытых инстансов — синтетика tools/gen.py (12 случайных + edge_*),
             главное там — VALID и время, а не значение.
@@ -77,11 +77,12 @@ def main():
     exes = {"head": tmp / "solve"}
     build(ROOT / "solver/solve.cpp", exes["head"])
     if a.base:
-        src = tmp / "base.cpp"
-        src.write_text(subprocess.run(["git", "show", f"{a.base}:solver/solve.cpp"], cwd=ROOT,
-                                      check=True, capture_output=True, text=True).stdout)
+        # весь solver/ ревизии: solve.cpp включает части solver/*.h
+        tar = subprocess.run(["git", "archive", a.base, "solver"], cwd=ROOT,
+                             check=True, capture_output=True).stdout
+        subprocess.run(["tar", "-x", "-C", str(tmp)], input=tar, check=True)
         exes["base"] = tmp / "solve_base"
-        build(src, exes["base"])
+        build(tmp / "solver/solve.cpp", exes["base"])
     vpy = py_with(["pydantic", "shapely"])
 
     jobs = [(v, k, s) for v in exes for k in insts for s in range(1, a.runs + 1)]
