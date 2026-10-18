@@ -62,7 +62,11 @@ struct Engine {
     }
     void doClose(int o) {
         if (!s.isopen[o]) return;
+        bool d = s.defer;
+        s.defer = true;      // оболочку всё равно снимаем целиком
         while (!s.members[o].empty()) doRemove(s.members[o].back());
+        s.defer = d;
+        s.dirty[o] = 0;
         s.isopen[o] = 0;
         s.sig_open(o);
         s.clear_cov(o);
@@ -70,6 +74,7 @@ struct Engine {
         if (rec) jr.push_back({3, -1, o});
     }
     void undo(size_t mark) {
+        s.begin_defer();   // снимает и отложенное состояние вызывающего (end_defer ниже)
         while (jr.size() > mark) {
             Op op = jr.back();
             jr.pop_back();
@@ -80,5 +85,6 @@ struct Engine {
             else { s.isopen[op.o] = 1; s.sig_open(op.o); s.rebuild_hull(op.o); }
             rec = r;
         }
+        s.end_defer();
     }
 };

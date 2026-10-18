@@ -15,7 +15,9 @@ static bool resize_dp(Sol& s, double deadline, bool allow_close = true) {
         for (int o = 0; o < I.no; o++) {
             if (!s.isopen[o]) continue;
             vector<int> mem = s.members[o];
+            s.begin_defer();
             for (int x : mem) if (I.pr(o, x) < 0) { s.remove_site(x); ch = true; }
+            s.end_defer();
         }
         return ch;
     }
@@ -25,7 +27,9 @@ static bool resize_dp(Sol& s, double deadline, bool allow_close = true) {
         bool ch = false;
         for (int o : ops) {
             vector<int> mem = s.members[o];
+            s.begin_defer();
             for (int x : mem) if (I.pr(o, x) < 0) { s.remove_site(x); ch = true; }
+            s.end_defer();
         }
         return ch;
     }
@@ -147,7 +151,9 @@ static bool resize_dp(Sol& s, double deadline, bool allow_close = true) {
             if (row[l >> 6] >> (l & 63) & 1ULL) { keep[x] = 1; l -= w; }
         }
         vector<int> mem = s.members[o];
+        s.begin_defer();
         for (int x : mem) if (!keep[x]) { s.remove_site(x); changed = true; }
+        s.end_defer();
     }
     return changed;
 }

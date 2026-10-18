@@ -13,6 +13,9 @@
             нормировка как у жюри — медиана / лучшее известное (results/local/suite_best.csv,
             обновляется само) и всех прогонов head/base. Для оценки качества правок.
 --par P    не больше P прогонов одновременно (потоков на прогон = ядра / P).
+--detail   (--suite) нормированные значения каждого прогона по инстансам.
+--env K=V  переменная окружения только для head (можно несколько): A/B флага против
+            того же кода без флага — `--env ALNS=1 --base HEAD`.
 --record   обновить results/best.csv и results/best<k>.json (только открытые инстансы,
             делать в отдельном PR). Без флага лучшие решения кладутся в results/local/.
 Итог: score = Σ min(f/best, 1) по открытым инстансам (так нормирует жюри), TIME — wall
@@ -68,6 +71,9 @@ def main():
     ap.add_argument("--record", action="store_true")
     ap.add_argument("--suite", action="store_true")
     ap.add_argument("--par", type=int, default=0)
+    ap.add_argument("--detail", action="store_true", help="--suite: значения по инстансам и зёрнам")
+    ap.add_argument("--env", action="append", default=[],
+                    help="K=V только для head (A/B флага против того же кода: --env ALNS=1 --base HEAD)")
     a = ap.parse_args()
 
     if a.synth:
@@ -107,6 +113,8 @@ def main():
         v, k, seed = job
         out = tmp / f"{v}_{k}_{seed}.json"
         env = dict(os.environ, NT=nt, SEED=str(seed))
+        if v == "head":
+            env.update(kv.split("=", 1) for kv in a.env)
         t0 = time.time()
         r = subprocess.run([str(exes[v]), str(insts[k]), str(out), str(a.seconds)],
                            capture_output=True, text=True, env=env)
@@ -205,6 +213,11 @@ def suite_report(a, insts, by):
             med = statistics.median(vals)
             norm[v] = min(med / ref, 1.0) if ref > 0 else (1.0 if med >= ref - 1e-9 else 0.0)
         rows.setdefault(k.rstrip("0123456789"), []).append((k, norm))
+        if a.detail:
+            for v in vs:
+                vals = " ".join("-" if r[0] is None else f"{r[0] / ref:.4f}" if ref > 0 else f"{r[0]:g}"
+                                for r in by[(v, k)])
+                print(f"  {k:>12} {v:>4} {vals}")
     LOCAL.mkdir(parents=True, exist_ok=True)
     with SUITE_BEST.open("w", newline="") as fh:
         w = csv.writer(fh)
