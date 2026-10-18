@@ -219,35 +219,14 @@ static void lns(Sol& s, mt19937_64& rng, double tend, double dp_deadline, bool d
                 cnt[0][0],cnt[0][1],cnt[0][2],cnt[0][3], cnt[1][0],cnt[1][1],cnt[1][2],cnt[1][3], cnt[2][0],cnt[2][1],cnt[2][2],cnt[2][3], cnt[3][0],cnt[3][1],cnt[3][2],cnt[3][3]);
 }
 
-// Сколько потоков запускать. hardware_concurrency показывает ядра хоста, а
-// контейнер может быть ограничен квотой cgroup — учитываем и её.
+// Сколько потоков запускать: ядра, доступные процессу (sched_getaffinity — системный
+// вызов, учитывает --cpuset-cpus). Файлы (/sys, /proc, квоту cgroup) не читаем: по
+// правилам открывать можно только instance.json и solution.json.
 static int detect_cpus() {
-    double q = 1e9;
-    {
-        FILE* f = fopen("/sys/fs/cgroup/cpu.max", "r");
-        if (f) {
-            char a[64] = {0};
-            long long per = 0;
-            if (fscanf(f, "%63s %lld", a, &per) == 2 && per > 0 && strcmp(a, "max") != 0)
-                q = min(q, atof(a) / (double)per);
-            fclose(f);
-        }
-    }
-    {
-        FILE* f1 = fopen("/sys/fs/cgroup/cpu/cpu.cfs_quota_us", "r");
-        FILE* f2 = fopen("/sys/fs/cgroup/cpu/cpu.cfs_period_us", "r");
-        if (f1 && f2) {
-            long long qu = -1, pe = 0;
-            if (fscanf(f1, "%lld", &qu) == 1 && fscanf(f2, "%lld", &pe) == 1 && qu > 0 && pe > 0)
-                q = min(q, (double)qu / (double)pe);
-        }
-        if (f1) fclose(f1);
-        if (f2) fclose(f2);
-    }
     if (getenv("NT")) return max(1, atoi(getenv("NT")));
-    unsigned hc = thread::hardware_concurrency();
-    double c = min((double)(hc ? hc : 1u), q);
-    int n = (int)floor(c + 1e-9);
+    cpu_set_t cs;
+    CPU_ZERO(&cs);
+    int n = sched_getaffinity(0, sizeof cs, &cs) == 0 ? CPU_COUNT(&cs) : 1;
     if (n < 1) n = 1;
     if (n > 16) n = 16;
     return n;

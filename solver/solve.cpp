@@ -297,6 +297,8 @@ int main(int argc, char** argv) {
         double dp_deadline = limit - max(1.0, 0.05 * limit);
         int nth = detect_cpus();
         if (I.ns > 20000) nth = min(nth, 6);
+        // без явного предела арен malloc в потоках сам читает /sys/devices/system/cpu/online
+        mallopt(M_ARENA_MAX, nth + 2);
         vector<thread> th;
         // EXACT2=1: точный перебор 1–2 офисов отдельным потоком (сверх nth)
         if (getenv("EXACT2") && atoi(getenv("EXACT2")) > 0)
