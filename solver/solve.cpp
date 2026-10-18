@@ -201,7 +201,7 @@ int main(int argc, char** argv) {
         // жадное добавление офисов
         vector<int> cur;
         double cur_f = 0;
-        const bool lazy = getenv("LAZY") && atoi(getenv("LAZY")) > 0;
+        const bool lazy = !getenv("LAZY") || atoi(getenv("LAZY")) > 0;  // LAZY=0 — старый жадный
         if (lazy) {
             // ленивый жадный: приросты с прошлых шагов — оценки сверху, пересчитываем
             // только лидера; полный перебор на каждом шаге на 10⁴ сайтов не успевает
