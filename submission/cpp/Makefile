@@ -1,5 +1,5 @@
 build:
-	g++ -O3 -std=c++17 -pthread -o solve solve.cpp
+	g++ -O2 -std=c++17 -o solution main.cpp
 
 run:
-	./solve
+	./solution
