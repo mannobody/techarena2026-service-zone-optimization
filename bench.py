@@ -45,7 +45,7 @@ def py_with(mods):
 def build(src, exe):
     """Собирает тем же флагами, что и посылка (строка g++ из Makefile)."""
     mk = (ROOT / "submission/cpp/Makefile").read_text()
-    flags = re.search(r"g\+\+ (.*?) -o solve solve\.cpp", mk).group(1).split()
+    flags = re.search(r"g\+\+ (.*?) -o solution main\.cpp", mk).group(1).split()
     cxx = os.environ.get("CXX") or shutil.which("g++") or shutil.which("clang++")
     if not cxx:
         sys.exit("нет C++ компилятора: sudo apt install g++")
