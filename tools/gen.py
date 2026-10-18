@@ -2,11 +2,14 @@
 """Генератор синтетических инстансов под скрытые тесты.
 
     python3 tools/gen.py OUTDIR [N=12] [--edge]
+    python3 tools/gen.py OUTDIR --suite
 
 genK.json — случайные режимы (евклид, манхэттен, дороги, дороги против геометрии,
 офисы в углу/по периметру, дефицит навыков, многопрофильные рабочие).
 --edge добавляет edge_*.json: граничные случаи и самый крупный размер.
 Набор детерминирован (фиксированные зёрна), его гоняет `bench.py --synth`.
+--suite — только suite_<класс><i>.json: набор по классам закрытых тестов для оценки
+качества (`bench.py --suite`), а не только валидности.
 """
 import json, math, random, sys
 
@@ -112,8 +115,109 @@ def edge(outdir):
     gen(4242, 10000, 20, 40, 5, 'road', 'small', 'mid', f'{outdir}/edge_big10k.json')
 
 
+def gen2(seed, out, ns, no, nw, nsk, layout='uniform', offices='random', dist='euclid', span=None,
+         dscale=1.0, tmax=3, wsk=1, deficit=0, af=0.01, A=None, capf=1.0):
+    """Гибкий генератор для --suite. af — α в долях reward; A=None — ns/(2·no)."""
+    rnd = random.Random(seed)
+    span = span or rnd.choice([1.0, 100.0, 1000.0])
+    if layout == 'cluster':
+        cs = [(rnd.uniform(0, span), rnd.uniform(0, span), span * rnd.uniform(0.03, 0.12))
+              for _ in range(rnd.randint(3, 8))]
+        pts = []
+        for _ in range(ns):
+            cx, cy, r = rnd.choice(cs)
+            pts.append((rnd.gauss(cx, r), rnd.gauss(cy, r)))
+    elif layout == 'grid':   # решётка: коллинеарные точки и дубликаты
+        g = max(2, int(math.sqrt(ns * 0.7)))
+        pts = [(span * rnd.randrange(g) / g, span * rnd.randrange(g) / g) for _ in range(ns)]
+    else:
+        pts = [(rnd.uniform(0, span), rnd.uniform(0, span)) for _ in range(ns)]
+    if offices == 'perimeter':
+        offs = []
+        for i in range(no):
+            t = (i + rnd.random() * 0.5) / no * 4
+            q, f = int(t) % 4, t % 1
+            offs.append([(f * span, -0.05 * span), (1.05 * span, f * span),
+                         ((1 - f) * span, 1.05 * span), (-0.05 * span, (1 - f) * span)][q])
+    elif offices == 'onsite':   # офисы в точках сайтов
+        offs = [rnd.choice(pts) for _ in range(no)]
+    else:
+        offs = [(rnd.uniform(0, span), rnd.uniform(0, span)) for _ in range(no)]
+    tasks = [[rnd.randrange(nsk) for _ in range(rnd.randint(0 if tmax > 1 else 1, tmax))] for _ in range(ns)]
+    # навыки рабочих: wsk на рабочего; первые deficit навыков — 0 или 1 рабочий
+    skills = list(range(nsk))
+    workers = []
+    for k in range(deficit):
+        if k % 2:
+            workers.append([k])
+    rest = skills[deficit:] or skills
+    while len(workers) < nw:
+        workers.append(sorted(set(rnd.choice(rest) for _ in range(rnd.randint(1, wsk)))))
+    D = []
+    for o in range(no):
+        row = []
+        for x in range(ns):
+            e = math.dist(offs[o], pts[x])
+            if dist == 'manhattan':
+                d = abs(offs[o][0] - pts[x][0]) + abs(offs[o][1] - pts[x][1])
+            elif dist == 'road':
+                d = e * rnd.uniform(0.8, 2.0)
+            elif dist == 'anti':
+                d = (span * 1.6 - e) * rnd.uniform(0.8, 1.2)
+            else:
+                d = e
+            row.append(max(0.0, d) * dscale)
+        D.append(row)
+    mean_d = sum(map(sum, D)) / max(1, no * ns)
+    reward = mean_d * rnd.uniform(0.8, 2.0)
+    cost = [reward * ns / no * rnd.uniform(0.01, 0.1) for _ in range(no)]
+    cap = [max(1, int(ns / no * capf * rnd.uniform(0.6, 1.4))) for _ in range(no)]
+    json.dump({'sites': [{'x': p[0], 'y': p[1], 'reward': reward, 'tasks': t} for p, t in zip(pts, tasks)],
+               'offices': [{'x': o[0], 'y': o[1], 'cost': c, 'maxSize': m} for o, c, m in zip(offs, cost, cap)],
+               'workers': workers, 'distances': D,
+               'maxDifference': max(0, ns // (2 * no)) if A is None else A,
+               'balanceCoefficient': reward * af}, open(out, 'w'))
+
+
+# класс -> (число инстансов, функция параметров от rnd); зёрна фиксированы
+SUITE = {
+    'small': (4, lambda r: dict(ns=r.choice([60, 100, 150]), no=r.choice([2, 3, 4]), nw=r.choice([3, 5, 6]),
+                                nsk=3, tmax=2, dist=r.choice(['euclid', 'road']))),
+    'medium': (4, lambda r: dict(ns=r.choice([200, 350, 600]), no=r.choice([5, 8, 10]), nw=20, nsk=4,
+                                 dist=r.choice(['euclid', 'road', 'manhattan']))),
+    'large': (4, lambda r: dict(ns=r.choice([2000, 3500, 5000]), no=r.choice([10, 15, 20]), nw=40, nsk=5,
+                                dist=r.choice(['euclid', 'road']))),
+    'huge': (2, lambda r: dict(ns=10000, no=r.choice([20, 25]), nw=50, nsk=5, dist='road')),
+    'multiskill': (4, lambda r: dict(ns=r.choice([150, 400]), no=r.choice([4, 6, 8]), nw=r.choice([8, 12]),
+                                     nsk=r.choice([4, 6, 8]), wsk=3, tmax=3)),
+    'deficit': (4, lambda r: dict(ns=r.choice([150, 400]), no=r.choice([4, 6]), nw=r.choice([6, 10]),
+                                  nsk=5, deficit=r.choice([2, 3]))),
+    'alphazero': (4, lambda r: dict(ns=r.choice([200, 600]), no=r.choice([5, 10]), nw=20, nsk=4, af=0.0)),
+    'alphabig': (4, lambda r: dict(ns=r.choice([300, 600]), no=r.choice([8, 15]), nw=30, nsk=4,
+                                   span=1.0, dscale=1e5, af=r.choice([2.0, 5.0]), tmax=6)),
+    'tightA': (4, lambda r: dict(ns=r.choice([150, 400]), no=r.choice([4, 8]), nw=16, nsk=4,
+                                 A=r.choice([0, 1, 2]), capf=r.choice([0.5, 1.0]))),
+    'cluster': (4, lambda r: dict(ns=r.choice([200, 600, 1500]), no=r.choice([5, 10]), nw=20, nsk=4,
+                                  layout='cluster', offices=r.choice(['random', 'onsite']))),
+    'anti': (4, lambda r: dict(ns=r.choice([150, 330, 600]), no=r.choice([5, 10]), nw=20, nsk=3,
+                               dist='anti', offices=r.choice(['random', 'perimeter']))),
+    'grid': (4, lambda r: dict(ns=r.choice([100, 300]), no=r.choice([3, 6]), nw=12, nsk=3,
+                               layout='grid', offices='onsite')),
+}
+
+
+def suite(outdir):
+    for cls, (n, mk) in SUITE.items():
+        for i in range(n):
+            seed = 9000 + 100 * list(SUITE).index(cls) + i
+            gen2(seed, f'{outdir}/suite_{cls}{i}.json', **mk(random.Random(seed)))
+
+
 if __name__ == '__main__':
     outdir = sys.argv[1]
+    if '--suite' in sys.argv:
+        suite(outdir)
+        sys.exit()
     if '--edge' in sys.argv:
         sys.argv.remove('--edge')
         edge(outdir)

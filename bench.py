@@ -2,13 +2,17 @@
 """Бенчмарк решателя: сборка (флаги из submission/cpp/Makefile), параллельный прогон,
 официальный валидатор, компактная таблица.
 
-    python3 bench.py [сек=60] [--only 0,3] [--runs N] [--base REF] [--synth] [--record]
+    python3 bench.py [сек=60] [--only 0,3] [--runs N] [--base REF] [--synth | --suite] [--record] [--par P]
 
 --runs N   N зёрен (SEED=1..N) на инстанс: печатается медиана и максимум.
 --base REF  A/B: тот же прогон для solver/ из git-ревизии REF (напр. origin/main),
             колонка delta — медиана ветки против медианы базы на тех же зёрнах.
 --synth    вместо открытых инстансов — синтетика tools/gen.py (12 случайных + edge_*),
             главное там — VALID и время, а не значение.
+--suite    набор по классам закрытых тестов (tools/gen.py --suite, 46 инстансов): итог по классам,
+            нормировка как у жюри — медиана / лучшее известное (results/local/suite_best.csv,
+            обновляется само) и всех прогонов head/base. Для оценки качества правок.
+--par P    не больше P прогонов одновременно (потоков на прогон = ядра / P).
 --record   обновить results/best.csv и results/best<k>.json (только открытые инстансы,
             делать в отдельном PR). Без флага лучшие решения кладутся в results/local/.
 Итог: score = Σ min(f/best, 1) по открытым инстансам (так нормирует жюри), TIME — wall
@@ -32,6 +36,8 @@ TASK = ROOT / "task"
 BEST = ROOT / "results" / "best.csv"
 LOCAL = ROOT / "results" / "local"
 SYNTH = LOCAL / "synth"
+SUITE = LOCAL / "suite"
+SUITE_BEST = LOCAL / "suite_best.csv"
 
 
 def py_with(mods):
@@ -60,6 +66,8 @@ def main():
     ap.add_argument("--base", default="")
     ap.add_argument("--synth", action="store_true")
     ap.add_argument("--record", action="store_true")
+    ap.add_argument("--suite", action="store_true")
+    ap.add_argument("--par", type=int, default=0)
     a = ap.parse_args()
 
     if a.synth:
@@ -68,6 +76,12 @@ def main():
             subprocess.run([sys.executable, str(ROOT / "tools/gen.py"), str(SYNTH), "12", "--edge"],
                            check=True, capture_output=True)
         insts = {p.stem: p for p in sorted(SYNTH.glob("*.json"))}
+    elif a.suite:
+        if not (SUITE / "suite_grid3.json").exists():
+            SUITE.mkdir(parents=True, exist_ok=True)
+            subprocess.run([sys.executable, str(ROOT / "tools/gen.py"), str(SUITE), "--suite"],
+                           check=True, capture_output=True)
+        insts = {p.stem[6:]: p for p in sorted(SUITE.glob("suite_*.json"))}
     else:
         insts = {p.name[8:]: p / "instance.json" for p in sorted(TASK.glob("instance*")) if p.is_dir()}
     if a.only:
@@ -86,7 +100,7 @@ def main():
     vpy = py_with(["pydantic", "shapely"])
 
     jobs = [(v, k, s) for v in exes for k in insts for s in range(1, a.runs + 1)]
-    par = min(len(jobs), os.cpu_count() or 1)
+    par = min(len(jobs), os.cpu_count() or 1, a.par or len(jobs))
     nt = str(max(1, (os.cpu_count() or 1) // par))
 
     def run(job):
@@ -114,6 +128,10 @@ def main():
     for (v, k, _), f, msg, wall, out in res:
         by.setdefault((v, k), []).append((f, msg, wall, out))
 
+    if a.suite:
+        rc = suite_report(a, insts, by)
+        shutil.rmtree(tmp, ignore_errors=True)
+        sys.exit(rc)
     print(f"threads/run={nt} runs={a.runs}" + (f" base={a.base}" if a.base else ""))
     print(f"{'inst':>12} {'median':>15} {'max':>15} {'wall':>6} {'ref':>15} {'delta':>8}")
     bad, score, nscore, rec = False, 0.0, 0, False
@@ -161,6 +179,57 @@ def main():
         print("results/best.csv обновлён")
     shutil.rmtree(tmp, ignore_errors=True)
     sys.exit(1 if bad else 0)
+
+
+def suite_report(a, insts, by):
+    """Итог по классам: средняя нормированная медиана (как у жюри), худший инстанс."""
+    known = {}
+    if SUITE_BEST.exists():
+        known = {r["instance"]: float(r["objective"]) for r in csv.DictReader(SUITE_BEST.open())}
+    vs = ["head"] + (["base"] if a.base else [])
+    bad = False
+    rows = {}   # класс -> [(k, {v: norm})]
+    for k in insts:
+        allv = [r[0] for v in vs for r in by[(v, k)] if r[0] is not None]
+        ref = max(allv + ([known[k]] if k in known else []), default=0.0)
+        if allv and (k not in known or max(allv) > known[k]):
+            known[k] = max(allv)
+        norm = {}
+        for v in vs:
+            rs = by[(v, k)]
+            vals = [r[0] for r in rs]
+            if None in vals or max(r[2] for r in rs) > a.seconds + 3:
+                norm[v] = None   # INVALID или TIME: 0 баллов
+                bad = bad or v == "head"
+                continue
+            med = statistics.median(vals)
+            norm[v] = min(med / ref, 1.0) if ref > 0 else (1.0 if med >= ref - 1e-9 else 0.0)
+        rows.setdefault(k.rstrip("0123456789"), []).append((k, norm))
+    LOCAL.mkdir(parents=True, exist_ok=True)
+    with SUITE_BEST.open("w", newline="") as fh:
+        w = csv.writer(fh)
+        w.writerow(["instance", "objective"])
+        for k in sorted(known):
+            w.writerow([k, repr(known[k])])
+    print(f"suite: {a.seconds:g} с, runs={a.runs}" + (f", base={a.base}" if a.base else "")
+          + "; нормировка = медиана / лучшее известное, INVALID/TIME = 0")
+    hdr = f"{'класс':>11} {'n':>2} {'head':>7}" + (f" {'base':>7} {'delta':>7}" if a.base else "") + "  худший head"
+    print(hdr)
+    tot = {v: 0.0 for v in vs}
+    for cls, lst in rows.items():
+        m = {v: sum(n[v] or 0.0 for _, n in lst) / len(lst) for v in vs}
+        for v in vs:
+            tot[v] += sum(n[v] or 0.0 for _, n in lst)
+        wk, wn = min(lst, key=lambda e: e[1]["head"] or 0.0)
+        worst = "INVALID/TIME" if wn["head"] is None else f"{wn['head']:.4f}"
+        line = f"{cls:>11} {len(lst):>2} {m['head']:>7.4f}"
+        if a.base:
+            line += f" {m['base']:>7.4f} {(m['head'] - m['base']) * 100:>+6.2f}%"
+        print(line + f"  {wk} {worst}")
+    n = sum(len(l) for l in rows.values())
+    print(f"{'итого':>11} {n:>2} {tot['head'] / n:>7.4f}"
+          + (f" {tot['base'] / n:>7.4f} {(tot['head'] - tot['base']) / n * 100:>+6.2f}%" if a.base else ""))
+    return 1 if bad else 0
 
 
 if __name__ == "__main__":
