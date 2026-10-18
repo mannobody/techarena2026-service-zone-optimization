@@ -22,7 +22,8 @@
 ## Команды
 - `python3 bench.py 30` — сборка с флагами из `submission/cpp/Makefile`, все инстансы параллельно, валидатор, таблица.
   `--runs 3` (зёрна, медиана/макс), `--base origin/main` (A/B), `--synth` (синтетика + граничные случаи),
-  `--only 1,4`, `--record` (обновить `results/best*`). Код выхода 1 при INVALID или перелёте лимита.
+  `--only 1,4`, `--record` (обновить `results/best*`),
+  `--suite` (46 инстансов по классам закрытых тестов, нормировка как у жюри — **главное мерило правок**), `--par P`. Код выхода 1 при INVALID или перелёте лимита.
 - Решатель: `./solve in.json out.json SEC`; env `NT` потоки, `SEED`, `DBG=1`, `FORCE_OPS=0,3`.
 - Валидатор: `.venv/bin/python task/validate_solution.py in.json out.json`.
 - Диагностика: `tools/bound.py` (верхняя оценка), `tools/why.py in sol` (почему сайт не взят), `tools/gen.py` (синтетика).
