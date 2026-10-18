@@ -41,9 +41,9 @@ static void lns(Sol& s, mt19937_64& rng, double tend, double dp_deadline, bool d
     vector<int> assigned;
     long it = 0, acc = 0, dpn = 0; long cnt[4][4] = {};  // [kind][0 try,1 fail,2 viol,3 acc]
     double tk[5] = {}, tk0 = 0; int lastk = -1;            // DBG: время по видам хода и DP
-    // ALNS=1: вероятности видов хода по успеху на секунду (Ropke–Pisinger, нормировка по времени).
+    // ALNS (по умолчанию вкл., ALNS=0 — фиксированные): вероятности видов хода по успеху на секунду (Ropke–Pisinger, нормировка по времени).
     // Виды: 0 план навыков, 1 сдвиг навыка, 2 переразрез, 3 одиночный, 4 ruin & recreate.
-    static const bool alns = getenv("ALNS") && atoi(getenv("ALNS")) > 0;
+    static const bool alns = !getenv("ALNS") || atoi(getenv("ALNS")) > 0;
     static const int KLO[6] = {0, 7, 16, 45, 72, 100};
     double ap[5], asc[5] = {}, atm[5] = {}, arate[5] = {};
     for (int k = 0; k < 5; k++) ap[k] = (KLO[k + 1] - KLO[k]) / 100.0;
@@ -199,7 +199,7 @@ static void lns(Sol& s, mt19937_64& rng, double tend, double dp_deadline, bool d
         assigned.clear();
         for (int x = 0; x < I.ns; x++) if (s.asg[x] >= 0) assigned.push_back(x);
         int mode = rng() % 100;
-        static const bool xover = getenv("XOVER") && atoi(getenv("XOVER")) > 0;
+        static const bool xover = !getenv("XOVER") || atoi(getenv("XOVER")) > 0;  // XOVER=0 — выключить
         if (xover && mode < 12 && !lock_offices) {
             if (!ruin_crossover(E, rng)) { E.undo(mark); continue; }
             mode = -1;
