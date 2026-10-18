@@ -35,6 +35,66 @@
 // ================================================================== main
 struct Cand { double f; vector<int> op; vector<double> h; vector<Pt> G; };
 
+// OVNS=1: окрестность по наборам офисов. Из лучшего решения принудительно
+// закрыть / открыть / обменять один офис; каждый набор пробуем один раз.
+// Бассейны на малых инстансах — это набор офисов, а LNS из него сам не выходит.
+static mutex g_os_mx;
+static set<vector<char>> g_os_tried;
+static bool office_neighbor(Sol& s, mt19937_64& rng, double deadline) {
+    const Inst& I = *s.I;
+    vector<int> ea;
+    vector<char> eo;
+    {
+        lock_guard<mutex> lk(g_best_mx);
+        ea = g_best_asg;
+        eo = g_best_open;
+    }
+    if (ea.empty()) return false;
+    vector<int> in, out;
+    for (int o = 0; o < I.no; o++) (eo[o] ? in : out).push_back(o);
+    vector<pair<int, int>> nb;   // (закрыть, открыть), −1 — нет
+    for (int a : in) if (in.size() > 1) nb.push_back({a, -1});
+    for (int b : out) if (I.maxsize[b] > 0) {
+        nb.push_back({-1, b});
+        for (int a : in) nb.push_back({a, b});
+    }
+    shuffle(nb.begin(), nb.end(), rng);
+    lock_guard<mutex> lk(g_os_mx);
+    for (auto [a, b] : nb) {
+        vector<char> key = eo;
+        if (a >= 0) key[a] = 0;
+        if (b >= 0) key[b] = 1;
+        if (!g_os_tried.insert(key).second) continue;
+        s.init(I);
+        s.load_state(ea, eo);
+        Engine E(s);
+        if (a >= 0) E.doClose(a);
+        if (b >= 0) {
+            // расчистить точку офиса: снимаем ближайшие сайты, пока её не перестанут накрывать
+            const Pt& q = I.P[I.ns + b];
+            vector<pair<double, int>> near;
+            for (int x = 0; x < I.ns; x++) if (s.asg[x] >= 0) {
+                double dx = I.P[x].x - q.x, dy = I.P[x].y - q.y;
+                near.push_back({dx * dx + dy * dy, x});
+            }
+            sort(near.begin(), near.end());
+            for (size_t i = 0; i < near.size() && s.cov[I.ns + b] > 0; i++) E.doRemove(near[i].second);
+            if (s.cov[I.ns + b] > 0) continue;
+            E.doOpen(b);
+            if (!s.isopen[b]) continue;
+        }
+        s.recompute_psum();
+        greedy_fill(s, E, deadline);
+        repair_sizes(s);
+        s.recompute_psum();
+        offer(I, s);
+        if (DBG) fprintf(stderr, "ovns t=%.1f close %d open %d -> %.4f (best %.4f)\n",
+                         elapsed(), a, b, s.objective(), g_best.load());
+        return true;
+    }
+    return false;
+}
+
 static void worker(const Inst& I, const Fast& F, const vector<Cand>& cands,
                    uint64_t seed, double tend, double dp_deadline, int tid) {
     static const double LAMS[4] = {0.25, 0.10, 0.50, 0.0};
@@ -119,16 +179,25 @@ static void worker(const Inst& I, const Fast& F, const vector<Cand>& cands,
     }
 
     // --- фаза B и C: глубокие прогоны по лучшим связкам и по общему лучшему
-    int round = 0;
+    int round = 0, iter = 0;  // round — только обычные раунды: по нему идёт перебор rank
     while (elapsed() < tend - max(0.5, 0.02 * tend)) {
         double now0 = elapsed();
         double left = tend - now0;
         bool last = now0 >= P3;
-        double chunk = last ? left : max(1.5, min(left, min(0.12 * tend, left / 2.0)));
+        static const double CH = getenv("CHUNK") ? atof(getenv("CHUNK")) : 0.12;  // доля лимита на глубокий прогон
+        double chunk = last ? left : max(1.5, min(left, min(CH * tend, left / 2.0)));
         double ce = now0 + chunk;
-        bool fromBest = false;
+        bool fromBest = false, forced = false;
+        static const bool ovns = getenv("OVNS") && atoi(getenv("OVNS")) > 0;
+        if (ovns && !last && (iter++ & 1) && I.ns <= 3000)
+            forced = office_neighbor(s, rng, min(ce, dp_deadline));
         // половина потоков идёт независимо, чтобы выборка была разнообразнее
         double pBest = last ? 1.0 : ((tid & 1) ? 0.0 : 0.5);
+        if (forced) {
+            lns(s, rng, now0 + 0.4 * chunk, dp_deadline, false, LAMS[tid % 4], RUINS[tid % 3], true);
+            lns(s, rng, ce, dp_deadline, true, LAMS[tid % 4], RUINS[tid % 3], false);
+            continue;
+        }
         if (U(rng) < pBest) {
             vector<int> ea;
             vector<char> eo;

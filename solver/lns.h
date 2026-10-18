@@ -242,6 +242,22 @@ static void lns(Sol& s, mt19937_64& rng, double tend, double dp_deadline, bool d
             if (cl.empty()) { E.undo(mark); continue; }
             int o = cl[rng() % cl.size()];
             const Pt& q = I.P[I.ns + o];
+            // OSWAP=1: обмен офисов за один ход — заодно закрыть ближайший открытый,
+            // иначе переход между наборами одного размера идёт через худший набор
+            static const bool oswap = getenv("OSWAP") && atoi(getenv("OSWAP")) > 0;
+            if (oswap && !lock_offices && (rng() & 1)) {
+                int oc = -1;
+                double bd = 1e300;
+                for (int p = 0; p < I.no; p++) if (s.isopen[p]) {
+                    double dx = I.P[I.ns + p].x - q.x, dy = I.P[I.ns + p].y - q.y;
+                    if (dx * dx + dy * dy < bd) { bd = dx * dx + dy * dy; oc = p; }
+                }
+                if (oc >= 0) {
+                    E.doClose(oc);
+                    assigned.clear();
+                    for (int x = 0; x < I.ns; x++) if (s.asg[x] >= 0) assigned.push_back(x);
+                }
+            }
             vector<pair<double, int>> v;
             v.reserve(assigned.size());
             for (int x : assigned) {
