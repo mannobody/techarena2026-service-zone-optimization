@@ -1,6 +1,51 @@
 // improve.h: greedy_fill, try_open_office, polish, перепланирование навыков.
 // Часть solve.cpp (одна единица трансляции): включается только из него, порядок важен.
 
+// Дозаполнение «уровнем»: при жёстком A (часто A = 0) любое одиночное добавление
+// ломает баланс размеров, а DP умеет только снимать — зоны застревают ниже
+// возможного. Раунд добавляет по сайту каждой зоне минимального размера и
+// принимается целиком, если цель выросла. LEVEL=0 — выключить.
+static bool level_fill(Sol& s, Engine& E, double deadline) {
+    static const bool on = !getenv("LEVEL") || atoi(getenv("LEVEL")) > 0;
+    const Inst& I = *s.I;
+    if (!on) return false;
+    bool rec0 = E.rec;
+    size_t base = E.jr.size();
+    E.rec = true;
+    bool any = false;
+    vector<pair<double, int>> c;
+    for (int round = 0; round < I.ns && elapsed() < deadline; round++) {
+        int mn = INT_MAX, nz = 0;
+        for (int o = 0; o < I.no; o++)
+            if (s.isopen[o] && s.size_[o] > 0) { mn = min(mn, s.size_[o]); nz++; }
+        if (nz < 2) break;
+        double f0 = s.objective();
+        size_t mark = E.jr.size();
+        bool ok = true;
+        for (int o = 0; o < I.no && ok; o++) {
+            if (!s.isopen[o] || s.size_[o] != mn) continue;
+            if (s.size_[o] >= I.maxsize[o]) { ok = false; break; }
+            c.clear();
+            for (int x = 0; x < I.ns; x++)
+                if (s.asg[x] < 0 && I.servable[x]) c.push_back({I.pr(o, x), x});
+            int k = min((int)c.size(), 40);
+            partial_sort(c.begin(), c.begin() + k, c.end(), greater<pair<double, int>>());
+            ok = false;
+            for (int i = 0; i < k && !ok; i++) ok = E.doAdd(c[i].second, o);
+        }
+        if (ok) {
+            s.recompute_psum();
+            ok = E.size_viol(-1, -1) == 0 && s.objective() > f0 + 1e-9
+                 && (I.simple_workers || s.greedy_workers(nullptr));
+        }
+        if (!ok) { E.undo(mark); s.recompute_psum(); break; }
+        any = true;
+    }
+    if (!rec0) E.jr.resize(base);
+    E.rec = rec0;
+    return any;
+}
+
 // Дозаполнение: добавляем все свободные сайты, которые улучшают честную цель.
 // Точный DP умеет только снимать сайты, переразрез работает парами зон, поэтому
 // без этого шага выгодные и допустимые сайты так и остаются неназначенными.
@@ -43,6 +88,7 @@ static bool greedy_fill(Sol& s, Engine& E, double deadline) {
         }
         if (!changed) break;
     }
+    if (level_fill(s, E, deadline)) any = true;
     return any;
 }
 
