@@ -147,17 +147,26 @@ static void realize(Sol& s, const Inst& I, const vector<int>& ops, const vector<
         order.push_back({I.pr(o, x), {x, o}});
     }
     sort(order.rbegin(), order.rend());
+    // План навыков считает по числу рабочих N_k, а многопрофильный рабочий не
+    // закроет навыки в двух офисах сразу: сайт с новым для офиса навыком берём,
+    // только если рабочих ещё можно раздать (WFIX=0 — без проверки)
+    static const bool wfix = !getenv("WFIX") || atoi(getenv("WFIX")) > 0;
+    const bool chk = wfix && !I.simple_workers;
+    auto add = [&](int x, int o) {
+        uint64_t sg = s.sig;
+        if (E.doAdd(x, o) && chk && s.sig != sg && !s.greedy_workers(nullptr)) s.remove_site(x);
+    };
     size_t i = 0;
     for (auto& e : order) {
         if ((++i & 63) == 0 && elapsed() > deadline) break;
-        E.doAdd(e.second.first, e.second.second);
+        add(e.second.first, e.second.second);
     }
     E.clear_ban();
     // вторым проходом добиваем то, что влезает и без плана
     i = 0;
     for (auto& e : order) {
         if ((++i & 63) == 0 && elapsed() > deadline) break;
-        if (s.asg[e.second.first] < 0) E.doAdd(e.second.first, e.second.second);
+        if (s.asg[e.second.first] < 0) add(e.second.first, e.second.second);
     }
 }
 
