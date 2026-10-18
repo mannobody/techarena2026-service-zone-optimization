@@ -23,6 +23,47 @@ struct Inst {
     double ext = 1, eps_len = 0, eps_cr = 0;
     int totalTasks = 0;
 
+    // равномерная сетка по всем точкам P: запросы «точки в прямоугольнике» без прохода по всем
+    int gnx = 1, gny = 1;
+    double gx0 = 0, gy0 = 0, gcw = 1, gch = 1;
+    vector<int> gstart, gpts;          // точки ячейки c: gpts[gstart[c] .. gstart[c+1])
+
+    void build_grid() {
+        int n = P.size();
+        if (n == 0) { gstart.assign(2, 0); return; }
+        double mnx = 1e300, mxx = -1e300, mny = 1e300, mxy = -1e300;
+        for (auto& q : P) { mnx = min(mnx, q.x); mxx = max(mxx, q.x); mny = min(mny, q.y); mxy = max(mxy, q.y); }
+        int g = max(1, (int)sqrt(n / 2.0));
+        gnx = gny = g;
+        gx0 = mnx; gy0 = mny;
+        gcw = (mxx - mnx) / g; gch = (mxy - mny) / g;
+        if (!(gcw > 0)) { gcw = 1; gnx = 1; }
+        if (!(gch > 0)) { gch = 1; gny = 1; }
+        vector<int> cell(n);
+        gstart.assign((size_t)gnx * gny + 1, 0);
+        for (int i = 0; i < n; i++) {
+            int cx = min(gnx - 1, max(0, (int)((P[i].x - gx0) / gcw)));
+            int cy = min(gny - 1, max(0, (int)((P[i].y - gy0) / gch)));
+            cell[i] = cy * gnx + cx;
+            gstart[cell[i] + 1]++;
+        }
+        for (size_t c = 1; c < gstart.size(); c++) gstart[c] += gstart[c - 1];
+        gpts.resize(n);
+        vector<int> fillp(gstart.begin(), gstart.end() - 1);
+        for (int i = 0; i < n; i++) gpts[fillp[cell[i]]++] = i;
+    }
+    // f(i) для каждой точки, чья ячейка пересекает [x0,x1]×[y0,y1] (надмножество точек прямоугольника)
+    template <class F> void for_box(double x0, double x1, double y0, double y1, F&& f) const {
+        if (!(x1 >= x0) || !(y1 >= y0)) return;
+        auto ci = [](double v, int g) { return v < 0 ? 0 : v >= g ? g - 1 : (int)v; };
+        int cx0 = ci(floor((x0 - gx0) / gcw), gnx), cx1 = ci(floor((x1 - gx0) / gcw), gnx);
+        int cy0 = ci(floor((y0 - gy0) / gch), gny), cy1 = ci(floor((y1 - gy0) / gch), gny);
+        for (int cy = cy0; cy <= cy1; cy++) {
+            int c0 = cy * gnx;
+            for (int i = gstart[c0 + cx0]; i < gstart[c0 + cx1 + 1]; i++) f(gpts[i]);
+        }
+    }
+
     inline double d(int o, int s) const { return D[(size_t)o * ns + s]; }
     inline double pr(int o, int s) const { return prof[(size_t)o * ns + s]; }
 };
@@ -160,6 +201,7 @@ static Inst load_instance(const string& path) {
     if (!(I.ext > 0)) I.ext = 1.0;
     I.eps_len = 1e-9 * I.ext;
     I.eps_cr = 1e-9 * I.ext * I.ext;
+    I.build_grid();
     // кандидаты: офисы по возрастанию расстояния
     I.cand.resize(I.ns);
     {

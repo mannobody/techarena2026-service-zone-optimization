@@ -19,6 +19,12 @@ struct Sol {
     double psum = 0;
     int np = 0;
     uint64_t sig = 0;              // хэш «какой офис какие навыки требует»
+    // отложенная перестройка оболочек: серия снятий/откат перестраивает оболочку раз на офис
+    bool defer = false;
+    vector<char> dirty;
+    // точки, которые станут покрытыми при последнем успешном geo_ok(gs, go) (для add_site_raw)
+    mutable vector<int> gnew;
+    mutable int gs = -1, go = -1;
     vector<uint64_t> sigkey;       // [o*nsk+k] и [no*nsk+o] для isopen
 
     void init(const Inst& In) {
@@ -36,6 +42,9 @@ struct Sol {
         covlist.assign(I->no, {});
         incov.assign((size_t)I->no * np, 0);
         cov.assign(np, 0);
+        dirty.assign(I->no, 0);
+        defer = false;
+        gs = go = -1;
         psum = 0;
         sigkey.resize((size_t)I->no * I->nsk + I->no);
         mt19937_64 r(0xC0FFEE123ULL);
@@ -57,31 +66,37 @@ struct Sol {
         int n = np;
         if (h.empty()) return;
         if (h.size() == 1) {
-            for (int i = 0; i < n; i++)
+            double e = I->eps_len;
+            I->for_box(h[0].x - e, h[0].x + e, h[0].y - e, h[0].y + e, [&](int i) {
                 if (fabs(P[i].x - h[0].x) <= I->eps_len && fabs(P[i].y - h[0].y) <= I->eps_len) {
                     row[i] = 1; cov[i]++; covlist[o].push_back(i);
                 }
+            });
             return;
         }
         if (h.size() == 2) {
             double ax = h[0].x, ay = h[0].y, dx = h[1].x - ax, dy = h[1].y - ay;
             double L2 = dx * dx + dy * dy, L = sqrt(L2);
-            for (int i = 0; i < n; i++) {
+            auto f = [&](int i) {
                 double X = P[i].x - ax, Y = P[i].y - ay;
                 double c = dx * Y - dy * X, t = dx * X + dy * Y;
                 if (fabs(c) <= I->eps_cr + I->eps_len * L && t >= -I->eps_len * L && t <= L2 + I->eps_len * L) {
                     row[i] = 1; cov[i]++; covlist[o].push_back(i);
                 }
-            }
+            };
+            double e = 2 * I->eps_len + (L > 0 ? I->eps_cr / L : 1e300);
+            if (e > I->ext) { for (int i = 0; i < n; i++) f(i); return; }
+            I->for_box(min(ax, h[1].x) - e, max(ax, h[1].x) + e, min(ay, h[1].y) - e, max(ay, h[1].y) + e, f);
             return;
         }
         size_t m = h.size();
         double mnx = 1e300, mxx = -1e300, mny = 1e300, mxy = -1e300;
         for (auto& q : h) { mnx = min(mnx, q.x); mxx = max(mxx, q.x); mny = min(mny, q.y); mxy = max(mxy, q.y); }
         mnx -= I->eps_len; mxx += I->eps_len; mny -= I->eps_len; mxy += I->eps_len;
-        for (int i = 0; i < n; i++) {
+        (void)n;
+        I->for_box(mnx, mxx, mny, mxy, [&](int i) {
             double X = P[i].x, Y = P[i].y;
-            if (X < mnx || X > mxx || Y < mny || Y > mxy) continue;
+            if (X < mnx || X > mxx || Y < mny || Y > mxy) return;
             bool in = true;
             for (size_t e2 = 0; e2 < m && in; e2++) {
                 const Pt& a = h[e2];
@@ -91,12 +106,17 @@ struct Sol {
                 in = ex * (Y - a.y) - ey * (X - a.x) >= tol;
             }
             if (in) { row[i] = 1; cov[i]++; covlist[o].push_back(i); }
-        }
+        });
     }
     void set_hull(int o, vector<Pt> h) {
         clear_cov(o);
         hull[o] = move(h);
         apply_cov(o, hull[o]);
+    }
+    void begin_defer() { defer = true; }
+    void end_defer() {
+        defer = false;
+        for (int o = 0; o < I->no; o++) if (dirty[o]) { dirty[o] = 0; rebuild_hull(o); }
     }
     void rebuild_hull(int o) {
         vector<Pt> pts;
@@ -109,7 +129,9 @@ struct Sol {
     // можно ли добавить сайт s в офис o по геометрии; newh — новая оболочка (пусто = без изменений)
     bool geo_ok(int s, int o, vector<Pt>& newh) const {
         newh.clear();
+        gs = go = -1;
         if (incov[(size_t)o * np + s]) return true;
+        gnew.clear();
         vector<Pt> pts = hull[o];
         pts.push_back(I->P[s]);
         hull_of(pts);
@@ -121,10 +143,11 @@ struct Sol {
             double mnx = 1e300, mxx = -1e300, mny = 1e300, mxy = -1e300;
             for (auto& q : pts) { mnx = min(mnx, q.x); mxx = max(mxx, q.x); mny = min(mny, q.y); mxy = max(mxy, q.y); }
             mnx -= I->eps_len; mxx += I->eps_len; mny -= I->eps_len; mxy += I->eps_len;
-            for (int i = 0; i < np; i++) {
-                if (row[i] || cov[i] == 0) continue;
+            bool bad = false;
+            I->for_box(mnx, mxx, mny, mxy, [&](int i) {
+                if (bad || row[i]) return;
                 double X = P[i].x, Y = P[i].y;
-                if (X < mnx || X > mxx || Y < mny || Y > mxy) continue;
+                if (X < mnx || X > mxx || Y < mny || Y > mxy) return;
                 bool in = true;
                 for (size_t e2 = 0; e2 < m && in; e2++) {
                     const Pt& a = pts[e2];
@@ -133,17 +156,27 @@ struct Sol {
                     double tol = -I->eps_cr - I->eps_len * sqrt(ex * ex + ey * ey);
                     in = ex * (Y - a.y) - ey * (X - a.x) >= tol;
                 }
-                if (in) return false;
-            }
+                if (in) { if (cov[i]) bad = true; else gnew.push_back(i); }
+            });
+            if (bad) return false;
+            gs = s; go = o;
         } else if (m == 2) {
             double ax = pts[0].x, ay = pts[0].y, dx = pts[1].x - ax, dy = pts[1].y - ay;
             double L2 = dx * dx + dy * dy, L = sqrt(L2);
-            for (int i = 0; i < np; i++) {
-                if (row[i] || cov[i] == 0) continue;
+            bool bad = false;
+            auto f = [&](int i) {
+                if (bad || row[i]) return;
                 double X = P[i].x - ax, Y = P[i].y - ay;
                 double c = dx * Y - dy * X, t = dx * X + dy * Y;
-                if (fabs(c) <= I->eps_cr + I->eps_len * L && t >= -I->eps_len * L && t <= L2 + I->eps_len * L) return false;
-            }
+                if (fabs(c) <= I->eps_cr + I->eps_len * L && t >= -I->eps_len * L && t <= L2 + I->eps_len * L) {
+                    if (cov[i]) bad = true; else gnew.push_back(i);
+                }
+            };
+            double e = 2 * I->eps_len + (L > 0 ? I->eps_cr / L : 1e300);
+            if (e > I->ext) for (int i = 0; i < np; i++) f(i);
+            else I->for_box(min(ax, pts[1].x) - e, max(ax, pts[1].x) + e, min(ay, pts[1].y) - e, max(ay, pts[1].y) + e, f);
+            if (bad) return false;
+            gs = s; go = o;
         }
         newh = move(pts);
         return true;
@@ -190,7 +223,11 @@ struct Sol {
     }
     void close_office(int o) {
         if (!isopen[o]) return;
+        bool d = defer;
+        defer = true;
         while (!members[o].empty()) remove_site(members[o].back());
+        defer = d;
+        dirty[o] = 0;
         isopen[o] = 0;
         clear_cov(o);
         hull[o].clear();
@@ -203,6 +240,7 @@ struct Sol {
         members[o][p] = last; pos[last] = p; members[o].pop_back(); pos[s] = -1;
         size_[o]--; load[o] -= I->ntask[s]; psum -= I->pr(o, s);
         for (int k : I->skillset[s]) if (--need[o][k] == 0) { cntSkill[k]--; sig_need(o, k); }
+        if (defer) { dirty[o] = 1; return; }
         bool onhull = false;
         for (auto& q : hull[o]) if (pteq(q, I->P[s])) { onhull = true; break; }
         if (onhull) rebuild_hull(o);
@@ -213,7 +251,14 @@ struct Sol {
         members[o].push_back(s);
         size_[o]++; load[o] += I->ntask[s]; psum += I->pr(o, s);
         for (int k : I->skillset[s]) if (need[o][k]++ == 0) { cntSkill[k]++; sig_need(o, k); }
-        if (!newh.empty()) set_hull(o, move(newh));
+        if (newh.empty()) return;
+        if (gs == s && go == o) {
+            // новая оболочка содержит старую: дописываем только новые точки из geo_ok
+            hull[o] = move(newh);
+            char* row = &incov[(size_t)o * np];
+            for (int i : gnew) { row[i] = 1; cov[i]++; covlist[o].push_back(i); }
+            gs = go = -1;
+        } else set_hull(o, move(newh));
     }
     void force_add(int s, int o) {  // без проверок (откат)
         vector<Pt> h;
@@ -222,7 +267,8 @@ struct Sol {
         members[o].push_back(s);
         size_[o]++; load[o] += I->ntask[s]; psum += I->pr(o, s);
         for (int k : I->skillset[s]) if (need[o][k]++ == 0) { cntSkill[k]++; sig_need(o, k); }
-        rebuild_hull(o);
+        if (defer) dirty[o] = 1;
+        else rebuild_hull(o);
     }
 
     bool size_ok_after(int oadd, int orem) const {
