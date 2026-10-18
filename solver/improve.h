@@ -115,7 +115,9 @@ static bool try_open_office(Sol& s, Engine& E, double deadline) {
             vector<int> sv = s.asg;
             vector<char> so = s.isopen;
             double f0 = s.objective();
+            s.begin_defer();
             for (int i = 0; i < kk; i++) s.remove_site(near[i].second);
+            s.end_defer();
             if (s.cov[I.ns + o] == 0) {
                 s.isopen[o] = 1;
                 s.rebuild_hull(o);

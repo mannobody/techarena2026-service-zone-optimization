@@ -183,6 +183,10 @@ int main(int argc, char** argv) {
         mt19937_64 rng(0x9E3779B97F4A7C15ULL ^ seed0);
 
         double t_outer = min(0.22 * limit, 60.0);
+        int nth = detect_cpus();
+        if (I.ns > 20000) nth = min(nth, 6);
+        // без явного предела арен malloc в потоках сам читает /sys/devices/system/cpu/online
+        mallopt(M_ARENA_MAX, nth + 2);
         map<vector<int>, Cand> cache;
         vector<Pt> G0(I.P.begin() + I.ns, I.P.end());
         auto ev = [&](vector<int> op) -> double {
@@ -198,6 +202,38 @@ int main(int argc, char** argv) {
             cache.emplace(op, move(c));
             return cache[op].f;
         };
+        // оценить несколько наборов сразу, по потоку на набор (Fast — только const)
+        auto evm = [&](vector<vector<int>> ops) -> vector<double> {
+            vector<double> res(ops.size(), 0.0);
+            vector<Cand> todo;
+            vector<int> where(ops.size(), -1);
+            for (size_t i = 0; i < ops.size(); i++) {
+                sort(ops[i].begin(), ops[i].end());
+                if (ops[i].empty()) continue;
+                auto it = cache.find(ops[i]);
+                if (it != cache.end()) { res[i] = it->second.f; continue; }
+                for (size_t j = 0; j < todo.size(); j++) if (todo[j].op == ops[i]) where[i] = j;
+                if (where[i] >= 0) continue;
+                where[i] = todo.size();
+                Cand c;
+                c.op = ops[i];
+                c.h.assign(I.no, 0.0);
+                c.G = G0;
+                todo.push_back(move(c));
+            }
+            atomic<size_t> next{0};
+            auto run = [&] {
+                for (size_t j; (j = next++) < todo.size();)
+                    todo[j].f = F.search(todo[j].op, todo[j].h, todo[j].G, 40, t_outer);
+            };
+            vector<thread> th;
+            for (int t = 1; t < min<int>(nth, todo.size()); t++) th.emplace_back(run);
+            run();
+            for (auto& t : th) t.join();
+            for (size_t i = 0; i < ops.size(); i++) if (where[i] >= 0) res[i] = todo[where[i]].f;
+            for (auto& c : todo) { vector<int> k = c.op; cache.emplace(move(k), move(c)); }
+            return res;
+        };
         // жадное добавление офисов
         vector<int> cur;
         double cur_f = 0;
@@ -210,13 +246,21 @@ int main(int argc, char** argv) {
             while (elapsed() < t_outer) {
                 bool added = false;
                 while (elapsed() < t_outer) {
+                    // пересчитываем nth лидеров по устаревшим приростам сразу
+                    vector<int> top;
+                    for (int o = 0; o < I.no; o++) if (!in[o] && gain[o] > 1e-9) top.push_back(o);
+                    if (top.empty()) break;
+                    sort(top.begin(), top.end(), [&](int a, int b) { return gain[a] > gain[b]; });
+                    if ((int)top.size() > nth) top.resize(nth);
+                    vector<vector<int>> vs;
+                    for (int o : top) { vector<int> v = cur; v.push_back(o); vs.push_back(v); }
+                    vector<double> fs = evm(vs);
                     int bo = -1;
-                    for (int o = 0; o < I.no; o++)
-                        if (!in[o] && (bo < 0 || gain[o] > gain[bo])) bo = o;
-                    if (bo < 0 || gain[bo] <= 1e-9) break;
-                    vector<int> v = cur; v.push_back(bo);
-                    double g = ev(v) - cur_f;
-                    gain[bo] = g;
+                    for (size_t i = 0; i < top.size(); i++) {
+                        gain[top[i]] = fs[i] - cur_f;
+                        if (bo < 0 || gain[top[i]] > gain[bo]) bo = top[i];
+                    }
+                    double g = gain[bo];
                     double next = -1e300;
                     for (int o = 0; o < I.no; o++) if (!in[o] && o != bo) next = max(next, gain[o]);
                     if (g > 1e-9 && g >= next) {
@@ -249,15 +293,22 @@ int main(int argc, char** argv) {
                 for (int o : cur) { vector<int> w; for (int x : cur) if (x != o) w.push_back(x); w.push_back(n); moves.push_back(w); }
             }
             shuffle(moves.begin(), moves.end(), rng);
-            for (auto& m : moves) {
+            for (size_t b = 0; b < moves.size() && !improved; b += nth) {
                 if (elapsed() > t_outer) break;
-                double f = ev(m);
-                if (f > cur_f + 1e-9) { cur = m; cur_f = f; improved = true; break; }
+                vector<vector<int>> batch(moves.begin() + b, moves.begin() + min(moves.size(), b + nth));
+                vector<double> fs = evm(batch);
+                for (size_t i = 0; i < batch.size(); i++)
+                    if (fs[i] > cur_f + 1e-9) { cur = batch[i]; cur_f = fs[i]; improved = true; }
             }
         }
         // одиночные офисы как запасные варианты
-        for (int o = 0; o < I.no && elapsed() < t_outer + 2; o++) { vector<int> v{o}; ev(v); }
+        for (int o = 0; o < I.no && elapsed() < t_outer + 2; o += nth) {
+            vector<vector<int>> vs;
+            for (int q = o; q < min(I.no, o + nth); q++) vs.push_back({q});
+            evm(vs);
+        }
 
+        if (DBG) fprintf(stderr, "phase1 t=%.2f sets=%zu ops=%zu f=%.2f\n", elapsed(), cache.size(), cur.size(), cur_f);
         vector<Cand> cands;
         if (getenv("FORCE_OPS")) {               // отладка: задать набор офисов вручную
             Cand c;
@@ -295,10 +346,6 @@ int main(int argc, char** argv) {
         }
 
         double dp_deadline = limit - max(1.0, 0.05 * limit);
-        int nth = detect_cpus();
-        if (I.ns > 20000) nth = min(nth, 6);
-        // без явного предела арен malloc в потоках сам читает /sys/devices/system/cpu/online
-        mallopt(M_ARENA_MAX, nth + 2);
         vector<thread> th;
         // EXACT2=1: точный перебор 1–2 офисов отдельным потоком (сверх nth)
         if (getenv("EXACT2") && atoi(getenv("EXACT2")) > 0)
