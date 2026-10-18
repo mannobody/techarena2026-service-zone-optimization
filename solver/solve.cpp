@@ -201,7 +201,33 @@ int main(int argc, char** argv) {
         // жадное добавление офисов
         vector<int> cur;
         double cur_f = 0;
-        while (elapsed() < t_outer) {
+        const bool lazy = getenv("LAZY") && atoi(getenv("LAZY")) > 0;
+        if (lazy) {
+            // ленивый жадный: приросты с прошлых шагов — оценки сверху, пересчитываем
+            // только лидера; полный перебор на каждом шаге на 10⁴ сайтов не успевает
+            vector<double> gain(I.no, 1e300);
+            vector<char> in(I.no, 0);
+            while (elapsed() < t_outer) {
+                bool added = false;
+                while (elapsed() < t_outer) {
+                    int bo = -1;
+                    for (int o = 0; o < I.no; o++)
+                        if (!in[o] && (bo < 0 || gain[o] > gain[bo])) bo = o;
+                    if (bo < 0 || gain[bo] <= 1e-9) break;
+                    vector<int> v = cur; v.push_back(bo);
+                    double g = ev(v) - cur_f;
+                    gain[bo] = g;
+                    double next = -1e300;
+                    for (int o = 0; o < I.no; o++) if (!in[o] && o != bo) next = max(next, gain[o]);
+                    if (g > 1e-9 && g >= next) {
+                        cur.push_back(bo); in[bo] = 1; cur_f += g; added = true;
+                        break;
+                    }
+                }
+                if (!added) break;
+            }
+        }
+        while (!lazy && elapsed() < t_outer) {
             double bf = NEG; int bo = -1;
             for (int o = 0; o < I.no && elapsed() < t_outer; o++) {
                 if (find(cur.begin(), cur.end(), o) != cur.end()) continue;
@@ -252,7 +278,8 @@ int main(int argc, char** argv) {
             map<size_t, const Cand*> bysize;
             for (auto& e : top) {
                 size_t k = e.second->op.size();
-                if (k <= 8 && !bysize.count(k)) bysize[k] = e.second;
+                bool near = lazy && abs((int)k - (int)top[0].second->op.size()) <= 2;
+                if ((k <= 8 || near) && !bysize.count(k)) bysize[k] = e.second;
             }
             for (auto& kv : bysize) {
                 bool have = false;
