@@ -30,6 +30,7 @@
 #include "moves.h"
 #include "improve.h"
 #include "lns.h"
+#include "exact2.h"
 
 // ================================================================== main
 struct Cand { double f; vector<int> op; vector<double> h; vector<Pt> G; };
@@ -270,11 +271,15 @@ int main(int argc, char** argv) {
         int nth = detect_cpus();
         if (I.ns > 20000) nth = min(nth, 6);
         vector<thread> th;
+        // EXACT2=1: точный перебор 1–2 офисов отдельным потоком (сверх nth)
+        if (getenv("EXACT2") && atoi(getenv("EXACT2")) > 0)
+            th.emplace_back(exact2_thread, cref(I), limit, 0xE2ULL ^ seed0);
         for (int i = 1; i < nth; i++)
             th.emplace_back(worker, cref(I), cref(F), cref(cands),
                             (0xA5A5ULL * (i + 1) + 12345) ^ seed0, limit, dp_deadline, i);
         worker(I, F, cands, 777 ^ seed0, limit, dp_deadline, 0);
         for (auto& t : th) t.join();
+        exact2_publish(I);
 
         fprintf(stderr, "objective=%.6f fast=%.3f sets=%zu threads=%d t=%.1f\n",
                 g_best.load(), cur_f, cache.size(), nth, elapsed());
