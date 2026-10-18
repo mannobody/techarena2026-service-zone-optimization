@@ -91,9 +91,8 @@ static void lns(Sol& s, mt19937_64& rng, double tend, double dp_deadline, bool d
             double t = elapsed();
             if (aop >= 0) {
                 atm[aop] += t - at0;
-                if (cur > aprev + 1e-12) {
-                    asc[aop] += cur > abest + 1e-12 ? 33 : 9;
-                } else if (cur < aprev - 1e-12) asc[aop] += 2;
+                // за «принят хуже → снова лучше» почти не платим: иначе выигрывает раскачка отжига
+                if (cur > aprev + 1e-12) asc[aop] += cur > abest + 1e-12 ? 33 : 3;
             } else aseg = t;
             abest = max(abest, cur);
             aprev = cur; at0 = t;
@@ -110,8 +109,9 @@ static void lns(Sol& s, mt19937_64& rng, double tend, double dp_deadline, bool d
                 arate_set = true;
                 for (int k = 0; k < 5; k++) sum += arate[k];
                 if (sum > 0) {
-                    const double fl = 0.03;
-                    for (int k = 0; k < 5; k++) ap[k] = fl + (1 - 5 * fl) * arate[k] / sum;
+                    // половина — базовое распределение: один вид хода не вытесняет остальные
+                    for (int k = 0; k < 5; k++)
+                        ap[k] = 0.5 * (KLO[k + 1] - KLO[k]) / 100.0 + 0.5 * arate[k] / sum;
                 }
             }
             double u = U(rng), c = 0;
@@ -289,5 +289,29 @@ static int detect_cpus() {
     int n = sched_getaffinity(0, sizeof cs, &cs) == 0 ? CPU_COUNT(&cs) : 1;
     if (n < 1) n = 1;
     if (n > 16) n = 16;
+    if (n > 2) {
+        // квоту (docker --cpus) affinity не видит: меряем, сколько потоков реально идут
+        // параллельно — суммарное процессорное время n крутящихся потоков за ~0.3 с
+        atomic<bool> stop{false};
+        vector<double> cpu(n, 0.0);
+        vector<thread> th;
+        for (int i = 0; i < n; i++)
+            th.emplace_back([&stop, &cpu, i] {
+                volatile double x = 0;
+                while (!stop.load(memory_order_relaxed)) for (int j = 0; j < 20000; j++) x = x + j;
+                timespec ts;
+                clock_gettime(CLOCK_THREAD_CPUTIME_ID, &ts);
+                cpu[i] = ts.tv_sec + ts.tv_nsec * 1e-9;
+            });
+        double t0 = elapsed();
+        while (elapsed() - t0 < 0.3) usleep(10000);
+        stop = true;
+        for (auto& t : th) t.join();
+        double wall = max(1e-3, elapsed() - t0), sum = 0;
+        for (double c : cpu) sum += c;
+        int eff = (int)floor(sum / wall + 0.5);
+        if (DBG) fprintf(stderr, "cpus: affinity %d, measured %.2f\n", n, sum / wall);
+        n = max(1, min(n, eff));
+    }
     return n;
 }
