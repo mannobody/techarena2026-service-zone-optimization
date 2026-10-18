@@ -24,6 +24,8 @@
 #include <thread>
 #include <unistd.h>
 #include <fcntl.h>
+#include <sched.h>
+#include <malloc.h>
 #include <csignal>
 #include <vector>
 #include <map>
