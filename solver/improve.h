@@ -46,6 +46,63 @@ static bool level_fill(Sol& s, Engine& E, double deadline) {
     return any;
 }
 
+// То же по задачам: штраф α берётся с разброса нагрузки (задач), а не числа сайтов.
+// При большом α одиночное добавление всегда невыгодно, и зоны стоят на уровне
+// самой слабой (alphabig: 9 офисов по 55 задач вместо 8 по 90; OVNS «закрыть офис»
+// отвергается, потому что остальные зоны не поднимаются). Раунд доводит все зоны
+// до общего уровня T+δ, принимается целиком, если цель выросла. TLEVEL=1 — включить.
+static atomic<long> g_tl_calls{0}, g_tl_acc{0};
+static bool task_level_fill(Sol& s, Engine& E, double deadline) {
+    static const bool on = getenv("TLEVEL") && atoi(getenv("TLEVEL")) > 0;
+    const Inst& I = *s.I;
+    if (!on || I.alpha <= 0) return false;
+    bool rec0 = E.rec;
+    size_t base = E.jr.size();
+    E.rec = true;
+    bool any = false;
+    vector<pair<double, int>> c;
+    for (int round = 0; round < I.ns && elapsed() < deadline; round++) {
+        long long mn = LLONG_MAX, mx = LLONG_MIN;
+        int nz = 0;
+        for (int o = 0; o < I.no; o++)
+            if (s.isopen[o] && s.size_[o] > 0) { mn = min(mn, s.load[o]); mx = max(mx, s.load[o]); nz++; }
+        if (nz < 2) break;
+        double f0 = s.objective();
+        bool acc = false;
+        for (int dl = (mn < mx ? 0 : 1); dl <= 4 && !acc && elapsed() < deadline; dl++) {
+            long long T = mx + dl;
+            size_t mark = E.jr.size();
+            bool ok = true;
+            for (int o = 0; o < I.no && ok; o++) {
+                if (!s.isopen[o] || s.size_[o] == 0 || s.load[o] >= T) continue;
+                c.clear();
+                for (int x = 0; x < I.ns; x++)
+                    if (s.asg[x] < 0 && I.servable[x] && I.ntask[x] > 0 && I.ntask[x] <= T - s.load[o])
+                        c.push_back({I.pr(o, x), x});
+                int k = min((int)c.size(), 60);
+                partial_sort(c.begin(), c.begin() + k, c.end(), greater<pair<double, int>>());
+                for (int i = 0; i < k && s.load[o] < T; i++)
+                    if (I.ntask[c[i].second] <= T - s.load[o]) E.doAdd(c[i].second, o);
+                ok = s.load[o] == T;
+            }
+            if (ok) {
+                s.recompute_psum();
+                ok = E.size_viol(-1, -1) == 0 && s.objective() > f0 + 1e-9
+                     && (I.simple_workers || s.greedy_workers(nullptr));
+            }
+            if (ok) acc = true;
+            else { E.undo(mark); s.recompute_psum(); }
+        }
+        if (!acc) break;
+        any = true;
+        g_tl_acc++;
+    }
+    g_tl_calls++;
+    if (!rec0) E.jr.resize(base);
+    E.rec = rec0;
+    return any;
+}
+
 // Дозаполнение: добавляем все свободные сайты, которые улучшают честную цель.
 // Точный DP умеет только снимать сайты, переразрез работает парами зон, поэтому
 // без этого шага выгодные и допустимые сайты так и остаются неназначенными.
@@ -89,6 +146,7 @@ static bool greedy_fill(Sol& s, Engine& E, double deadline) {
         if (!changed) break;
     }
     if (level_fill(s, E, deadline)) any = true;
+    if (task_level_fill(s, E, deadline)) any = true;
     return any;
 }
 
