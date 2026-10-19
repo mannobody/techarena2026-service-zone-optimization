@@ -10,6 +10,7 @@ struct Engine {
     bool rec = false;
     vector<char> ban;                     // [o*nsk+k] офису o запрещён навык k
     bool hasban = false;
+    vector<Pt> add_hull; // Reused by sequential doAdd calls on this engine.
 
     Engine(Sol& so) : s(so), I(*so.I) { ban.assign((size_t)I.no * I.nsk, 0); }
 
@@ -46,9 +47,8 @@ struct Engine {
         if (s.asg[x] >= 0 || !I.servable[x] || !s.isopen[o]) return false;
         if (s.size_[o] >= I.maxsize[o]) return false;
         if (!can_add_skills(x, o)) return false;
-        vector<Pt> h;
-        if (!s.geo_ok(x, o, h)) return false;
-        s.add_site_raw(x, o, h);
+        if (!s.geo_ok(x, o, add_hull)) return false;
+        s.add_site_raw(x, o, add_hull);
         if (rec) jr.push_back({0, x, o});
         return true;
     }

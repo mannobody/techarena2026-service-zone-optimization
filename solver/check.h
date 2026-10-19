@@ -42,7 +42,8 @@ static bool verify(const Inst& I, const vector<int>& asg, const vector<char>& is
         size_t m = h.size();
         for (int i = 0; i < np; i++) {
             bool in;
-            if (m == 1) in = fabs(I.P[i].x - h[0].x) <= I.eps_len && fabs(I.P[i].y - h[0].y) <= I.eps_len;
+            if(g_geo_exact)in=geo_exact_covers(h,I.P[i]);
+            else if (m == 1) in = fabs(I.P[i].x - h[0].x) <= I.eps_len && fabs(I.P[i].y - h[0].y) <= I.eps_len;
             else if (m == 2) {
                 double ax = h[0].x, ay = h[0].y, dx = h[1].x - ax, dy = h[1].y - ay;
                 double L2 = dx * dx + dy * dy, L = sqrt(L2);
