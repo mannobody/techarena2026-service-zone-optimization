@@ -114,6 +114,8 @@ static bool office_neighbor(Sol& s, mt19937_64& rng, double deadline) {
     return false;
 }
 
+static int g_all_ci = -1;  // индекс набора «все офисы» в cands
+
 static void worker(const Inst& I, const Fast& F, const vector<Cand>& cands,
                    uint64_t seed, double tend, double dp_deadline, int tid) {
     static const double LAMS[4] = {0.25, 0.10, 0.50, 0.0};
@@ -186,6 +188,15 @@ static void worker(const Inst& I, const Fast& F, const vector<Cand>& cands,
         sort(rank.rbegin(), rank.rend());
     }
     if (rank.empty()) rank.push_back({0.0, tid % NCOMBO});
+    // ALLOPS: «все офисы» — второй в очереди глубоких прогонов, LNS сам закрывает лишние;
+    // быстрая оценка и короткая фаза A занижают большие наборы (tightA3, anti)
+    if (g_all_ci >= 0) {
+        int at = -1;
+        for (size_t i = 0; i < rank.size(); i++) if (rank[i].second % (int)cands.size() == g_all_ci) at = (int)i;
+        pair<double, int> e = at >= 0 ? rank[at] : make_pair(NEG, g_all_ci);
+        if (at >= 0) rank.erase(rank.begin() + at);
+        rank.insert(rank.begin() + min<size_t>(1, rank.size()), e);
+    }
     if (DBG && tid == 0) {
         for (size_t i = 0; i < cands.size(); i++) {
             fprintf(stderr, "cand%zu f=%.2f ops=", i, cands[i].f);
@@ -448,6 +459,16 @@ int main(int argc, char** argv) {
             bool have = false;
             for (const auto& old : cands) if (old.op == c.op) { have = true; break; }
             if (!have) cands.push_back(c);
+        }
+        if (!(getenv("ALLOPS") && atoi(getenv("ALLOPS")) == 0) && !getenv("FORCE_OPS")) {  // ALLOPS=0 — выключить
+            Cand c;
+            for (int o = 0; o < I.no; o++) c.op.push_back(o);
+            c.h.assign(I.no, 0.0);
+            c.G.assign(I.P.begin() + I.ns, I.P.end());
+            c.f = F.search(c.op, c.h, c.G, 300, elapsed() + min(5.0, 0.02 * limit));
+            for (size_t i = 0; i < cands.size() && g_all_ci < 0; i++)
+                if (cands[i].op == c.op) g_all_ci = (int)i;
+            if (g_all_ci < 0) { g_all_ci = (int)cands.size(); cands.push_back(c); }
         }
         if (cands.empty()) {
             Cand c;
