@@ -277,7 +277,9 @@ static bool move_resplit(Engine& E, Guide& Gd, mt19937_64& rng, bool force,
     pr.clear();
     for (int x : U) pr.push_back({I.P[x].x * bDx + I.P[x].y * bDy, x});
     sort(pr.begin(), pr.end());
+    s.begin_defer();
     for (int x : U) if (s.asg[x] >= 0) E.doRemove(x);
+    s.end_defer();
     vector<pair<double, int>> sl, sh;
     for (size_t i = 0; i < pr.size(); i++) {
         int x = pr[i].second;
@@ -375,5 +377,100 @@ static bool move_skill_shift(Engine& E, Guide& Gd, mt19937_64& rng) {
     for (auto& e : want) E.doAdd(e.second, target);
     recreate(E, Gd, rng, false, 6);
     E.clear_ban();
+    return true;
+}
+
+// Точки P, покрытые оболочкой h (с теми же допусками, что Sol::apply_cov).
+static void pts_in_hull(const Inst& I, const vector<Pt>& h, vector<int>& out) {
+    out.clear();
+    const auto& P = I.P;
+    size_t m = h.size();
+    if (m == 0) return;
+    double mnx = 1e300, mxx = -1e300, mny = 1e300, mxy = -1e300;
+    for (auto& q : h) { mnx = min(mnx, q.x); mxx = max(mxx, q.x); mny = min(mny, q.y); mxy = max(mxy, q.y); }
+    double e = I.eps_len;
+    if (m == 2) {
+        double L = hypot(h[1].x - h[0].x, h[1].y - h[0].y);
+        e = 2 * I.eps_len + (L > 0 ? I.eps_cr / L : 1e300);
+        if (e > I.ext) e = 2 * I.ext;
+    }
+    I.for_box(mnx - e, mxx + e, mny - e, mxy + e, [&](int i) {
+        bool in;
+        if (m == 1) in = fabs(P[i].x - h[0].x) <= I.eps_len && fabs(P[i].y - h[0].y) <= I.eps_len;
+        else if (m == 2) {
+            double ax = h[0].x, ay = h[0].y, dx = h[1].x - ax, dy = h[1].y - ay;
+            double L2 = dx * dx + dy * dy, L = sqrt(L2);
+            double X = P[i].x - ax, Y = P[i].y - ay;
+            double c = dx * Y - dy * X, t = dx * X + dy * Y;
+            in = fabs(c) <= I.eps_cr + I.eps_len * L && t >= -I.eps_len * L && t <= L2 + I.eps_len * L;
+        } else {
+            in = !(P[i].x < mnx - e || P[i].x > mxx + e || P[i].y < mny - e || P[i].y > mxy + e);
+            for (size_t e2 = 0; e2 < m && in; e2++) {
+                const Pt& a = h[e2];
+                const Pt& b = h[(e2 + 1) % m];
+                double ex = b.x - a.x, ey = b.y - a.y;
+                double tol = -I.eps_cr - I.eps_len * sqrt(ex * ex + ey * ey);
+                in = ex * (P[i].y - a.y) - ey * (P[i].x - a.x) >= tol;
+            }
+        }
+        if (in) out.push_back(i);
+    });
+}
+
+// Кроссовер по зонам (по умолчанию вкл., XOVER=0 — выключить): пересадить в текущее решение 1–3 соседние зоны
+// элитного решения целиком. Сначала расчищаем их оболочки (чужие сайты внутри
+// снимаем, офисы внутри закрываем), потом заселяем зоны элиты от офиса наружу.
+// Дозаполнение — recreate у вызывающего.
+static bool ruin_crossover(Engine& E, mt19937_64& rng) {
+    Sol& s = E.s;
+    const Inst& I = E.I;
+    vector<int> ea;
+    vector<char> eo;
+    if (!pick_elite(rng, ea, eo) || ea == s.asg) return false;
+    vector<int> bs;
+    for (int x = 0; x < I.ns; x++) if (ea[x] >= 0) bs.push_back(x);
+    if (bs.empty()) return false;
+    const Pt c = I.P[bs[rng() % bs.size()]];
+    vector<pair<double, int>> near;
+    for (int o = 0; o < I.no; o++)
+        if (eo[o]) near.push_back({hypot(I.P[I.ns + o].x - c.x, I.P[I.ns + o].y - c.y), o});
+    sort(near.begin(), near.end());
+    int k = min((int)near.size(), 1 + (int)(rng() % 3));
+    vector<int> Z;
+    vector<vector<int>> mem;
+    vector<char> inZ(I.no, 0);
+    for (int i = 0; i < k; i++) { Z.push_back(near[i].second); inZ[near[i].second] = 1; }
+    mem.assign(k, {});
+    for (int x : bs) for (int i = 0; i < k; i++) if (ea[x] == Z[i]) mem[i].push_back(x);
+    // расчистка
+    vector<int> inside;
+    s.begin_defer();
+    for (int i = 0; i < k; i++) {
+        vector<Pt> h;
+        for (int x : mem[i]) h.push_back(I.P[x]);
+        h.push_back(I.P[I.ns + Z[i]]);
+        hull_of(h);
+        pts_in_hull(I, h, inside);
+        for (int p : inside) {
+            if (p < I.ns) { if (s.asg[p] >= 0 && s.asg[p] != Z[i]) E.doRemove(p); }
+            else if (!inZ[p - I.ns] && s.isopen[p - I.ns]) E.doClose(p - I.ns);
+        }
+    }
+    for (int i = 0; i < k; i++) {
+        int o = Z[i];
+        if (!s.isopen[o]) continue;
+        for (int x : vector<int>(s.members[o])) if (ea[x] != o) E.doRemove(x);
+    }
+    s.end_defer();
+    for (int i = 0; i < k; i++) {
+        int o = Z[i];
+        if (!s.isopen[o]) E.doOpen(o);
+        if (!s.isopen[o]) continue;
+        const Pt& q = I.P[I.ns + o];
+        sort(mem[i].begin(), mem[i].end(), [&](int a, int b) {
+            return hypot(I.P[a].x - q.x, I.P[a].y - q.y) < hypot(I.P[b].x - q.x, I.P[b].y - q.y);
+        });
+        for (int x : mem[i]) if (s.asg[x] < 0) E.doAdd(x, o);
+    }
     return true;
 }
