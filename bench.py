@@ -10,8 +10,10 @@
 --synth    вместо открытых инстансов — синтетика tools/gen.py (12 случайных + edge_*),
             главное там — VALID и время, а не значение.
 --suite    набор по классам закрытых тестов (tools/gen.py --suite, 46 инстансов): итог по классам,
-            нормировка как у жюри — медиана / лучшее известное (results/local/suite_best.csv,
+            нормировка как у жюри — среднее зёрен / лучшее известное (results/local/suite_best.csv,
             обновляется само) и всех прогонов head/base. Для оценки качества правок.
+            Колонка «хз» — то же по худшему зерну (стабильность).
+--agg A    (--suite) mean (как жюри, по умолчанию) или median.
 --par P    не больше P прогонов одновременно (потоков на прогон = ядра / P).
 --detail   (--suite) нормированные значения каждого прогона по инстансам.
 --env K=V  переменная окружения только для head (можно несколько): A/B флага против
@@ -72,6 +74,7 @@ def main():
     ap.add_argument("--suite", action="store_true")
     ap.add_argument("--par", type=int, default=0)
     ap.add_argument("--detail", action="store_true", help="--suite: значения по инстансам и зёрнам")
+    ap.add_argument("--agg", choices=["mean", "median"], default="mean", help="--suite: среднее (как жюри) или медиана")
     ap.add_argument("--env", action="append", default=[],
                     help="K=V только для head (A/B флага против того же кода: --env ALNS=1 --base HEAD)")
     a = ap.parse_args()
@@ -190,29 +193,30 @@ def main():
 
 
 def suite_report(a, insts, by):
-    """Итог по классам: средняя нормированная медиана (как у жюри), худший инстанс."""
+    """Итог по классам: нормированное среднее зёрен (как у жюри), худшее зерно, худший инстанс."""
+    agg = statistics.mean if a.agg == "mean" else statistics.median
     known = {}
     if SUITE_BEST.exists():
         known = {r["instance"]: float(r["objective"]) for r in csv.DictReader(SUITE_BEST.open())}
     vs = ["head"] + (["base"] if a.base else [])
     bad = False
-    rows = {}   # класс -> [(k, {v: norm})]
+    rows = {}   # класс -> [(k, {v: norm}, {v: norm худшего зерна})]
     for k in insts:
         allv = [r[0] for v in vs for r in by[(v, k)] if r[0] is not None]
         ref = max(allv + ([known[k]] if k in known else []), default=0.0)
         if allv and (k not in known or max(allv) > known[k]):
             known[k] = max(allv)
-        norm = {}
+        norm, low = {}, {}
         for v in vs:
             rs = by[(v, k)]
             vals = [r[0] for r in rs]
             if None in vals or max(r[2] for r in rs) > a.seconds + 3:
-                norm[v] = None   # INVALID или TIME: 0 баллов
+                norm[v] = low[v] = None   # INVALID или TIME: 0 баллов
                 bad = bad or v == "head"
                 continue
-            med = statistics.median(vals)
-            norm[v] = min(med / ref, 1.0) if ref > 0 else (1.0 if med >= ref - 1e-9 else 0.0)
-        rows.setdefault(k.rstrip("0123456789"), []).append((k, norm))
+            nv = lambda x: min(x / ref, 1.0) if ref > 0 else (1.0 if x >= ref - 1e-9 else 0.0)
+            norm[v], low[v] = nv(agg(vals)), nv(min(vals))
+        rows.setdefault(k.rstrip("0123456789"), []).append((k, norm, low))
         if a.detail:
             for v in vs:
                 vals = " ".join("-" if r[0] is None else f"{r[0] / ref:.4f}" if ref > 0 else f"{r[0]:g}"
@@ -225,23 +229,28 @@ def suite_report(a, insts, by):
         for k in sorted(known):
             w.writerow([k, repr(known[k])])
     print(f"suite: {a.seconds:g} с, runs={a.runs}" + (f", base={a.base}" if a.base else "")
-          + "; нормировка = медиана / лучшее известное, INVALID/TIME = 0")
-    hdr = f"{'класс':>11} {'n':>2} {'head':>7}" + (f" {'base':>7} {'delta':>7}" if a.base else "") + "  худший head"
+          + f"; нормировка = {a.agg} зёрен / лучшее известное, хз — худшее зерно, INVALID/TIME = 0")
+    hdr = (f"{'класс':>11} {'n':>2} {'head':>7} {'хз':>7}"
+           + (f" {'base':>7} {'хз':>7} {'delta':>7}" if a.base else "") + "  худший head")
     print(hdr)
     tot = {v: 0.0 for v in vs}
+    lot = {v: 0.0 for v in vs}
     for cls, lst in rows.items():
-        m = {v: sum(n[v] or 0.0 for _, n in lst) / len(lst) for v in vs}
+        m = {v: sum(n[v] or 0.0 for _, n, _ in lst) / len(lst) for v in vs}
+        w = {v: sum(l[v] or 0.0 for _, _, l in lst) / len(lst) for v in vs}
         for v in vs:
-            tot[v] += sum(n[v] or 0.0 for _, n in lst)
-        wk, wn = min(lst, key=lambda e: e[1]["head"] or 0.0)
+            tot[v] += sum(n[v] or 0.0 for _, n, _ in lst)
+            lot[v] += sum(l[v] or 0.0 for _, _, l in lst)
+        wk, wn, _ = min(lst, key=lambda e: e[1]["head"] or 0.0)
         worst = "INVALID/TIME" if wn["head"] is None else f"{wn['head']:.4f}"
-        line = f"{cls:>11} {len(lst):>2} {m['head']:>7.4f}"
+        line = f"{cls:>11} {len(lst):>2} {m['head']:>7.4f} {w['head']:>7.4f}"
         if a.base:
-            line += f" {m['base']:>7.4f} {(m['head'] - m['base']) * 100:>+6.2f}%"
+            line += f" {m['base']:>7.4f} {w['base']:>7.4f} {(m['head'] - m['base']) * 100:>+6.2f}%"
         print(line + f"  {wk} {worst}")
     n = sum(len(l) for l in rows.values())
-    print(f"{'итого':>11} {n:>2} {tot['head'] / n:>7.4f}"
-          + (f" {tot['base'] / n:>7.4f} {(tot['head'] - tot['base']) / n * 100:>+6.2f}%" if a.base else ""))
+    print(f"{'итого':>11} {n:>2} {tot['head'] / n:>7.4f} {lot['head'] / n:>7.4f}"
+          + (f" {tot['base'] / n:>7.4f} {lot['base'] / n:>7.4f} {(tot['head'] - tot['base']) / n * 100:>+6.2f}%"
+             if a.base else ""))
     return 1 if bad else 0
 
 
