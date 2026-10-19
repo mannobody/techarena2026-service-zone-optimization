@@ -203,11 +203,11 @@ static void worker(const Inst& I, const Fast& F, const vector<Cand>& cands,
         double now0 = elapsed();
         double left = tend - now0;
         bool last = now0 >= P3;
-        static const double CH = getenv("CHUNK") ? atof(getenv("CHUNK")) : 0.12;  // доля лимита на глубокий прогон
+        static const double CH = getenv("CHUNK") ? atof(getenv("CHUNK")) : 0.04;  // доля лимита на глубокий прогон (было 0.12)
         double chunk = last ? left : max(1.5, min(left, min(CH * tend, left / 2.0)));
         double ce = now0 + chunk;
         bool fromBest = false, forced = false;
-        static const bool ovns = getenv("OVNS") && atoi(getenv("OVNS")) > 0;
+        static const bool ovns = !(getenv("OVNS") && atoi(getenv("OVNS")) == 0);  // OVNS=0 — выключить
         if (ovns && !last && (iter++ & 1) && I.ns <= 3000)
             forced = office_neighbor(s, rng, min(ce, dp_deadline));
         // половина потоков идёт независимо, чтобы выборка была разнообразнее
