@@ -40,8 +40,9 @@
 
 ## Открытые вопросы
 
-- **Включить `OVNS=1 CHUNK=0.04` по умолчанию**: нужен `--suite` 120 с × 2 после исправления счётчика
-  (`results/local/basins/`); anti2/anti3 — больше зёрен (на 2 зёрнах неясно, шум или потеря). OSWAP слабее, не включать.
+- Бимодальность зёрен — промах набора офисов: `fast.h` занижает большие наборы (жёсткий maxDifference, anti),
+  оценка соседа в OVNS (короткий LNS из возмущённого решения) вдвое ниже истинной — соседи почти не принимаются.
+  ALLOPS лечит tightA3/anti; alphabig2 (9 офисов вместо 8 при огромном α) ещё бимодален. `results/local/bimodal/`.
 - huge: с `LAZY` разброс зёрен huge1 ещё 4.5%; гипотеза `fast.h:84` (дефицитный навык только топ-`N_k` зонам) не проверена.
 - tightA0: разброс ~1% внутри одного набора офисов (`simple_workers`), не разбирали.
 - Шум мерила: large/huge при 30 с × 3 дают ±2.5% без изменений кода — больше зёрен/времени.
@@ -65,3 +66,4 @@
 | 10-19 | Codex | danil/service-zone-v4 | Разрешение конфликтов v4 с main 76d51ba: точная геометрия + кеш/defer, genetic + parallel phase1 | Geometry state25600/25600; synth10 NT2:28/28 VALID; A/B60 NT2 ×3:30/30 процессов rc0, head15/15 VALID, inst0 +0.00%, inst1 +0.00%, inst2 +0.00%, inst3 +0.00%, inst4 -3.67%; max wall 59.832с. ZIP rebuild OK | Регрессия >1%: критерий качества main НЕ выполнен; Изменения main сохранены, O3; docs/v4.md. Без коммита/push; качество на скрытых не доказано |
 | 10-19 | Claude | claude/mannobody-warm-budget | v4: жадный выбор офисов снова до 22% лимита (≤60 с), генетика — только остаток (было 10%/30 с) | suite 120 NT2 ×2: v4 к 76d51ba +0.85% (anti +8.0, multiskill +2.4, huge −4.65); WARM_BUDGET к main +0.32%: huge +4.31 (0.944→0.988), anti +1.46, прочие классы в пределах ±0.3%. synth10: всё VALID |
 | 10-19 | Claude | claude/mannobody-ovns-default | OVNS=1 и CHUNK=0.04 по умолчанию (поверх WARM_BUDGET) | suite 120 NT2 ×2 к HEAD: +0.52%, ни один класс не просел: anti +2.79 (anti1 0.887→1.0), tightA +1.58, alphazero +0.38, alphabig +0.35, huge +0.08. 280 с, сборка из zip, 2 ядра: huge0/1 VALID, wall ≤ 277.8 с. synth10: всё VALID |
+| 10-19 | Claude | claude/mannobody-allops | ALLOPS: набор «все офисы» в портфель, второй в очереди глубоких прогонов (LNS сам закрывает лишние) | разбор 8 зёрен: tightA3 7/8 и anti2 5/8 в плохом наборе офисов; 4 зерна: tightA3 4355–4651 → 4856–4882, anti2 все зёрна ≥10444. suite 120 NT2 ×2 к main: +0.26% (= среднее по зёрнам), tightA +1.98 (tightA3 0.90→0.98), anti +0.50, grid +0.19, alphabig +0.20; cluster −0.09, multiskill −0.04, deficit −0.03 (шум). synth10: всё VALID | По умолчанию, ALLOPS=0 — выключить |
