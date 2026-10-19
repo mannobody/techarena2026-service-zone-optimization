@@ -17,20 +17,39 @@
 //   4) защита от TLE: пред-сериализованный буфер + обработчик сигналов.
 
 #include "base.h"
+
 #include "json.h"
+
 #include "geom.h"
+
 #include "inst.h"
+
+#include "spatial_geometry.h"
+
 #include "sol.h"
+
 #include "check.h"
+
 #include "output.h"
+
 #include "dp.h"
+
 #include "fast.h"
+
 #include "engine.h"
+
 #include "build.h"
+
 #include "moves.h"
+
 #include "improve.h"
+
+#include "boundary.h"
+
 #include "lns.h"
+
 #include "exact2.h"
+
 
 // ================================================================== main
 struct Cand { double f; vector<int> op; vector<double> h; vector<Pt> G; };
@@ -157,11 +176,19 @@ static void worker(const Inst& I, const Fast& F, const vector<Cand>& cands,
     }
 }
 
+#include "evolution_warm.h"
+
+#include "finish.h"
+
+
+#include "boundary_tail.h"
+
 int main(int argc, char** argv) {
     string inp = argc > 1 ? argv[1] : "instance.json";
     string outp = argc > 2 ? argv[2] : "solution.json";
     double limit = argc > 3 ? atof(argv[3]) : (getenv("TL") ? atof(getenv("TL")) : 280.0);
 
+    g_wdfs_deadline = limit - max(0.5, 0.01 * limit);
     DBG = getenv("DBG") != nullptr; DBG2 = getenv("DBG2") != nullptr;
     g_fd = open(outp.c_str(), O_WRONLY | O_CREAT | O_TRUNC, 0644);
     publish("[]\n");
@@ -177,12 +204,16 @@ int main(int argc, char** argv) {
 
     try {
         Inst I = load_instance(inp);
+        g_geo_grid.init(I);
         if (I.ns == 0 || I.no == 0) return 0;
         Fast F(I);
         const uint64_t seed0 = getenv("SEED") ? strtoull(getenv("SEED"), nullptr, 10) * 0x9E3779B97F4A7C15ULL : 0;
         mt19937_64 rng(0x9E3779B97F4A7C15ULL ^ seed0);
 
-        double t_outer = min(0.22 * limit, 60.0);
+        // WARM_START=0: legacy; 1: random subsets; 2: genetic subsets (default).
+        int warm_mode = getenv("WARM_START") ? max(0, min(2, atoi(getenv("WARM_START")))) : 2;
+        if (getenv("FORCE_OPS")) warm_mode = 0;
+        double t_outer = min((warm_mode ? 0.10 : 0.22) * limit, warm_mode ? 30.0 : 60.0);
         map<vector<int>, Cand> cache;
         vector<Pt> G0(I.P.begin() + I.ns, I.P.end());
         auto ev = [&](vector<int> op) -> double {
@@ -258,6 +289,8 @@ int main(int argc, char** argv) {
         // одиночные офисы как запасные варианты
         for (int o = 0; o < I.no && elapsed() < t_outer + 2; o++) { vector<int> v{o}; ev(v); }
 
+        vector<Cand> warm_real;
+        if (warm_mode) warm_real = wide_start(I, F, cache, rng, min(0.22 * limit, 60.0), limit, warm_mode);
         vector<Cand> cands;
         if (getenv("FORCE_OPS")) {               // отладка: задать набор офисов вручную
             Cand c;
@@ -287,6 +320,11 @@ int main(int argc, char** argv) {
                 if (!have) cands.push_back(*kv.second);
             }
         }
+        for (const auto& c : warm_real) {
+            bool have = false;
+            for (const auto& old : cands) if (old.op == c.op) { have = true; break; }
+            if (!have) cands.push_back(c);
+        }
         if (cands.empty()) {
             Cand c;
             for (int o = 0; o < I.no; o++) c.op.push_back(o);
@@ -309,7 +347,11 @@ int main(int argc, char** argv) {
         worker(I, F, cands, 777 ^ seed0, limit, dp_deadline, 0);
         for (auto& t : th) t.join();
         exact2_publish(I);
+        finish_solution(I, limit);
+        boundary_finish(I, limit);
 
+        if (DBG) fprintf(stderr, "worker_dfs calls=%ld solved=%ld nodes=%ld\n",
+                         g_wdfs_calls.load(), g_wdfs_success.load(), g_wdfs_nodes.load());
         fprintf(stderr, "objective=%.6f fast=%.3f sets=%zu threads=%d t=%.1f\n",
                 g_best.load(), cur_f, cache.size(), nth, elapsed());
     } catch (const exception& ex) {

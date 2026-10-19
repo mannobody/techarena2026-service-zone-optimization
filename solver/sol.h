@@ -2,6 +2,10 @@
 // Часть solve.cpp (одна единица трансляции): включается только из него, порядок важен.
 
 // ================================================================== решение
+// Bounded fallback for multi-skilled workers. Set once before starting threads.
+static double g_wdfs_deadline = 1e100;
+static atomic<long> g_wdfs_calls{0}, g_wdfs_success{0}, g_wdfs_nodes{0};
+
 // Инвариант: cov[i] = число открытых офисов, чья оболочка покрывает точку i.
 // Допустимо, пока cov[i] <= 1 для всех i.
 struct Sol {
@@ -51,13 +55,13 @@ struct Sol {
         for (int i : covlist[o]) { row[i] = 0; cov[i]--; }
         covlist[o].clear();
     }
-    void apply_cov(int o, const vector<Pt>& h) {
+    void legacy_apply_cov(int o, const vector<Pt>& h) {
         char* row = &incov[(size_t)o * np];
         const auto& P = I->P;
         int n = np;
         if (h.empty()) return;
         if (h.size() == 1) {
-            for (int i = 0; i < n; i++)
+            for (int i : g_geo_grid.query(*I,h[0].x-I->eps_len,h[0].x+I->eps_len,h[0].y-I->eps_len,h[0].y+I->eps_len))
                 if (fabs(P[i].x - h[0].x) <= I->eps_len && fabs(P[i].y - h[0].y) <= I->eps_len) {
                     row[i] = 1; cov[i]++; covlist[o].push_back(i);
                 }
@@ -66,7 +70,8 @@ struct Sol {
         if (h.size() == 2) {
             double ax = h[0].x, ay = h[0].y, dx = h[1].x - ax, dy = h[1].y - ay;
             double L2 = dx * dx + dy * dy, L = sqrt(L2);
-            for (int i = 0; i < n; i++) {
+            double pad=2*I->eps_len+I->eps_cr/max(L,1e-300);
+            for (int i : g_geo_grid.query(*I,min(ax,ax+dx)-pad,max(ax,ax+dx)+pad,min(ay,ay+dy)-pad,max(ay,ay+dy)+pad)) {
                 double X = P[i].x - ax, Y = P[i].y - ay;
                 double c = dx * Y - dy * X, t = dx * X + dy * Y;
                 if (fabs(c) <= I->eps_cr + I->eps_len * L && t >= -I->eps_len * L && t <= L2 + I->eps_len * L) {
@@ -79,7 +84,7 @@ struct Sol {
         double mnx = 1e300, mxx = -1e300, mny = 1e300, mxy = -1e300;
         for (auto& q : h) { mnx = min(mnx, q.x); mxx = max(mxx, q.x); mny = min(mny, q.y); mxy = max(mxy, q.y); }
         mnx -= I->eps_len; mxx += I->eps_len; mny -= I->eps_len; mxy += I->eps_len;
-        for (int i = 0; i < n; i++) {
+        for (int i : g_geo_grid.query(*I,mnx,mxx,mny,mxy)) {
             double X = P[i].x, Y = P[i].y;
             if (X < mnx || X > mxx || Y < mny || Y > mxy) continue;
             bool in = true;
@@ -93,24 +98,25 @@ struct Sol {
             if (in) { row[i] = 1; cov[i]++; covlist[o].push_back(i); }
         }
     }
-    void set_hull(int o, vector<Pt> h) {
+    void set_hull(int o, const vector<Pt>& h) {
         clear_cov(o);
-        hull[o] = move(h);
+        hull[o] = h;
         apply_cov(o, hull[o]);
     }
     void rebuild_hull(int o) {
-        vector<Pt> pts;
-        pts.reserve(members[o].size() + 1);
+        static thread_local vector<Pt> pts;
+        pts.clear(); pts.reserve(members[o].size() + 1);
         for (int s : members[o]) pts.push_back(I->P[s]);
         if (isopen[o]) pts.push_back(I->P[I->ns + o]);
         hull_of(pts);
         set_hull(o, move(pts));
     }
     // можно ли добавить сайт s в офис o по геометрии; newh — новая оболочка (пусто = без изменений)
-    bool geo_ok(int s, int o, vector<Pt>& newh) const {
+    bool legacy_geo_ok(int s, int o, vector<Pt>& newh) const {
         newh.clear();
         if (incov[(size_t)o * np + s]) return true;
-        vector<Pt> pts = hull[o];
+        auto& pts = newh;
+        pts.assign(hull[o].begin(), hull[o].end());
         pts.push_back(I->P[s]);
         hull_of(pts);
         // проверяем точки, которые станут покрытыми
@@ -121,7 +127,7 @@ struct Sol {
             double mnx = 1e300, mxx = -1e300, mny = 1e300, mxy = -1e300;
             for (auto& q : pts) { mnx = min(mnx, q.x); mxx = max(mxx, q.x); mny = min(mny, q.y); mxy = max(mxy, q.y); }
             mnx -= I->eps_len; mxx += I->eps_len; mny -= I->eps_len; mxy += I->eps_len;
-            for (int i = 0; i < np; i++) {
+            for (int i : g_geo_grid.query(*I,mnx,mxx,mny,mxy)) {
                 if (row[i] || cov[i] == 0) continue;
                 double X = P[i].x, Y = P[i].y;
                 if (X < mnx || X > mxx || Y < mny || Y > mxy) continue;
@@ -138,15 +144,27 @@ struct Sol {
         } else if (m == 2) {
             double ax = pts[0].x, ay = pts[0].y, dx = pts[1].x - ax, dy = pts[1].y - ay;
             double L2 = dx * dx + dy * dy, L = sqrt(L2);
-            for (int i = 0; i < np; i++) {
+            double pad=2*I->eps_len+I->eps_cr/max(L,1e-300);
+            for (int i : g_geo_grid.query(*I,min(ax,ax+dx)-pad,max(ax,ax+dx)+pad,min(ay,ay+dy)-pad,max(ay,ay+dy)+pad)) {
                 if (row[i] || cov[i] == 0) continue;
                 double X = P[i].x - ax, Y = P[i].y - ay;
                 double c = dx * Y - dy * X, t = dx * X + dy * Y;
                 if (fabs(c) <= I->eps_cr + I->eps_len * L && t >= -I->eps_len * L && t <= L2 + I->eps_len * L) return false;
             }
         }
-        newh = move(pts);
         return true;
+    }
+
+    void apply_cov(int o,const vector<Pt>&h){
+        if(!g_geo_exact){legacy_apply_cov(o,h);return;}if(h.empty())return;
+        double x0=1e300,x1=-1e300,y0=1e300,y1=-1e300;for(Pt p:h){x0=min(x0,p.x);x1=max(x1,p.x);y0=min(y0,p.y);y1=max(y1,p.y);}
+        char*row=&incov[(size_t)o*np];for(int i:g_geo_grid.query(*I,x0,x1,y0,y1))if(geo_exact_covers(h,I->P[i])){row[i]=1;cov[i]++;covlist[o].push_back(i);}
+    }
+    bool geo_ok(int x,int o,vector<Pt>&newh)const{
+        if(!g_geo_exact)return legacy_geo_ok(x,o,newh);newh.clear();const char*row=&incov[(size_t)o*np];if(row[x])return true;
+        newh=hull[o];newh.push_back(I->P[x]);hull_of(newh);
+        double x0=1e300,x1=-1e300,y0=1e300,y1=-1e300;for(Pt p:newh){x0=min(x0,p.x);x1=max(x1,p.x);y0=min(y0,p.y);y1=max(y1,p.y);}
+        for(int i:g_geo_grid.query(*I,x0,x1,y0,y1))if(!row[i]&&cov[i]&&geo_exact_covers(newh,I->P[i]))return false;return true;
     }
 
     // --- навыки
@@ -156,12 +174,14 @@ struct Sol {
         return greedy_workers(nullptr);
     }
     // жадное назначение рабочих; если out != null — записать wof
-    bool greedy_workers(vector<int>* out) const {
-        vector<int> wof(I->nw, -1);
-        vector<char> used(I->nw, 0);
+    bool legacy_workers(vector<int>* out) const {
+        struct Scratch { vector<int> wof; vector<char> used, have; };
+        static thread_local Scratch ws;
+        auto& wof=ws.wof; auto& used=ws.used; auto& have=ws.have;
+        wof.assign(I->nw,-1);used.assign(I->nw,0);
         for (int o = 0; o < I->no; o++) {
             if (!isopen[o] || size_[o] == 0) continue;
-            vector<char> have(I->nsk, 0);
+            have.assign(I->nsk, 0);
             for (int k = 0; k < I->nsk; k++) {
                 if (need[o][k] == 0 || have[k]) continue;
                 // выбираем рабочего, закрывающего больше всего недостающих навыков
@@ -177,8 +197,87 @@ struct Sol {
                 for (int k2 = 0; k2 < I->nsk; k2++) have[k2] |= I->wmask[bw][k2];
             }
         }
-        if (out) *out = move(wof);
+        if (out) *out = wof;
         return true;
+    }
+
+    bool greedy_workers(vector<int>* out) const {
+        if (legacy_workers(out)) return true;
+        static const bool enabled = !getenv("WORKER_DFS") || atoi(getenv("WORKER_DFS")) > 0;
+        if (!enabled || elapsed() >= g_wdfs_deadline) return false;
+        g_wdfs_calls.fetch_add(1, memory_order_relaxed);
+        struct Frame {
+            vector<int> available, demand;
+            vector<pair<int,int>> choices;
+            vector<char> old;
+        };
+        struct Scratch {
+            vector<char> used, have, required;
+            vector<int> wof;
+            // Heap-owned frames stay valid when a deeper call grows the index.
+            vector<unique_ptr<Frame>> frames;
+        };
+        static thread_local Scratch ws;
+        auto& used=ws.used;auto& have=ws.have;auto& required=ws.required;auto& wof=ws.wof;
+        used.assign(I->nw,0);have.assign((size_t)I->no*I->nsk,0);
+        required.assign(have.size(),0);wof.assign(I->nw,-1);
+        for (int o = 0; o < I->no; o++) if (isopen[o] && size_[o] > 0)
+            for (int k = 0; k < I->nsk; k++) required[(size_t)o * I->nsk + k] = need[o][k] > 0;
+        int nodes = 0, budget = (int)max(64LL, min(4096LL, 4LL * I->nw * max(1, I->no)));
+        auto dfs = [&](auto&& self, size_t depth) -> bool {
+            if (++nodes > budget || ((nodes & 31) == 0 && elapsed() >= g_wdfs_deadline)) return false;
+            if(depth==ws.frames.size())ws.frames.emplace_back(new Frame);
+            auto& frame=*ws.frames[depth];
+            auto& available=frame.available;auto& demand=frame.demand;
+            available.assign(I->nsk,0);demand.assign(I->nsk,0);
+            for (int w = 0; w < I->nw; w++) if (!used[w])
+                for (int k = 0; k < I->nsk; k++) available[k] += I->wmask[w][k] != 0;
+            int bo = -1, bk = -1, bn = INT_MAX, bt = -1;
+            for (int o = 0; o < I->no; o++) {
+                int count = 0;
+                for (int k = 0; k < I->nsk; k++)
+                    if (required[(size_t)o * I->nsk + k] && !have[(size_t)o * I->nsk + k]) count++;
+                for (int k = 0; k < I->nsk; k++)
+                    if (required[(size_t)o * I->nsk + k] && !have[(size_t)o * I->nsk + k]) {
+                        demand[k]++;
+                        if (available[k] < bn || (available[k] == bn && count > bt)) {
+                            bo = o; bk = k; bn = available[k]; bt = count;
+                        }
+                    }
+            }
+            if (bo < 0) return true;
+            for (int k = 0; k < I->nsk; k++) if (demand[k] > available[k]) return false;
+            auto& choices=frame.choices;choices.clear();
+            for (int w = 0; w < I->nw; w++) if (!used[w] && I->wmask[w][bk]) {
+                bool duplicate = false;
+                for (auto e : choices) if (I->wmask[e.second] == I->wmask[w]) { duplicate = true; break; }
+                if (duplicate) continue;
+                int gain = 0, harm = 0;
+                for (int k = 0; k < I->nsk; k++) if (I->wmask[w][k]) {
+                    bool own = required[(size_t)bo * I->nsk + k] && !have[(size_t)bo * I->nsk + k];
+                    gain += own;
+                    harm += (demand[k] - (own ? 1 : 0)) * 100 / max(1, available[k]);
+                }
+                choices.push_back({gain * 1000 - harm, w});
+            }
+            sort(choices.rbegin(), choices.rend());
+            auto& old=frame.old;old.assign(have.begin() + (size_t)bo * I->nsk, have.begin() + (size_t)(bo + 1) * I->nsk);
+            for (auto e : choices) {
+                int w = e.second; used[w] = 1; wof[w] = bo;
+                for (int k = 0; k < I->nsk; k++) have[(size_t)bo * I->nsk + k] |= I->wmask[w][k];
+                if (self(self,depth+1)) return true;
+                copy(old.begin(), old.end(), have.begin() + (size_t)bo * I->nsk);
+                used[w] = 0; wof[w] = -1;
+            }
+            return false;
+        };
+        bool ok = dfs(dfs,0);
+        g_wdfs_nodes.fetch_add(nodes, memory_order_relaxed);
+        if (ok) {
+            g_wdfs_success.fetch_add(1, memory_order_relaxed);
+            if (out) *out = wof;
+        }
+        return ok;
     }
 
     // --- ходы
@@ -216,7 +315,6 @@ struct Sol {
         if (!newh.empty()) set_hull(o, move(newh));
     }
     void force_add(int s, int o) {  // без проверок (откат)
-        vector<Pt> h;
         asg[s] = o;
         pos[s] = members[o].size();
         members[o].push_back(s);
