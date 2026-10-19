@@ -283,6 +283,10 @@ int main(int argc, char** argv) {
         int warm_mode = getenv("WARM_START") ? max(0, min(2, atoi(getenv("WARM_START")))) : 2;
         if (getenv("FORCE_OPS")) warm_mode = 0;
         double t_outer = min((warm_mode ? 0.10 : 0.22) * limit, warm_mode ? 30.0 : 60.0);
+        // жадный и add/drop/swap — с прежним бюджетом, генетика — только остаток до 22% лимита
+        // (на 10⁴ сайтов урезанный жадный не успевает набрать офисы: huge −4.7%); WARM_BUDGET=0 — урезать
+        if (warm_mode && !(getenv("WARM_BUDGET") && atoi(getenv("WARM_BUDGET")) == 0))
+            t_outer = min(0.22 * limit, 60.0);
         int nth = detect_cpus();
         if (I.ns > 20000) nth = min(nth, 6);
         // без явного предела арен malloc в потоках сам читает /sys/devices/system/cpu/online
