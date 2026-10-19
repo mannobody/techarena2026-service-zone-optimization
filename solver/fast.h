@@ -69,28 +69,38 @@ struct Fast {
         int K = op.size();
         if (!K) return 0.0;
         if (!offices_in_own_cell(op, h, G)) return NEG;
-        vector<int> c;
+        // Reused per thread: evaluate is called thousands of times per start.
+        struct Scratch {
+            vector<int> c, idx, bestcut, cut;
+            vector<double> prof, val, L, levels;
+            vector<char> ok, allow;
+            vector<vector<int>> mem, rm;
+            vector<vector<double>> ct, cp;
+        };
+        static thread_local Scratch ws;
+        auto& c=ws.c; auto& prof=ws.prof; auto& ok=ws.ok;
         cells(op, h, G, c);
-        vector<double> prof(I.ns);
-        vector<char> ok(I.ns);
+        prof.resize(I.ns); ok.resize(I.ns);
         for (int s = 0; s < I.ns; s++) {
             prof[s] = I.pr(op[c[s]], s);
             ok[s] = prof[s] > 0 && I.servable[s];
         }
         int J = skills.size();
-        vector<vector<char>> allow(K, vector<char>(J, 1));
+        auto& allow=ws.allow; allow.assign((size_t)K*J, 1);
+        auto& val=ws.val; auto& idx=ws.idx;
         for (int j = 0; j < J; j++) {
             if (wcnt[j] >= K) continue;
-            vector<double> val(K, 0);
+            val.assign(K, 0.);
             for (int s = 0; s < I.ns; s++) if (ok[s] && req[s][j]) val[c[s]] += prof[s];
-            vector<int> idx(K);
+            idx.resize(K);
             iota(idx.begin(), idx.end(), 0);
-            stable_sort(idx.begin(), idx.end(), [&](int a, int b) { return val[a] > val[b]; });
-            for (int r = wcnt[j]; r < K; r++) allow[idx[r]][j] = 0;
+            sort(idx.begin(), idx.end(), [&](int a, int b) { return val[a] > val[b] || (val[a] == val[b] && a < b); });
+            for (int r = wcnt[j]; r < K; r++) allow[(size_t)idx[r]*J+j] = 0;
         }
         for (int s = 0; s < I.ns; s++) if (ok[s])
-            for (int j = 0; j < J; j++) if (req[s][j] && !allow[c[s]][j]) { ok[s] = 0; break; }
-        vector<vector<int>> mem(K);
+            for (int j = 0; j < J; j++) if (req[s][j] && !allow[(size_t)c[s]*J+j]) { ok[s] = 0; break; }
+        auto& mem=ws.mem; if ((int)mem.size()<K) mem.resize(K);
+        for(int b=0;b<K;b++) mem[b].clear();
         for (int s = 0; s < I.ns; s++) if (ok[s]) mem[c[s]].push_back(s);
         int smin = INT_MAX;
         for (int b = 0; b < K; b++) {
@@ -109,9 +119,10 @@ struct Fast {
             if (out) { out->assign(I.no, {}); for (int b = 0; b < K; b++) (*out)[op[b]] = mem[b]; }
             return P0 - base_cost;
         }
-        vector<vector<int>> rm(K);
-        vector<vector<double>> ct(K), cp(K);
-        vector<double> L(K, 0);
+        auto& rm=ws.rm; auto& ct=ws.ct; auto& cp=ws.cp; auto& L=ws.L;
+        if((int)rm.size()<K){rm.resize(K);ct.resize(K);cp.resize(K);}
+        for(int b=0;b<K;b++){rm[b].clear();ct[b].clear();cp[b].clear();}
+        L.assign(K,0.);
         for (int b = 0; b < K; b++) {
             for (int s : mem[b]) { L[b] += I.ntask[s]; if (I.ntask[s] > 0) rm[b].push_back(s); }
             sort(rm[b].begin(), rm[b].end(), [&](int x, int y) {
@@ -121,12 +132,12 @@ struct Fast {
             for (int s : rm[b]) { a += I.ntask[s]; q += prof[s]; ct[b].push_back(a); cp[b].push_back(q); }
         }
         double lo = *min_element(L.begin(), L.end()), hi = *max_element(L.begin(), L.end());
-        vector<double> levels(L.begin(), L.end());
+        auto& levels=ws.levels; levels.assign(L.begin(), L.end());
         for (int i = 0; i <= 40; i++) levels.push_back(lo + (hi - lo) * i / 40.0);
         sort(levels.begin(), levels.end());
         levels.erase(unique(levels.begin(), levels.end()), levels.end());
         double bestf = NEG;
-        vector<int> bestcut, cut(K);
+        auto& bestcut=ws.bestcut; auto& cut=ws.cut; bestcut.clear();cut.resize(K);
         for (double t : levels) {
             double cost = 0, mx = NEG, mn = 1e300;
             int smx = INT_MIN, smn = INT_MAX;
