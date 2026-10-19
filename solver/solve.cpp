@@ -491,6 +491,7 @@ int main(int argc, char** argv) {
         finish_solution(I, limit);
         boundary_finish(I, limit);
 
+        if (DBG) fprintf(stderr, "tlevel calls=%ld acc=%ld\n", g_tl_calls.load(), g_tl_acc.load());
         if (DBG) fprintf(stderr, "worker_dfs calls=%ld solved=%ld nodes=%ld\n",
                          g_wdfs_calls.load(), g_wdfs_success.load(), g_wdfs_nodes.load());
         fprintf(stderr, "objective=%.6f fast=%.3f sets=%zu threads=%d t=%.1f\n",
