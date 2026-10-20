@@ -2,6 +2,9 @@
 // Часть solve.cpp (одна единица трансляции): включается только из него, порядок важен.
 
 // ============================================================ движок ходов
+// FORCE_PLAN (отладка, как FORCE_OPS): "o:k,k;o:k" — офису o разрешены только перечисленные навыки
+static vector<char> g_force_ban;
+
 struct Engine {
     Sol& s;
     const Inst& I;
@@ -12,10 +15,16 @@ struct Engine {
     bool hasban = false;
     vector<Pt> add_hull; // Reused by sequential doAdd calls on this engine.
 
-    Engine(Sol& so) : s(so), I(*so.I) { ban.assign((size_t)I.no * I.nsk, 0); }
+    Engine(Sol& so) : s(so), I(*so.I) {
+        ban.assign((size_t)I.no * I.nsk, 0);
+        if (!g_force_ban.empty()) { ban = g_force_ban; hasban = true; }
+    }
 
     void set_ban(int o, int k, bool v) { ban[(size_t)o * I.nsk + k] = v; hasban = true; }
-    void clear_ban() { if (hasban) { fill(ban.begin(), ban.end(), 0); hasban = false; } }
+    void clear_ban() {
+        if (!g_force_ban.empty()) { ban = g_force_ban; hasban = true; return; }
+        if (hasban) { fill(ban.begin(), ban.end(), 0); hasban = false; }
+    }
 
     bool can_add_skills(int x, int o) const {
         for (int k : I.skillset[x]) {
