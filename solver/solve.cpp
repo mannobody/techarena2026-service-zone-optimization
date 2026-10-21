@@ -115,6 +115,7 @@ static bool office_neighbor(Sol& s, mt19937_64& rng, double deadline) {
 }
 
 static int g_all_ci = -1;  // индекс набора «все офисы» в cands
+static bool g_stripes_on = false;  // STRIPES: «обратная» геометрия (корреляция d с евклидом < 0.3) — включить полосы
 
 static void worker(const Inst& I, const Fast& F, const vector<Cand>& cands,
                    uint64_t seed, double tend, double dp_deadline, int tid) {
@@ -127,7 +128,7 @@ static void worker(const Inst& I, const Fast& F, const vector<Cand>& cands,
     Pt cen{0, 0};
     for (int o = 0; o < I.no; o++) { cen.x += I.P[I.ns + o].x; cen.y += I.P[I.ns + o].y; }
     if (I.no) { cen.x /= I.no; cen.y /= I.no; }
-    const int NC = 6;
+    const int NC = g_stripes_on ? 7 : 6;  // STRIPES: конструктор 6 — «полосы»
     if (cands.empty()) return;
 
     // строит стартовое решение по связке (набор офисов, конструктор)
@@ -151,6 +152,12 @@ static void worker(const Inst& I, const Fast& F, const vector<Cand>& cands,
         } else if (ctor == 2) cellOf = ctor_road(I, c.op);
         else if (ctor == 3) cellOf = ctor_sector(I, c.op, cen);
         else if (ctor == 5) cellOf = ctor_guillotine(I, c.op, rng);
+        else if (ctor == 6) {
+            double th = 0;
+            stripe_estimate(I, c.op, &th);
+            if (refine && (rng() & 1)) th += (U(rng) - 0.5) * 0.4;
+            stripe_cells(I, c.op, th, cellOf);
+        }
         else {
             Pt r{cen.x + (U(rng) - 0.5) * 2 * I.ext, cen.y + (U(rng) - 0.5) * 2 * I.ext};
             cellOf = ctor_sector(I, c.op, r);
@@ -173,6 +180,7 @@ static void worker(const Inst& I, const Fast& F, const vector<Cand>& cands,
         build(combo % cands.size(), combo / cands.size(), min(PA, dp_deadline), false);
         rank.push_back({s.objective(), combo});
     }
+    if (DBG && tid == 0) fprintf(stderr, "phaseA combos=%zu/%d t=%.2f\n", rank.size(), NCOMBO, elapsed());
     // Ранжируем НАБОРЫ ОФИСОВ, а не связки: набор с большим числом офисов
     // стартует хуже (навыки и геометрию ещё надо развести), но после глубокого
     // поиска часто выигрывает. Берём для каждого набора его лучший конструктор.
@@ -285,6 +293,24 @@ int main(int argc, char** argv) {
     try {
         Inst I = load_instance(inp);
         g_geo_grid.init(I);
+        if (getenv("FORCE_PLAN")) {              // отладка: "o:k,k;o:k" — офису o разрешены только эти навыки
+            g_force_ban.assign((size_t)I.no * I.nsk, 1);
+            string t = getenv("FORCE_PLAN");
+            for (size_t i = 0; i < t.size();) {
+                size_t j = t.find(';', i); if (j == string::npos) j = t.size();
+                string part = t.substr(i, j - i);
+                size_t c = part.find(':');
+                int o = c == string::npos ? -1 : atoi(part.substr(0, c).c_str());
+                if (o >= 0 && o < I.no)
+                    for (size_t a = c + 1; a <= part.size();) {
+                        size_t b = part.find(',', a); if (b == string::npos) b = part.size();
+                        int k = b > a ? atoi(part.substr(a, b - a).c_str()) : -1;
+                        if (k >= 0 && k < I.nsk) g_force_ban[(size_t)o * I.nsk + k] = 0;
+                        a = b + 1;
+                    }
+                i = j + 1;
+            }
+        }
         if (I.ns == 0 || I.no == 0) return 0;
         Fast F(I);
         const uint64_t seed0 = getenv("SEED") ? strtoull(getenv("SEED"), nullptr, 10) * 0x9E3779B97F4A7C15ULL : 0;
@@ -459,6 +485,46 @@ int main(int argc, char** argv) {
             bool have = false;
             for (const auto& old : cands) if (old.op == c.op) { have = true; break; }
             if (!have) cands.push_back(c);
+        }
+        // STRIPES: при «обратных» расстояниях (корреляция d с евклидом < 0.3) — конструктор 6 «полосы» и наборы,
+        // лучшие по оценке полосами (Fast из офисов не видит дальние территории). STRIPES=0 — выключить, 2 — без признака.
+        const char* stv = getenv("STRIPES");
+        if (!(stv && atoi(stv) == 0) && !getenv("FORCE_OPS")) {
+            double rho = dist_geo_corr(I);
+            g_stripes_on = (stv && atoi(stv) >= 2) || rho < 0.3;
+            if (DBG) fprintf(stderr, "stripes corr=%.3f on=%d\n", rho, (int)g_stripes_on);
+        }
+        if (g_stripes_on) {
+            double tl = elapsed() + min(5.0, 0.02 * limit);
+            vector<const pair<const vector<int>, Cand>*> all;
+            for (auto& kv : cache) all.push_back(&kv);
+            shuffle(all.begin(), all.end(), rng);  // при нехватке времени — несмещённая выборка наборов
+            vector<double> est(all.size(), NEG);
+            atomic<size_t> nxt{0};
+            auto run = [&]() {
+                for (size_t i; elapsed() < tl && (i = nxt++) < all.size();) est[i] = stripe_estimate(I, all[i]->first);
+            };
+            vector<thread> tw;
+            for (int t = 1; t < nth; t++) tw.emplace_back(run);
+            run();
+            for (auto& t : tw) t.join();
+            vector<pair<double, const Cand*>> st;
+            for (size_t i = 0; i < all.size(); i++) if (est[i] > NEG / 2) st.push_back({est[i], &all[i]->second});
+            sort(st.begin(), st.end(), [](const pair<double, const Cand*>& a, const pair<double, const Cand*>& b) { return a.first > b.first; });
+            int added = 0;
+            for (auto& e : st) {
+                if (added >= 3) break;
+                bool have = false;
+                for (const auto& old : cands) if (old.op == e.second->op) { have = true; break; }
+                if (have) continue;
+                cands.push_back(*e.second);
+                added++;
+                if (DBG) {
+                    fprintf(stderr, "stripes cand est=%.2f ops=", e.first);
+                    for (int o : e.second->op) fprintf(stderr, "%d,", o);
+                    fprintf(stderr, "\n");
+                }
+            }
         }
         if (!(getenv("ALLOPS") && atoi(getenv("ALLOPS")) == 0) && !getenv("FORCE_OPS")) {  // ALLOPS=0 — выключить
             Cand c;

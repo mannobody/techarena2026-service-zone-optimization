@@ -115,6 +115,11 @@ static bool offer(const Inst& I, Sol& s) {
     g_best_open = s.isopen;
     publish(serialize(I, s.asg, s.isopen, wof));
     push_elite(obj, s.asg, s.isopen);
+    if (DBG) {
+        fprintf(stderr, "best t=%.2f obj=%.6f ops=", elapsed(), obj);
+        for (int o = 0; o < I.no; o++) if (s.isopen[o]) fprintf(stderr, "%d,", o);
+        fprintf(stderr, "\n");
+    }
     return true;
 }
 
