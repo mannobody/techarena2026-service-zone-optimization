@@ -288,7 +288,9 @@ int main(int argc, char** argv) {
     sigaction(SIGALRM, &sa, nullptr);
     sigaction(SIGHUP, &sa, nullptr);
     sigaction(SIGUSR1, &sa, nullptr);
-    alarm((unsigned)max(5.0, limit + 14));
+    // Страховка от зависшей фазы: все фазы кончаются к limit−0.6 (замер 10-21: 276.5–279.4 с из 280),
+    // alarm пишет лучшее решение и выходит; 294 с оставляли жюри (300 с с Docker) лишь 6 с.
+    alarm((unsigned)max(5.0, limit + 5));
 
     try {
         Inst I = load_instance(inp);
