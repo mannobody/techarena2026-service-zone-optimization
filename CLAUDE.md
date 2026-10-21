@@ -28,6 +28,8 @@
 - Решатель: `./solve in.json out.json SEC`; env `NT` потоки, `SEED`, `DBG=1`, `FORCE_OPS=0,3`.
 - Валидатор: `.venv/bin/python task/validate_solution.py in.json out.json`.
 - Диагностика: `tools/bound.py` (верхняя оценка), `tools/why.py in sol` (почему сайт не взят), `tools/gen.py` (синтетика), `tools/ref.py` (эталон suite: долгие прогоны поднимают `suite_best.csv`, ~3.6 ч; `--report`).
+  Точно (нужен ortools в отдельном venv): `tools/exact_cpsat.py` (оптимум ≤ ~200 сайтов), `tools/cplns.py` (CP-SAT-LNS из решения:
+  ходы по 3 зонам — истинный зазор), `tools/offgen.py` (инстансы «как у жюри» по образцу inst3/inst4).
 - Посылка: `/submit` (скилл) или `./submission/make_zips.sh` → `dist/case03_cpp.zip`.
 
 ## Закрытые тесты
