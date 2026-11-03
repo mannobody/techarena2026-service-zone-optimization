@@ -1,0 +1,105 @@
+{
+  "config": {
+    "tag": "holdout60",
+    "split": "holdout",
+    "mode": "equal",
+    "seconds": 60,
+    "post": 1,
+    "seeds": "31,32",
+    "cases": "alphabig0,latent0",
+    "threads": 4,
+    "jobs": 2,
+    "bin_dir": null,
+    "variants": "base,tail"
+  },
+  "results": [
+    {
+      "case": "alphabig0",
+      "seed": 31,
+      "variant": "tail",
+      "input": "./experiments/boundary_beam/data/holdout/alphabig0.json",
+      "solution": "./experiments/boundary_beam/logs/holdout60/alphabig0_31_tail.json",
+      "score": 3491938.568652322,
+      "error": null,
+      "wall": 59.78978938099999,
+      "rc": 0
+    },
+    {
+      "case": "alphabig0",
+      "seed": 31,
+      "variant": "base",
+      "input": "./experiments/boundary_beam/data/holdout/alphabig0.json",
+      "solution": "./experiments/boundary_beam/logs/holdout60/alphabig0_31_base.json",
+      "score": 3458055.497194296,
+      "error": null,
+      "wall": 59.50342049000005,
+      "rc": 0
+    },
+    {
+      "case": "latent0",
+      "seed": 31,
+      "variant": "tail",
+      "input": "./experiments/boundary_beam/data/holdout/latent0.json",
+      "solution": "./experiments/boundary_beam/logs/holdout60/latent0_31_tail.json",
+      "score": 14808.557355759121,
+      "error": null,
+      "wall": 59.754911042,
+      "rc": 0
+    },
+    {
+      "case": "latent0",
+      "seed": 31,
+      "variant": "base",
+      "input": "./experiments/boundary_beam/data/holdout/latent0.json",
+      "solution": "./experiments/boundary_beam/logs/holdout60/latent0_31_base.json",
+      "score": 14808.557355759121,
+      "error": null,
+      "wall": 59.45995863100006,
+      "rc": 0
+    },
+    {
+      "case": "alphabig0",
+      "seed": 32,
+      "variant": "base",
+      "input": "./experiments/boundary_beam/data/holdout/alphabig0.json",
+      "solution": "./experiments/boundary_beam/logs/holdout60/alphabig0_32_base.json",
+      "score": 3498883.7434945465,
+      "error": null,
+      "wall": 59.5462596440002,
+      "rc": 0
+    },
+    {
+      "case": "alphabig0",
+      "seed": 32,
+      "variant": "tail",
+      "input": "./experiments/boundary_beam/data/holdout/alphabig0.json",
+      "solution": "./experiments/boundary_beam/logs/holdout60/alphabig0_32_tail.json",
+      "score": 3480368.743602217,
+      "error": null,
+      "wall": 59.79751826099982,
+      "rc": 0
+    },
+    {
+      "case": "latent0",
+      "seed": 32,
+      "variant": "base",
+      "input": "./experiments/boundary_beam/data/holdout/latent0.json",
+      "solution": "./experiments/boundary_beam/logs/holdout60/latent0_32_base.json",
+      "score": 14804.840217852996,
+      "error": null,
+      "wall": 59.448783822999985,
+      "rc": 0
+    },
+    {
+      "case": "latent0",
+      "seed": 32,
+      "variant": "tail",
+      "input": "./experiments/boundary_beam/data/holdout/latent0.json",
+      "solution": "./experiments/boundary_beam/logs/holdout60/latent0_32_tail.json",
+      "score": 14814.994747904302,
+      "error": null,
+      "wall": 59.75330972699976,
+      "rc": 0
+    }
+  ]
+}

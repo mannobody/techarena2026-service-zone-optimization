@@ -1,0 +1,56 @@
+{
+  "config": {
+    "seconds": 280.0,
+    "runs": 1,
+    "threads": 4,
+    "jobs": 2,
+    "variants": "base,random,genetic",
+    "suite": "all",
+    "only": "huge2,large2",
+    "tag": "long_v2",
+    "inputs": [
+      "./experiments/evolution/data/suite_large2.json"
+    ]
+  },
+  "results": [
+    {
+      "case": "suite_large2",
+      "variant": "base",
+      "seed": 1,
+      "limit": 280.0,
+      "threads": 4,
+      "wall": 277.6225381479999,
+      "returncode": 0,
+      "score": 64384.01207886211,
+      "error": null,
+      "solution": "./experiments/evolution/logs/long_v2/suite_large2_base_s1.solution.json",
+      "stderr": "objective=64384.012079 fast=62569.177 sets=62 threads=4 t=277.6\n"
+    },
+    {
+      "case": "suite_large2",
+      "variant": "random",
+      "seed": 1,
+      "limit": 280.0,
+      "threads": 4,
+      "wall": 277.83621709900035,
+      "returncode": 0,
+      "score": 63606.208975124275,
+      "error": null,
+      "solution": "./experiments/evolution/logs/long_v2/suite_large2_random_s1.solution.json",
+      "stderr": "evo_warm mode=1 attempts=1111643 evaluated=32717 decoded=3 best=45948.801976 t=54.728\nworker_dfs calls=0 solved=0 nodes=0\nobjective=63606.208975 fast=62569.177 sets=32767 threads=4 t=277.8\n"
+    },
+    {
+      "case": "suite_large2",
+      "variant": "genetic",
+      "seed": 1,
+      "limit": 280.0,
+      "threads": 4,
+      "wall": 277.52832675600075,
+      "returncode": 0,
+      "score": 64784.415331274424,
+      "error": null,
+      "solution": "./experiments/evolution/logs/long_v2/suite_large2_genetic_s1.solution.json",
+      "stderr": "evo_warm mode=2 attempts=289670 evaluated=25930 decoded=3 best=43903.418557 t=60.000\nworker_dfs calls=0 solved=0 nodes=0\nobjective=64784.415331 fast=62569.177 sets=25976 threads=4 t=277.4\n"
+    }
+  ]
+}

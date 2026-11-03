@@ -101,3 +101,22 @@ static void finish_solution(const Inst& I, double limit) {
     if(s.objective()>before+1e-9)offer(I,s);
     if(DBG)fprintf(stderr,"finish before=%.9f after=%.9f t=%.3f\n",before,g_best.load(),elapsed());
 }
+
+// Alternative placement of the same exchange operator: use only unused tail time.
+// Leave at least half of that time for the existing boundary search.
+static void exchange_finish(const Inst& I, double limit) {
+    int depth=getenv("FINAL_EXCHANGE")?max(0,min(2,atoi(getenv("FINAL_EXCHANGE")))):0;
+    const double end=limit-max(.25,.002*limit);
+    if(!depth || elapsed()>=end || g_best.load()<=0)return;
+    vector<int>a;vector<char>op;
+    {lock_guard<mutex>lk(g_best_mx);a=g_best_asg;op=g_best_open;}
+    if(a.empty())return;
+    double before=g_best.load(),deadline=min(end,elapsed()+min(1.0,0.5*(end-elapsed())));
+    g_wdfs_deadline=deadline;
+    Sol s;s.init(I);s.load_state(a,op);
+    uint64_t seed=getenv("SEED")?strtoull(getenv("SEED"),nullptr,10):0;
+    mt19937_64 rng(0xEC4A6EULL^seed);
+    if(getenv("BALANCED_CYCLE") && atoi(getenv("BALANCED_CYCLE")))balanced_cycle_descent(s,rng,deadline);
+    else exchange_descent(s,rng,deadline,depth);
+    if(getenv("SEARCH_TRACE"))fprintf(stderr,"trace_exchange_finish before=%.9f after=%.9f end=%.6f deadline=%.6f\n",before,g_best.load(),elapsed(),deadline);
+}

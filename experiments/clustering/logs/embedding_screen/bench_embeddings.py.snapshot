@@ -1,0 +1,75 @@
+"""Fresh synthetic inputs; compare embeddings, raw profiles and geometry alike."""
+import argparse
+import hashlib
+import importlib.util
+import json
+import os
+from pathlib import Path
+import random
+import shutil
+import subprocess
+import time
+
+from embeddings import *
+
+spec=importlib.util.spec_from_file_location('synthetic_generator',ROOT/'tools/gen.py')
+gen=importlib.util.module_from_spec(spec);spec.loader.exec_module(gen)
+
+
+def data():
+    folder=HERE/'data';folder.mkdir(exist_ok=True)
+    for j,(cls,(count,mk)) in enumerate(gen.SUITE.items()):
+        for k in range(count):
+            seed=61000+100*j+k;p=folder/f'{cls}{k}.json'
+            if not p.exists():gen.gen2(seed,str(p),**mk(random.Random(seed)))
+    return folder
+
+
+def main():
+    ap=argparse.ArgumentParser();ap.add_argument('--tag',default='embedding_screen')
+    ap.add_argument('--only',default='anti0,anti1,grid0,multiskill0,alphabig0,tightA0,medium0,cluster0')
+    ap.add_argument('--methods',default='geo,raw,pca2,spectral2,umap2,umap_high,tsne2,road')
+    ap.add_argument('--seed',type=int,default=1);ap.add_argument('--base-seconds',type=float,default=5.)
+    ap.add_argument('--ip-seconds',type=float,default=1.);ap.add_argument('--matched',action='store_true')
+    args=ap.parse_args();folder=data();logs=HERE/'logs'/args.tag;logs.mkdir(parents=True,exist_ok=True)
+    (logs/'bin').mkdir(exist_ok=True);exe=logs/'bin/integrated'
+    shutil.copy2(ROOT/'experiments/evolution/artifacts/integrated',exe)
+    for name in ('embeddings.py','bench_embeddings.py'):shutil.copy2(HERE/name,logs/(name+'.snapshot'))
+    (logs/'config.json').write_text(json.dumps(vars(args),indent=2));rows=[]
+    for name in args.only.split(','):
+        path=folder/f'{name}.json';I=Instance.read(path)
+        out=logs/f'{name}_base.solution.json';start=time.perf_counter()
+        env=dict(os.environ,NT='1',SEED=str(args.seed))
+        proc=subprocess.run([str(exe),str(path),str(out),str(args.base_seconds)],env=env,capture_output=True,text=True)
+        base_wall=time.perf_counter()-start;incumbent=json.loads(out.read_text());base=validator.validate(path,out)
+        assert proc.returncode==0 and not isinstance(base,str),(proc.returncode,base)
+        (logs/f'{name}_base.stderr.txt').write_text(proc.stderr)
+        x=road_profiles(I)
+        for method in args.methods.split(','):
+            start=time.perf_counter()
+            if method=='road':labels=np.argmin(np.asarray(I.data['distances']),axis=0);embedding_time=0.;trust=None
+            else:
+                z,embedding_time=embed(I,method,args.seed);labels=cluster_labels(I,z,args.seed)
+                trust=float(trustworthiness(x,z,n_neighbors=min(10,max(1,(I.n-1)//3)))) if I.n<2000 else None
+            conflicts=geometric_conflicts(I,labels);affine=affine_separable(I,labels)
+            r=decode(I,labels,incumbent,seconds=args.ip_seconds)
+            extra=time.perf_counter()-start
+            sol=logs/f'{name}_{method}.solution.json';sol.write_text(json.dumps(r.pop('solution')))
+            regret=float((np.asarray(I.data['distances'])[labels,np.arange(I.n)]-
+                          np.asarray(I.data['distances']).min(axis=0)).sum())
+            matched=None
+            if args.matched:
+                target=logs/f'{name}_{method}_matched.solution.json'
+                p=subprocess.run([str(exe),str(path),str(target),str(base_wall+extra)],env=env,capture_output=True,text=True)
+                matched=validator.validate(path,target)
+                assert p.returncode==0 and not isinstance(matched,str)
+            row=dict(case=name,method=method,n=I.n,m=I.m,seed=args.seed,base=base,base_wall=base_wall,
+                     embedding_seconds=embedding_time,extra_wall=extra,matched=matched,trustworthiness=trust,
+                     road_regret=regret,**conflicts,**affine,**r,solution=str(sol))
+            rows.append(row);print(json.dumps(row),flush=True)
+            (logs/'results.json').write_text(json.dumps(dict(config=vars(args),results=rows),indent=2))
+    manifest={str(p):hashlib.sha256(p.read_bytes()).hexdigest() for p in [*HERE.glob('*.py'),*folder.glob('*.json')]}
+    (logs/'manifest.json').write_text(json.dumps(manifest,indent=2))
+
+
+if __name__=='__main__':main()

@@ -1,0 +1,53 @@
+{
+  "status": "Experimental precision fix; ordinary score superiority NOT established; primary unchanged; not submitted",
+  "zip": "./experiments/geometry_islands/artifacts/geometry_exact_experimental_O3.zip",
+  "sha256": "d183d04b5ed84b6ed455dfd2c959346c4a4368956bfbc7225a76367de55f011d",
+  "source_sha256": "78764b6f421149f079601444a2eacda396d7465b3c2e1a2001ad76d3598de002",
+  "flags": "-O3 -std=c++17",
+  "default_seconds": 280,
+  "confirmation_seconds": 60,
+  "runtime": "instance.json -> solution.json; standard C++ plus compiler unsigned __int128; no external libraries",
+  "validation": {
+    "ordinary_candidate_valid": 30,
+    "edge_candidate_valid": 16,
+    "precision_candidate_valid": 5,
+    "contest_filename_valid": 4
+  },
+  "ordinary": {
+    "completed": 60,
+    "expected": 60,
+    "valid": 60,
+    "mean_pct": 0.4236118210306761,
+    "median_pct": -0.020408083975465008,
+    "worst_median": {
+      "case": "alphabig0",
+      "n_base": 3,
+      "n_new": 3,
+      "base": 9245255.897359315,
+      "candidate": 9195447.268710127,
+      "pct": -0.5387479719562438
+    },
+    "best_median": {
+      "case": "anti0",
+      "n_base": 3,
+      "n_new": 3,
+      "base": 71.65285649961912,
+      "candidate": 75.25944228703781,
+      "pct": 5.0334152239106755
+    },
+    "worst_pair": {
+      "case": "anti0",
+      "seed": 71,
+      "pct": -10.87508700623091
+    },
+    "best_pair": {
+      "case": "anti0",
+      "seed": 72,
+      "pct": 5.071648336644463
+    },
+    "paired_wins": 9,
+    "paired_losses": 15,
+    "pairs": 30,
+    "max_wall": 60.162356691999776
+  }
+}

@@ -7,3 +7,14 @@ solve
 *.o
 dist/
 results/local/
+
+# Local caches, dependencies and private runtime material
+node_modules/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.cache/
+.env
+.env.*
+!.env.example
+*.core

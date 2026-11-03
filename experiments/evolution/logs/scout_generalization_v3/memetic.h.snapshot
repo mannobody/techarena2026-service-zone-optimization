@@ -1,0 +1,112 @@
+// Full-solution genetic search with feasibility repair and inherited baseline LNS.
+// Mode 3 crosses solutions; mode 4 is the mutation-only control.
+struct EvoIndividual { vector<int> asg; vector<char> open; double f=0.; };
+
+static void evo_memetic(const Inst& I,const Fast& F,const vector<Cand>& cands,
+                        uint64_t seed,double tend,double dp_deadline,int tid,int mode) {
+    mt19937_64 rng(seed);uniform_real_distribution<double> U(0.,1.);
+    vector<EvoIndividual> pop;
+    int cap=max(8,min(32,(int)(4*sqrt((double)max(1,I.no)))));
+    long born=0,crossed=0,restarted=0,valid=0;
+    long inherited=0,retained=0,cross_better=0,cross_after_repair_better=0;
+    double repair_drop_sum=0.;
+    auto distance=[&](const vector<int>&a,const vector<int>&b){
+        int d=0,n=0;
+        for(int s=0;s<I.ns;s+=max(1,I.ns/128)){d+=a[s]!=b[s];n++;}
+        return n?(double)d/n:0.;
+    };
+    auto insert=[&](Sol&s){
+        vector<int> workers;double f=0.;
+        if(!s.greedy_workers(&workers)||!verify(I,s.asg,s.isopen,workers,&f))return;
+        valid++;offer(I,s);
+        for(auto&e:pop)if(e.asg==s.asg)return;
+        pop.push_back({s.asg,s.isopen,f});
+        sort(pop.begin(),pop.end(),[](const auto&a,const auto&b){return a.f>b.f;});
+        if((int)pop.size()>cap){
+            int drop=(int)pop.size()-1;double nearest=2.;
+            for(size_t i=1;i<pop.size();i++)for(size_t j=0;j<i;j++){
+                double d=distance(pop[i].asg,pop[j].asg);
+                if(d<nearest){nearest=d;drop=i;}
+            }
+            pop.erase(pop.begin()+drop);
+        }
+    };
+    auto global=[&]()->bool{
+        vector<int>a;vector<char>o;
+        {lock_guard<mutex>lk(g_best_mx);a=g_best_asg;o=g_best_open;}
+        if(a.empty())return false;
+        Sol s;s.init(I);s.load_state(a,o);insert(s);return true;
+    };
+    global();
+    auto construct=[&](Sol&s,int ci,int ctor,double end){
+        const auto&c=cands[ci];vector<int>cell(I.ns,-1);
+        if(ctor<2){
+            auto h=c.h;auto G=c.G;
+            if(h.empty()){h.assign(I.no,0.);G.assign(I.P.begin()+I.ns,I.P.end());}
+            vector<int>cc;F.cells(c.op,h,G,cc);
+            for(int x=0;x<I.ns;x++)cell[x]=c.op[cc[x]];
+        }else if(ctor==2)cell=ctor_road(I,c.op);
+        else cell=ctor_guillotine(I,c.op,rng);
+        realize(s,I,c.op,cell,end,&rng,U(rng)<.3?.2:0.);repair_sizes(s);
+        if(elapsed()<min(end,dp_deadline)){resize_dp(s,min(end,dp_deadline));repair_sizes(s);}
+        Engine E(s);s.recompute_psum();greedy_fill(s,E,min(end,dp_deadline));s.recompute_psum();
+    };
+    for(size_t ci=0;ci<cands.size()&&elapsed()<.35*tend;ci++){
+        Sol s;construct(s,ci,(ci+tid)%4,min(.35*tend,dp_deadline));insert(s);
+    }
+    auto pick=[&]()->int{
+        int a=rng()%pop.size(),b=rng()%pop.size();
+        return U(rng)<.8?(pop[a].f>=pop[b].f?a:b):a;
+    };
+    while(elapsed()<tend-max(.5,.02*tend)){
+        double now=elapsed(),end=min(tend,max(now+.15,now+.06*tend));
+        Sol s;s.init(I);bool frombest=false;
+        bool was_cross=false;double parent_best=0.;
+        if(pop.empty()||U(rng)<.2){
+            restarted++;construct(s,rng()%cands.size(),rng()%4,min(end,dp_deadline));
+        }else if(now>.85*tend){
+            vector<int>a;vector<char>o;
+            {lock_guard<mutex>lk(g_best_mx);a=g_best_asg;o=g_best_open;}
+            if(a.empty()){a=pop[0].asg;o=pop[0].open;}
+            s.load_state(a,o);frombest=true;
+        }else{
+            int ia=pick(),ib=pick();
+            if(mode==3&&pop.size()>1&&U(rng)<.75){
+                if(ia==ib)ib=(ib+1)%pop.size();crossed++;
+                was_cross=true;parent_best=max(pop[ia].f,pop[ib].f);
+                vector<char>source(I.no);
+                for(int o=0;o<I.no;o++)source[o]=U(rng)<.6?0:1;
+                vector<int>cell(I.ns,-1);set<int>ops;
+                const auto&a=pop[ia].asg;const auto&b=pop[ib].asg;
+                for(int x=0;x<I.ns;x++){
+                    int oa=a[x],ob=b[x];
+                    if(oa>=0&&source[oa]==0)cell[x]=oa;
+                    if(ob>=0&&source[ob]==1&&(cell[x]<0||U(rng)<.5))cell[x]=ob;
+                    if(cell[x]>=0)ops.insert(cell[x]);
+                }
+                vector<int>op(ops.begin(),ops.end());
+                if(op.empty())op=cands[rng()%cands.size()].op;
+                realize(s,I,op,cell,min(end,dp_deadline),&rng,U(rng)<.25?.2:0.);repair_sizes(s);
+                for(int x=0;x<I.ns;x++)if(cell[x]>=0){inherited++;retained+=s.asg[x]==cell[x];}
+                double raw=s.objective();repair_drop_sum+=raw-parent_best;
+                cross_after_repair_better+=raw>parent_best+1e-7;
+            }else{s.load_state(pop[ia].asg,pop[ia].open);}
+        }
+        born++;
+        lns(s,rng,end,dp_deadline,frombest,.25,(born%3==0?2.5:1.),false);
+        if(was_cross)cross_better+=s.objective()>parent_best+1e-7;
+        insert(s);
+        if((born&7)==0)global();
+    }
+    fprintf(stderr,"evo_memetic mode=%d born=%ld crossed=%ld restarts=%ld valid=%ld population=%zu best=%.6f t=%.3f\n",
+            mode,born,crossed,restarted,valid,pop.size(),g_best.load(),elapsed());
+    if(crossed)fprintf(stderr,"cross_diagnostics inherited=%ld retained=%ld better_after_repair=%ld better_after_lns=%ld mean_repair_delta=%.6f\n",
+        inherited,retained,cross_after_repair_better,cross_better,repair_drop_sum/crossed);
+}
+
+static void evo_dispatch(const Inst&I,const Fast&F,const vector<Cand>&cands,
+                          uint64_t seed,double tend,double dp_deadline,int tid){
+    int mode=getenv("EVO")?atoi(getenv("EVO")):2;
+    if((mode==3||mode==4)&&tid==0)evo_memetic(I,F,cands,seed,tend,dp_deadline,tid,mode);
+    else worker(I,F,cands,seed,tend,dp_deadline,tid);
+}

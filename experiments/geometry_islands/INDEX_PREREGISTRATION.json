@@ -1,0 +1,20 @@
+{
+  "candidate": "./experiments/geometry_islands/artifacts/index_v1.cpp",
+  "sha256": "2b395509852dab58a492724ffd9af271af91288c06519651af6ad54abc88f3ae",
+  "rationale": "Semantics-preserving all-point spatial broad phase. Frozen before holdout; training full-time scan/grid study still running. No tuning on holdout.",
+  "split": "holdout",
+  "cases": "all10",
+  "seconds": 60,
+  "threads": 2,
+  "jobs": 4,
+  "seeds": [
+    61,
+    62,
+    63
+  ],
+  "variants": [
+    "base",
+    "grid"
+  ],
+  "default_GEO_INDEX": 1
+}

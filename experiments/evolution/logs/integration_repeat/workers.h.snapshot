@@ -1,0 +1,54 @@
+    // Fallback only: preserve the legacy fast success path. Search the exact
+    // worker-assignment feasibility problem with scarce-demand branching.
+    bool greedy_workers(vector<int>* out) const {
+        if(legacy_workers(out))return true;
+        if(!getenv("WORKER_DFS")||atoi(getenv("WORKER_DFS"))==0)return false;
+        g_wdfs_calls.fetch_add(1,memory_order_relaxed);
+        vector<char> used(I->nw,0),have((size_t)I->no*I->nsk,0),required(have.size(),0);
+        vector<int> wof(I->nw,-1);
+        for(int o=0;o<I->no;o++)if(isopen[o]&&size_[o]>0)
+            for(int k=0;k<I->nsk;k++)required[(size_t)o*I->nsk+k]=need[o][k]>0;
+        int nodes=0,budget=max(64,min(4096,4*I->nw*max(1,I->no)));
+        function<bool()> dfs=[&](){
+            if(++nodes>budget||((nodes&31)==0&&elapsed()>g_wdfs_deadline))return false;
+            vector<int> available(I->nsk,0),demand(I->nsk,0);
+            for(int w=0;w<I->nw;w++)if(!used[w])
+                for(int k=0;k<I->nsk;k++)available[k]+=I->wmask[w][k]!=0;
+            int bo=-1,bk=-1,bn=INT_MAX,bt=-1;
+            for(int o=0;o<I->no;o++){
+                int count=0;
+                for(int k=0;k<I->nsk;k++)if(required[(size_t)o*I->nsk+k]&&!have[(size_t)o*I->nsk+k])count++;
+                for(int k=0;k<I->nsk;k++)if(required[(size_t)o*I->nsk+k]&&!have[(size_t)o*I->nsk+k]){
+                    demand[k]++;
+                    if(available[k]<bn||(available[k]==bn&&count>bt)){bo=o;bk=k;bn=available[k];bt=count;}
+                }
+            }
+            if(bo<0)return true;
+            for(int k=0;k<I->nsk;k++)if(demand[k]>available[k])return false;
+            vector<pair<int,int>> choices;
+            for(int w=0;w<I->nw;w++)if(!used[w]&&I->wmask[w][bk]){
+                bool duplicate=false;
+                for(auto e:choices)if(I->wmask[e.second]==I->wmask[w]){duplicate=true;break;}
+                if(duplicate)continue;
+                int gain=0,harm=0;
+                for(int k=0;k<I->nsk;k++)if(I->wmask[w][k]){
+                    bool own=required[(size_t)bo*I->nsk+k]&&!have[(size_t)bo*I->nsk+k];
+                    gain+=own;harm+=(demand[k]-(own?1:0))*100/max(1,available[k]);
+                }
+                choices.push_back({gain*1000-harm,w});
+            }
+            sort(choices.rbegin(),choices.rend());
+            vector<char> old(have.begin()+(size_t)bo*I->nsk,have.begin()+(size_t)(bo+1)*I->nsk);
+            for(auto e:choices){
+                int w=e.second;used[w]=1;wof[w]=bo;
+                for(int k=0;k<I->nsk;k++)have[(size_t)bo*I->nsk+k]|=I->wmask[w][k];
+                if(dfs())return true;
+                copy(old.begin(),old.end(),have.begin()+(size_t)bo*I->nsk);used[w]=0;wof[w]=-1;
+            }
+            return false;
+        };
+        bool ok=dfs();g_wdfs_nodes.fetch_add(nodes,memory_order_relaxed);
+        if(ok){g_wdfs_success.fetch_add(1,memory_order_relaxed);if(out)*out=move(wof);}
+        return ok;
+    }
+

@@ -1,0 +1,60 @@
+{
+  "config": {
+    "short": 0.5,
+    "mip": 0.2,
+    "generate": 0.1,
+    "repeats": 1,
+    "only": "zero_capacity",
+    "starts": 1,
+    "collect": true,
+    "out": "experiments/colgen/logs/pool_zero_capacity.json"
+  },
+  "results": [
+    {
+      "case": "zero_capacity",
+      "repeat": 0,
+      "n": 7,
+      "offices": 3,
+      "workers": 5,
+      "starts": 1,
+      "short_limit": 0.5,
+      "mip_limit": 0.2,
+      "generation_limit": 0.1,
+      "short_scores": [
+        0.0
+      ],
+      "short_walls": [
+        0.008398755999223795
+      ],
+      "best_short": 0.0,
+      "raw_ip": 0.0,
+      "hybrid": 0.0,
+      "matched_baseline": 0.0,
+      "matched_limit": 0.023588550999193103,
+      "matched_wall": 0.003022933000465855,
+      "hybrid_wall": 0.023588550999193103,
+      "hybrid_overhead": 0.015189794999969308,
+      "pool_raw": 0,
+      "pool_enriched": 0,
+      "pool_final": 0,
+      "dual_evaluations": 0,
+      "restricted_lp": 0.0,
+      "safe_cheap_certificate": 0.0,
+      "rows": 55,
+      "nnz": 53,
+      "mip_status": "optimal",
+      "pool_ip_bound": 0.0,
+      "solution": "./experiments/colgen/logs/pool_zero_capacity_zero_capacity_r0_hybrid.solution.json",
+      "gain_vs_best_short": null,
+      "gain_vs_matched": null
+    }
+  ],
+  "metadata": {
+    "python": "3.14.7 (main, Aug 10 2026, 00:00:00) [GCC 16.1.1 20260515 (Red Hat 16.1.1-2)]",
+    "platform": "Linux-x86_64",
+    "highs": "1.15.1",
+    "affinity_cpus": 22,
+    "threads_per_solve": 1,
+    "git_head": "1496e64270a671e54b05d4fd9eb70917c369b658"
+  }
+}

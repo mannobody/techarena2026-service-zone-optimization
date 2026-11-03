@@ -1,0 +1,21 @@
+{
+  "source": "./experiments/milp_v5_boundaries/artifacts/native.cpp",
+  "sha256": "e65557535dec391df213ae2b55c9fa0a24da1b77a8cc85ac6b20d729edf3a0b6",
+  "seconds": 60,
+  "threads": 2,
+  "jobs": 6,
+  "seeds": [
+    171,
+    172,
+    173
+  ],
+  "cases": [
+    "alphabig0",
+    "tightA0",
+    "large0",
+    "huge0",
+    "latent0"
+  ],
+  "placement": "2s maximum before native workers, fixed staff, previous v5 tail preserved",
+  "baseline": "milp_v5/artifacts/native_v5"
+}

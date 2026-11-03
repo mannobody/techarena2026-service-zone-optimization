@@ -1,0 +1,96 @@
+{
+  "config": {
+    "seconds": 280.0,
+    "runs": 1,
+    "threads": 4,
+    "jobs": 2,
+    "variants": "base,random,genetic",
+    "suite": "holdout",
+    "only": "huge0,huge1",
+    "tag": "holdout_long_v2",
+    "inputs": [
+      "./experiments/evolution/data/holdout/holdout_huge0.json",
+      "./experiments/evolution/data/holdout/holdout_huge1.json"
+    ]
+  },
+  "results": [
+    {
+      "case": "holdout_huge0",
+      "variant": "base",
+      "seed": 1,
+      "limit": 280.0,
+      "threads": 4,
+      "wall": 278.8461358329987,
+      "returncode": 0,
+      "score": 625272438.325413,
+      "error": null,
+      "solution": "./experiments/evolution/logs/holdout_long_v2/holdout_huge0_base_s1.solution.json",
+      "stderr": "objective=625272438.325413 fast=568444351.514 sets=48 threads=4 t=278.8\n"
+    },
+    {
+      "case": "holdout_huge0",
+      "variant": "random",
+      "seed": 1,
+      "limit": 280.0,
+      "threads": 4,
+      "wall": 278.55766866200065,
+      "returncode": 0,
+      "score": 767999216.2359524,
+      "error": null,
+      "solution": "./experiments/evolution/logs/holdout_long_v2/holdout_huge0_random_s1.solution.json",
+      "stderr": "evo_warm mode=1 attempts=15607 evaluated=12849 decoded=5 best=614732267.694766 t=60.000\nworker_dfs calls=0 solved=0 nodes=0\nobjective=767999216.235951 fast=486697360.216 sets=12890 threads=4 t=278.5\n"
+    },
+    {
+      "case": "holdout_huge0",
+      "variant": "genetic",
+      "seed": 1,
+      "limit": 280.0,
+      "threads": 4,
+      "wall": 278.5215707369989,
+      "returncode": 0,
+      "score": 782563228.0402498,
+      "error": null,
+      "solution": "./experiments/evolution/logs/holdout_long_v2/holdout_huge0_genetic_s1.solution.json",
+      "stderr": "evo_warm mode=2 attempts=10252 evaluated=9732 decoded=5 best=528815779.286033 t=60.004\nworker_dfs calls=0 solved=0 nodes=0\nobjective=782563228.040251 fast=396913748.385 sets=9772 threads=4 t=278.5\n"
+    },
+    {
+      "case": "holdout_huge1",
+      "variant": "base",
+      "seed": 1,
+      "limit": 280.0,
+      "threads": 4,
+      "wall": 279.24753363000127,
+      "returncode": 0,
+      "score": 6124556.15116466,
+      "error": null,
+      "solution": "./experiments/evolution/logs/holdout_long_v2/holdout_huge1_base_s1.solution.json",
+      "stderr": "objective=6124556.151165 fast=5329535.925 sets=54 threads=4 t=279.2\n"
+    },
+    {
+      "case": "holdout_huge1",
+      "variant": "random",
+      "seed": 1,
+      "limit": 280.0,
+      "threads": 4,
+      "wall": 278.2832802409994,
+      "returncode": 0,
+      "score": 9250599.159430072,
+      "error": null,
+      "solution": "./experiments/evolution/logs/holdout_long_v2/holdout_huge1_random_s1.solution.json",
+      "stderr": "evo_warm mode=1 attempts=9406 evaluated=8282 decoded=5 best=6646408.252688 t=60.002\nworker_dfs calls=0 solved=0 nodes=0\nobjective=9250599.159430 fast=3476654.866 sets=8324 threads=4 t=278.3\n"
+    },
+    {
+      "case": "holdout_huge1",
+      "variant": "genetic",
+      "seed": 1,
+      "limit": 280.0,
+      "threads": 4,
+      "wall": 278.5853939190001,
+      "returncode": 0,
+      "score": 9490617.5226911,
+      "error": null,
+      "solution": "./experiments/evolution/logs/holdout_long_v2/holdout_huge1_genetic_s1.solution.json",
+      "stderr": "evo_warm mode=2 attempts=10182 evaluated=9816 decoded=5 best=7308486.714433 t=60.003\nworker_dfs calls=0 solved=0 nodes=0\nobjective=9490617.522691 fast=3476654.866 sets=9859 threads=4 t=278.6\n"
+    }
+  ]
+}

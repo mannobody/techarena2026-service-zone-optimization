@@ -1,0 +1,42 @@
+// Find the best FEASIBLE road offer, not just the best road offer.
+static bool cluster_fill_retry(Sol& s, Engine& E, double deadline) {
+    const Inst& I=*s.I;Guide G0(s,0.);bool any=false;
+    bool all=getenv("FILL_ALL")&&atoi(getenv("FILL_ALL"));
+    bool covered_all=getenv("FILL_COVERED")&&atoi(getenv("FILL_COVERED"));
+    for(int pass=0;pass<3;pass++) {
+        vector<pair<double,int>> un;
+        for(int x=0;x<I.ns;x++)if(s.asg[x]<0&&I.servable[x]) {
+            double best=NEG;for(int o=0;o<I.no;o++)if(s.isopen[o])best=max(best,I.pr(o,x));
+            if(best>0)un.push_back({best,x});
+        }
+        if(un.empty())break;sort(un.rbegin(),un.rend());bool changed=false;
+        for(auto e:un) {
+            if(elapsed()>=deadline)return any;
+            int x=e.second,tried=0;double base=G0.tail2(-1,0,0,-1,0,0);
+            vector<pair<double,int>> choices;
+            for(int o:I.cand[x]) {
+                if(!s.isopen[o])continue;
+                if(++tried>6&&!all&&!(covered_all&&s.cov[x]>0))break;
+                if(s.size_[o]>=I.maxsize[o]||E.size_viol(o,-1)>0||!E.can_add_skills(x,o))continue;
+                // Already covered points can only join their covering office.
+                if(s.cov[x]>0&&!s.incov[(size_t)o*s.np+x])continue;
+                double delta=I.pr(o,x)+G0.tail2(o,1,I.ntask[x],-1,0,0)-base;
+                if(delta>1e-9)choices.push_back({delta,o});
+            }
+            stable_sort(choices.begin(),choices.end(),[](const auto&a,const auto&b){return a.first>b.first;});
+            for(auto choice:choices) {
+                if(elapsed()>=deadline)return any;
+                size_t mark=E.jr.size();
+                if(!E.doAdd(x,choice.second))continue;
+                if(!I.simple_workers&&!s.greedy_workers(nullptr)) {
+                    if(E.rec)E.undo(mark);else s.remove_site(x);
+                    continue;
+                }
+                changed=any=true;break;
+            }
+        }
+        if(!changed)break;
+    }
+    if(level_fill(s,E,deadline))any=true;
+    return any;
+}

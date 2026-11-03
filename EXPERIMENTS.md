@@ -64,8 +64,8 @@
 | 10-19 | Codex | research/boundary-beam-research | DP window O(KGlogG), gcd; SCIP/HiGHS conditional selection/count/territory/workers | TL60 NT2 ×3 fresh:60/60 VALID mean−0.8792%, median0%, worst−8.6459%; edge21/21. Native10k81.2→34.5мс; gcd skip→opt14.1мс. MILP count90→130; HiGHS10k+0.3877% vsDP at60с without proof. Oracle3000 window,40 SCIP,40 HiGHS;35 MIP outputs validated | v4 frozen, DP not promoted; experiments/dp_milp/REPORT.md, optional patch, MANIFEST/PATHS. External60 cutoff cleanup≤0.117с. Main unchanged; no commit/submission |
 | 10-19 | Codex | research/boundary-beam-research | v5 MILP: safe envelope growth, grouped integer counts/continuous profit, worker profiles; lazy HiGHS C API tail | TL60 NT2×3 fresh final:60/60 VALID, mean+0.1945%, median+0.0112%, worst-2.5692%; own MIP16/30 improvements; package26/26, oracle Python80+native60. Fixed-inc alpha+1.91095%/.041s, tightA+.59033%/.218s. Max candidate wall60.149s (soft timer). Earlier independent +.3586% and −.3173% preserved | Experimental only; experiments/milp_v5/REPORT.md and artifacts/case03_cpp_server_v5_milp_lazy_O3.zip. v4/main solver unchanged; no commit/submission; boundary-variant master specified, not yet implemented |
 | 10-19 | Codex | research/boundary-beam-research | v5.2 regional perspective MILP: pair/power envelopes, transfers, optional joint office/workers; late 2s cooperative call | TL60 O3 NT2 ×3 fresh:60/60 successful VALID, mean+1.2517%, median+0.0025%, worst−0.9135%, wins/ties/losses15/4/11; own stage22/30. Package26/26, fallback2/2, oracle120 comparisons on30 tiny cases. Empty-office generator RE reproduced/fixed; failing prior series retained. Max wall60.199s, RSS47.961MiB NT2 | Experimental, not promoted; milp_v5_boundaries/REPORT.md, case03_cpp_server_v5_2_regions_safe_experimental_O3.zip. Mean sensitive to large wins; early call−2.8687% rejected. Old v4/v5 and main unchanged; no commit/submission |
-| 10-19 | Codex | research/service-zone-v4 | Перенос замороженной v4 в основной solver, O3 и документация | Payload побайтово совпал с v4; ZIP пересобран. Synth10 NT3:28/28 VALID; A/B60 NT3 ×3 против 102a0b8: inst0 +0.00%, inst1 +0.00%, inst2 +0.00%, inst3 +0.17%, inst4 +0.34%; benchmark rc0. Max wall кандидата 59.8с | В этой проверке регрессий более 1% по медианам не обнаружено; дополнительное подтверждение качества выполняется в CI при открытии PR. docs/v4.md; без staging, коммита и отправки |
-| 10-19 | Codex | research/service-zone-v4 | Разрешение конфликтов v4 с main 76d51ba: точная геометрия + кеш/defer, genetic + parallel phase1 | Geometry state25600/25600; synth10 NT2:28/28 VALID; A/B60 NT2 ×3:30/30 процессов rc0, head15/15 VALID, inst0 +0.00%, inst1 +0.00%, inst2 +0.00%, inst3 +0.00%, inst4 -3.67%; max wall 59.832с. ZIP rebuild OK | Регрессия >1%: критерий качества main НЕ выполнен; Изменения main сохранены, O3; docs/v4.md. Без коммита/push; качество на скрытых не доказано |
+| 10-19 | Codex | research/service-zone-v4 | Перенос замороженной v4 в основной solver, O3 и документация | Payload побайтово совпал с v4; ZIP пересобран. Synth10 NT3:28/28 VALID; A/B60 NT3 ×3 против 6878393: inst0 +0.00%, inst1 +0.00%, inst2 +0.00%, inst3 +0.17%, inst4 +0.34%; benchmark rc0. Max wall кандидата 59.8с | В этой проверке регрессий более 1% по медианам не обнаружено; дополнительное подтверждение качества выполняется в CI при открытии PR. docs/v4.md; без staging, коммита и отправки |
+| 10-19 | Codex | research/service-zone-v4 | Разрешение конфликтов v4 с main e600dde: точная геометрия + кеш/defer, genetic + parallel phase1 | Geometry state25600/25600; synth10 NT2:28/28 VALID; A/B60 NT2 ×3:30/30 процессов rc0, head15/15 VALID, inst0 +0.00%, inst1 +0.00%, inst2 +0.00%, inst3 +0.00%, inst4 -3.67%; max wall 59.832с. ZIP rebuild OK | Регрессия >1%: критерий качества main НЕ выполнен; Изменения main сохранены, O3; docs/v4.md. Без коммита/push; качество на скрытых не доказано |
 | 10-19 | Claude | claude/mannobody-warm-budget | v4: жадный выбор офисов снова до 22% лимита (≤60 с), генетика — только остаток (было 10%/30 с) | suite 120 NT2 ×2: v4 к 76d51ba +0.85% (anti +8.0, multiskill +2.4, huge −4.65); WARM_BUDGET к main +0.32%: huge +4.31 (0.944→0.988), anti +1.46, прочие классы в пределах ±0.3%. synth10: всё VALID |
 | 10-19 | Claude | claude/mannobody-ovns-default | OVNS=1 и CHUNK=0.04 по умолчанию (поверх WARM_BUDGET) | suite 120 NT2 ×2 к HEAD: +0.52%, ни один класс не просел: anti +2.79 (anti1 0.887→1.0), tightA +1.58, alphazero +0.38, alphabig +0.35, huge +0.08. 280 с, сборка из zip, 2 ядра: huge0/1 VALID, wall ≤ 277.8 с. synth10: всё VALID |
 | 10-19 | Claude | claude/mannobody-allops | ALLOPS: набор «все офисы» в портфель, второй в очереди глубоких прогонов (LNS сам закрывает лишние) | разбор 8 зёрен: tightA3 7/8 и anti2 5/8 в плохом наборе офисов; 4 зерна: tightA3 4355–4651 → 4856–4882, anti2 все зёрна ≥10444. suite 120 NT2 ×2 к main: +0.26% (= среднее по зёрнам), tightA +1.98 (tightA3 0.90→0.98), anti +0.50, grid +0.19, alphabig +0.20; cluster −0.09, multiskill −0.04, deficit −0.03 (шум). synth10: всё VALID | По умолчанию, ALLOPS=0 — выключить |
@@ -82,3 +82,121 @@
 | 10-21 | Claude | claude/mannobody-stripes | Бимодальность inst3 после STRIPES: ELDIV=k (в элите ≤ k решений с одним набором офисов); CHUNK 0.08/0.12; оценка полос с общим уровнем задач T | Механизм: плохой бассейн — {0,5} (оба офиса упёрлись в maxSize 128/114, 146–148k); хорошие — 4+ офиса с равными задачами по зонам (486×4, 160–167k), созревают за ≈30 с LNS, а глубокий раунд с нуля даёт ≤145k и рекорд не вытесняет. 280 с NT=2: по умолчанию 7 зёрен — среднее 160.0k (2 застряли); ELDIV=1 8 зёрен — 156.0k, ELDIV=2 4 зерна — 155.8k; off3_1..4 ELDIV=1: +0.95/+0.19/−0.51/+0.75% (шум); CHUNK=0.08 — 154.8k, 0.12 — 155.4k (по 4 зерна). Оценка с уровнем T: {0,5} 140.1k, {1,2,6,7} 139.4k (истинно 148k / 163k+) — ранжирование не исправляет | Отброшено. Потенциал многоофисного набора виден только после долгого LNS; дальше — гонка наборов из кандидатов STRIPES с продолжением (свой лучший у каждого), только при «обратной» геометрии |
 | 10-21 | Claude | claude/mannobody-tl-safety | Страховка TL: `alarm` limit+14 → limit+5 (294 → 285 с); повод — 0 в одном из трёх прогонов #9 на NSUTS (посылка 49e92fb, похоже TL) | Замер `NT=2`, 280 с, 37 инстансов (thin2 ×9, instance0–4, suite small/grid/tightA/scarce/thin/multiskill/deficit/large/huge): конец 276.5–279.44 с, ни один не дошёл до alarm, пик RSS 215 МБ; переполнения не найдено → остаётся редкое зависание фазы или накладные Docker, 294 с оставляли лишь 6 с. `kill -ALRM` на 80 с (huge0) — валидное решение. Побочно: на huge0 первое решение только на 65 с (large1 37 с) — до этого в файле `[]`. `--synth 10` всё VALID. Оставлено |
 | 10-21 | Claude | claude/mannobody-tl-safety | TLEVEL=1 на тонком классе (thin2_1–9, стоимость офиса 0.85–1.0 его автономной прибыли; 280 с NT=2 ×4 зерна, к MIP `bound.py`) | Без эффекта: среднее к MIP 0.9725 против 0.9732 (main, 6 зёрен); ход принимается (thin2_8 60–220 раз, thin2_4 ~3000), но итог тот же — thin2_8 187.2 в 3 из 4 (MIP 210.3, бассейн офисов {0,2,3}). Упор в набор офисов, не в уровень задач. Отброшено |
+
+## Локальный поиск v4, 19 октября 2026
+
+Исследовательская ветка `research/v4-local-search` создана от обновлённого origin/main
+`5306583` (solver совпадает с `6d846d1`). Замороженные ZIP v4/v5 не изменены.
+Новые методы выключены по умолчанию; коммита, push, merge и отправки нет.
+
+| Идея | Проверка | Результат / решение |
+|---|---|---|
+| Локальный дедлайн DP, чередование конструкторов, обмены 1↔1/2↔2 | Development TL60 NT2 O3, 8 классов × 3 seed, 96 канонических запусков | local mean+0.1208%, median0; fair−0.8822%; exchange+0.0792%, median+0.0241%, worst−2.1585%; общая победа не доказана |
+| Полный ILS и расширенный обход рангов | Отдельные 96 запусков | ILS mean−1.3523%, worst−9.0287%; cover−0.9260%, worst−6.9301%; отклонены |
+| Финальный парный обмен | Независимый holdout48, открытые30, huge TL180×3 пары | Holdout mean+1.0612%, median0, worst−8.6162%; huge180 все три пары хуже; не принят |
+| ILS/VNS/TS/GWW после фиксированного checkpoint | Ранние и зрелые состояния: по168 проверок операторов NT1×2с | Зрелые медианы0; GWW mean+0.05171% зависит от редкого выигрыша; полного преимущества не заявляем. Исправлен риск размера популяции, 24/24 дополнительных проверок |
+| SCIP/HiGHS с геометрическими cuts и переменными назначениями/работниками | 84 сравнения с полным перебором на42 маленьких задачах; два вида окрестности на8 зрелых checkpoint | Выбор по выгоде: нет прироста, 3 нарушения wall-порога. Снятие слоёв оболочек: 32/32 успеха, совпадающие улучшения alphabig/large/cluster |
+| Native цикл A→B→free→A, сохраняющий counts и tasks | На фиксированном alphabig повторяет MIP gain2674.688649 примерно за35мс | Общий оператор без зависимости от ID; отдельный ZIP, итоговые A/B ниже в отчёте |
+| Повтор inst4 противe600dde | 6 новых seed, 12/12 успехов | Отношение медиан−0.06734%, среднее парных Δ−1.10273%, W/T/L2/0/4. Хороший старый бассейн18869.55 дважды достижим и валиден в новом Engine; исправление регрессии не доказано |
+
+Полные распределения, времена/RSS, причинный разбор и неуспешные серии:
+[REPORT](experiments/v4_local_search/REPORT.md),
+[таблица](experiments/v4_local_search/RESULTS_TABLE.md),
+[методы и первичные источники](docs/v4-local-search.md).
+Координаторы двух неполных серий завершились143; журналы сохранены, серии повторены
+целиком. Ошибка прежнего офлайн worker-certificate harness (12 rc6) также сохранена;
+повтор168/168 успешен. Ничего не удалено; список кандидатов на очистку в исследовании.
+
+Итог цикла: development48/48 — mean−0.3254%, median−0.0401%, worst−8.9308%;
+независимый holdout48/48 — mean+0.0860%, median0, W/T/L8/5/11. Расширение до шести
+seed на alphabig/large: отношение медиан −1.0489%/+0.2087%. Критерий принятия
+не выполнен. Контроль с общего checkpoint «2с boundary» vs «2с цикл+boundary»:
+48/48 успешных, W/T/L4/17/3; проигрыш tightA показывает конкуренцию финальных стадий.
+Экспериментальный safe-ZIP проверен на28 синтетических и6 файловых запусках;
+TL280/O3/C++17, внешних solver в нём нет. Основные defaults сохранены.
+
+## Две лаборатории и интеграция, второй цикл 19 октября 2026
+
+По просьбе пользователя работали две отдельные лаборатории: геометрия и
+архитектура поиска. Новая первичная база — точная серверная v4 с исходником
+SHA256 `5b3914fa9791cb879f3232fb2876a915de83b848ad4b353b0dbf25b574998c25`.
+Модульный solver не подменяет эту базу. Источники, бинарники, входы, времена,
+ошибки и фактический NT сохраняются в manifest каждого запуска.
+
+| Направление | Проверка | Вывод |
+|---|---|---|
+| Count caps и расширение пула в глобальном resplit | 48/48 TL60; exhaustive count oracle | Глобальная замена отклонена: combined mean−0.704%, worst−7.374%; полезный отдельный финальный проход сохранён |
+| Геометрия зрелых решений | TL280/TL600; 186 операторных проверок; SCIP и HiGHS | После TL600 новый проход даёт +939.286645 за≈0.118с; условная 66-site MILP-подзадача независимо решена обоими backend; это не глобальная оптимальность |
+| Batch, ALNS, archive, niche/crossover, memo, rank coverage | 96 exploratory +40 корректно блокированных TL60; полный TL280 контроль | Batch ускоряет фиксированное remove/undo ядро в3.60–4.04раза; ALNS/niche/persistent-комбинации ухудшают полные результаты и не включены |
+| Joint count/load DP | Tiny brute-force32/32, MILP32/32, зрелые native12/12 | Исправляет неполноту load-only+repair; воспроизводит MIP gain11007.487521 на alphabig за≈0.011с при фиксированном staff |
+| Конструкторный rollback guard | Повтор24/24 TL60 | mean+0.090%, median0, worst−5.285%; не включён; прерванный первый координатор сохранён |
+| Объединение batch+geometry+joint | Development36/36 TL60 | Выбран geometry→joint→boundary: mean+0.741%, median0, worst−1.588%; это выбор кандидата, не подтверждение превосходства |
+
+Новый frozen ZIP проверен без изменения кода на полном TL280, новых
+holdout-входах751000+ и открытых примерах. Пересборка ZIP совпадает с frozen
+runtime после удаления ELF symbol-table/build-id; source совпадает побайтово.
+Синтетика28/28 и файловый протокол6/6 пройдены. Старые архивы не изменены.
+
+Окончательные распределения и решение о принятии опубликованы в
+[отчёте интеграции](experiments/v4_deep_parallel/integration/REPORT.md).
+Подробности лабораторий: [геометрия](experiments/v4_deep_parallel/geometry/REPORT.md),
+[поиск](experiments/v4_deep_parallel/search/REPORT.md).
+Все изменения локальные; коммит, staging, push, merge и отправка не выполнялись.
+
+Итог frozen-кандидата: independent holdout60 —72/72 успешных, mean+0,1332%,
+median0, W/T/L14/12/10, worst−1,5799%; holdout280 —12/12, mean−0,1765%,
+W/T/L3/0/3, worst−2,0007%. Development280 положителен (+0,8896%), но не подменяет
+holdout. Открытые20/20: inst0–3 равны, inst4 нестабилен; отдельный follow-up
+расширил его до6 seed. Критерий принятия не выполнен, v4 не заменена.
+Фиксированные checkpoint с общим3с бюджетом:36/36, новая финальная композиция
+даёт6 побед /6 равенств /0 проигрышей; это операторный результат.
+
+Follow-up inst4: дополнительные8/8 успешны, pooled6 seed —mean+0,7125%,
+отношение медиан+0,1786%, W/T/L4/0/2, SD3,1888%, диапазон−4,5190%..+4,4096%.
+Это подтверждает вариативность, не устойчивое исправление.
+
+## Серверная v6, 19 октября 2026
+
+По запросу пользователя frozen-гибрид второго цикла оформлен как отдельная v6:
+`dist/case03_cpp_server_v6_O3.zip`. Исходник и ZIP побайтово совпадают с ранее
+проверенным кандидатом; настройки geometry→joint→boundary включены по умолчанию,
+TL280. Это версия для серверной проверки, не новый результат качества и не
+замена стабильной v4. Сборка из фактического ZIP совпала с frozen runtime после
+удаления ELF metadata; 28/28 синтетических случаев прошли официальный валидатор
+при запуске без аргументов с конкурсными именами файлов (TL3, NT2).
+Происхождение, воспроизводимая упаковка и проверки: `experiments/server_v6/`.
+Ничего не коммитили, не отправляли и не удаляли.
+
+
+## Exact neighborhoods v8, 20 октября 2026
+
+Один агент, точные замороженные server-v4/v8. Пересечение hull без общей входной точки допустимо и уже поддерживается final geometry v8. Реализованы full-domain SCIP/HiGHS G/S с geometry cuts, native B&B, whole-zone atomic packets, full-office fill fallback и ограниченный временем worker DFS без node cap. Найден настоящий worker false negative: полный v4/v8/off36 против нового45 (+25%,3/3seed одного constructed входа); это не общее превосходство.
+
+Независимый frozen TL10 NT2 O3:96/96 VALID, mean к v4−0.106045%, median0, worst−7.848337%. Дополненный до запуска TL60:32/32 VALID,4 тех же входа×2seed×4варианта, mean−0.789370%, median0, worst−6.477530%. Acceptance НЕ пройден; v4 не заменена. TL4 exploratory перелёты до6.4995с сохранены; TL10/60 wall ограничен снаружи и включает overhead. TL280 не запускался.
+
+Материалы: experiments/v8_exact_neighborhoods/REPORT_RU.md, reports/AUDIT_RU.md, FREEZE.json, LONG_PROTOCOL_ADDENDUM.json, FINAL_DECISION.json, COMMANDS_RU.md. Отдельный experimental ZIP main.cpp+Makefile, default280/NT2; byte-identical rebuild, contract63/63 VALID. Старые версии и пользовательский solver/ сохранены; без staging/commit/push/server submit.
+
+
+## Structural zones v9, 22 октября 2026
+
+Точная server-v4 подтверждена исходником из ZIP (SHA5b3914…); собраны новые контроль/кандидат с одинаковыми O3/std17. Реализованы global whole-zone B&B на малых входах, restricted zone-pool/count×load DP и signed atomic exchanges. 38 exhaustive +15 ручных +55 contract проверок; минимальный joint-DP пример21→110, signed200→299, пересекающиеся треугольники40 VALID.
+
+TL280/NT2: development63/63 успешны; свежая проверка11входов×3seed×2версии —66/66 VALID,65/66 в рабочем допуске (v4 large/9401:281.318с,65.68CPUс; потолок300с не превышен). Выбран tail: mean+2.4308%, median0, worst−0.8043%,15/12/6; без малых mean+0.5640%, case-bootstrap95[+0.1549;+1.1194]. Дополнительный повтор того же large,3seed/2версии/меньший параллелизм:6/6 успешны, mean−0.0636%, worst−1.7555%. Первичные строки сохранены и не заменены. Надёжная общая замена v4 не рекомендована; кандидат экспериментальный, baseline неизменён. Полный master хуже по устойчивости (dev worst−6.2177%); его вклад не приписывается удачным native траекториям.
+
+Материалы: experiments/structural_v9/REPORT_RU.md, AUDIT_RU.md, FINAL_METRICS.json, FINAL_AUDIT.json, FREEZE.json; исходник/пакет candidate_selected.zip и контроль control_v4_nt2.zip. Проверка пакета: побайтно тот же измеренный бинарник,3/3 noarg/file-contract VALID. Чужой solver/ и старые результаты не менялись; build-race QA перенесён в to_delet с MOVES.json. Без staging/commit/push/server submit.
+
+
+## Warm start v10, 22 октября 2026
+
+Продолжение immutable structural-v9 tail и точной server-v4 SHA5b3914…: геометрические геномы, истинный feasible fitness, два warm-потока, разнообразие назначений, пространственный crossover целых зон и прямая передача стартов в LNS. Дополнительно singleton-invariant shortcut (24/24 точные оценки,9.709→0.140s для подзадачи) и массовая балансировка power cells (механизм20→40 VALID). Все старые версии сохранены, solver/ не переписан.
+
+Выбран v10_v5_geometry; независимые8 новых входов120–10000 сайтов×3seed (включая0)×3версии,TL280/NT2: mean к v4 +3.9956%, median+0.7581%, worst-3.6800%,W/T/L19/1/4; к v9 mean+4.7753%. Рекомендация: exact_server_v4_NT2_TL280; promotion=False. Ресурсный повтор, если вызван, отдельный и не заменяет primary. Всего quality294,VALID294,рабочих успехов285; все ошибки/перелёты сохранены.
+
+Материалы: experiments/warm_v10/REPORT_RU.md, AUDIT_RU.md, FINAL_METRICS.json, FINAL_AUDIT.json, FREEZE.json, candidate_selected.zip. Пакет побайтно воспроизводит измеренный бинарник; официальный noarg/file-contract пройден. Без staging/commit/push/submit и без удаления прежних результатов.
+
+Уточнение выбранной конфигурации: v10/v5 GW_MODE1 включает геометрическую популяцию и передачу разнообразных готовых стартов. Whole-zone crossover и новая глобальная элита относятся к проверенному, но не выбранному GW_MODE2; singleton shortcut и mass balancing также остались отдельными прототипами. Наблюдаемый средний прирост на новых входах положительный (95% case-bootstrap к v4 [+0.9277%; +7.8716%]), но worst −3.6800% нарушает заранее заданный порог −1%. Неравномерно полученное CPU-время ограничивает интерпретацию; RESOURCE_REPORT_RU.md сохраняет измерения.
+
+
+## 2026-10-22 — submission_1668601_v12
+
+Неизменный контроль — пользовательская submit_1668601/source4144e63b (v5.2 safe regions). Испытаны8 кандидатных конфигураций с сохранённым исходным MIP. Выбран geometry; independent7новых входов×2seed/TL280/2CPU: 28/28 VALID, mean кпосылке +0.9658%, worst -5.8503%, W/T/L 9/0/5. Локальный критерий продвижения: False. Всего142 quality-прогона; supplementalgeometry development имеет fixed-last оговорку. Отчёт experiments/submission_1668601_v12/REPORT_RU.md, архив dist/case03_cpp_1668601_v12.zip; sourceSHA e3e5cf98c114bfe4627f791aff1b02e4933e338cdd0453e90de9dae981daf26d. Ни код solver/, ни прежние архивы не заменены; серверной отправки нет.

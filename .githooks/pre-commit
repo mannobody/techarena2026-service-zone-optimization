@@ -1,0 +1,17 @@
+#!/bin/sh
+# Opt in locally: git config core.hooksPath .githooks
+set -eu
+repo=$(git rev-parse --show-toplevel)
+config=$(git config --get privacy.configFile || true)
+if [ -n "$config" ]; then
+    case "$config" in
+        /*) ;;
+        *) config="$repo/$config" ;;
+    esac
+fi
+if [ -z "$config" ] || [ ! -f "$config" ] || [ ! -r "$config" ]; then
+    printf '%s\n' 'Privacy check requires a readable private JSON config outside the repository.' >&2
+    printf '%s\n' 'Set its path using: git config --local privacy.configFile /private/path/config.json' >&2
+    exit 2
+fi
+exec python3 "$repo/tools/privacy_check.py" --repo "$repo" --config "$config" --staged

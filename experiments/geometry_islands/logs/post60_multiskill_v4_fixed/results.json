@@ -1,0 +1,40 @@
+{
+  "config": {
+    "tag": "post60_multiskill_v4_fixed",
+    "split": "train",
+    "variants": "7",
+    "seeds": "11",
+    "seconds": 60.0,
+    "threads": 1,
+    "jobs": 1,
+    "cases": "multiskill0",
+    "post_from": "train_base60",
+    "exe": "post_v4_finalize"
+  },
+  "results": [
+    {
+      "case": "multiskill0",
+      "seed": 11,
+      "variant": "7",
+      "input": "./experiments/geometry_islands/data/train/multiskill0.json",
+      "solution": "./experiments/geometry_islands/logs/post60_multiskill_v4_fixed/multiskill0_11_7.json",
+      "score": 79.40782877561556,
+      "error": null,
+      "rc": 0,
+      "wall": 59.76330434800002,
+      "stats": {
+        "before": 79.4078287756,
+        "after": 79.4078287756,
+        "valid": true,
+        "seconds": 59.750294,
+        "calls": 484,
+        "wins": 0,
+        "geo_fail": 0,
+        "balance_fail": 0,
+        "worker_fail": 0,
+        "trimmed": 0,
+        "triangles": 13838294
+      }
+    }
+  ]
+}

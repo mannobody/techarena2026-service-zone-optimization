@@ -1,0 +1,45 @@
+"""Build runtime-only clustering prototypes from the integrated solver snapshot."""
+from pathlib import Path
+import hashlib
+import json
+import subprocess
+
+HERE=Path(__file__).resolve().parent;ROOT=HERE.parents[1]
+
+
+def once(s,a,b):
+    assert s.count(a)==1,a
+    return s.replace(a,b)
+
+
+def main():
+    source=(ROOT/'experiments/evolution/artifacts/integrated.cpp').read_text()
+    source=once(source,'static void worker(', (HERE/'constructors.h').read_text()+'\nstatic void worker(')
+    source=once(source,'    const int NC = 6;',
+        '    int cluster_mode=getenv("CLUSTER_MODE")?atoi(getenv("CLUSTER_MODE")):0;\n'
+        '    int schedule=getenv("CTOR_SCHEDULE")?atoi(getenv("CTOR_SCHEDULE")):0;\n'
+        '    const int NC = cluster_mode ? (cluster_mode==1?9:8) : 6;\n'
+        '    int screened[12]={0};')
+    source=once(source,'        } else if (ctor == 2) cellOf = ctor_road(I, c.op);',
+        '        } else if(ctor>=6)cellOf=ctor_cluster(I,c.op,cluster_mode,ctor-6,min(deadline,elapsed()+.04*tend));\n'
+        '        else if (ctor == 2) cellOf = ctor_road(I, c.op);')
+    source=once(source,'        int combo = (t + tid * 7) % NCOMBO;',
+        '        int combo = (t + tid * 7) % NCOMBO;\n'
+        '        if(cluster_mode || schedule==1 || (schedule==2 && (tid&1))){\n'
+        '            bool solo=getenv("NT")&&atoi(getenv("NT"))==1;\n'
+        '            int shift=cluster_mode&&((tid&1)||solo)?6:tid;\n'
+        '            int ctor=(t+shift)%NC;\n'
+        '            combo=ctor*(int)cands.size()+(t/NC+tid*7)%(int)cands.size();\n'
+        '        }\n        screened[combo/(int)cands.size()]++;')
+    source=once(source,'    // Ранжируем НАБОРЫ ОФИСОВ,',
+        '    if(getenv("CLUSTER_TRACE")){fprintf(stderr,"ctor_screen tid=%d counts=",tid);'
+        'for(int j=0;j<NC;j++)fprintf(stderr,"%d,",screened[j]);fprintf(stderr,"\\n");}\n'
+        '    // Ранжируем НАБОРЫ ОФИСОВ,')
+    out=HERE/'artifacts';out.mkdir(exist_ok=True)
+    (out/'prototype.cpp').write_text(source)
+    subprocess.run(['g++','-O2','-std=c++17',str(out/'prototype.cpp'),'-o',str(out/'prototype')],check=True)
+    inputs=[ROOT/'experiments/evolution/artifacts/integrated.cpp',HERE/'constructors.h',HERE/'build.py']
+    (out/'build.json').write_text(json.dumps({str(p):hashlib.sha256(p.read_bytes()).hexdigest() for p in inputs},indent=2))
+
+
+if __name__=='__main__':main()

@@ -1,0 +1,797 @@
+[
+  {
+    "value": 12750347.717684327,
+    "before": 12571760.229976047,
+    "status": "HighsModelStatus.kOptimal",
+    "seconds": 18.26774536099947,
+    "prep_seconds": 0.10641202099941438,
+    "groups": 590,
+    "regions": 26,
+    "variables": 1250,
+    "rows": 2920,
+    "packing_rows": 24,
+    "nodes": 7,
+    "bound": 12750347.717684321,
+    "gap": 0.0,
+    "invalid": [],
+    "timeline": [
+      {
+        "seconds": 8.214452673000778,
+        "value": 12734473.407165974
+      },
+      {
+        "seconds": 17.835745271999258,
+        "value": 12750347.717684327
+      }
+    ],
+    "selected": [
+      {
+        "index": 0,
+        "o": 0,
+        "tag": "base"
+      },
+      {
+        "index": 1,
+        "o": 1,
+        "tag": "base"
+      },
+      {
+        "index": 4,
+        "o": 7,
+        "tag": "base"
+      },
+      {
+        "index": 6,
+        "o": 13,
+        "tag": "base"
+      },
+      {
+        "index": 12,
+        "o": 11,
+        "tag": "power"
+      },
+      {
+        "index": 19,
+        "o": 2,
+        "tag": "power_new"
+      },
+      {
+        "index": 22,
+        "o": 4,
+        "tag": "power_new"
+      }
+    ],
+    "region_seconds": 0.02898525199998403,
+    "region_sites": 904,
+    "new_offices": [
+      4
+    ],
+    "tags": {
+      "base": 7,
+      "power": 7,
+      "power_new": 12
+    },
+    "case": "alphabig0",
+    "input": "./experiments/milp_v5/data/lazy_holdout/alphabig0.json",
+    "incumbent": "./experiments/milp_v5/logs/lazy_holdout60/alphabig0_161_candidate.json",
+    "mode": "power",
+    "wall": 19.36431435400118,
+    "hard_timeout": false,
+    "valid": true
+  },
+  {
+    "value": 12579948.308674844,
+    "before": 12571760.229976047,
+    "status": "HighsModelStatus.kOptimal",
+    "seconds": 29.823906417001126,
+    "prep_seconds": 0.05392488100005721,
+    "groups": 1057,
+    "regions": 37,
+    "variables": 2190,
+    "rows": 5217,
+    "packing_rows": 44,
+    "nodes": 25,
+    "bound": 12579948.308674844,
+    "gap": 0.0,
+    "invalid": [],
+    "timeline": [
+      {
+        "seconds": 29.17373946600128,
+        "value": 12577174.999466265
+      },
+      {
+        "seconds": 29.467573865000304,
+        "value": 12577625.807676554
+      },
+      {
+        "seconds": 29.520465301000513,
+        "value": 12578992.016461661
+      },
+      {
+        "seconds": 29.575718616000813,
+        "value": 12579948.308674844
+      }
+    ],
+    "selected": [
+      {
+        "index": 0,
+        "o": 0,
+        "tag": "base"
+      },
+      {
+        "index": 1,
+        "o": 1,
+        "tag": "base"
+      },
+      {
+        "index": 4,
+        "o": 7,
+        "tag": "base"
+      },
+      {
+        "index": 5,
+        "o": 11,
+        "tag": "base"
+      },
+      {
+        "index": 6,
+        "o": 13,
+        "tag": "base"
+      },
+      {
+        "index": 17,
+        "o": 2,
+        "tag": "pair"
+      },
+      {
+        "index": 18,
+        "o": 6,
+        "tag": "pair_greedy"
+      }
+    ],
+    "region_seconds": 0.3207257789999858,
+    "region_sites": 1696,
+    "new_offices": [],
+    "tags": {
+      "base": 7,
+      "pair": 3,
+      "pair_greedy": 27
+    },
+    "case": "alphabig0",
+    "input": "./experiments/milp_v5/data/lazy_holdout/alphabig0.json",
+    "incumbent": "./experiments/milp_v5/logs/lazy_holdout60/alphabig0_161_candidate.json",
+    "mode": "pair",
+    "wall": 30.7213240330002,
+    "hard_timeout": false,
+    "valid": true
+  },
+  {
+    "value": 12571760.229976047,
+    "before": 12571760.229976047,
+    "status": "HighsModelStatus.kTimeLimit",
+    "seconds": 54.70666303799953,
+    "prep_seconds": 0.06836670299890102,
+    "groups": 1510,
+    "regions": 56,
+    "variables": 3120,
+    "rows": 7407,
+    "packing_rows": 64,
+    "nodes": 5,
+    "bound": 14137570.931552794,
+    "gap": 0.12454983812395938,
+    "invalid": [],
+    "timeline": [],
+    "selected": [],
+    "region_seconds": 0.33348675899833324,
+    "region_sites": 2398,
+    "new_offices": [
+      4
+    ],
+    "tags": {
+      "power": 7,
+      "power_new": 12,
+      "base": 7,
+      "pair": 3,
+      "pair_greedy": 27
+    },
+    "case": "alphabig0",
+    "input": "./experiments/milp_v5/data/lazy_holdout/alphabig0.json",
+    "incumbent": "./experiments/milp_v5/logs/lazy_holdout60/alphabig0_161_candidate.json",
+    "mode": "both",
+    "wall": 55.61587270999917,
+    "hard_timeout": false,
+    "valid": true
+  },
+  {
+    "value": 576.5845493348024,
+    "before": 576.5845493348024,
+    "status": "HighsModelStatus.kTimeLimit",
+    "seconds": 52.2596593369999,
+    "prep_seconds": 0.31014862400115817,
+    "groups": 1533,
+    "regions": 41,
+    "variables": 3177,
+    "rows": 11743,
+    "packing_rows": 51,
+    "nodes": 2,
+    "bound": 604.1389098151667,
+    "gap": 0.04778893314458993,
+    "invalid": [],
+    "timeline": [],
+    "selected": [],
+    "region_seconds": 3.007810449000317,
+    "region_sites": 7120,
+    "new_offices": [],
+    "tags": {
+      "base": 11,
+      "pair": 4,
+      "pair_greedy": 26
+    },
+    "case": "large0",
+    "input": "./experiments/milp_v5/data/lazy_holdout/large0.json",
+    "incumbent": "./experiments/milp_v5/logs/lazy_holdout60/large0_161_candidate.json",
+    "mode": "pair",
+    "wall": 55.87313418600024,
+    "hard_timeout": false,
+    "valid": true
+  },
+  {
+    "value": 576.5845493348024,
+    "before": 576.5845493348024,
+    "status": "HighsModelStatus.kTimeLimit",
+    "seconds": 55.25613144900126,
+    "prep_seconds": 0.4750893350010301,
+    "groups": 1324,
+    "regions": 37,
+    "variables": 2761,
+    "rows": 9816,
+    "packing_rows": 36,
+    "nodes": 1,
+    "bound": 624.2567790832219,
+    "gap": 0.08268038018607742,
+    "invalid": [],
+    "timeline": [],
+    "selected": [],
+    "region_seconds": 0.09368619800079614,
+    "region_sites": 5796,
+    "new_offices": [
+      8
+    ],
+    "tags": {
+      "base": 11,
+      "power_new": 15,
+      "power": 11
+    },
+    "case": "large0",
+    "input": "./experiments/milp_v5/data/lazy_holdout/large0.json",
+    "incumbent": "./experiments/milp_v5/logs/lazy_holdout60/large0_161_candidate.json",
+    "mode": "power",
+    "wall": 56.36733339800048,
+    "hard_timeout": false,
+    "valid": true
+  },
+  {
+    "value": 576.5845493348024,
+    "before": 576.5845493348024,
+    "status": "HighsModelStatus.kTimeLimit",
+    "seconds": 52.17935559200123,
+    "prep_seconds": 0.3415988280012243,
+    "groups": 2455,
+    "regions": 67,
+    "variables": 5053,
+    "rows": 18590,
+    "packing_rows": 117,
+    "nodes": 0,
+    "bound": 631.3283864395735,
+    "gap": 0.0949450296022125,
+    "invalid": [],
+    "timeline": [],
+    "selected": [],
+    "region_seconds": 3.1053430709998793,
+    "region_sites": 11217,
+    "new_offices": [
+      8
+    ],
+    "tags": {
+      "power_new": 15,
+      "power": 11,
+      "pair": 4,
+      "pair_greedy": 26,
+      "base": 11
+    },
+    "case": "large0",
+    "input": "./experiments/milp_v5/data/lazy_holdout/large0.json",
+    "incumbent": "./experiments/milp_v5/logs/lazy_holdout60/large0_161_candidate.json",
+    "mode": "both",
+    "wall": 56.076482079000925,
+    "hard_timeout": false,
+    "valid": true
+  },
+  {
+    "value": 12332.50225896234,
+    "before": 12323.724505437283,
+    "status": "HighsModelStatus.kOptimal",
+    "seconds": 4.160145563999322,
+    "prep_seconds": 0.03164259299956029,
+    "groups": 616,
+    "regions": 28,
+    "variables": 1300,
+    "rows": 2942,
+    "packing_rows": 21,
+    "nodes": 3,
+    "bound": 12332.502258962342,
+    "gap": 0.0,
+    "invalid": [],
+    "timeline": [
+      {
+        "seconds": 4.137405038998622,
+        "value": 12332.50225896234
+      }
+    ],
+    "selected": [
+      {
+        "index": 1,
+        "o": 2,
+        "tag": "base"
+      },
+      {
+        "index": 2,
+        "o": 4,
+        "tag": "base"
+      },
+      {
+        "index": 20,
+        "o": 1,
+        "tag": "pair_greedy"
+      },
+      {
+        "index": 21,
+        "o": 5,
+        "tag": "pair"
+      }
+    ],
+    "region_seconds": 0.10034311699928367,
+    "region_sites": 1035,
+    "new_offices": [],
+    "tags": {
+      "pair": 10,
+      "pair_greedy": 14,
+      "base": 4
+    },
+    "case": "latent0",
+    "input": "./experiments/milp_v5/data/lazy_holdout/latent0.json",
+    "incumbent": "./experiments/milp_v5/logs/lazy_holdout60/latent0_161_candidate.json",
+    "mode": "pair",
+    "wall": 5.16687430499951,
+    "hard_timeout": false,
+    "valid": true
+  },
+  {
+    "value": 12323.724505437283,
+    "before": 12323.724505437283,
+    "status": "HighsModelStatus.kOptimal",
+    "seconds": 0.34468507500059786,
+    "prep_seconds": 0.021488403001058032,
+    "groups": 252,
+    "regions": 13,
+    "variables": 566,
+    "rows": 1266,
+    "packing_rows": 8,
+    "nodes": 1,
+    "bound": 12323.724505437283,
+    "gap": 0.0,
+    "invalid": [],
+    "timeline": [],
+    "selected": [],
+    "region_seconds": 0.006066884001484141,
+    "region_sites": 425,
+    "new_offices": [
+      3
+    ],
+    "tags": {
+      "base": 4,
+      "power": 4,
+      "power_new": 5
+    },
+    "case": "latent0",
+    "input": "./experiments/milp_v5/data/lazy_holdout/latent0.json",
+    "incumbent": "./experiments/milp_v5/logs/lazy_holdout60/latent0_161_candidate.json",
+    "mode": "power",
+    "wall": 1.0330833139996685,
+    "hard_timeout": false,
+    "valid": true
+  },
+  {
+    "value": 12332.50225896234,
+    "before": 12323.724505437283,
+    "status": "HighsModelStatus.kOptimal",
+    "seconds": 3.729051559999789,
+    "prep_seconds": 0.03693941199890105,
+    "groups": 780,
+    "regions": 37,
+    "variables": 1646,
+    "rows": 3720,
+    "packing_rows": 28,
+    "nodes": 3,
+    "bound": 12332.502258962348,
+    "gap": 0.0,
+    "invalid": [],
+    "timeline": [
+      {
+        "seconds": 3.6859358419987984,
+        "value": 12332.50225896234
+      }
+    ],
+    "selected": [
+      {
+        "index": 1,
+        "o": 2,
+        "tag": "base"
+      },
+      {
+        "index": 2,
+        "o": 4,
+        "tag": "base"
+      },
+      {
+        "index": 20,
+        "o": 1,
+        "tag": "pair_greedy"
+      },
+      {
+        "index": 21,
+        "o": 5,
+        "tag": "pair"
+      }
+    ],
+    "region_seconds": 0.10774260399921332,
+    "region_sites": 1304,
+    "new_offices": [
+      3
+    ],
+    "tags": {
+      "pair": 10,
+      "pair_greedy": 14,
+      "power": 4,
+      "power_new": 5,
+      "base": 4
+    },
+    "case": "latent0",
+    "input": "./experiments/milp_v5/data/lazy_holdout/latent0.json",
+    "incumbent": "./experiments/milp_v5/logs/lazy_holdout60/latent0_161_candidate.json",
+    "mode": "both",
+    "wall": 4.474188178999611,
+    "hard_timeout": false,
+    "valid": true
+  },
+  {
+    "value": 7352.747509939395,
+    "before": 7352.747509939395,
+    "status": "HighsModelStatus.kTimeLimit",
+    "seconds": 55.915045958998235,
+    "prep_seconds": 1.9334630109988211,
+    "groups": 1588,
+    "regions": 36,
+    "variables": 3288,
+    "rows": 37545,
+    "packing_rows": 40,
+    "nodes": 0,
+    "bound": 7811.651730922326,
+    "gap": 0.06241261791766774,
+    "invalid": [],
+    "timeline": [],
+    "selected": [],
+    "region_seconds": 0.4067723330008448,
+    "region_sites": 32798,
+    "new_offices": [
+      17
+    ],
+    "tags": {
+      "power": 11,
+      "base": 11,
+      "power_new": 14
+    },
+    "case": "huge0",
+    "input": "./experiments/milp_v5/data/lazy_holdout/huge0.json",
+    "incumbent": "./experiments/milp_v5/logs/lazy_holdout60/huge0_161_candidate.json",
+    "mode": "power",
+    "wall": 57.37256211299973,
+    "hard_timeout": false,
+    "valid": true
+  },
+  {
+    "value": 7358.76835112161,
+    "before": 7352.747509939395,
+    "status": "HighsModelStatus.kTimeLimit",
+    "seconds": 52.24547565800094,
+    "prep_seconds": 1.7675337880009465,
+    "groups": 851,
+    "regions": 19,
+    "variables": 1791,
+    "rows": 14782,
+    "packing_rows": 17,
+    "nodes": 8,
+    "bound": 7394.593881437441,
+    "gap": 0.004868413925593545,
+    "invalid": [],
+    "timeline": [
+      {
+        "seconds": 27.138434031001452,
+        "value": 7358.76835112161
+      }
+    ],
+    "selected": [
+      {
+        "index": 0,
+        "o": 0,
+        "tag": "base"
+      },
+      {
+        "index": 1,
+        "o": 1,
+        "tag": "base"
+      },
+      {
+        "index": 2,
+        "o": 2,
+        "tag": "base"
+      },
+      {
+        "index": 3,
+        "o": 4,
+        "tag": "base"
+      },
+      {
+        "index": 4,
+        "o": 5,
+        "tag": "base"
+      },
+      {
+        "index": 5,
+        "o": 6,
+        "tag": "base"
+      },
+      {
+        "index": 6,
+        "o": 7,
+        "tag": "base"
+      },
+      {
+        "index": 7,
+        "o": 8,
+        "tag": "base"
+      },
+      {
+        "index": 8,
+        "o": 12,
+        "tag": "base"
+      },
+      {
+        "index": 9,
+        "o": 18,
+        "tag": "base"
+      },
+      {
+        "index": 10,
+        "o": 19,
+        "tag": "base"
+      }
+    ],
+    "region_seconds": 4.016478900000948,
+    "region_sites": 12182,
+    "new_offices": [],
+    "tags": {
+      "pair_greedy": 8,
+      "base": 11
+    },
+    "case": "huge0",
+    "input": "./experiments/milp_v5/data/lazy_holdout/huge0.json",
+    "incumbent": "./experiments/milp_v5/logs/lazy_holdout60/huge0_161_candidate.json",
+    "mode": "pair",
+    "wall": 57.3432742290006,
+    "hard_timeout": false,
+    "valid": true
+  },
+  {
+    "value": 51.91536079128025,
+    "before": 51.91536079128025,
+    "status": "HighsModelStatus.kOptimal",
+    "seconds": 5.311855072000981,
+    "prep_seconds": 0.020025740001074155,
+    "groups": 275,
+    "regions": 19,
+    "variables": 603,
+    "rows": 1318,
+    "packing_rows": 17,
+    "nodes": 1,
+    "bound": 51.915360791280264,
+    "gap": 0.0,
+    "invalid": [],
+    "timeline": [],
+    "selected": [],
+    "region_seconds": 0.006647438000072725,
+    "region_sites": 488,
+    "new_offices": [
+      3
+    ],
+    "tags": {
+      "power": 5,
+      "power_new": 9,
+      "base": 5
+    },
+    "case": "tightA0",
+    "input": "./experiments/milp_v5/data/lazy_holdout/tightA0.json",
+    "incumbent": "./experiments/milp_v5/logs/lazy_holdout60/tightA0_161_candidate.json",
+    "mode": "power",
+    "wall": 5.867261831999713,
+    "hard_timeout": false,
+    "valid": true
+  },
+  {
+    "value": 51.91536079128025,
+    "before": 51.91536079128025,
+    "status": "HighsModelStatus.kOptimal",
+    "seconds": 27.299519486999998,
+    "prep_seconds": 0.02713319199938269,
+    "groups": 501,
+    "regions": 34,
+    "variables": 1065,
+    "rows": 2401,
+    "packing_rows": 30,
+    "nodes": 7,
+    "bound": 51.91536079128109,
+    "gap": 0.0,
+    "invalid": [],
+    "timeline": [],
+    "selected": [],
+    "region_seconds": 0.10081751399957284,
+    "region_sites": 965,
+    "new_offices": [],
+    "tags": {
+      "pair_greedy": 24,
+      "base": 5,
+      "pair": 5
+    },
+    "case": "tightA0",
+    "input": "./experiments/milp_v5/data/lazy_holdout/tightA0.json",
+    "incumbent": "./experiments/milp_v5/logs/lazy_holdout60/tightA0_161_candidate.json",
+    "mode": "pair",
+    "wall": 27.93917562599927,
+    "hard_timeout": false,
+    "valid": true
+  },
+  {
+    "value": 7377.500505398387,
+    "before": 7352.747509939395,
+    "status": "HighsModelStatus.kTimeLimit",
+    "seconds": 52.18370247800158,
+    "prep_seconds": 1.3747627400007332,
+    "groups": 988,
+    "regions": 22,
+    "variables": 2068,
+    "rows": 16449,
+    "packing_rows": 27,
+    "nodes": 11,
+    "bound": 7393.261166840116,
+    "gap": 0.002136314518744969,
+    "invalid": [],
+    "timeline": [
+      {
+        "seconds": 18.52243456799988,
+        "value": 7377.253781419684
+      },
+      {
+        "seconds": 50.51824541499991,
+        "value": 7377.500505398387
+      }
+    ],
+    "selected": [
+      {
+        "index": 0,
+        "o": 0,
+        "tag": "base"
+      },
+      {
+        "index": 1,
+        "o": 1,
+        "tag": "base"
+      },
+      {
+        "index": 2,
+        "o": 2,
+        "tag": "base"
+      },
+      {
+        "index": 3,
+        "o": 4,
+        "tag": "base"
+      },
+      {
+        "index": 4,
+        "o": 5,
+        "tag": "base"
+      },
+      {
+        "index": 5,
+        "o": 6,
+        "tag": "base"
+      },
+      {
+        "index": 6,
+        "o": 7,
+        "tag": "base"
+      },
+      {
+        "index": 7,
+        "o": 8,
+        "tag": "base"
+      },
+      {
+        "index": 8,
+        "o": 12,
+        "tag": "base"
+      },
+      {
+        "index": 9,
+        "o": 18,
+        "tag": "base"
+      },
+      {
+        "index": 10,
+        "o": 19,
+        "tag": "base"
+      }
+    ],
+    "region_seconds": 4.062031806999585,
+    "region_sites": 13448,
+    "new_offices": [],
+    "tags": {
+      "base": 11,
+      "pair_greedy": 11
+    },
+    "case": "huge0",
+    "input": "./experiments/milp_v5/data/lazy_holdout/huge0.json",
+    "incumbent": "./experiments/milp_v5/logs/lazy_holdout60/huge0_161_candidate.json",
+    "mode": "both",
+    "wall": 57.03039841200007,
+    "hard_timeout": false,
+    "valid": true
+  },
+  {
+    "value": 51.91536079128025,
+    "before": 51.91536079128025,
+    "status": "HighsModelStatus.kTimeLimit",
+    "seconds": 54.92518819600082,
+    "prep_seconds": 0.031739308000396704,
+    "groups": 694,
+    "regions": 47,
+    "variables": 1469,
+    "rows": 3288,
+    "packing_rows": 43,
+    "nodes": 369,
+    "bound": 53.884401292478415,
+    "gap": 0.03792789785501915,
+    "invalid": [],
+    "timeline": [],
+    "selected": [],
+    "region_seconds": 0.10581429400008346,
+    "region_sites": 1310,
+    "new_offices": [
+      3
+    ],
+    "tags": {
+      "pair_greedy": 24,
+      "base": 5,
+      "power_new": 9,
+      "power": 4,
+      "pair": 5
+    },
+    "case": "tightA0",
+    "input": "./experiments/milp_v5/data/lazy_holdout/tightA0.json",
+    "incumbent": "./experiments/milp_v5/logs/lazy_holdout60/tightA0_161_candidate.json",
+    "mode": "both",
+    "wall": 55.59165879200009,
+    "hard_timeout": false,
+    "valid": true
+  }
+]

@@ -339,6 +339,7 @@ struct Sol {
         defer = d;
         dirty[o] = 0;
         isopen[o] = 0;
+        sig_open(o);
         clear_cov(o);
         hull[o].clear();
     }

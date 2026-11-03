@@ -474,3 +474,174 @@ static bool ruin_crossover(Engine& E, mt19937_64& rng) {
     }
     return true;
 }
+
+
+// Count-preserving composite exchanges. All removals precede all insertions:
+// intermediate A/worker violations are allowed, the final state must be feasible.
+// Exact objective and geometry; the bounded candidate pool is heuristic.
+struct ExchangeStats {
+    long proposed=0, positive=0, geometry_or_skill=0, worker_reject=0, accepted=0;
+    double gain=0, seconds=0;
+};
+static bool exchange_apply(Engine& E, const vector<pair<int,int>>& changes) {
+    size_t mark=E.jr.size();
+    E.s.begin_defer();
+    for(auto [x,o]:changes) E.doRemove(x);
+    E.s.end_defer();
+    for(auto [x,o]:changes) if(o>=0 && !E.doAdd(x,o)) { E.undo(mark); return false; }
+    if(E.size_viol(-1,-1)>0 || (!E.I.simple_workers && !E.s.greedy_workers(nullptr))) {
+        E.undo(mark); return false;
+    }
+    return true;
+}
+static bool exchange_descent(Sol& s, mt19937_64& rng, double deadline, int depth,
+                             ExchangeStats* stats=nullptr) {
+    const Inst& I=*s.I;
+    ExchangeStats st; double t0=elapsed();
+    Engine E(s);E.rec=true;Guide G(s,0.);
+    bool any=false;
+    struct Item {vector<int> xs;long long load;double delta;};
+    for(int pass=0;pass<8 && elapsed()<deadline;pass++) {
+        bool changed=false;
+        vector<int> offices;
+        for(int o=0;o<I.no;o++)if(s.isopen[o] && s.size_[o]>0)offices.push_back(o);
+        shuffle(offices.begin(),offices.end(),rng);
+        for(int a:offices) {
+            if(elapsed()>=deadline)break;
+            // b=-1 replaces assigned sites with currently unassigned sites.
+            vector<int> destinations=offices;destinations.push_back(-1);
+            for(int b:destinations) {
+                if(b==a || (b>=0 && b<a) || elapsed()>=deadline)continue;
+                vector<int> ax=s.members[a],bx;
+                if(b>=0)bx=s.members[b];
+                else for(int x=0;x<I.ns;x++)if(s.asg[x]<0 && I.servable[x])bx.push_back(x);
+                auto gain=[&](int x,bool left) {
+                    if(b<0)return left ? -I.pr(a,x) : I.pr(a,x);
+                    return left ? I.pr(b,x)-I.pr(a,x) : I.pr(a,x)-I.pr(b,x);
+                };
+                // Mix profit candidates, task-load extremes, and random sites.
+                auto trim=[&](vector<int>& v,bool left) {
+                    if(v.size()<=20)return;
+                    vector<int> q=v,out;
+                    sort(q.begin(),q.end(),[&](int x,int y){double dx=gain(x,left),dy=gain(y,left);return dx!=dy?dx>dy:x<y;});
+                    for(int i=0;i<10;i++)out.push_back(q[i]);
+                    sort(q.begin(),q.end(),[&](int x,int y){return I.ntask[x]!=I.ntask[y]?I.ntask[x]<I.ntask[y]:x<y;});
+                    for(int i=0;i<3;i++){out.push_back(q[i]);out.push_back(q[q.size()-1-i]);}
+                    shuffle(v.begin(),v.end(),rng);
+                    for(int x:v){if(out.size()>=20)break;if(find(out.begin(),out.end(),x)==out.end())out.push_back(x);}
+                    sort(out.begin(),out.end());out.erase(unique(out.begin(),out.end()),out.end());v.swap(out);
+                };
+                trim(ax,true);trim(bx,false);
+                for(int k=1;k<=depth && !changed && elapsed()<deadline;k++) {
+                    vector<Item> aa,bb;
+                    auto groups=[&](const vector<int>& v,bool left,vector<Item>& out) {
+                        for(size_t i=0;i<v.size();i++) {
+                            int x=v[i];
+                            if(k==1)out.push_back({{x},I.ntask[x],gain(x,left)});
+                            else for(size_t j=i+1;j<v.size();j++)out.push_back({{x,v[j]},(long long)I.ntask[x]+I.ntask[v[j]],gain(x,left)+gain(v[j],left)});
+                        }
+                    };
+                    groups(ax,true,aa);groups(bx,false,bb);
+                    struct Proposal{double gain;int i,j;};vector<Proposal> todo;
+                    double tail=G.tail2(-1,0,0,-1,0,0);
+                    for(int i=0;i<(int)aa.size() && elapsed()<deadline;i++)for(int j=0;j<(int)bb.size();j++) {
+                        st.proposed++;
+                        long long dl=bb[j].load-aa[i].load;
+                        double d=aa[i].delta+bb[j].delta+G.tail2(a,0,dl,b,0,b<0?0:-dl)-tail;
+                        if(d>1e-9){st.positive++;todo.push_back({d,i,j});}
+                    }
+                    // Bounding the checks limits expensive hull/worker work, not the objective.
+                    size_t n=min<size_t>(todo.size(),128);
+                    partial_sort(todo.begin(),todo.begin()+n,todo.end(),[](const Proposal&x,const Proposal&y){return x.gain>y.gain;});
+                    for(size_t z=0;z<n && elapsed()<deadline;z++) {
+                        auto p=todo[z];vector<pair<int,int>> changes;
+                        for(int x:aa[p.i].xs)changes.push_back({x,b});
+                        for(int x:bb[p.j].xs)changes.push_back({x,a});
+                        double f0=s.objective();size_t mark=E.jr.size();
+                        if(!exchange_apply(E,changes)){st.geometry_or_skill++;continue;}
+                        s.recompute_psum();
+                        if(s.objective()<=f0+1e-9){E.undo(mark);s.recompute_psum();continue;}
+                        st.accepted++;st.gain+=s.objective()-f0;E.jr.clear();
+                        any=changed=true;offer(I,s);break;
+                    }
+                }
+                if(changed)break;
+            }
+            if(changed)break;
+        }
+        if(!changed)break;
+    }
+    st.seconds=elapsed()-t0;
+    if(stats)*stats=st;
+    if(getenv("SEARCH_TRACE"))fprintf(stderr,"trace_exchange proposed=%ld positive=%ld rejected=%ld accepted=%ld gain=%.9f seconds=%.6f depth=%d\n",st.proposed,st.positive,st.geometry_or_skill,st.accepted,st.gain,st.seconds,depth);
+    return any;
+}
+
+// Three-bin circulation A -> B -> unassigned -> A. Equal bundle cardinality
+// and task sum preserve both strict count balance and each office's task load.
+// Unlike a pair exchange, this can transfer sites and replace the vacated bundle
+// jointly without crossing an infeasible/high-alpha intermediate state.
+static bool balanced_cycle_descent(Sol& s,mt19937_64& rng,double deadline) {
+    const Inst& I=*s.I;Engine E(s);E.rec=true;bool any=false;
+    long proposals=0,checks=0,accepted=0;double gain=0,t0=elapsed();
+    struct Bundle{vector<int> xs;double delta;};
+    using Groups=map<long long,vector<Bundle>>;
+    for(int pass=0;pass<8 && elapsed()<deadline;pass++) {
+        vector<int> offices;for(int o=0;o<I.no;o++)if(s.isopen[o] && s.size_[o])offices.push_back(o);
+        vector<pair<int,int>> pairs;
+        for(int a:offices)for(int b:offices)if(a!=b)pairs.push_back({a,b});
+        shuffle(pairs.begin(),pairs.end(),rng);bool changed=false;
+        for(auto [a,b]:pairs) {
+            if(elapsed()>=deadline)break;
+            auto bundles=[&](int from,int to,int count) {
+                map<int,vector<pair<double,int>>> bytask;
+                for(int x=0;x<I.ns;x++)if(s.asg[x]==from && I.servable[x]) {
+                    double d=(to<0?0:I.pr(to,x))-(from<0?0:I.pr(from,x));
+                    bytask[I.ntask[x]].push_back({d,x});
+                }
+                vector<pair<double,int>> pool;
+                for(auto& kv:bytask) {
+                    auto&v=kv.second;size_t k=min<size_t>(4,v.size());
+                    partial_sort(v.begin(),v.begin()+k,v.end(),greater<pair<double,int>>());
+                    pool.insert(pool.end(),v.begin(),v.begin()+k);
+                }
+                if(pool.size()>128){partial_sort(pool.begin(),pool.begin()+128,pool.end(),greater<pair<double,int>>());pool.resize(128);}
+                Groups groups;
+                for(size_t i=0;i<pool.size() && elapsed()<deadline;i++) {
+                    int x=pool[i].second;
+                    if(count==1)groups[I.ntask[x]].push_back({{x},pool[i].first});
+                    else for(size_t j=i+1;j<pool.size();j++) {
+                        int y=pool[j].second;
+                        groups[(long long)I.ntask[x]+I.ntask[y]].push_back({{x,y},pool[i].first+pool[j].first});
+                    }
+                }
+                for(auto& kv:groups){auto&v=kv.second;size_t k=min<size_t>(4,v.size());partial_sort(v.begin(),v.begin()+k,v.end(),[](const Bundle&x,const Bundle&y){return x.delta>y.delta;});v.resize(k);}
+                return groups;
+            };
+            for(int k=1;k<=2 && !changed && elapsed()<deadline;k++) {
+                Groups ab=bundles(a,b,k),bf=bundles(b,-1,k),fa=bundles(-1,a,k);
+                struct Move{double d;vector<pair<int,int>> changes;};vector<Move> moves;
+                for(auto& kv:ab) {
+                    auto it=bf.find(kv.first),jt=fa.find(kv.first);if(it==bf.end()||jt==fa.end())continue;
+                    for(auto&x:kv.second)for(auto&y:it->second)for(auto&z:jt->second){
+                        proposals++;double d=x.delta+y.delta+z.delta;if(d<=1e-9)continue;
+                        vector<pair<int,int>> c;for(int q:x.xs)c.push_back({q,b});for(int q:y.xs)c.push_back({q,-1});for(int q:z.xs)c.push_back({q,a});moves.push_back({d,move(c)});
+                    }
+                }
+                size_t count=min<size_t>(moves.size(),128);
+                partial_sort(moves.begin(),moves.begin()+count,moves.end(),[](const Move&x,const Move&y){return x.d>y.d;});
+                for(size_t j=0;j<count && elapsed()<deadline;j++) {
+                    checks++;double before=s.objective();size_t mark=E.jr.size();
+                    if(!exchange_apply(E,moves[j].changes))continue;
+                    s.recompute_psum();
+                    if(s.objective()<=before+1e-9){E.undo(mark);s.recompute_psum();continue;}
+                    gain+=s.objective()-before;accepted++;E.jr.clear();any=changed=true;offer(I,s);break;
+                }
+            }
+            if(changed)break;
+        }
+        if(!changed)break;
+    }
+    if(getenv("SEARCH_TRACE"))fprintf(stderr,"trace_cycle proposals=%ld checks=%ld accepted=%ld gain=%.9f seconds=%.6f\n",proposals,checks,accepted,gain,elapsed()-t0);
+    return any;
+}

@@ -1,0 +1,22 @@
+{
+  "source": "./experiments/geometry_islands/artifacts/robust_v1.cpp",
+  "sha256": "78764b6f421149f079601444a2eacda396d7465b3c2e1a2001ad76d3598de002",
+  "oracle": "22000/22000 exact Fraction and Shapely comparisons",
+  "hypothesis": "Remove false geometric conflicts caused by global eps; immutable all-point grid and exact binary64 orientation, final verify included.",
+  "confirmation": {
+    "split": "validation2",
+    "seeds": [
+      71,
+      72,
+      73
+    ],
+    "seconds": 60,
+    "threads": 2,
+    "jobs": 4,
+    "variants": [
+      "base",
+      "exact"
+    ]
+  },
+  "tuning": "No changes after holdout results"
+}

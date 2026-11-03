@@ -1,0 +1,25 @@
+index_holdout60 grid valid 60 / 60 cases 10 mean 0.4365 median 0.0 worst -0.681 best 3.9214
+index_train60 grid valid 32 / 32 cases 8 mean 0.1071 median 0.0 worst -4.832 best 6.2727
+post60_global_v4 7 valid 9 / 10 cases 9 mean 0.0 median 0.0 worst -0.0 best 0.0
+post60_multiskill_v1_fixed 1 valid 4 / 4 cases 1 mean 0.0 median 0.0 worst 0.0 best 0.0
+post60_multiskill_v1_fixed 2 valid 4 / 4 cases 1 mean 0.0 median 0.0 worst 0.0 best 0.0
+post60_multiskill_v1_fixed 3 valid 4 / 4 cases 1 mean 0.0 median 0.0 worst 0.0 best 0.0
+post60_multiskill_v1_fixed 4 valid 4 / 4 cases 1 mean 0.3647 median 0.3647 worst 0.3647 best 0.3647
+post60_multiskill_v2_fixed 6 valid 1 / 1 cases 1 mean 0.0 median 0.0 worst 0.0 best 0.0
+post60_multiskill_v3_fixed 8 valid 1 / 1 cases 1 mean 0.3647 median 0.3647 worst 0.3647 best 0.3647
+post60_multiskill_v4_fixed 7 valid 1 / 1 cases 1 mean 0.0 median 0.0 worst 0.0 best 0.0
+post60_open_v2 6 valid 9 / 10 cases 9 mean 0.0 median 0.0 worst -0.0 best 0.0
+post60_target_repeat 4 valid 20 / 20 cases 10 mean 0.3173 median 0.0678 worst -0.0 best 1.755
+post60_target_repeat 8 valid 20 / 20 cases 10 mean 0.1067 median 0.0155 worst -0.0 best 0.3978
+post60_target_v3 8 valid 9 / 10 cases 9 mean 0.1753 median 0.0101 worst -0.0 best 1.1241
+post60_v1 1 valid 36 / 40 cases 9 mean 0.0208 median 0.0 worst -0.0 best 0.1623
+post60_v1 2 valid 36 / 40 cases 9 mean 0.0446 median 0.0 worst -0.0 best 0.2362
+post60_v1 3 valid 36 / 40 cases 9 mean 0.0945 median 0.0 worst -0.0 best 0.6122
+post60_v1 4 valid 36 / 40 cases 9 mean 0.3139 median 0.0228 worst -0.0 best 1.7925
+precision60 exact valid 10 / 10 cases 5 mean 180.0 median 300.0 worst 0.0 best 300.0
+robust_holdout60 exact valid 60 / 60 cases 10 mean 0.4236 median -0.0204 worst -0.5387 best 5.0334
+index_train60 {"completed": 32, "expected": 32, "valid": 32, "mean_pct": 0.10711983109859541, "median_pct": 0.0, "worst_median": {"case": "large0", "n_base": 2, "n_new": 2, "base": 1720.7065438215172, "candidate": 1637.5621966606436, "pct": -4.8319887815512335}, "best_median": {"case": "huge0", "n_base": 2, "n_new": 2, "base": 2929381.3133990644, "candidate": 3113131.9102196973, "pct": 6.272675939460437}, "worst_pair": {"case": "large0", "seed": 21, "pct": -5.474663189600104}, "best_pair": {"case": "huge0", "seed": 22, "pct": 11.498387319571513}, "paired_wins": 3, "paired_losses": 6, "pairs": 16, "max_wall": 59.64290724600005}
+index_holdout60 {"completed": 60, "expected": 60, "valid": 60, "mean_pct": 0.4364775049210323, "median_pct": 0.0, "worst_median": {"case": "latent1", "n_base": 3, "n_new": 3, "base": 38834.043398861824, "candidate": 38569.583312359486, "pct": -0.6810006462270368}, "best_median": {"case": "huge0", "n_base": 3, "n_new": 3, "base": 3425.1905947433434, "candidate": 3559.506647454848, "pct": 3.92141835603661}, "worst_pair": {"case": "latent1", "seed": 61, "pct": -1.2797058397463257}, "best_pair": {"case": "huge0", "seed": 63, "pct": 12.956296954738612}, "paired_wins": 8, "paired_losses": 9, "pairs": 30, "max_wall": 60.1855143290004}
+robust_holdout60 {"completed": 60, "expected": 60, "valid": 60, "mean_pct": 0.4236118210306761, "median_pct": -0.020408083975465008, "worst_median": {"case": "alphabig0", "n_base": 3, "n_new": 3, "base": 9245255.897359315, "candidate": 9195447.268710127, "pct": -0.5387479719562438}, "best_median": {"case": "anti0", "n_base": 3, "n_new": 3, "base": 71.65285649961912, "candidate": 75.25944228703781, "pct": 5.0334152239106755}, "worst_pair": {"case": "anti0", "seed": 71, "pct": -10.87508700623091}, "best_pair": {"case": "anti0", "seed": 72, "pct": 5.071648336644463}, "paired_wins": 9, "paired_losses": 15, "pairs": 30, "max_wall": 60.162356691999776}
+post [{"variant": "1", "cases": 10, "mean": 0.018762929040856413, "median": 6.498135363131041e-11, "maximum": 0.16232415487835716, "wins": 4}, {"variant": "2", "cases": 10, "mean": 0.040106974366723724, "median": 2.049471703458039e-11, "maximum": 0.2361544364365198, "wins": 4}, {"variant": "3", "cases": 10, "mean": 0.0850930618781709, "median": 2.049471703458039e-11, "maximum": 0.6122073000688566, "wins": 3}, {"variant": "4", "cases": 10, "mean": 0.319000022315874, "median": 0.040549434336212276, "maximum": 1.7924582239092546, "wins": 8}, {"variant": "6", "cases": 10, "mean": 3.998024133977651e-11, "median": 2.049471703458039e-11, "maximum": 3.3730795934161506e-10, "wins": 0}, {"variant": "7", "cases": 10, "mean": 3.998024133977651e-11, "median": 2.049471703458039e-11, "maximum": 3.3730795934161506e-10, "wins": 0}, {"variant": "8", "cases": 10, "mean": 0.19424650583934389, "median": 0.012983087266604798, "maximum": 1.124127485784543, "wins": 7}]
+Final report and journal written; raw logs preserved

@@ -1,0 +1,382 @@
+{
+  "config": {
+    "source": "screen_v1",
+    "limit": 2.0,
+    "attempts": 3,
+    "radius": 12,
+    "only": "anti0,multiskill0,tightA0,small0,large0,huge0",
+    "tag": "local_v1"
+  },
+  "results": [
+    {
+      "case": "anti0",
+      "seed": 1,
+      "n": 330,
+      "offices": 5,
+      "base": 15871.782173885837,
+      "base_wall": 5.212763141000323,
+      "local": 15871.782173885837,
+      "extra_wall": 6.057322857999679,
+      "matched": 15871.782173885837,
+      "matched_limit": 11.270085999000003,
+      "matched_wall": 10.839912817000368,
+      "history": [
+        {
+          "value": 15871.782173885837,
+          "seconds": 2.0182454790010524,
+          "status": "timelimit",
+          "cuts": 544,
+          "checks": 321,
+          "geometry_seconds": 1.1529532090135035,
+          "candidates": 177,
+          "offices": [
+            1,
+            2
+          ],
+          "variables": 418,
+          "nodes": 42
+        },
+        {
+          "value": 15871.782173885837,
+          "seconds": 2.0223575939999137,
+          "status": "timelimit",
+          "cuts": 349,
+          "checks": 291,
+          "geometry_seconds": 1.1581643489898852,
+          "candidates": 180,
+          "offices": [
+            0,
+            1
+          ],
+          "variables": 424,
+          "nodes": 50
+        },
+        {
+          "value": 15871.782173885837,
+          "seconds": 2.016420312000264,
+          "status": "timelimit",
+          "cuts": 120,
+          "checks": 106,
+          "geometry_seconds": 0.5023861350055085,
+          "candidates": 151,
+          "offices": [
+            0,
+            2,
+            4
+          ],
+          "variables": 538,
+          "nodes": 11
+        }
+      ],
+      "solution": "./experiments/evolution/logs/local_v1/anti0.solution.json"
+    },
+    {
+      "case": "multiskill0",
+      "seed": 1,
+      "n": 150,
+      "offices": 4,
+      "base": 50.07620469880121,
+      "base_wall": 4.504844064998906,
+      "local": 51.85954486777983,
+      "extra_wall": 0.21821660400019027,
+      "matched": 50.07620469880121,
+      "matched_limit": 4.723060668999096,
+      "matched_wall": 4.523225680999531,
+      "history": [
+        {
+          "value": 51.574623905021596,
+          "seconds": 0.05022246100088523,
+          "status": "optimal",
+          "cuts": 0,
+          "checks": 10,
+          "geometry_seconds": 0.0017320899987680605,
+          "candidates": 111,
+          "offices": [
+            0,
+            1
+          ],
+          "variables": 250,
+          "nodes": 1
+        },
+        {
+          "value": 51.85954486777983,
+          "seconds": 0.0870076280007197,
+          "status": "optimal",
+          "cuts": 0,
+          "checks": 17,
+          "geometry_seconds": 0.01116779899894027,
+          "candidates": 91,
+          "offices": [
+            0,
+            3
+          ],
+          "variables": 210,
+          "nodes": 1
+        },
+        {
+          "value": 51.85954486777983,
+          "seconds": 0.08076662100029353,
+          "status": "optimal",
+          "cuts": 0,
+          "checks": 15,
+          "geometry_seconds": 0.006145727997136419,
+          "candidates": 91,
+          "offices": [
+            1,
+            3
+          ],
+          "variables": 210,
+          "nodes": 1
+        }
+      ],
+      "solution": "./experiments/evolution/logs/local_v1/multiskill0.solution.json"
+    },
+    {
+      "case": "tightA0",
+      "seed": 1,
+      "n": 150,
+      "offices": 4,
+      "base": 34363.7967997616,
+      "base_wall": 4.652911873001358,
+      "local": 34812.270909723986,
+      "extra_wall": 2.8015161879993684,
+      "matched": 34363.7967997616,
+      "matched_limit": 7.454428061000726,
+      "matched_wall": 7.2712343229995895,
+      "history": [
+        {
+          "value": 34551.372813407215,
+          "seconds": 0.752995467000801,
+          "status": "optimal",
+          "cuts": 302,
+          "checks": 327,
+          "geometry_seconds": 0.38201789699451183,
+          "candidates": 33,
+          "offices": [
+            1,
+            3
+          ],
+          "variables": 111,
+          "nodes": 246
+        },
+        {
+          "value": 34812.270909723986,
+          "seconds": 0.04008717400029127,
+          "status": "optimal",
+          "cuts": 0,
+          "checks": 12,
+          "geometry_seconds": 0.0012248430011823075,
+          "candidates": 32,
+          "offices": [
+            2,
+            3
+          ],
+          "variables": 132,
+          "nodes": 1
+        },
+        {
+          "value": 34812.270909723986,
+          "seconds": 2.0082460579997132,
+          "status": "timelimit",
+          "cuts": 427,
+          "checks": 384,
+          "geometry_seconds": 0.6511121629810077,
+          "candidates": 46,
+          "offices": [
+            1,
+            2,
+            3
+          ],
+          "variables": 201,
+          "nodes": 160
+        }
+      ],
+      "solution": "./experiments/evolution/logs/local_v1/tightA0.solution.json"
+    },
+    {
+      "case": "small0",
+      "seed": 1,
+      "n": 100,
+      "offices": 4,
+      "base": 2051.2711050384546,
+      "base_wall": 4.796875625999746,
+      "local": 2051.2711050384546,
+      "extra_wall": 0.8620301939990895,
+      "matched": 2056.7622394679593,
+      "matched_limit": 5.658905819998836,
+      "matched_wall": 6.039642063999054,
+      "history": [
+        {
+          "value": 2051.2711050384546,
+          "seconds": 0.15834114400058752,
+          "status": "optimal",
+          "cuts": 23,
+          "checks": 79,
+          "geometry_seconds": 0.034884263994172215,
+          "candidates": 50,
+          "offices": [
+            1,
+            2
+          ],
+          "variables": 34,
+          "nodes": 1
+        },
+        {
+          "value": 2051.2711050384546,
+          "seconds": 0.0379991030004021,
+          "status": "optimal",
+          "cuts": 5,
+          "checks": 21,
+          "geometry_seconds": 0.006077946001823875,
+          "candidates": 54,
+          "offices": [
+            2,
+            3
+          ],
+          "variables": 105,
+          "nodes": 1
+        },
+        {
+          "value": 2051.2711050384546,
+          "seconds": 0.6654980240000441,
+          "status": "optimal",
+          "cuts": 68,
+          "checks": 169,
+          "geometry_seconds": 0.1396754380020866,
+          "candidates": 81,
+          "offices": [
+            1,
+            2,
+            3
+          ],
+          "variables": 150,
+          "nodes": 23
+        }
+      ],
+      "solution": "./experiments/evolution/logs/local_v1/small0.solution.json"
+    },
+    {
+      "case": "large0",
+      "seed": 1,
+      "n": 3500,
+      "offices": 20,
+      "base": 68778.63145229997,
+      "base_wall": 5.2891561919987,
+      "local": 68791.43660724832,
+      "extra_wall": 3.226636018998761,
+      "matched": 109426.46997878548,
+      "matched_limit": 8.51579221099746,
+      "matched_wall": 8.300521051998658,
+      "history": [
+        {
+          "value": 68791.43660724832,
+          "seconds": 0.40855879399896367,
+          "status": "optimal",
+          "cuts": 5,
+          "checks": 18,
+          "geometry_seconds": 0.04517566099639225,
+          "candidates": 531,
+          "offices": [
+            3,
+            17
+          ],
+          "variables": 1186,
+          "nodes": 1
+        },
+        {
+          "value": 68791.43660724832,
+          "seconds": 0.31487379600002896,
+          "status": "optimal",
+          "cuts": 0,
+          "checks": 9,
+          "geometry_seconds": 0.004387293000036152,
+          "candidates": 506,
+          "offices": [
+            3,
+            11
+          ],
+          "variables": 1136,
+          "nodes": 1
+        },
+        {
+          "value": 68791.43660724832,
+          "seconds": 2.502247050999358,
+          "status": "timelimit",
+          "cuts": 0,
+          "checks": 19,
+          "geometry_seconds": 0.09664058199814463,
+          "candidates": 507,
+          "offices": [
+            11,
+            13,
+            17
+          ],
+          "variables": 1686,
+          "nodes": 1
+        }
+      ],
+      "solution": "./experiments/evolution/logs/local_v1/large0.solution.json"
+    },
+    {
+      "case": "huge0",
+      "seed": 1,
+      "n": 10000,
+      "offices": 25,
+      "base": 261059.07336310297,
+      "base_wall": 5.356156654999722,
+      "local": 261257.3827819942,
+      "extra_wall": 6.345283665001261,
+      "matched": 304322.99924601766,
+      "matched_limit": 11.701440320000984,
+      "matched_wall": 11.567404350000288,
+      "history": [
+        {
+          "value": 261059.07336310297,
+          "seconds": 2.6087804430007964,
+          "status": "timelimit",
+          "cuts": 41,
+          "checks": 92,
+          "geometry_seconds": 0.8609941820013773,
+          "candidates": 1006,
+          "offices": [
+            2,
+            17
+          ],
+          "variables": 2266,
+          "nodes": 6
+        },
+        {
+          "value": 261206.74820161553,
+          "seconds": 2.673554987000898,
+          "status": "timelimit",
+          "cuts": 54,
+          "checks": 124,
+          "geometry_seconds": 0.7984866709994094,
+          "candidates": 1051,
+          "offices": [
+            1,
+            17
+          ],
+          "variables": 2356,
+          "nodes": 10
+        },
+        {
+          "value": 261257.3827819942,
+          "seconds": 1.0616842350009392,
+          "status": "optimal",
+          "cuts": 0,
+          "checks": 10,
+          "geometry_seconds": 0.030046879001019988,
+          "candidates": 888,
+          "offices": [
+            1,
+            23
+          ],
+          "variables": 2030,
+          "nodes": 1
+        }
+      ],
+      "solution": "./experiments/evolution/logs/local_v1/huge0.solution.json"
+    }
+  ]
+}

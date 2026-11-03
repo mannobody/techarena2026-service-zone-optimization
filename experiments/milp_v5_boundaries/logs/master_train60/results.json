@@ -1,0 +1,679 @@
+[
+  {
+    "value": 12750347.717684327,
+    "before": 12571760.229976047,
+    "status": "HighsModelStatus.kOptimal",
+    "seconds": 18.946611048000705,
+    "prep_seconds": 0.03888133500004187,
+    "groups": 590,
+    "regions": 26,
+    "variables": 1564,
+    "rows": 2606,
+    "packing_rows": 24,
+    "nodes": 11,
+    "bound": 12750347.717684323,
+    "gap": 0.0,
+    "invalid": [],
+    "timeline": [
+      {
+        "seconds": 18.78329604100145,
+        "value": 12744489.975049967
+      },
+      {
+        "seconds": 18.818185801001164,
+        "value": 12750347.717684327
+      }
+    ],
+    "selected": [
+      {
+        "index": 0,
+        "o": 0,
+        "tag": "base"
+      },
+      {
+        "index": 1,
+        "o": 1,
+        "tag": "base"
+      },
+      {
+        "index": 4,
+        "o": 7,
+        "tag": "base"
+      },
+      {
+        "index": 6,
+        "o": 13,
+        "tag": "base"
+      },
+      {
+        "index": 12,
+        "o": 11,
+        "tag": "power"
+      },
+      {
+        "index": 19,
+        "o": 2,
+        "tag": "power_new"
+      },
+      {
+        "index": 22,
+        "o": 4,
+        "tag": "power_new"
+      }
+    ],
+    "region_seconds": 0.011692486999891116,
+    "region_sites": 904,
+    "new_offices": [
+      4
+    ],
+    "tags": {
+      "base": 7,
+      "power_new": 12,
+      "power": 7
+    },
+    "case": "alphabig0",
+    "input": "./experiments/milp_v5/data/lazy_holdout/alphabig0.json",
+    "incumbent": "./experiments/milp_v5/logs/lazy_holdout60/alphabig0_161_candidate.json",
+    "mode": "power",
+    "wall": 19.482200582000587,
+    "hard_timeout": false,
+    "valid": true
+  },
+  {
+    "value": 12579948.308674844,
+    "before": 12571760.229976047,
+    "status": "HighsModelStatus.kOptimal",
+    "seconds": 32.402910263001104,
+    "prep_seconds": 0.053071861000717035,
+    "groups": 1057,
+    "regions": 37,
+    "variables": 2829,
+    "rows": 4578,
+    "packing_rows": 44,
+    "nodes": 102,
+    "bound": 12579948.308674844,
+    "gap": 0.0,
+    "invalid": [],
+    "timeline": [
+      {
+        "seconds": 29.28755859100056,
+        "value": 12574713.514444834
+      },
+      {
+        "seconds": 29.499584298000627,
+        "value": 12576894.877263
+      },
+      {
+        "seconds": 30.12848218900035,
+        "value": 12576978.52879843
+      },
+      {
+        "seconds": 30.46066939100092,
+        "value": 12577174.999466265
+      },
+      {
+        "seconds": 31.08173458999954,
+        "value": 12578992.016461661
+      },
+      {
+        "seconds": 31.211414433000755,
+        "value": 12579948.308674844
+      }
+    ],
+    "selected": [
+      {
+        "index": 0,
+        "o": 0,
+        "tag": "base"
+      },
+      {
+        "index": 1,
+        "o": 1,
+        "tag": "base"
+      },
+      {
+        "index": 4,
+        "o": 7,
+        "tag": "base"
+      },
+      {
+        "index": 5,
+        "o": 11,
+        "tag": "base"
+      },
+      {
+        "index": 6,
+        "o": 13,
+        "tag": "base"
+      },
+      {
+        "index": 17,
+        "o": 2,
+        "tag": "pair"
+      },
+      {
+        "index": 18,
+        "o": 6,
+        "tag": "pair_greedy"
+      }
+    ],
+    "region_seconds": 0.322536002000561,
+    "region_sites": 1696,
+    "new_offices": [],
+    "tags": {
+      "base": 7,
+      "pair": 3,
+      "pair_greedy": 27
+    },
+    "case": "alphabig0",
+    "input": "./experiments/milp_v5/data/lazy_holdout/alphabig0.json",
+    "incumbent": "./experiments/milp_v5/logs/lazy_holdout60/alphabig0_161_candidate.json",
+    "mode": "pair",
+    "wall": 33.26954136099994,
+    "hard_timeout": false,
+    "valid": true
+  },
+  {
+    "value": 12571760.229976047,
+    "before": 12571760.229976047,
+    "status": "HighsModelStatus.kTimeLimit",
+    "seconds": 54.71495483800027,
+    "prep_seconds": 0.06278952799948456,
+    "groups": 1510,
+    "regions": 56,
+    "variables": 4008,
+    "rows": 6519,
+    "packing_rows": 64,
+    "nodes": 2,
+    "bound": 14305844.196839433,
+    "gap": 0.1379348583763668,
+    "invalid": [],
+    "timeline": [],
+    "selected": [],
+    "region_seconds": 0.3256857329997729,
+    "region_sites": 2398,
+    "new_offices": [
+      4
+    ],
+    "tags": {
+      "power_new": 12,
+      "base": 7,
+      "pair": 3,
+      "pair_greedy": 27,
+      "power": 7
+    },
+    "case": "alphabig0",
+    "input": "./experiments/milp_v5/data/lazy_holdout/alphabig0.json",
+    "incumbent": "./experiments/milp_v5/logs/lazy_holdout60/alphabig0_161_candidate.json",
+    "mode": "both",
+    "wall": 55.60643406899908,
+    "hard_timeout": false,
+    "valid": true
+  },
+  {
+    "value": 576.5845493348024,
+    "before": 576.5845493348024,
+    "status": "HighsModelStatus.kTimeLimit",
+    "seconds": 52.3903630019995,
+    "prep_seconds": 0.29542052400029206,
+    "groups": 1533,
+    "regions": 41,
+    "variables": 8764,
+    "rows": 6156,
+    "packing_rows": 51,
+    "nodes": 0,
+    "bound": 605.2418239379181,
+    "gap": 0.04970177337595545,
+    "invalid": [],
+    "timeline": [],
+    "selected": [],
+    "region_seconds": 2.9093498149995867,
+    "region_sites": 7120,
+    "new_offices": [],
+    "tags": {
+      "pair_greedy": 26,
+      "pair": 4,
+      "base": 11
+    },
+    "case": "large0",
+    "input": "./experiments/milp_v5/data/lazy_holdout/large0.json",
+    "incumbent": "./experiments/milp_v5/logs/lazy_holdout60/large0_161_candidate.json",
+    "mode": "pair",
+    "wall": 55.88404407099915,
+    "hard_timeout": false,
+    "valid": true
+  },
+  {
+    "value": 576.5845493348024,
+    "before": 576.5845493348024,
+    "status": "HighsModelStatus.kTimeLimit",
+    "seconds": 55.20046485700004,
+    "prep_seconds": 0.27773041799991915,
+    "groups": 1324,
+    "regions": 37,
+    "variables": 7233,
+    "rows": 5344,
+    "packing_rows": 36,
+    "nodes": 0,
+    "bound": 631.4136842749696,
+    "gap": 0.09509296598984983,
+    "invalid": [],
+    "timeline": [],
+    "selected": [],
+    "region_seconds": 0.0668192649991397,
+    "region_sites": 5796,
+    "new_offices": [
+      8
+    ],
+    "tags": {
+      "power": 11,
+      "power_new": 15,
+      "base": 11
+    },
+    "case": "large0",
+    "input": "./experiments/milp_v5/data/lazy_holdout/large0.json",
+    "incumbent": "./experiments/milp_v5/logs/lazy_holdout60/large0_161_candidate.json",
+    "mode": "power",
+    "wall": 55.829079098000875,
+    "hard_timeout": false,
+    "valid": true
+  },
+  {
+    "value": 576.5845493348024,
+    "before": 576.5845493348024,
+    "status": "HighsModelStatus.kTimeLimit",
+    "seconds": 52.596048570001585,
+    "prep_seconds": 0.3264174470004946,
+    "groups": 2455,
+    "regions": 67,
+    "variables": 13815,
+    "rows": 9828,
+    "packing_rows": 117,
+    "nodes": 0,
+    "bound": 649.2990662829691,
+    "gap": 0.12611249647958223,
+    "invalid": [],
+    "timeline": [],
+    "selected": [],
+    "region_seconds": 2.9832872779988975,
+    "region_sites": 11217,
+    "new_offices": [
+      8
+    ],
+    "tags": {
+      "pair": 4,
+      "power": 11,
+      "power_new": 15,
+      "pair_greedy": 26,
+      "base": 11
+    },
+    "case": "large0",
+    "input": "./experiments/milp_v5/data/lazy_holdout/large0.json",
+    "incumbent": "./experiments/milp_v5/logs/lazy_holdout60/large0_161_candidate.json",
+    "mode": "both",
+    "wall": 56.181004817999565,
+    "hard_timeout": false,
+    "valid": true
+  },
+  {
+    "value": 12332.50225896234,
+    "before": 12323.724505437283,
+    "status": "HighsModelStatus.kOptimal",
+    "seconds": 12.693125661999147,
+    "prep_seconds": 0.0299429369988502,
+    "groups": 616,
+    "regions": 28,
+    "variables": 1719,
+    "rows": 2523,
+    "packing_rows": 21,
+    "nodes": 1,
+    "bound": 12332.502258962344,
+    "gap": 0.0,
+    "invalid": [],
+    "timeline": [
+      {
+        "seconds": 12.556578878999062,
+        "value": 12332.50225896234
+      }
+    ],
+    "selected": [
+      {
+        "index": 1,
+        "o": 2,
+        "tag": "base"
+      },
+      {
+        "index": 2,
+        "o": 4,
+        "tag": "base"
+      },
+      {
+        "index": 20,
+        "o": 1,
+        "tag": "pair_greedy"
+      },
+      {
+        "index": 21,
+        "o": 5,
+        "tag": "pair"
+      }
+    ],
+    "region_seconds": 0.09826922200045374,
+    "region_sites": 1035,
+    "new_offices": [],
+    "tags": {
+      "base": 4,
+      "pair": 10,
+      "pair_greedy": 14
+    },
+    "case": "latent0",
+    "input": "./experiments/milp_v5/data/lazy_holdout/latent0.json",
+    "incumbent": "./experiments/milp_v5/logs/lazy_holdout60/latent0_161_candidate.json",
+    "mode": "pair",
+    "wall": 13.30566129699946,
+    "hard_timeout": false,
+    "valid": true
+  },
+  {
+    "value": 12323.724505437283,
+    "before": 12323.724505437283,
+    "status": "HighsModelStatus.kOptimal",
+    "seconds": 1.4536766900000657,
+    "prep_seconds": 0.019055042999752914,
+    "groups": 252,
+    "regions": 13,
+    "variables": 739,
+    "rows": 1093,
+    "packing_rows": 8,
+    "nodes": 1,
+    "bound": 12323.72450543729,
+    "gap": 0.0,
+    "invalid": [],
+    "timeline": [],
+    "selected": [],
+    "region_seconds": 0.005986354999549803,
+    "region_sites": 425,
+    "new_offices": [
+      3
+    ],
+    "tags": {
+      "power_new": 5,
+      "power": 4,
+      "base": 4
+    },
+    "case": "latent0",
+    "input": "./experiments/milp_v5/data/lazy_holdout/latent0.json",
+    "incumbent": "./experiments/milp_v5/logs/lazy_holdout60/latent0_161_candidate.json",
+    "mode": "power",
+    "wall": 1.9720452769997792,
+    "hard_timeout": false,
+    "valid": true
+  },
+  {
+    "value": 7352.747509939395,
+    "before": 7352.747509939395,
+    "status": "HighsModelStatus.kTimeLimit",
+    "seconds": 52.22991344199909,
+    "prep_seconds": 1.3164026140002534,
+    "groups": 997,
+    "regions": 23,
+    "variables": 14556,
+    "rows": 4021,
+    "packing_rows": 27,
+    "nodes": 0,
+    "bound": 7510.580479158948,
+    "gap": 0.021465849195310256,
+    "invalid": [],
+    "timeline": [],
+    "selected": [],
+    "region_seconds": 4.05335730600018,
+    "region_sites": 13466,
+    "new_offices": [],
+    "tags": {
+      "pair_greedy": 12,
+      "base": 11
+    },
+    "case": "huge0",
+    "input": "./experiments/milp_v5/data/lazy_holdout/huge0.json",
+    "incumbent": "./experiments/milp_v5/logs/lazy_holdout60/huge0_161_candidate.json",
+    "mode": "pair",
+    "wall": 57.035716194001,
+    "hard_timeout": false,
+    "valid": true
+  },
+  {
+    "value": 7352.747509939395,
+    "before": 7352.747509939395,
+    "status": "HighsModelStatus.kTimeLimit",
+    "seconds": 56.06130396299886,
+    "prep_seconds": 1.3947549619988422,
+    "groups": 1588,
+    "regions": 36,
+    "variables": 34498,
+    "rows": 6335,
+    "packing_rows": 40,
+    "nodes": 0,
+    "bound": 8384.509127043386,
+    "gap": 0.14032327585154547,
+    "invalid": [],
+    "timeline": [],
+    "selected": [],
+    "region_seconds": 0.3508492399996612,
+    "region_sites": 32798,
+    "new_offices": [
+      17
+    ],
+    "tags": {
+      "power": 11,
+      "base": 11,
+      "power_new": 14
+    },
+    "case": "huge0",
+    "input": "./experiments/milp_v5/data/lazy_holdout/huge0.json",
+    "incumbent": "./experiments/milp_v5/logs/lazy_holdout60/huge0_161_candidate.json",
+    "mode": "power",
+    "wall": 57.21004953299962,
+    "hard_timeout": false,
+    "valid": true
+  },
+  {
+    "value": 51.91536079128025,
+    "before": 51.91536079128025,
+    "status": "HighsModelStatus.kOptimal",
+    "seconds": 8.24726239300071,
+    "prep_seconds": 0.01991333000114537,
+    "groups": 275,
+    "regions": 19,
+    "variables": 816,
+    "rows": 1105,
+    "packing_rows": 17,
+    "nodes": 1,
+    "bound": 51.91536079128025,
+    "gap": 0.0,
+    "invalid": [],
+    "timeline": [],
+    "selected": [],
+    "region_seconds": 0.007349489998887293,
+    "region_sites": 488,
+    "new_offices": [
+      3
+    ],
+    "tags": {
+      "base": 5,
+      "power": 5,
+      "power_new": 9
+    },
+    "case": "tightA0",
+    "input": "./experiments/milp_v5/data/lazy_holdout/tightA0.json",
+    "incumbent": "./experiments/milp_v5/logs/lazy_holdout60/tightA0_161_candidate.json",
+    "mode": "power",
+    "wall": 8.842423547999715,
+    "hard_timeout": false,
+    "valid": true
+  },
+  {
+    "value": 12332.50225896234,
+    "before": 12323.724505437283,
+    "status": "HighsModelStatus.kOptimal",
+    "seconds": 21.369708039001125,
+    "prep_seconds": 0.03452893000030599,
+    "groups": 780,
+    "regions": 37,
+    "variables": 2170,
+    "rows": 3196,
+    "packing_rows": 28,
+    "nodes": 1,
+    "bound": 12332.502258962453,
+    "gap": 0.0,
+    "invalid": [],
+    "timeline": [
+      {
+        "seconds": 21.258172883000952,
+        "value": 12332.50225896234
+      }
+    ],
+    "selected": [
+      {
+        "index": 1,
+        "o": 2,
+        "tag": "base"
+      },
+      {
+        "index": 2,
+        "o": 4,
+        "tag": "base"
+      },
+      {
+        "index": 20,
+        "o": 1,
+        "tag": "pair_greedy"
+      },
+      {
+        "index": 21,
+        "o": 5,
+        "tag": "pair"
+      }
+    ],
+    "region_seconds": 0.1015960280001309,
+    "region_sites": 1304,
+    "new_offices": [
+      3
+    ],
+    "tags": {
+      "pair": 10,
+      "base": 4,
+      "pair_greedy": 14,
+      "power": 4,
+      "power_new": 5
+    },
+    "case": "latent0",
+    "input": "./experiments/milp_v5/data/lazy_holdout/latent0.json",
+    "incumbent": "./experiments/milp_v5/logs/lazy_holdout60/latent0_161_candidate.json",
+    "mode": "both",
+    "wall": 22.00750569199954,
+    "hard_timeout": false,
+    "valid": true
+  },
+  {
+    "value": 7352.747509939395,
+    "before": 7352.747509939395,
+    "status": "HighsModelStatus.kTimeLimit",
+    "seconds": 52.24159408600099,
+    "prep_seconds": 1.311283615999855,
+    "groups": 990,
+    "regions": 23,
+    "variables": 14534,
+    "rows": 3996,
+    "packing_rows": 27,
+    "nodes": 0,
+    "bound": 7512.867003979605,
+    "gap": 0.021776824761595683,
+    "invalid": [],
+    "timeline": [],
+    "selected": [],
+    "region_seconds": 4.053420104999532,
+    "region_sites": 13451,
+    "new_offices": [],
+    "tags": {
+      "base": 11,
+      "pair_greedy": 12
+    },
+    "case": "huge0",
+    "input": "./experiments/milp_v5/data/lazy_holdout/huge0.json",
+    "incumbent": "./experiments/milp_v5/logs/lazy_holdout60/huge0_161_candidate.json",
+    "mode": "both",
+    "wall": 57.111791208000795,
+    "hard_timeout": false,
+    "valid": true
+  },
+  {
+    "value": 51.91536079128025,
+    "before": 51.91536079128025,
+    "status": "HighsModelStatus.kOptimal",
+    "seconds": 25.988190230998953,
+    "prep_seconds": 0.02626290800071729,
+    "groups": 501,
+    "regions": 34,
+    "variables": 1529,
+    "rows": 1937,
+    "packing_rows": 30,
+    "nodes": 9,
+    "bound": 51.91536079128049,
+    "gap": 0.0,
+    "invalid": [],
+    "timeline": [],
+    "selected": [],
+    "region_seconds": 0.1024052649991063,
+    "region_sites": 965,
+    "new_offices": [],
+    "tags": {
+      "pair": 5,
+      "base": 5,
+      "pair_greedy": 24
+    },
+    "case": "tightA0",
+    "input": "./experiments/milp_v5/data/lazy_holdout/tightA0.json",
+    "incumbent": "./experiments/milp_v5/logs/lazy_holdout60/tightA0_161_candidate.json",
+    "mode": "pair",
+    "wall": 26.673975916000927,
+    "hard_timeout": false,
+    "valid": true
+  },
+  {
+    "value": 51.91536079128025,
+    "before": 51.91536079128025,
+    "status": "HighsModelStatus.kTimeLimit",
+    "seconds": 55.166719369999555,
+    "prep_seconds": 0.03258215099958761,
+    "groups": 694,
+    "regions": 47,
+    "variables": 2085,
+    "rows": 2672,
+    "packing_rows": 43,
+    "nodes": 107,
+    "bound": 60.42235074671184,
+    "gap": 0.16386267620546777,
+    "invalid": [],
+    "timeline": [],
+    "selected": [],
+    "region_seconds": 0.1184428670003399,
+    "region_sites": 1310,
+    "new_offices": [
+      3
+    ],
+    "tags": {
+      "pair": 5,
+      "base": 5,
+      "power": 4,
+      "power_new": 9,
+      "pair_greedy": 24
+    },
+    "case": "tightA0",
+    "input": "./experiments/milp_v5/data/lazy_holdout/tightA0.json",
+    "incumbent": "./experiments/milp_v5/logs/lazy_holdout60/tightA0_161_candidate.json",
+    "mode": "both",
+    "wall": 56.02313778500138,
+    "hard_timeout": false,
+    "valid": true
+  }
+]

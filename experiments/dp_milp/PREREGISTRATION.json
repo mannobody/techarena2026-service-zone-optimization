@@ -1,0 +1,21 @@
+{
+  "candidate": "./experiments/dp_milp/artifacts/relative_v1.cpp",
+  "sha256": "9b66f1b60ad3a9644aa8ffdf15f55034aa87b36e3fb40229ef7e09f41766094e",
+  "split": "full_holdout",
+  "seconds": 60,
+  "threads": 2,
+  "jobs": 6,
+  "seeds": [
+    111,
+    112,
+    113
+  ],
+  "baseline": "frozen server v4",
+  "changes": [
+    "same-grid O(KGlogG) window optimization",
+    "relative values avoid alpha*absolute-load cancellation",
+    "quadratic fallback for G<=128",
+    "common task-count gcd compression"
+  ],
+  "note": "Frozen before any full_holdout results"
+}

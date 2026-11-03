@@ -1,0 +1,50 @@
+Traceback (most recent call last):
+  File "./experiments/milp_v5/bench_expand.py", line 24, in <module>
+    z=f.result();rows.append(z);(D/'results.json').write_text(json.dumps(rows,indent=2));print(json.dumps(z),flush=True)
+  File "/usr/lib64/python3.14/concurrent/futures/_base.py", line 447, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "/usr/lib64/python3.14/concurrent/futures/_base.py", line 396, in __get_result
+    raise self._exception
+  File "/usr/lib64/python3.14/concurrent/futures/thread.py", line 86, in run
+    result = ctx.run(self.task)
+  File "/usr/lib64/python3.14/concurrent/futures/thread.py", line 73, in run
+    return fn(*args, **kwargs)
+  File "./experiments/milp_v5/bench_expand.py", line 15, in run
+    q=subprocess.run([sys.executable,__file__,'child',a.tag,r['case'],variant,r['input'],r['incumbent']],capture_output=True,text=True,timeout=60,env=dict(os.environ,OMP_NUM_THREADS='1',OPENBLAS_NUM_THREADS='1'));(D/(stem+'.stderr')).write_text(q.stderr);assert q.returncode==0,q.stderr;out=json.loads((D/(stem+'.json')).read_text());hard=False
+                                                                                                                                                                                                                                                                      ^^^^^^^^^^^^^^^
+AssertionError: Traceback (most recent call last):
+  File "./experiments/milp_v5/bench_expand.py", line 8, in <module>
+    _,_,tag,case,variant,inp,inc=sys.argv;I=Instance.read(inp);sol=json.loads(Path(inc).read_text());pool,stats=expand(I,sol,seconds=3,open_new=variant=='new');r=improve(I,sol,seconds=55-stats['expand_seconds'],mode='joint',checkpoint=H/'logs'/tag/f'{case}_{variant}.checkpoint.json',pools=pool,fixed_open=True);r.update(stats);(H/'logs'/tag/f'{case}_{variant}.json').write_text(json.dumps(r,indent=2));sys.exit()
+                                                                                                                                                                  ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "./experiments/milp_v5/grouped_flow.py", line 96, in improve
+    prep=time.perf_counter()-start;h.setOptionValue('time_limit',max(.001,seconds-prep));h.run();sol=h.getSolution()
+                                                                                         ~~~~~^^
+  File "/tmp/ta-boundary-venv/lib64/python3.14/site-packages/highspy/highs.py", line 1523, in __internal_callback
+    user_callback_data.callbacks[int(callback_type)].fire(callback_type, message, data_out, data_in)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/ta-boundary-venv/lib64/python3.14/site-packages/highspy/highs.py", line 1775, in fire
+    fn(e)
+    ~~^^^
+  File "./experiments/milp_v5/grouped_flow.py", line 95, in <lambda>
+    h.cbMipImprovingSolution.subscribe(lambda e:save(e.data_out.mip_solution))
+                                                ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "./experiments/milp_v5/grouped_flow.py", line 94, in save
+    p=Path(checkpoint);tmp=p.with_suffix('.tmp');tmp.write_text(json.dumps(dict(solution=best,value=bestval,before=before,status='checkpoint',seconds=time.perf_counter()-start,groups=len(keys),candidates=sum(map(len,pools.values())))));tmp.replace(p)
+                                                                ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib64/python3.14/json/__init__.py", line 235, in dumps
+    return _default_encoder.encode(obj)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/usr/lib64/python3.14/json/encoder.py", line 202, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib64/python3.14/json/encoder.py", line 263, in iterencode
+    return _iterencode(o, 0)
+  File "/usr/lib64/python3.14/json/encoder.py", line 182, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+                    f'is not JSON serializable')
+TypeError: Object of type int64 is not JSON serializable
+when serializing list item 0
+when serializing dict item 'sites'
+when serializing list item 0
+when serializing dict item 'solution'
+

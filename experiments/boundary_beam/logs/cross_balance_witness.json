@@ -1,0 +1,26 @@
+[
+  {
+    "blocker": false,
+    "expected": 22,
+    "input": "./experiments/boundary_beam/data/oracle/cross_balance_False.json",
+    "native": {
+      "score": 22,
+      "valid": true,
+      "stopped": false,
+      "nodes": 6
+    },
+    "official_score": 22.0
+  },
+  {
+    "blocker": true,
+    "expected": 2,
+    "input": "./experiments/boundary_beam/data/oracle/cross_balance_True.json",
+    "native": {
+      "score": 2,
+      "valid": true,
+      "stopped": false,
+      "nodes": 8
+    },
+    "official_score": 2.0
+  }
+]

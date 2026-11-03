@@ -1,0 +1,278 @@
+[
+  {
+    "path": "./experiments/geometry_islands/data/train/anti0.json",
+    "split": "train",
+    "generator": "gen2",
+    "seed": 121000,
+    "params": {
+      "ns": 150,
+      "no": 5,
+      "nw": 20,
+      "nsk": 3,
+      "dist": "anti",
+      "offices": "random"
+    },
+    "sha256": "91df18ac35c37339220c5dc3aed2ca766a355bfd8c8d2d0c0669fd957c506215"
+  },
+  {
+    "path": "./experiments/geometry_islands/data/train/alphabig0.json",
+    "split": "train",
+    "generator": "gen2",
+    "seed": 121100,
+    "params": {
+      "ns": 600,
+      "no": 15,
+      "nw": 30,
+      "nsk": 4,
+      "span": 1.0,
+      "dscale": 100000.0,
+      "af": 5.0,
+      "tmax": 6
+    },
+    "sha256": "89e1fcef0708c95433b649d0cd64816e88c75043080874f987d1a6d3b1b7162d"
+  },
+  {
+    "path": "./experiments/geometry_islands/data/train/tightA0.json",
+    "split": "train",
+    "generator": "gen2",
+    "seed": 121200,
+    "params": {
+      "ns": 400,
+      "no": 8,
+      "nw": 16,
+      "nsk": 4,
+      "A": 1,
+      "capf": 1.0
+    },
+    "sha256": "f4078417c3d6ad0e5f982bf2ab50e4bae19de6f3ad0f9182abbfa46dfa2c1bf7"
+  },
+  {
+    "path": "./experiments/geometry_islands/data/train/multiskill0.json",
+    "split": "train",
+    "generator": "gen2",
+    "seed": 121300,
+    "params": {
+      "ns": 150,
+      "no": 6,
+      "nw": 8,
+      "nsk": 4,
+      "wsk": 3,
+      "tmax": 3
+    },
+    "sha256": "e543c1ae151b898d1f1e163165ec5769d9f161e40d9c1e2d6de6a125bfb2721c"
+  },
+  {
+    "path": "./experiments/geometry_islands/data/train/grid0.json",
+    "split": "train",
+    "generator": "gen2",
+    "seed": 121400,
+    "params": {
+      "ns": 300,
+      "no": 3,
+      "nw": 12,
+      "nsk": 3,
+      "layout": "grid",
+      "offices": "onsite"
+    },
+    "sha256": "e51e1d90a845f5de9ce060ad15686e2e73450d4aaf2c64bd9c7a04da6a9f47c4"
+  },
+  {
+    "path": "./experiments/geometry_islands/data/train/cluster0.json",
+    "split": "train",
+    "generator": "gen2",
+    "seed": 121500,
+    "params": {
+      "ns": 600,
+      "no": 5,
+      "nw": 20,
+      "nsk": 4,
+      "layout": "cluster",
+      "offices": "random"
+    },
+    "sha256": "095d4fb24f38250287c89979511261a21d30241da6afb3105b8712286f21bef0"
+  },
+  {
+    "path": "./experiments/geometry_islands/data/train/large0.json",
+    "split": "train",
+    "generator": "gen2",
+    "seed": 121600,
+    "params": {
+      "ns": 2000,
+      "no": 10,
+      "nw": 40,
+      "nsk": 5,
+      "dist": "road"
+    },
+    "sha256": "ba1228a5fe7caeb4e296566102c9f1a5fba66e600e796fa09522efbe26c4b115"
+  },
+  {
+    "path": "./experiments/geometry_islands/data/train/huge0.json",
+    "split": "train",
+    "generator": "gen2",
+    "seed": 121700,
+    "params": {
+      "ns": 10000,
+      "no": 25,
+      "nw": 50,
+      "nsk": 5,
+      "dist": "road"
+    },
+    "sha256": "81e30d143d5d2cc9bffe09eeee90feaaf10f520cdb787f119c0ca436775d7d1b"
+  },
+  {
+    "path": "./experiments/geometry_islands/data/train/latent0.json",
+    "split": "train",
+    "generator": "latent-v1",
+    "seed": 122000,
+    "n": 160,
+    "m": 6,
+    "sha256": "14cba5a74010ec833886f7bc05594d10d6e0583a1862f614dfcb08d9918596ee"
+  },
+  {
+    "path": "./experiments/geometry_islands/data/train/latent1.json",
+    "split": "train",
+    "generator": "latent-v1",
+    "seed": 122001,
+    "n": 480,
+    "m": 10,
+    "sha256": "725f448d7b74e24ed864fd51415b364ba99c23f8eaa24501678da0d0192e3f64"
+  },
+  {
+    "path": "./experiments/geometry_islands/data/holdout/anti0.json",
+    "split": "holdout",
+    "generator": "gen2",
+    "seed": 131000,
+    "params": {
+      "ns": 150,
+      "no": 10,
+      "nw": 20,
+      "nsk": 3,
+      "dist": "anti",
+      "offices": "perimeter"
+    },
+    "sha256": "7a117f8a1b121777e46827863d28d99d110c31a1897c0d1672fd729b47d5836e"
+  },
+  {
+    "path": "./experiments/geometry_islands/data/holdout/alphabig0.json",
+    "split": "holdout",
+    "generator": "gen2",
+    "seed": 131100,
+    "params": {
+      "ns": 300,
+      "no": 8,
+      "nw": 30,
+      "nsk": 4,
+      "span": 1.0,
+      "dscale": 100000.0,
+      "af": 5.0,
+      "tmax": 6
+    },
+    "sha256": "2607b9132957298632067bd48d6989fb0d1e7f8e9f6f277f49eb011d6191d715"
+  },
+  {
+    "path": "./experiments/geometry_islands/data/holdout/tightA0.json",
+    "split": "holdout",
+    "generator": "gen2",
+    "seed": 131200,
+    "params": {
+      "ns": 400,
+      "no": 8,
+      "nw": 16,
+      "nsk": 4,
+      "A": 1,
+      "capf": 1.0
+    },
+    "sha256": "9fea0ac16480c2ce682158db2d0542f022bd104d737d6ca636a45a18c2544f16"
+  },
+  {
+    "path": "./experiments/geometry_islands/data/holdout/multiskill0.json",
+    "split": "holdout",
+    "generator": "gen2",
+    "seed": 131300,
+    "params": {
+      "ns": 150,
+      "no": 4,
+      "nw": 12,
+      "nsk": 6,
+      "wsk": 3,
+      "tmax": 3
+    },
+    "sha256": "e7c61c391a1b294cb257cadf8d098e87c2f432bc271ecd72de165ec8dcdc7aa0"
+  },
+  {
+    "path": "./experiments/geometry_islands/data/holdout/grid0.json",
+    "split": "holdout",
+    "generator": "gen2",
+    "seed": 131400,
+    "params": {
+      "ns": 100,
+      "no": 3,
+      "nw": 12,
+      "nsk": 3,
+      "layout": "grid",
+      "offices": "onsite"
+    },
+    "sha256": "5d866d6d62a0fef31097e5bf2bcce1a37fb45405d6d70963f7c2b4e885b86dbf"
+  },
+  {
+    "path": "./experiments/geometry_islands/data/holdout/cluster0.json",
+    "split": "holdout",
+    "generator": "gen2",
+    "seed": 131500,
+    "params": {
+      "ns": 1500,
+      "no": 10,
+      "nw": 20,
+      "nsk": 4,
+      "layout": "cluster",
+      "offices": "onsite"
+    },
+    "sha256": "35d0c6ecf5e301d61a00ca1257ce054d5517589c70010978058472a3baa7cea6"
+  },
+  {
+    "path": "./experiments/geometry_islands/data/holdout/large0.json",
+    "split": "holdout",
+    "generator": "gen2",
+    "seed": 131600,
+    "params": {
+      "ns": 3500,
+      "no": 20,
+      "nw": 40,
+      "nsk": 5,
+      "dist": "road"
+    },
+    "sha256": "67b90ea1a640688140a78ef5770973ef1d290cc9e0a0b3a058a9f58386c2f0cd"
+  },
+  {
+    "path": "./experiments/geometry_islands/data/holdout/huge0.json",
+    "split": "holdout",
+    "generator": "gen2",
+    "seed": 131700,
+    "params": {
+      "ns": 10000,
+      "no": 20,
+      "nw": 50,
+      "nsk": 5,
+      "dist": "road"
+    },
+    "sha256": "53e2c104fae34361eacf8b37d4ff5a0e1dbc813bfd25c30d06656a665b101fa0"
+  },
+  {
+    "path": "./experiments/geometry_islands/data/holdout/latent0.json",
+    "split": "holdout",
+    "generator": "latent-v1",
+    "seed": 132000,
+    "n": 160,
+    "m": 6,
+    "sha256": "e6b65ccee57f7a79e1259644f631b5726b678fa345141d699f7bbb551f027ac3"
+  },
+  {
+    "path": "./experiments/geometry_islands/data/holdout/latent1.json",
+    "split": "holdout",
+    "generator": "latent-v1",
+    "seed": 132001,
+    "n": 480,
+    "m": 10,
+    "sha256": "c7875bf2dbd0fd3289fd584f3a6583698e97cecae3dc2cf79cc08e1de26628e5"
+  }
+]

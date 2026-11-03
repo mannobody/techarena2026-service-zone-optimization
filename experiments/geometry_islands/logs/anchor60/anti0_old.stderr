@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "./experiments/geometry_islands/bench_anchor.py", line 6, in <module>
+    sys.path.insert(0,str(E));import local_mip as M
+                              ^^^^^^^^^^^^^^^^^^^^^
+  File "./experiments/evolution/local_mip.py", line 19, in <module>
+    from model import Instance
+  File "./experiments/colgen/model.py", line 14, in <module>
+    from scipy.sparse import coo_matrix, csc_matrix
+ModuleNotFoundError: No module named 'scipy'

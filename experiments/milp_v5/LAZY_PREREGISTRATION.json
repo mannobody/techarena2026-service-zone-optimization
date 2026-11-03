@@ -1,0 +1,24 @@
+{
+  "candidate": "./experiments/milp_v5/artifacts/native_v5.cpp",
+  "sha256": "292c57ace0d5117a39600744a74a263c8f50b9a6d3447d47a610e67794568816",
+  "baseline": "server_v4/artifacts/package/solution",
+  "split": "lazy_holdout",
+  "generator_seeds": "291000+100*j; latent292000/292001",
+  "seconds": 60,
+  "threads": 2,
+  "jobs": 6,
+  "seeds": [
+    161,
+    162,
+    163
+  ],
+  "MIP_MODE": 2,
+  "MIP_RESERVE": 0,
+  "changes": [
+    "unchanged v4 source before the final new call",
+    "HiGHS loaded only after all v4 stages",
+    "staff certificate parsed from the published in-memory JSON",
+    "same exact grouped MILP kernel and opportunistic scheduling"
+  ],
+  "note": "Frozen before third independent holdout; removes early loader/bookkeeping overhead, not tuned on new data"
+}

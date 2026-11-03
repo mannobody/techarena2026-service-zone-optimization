@@ -1,0 +1,24 @@
+311000 58.0
+311001 35.0
+311002 48.0
+311003 28.0
+311004 31.0
+311005 49.0
+311006 42.0
+311007 55.0
+311008 34.0
+311009 51.0
+311010 64.0
+311011 52.0
+311012 25.0
+311013 33.0
+311014 42.0
+311015 50.0
+311016 46.0
+311017 65.0
+311018 6.0
+Traceback (most recent call last):
+  File "./experiments/milp_v5_boundaries/oracle.py", line 38, in <module>
+    r=improve(I,[],regions,{},seconds=10);assert not r['invalid'],r['invalid'];assert abs(r['value']-best)<1e-6,(seed,r['value'],best,r['status']);assert abs(r['bound']-best)<1e-6,(seed,r['bound'],best)
+                                                                                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: (311019, 42.000001000000005, np.float64(42.0))

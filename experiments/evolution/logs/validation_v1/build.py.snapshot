@@ -1,0 +1,43 @@
+"""Build isolated native variants, never edit the shared solver sources."""
+from pathlib import Path
+import argparse
+import hashlib
+import json
+import subprocess
+
+HERE=Path(__file__).resolve().parent
+ROOT=HERE.parents[1]
+
+
+def replace_once(s,old,new):
+    assert s.count(old)==1,old
+    return s.replace(old,new)
+
+
+def build():
+    out=HERE/'artifacts';out.mkdir(exist_ok=True)
+    source=(ROOT/'solver/solve.cpp').read_text()
+    warm=replace_once(source,'int main(int argc, char** argv) {',
+                      (HERE/'warm.h').read_text()+'\nint main(int argc, char** argv) {')
+    warm=replace_once(warm,'double t_outer = min(0.22 * limit, 60.0);',
+        'int evo_mode = getenv("EVO") ? atoi(getenv("EVO")) : 2;\n'
+        '        double t_outer = min((evo_mode ? 0.10 : 0.22) * limit, evo_mode ? 30.0 : 60.0);')
+    warm=replace_once(warm,'        vector<Cand> cands;',
+        '        vector<Cand> evo_real;\n'
+        '        if(evo_mode) evo_real=evo_warm(I,F,cache,rng,min(.22*limit,60.0),limit,evo_mode);\n'
+        '        vector<Cand> cands;')
+    warm=replace_once(warm,'        if (cands.empty()) {',
+        '        for(const auto& e:evo_real){bool have=false;for(const auto& c:cands)if(c.op==e.op)have=true;'
+        'if(!have)cands.push_back(e);}\n        if (cands.empty()) {')
+    for name,text in [('baseline',source),('warm',warm)]:
+        for p in (ROOT/'solver').glob('*.h'):
+            text=text.replace(f'#include "{p.name}"',p.read_text())
+        path=out/f'{name}.cpp';path.write_text(text)
+        subprocess.run(['g++','-O2','-std=c++17',str(path),'-o',str(out/name)],check=True)
+    files=[ROOT/'solver/solve.cpp',*(ROOT/'solver').glob('*.h'),HERE/'warm.h',HERE/'build.py']
+    (out/'build.json').write_text(json.dumps({str(p):hashlib.sha256(p.read_bytes()).hexdigest() for p in files},indent=2))
+    print(out)
+
+
+if __name__=='__main__':
+    build()

@@ -1,0 +1,25 @@
+{
+  "candidate": "./experiments/milp_v5/artifacts/native_v4.cpp",
+  "sha256": "a3330bb2a22164c5c792d9a3125640c1a0da3d87517a0061c4c984e018a98f6c",
+  "baseline": "server_v4/artifacts/package/solution",
+  "split": "tail_holdout",
+  "generator_seeds": "281000+100*j; latent282000/282001",
+  "seconds": 60,
+  "threads": 2,
+  "jobs": 6,
+  "seeds": [
+    151,
+    152,
+    153
+  ],
+  "MIP_MODE": 2,
+  "MIP_RESERVE": 0,
+  "changes": [
+    "same grouped MILP kernel",
+    "after all v4 stages including boundary B&B",
+    "zero time reserved from main search",
+    "fixed staff only when remaining time <=0.65s; otherwise fixed then joint",
+    "deadline total_limit-0.15"
+  ],
+  "note": "Frozen before new tail_holdout; follows scheduling hypothesis from first holdout, no tuning on new data"
+}
