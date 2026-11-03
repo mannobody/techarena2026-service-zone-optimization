@@ -25,7 +25,7 @@
 
 Главный практический результат этого продолжения — интеграция уже подтверждённых
 worker/office-start улучшений. Архив:
-[./experiments/evolution/artifacts/integrated_v1.zip](./experiments/evolution/artifacts/integrated_v1.zip).
+[./experiments/evolution/artifacts/integrated_v1.zip](../evolution/artifacts/integrated_v1.zip).
 Подробности их независимых проверок — раздел 9 отчёта evolution.
 
 ## 1. Почему стандартная кластеризация решает другую задачу

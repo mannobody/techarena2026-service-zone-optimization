@@ -2,7 +2,7 @@
 
 > Дополнение 18.10.2026: последующее исследование генетического поиска, локального SCIP,
 > рабочих и параллельного старта находится в
-> [./experiments/evolution/REPORT.md](./experiments/evolution/REPORT.md).
+> [./experiments/evolution/REPORT.md](../evolution/REPORT.md).
 > Там есть отдельный стандартный C++17-кандидат и новые измерения на 46 сгенерированных
 > задачах, 16 граничных режимах и четырёх дополнительных holdout. Открытые примеры
 > для нового исследования не использовались. После исследования выполнена интеграция
@@ -694,7 +694,7 @@ huge, удлинённый repeat 0: RMP=212724.100133, safe UB=1010112.032112.
 895.380285. Это конкретная демонстрация, почему RMP нельзя выдавать за global UB.
 
 Все абсолютные значения целей, размеры пулов, оба wall, статусы и пути к
-каждому решению: [полные таблицы](./experiments/colgen/logs/tables.md).
+каждому решению: [полные таблицы](logs/tables.md).
 Машиночитаемые значения без округления остаются в указанных четырёх JSON логах.
 
 ## 7. Что переносить в основной решатель
@@ -835,7 +835,7 @@ PySCIPOpt 6.3.0 (SCIP 10.0.2), SciPy 1.18.1, Shapely 2.2.0, Pydantic 2.14.1.
 
 По последующему запросу проверены несколько новых гипотез; полный разбор,
 контрольные варианты, все числа и абсолютные пути:
-[./experiments/evolution/REPORT.md](./experiments/evolution/REPORT.md).
+[./experiments/evolution/REPORT.md](../evolution/REPORT.md).
 
 Найдены два разных источника прибавки:
 
@@ -873,7 +873,7 @@ PySCIPOpt 6.3.0 (SCIP 10.0.2), SciPy 1.18.1, Shapely 2.2.0, Pydantic 2.14.1.
 Все отдельные полные пути и команды приведены в связанном отчёте.
 
 Автономный кандидат только с fallback рабочих:
-[./experiments/evolution/artifacts/candidate_workers_v4.zip](./experiments/evolution/artifacts/candidate_workers_v4.zip).
+[./experiments/evolution/artifacts/candidate_workers_v4.zip](../evolution/artifacts/candidate_workers_v4.zip).
 Его бинарник проверен без исследовательских флагов на 21 граничной/сгенерированной
 задаче, все VALID; архив содержит Makefile и main.cpp, стандартный C++17.
 Второй кандидат с genetic+workers и его отдельные проверки описаны в новом отчёте.
@@ -898,9 +898,9 @@ screen, 34681 worker oracle и 21/21 проверка готовой упако�
 результаты на синтетике, не гарантия улучшения скрытого рейтинга.
 
 Полный интеграционный протокол и пути:
-[./experiments/evolution/REPORT.md](./experiments/evolution/REPORT.md), раздел 9.
+[./experiments/evolution/REPORT.md](../evolution/REPORT.md), раздел 9.
 Архив:
-[./experiments/evolution/artifacts/integrated_v1.zip](./experiments/evolution/artifacts/integrated_v1.zip).
+[./experiments/evolution/artifacts/integrated_v1.zip](../evolution/artifacts/integrated_v1.zip).
 
 Новое исследование проверило constrained clustering, districting, спектральные
 профили, PCA/MDS, UMAP/t-SNE, finite-atomic entropic Newton, мягкую дорожную прибыль
@@ -911,7 +911,7 @@ UMAP пригоден для признаков/предложений, но н�
 MIP-подзадача и точный alpha=0 selector, пока экспериментальные.
 
 Все механизмы, числа, ограничения и абсолютные пути для следующего интегратора:
-[./experiments/clustering/REPORT.md](./experiments/clustering/REPORT.md).
+[./experiments/clustering/REPORT.md](../clustering/REPORT.md).
 Следующий содержательный шаг — бюджетируемый territory/boundary LNS и более богатый
 road-to-geometry decoder, а не выбор лучшего embedding по картинке. Новые clustering
 операторы на полном лимите 300 с и на сервере пока не проверены.
@@ -927,6 +927,6 @@ road-to-geometry decoder, а не выбор лучшего embedding по ка�
 Кандидат предназначен для серверного эксперимента; улучшение hidden score не доказано.
 
 Код/логи/точные числа/хеши/ограничения:
-[./experiments/server_candidate/REPORT.md](./experiments/server_candidate/REPORT.md).
+[./experiments/server_candidate/REPORT.md](../server_candidate/REPORT.md).
 Архив:
-[./experiments/server_candidate/artifacts/case03_cpp_server_v2.zip](./experiments/server_candidate/artifacts/case03_cpp_server_v2.zip).
+[./experiments/server_candidate/artifacts/case03_cpp_server_v2.zip](../server_candidate/artifacts/case03_cpp_server_v2.zip).
