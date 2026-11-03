@@ -1,0 +1,562 @@
+{
+  "series": "line_screen8",
+  "runs": 30,
+  "expected": 30,
+  "valid": 30,
+  "success": 30,
+  "failures": [],
+  "comparisons": {
+    "adaptive_vs_v4": {
+      "all_valid": {
+        "pairs": 10,
+        "mean_case_percent": 0.3480792372444415,
+        "median": 0.02602557721442931,
+        "sd": 0.6939794653892405,
+        "worst": 0.0,
+        "best": 2.1582920146629094,
+        "wins": 5,
+        "ties": 5,
+        "losses": 0,
+        "case_bootstrap95": [
+          0.02162362757814646,
+          0.8225651139195215
+        ]
+      },
+      "successful": {
+        "pairs": 10,
+        "mean_case_percent": 0.3480792372444415,
+        "median": 0.02602557721442931,
+        "sd": 0.6939794653892405,
+        "worst": 0.0,
+        "best": 2.1582920146629094,
+        "wins": 5,
+        "ties": 5,
+        "losses": 0,
+        "case_bootstrap95": [
+          0.02162362757814646,
+          0.8225651139195215
+        ]
+      },
+      "per_case": {
+        "line0": {
+          "pairs": 1,
+          "mean_case_percent": 0.3403332819652021,
+          "median": 0.3403332819652021,
+          "sd": 0,
+          "worst": 0.3403332819652021,
+          "best": 0.3403332819652021,
+          "wins": 1,
+          "ties": 0,
+          "losses": 0,
+          "case_bootstrap95": [
+            0.3403332819652021,
+            0.3403332819652021
+          ]
+        },
+        "line1": {
+          "pairs": 1,
+          "mean_case_percent": 0.05472837378420199,
+          "median": 0.05472837378420199,
+          "sd": 0,
+          "worst": 0.05472837378420199,
+          "best": 0.05472837378420199,
+          "wins": 1,
+          "ties": 0,
+          "losses": 0,
+          "case_bootstrap95": [
+            0.05472837378420199,
+            0.05472837378420199
+          ]
+        },
+        "line2": {
+          "pairs": 1,
+          "mean_case_percent": 0.0,
+          "median": 0.0,
+          "sd": 0,
+          "worst": 0.0,
+          "best": 0.0,
+          "wins": 0,
+          "ties": 1,
+          "losses": 0,
+          "case_bootstrap95": [
+            0.0,
+            0.0
+          ]
+        },
+        "line3": {
+          "pairs": 1,
+          "mean_case_percent": 0.0,
+          "median": 0.0,
+          "sd": 0,
+          "worst": 0.0,
+          "best": 0.0,
+          "wins": 0,
+          "ties": 1,
+          "losses": 0,
+          "case_bootstrap95": [
+            0.0,
+            0.0
+          ]
+        },
+        "line4": {
+          "pairs": 1,
+          "mean_case_percent": 0.0,
+          "median": 0.0,
+          "sd": 0,
+          "worst": 0.0,
+          "best": 0.0,
+          "wins": 0,
+          "ties": 1,
+          "losses": 0,
+          "case_bootstrap95": [
+            0.0,
+            0.0
+          ]
+        },
+        "line5": {
+          "pairs": 1,
+          "mean_case_percent": 0.8753875476032431,
+          "median": 0.8753875476032431,
+          "sd": 0,
+          "worst": 0.8753875476032431,
+          "best": 0.8753875476032431,
+          "wins": 1,
+          "ties": 0,
+          "losses": 0,
+          "case_bootstrap95": [
+            0.8753875476032431,
+            0.8753875476032431
+          ]
+        },
+        "line6": {
+          "pairs": 1,
+          "mean_case_percent": 0.0,
+          "median": 0.0,
+          "sd": 0,
+          "worst": 0.0,
+          "best": 0.0,
+          "wins": 0,
+          "ties": 1,
+          "losses": 0,
+          "case_bootstrap95": [
+            0.0,
+            0.0
+          ]
+        },
+        "line7": {
+          "pairs": 1,
+          "mean_case_percent": 0.05205115442885862,
+          "median": 0.05205115442885862,
+          "sd": 0,
+          "worst": 0.05205115442885862,
+          "best": 0.05205115442885862,
+          "wins": 1,
+          "ties": 0,
+          "losses": 0,
+          "case_bootstrap95": [
+            0.05205115442885862,
+            0.05205115442885862
+          ]
+        },
+        "line8": {
+          "pairs": 1,
+          "mean_case_percent": 0.0,
+          "median": 0.0,
+          "sd": 0,
+          "worst": 0.0,
+          "best": 0.0,
+          "wins": 0,
+          "ties": 1,
+          "losses": 0,
+          "case_bootstrap95": [
+            0.0,
+            0.0
+          ]
+        },
+        "line9": {
+          "pairs": 1,
+          "mean_case_percent": 2.1582920146629094,
+          "median": 2.1582920146629094,
+          "sd": 0,
+          "worst": 2.1582920146629094,
+          "best": 2.1582920146629094,
+          "wins": 1,
+          "ties": 0,
+          "losses": 0,
+          "case_bootstrap95": [
+            2.1582920146629094,
+            2.1582920146629094
+          ]
+        }
+      },
+      "pairs": [
+        {
+          "case": "line0",
+          "seed": 0,
+          "delta": 2.678343554545222,
+          "percent": 0.3403332819652021,
+          "base": 786.9766774144274,
+          "candidate": 789.6550209689726,
+          "both_success": true
+        },
+        {
+          "case": "line1",
+          "seed": 0,
+          "delta": 0.4383466105850857,
+          "percent": 0.05472837378420199,
+          "base": 800.9494532278973,
+          "candidate": 801.3877998384824,
+          "both_success": true
+        },
+        {
+          "case": "line2",
+          "seed": 0,
+          "delta": 0.0,
+          "percent": 0.0,
+          "base": 748.1131290101089,
+          "candidate": 748.1131290101089,
+          "both_success": true
+        },
+        {
+          "case": "line3",
+          "seed": 0,
+          "delta": 0.0,
+          "percent": 0.0,
+          "base": 760.6274022210307,
+          "candidate": 760.6274022210307,
+          "both_success": true
+        },
+        {
+          "case": "line4",
+          "seed": 0,
+          "delta": 0.0,
+          "percent": 0.0,
+          "base": 704.871777436989,
+          "candidate": 704.871777436989,
+          "both_success": true
+        },
+        {
+          "case": "line5",
+          "seed": 0,
+          "delta": 6.257761863769815,
+          "percent": 0.8753875476032431,
+          "base": 714.8561663806139,
+          "candidate": 721.1139282443837,
+          "both_success": true
+        },
+        {
+          "case": "line6",
+          "seed": 0,
+          "delta": 0.0,
+          "percent": 0.0,
+          "base": 904.1929179886785,
+          "candidate": 904.1929179886785,
+          "both_success": true
+        },
+        {
+          "case": "line7",
+          "seed": 0,
+          "delta": 0.43123872343869607,
+          "percent": 0.05205115442885862,
+          "base": 828.4902192286542,
+          "candidate": 828.9214579520929,
+          "both_success": true
+        },
+        {
+          "case": "line8",
+          "seed": 0,
+          "delta": 0.0,
+          "percent": 0.0,
+          "base": 701.2092462250869,
+          "candidate": 701.2092462250869,
+          "both_success": true
+        },
+        {
+          "case": "line9",
+          "seed": 0,
+          "delta": 15.923174183851529,
+          "percent": 2.1582920146629094,
+          "base": 737.7673676997074,
+          "candidate": 753.6905418835589,
+          "both_success": true
+        }
+      ]
+    },
+    "adaptive_vs_v10": {
+      "all_valid": {
+        "pairs": 10,
+        "mean_case_percent": 0.21467063884960252,
+        "median": 0.0,
+        "sd": 0.48338635728146817,
+        "worst": 0.0,
+        "best": 1.4336461349842735,
+        "wins": 2,
+        "ties": 8,
+        "losses": 0,
+        "case_bootstrap95": [
+          0.0,
+          0.5719533284015553
+        ]
+      },
+      "successful": {
+        "pairs": 10,
+        "mean_case_percent": 0.21467063884960252,
+        "median": 0.0,
+        "sd": 0.48338635728146817,
+        "worst": 0.0,
+        "best": 1.4336461349842735,
+        "wins": 2,
+        "ties": 8,
+        "losses": 0,
+        "case_bootstrap95": [
+          0.0,
+          0.5719533284015553
+        ]
+      },
+      "per_case": {
+        "line0": {
+          "pairs": 1,
+          "mean_case_percent": 0.0,
+          "median": 0.0,
+          "sd": 0,
+          "worst": 0.0,
+          "best": 0.0,
+          "wins": 0,
+          "ties": 1,
+          "losses": 0,
+          "case_bootstrap95": [
+            0.0,
+            0.0
+          ]
+        },
+        "line1": {
+          "pairs": 1,
+          "mean_case_percent": 0.0,
+          "median": 0.0,
+          "sd": 0,
+          "worst": 0.0,
+          "best": 0.0,
+          "wins": 0,
+          "ties": 1,
+          "losses": 0,
+          "case_bootstrap95": [
+            0.0,
+            0.0
+          ]
+        },
+        "line2": {
+          "pairs": 1,
+          "mean_case_percent": 0.0,
+          "median": 0.0,
+          "sd": 0,
+          "worst": 0.0,
+          "best": 0.0,
+          "wins": 0,
+          "ties": 1,
+          "losses": 0,
+          "case_bootstrap95": [
+            0.0,
+            0.0
+          ]
+        },
+        "line3": {
+          "pairs": 1,
+          "mean_case_percent": 0.0,
+          "median": 0.0,
+          "sd": 0,
+          "worst": 0.0,
+          "best": 0.0,
+          "wins": 0,
+          "ties": 1,
+          "losses": 0,
+          "case_bootstrap95": [
+            0.0,
+            0.0
+          ]
+        },
+        "line4": {
+          "pairs": 1,
+          "mean_case_percent": 0.0,
+          "median": 0.0,
+          "sd": 0,
+          "worst": 0.0,
+          "best": 0.0,
+          "wins": 0,
+          "ties": 1,
+          "losses": 0,
+          "case_bootstrap95": [
+            0.0,
+            0.0
+          ]
+        },
+        "line5": {
+          "pairs": 1,
+          "mean_case_percent": 0.7130602535117516,
+          "median": 0.7130602535117516,
+          "sd": 0,
+          "worst": 0.7130602535117516,
+          "best": 0.7130602535117516,
+          "wins": 1,
+          "ties": 0,
+          "losses": 0,
+          "case_bootstrap95": [
+            0.7130602535117516,
+            0.7130602535117516
+          ]
+        },
+        "line6": {
+          "pairs": 1,
+          "mean_case_percent": 0.0,
+          "median": 0.0,
+          "sd": 0,
+          "worst": 0.0,
+          "best": 0.0,
+          "wins": 0,
+          "ties": 1,
+          "losses": 0,
+          "case_bootstrap95": [
+            0.0,
+            0.0
+          ]
+        },
+        "line7": {
+          "pairs": 1,
+          "mean_case_percent": 0.0,
+          "median": 0.0,
+          "sd": 0,
+          "worst": 0.0,
+          "best": 0.0,
+          "wins": 0,
+          "ties": 1,
+          "losses": 0,
+          "case_bootstrap95": [
+            0.0,
+            0.0
+          ]
+        },
+        "line8": {
+          "pairs": 1,
+          "mean_case_percent": 0.0,
+          "median": 0.0,
+          "sd": 0,
+          "worst": 0.0,
+          "best": 0.0,
+          "wins": 0,
+          "ties": 1,
+          "losses": 0,
+          "case_bootstrap95": [
+            0.0,
+            0.0
+          ]
+        },
+        "line9": {
+          "pairs": 1,
+          "mean_case_percent": 1.4336461349842735,
+          "median": 1.4336461349842735,
+          "sd": 0,
+          "worst": 1.4336461349842735,
+          "best": 1.4336461349842735,
+          "wins": 1,
+          "ties": 0,
+          "losses": 0,
+          "case_bootstrap95": [
+            1.4336461349842735,
+            1.4336461349842735
+          ]
+        }
+      },
+      "pairs": [
+        {
+          "case": "line0",
+          "seed": 0,
+          "delta": 0.0,
+          "percent": 0.0,
+          "base": 789.6550209689726,
+          "candidate": 789.6550209689726,
+          "both_success": true
+        },
+        {
+          "case": "line1",
+          "seed": 0,
+          "delta": 0.0,
+          "percent": 0.0,
+          "base": 801.3877998384824,
+          "candidate": 801.3877998384824,
+          "both_success": true
+        },
+        {
+          "case": "line2",
+          "seed": 0,
+          "delta": 0.0,
+          "percent": 0.0,
+          "base": 748.1131290101089,
+          "candidate": 748.1131290101089,
+          "both_success": true
+        },
+        {
+          "case": "line3",
+          "seed": 0,
+          "delta": 0.0,
+          "percent": 0.0,
+          "base": 760.6274022210307,
+          "candidate": 760.6274022210307,
+          "both_success": true
+        },
+        {
+          "case": "line4",
+          "seed": 0,
+          "delta": 0.0,
+          "percent": 0.0,
+          "base": 704.871777436989,
+          "candidate": 704.871777436989,
+          "both_success": true
+        },
+        {
+          "case": "line5",
+          "seed": 0,
+          "delta": 5.1055710072802185,
+          "percent": 0.7130602535117516,
+          "base": 716.0083572371035,
+          "candidate": 721.1139282443837,
+          "both_success": true
+        },
+        {
+          "case": "line6",
+          "seed": 0,
+          "delta": 0.0,
+          "percent": 0.0,
+          "base": 904.1929179886785,
+          "candidate": 904.1929179886785,
+          "both_success": true
+        },
+        {
+          "case": "line7",
+          "seed": 0,
+          "delta": 0.0,
+          "percent": 0.0,
+          "base": 828.9214579520929,
+          "candidate": 828.9214579520929,
+          "both_success": true
+        },
+        {
+          "case": "line8",
+          "seed": 0,
+          "delta": 0.0,
+          "percent": 0.0,
+          "base": 701.2092462250869,
+          "candidate": 701.2092462250869,
+          "both_success": true
+        },
+        {
+          "case": "line9",
+          "seed": 0,
+          "delta": 10.652535657720932,
+          "percent": 1.4336461349842735,
+          "base": 743.038006225838,
+          "candidate": 753.6905418835589,
+          "both_success": true
+        }
+      ]
+    }
+  }
+}

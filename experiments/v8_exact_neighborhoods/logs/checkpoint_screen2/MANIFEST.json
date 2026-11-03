@@ -1,0 +1,123 @@
+{
+  "spec": {
+    "destination": "experiments/v8_exact_neighborhoods/logs/checkpoint_screen2",
+    "seconds": 2,
+    "seeds": [
+      3101,
+      3102
+    ],
+    "cpu_pairs": [
+      [
+        18,
+        19
+      ]
+    ],
+    "cases": {
+      "anti": "experiments/v4_perturbation/shared/inputs/dev/anti.json",
+      "tightA": "experiments/v4_perturbation/shared/inputs/dev/tightA.json",
+      "alphabig": "experiments/v4_perturbation/shared/inputs/dev/alphabig.json",
+      "multiskill": "experiments/v4_perturbation/shared/inputs/dev/multiskill.json",
+      "cluster": "experiments/v4_perturbation/shared/inputs/dev/cluster.json",
+      "large": "experiments/v4_perturbation/shared/inputs/dev/large.json",
+      "huge": "experiments/v4_perturbation/shared/inputs/dev/huge.json"
+    },
+    "checkpoints": {
+      "anti": "experiments/v4_perturbation/shared/logs/checkpoint280/anti_1902_v4.solution.json",
+      "tightA": "experiments/v4_perturbation/shared/logs/checkpoint280/tightA_1902_v4.solution.json",
+      "alphabig": "experiments/v4_perturbation/shared/logs/checkpoint280/alphabig_1902_v4.solution.json",
+      "multiskill": "experiments/v4_perturbation/shared/logs/checkpoint280/multiskill_1902_v4.solution.json",
+      "cluster": "experiments/v4_perturbation/shared/logs/checkpoint280/cluster_1902_v4.solution.json",
+      "large": "experiments/v4_perturbation/shared/logs/checkpoint60/large_1901_v4.solution.json",
+      "huge": "experiments/v4_perturbation/shared/logs/checkpoint280/huge_1902_v4.solution.json"
+    },
+    "variants": {
+      "boundary": {
+        "binary": "experiments/v8_exact_neighborhoods/artifacts/checkpoint",
+        "source": "experiments/v8_exact_neighborhoods/artifacts/main.cpp",
+        "mode": 0,
+        "env": {
+          "DBG": "1",
+          "ESCAPE_MODE": "0",
+          "XN_SIG_FIX": "0"
+        }
+      },
+      "geometry": {
+        "binary": "experiments/v8_exact_neighborhoods/artifacts/checkpoint",
+        "source": "experiments/v8_exact_neighborhoods/artifacts/main.cpp",
+        "mode": 1,
+        "env": {
+          "DBG": "1",
+          "ESCAPE_MODE": "0",
+          "XN_SIG_FIX": "0"
+        }
+      },
+      "structure": {
+        "binary": "experiments/v8_exact_neighborhoods/artifacts/checkpoint",
+        "source": "experiments/v8_exact_neighborhoods/artifacts/main.cpp",
+        "mode": 2,
+        "env": {
+          "DBG": "1",
+          "ESCAPE_MODE": "0",
+          "XN_SIG_FIX": "0"
+        }
+      },
+      "mixed": {
+        "binary": "experiments/v8_exact_neighborhoods/artifacts/checkpoint",
+        "source": "experiments/v8_exact_neighborhoods/artifacts/main.cpp",
+        "mode": 3,
+        "env": {
+          "DBG": "1",
+          "ESCAPE_MODE": "0",
+          "XN_SIG_FIX": "0"
+        }
+      },
+      "lns": {
+        "binary": "experiments/v8_exact_neighborhoods/artifacts/checkpoint",
+        "source": "experiments/v8_exact_neighborhoods/artifacts/main.cpp",
+        "mode": 4,
+        "env": {
+          "DBG": "1",
+          "ESCAPE_MODE": "0",
+          "XN_SIG_FIX": "0"
+        }
+      }
+    },
+    "order_seed": 20261020
+  },
+  "spec_sha256": "d85142623c5f8e300ac035239cf62d1e1f33e963074dea44c8301c83b7aa03a0",
+  "runner_sha256": "b8cefa81d00bf83e8a4d046ab449bfdc6b024a8076b5a039e22ccd813b3eacc3",
+  "sources": {
+    "boundary": "21bbf25d12d06f4c7dc614a7e8b62bebce152bc64e76f453601e0d812a1cb641",
+    "geometry": "21bbf25d12d06f4c7dc614a7e8b62bebce152bc64e76f453601e0d812a1cb641",
+    "structure": "21bbf25d12d06f4c7dc614a7e8b62bebce152bc64e76f453601e0d812a1cb641",
+    "mixed": "21bbf25d12d06f4c7dc614a7e8b62bebce152bc64e76f453601e0d812a1cb641",
+    "lns": "21bbf25d12d06f4c7dc614a7e8b62bebce152bc64e76f453601e0d812a1cb641"
+  },
+  "validator_sha256": "6dd5948ebe72977976acf1b8dcaf7c819274c79addfb82328c0ec9a012ed56e0",
+  "checkpoints": {
+    "anti": "216b2cd5afedcd4d97b35e3f0068e74a341eaa825bc4a0802ef8fa58ba4edd81",
+    "tightA": "80779b8be9c85580c887adc41a47eb4946fd1b788151eda7a24a99668d2b5a1c",
+    "alphabig": "6e868637deafdbcbe4106feaa7368c64854d62f69fe0dcef411d03b52c7296ec",
+    "multiskill": "21e90a8a35263a6b6a5e775e4b88cee89e8297cebbb347a57ddb4ce2e383d6c4",
+    "cluster": "c028dfa52b8717c379daca73cd61fa76df57f573dd5ad60a1d604ec57acad8f8",
+    "large": "32a4414d284db55f136b9296745fa6abb3de6ce67acbb4bb4cf9fa654e8c6e0b",
+    "huge": "1bfdd85cef5cd70b6b52e9f99959d4b08822bab11bb7b2347fb4d5e17b4acc38"
+  },
+  "binaries": {
+    "boundary": "afbdcf8ef9aca7862cd6d1ce633315f2ac37b089afbadf4f63a482d45dbe8e0b",
+    "geometry": "afbdcf8ef9aca7862cd6d1ce633315f2ac37b089afbadf4f63a482d45dbe8e0b",
+    "structure": "afbdcf8ef9aca7862cd6d1ce633315f2ac37b089afbadf4f63a482d45dbe8e0b",
+    "mixed": "afbdcf8ef9aca7862cd6d1ce633315f2ac37b089afbadf4f63a482d45dbe8e0b",
+    "lns": "afbdcf8ef9aca7862cd6d1ce633315f2ac37b089afbadf4f63a482d45dbe8e0b"
+  },
+  "inputs": {
+    "anti": "28d3a2c81a0ef0bfa8e1ec588da62bd48122f37d9cd4952e413303f84d80d278",
+    "tightA": "1ae28e2cd6ea7c5c1c26e3f782a77f79f24bf0f562b09b3f7708aa6cc4c0df9a",
+    "alphabig": "15b841e52b8c4d71fa1dbb819566f48098a90b7b3db6871071f8f2a09ee58ffe",
+    "multiskill": "57f605ad34775503df27145009291f70a1079e69f4a3e4f6c55c729817131201",
+    "cluster": "31198c78efc75b7acd54ff2112ffed47674336fb38f642cbf736f064262dd078",
+    "large": "4f975dbbc6612bc2235d7c4c7b5d27adb589dd6d1237d6301dd2416ffc606c7a",
+    "huge": "cfab2ecaa9c6e7c5edf007d2353d172dcf36b1a47ab2c13664ecfe5b88d0f7c3"
+  },
+  "topology": "<local-host-omitted>"
+}

@@ -1,0 +1,21 @@
+{
+  "source_sha256": "52a30ca35edaca1cfbe7186390a5ceca2596965562c92fa6e811da648d642114",
+  "defaults": {
+    "TL": 280,
+    "NT": 2,
+    "ESCAPE_MODE": 0,
+    "XN_FILL": 2,
+    "XN_WORKER": 1,
+    "XN_TINY": 1,
+    "XN_MODE": 0,
+    "XN_SIG_FIX": 0
+  },
+  "rationale": "greedy fallback + raw-negative penalty improvement + deadline-bounded worker completeness; structural tails not promoted after mature checkpoint screen; v8 escape failed previous independent evaluation",
+  "status": "experimental, independent quality validation pending; no claim of superiority",
+  "rejected_defaults": [
+    "q12 exact tail: loses mature boundary budget",
+    "whole-zone templates: conditional barrier win only",
+    "support kick: previous independent stability failed",
+    "signature fix: canonical state correctness but no quality attribution"
+  ]
+}

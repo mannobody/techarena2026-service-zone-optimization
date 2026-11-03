@@ -1,0 +1,41 @@
+{
+  "name": "runner_instrumentation_smoke",
+  "seconds": 2,
+  "seeds": [
+    10302
+  ],
+  "cpus": [
+    [
+      14,
+      15
+    ]
+  ],
+  "cases": {
+    "grid_boundary": "experiments/structural_v9/inputs/dev/grid_boundary.json"
+  },
+  "variants": {
+    "v4": {
+      "binary": "experiments/structural_v9/artifacts/v4",
+      "env": {
+        "DBG": "1"
+      }
+    },
+    "v9": {
+      "binary": "experiments/structural_v9/artifacts/final_research/candidate",
+      "env": {
+        "ZM_POOL": "0",
+        "ZM_RESERVE": "0",
+        "DBG": "1"
+      }
+    },
+    "memetic": {
+      "binary": "experiments/warm_v10/artifacts/v5/candidate",
+      "env": {
+        "ZM_POOL": "0",
+        "ZM_RESERVE": "0",
+        "DBG": "1",
+        "GW_MODE": "2"
+      }
+    }
+  }
+}

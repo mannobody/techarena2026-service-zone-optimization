@@ -1,0 +1,60 @@
+{
+  "name": "independent280",
+  "seconds": 280,
+  "seeds": [
+    0,
+    12702
+  ],
+  "cpus": [
+    [
+      0,
+      1
+    ],
+    [
+      3,
+      6
+    ],
+    [
+      8,
+      10
+    ],
+    [
+      12,
+      13
+    ],
+    [
+      16,
+      17
+    ],
+    [
+      18,
+      19
+    ],
+    [
+      20,
+      21
+    ]
+  ],
+  "cases": {
+    "euclid420": "experiments/submission_1668601_v12/inputs/fresh/euclid420.json",
+    "road350": "experiments/submission_1668601_v12/inputs/fresh/road350.json",
+    "anti330": "experiments/submission_1668601_v12/inputs/fresh/anti330.json",
+    "equal260": "experiments/submission_1668601_v12/inputs/fresh/equal260.json",
+    "grid300": "experiments/submission_1668601_v12/inputs/fresh/grid300.json",
+    "multi480": "experiments/submission_1668601_v12/inputs/fresh/multi480.json",
+    "huge9500": "experiments/submission_1668601_v12/inputs/fresh/huge9500.json"
+  },
+  "variants": {
+    "submission": {
+      "binary": "experiments/submission_1668601_v12/baseline/solution"
+    },
+    "candidate": {
+      "binary": "experiments/submission_1668601_v12/artifacts/package_rebuild/solution",
+      "env": {
+        "GW_MODE": "1",
+        "ZM_POOL": "0",
+        "ZM_RESERVE": "0"
+      }
+    }
+  }
+}

@@ -1,0 +1,233 @@
+{
+  "inputs": 1,
+  "repeats": 3,
+  "valid": 18,
+  "contract_success": 18,
+  "global_optimum": 45,
+  "global_upper_bound_proof": "maxSize=1, pr<=10, every nonempty office cost1 => each of five sites contributes at most9; known identity certificate attains45",
+  "native_upper_bound_without_false_rejected_identity": 36,
+  "observed_native": {
+    "v4": [
+      36,
+      36,
+      36
+    ],
+    "v8": [
+      36,
+      36,
+      36
+    ],
+    "off": [
+      36,
+      36,
+      36
+    ]
+  },
+  "observed_new": {
+    "worker_only": [
+      45,
+      45,
+      45
+    ],
+    "tiny_only": [
+      45,
+      45,
+      45
+    ],
+    "candidate": [
+      45,
+      45,
+      45
+    ]
+  },
+  "delta_pct": 25,
+  "WTL": [
+    3,
+    0,
+    0
+  ],
+  "generalization": "One constructed mechanism case, not broad full-solver superiority",
+  "raw_runner_false_early_exact": 6,
+  "audits": [
+    {
+      "seed": 3602,
+      "variant": "candidate",
+      "objective": 45.0,
+      "wall": 0.00971794899987799,
+      "raw_runner_success": false,
+      "contract_success": true,
+      "threads_basis": "One thread; proved global optimum before native thread creation",
+      "note": "Original runner expects threads=2 final log and marks early exact return false; preserved raw record, not a solver failure"
+    },
+    {
+      "seed": 3602,
+      "variant": "v8",
+      "objective": 36.0,
+      "wall": 1.9951286599998639,
+      "raw_runner_success": true,
+      "contract_success": true,
+      "threads_basis": "NT=2 env; final log absent at budget stop",
+      "note": null
+    },
+    {
+      "seed": 3602,
+      "variant": "v4",
+      "objective": 36.0,
+      "wall": 1.9948543479999898,
+      "raw_runner_success": true,
+      "contract_success": true,
+      "threads_basis": "NT=2 env; final log absent at budget stop",
+      "note": null
+    },
+    {
+      "seed": 3602,
+      "variant": "off",
+      "objective": 36.0,
+      "wall": 1.980054999999993,
+      "raw_runner_success": true,
+      "contract_success": true,
+      "threads_basis": "NT=2 env; final log absent at budget stop",
+      "note": null
+    },
+    {
+      "seed": 3602,
+      "variant": "worker_only",
+      "objective": 45.0,
+      "wall": 1.9809746430000814,
+      "raw_runner_success": true,
+      "contract_success": true,
+      "threads_basis": "NT=2 env; final log absent at budget stop",
+      "note": null
+    },
+    {
+      "seed": 3602,
+      "variant": "tiny_only",
+      "objective": 45.0,
+      "wall": 0.009600312000202393,
+      "raw_runner_success": false,
+      "contract_success": true,
+      "threads_basis": "One thread; proved global optimum before native thread creation",
+      "note": "Original runner expects threads=2 final log and marks early exact return false; preserved raw record, not a solver failure"
+    },
+    {
+      "seed": 3601,
+      "variant": "tiny_only",
+      "objective": 45.0,
+      "wall": 0.0097004540002672,
+      "raw_runner_success": false,
+      "contract_success": true,
+      "threads_basis": "One thread; proved global optimum before native thread creation",
+      "note": "Original runner expects threads=2 final log and marks early exact return false; preserved raw record, not a solver failure"
+    },
+    {
+      "seed": 3601,
+      "variant": "worker_only",
+      "objective": 45.0,
+      "wall": 1.9838035679999848,
+      "raw_runner_success": true,
+      "contract_success": true,
+      "threads_basis": "NT=2 env; final log absent at budget stop",
+      "note": null
+    },
+    {
+      "seed": 3601,
+      "variant": "v4",
+      "objective": 36.0,
+      "wall": 1.9944479800001318,
+      "raw_runner_success": true,
+      "contract_success": true,
+      "threads_basis": "NT=2 env; final log absent at budget stop",
+      "note": null
+    },
+    {
+      "seed": 3601,
+      "variant": "off",
+      "objective": 36.0,
+      "wall": 1.9806622910000442,
+      "raw_runner_success": true,
+      "contract_success": true,
+      "threads_basis": "NT=2 env; final log absent at budget stop",
+      "note": null
+    },
+    {
+      "seed": 3601,
+      "variant": "v8",
+      "objective": 36.0,
+      "wall": 1.9970946550001827,
+      "raw_runner_success": true,
+      "contract_success": true,
+      "threads_basis": "NT=2 env; final log absent at budget stop",
+      "note": null
+    },
+    {
+      "seed": 3601,
+      "variant": "candidate",
+      "objective": 45.0,
+      "wall": 0.00964156300005925,
+      "raw_runner_success": false,
+      "contract_success": true,
+      "threads_basis": "One thread; proved global optimum before native thread creation",
+      "note": "Original runner expects threads=2 final log and marks early exact return false; preserved raw record, not a solver failure"
+    },
+    {
+      "seed": 3603,
+      "variant": "candidate",
+      "objective": 45.0,
+      "wall": 0.009476933000314602,
+      "raw_runner_success": false,
+      "contract_success": true,
+      "threads_basis": "One thread; proved global optimum before native thread creation",
+      "note": "Original runner expects threads=2 final log and marks early exact return false; preserved raw record, not a solver failure"
+    },
+    {
+      "seed": 3603,
+      "variant": "worker_only",
+      "objective": 45.0,
+      "wall": 1.9804228729999522,
+      "raw_runner_success": true,
+      "contract_success": true,
+      "threads_basis": "NT=2 env; final log absent at budget stop",
+      "note": null
+    },
+    {
+      "seed": 3603,
+      "variant": "v4",
+      "objective": 36.0,
+      "wall": 1.995968639000239,
+      "raw_runner_success": true,
+      "contract_success": true,
+      "threads_basis": "NT=2 env; final log absent at budget stop",
+      "note": null
+    },
+    {
+      "seed": 3603,
+      "variant": "v8",
+      "objective": 36.0,
+      "wall": 1.9977807039999789,
+      "raw_runner_success": true,
+      "contract_success": true,
+      "threads_basis": "NT=2 env; final log absent at budget stop",
+      "note": null
+    },
+    {
+      "seed": 3603,
+      "variant": "off",
+      "objective": 36.0,
+      "wall": 1.9819376259997625,
+      "raw_runner_success": true,
+      "contract_success": true,
+      "threads_basis": "NT=2 env; final log absent at budget stop",
+      "note": null
+    },
+    {
+      "seed": 3603,
+      "variant": "tiny_only",
+      "objective": 45.0,
+      "wall": 0.009563516000071104,
+      "raw_runner_success": false,
+      "contract_success": true,
+      "threads_basis": "One thread; proved global optimum before native thread creation",
+      "note": "Original runner expects threads=2 final log and marks early exact return false; preserved raw record, not a solver failure"
+    }
+  ]
+}

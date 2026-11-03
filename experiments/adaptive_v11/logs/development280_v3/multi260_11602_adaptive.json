@@ -1,0 +1,143 @@
+{
+  "case": "multi260",
+  "seed": 11602,
+  "variant": "adaptive",
+  "command": [
+    "/usr/bin/time",
+    "-f",
+    "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+    "-o",
+    "./experiments/adaptive_v11/logs/development280_v3/multi260_11602_adaptive.resource",
+    "taskset",
+    "-c",
+    "12,13",
+    "./experiments/adaptive_v11/artifacts/v3/candidate",
+    "./experiments/adaptive_v11/inputs/dev/multi260.json",
+    "./experiments/adaptive_v11/logs/development280_v3/multi260_11602_adaptive.solution.json",
+    "280"
+  ],
+  "env": {
+    "HOME": "/home/user",
+    "LANG": "C.UTF-8",
+    "PATH": "/usr/local/bin:/usr/bin:/bin",
+    "NT": "2",
+    "SEED": "11602",
+    "AP_POLICY": "1",
+    "AP_SHARE": "0"
+  },
+  "affinity": [
+    12,
+    13
+  ],
+  "rc": 0,
+  "timeout": false,
+  "wall": 279.4829337109986,
+  "started_unix": 1792660026.241795,
+  "ended_unix": 1792660305.7732482,
+  "official": 8972.242026397917,
+  "valid": true,
+  "snapshots": [
+    {
+      "at": 28.03591263799899,
+      "path": "experiments/adaptive_v11/logs/development280_v3/multi260_11602_adaptive.t28.00.solution.json",
+      "official": 8805.795391968659
+    },
+    {
+      "at": 61.64815750499838,
+      "path": "experiments/adaptive_v11/logs/development280_v3/multi260_11602_adaptive.t61.60.solution.json",
+      "official": 8958.829653244042
+    },
+    {
+      "at": 70.03799488299774,
+      "path": "experiments/adaptive_v11/logs/development280_v3/multi260_11602_adaptive.t70.00.solution.json",
+      "official": 8964.278852810314
+    },
+    {
+      "at": 140.00988801199856,
+      "path": "experiments/adaptive_v11/logs/development280_v3/multi260_11602_adaptive.t140.00.solution.json",
+      "official": 8970.903684976185
+    },
+    {
+      "at": 238.01995620199887,
+      "path": "experiments/adaptive_v11/logs/development280_v3/multi260_11602_adaptive.t238.00.solution.json",
+      "official": 8970.903684976185
+    }
+  ],
+  "solution_sha256": "9553606435a2e520d46998a8829b6c601ddff12c6bccc6f1813e0a846c184420",
+  "resource": "rss_kb=12552 user=512.26 sys=1.38 majorfaults=0 minorfaults=2238 voluntary=22141 involuntary=151574 inputs=0 outputs=224\n",
+  "error": false,
+  "process_sampling": {
+    "last": {
+      "204": {
+        "runtime_ns": 161242985,
+        "runqueue_ns": 1135111791,
+        "slices": 22058
+      },
+      "205": {
+        "runtime_ns": 251285759698,
+        "runqueue_ns": 24983036090,
+        "slices": 91914
+      },
+      "206": {
+        "runtime_ns": 260521688781,
+        "runqueue_ns": 15638949521,
+        "slices": 59027
+      },
+      "207": {
+        "runtime_ns": 52886,
+        "runqueue_ns": 309531,
+        "slices": 2
+      },
+      "210": {
+        "runtime_ns": 64727,
+        "runqueue_ns": 473121,
+        "slices": 1
+      }
+    },
+    "states": {
+      "S": 764,
+      "R": 555
+    },
+    "wchan": {
+      "hrtimer_nanosleep": 277,
+      "0": 554,
+      "futex_do_wait": 488
+    },
+    "max_sampled_threads": 5,
+    "samples": 277,
+    "last_io": {
+      "rchar": 275672,
+      "wchar": 15687,
+      "syscr": 57,
+      "syscw": 35,
+      "read_bytes": 0,
+      "write_bytes": 114688,
+      "cancelled_write_bytes": 0
+    }
+  },
+  "resource_extra_fields": {
+    "majorfaults": 0.0,
+    "minorfaults": 2238.0,
+    "voluntary": 22141.0,
+    "involuntary": 151574.0,
+    "inputs": 0.0,
+    "outputs": 224.0
+  },
+  "internal_deadline_stop": false,
+  "cpu_pressure_before": "some avg10=1.01 avg60=0.93 avg300=0.57 total=6229674786\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+  "cpu_pressure_after": "some avg10=1.20 avg60=0.59 avg300=0.60 total=6233109185\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+  "logged_threads": 1,
+  "resource_fields": {
+    "rss_kb": 12552.0,
+    "user": 512.26,
+    "sys": 1.38
+  },
+  "success": true,
+  "components": {
+    "reward": 13058.400483581447,
+    "distance": 3239.895991027932,
+    "cost": 768.6179227397051,
+    "penalty": 77.64454341588967,
+    "objective": 8972.24202639792
+  }
+}

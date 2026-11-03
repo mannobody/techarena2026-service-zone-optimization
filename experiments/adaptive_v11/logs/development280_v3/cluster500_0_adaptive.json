@@ -1,0 +1,143 @@
+{
+  "case": "cluster500",
+  "seed": 0,
+  "variant": "adaptive",
+  "command": [
+    "/usr/bin/time",
+    "-f",
+    "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+    "-o",
+    "./experiments/adaptive_v11/logs/development280_v3/cluster500_0_adaptive.resource",
+    "taskset",
+    "-c",
+    "12,13",
+    "./experiments/adaptive_v11/artifacts/v3/candidate",
+    "./experiments/adaptive_v11/inputs/dev/cluster500.json",
+    "./experiments/adaptive_v11/logs/development280_v3/cluster500_0_adaptive.solution.json",
+    "280"
+  ],
+  "env": {
+    "HOME": "/home/user",
+    "LANG": "C.UTF-8",
+    "PATH": "/usr/local/bin:/usr/bin:/bin",
+    "NT": "2",
+    "SEED": "0",
+    "AP_POLICY": "1",
+    "AP_SHARE": "0"
+  },
+  "affinity": [
+    12,
+    13
+  ],
+  "rc": 0,
+  "timeout": false,
+  "wall": 279.4691403390025,
+  "started_unix": 1792659466.5312889,
+  "ended_unix": 1792659746.0731826,
+  "official": 1872701.6662502075,
+  "valid": true,
+  "snapshots": [
+    {
+      "at": 28.013172214003134,
+      "path": "experiments/adaptive_v11/logs/development280_v3/cluster500_0_adaptive.t28.00.solution.json",
+      "official": 1857430.0740432907
+    },
+    {
+      "at": 61.64597594100269,
+      "path": "experiments/adaptive_v11/logs/development280_v3/cluster500_0_adaptive.t61.60.solution.json",
+      "official": 1863660.5331635438
+    },
+    {
+      "at": 70.02992758900291,
+      "path": "experiments/adaptive_v11/logs/development280_v3/cluster500_0_adaptive.t70.00.solution.json",
+      "official": 1863697.055377295
+    },
+    {
+      "at": 140.0137311690014,
+      "path": "experiments/adaptive_v11/logs/development280_v3/cluster500_0_adaptive.t140.00.solution.json",
+      "official": 1864668.4033708584
+    },
+    {
+      "at": 238.0435019980032,
+      "path": "experiments/adaptive_v11/logs/development280_v3/cluster500_0_adaptive.t238.00.solution.json",
+      "official": 1865036.6715398317
+    }
+  ],
+  "solution_sha256": "5a528a5a931041e65f6c4909b69488797cda4f06bd422ae57f8026c482141af2",
+  "resource": "rss_kb=12540 user=550.89 sys=0.33 majorfaults=0 minorfaults=2327 voluntary=22207 involuntary=34343 inputs=0 outputs=352\n",
+  "error": false,
+  "process_sampling": {
+    "last": {
+      "160": {
+        "runtime_ns": 135042986,
+        "runqueue_ns": 431046991,
+        "slices": 22128
+      },
+      "161": {
+        "runtime_ns": 275669597963,
+        "runqueue_ns": 1184550042,
+        "slices": 10609
+      },
+      "162": {
+        "runtime_ns": 273864763955,
+        "runqueue_ns": 2891090898,
+        "slices": 23654
+      },
+      "163": {
+        "runtime_ns": 44614,
+        "runqueue_ns": 743680,
+        "slices": 2
+      },
+      "165": {
+        "runtime_ns": 27035,
+        "runqueue_ns": 708411,
+        "slices": 1
+      }
+    },
+    "states": {
+      "S": 758,
+      "R": 554
+    },
+    "wchan": {
+      "hrtimer_nanosleep": 275,
+      "0": 553,
+      "futex_do_wait": 484
+    },
+    "max_sampled_threads": 5,
+    "samples": 276,
+    "last_io": {
+      "rchar": 509777,
+      "wchar": 37936,
+      "syscr": 87,
+      "syscw": 39,
+      "read_bytes": 0,
+      "write_bytes": 176128,
+      "cancelled_write_bytes": 0
+    }
+  },
+  "resource_extra_fields": {
+    "majorfaults": 0.0,
+    "minorfaults": 2327.0,
+    "voluntary": 22207.0,
+    "involuntary": 34343.0,
+    "inputs": 0.0,
+    "outputs": 352.0
+  },
+  "internal_deadline_stop": false,
+  "cpu_pressure_before": "some avg10=0.63 avg60=0.96 avg300=0.83 total=6226002718\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+  "cpu_pressure_after": "some avg10=0.01 avg60=0.08 avg300=0.34 total=6226584989\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+  "logged_threads": 1,
+  "resource_fields": {
+    "rss_kb": 12540.0,
+    "user": 550.89,
+    "sys": 0.33
+  },
+  "success": true,
+  "components": {
+    "reward": 2766328.071360099,
+    "distance": 728380.1771375169,
+    "cost": 165246.2279723747,
+    "penalty": 0.0,
+    "objective": 1872701.6662502075
+  }
+}

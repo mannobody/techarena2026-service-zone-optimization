@@ -1,0 +1,74 @@
+{
+  "case": "official_3",
+  "seed": 9302,
+  "variant": "tail",
+  "command": [
+    "/usr/bin/time",
+    "-f",
+    "rss_kb=%M user=%U sys=%S",
+    "-o",
+    "./experiments/structural_v9/logs/development280/official_3_9302_tail.resource",
+    "taskset",
+    "-c",
+    "18,19",
+    "./experiments/structural_v9/artifacts/final_research/candidate",
+    "./task/instance3/instance.json",
+    "./experiments/structural_v9/logs/development280/official_3_9302_tail.solution.json",
+    "280"
+  ],
+  "env": {
+    "HOME": "/home/user",
+    "LANG": "C.UTF-8",
+    "PATH": "/usr/local/bin:/usr/bin:/bin",
+    "NT": "2",
+    "SEED": "9302",
+    "ZM_POOL": "0",
+    "ZM_RESERVE": "0"
+  },
+  "affinity": [
+    18,
+    19
+  ],
+  "rc": 0,
+  "timeout": false,
+  "wall": 279.5009189950001,
+  "started_unix": 1792638599.6257665,
+  "ended_unix": 1792638879.2470253,
+  "official": 136531.72486512596,
+  "valid": true,
+  "snapshots": [
+    {
+      "at": 70.04343978499992,
+      "path": "experiments/structural_v9/logs/development280/official_3_9302_tail.t70.00.solution.json",
+      "official": 136300.9768254834
+    },
+    {
+      "at": 140.03206194800032,
+      "path": "experiments/structural_v9/logs/development280/official_3_9302_tail.t140.00.solution.json",
+      "official": 136300.9768254834
+    },
+    {
+      "at": 238.00798436200012,
+      "path": "experiments/structural_v9/logs/development280/official_3_9302_tail.t238.00.solution.json",
+      "official": 136300.9768254834
+    }
+  ],
+  "solution_sha256": "6bdb116f4b2ba09d5613eed4df05773eeaa731eed1a667bb83d87787d333f6a3",
+  "resource": "rss_kb=6208 user=553.53 sys=0.01\n",
+  "error": false,
+  "internal_deadline_stop": false,
+  "logged_threads": 2,
+  "resource_fields": {
+    "rss_kb": 6208.0,
+    "user": 553.53,
+    "sys": 0.01
+  },
+  "success": true,
+  "components": {
+    "reward": 290418.0266026272,
+    "distance": 152584.41741497602,
+    "cost": 1301.8843225252008,
+    "penalty": 0.0,
+    "objective": 136531.72486512596
+  }
+}

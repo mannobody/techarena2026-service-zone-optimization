@@ -1,0 +1,55 @@
+{
+  "case": "huge",
+  "seed": 3401,
+  "variant": "v8",
+  "started_unix": 1792502324.8628259,
+  "ended_unix": 1792502384.8642757,
+  "rc": 0,
+  "timeout": false,
+  "wall": 60.00144241800035,
+  "valid": true,
+  "objective": 5524.94639955417,
+  "validation_error": null,
+  "actual_nt": null,
+  "error_log": false,
+  "affinity": [
+    20,
+    21
+  ],
+  "success": true,
+  "solution_sha256": "0aa53cfcbeb773c7d447f6d016e07eb71e1e5a2966d83b435190339af4d85d73",
+  "source_sha256": "1857bec7e0882d15cf3091e79aeb0df1608ced5d4ee6883c1cb02656cfbd8e03",
+  "resource": "rss_kb=18344 user=104.31 sys=0.11\n",
+  "snapshots": [
+    {
+      "target_seconds": 20,
+      "observed_seconds": 20.00323326200032,
+      "file": "experiments/v8_exact_neighborhoods/logs/long60_diagnostic/huge_3401_v8.t20.solution.json",
+      "sha256": "195d7e7b9838ba212b6e51a72edafed817047a4d236105383ee1e452ced808c4",
+      "valid": true,
+      "objective": 4556.434638972847
+    },
+    {
+      "target_seconds": 40,
+      "observed_seconds": 40.004032393000216,
+      "file": "experiments/v8_exact_neighborhoods/logs/long60_diagnostic/huge_3401_v8.t40.solution.json",
+      "sha256": "141a688bdab7af340966dff0b5be442bb20f223467badb7d359e932764d6cfe7",
+      "valid": true,
+      "objective": 5524.922007327176
+    },
+    {
+      "target_seconds": 55,
+      "observed_seconds": 55.00013982500013,
+      "file": "experiments/v8_exact_neighborhoods/logs/long60_diagnostic/huge_3401_v8.t55.solution.json",
+      "sha256": "141a688bdab7af340966dff0b5be442bb20f223467badb7d359e932764d6cfe7",
+      "valid": true,
+      "objective": 5524.922007327176
+    }
+  ],
+  "hard_stopped": true,
+  "hard_stop_at": 59.99293978500009,
+  "within_nominal_plus_0.1": true,
+  "nominal_overrun": 0.0014424180003516085,
+  "watchdog_exit_inferred": false,
+  "thread_count_basis": "NT=2 env; final log absent at budget stop"
+}

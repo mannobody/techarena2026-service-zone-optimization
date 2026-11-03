@@ -1,0 +1,58 @@
+{
+  "case": "disjoint_collinear",
+  "kind": "structure",
+  "backend": "highs",
+  "ok": true,
+  "expected": 18,
+  "result": {
+    "solution": [
+      {
+        "officeId": 0,
+        "sites": [
+          0
+        ],
+        "workers": [
+          0
+        ]
+      },
+      {
+        "officeId": 1,
+        "sites": [
+          1
+        ],
+        "workers": [
+          1
+        ]
+      }
+    ],
+    "before": 0.0,
+    "value": 18.0,
+    "gain": 18.0,
+    "kind": "structure",
+    "backend": "highs",
+    "conditional_optimal": true,
+    "status": "HighsModelStatus.kOptimal",
+    "bound": 18.0,
+    "gap": 0.0,
+    "build": 0.0014559770000914796,
+    "solve": 0.02286448699999255,
+    "check": 0.000529823999954715,
+    "restore": 0.0007283610000285989,
+    "seconds": 0.026562726000065595,
+    "gain_per_second": 677.6412932902876,
+    "iterations": 1,
+    "nodes": 1,
+    "cuts": 0,
+    "variables": 12,
+    "rows": 24,
+    "selected": [
+      0,
+      1
+    ],
+    "offices": [
+      0,
+      1
+    ],
+    "events": []
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "spec": {
+    "name": "screen45_v2",
+    "seconds": 45,
+    "seeds": [
+      0
+    ],
+    "cpus": [
+      [
+        0,
+        1
+      ],
+      [
+        12,
+        13
+      ],
+      [
+        16,
+        17
+      ],
+      [
+        18,
+        19
+      ],
+      [
+        20,
+        21
+      ]
+    ],
+    "cases": {
+      "tiny12": "experiments/adaptive_v11/inputs/dev/tiny12.json",
+      "euclid240": "experiments/adaptive_v11/inputs/dev/euclid240.json",
+      "road200": "experiments/adaptive_v11/inputs/dev/road200.json",
+      "anti220": "experiments/adaptive_v11/inputs/dev/anti220.json",
+      "equal180": "experiments/adaptive_v11/inputs/dev/equal180.json",
+      "balance300": "experiments/adaptive_v11/inputs/dev/balance300.json",
+      "grid180": "experiments/adaptive_v11/inputs/dev/grid180.json",
+      "multi260": "experiments/adaptive_v11/inputs/dev/multi260.json",
+      "cluster500": "experiments/adaptive_v11/inputs/dev/cluster500.json",
+      "capacity240": "experiments/adaptive_v11/inputs/dev/capacity240.json",
+      "free500": "experiments/adaptive_v11/inputs/dev/free500.json",
+      "manhattan350": "experiments/adaptive_v11/inputs/dev/manhattan350.json",
+      "road1600": "experiments/adaptive_v11/inputs/dev/road1600.json",
+      "large3000": "experiments/adaptive_v11/inputs/dev/large3000.json",
+      "huge10000": "experiments/adaptive_v11/inputs/dev/huge10000.json",
+      "sparse300": "experiments/adaptive_v11/inputs/dev/sparse300.json"
+    },
+    "variants": {
+      "v4": {
+        "binary": "experiments/structural_v9/artifacts/v4"
+      },
+      "v10": {
+        "binary": "experiments/warm_v10/artifacts/v5/candidate",
+        "env": {
+          "ZM_POOL": "0",
+          "ZM_RESERVE": "0",
+          "GW_MODE": "1"
+        }
+      },
+      "dual": {
+        "binary": "experiments/adaptive_v11/artifacts/v2/candidate",
+        "env": {
+          "AP_POLICY": "0",
+          "AP_SHARE": "1"
+        }
+      },
+      "race": {
+        "binary": "experiments/adaptive_v11/artifacts/v2/candidate",
+        "env": {
+          "AP_POLICY": "1",
+          "AP_SHARE": "1"
+        }
+      },
+      "race_no_share": {
+        "binary": "experiments/adaptive_v11/artifacts/v2/candidate",
+        "env": {
+          "AP_POLICY": "1",
+          "AP_SHARE": "0"
+        }
+      }
+    }
+  },
+  "spec_sha256": "fe35a09a38c6b20730548ac25d153c20624daef140bc183f2cc269a7b9ae32ba",
+  "inputs": {
+    "tiny12": "3b7dda412dd0917c7d853793a8fd5be715fdbc6665bdf116898a23e1c3e44714",
+    "euclid240": "71da90d8a588bba5ebdac07a64176dac1d55f4af8e870a1e3f38d3f2be394a4a",
+    "road200": "2b715da0761aa5c472531999dbd81eefe7c302fa50fa9e586603d51e4402592d",
+    "anti220": "dbc3263ca03113f1cea1ae4cbadfb1491c5ef2970cf9ccbfbf10715931e09486",
+    "equal180": "ea0356173e00711f870180aab58f67785c904b1a7ebb2c708be98486215ca8e6",
+    "balance300": "ff3c18273bd5ffea85f76776b3375168dffb0732e5af2cfbbebd8d60f4908290",
+    "grid180": "d33d87cb40793a654a49d2d0d4078e477d12f17b9a0ae68ada265b613e168a63",
+    "multi260": "ca8fade075ce4051d80a06718fb870596bf5229832fbcadf087fa317b137f20c",
+    "cluster500": "083315b11d57cfa3a50c61d31e44b17ddc160ad54ec066f238504f2bb9e28565",
+    "capacity240": "512f2f6a647164bf65e2ea1efb9910ace6b38b89633c38d9b1e0e318b2113db3",
+    "free500": "23f6ce94b8f3b346af7d4a21ffdeb383699b6a6d3093bd52115b229f6d0290d6",
+    "manhattan350": "5412bca15871f921b4ed410ef38f46e39ed5b183de786d075b1ee6865dacf2db",
+    "road1600": "9ad0bfc0c4e8d3bfcd34a385aae219ed34295bbdc16e85ba02c129375a91c809",
+    "large3000": "6a433bb3d9bea0b3d3a9377698bd93d52f5dcb94ff3107ee6a458ae9f9503115",
+    "huge10000": "a7a72dc842d85b2bdd851f34e6a403bbb297ec4cd71eb47f35e7d950b9b8ee8a",
+    "sparse300": "6449893e4eba4943da90296e600987dacfa339bfa863de1966d1964347ac6983"
+  },
+  "binaries": {
+    "v4": "5cc54b6ad0f02a3d6d471d0e2f9129c229b4925aaa2b2c01ce26bd5305a4963c",
+    "v10": "c3f76ed684a521347cdd84fcdb2f5e9630a716f2eaf3747413ca7ecc6dc34706",
+    "dual": "95a445e2be6af25b2be8b36cc2d2d307a42afcc67d0fc5d37357c6e3653de580",
+    "race": "95a445e2be6af25b2be8b36cc2d2d307a42afcc67d0fc5d37357c6e3653de580",
+    "race_no_share": "95a445e2be6af25b2be8b36cc2d2d307a42afcc67d0fc5d37357c6e3653de580"
+  },
+  "validator": "6dd5948ebe72977976acf1b8dcaf7c819274c79addfb82328c0ec9a012ed56e0",
+  "cpu_topology": "<local-host-omitted>",
+  "runner_sha256": "791e0a285aa770a1cbbbffccd17e767dcdfe8179c9ac6e9e7775d8732647da93"
+}

@@ -1,0 +1,63 @@
+{
+  "case": "small_load_pad17",
+  "seed": 9203,
+  "variant": "signed_off",
+  "command": [
+    "/usr/bin/time",
+    "-f",
+    "rss_kb=%M user=%U sys=%S",
+    "-o",
+    "./experiments/structural_v9/logs/mechanism10_signed/small_load_pad17_9203_signed_off.resource",
+    "taskset",
+    "-c",
+    "6,8",
+    "./experiments/structural_v9/artifacts/signed_v5/candidate",
+    "./experiments/structural_v9/inputs/small_load_pad17.json",
+    "./experiments/structural_v9/logs/mechanism10_signed/small_load_pad17_9203_signed_off.solution.json",
+    "10"
+  ],
+  "env": {
+    "HOME": "/home/user",
+    "LANG": "C.UTF-8",
+    "PATH": "/usr/local/bin:/usr/bin:/bin",
+    "NT": "2",
+    "SEED": "9203",
+    "ZM_SIGNED": "0"
+  },
+  "affinity": [
+    6,
+    8
+  ],
+  "rc": 0,
+  "timeout": false,
+  "wall": 9.780624656000327,
+  "started_unix": 1792638199.6536794,
+  "ended_unix": 1792638209.436739,
+  "official": 7364.395513715398,
+  "valid": true,
+  "snapshots": [
+    {
+      "at": 2.5094477350003217,
+      "path": "experiments/structural_v9/logs/mechanism10_signed/small_load_pad17_9203_signed_off.t2.50.solution.json"
+    },
+    {
+      "at": 5.0114812510000775,
+      "path": "experiments/structural_v9/logs/mechanism10_signed/small_load_pad17_9203_signed_off.t5.00.solution.json"
+    },
+    {
+      "at": 8.507681271000365,
+      "path": "experiments/structural_v9/logs/mechanism10_signed/small_load_pad17_9203_signed_off.t8.50.solution.json"
+    }
+  ],
+  "solution_sha256": "869d0acc3021be46dcd39fc6d70dd08035984cd8d2e52e35f79558292e3cf888",
+  "resource": "rss_kb=119680 user=18.93 sys=0.14\n",
+  "error": false,
+  "success": true,
+  "components": {
+    "reward": 14921.700442025034,
+    "distance": 6044.810626729491,
+    "cost": 1512.4943015801427,
+    "penalty": 0.0,
+    "objective": 7364.395513715402
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "command": [
+    "taskset",
+    "-c",
+    "14,15",
+    "g++",
+    "-O3",
+    "-std=c++17",
+    "./experiments/structural_v9/artifacts/signed_v4/main.cpp",
+    "-o",
+    "./experiments/structural_v9/artifacts/signed_v4/candidate"
+  ],
+  "files": {
+    "experiments/v4_local_search/baseline/frozen_v4.cpp": "5b3914fa9791cb879f3232fb2876a915de83b848ad4b353b0dbf25b574998c25",
+    "experiments/structural_v9/src/zone_master.h": "f413ecf16f5dad9624fd6e24a2a50b7314a42f38a3d4ea0b1c50d2db89ea3097",
+    "experiments/structural_v9/src/signed_exchange.h": "3e5b410303cb77ed6a21ee34be33f0e1b93c985012aaa0372a61930db2e784ad",
+    "experiments/structural_v9/src/build.py": "726a8ba8d24c0aa344a57a5cdde8bc4168ff5d5e7cd79add13281c3c9955174a",
+    "experiments/structural_v9/artifacts/signed_v4/main.cpp": "af845e2aaf5a4c7b5d93f8f807b339091e940f866b155bec57f5b917b8c5bb60",
+    "experiments/structural_v9/artifacts/signed_v4/Makefile": "688a876355d4d66112384fa2e44195ab7e7ebecf5ebafdd0d308cc821cf4d25b",
+    "experiments/structural_v9/artifacts/signed_v4/candidate": "3d426d17cbbe4823508ab00b7fa3e39bcc84a808dff1353d01f0fdf66085e34f",
+    "experiments/structural_v9/artifacts/v4": "5cc54b6ad0f02a3d6d471d0e2f9129c229b4925aaa2b2c01ce26bd5305a4963c"
+  }
+}

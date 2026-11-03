@@ -1,0 +1,65 @@
+{
+  "created_unix": 1792660392.0728824,
+  "prior_plan": "INDEPENDENT_PLAN.json",
+  "active_plan": "INDEPENDENT_ACCELERATED_PLAN.json",
+  "cancelled_orchestrators": [
+    {
+      "session": 64897,
+      "script": "freeze_campaign.py",
+      "rc": 130,
+      "state": "idle before freeze/data"
+    },
+    {
+      "session": 84218,
+      "script": "resource_veto.py",
+      "rc": 130,
+      "state": "idle before independent"
+    },
+    {
+      "session": 38580,
+      "script": "freeze_accelerated.py",
+      "rc": 130,
+      "state": "idle before freeze; replaced by early immutable freeze"
+    }
+  ],
+  "quality_runs_cancelled": 0,
+  "resource_rule": "No extra long repeat. If matched CPU/wall spread exceeds0.5, withhold robust promotion and mark experimental. All rows retained. This strengthens the promotion veto while reducing runtime.",
+  "analysis": "Equal-case averaging and bootstrap n8; unequal seed counts explicitly shown. No universal superiority claim.",
+  "overlap_plan": {
+    "created_unix": 1792660931.9377885,
+    "development_remaining_pair": [
+      18,
+      19
+    ],
+    "development_evidence": "logs/development280_v3/cluster500_11602_v4.json",
+    "line_remaining_pair": [
+      3,
+      6
+    ],
+    "line_evidence": "logs/line_corrected280_v4/line9_11802_v10.json",
+    "independent_pairs": [
+      [
+        0,
+        1
+      ],
+      [
+        8,
+        10
+      ],
+      [
+        12,
+        13
+      ],
+      [
+        16,
+        17
+      ],
+      [
+        20,
+        21
+      ]
+    ],
+    "selection_unchanged": true,
+    "reason": "Freeze selected screen policy and final numerical revision now; permit remaining viewed development to finish on disjoint CPUs, no later tuning. Same2-wave primary duration on5slots; avoid waiting for last development block."
+  }
+}

@@ -1,0 +1,102 @@
+{
+  "name": "screen20",
+  "seconds": 20,
+  "seeds": [
+    0
+  ],
+  "cpus": [
+    [
+      0,
+      1
+    ],
+    [
+      3,
+      6
+    ],
+    [
+      8,
+      10
+    ],
+    [
+      12,
+      13
+    ],
+    [
+      16,
+      17
+    ],
+    [
+      18,
+      19
+    ],
+    [
+      20,
+      21
+    ]
+  ],
+  "cases": {
+    "jury1": "task/instance1/instance.json",
+    "jury4": "task/instance4/instance.json",
+    "euclid240": "experiments/adaptive_v11/inputs/dev/euclid240.json",
+    "road200": "experiments/adaptive_v11/inputs/dev/road200.json",
+    "anti220": "experiments/adaptive_v11/inputs/dev/anti220.json",
+    "equal180": "experiments/adaptive_v11/inputs/dev/equal180.json",
+    "grid180": "experiments/adaptive_v11/inputs/dev/grid180.json",
+    "multi260": "experiments/adaptive_v11/inputs/dev/multi260.json",
+    "cluster500": "experiments/adaptive_v11/inputs/dev/cluster500.json",
+    "huge10000": "experiments/adaptive_v11/inputs/dev/huge10000.json"
+  },
+  "variants": {
+    "submission": {
+      "binary": "experiments/submission_1668601_v12/baseline/solution"
+    },
+    "hybrid": {
+      "binary": "experiments/submission_1668601_v12/artifacts/hybrid/candidate"
+    },
+    "plateau": {
+      "binary": "experiments/submission_1668601_v12/artifacts/plateau/candidate"
+    },
+    "exact": {
+      "binary": "experiments/submission_1668601_v12/artifacts/exact/candidate",
+      "env": {
+        "XN_MODE": "1",
+        "XN_FILL": "2",
+        "XN_WORKER": "1",
+        "ESCAPE_MODE": "0"
+      }
+    },
+    "zones": {
+      "binary": "experiments/submission_1668601_v12/artifacts/zones/candidate",
+      "env": {
+        "ZM_POOL": "0",
+        "ZM_RESERVE": "0"
+      }
+    },
+    "geometry": {
+      "binary": "experiments/submission_1668601_v12/artifacts/geometry/candidate",
+      "env": {
+        "GW_MODE": "1",
+        "ZM_POOL": "0",
+        "ZM_RESERVE": "0"
+      }
+    },
+    "zones_pool": {
+      "binary": "experiments/submission_1668601_v12/artifacts/zones/candidate",
+      "env": {
+        "ZM_POOL": "1",
+        "ZM_RESERVE": "1"
+      }
+    },
+    "geometry_diverse": {
+      "binary": "experiments/submission_1668601_v12/artifacts/geometry/candidate",
+      "env": {
+        "GW_MODE": "2",
+        "ZM_POOL": "0",
+        "ZM_RESERVE": "0"
+      }
+    },
+    "certified": {
+      "binary": "experiments/submission_1668601_v12/artifacts/certified/candidate"
+    }
+  }
+}

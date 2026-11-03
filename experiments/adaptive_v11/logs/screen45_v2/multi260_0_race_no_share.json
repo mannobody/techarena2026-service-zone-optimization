@@ -1,0 +1,143 @@
+{
+  "case": "multi260",
+  "seed": 0,
+  "variant": "race_no_share",
+  "command": [
+    "/usr/bin/time",
+    "-f",
+    "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+    "-o",
+    "./experiments/adaptive_v11/logs/screen45_v2/multi260_0_race_no_share.resource",
+    "taskset",
+    "-c",
+    "20,21",
+    "./experiments/adaptive_v11/artifacts/v2/candidate",
+    "./experiments/adaptive_v11/inputs/dev/multi260.json",
+    "./experiments/adaptive_v11/logs/screen45_v2/multi260_0_race_no_share.solution.json",
+    "45"
+  ],
+  "env": {
+    "HOME": "/home/user",
+    "LANG": "C.UTF-8",
+    "PATH": "/usr/local/bin:/usr/bin:/bin",
+    "NT": "2",
+    "SEED": "0",
+    "AP_POLICY": "1",
+    "AP_SHARE": "0"
+  },
+  "affinity": [
+    20,
+    21
+  ],
+  "rc": 0,
+  "timeout": false,
+  "wall": 44.8143626380006,
+  "started_unix": 1792657571.4995205,
+  "ended_unix": 1792657616.3571177,
+  "official": 8961.36981941894,
+  "valid": true,
+  "snapshots": [
+    {
+      "at": 4.534737606001727,
+      "path": "experiments/adaptive_v11/logs/screen45_v2/multi260_0_race_no_share.t4.50.solution.json",
+      "official": 8567.89623295598
+    },
+    {
+      "at": 9.942871508999815,
+      "path": "experiments/adaptive_v11/logs/screen45_v2/multi260_0_race_no_share.t9.90.solution.json",
+      "official": 8567.89623295598
+    },
+    {
+      "at": 11.300583083000674,
+      "path": "experiments/adaptive_v11/logs/screen45_v2/multi260_0_race_no_share.t11.25.solution.json",
+      "official": 8708.659814085979
+    },
+    {
+      "at": 22.502353667001444,
+      "path": "experiments/adaptive_v11/logs/screen45_v2/multi260_0_race_no_share.t22.50.solution.json",
+      "official": 8927.928513599853
+    },
+    {
+      "at": 38.263726007000514,
+      "path": "experiments/adaptive_v11/logs/screen45_v2/multi260_0_race_no_share.t38.25.solution.json",
+      "official": 8949.409608565793
+    }
+  ],
+  "solution_sha256": "c5b6f1704524df493fc7e3e074f5e45bc001454456427b31a14d6c01b6818f6e",
+  "resource": "rss_kb=12536 user=88.22 sys=0.05 majorfaults=0 minorfaults=2240 voluntary=3560 involuntary=3917 inputs=0 outputs=72\n",
+  "error": false,
+  "process_sampling": {
+    "last": {
+      "324": {
+        "runtime_ns": 31890767,
+        "runqueue_ns": 44517505,
+        "slices": 3525
+      },
+      "325": {
+        "runtime_ns": 43572642258,
+        "runqueue_ns": 14428579,
+        "slices": 206
+      },
+      "326": {
+        "runtime_ns": 44068313561,
+        "runqueue_ns": 40903606,
+        "slices": 3677
+      },
+      "327": {
+        "runtime_ns": 64516,
+        "runqueue_ns": 77053,
+        "slices": 2
+      },
+      "335": {
+        "runtime_ns": 37385,
+        "runqueue_ns": 224893,
+        "slices": 1
+      }
+    },
+    "states": {
+      "S": 122,
+      "R": 90
+    },
+    "wchan": {
+      "hrtimer_nanosleep": 45,
+      "0": 90,
+      "futex_do_wait": 77
+    },
+    "max_sampled_threads": 5,
+    "samples": 45,
+    "last_io": {
+      "rchar": 275672,
+      "wchar": 17167,
+      "syscr": 57,
+      "syscw": 37,
+      "read_bytes": 0,
+      "write_bytes": 36864,
+      "cancelled_write_bytes": 0
+    }
+  },
+  "resource_extra_fields": {
+    "majorfaults": 0.0,
+    "minorfaults": 2240.0,
+    "voluntary": 3560.0,
+    "involuntary": 3917.0,
+    "inputs": 0.0,
+    "outputs": 72.0
+  },
+  "internal_deadline_stop": false,
+  "cpu_pressure_before": "some avg10=1.81 avg60=1.54 avg300=0.80 total=6205220489\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+  "cpu_pressure_after": "some avg10=0.62 avg60=1.35 avg300=0.87 total=6206006644\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+  "logged_threads": 1,
+  "resource_fields": {
+    "rss_kb": 12536.0,
+    "user": 88.22,
+    "sys": 0.05
+  },
+  "success": true,
+  "components": {
+    "reward": 13058.400483581447,
+    "distance": 3247.238900578917,
+    "cost": 768.6179227397051,
+    "penalty": 81.17384084388465,
+    "objective": 8961.36981941894
+  }
+}

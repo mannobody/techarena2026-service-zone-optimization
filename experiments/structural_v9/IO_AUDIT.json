@@ -1,0 +1,53 @@
+{
+  "source_sha256": "d72e0c83540c0ddbeaa63aafbf9697906cae5b6c425314b244553b2d6a7e44e8",
+  "static_io_matches": [
+    {
+      "line": 222,
+      "text": "ifstream f(path, ios::binary);"
+    },
+    {
+      "line": 3239,
+      "text": "vector<int>a(I.ns,-1);vector<char>open(I.no,0);"
+    },
+    {
+      "line": 3653,
+      "text": "g_fd = open(outp.c_str(), O_WRONLY | O_CREAT | O_TRUNC, 0644);"
+    },
+    {
+      "line": 3807,
+      "text": "// \u0431\u0435\u0437 \u044f\u0432\u043d\u043e\u0433\u043e \u043f\u0440\u0435\u0434\u0435\u043b\u0430 \u0430\u0440\u0435\u043d malloc \u0432 \u043f\u043e\u0442\u043e\u043a\u0430\u0445 \u0441\u0430\u043c \u0447\u0438\u0442\u0430\u0435\u0442 /sys/devices/system/cpu/online"
+    }
+  ],
+  "contest_defaults": {
+    "input": "instance.json",
+    "output": "solution.json",
+    "seconds": 280,
+    "default_max_threads": 2
+  },
+  "external_warm_start_reads": false,
+  "oracle_harness_separate": true,
+  "dependencies": "C++17 standard library and Linux/POSIX facilities already used by v4; sys/time timer added. No SCIP/HiGHS/Python linkage.",
+  "scope": "Static call review plus noarg file-contract checks; not a system-call trace.",
+  "file_io_calls": [
+    {
+      "line": 222,
+      "text": "ifstream f(path, ios::binary);"
+    },
+    {
+      "line": 3653,
+      "text": "g_fd = open(outp.c_str(), O_WRONLY | O_CREAT | O_TRUNC, 0644);"
+    }
+  ],
+  "reviewed_non_io_matches": [
+    {
+      "line": 3239,
+      "text": "vector<int>a(I.ns,-1);vector<char>open(I.no,0);",
+      "classification": "variable declaration"
+    },
+    {
+      "line": 3807,
+      "text": "// \u0431\u0435\u0437 \u044f\u0432\u043d\u043e\u0433\u043e \u043f\u0440\u0435\u0434\u0435\u043b\u0430 \u0430\u0440\u0435\u043d malloc \u0432 \u043f\u043e\u0442\u043e\u043a\u0430\u0445 \u0441\u0430\u043c \u0447\u0438\u0442\u0430\u0435\u0442 /sys/devices/system/cpu/online",
+      "classification": "comment; bounded mallopt is set before worker creation"
+    }
+  ]
+}

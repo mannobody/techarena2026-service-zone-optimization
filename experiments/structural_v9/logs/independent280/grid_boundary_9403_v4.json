@@ -1,0 +1,72 @@
+{
+  "case": "grid_boundary",
+  "seed": 9403,
+  "variant": "v4",
+  "command": [
+    "/usr/bin/time",
+    "-f",
+    "rss_kb=%M user=%U sys=%S",
+    "-o",
+    "./experiments/structural_v9/logs/independent280/grid_boundary_9403_v4.resource",
+    "taskset",
+    "-c",
+    "12,13",
+    "./experiments/structural_v9/artifacts/v4",
+    "./experiments/structural_v9/inputs/holdout/grid_boundary.json",
+    "./experiments/structural_v9/logs/independent280/grid_boundary_9403_v4.solution.json",
+    "280"
+  ],
+  "env": {
+    "HOME": "/home/user",
+    "LANG": "C.UTF-8",
+    "PATH": "/usr/local/bin:/usr/bin:/bin",
+    "NT": "2",
+    "SEED": "9403"
+  },
+  "affinity": [
+    12,
+    13
+  ],
+  "rc": 0,
+  "timeout": false,
+  "wall": 279.50205984199965,
+  "started_unix": 1792641415.429669,
+  "ended_unix": 1792641695.1082017,
+  "official": 46757.48566316578,
+  "valid": true,
+  "snapshots": [
+    {
+      "at": 70.0768587980001,
+      "path": "experiments/structural_v9/logs/independent280/grid_boundary_9403_v4.t70.00.solution.json",
+      "official": 45578.5977503876
+    },
+    {
+      "at": 140.0350325290001,
+      "path": "experiments/structural_v9/logs/independent280/grid_boundary_9403_v4.t140.00.solution.json",
+      "official": 46203.07582703642
+    },
+    {
+      "at": 238.01494410299983,
+      "path": "experiments/structural_v9/logs/independent280/grid_boundary_9403_v4.t238.00.solution.json",
+      "official": 46203.07582703642
+    }
+  ],
+  "solution_sha256": "99c11171d6f76e6032d7b864e5dd5044391a356c30e1ede56f660bdfc6b53525",
+  "resource": "rss_kb=5220 user=553.03 sys=0.01\n",
+  "error": false,
+  "internal_deadline_stop": false,
+  "logged_threads": 2,
+  "resource_fields": {
+    "rss_kb": 5220.0,
+    "user": 553.03,
+    "sys": 0.01
+  },
+  "success": true,
+  "components": {
+    "reward": 65450.96967616639,
+    "distance": 12669.86722187927,
+    "cost": 4578.595382686483,
+    "penalty": 1445.0214084348422,
+    "objective": 46757.48566316579
+  }
+}

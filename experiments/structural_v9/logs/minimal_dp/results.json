@@ -1,0 +1,42 @@
+{
+  "rows": [
+    {
+      "mode": "legacy_dp",
+      "rc": 0,
+      "official": 21.0,
+      "current_official": 10.0,
+      "stderr": "LEGACY_DP after_dp=111.000000000 after_repair=10.000000000 valid=1\nCHECKPOINT before=21.000000000 after=21.000000000\n"
+    },
+    {
+      "mode": "master",
+      "rc": 0,
+      "official": 110.0,
+      "current_official": null,
+      "stderr": "ZM full=0 complete=1 generated=137 nodes=8 workers=5 checks=2 objective=110.000000000 seconds=0.002592\nCHECKPOINT before=21.000000000 after=110.000000000\n"
+    },
+    {
+      "mode": "signed",
+      "rc": 0,
+      "official": 21.0,
+      "current_official": null,
+      "stderr": "ZMSIGNED scanned=4 tested=0 wins=0 before=21.000000000 after=21.000000000 seconds=0.000032\nCHECKPOINT before=21.000000000 after=21.000000000\n"
+    },
+    {
+      "mode": "exact",
+      "rc": 0,
+      "official": 110.0,
+      "current_official": null,
+      "stderr": "EXACT complete=1 nodes=8\nCHECKPOINT before=21.000000000 after=110.000000000\n"
+    }
+  ],
+  "oracle": {
+    "objective": 110,
+    "site_labels": [
+      -1,
+      0,
+      1,
+      -1
+    ],
+    "feasible": 35
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "mechanism": {
+    "before": 20,
+    "after": 40,
+    "mass_loss": 0,
+    "singleton_office_ids": true,
+    "before_solution": [
+      {
+        "officeId": 0,
+        "sites": [
+          1
+        ],
+        "workers": [
+          0
+        ]
+      },
+      {
+        "officeId": 1,
+        "sites": [
+          3
+        ],
+        "workers": [
+          1
+        ]
+      }
+    ],
+    "after_solution": [
+      {
+        "officeId": 0,
+        "sites": [
+          0,
+          1
+        ],
+        "workers": [
+          0
+        ]
+      },
+      {
+        "officeId": 1,
+        "sites": [
+          2,
+          3
+        ],
+        "workers": [
+          1
+        ]
+      }
+    ]
+  },
+  "official": [
+    {
+      "name": "before",
+      "official": 20.0
+    },
+    {
+      "name": "after",
+      "official": 40.0
+    }
+  ],
+  "note": "Constructor mechanism, not a proof that the whole frozen v4 fails this tiny instance."
+}

@@ -1,0 +1,42 @@
+{
+  "registered_unix": 1792643017.266516,
+  "primary_still_running": true,
+  "reason": "Primary v4 large/9401 wall281.3183>280.2 with65.68 CPU seconds, valid final answer; other low-CPU native runs observed. Cause unresolved.",
+  "scope": "Diagnostic repeat of the same viewed input; not new holdout and not a replacement for primary rows.",
+  "seeds": [
+    9401,
+    9402,
+    9403
+  ],
+  "seconds": 280,
+  "variants": {
+    "v4": {
+      "binary": "experiments/structural_v9/artifacts/v4"
+    },
+    "candidate": {
+      "binary": "experiments/structural_v9/artifacts/final_research/candidate",
+      "env": {
+        "ZM_POOL": "0",
+        "ZM_RESERVE": "0"
+      }
+    }
+  },
+  "cpus": [
+    [
+      12,
+      13
+    ],
+    [
+      16,
+      17
+    ],
+    [
+      20,
+      21
+    ]
+  ],
+  "solver_or_parameter_changes": false,
+  "merge_with_primary": false,
+  "launch_only_after_primary_complete": true,
+  "freeze_sha256": "0aff41c07640fb7360f1d8ea984a94503a0e851149ae16ea6d23d1efa43ffafd"
+}

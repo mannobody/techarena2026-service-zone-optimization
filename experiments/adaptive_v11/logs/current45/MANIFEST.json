@@ -1,0 +1,68 @@
+{
+  "spec": {
+    "name": "current45",
+    "seconds": 45,
+    "seeds": [
+      0
+    ],
+    "cpus": [
+      [
+        0,
+        1
+      ],
+      [
+        12,
+        13
+      ],
+      [
+        16,
+        17
+      ],
+      [
+        18,
+        19
+      ],
+      [
+        20,
+        21
+      ]
+    ],
+    "cases": {
+      "anti220": "experiments/adaptive_v11/inputs/dev/anti220.json",
+      "equal180": "experiments/adaptive_v11/inputs/dev/equal180.json",
+      "grid180": "experiments/adaptive_v11/inputs/dev/grid180.json",
+      "huge10000": "experiments/adaptive_v11/inputs/dev/huge10000.json"
+    },
+    "variants": {
+      "v4": {
+        "binary": "experiments/structural_v9/artifacts/v4"
+      },
+      "v10": {
+        "binary": "experiments/warm_v10/artifacts/v5/candidate",
+        "env": {
+          "ZM_POOL": "0",
+          "ZM_RESERVE": "0",
+          "GW_MODE": "1"
+        }
+      },
+      "current": {
+        "binary": "experiments/adaptive_v11/artifacts/current_modular/candidate"
+      }
+    }
+  },
+  "spec_sha256": "6f94618d629ef5dfa6c034b7e246ee5d112982632322acfd14f19cbba4d21b83",
+  "inputs": {
+    "anti220": "dbc3263ca03113f1cea1ae4cbadfb1491c5ef2970cf9ccbfbf10715931e09486",
+    "equal180": "ea0356173e00711f870180aab58f67785c904b1a7ebb2c708be98486215ca8e6",
+    "grid180": "d33d87cb40793a654a49d2d0d4078e477d12f17b9a0ae68ada265b613e168a63",
+    "huge10000": "a7a72dc842d85b2bdd851f34e6a403bbb297ec4cd71eb47f35e7d950b9b8ee8a"
+  },
+  "binaries": {
+    "v4": "5cc54b6ad0f02a3d6d471d0e2f9129c229b4925aaa2b2c01ce26bd5305a4963c",
+    "v10": "c3f76ed684a521347cdd84fcdb2f5e9630a716f2eaf3747413ca7ecc6dc34706",
+    "current": "aae42c01d11b7526902e3b772d8bc57cd6c7774519bdd89a7482ab3dc461997c"
+  },
+  "validator": "6dd5948ebe72977976acf1b8dcaf7c819274c79addfb82328c0ec9a012ed56e0",
+  "cpu_topology": "<local-host-omitted>",
+  "runner_sha256": "791e0a285aa770a1cbbbffccd17e767dcdfe8179c9ac6e9e7775d8732647da93"
+}

@@ -1,0 +1,138 @@
+{
+  "solution": [
+    {
+      "officeId": 0,
+      "sites": [
+        1,
+        6,
+        7
+      ],
+      "workers": [
+        5,
+        7
+      ]
+    },
+    {
+      "officeId": 1,
+      "sites": [
+        3,
+        4,
+        10
+      ],
+      "workers": [
+        0,
+        6
+      ]
+    },
+    {
+      "officeId": 2,
+      "sites": [
+        0,
+        11,
+        13
+      ],
+      "workers": [
+        2,
+        3
+      ]
+    },
+    {
+      "officeId": 3,
+      "sites": [
+        2,
+        5,
+        12
+      ],
+      "workers": [
+        1,
+        4
+      ]
+    }
+  ],
+  "before": 748.5206485503834,
+  "value": 748.5206485503834,
+  "gain": 0.0,
+  "kind": "structure",
+  "backend": "scip",
+  "conditional_optimal": false,
+  "status": "timelimit",
+  "bound": 901.2593198621455,
+  "gap": 0.20405405195910395,
+  "build": 0.019073179000088203,
+  "solve": 29.910222172000203,
+  "check": 0.06880703600018023,
+  "restore": 0,
+  "seconds": 30.007242755000107,
+  "gain_per_second": 0.0,
+  "iterations": 6,
+  "nodes": 2557,
+  "cuts": 18,
+  "variables": 84,
+  "rows": 182,
+  "selected": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13
+  ],
+  "offices": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "events": [
+    {
+      "iteration": 1,
+      "conflicts": 5,
+      "cuts": 5,
+      "bound": 791.3088787679388,
+      "seconds": 4.264384054000175
+    },
+    {
+      "iteration": 2,
+      "conflicts": 4,
+      "cuts": 4,
+      "bound": 777.4835043104864,
+      "seconds": 9.067550049000147
+    },
+    {
+      "iteration": 3,
+      "conflicts": 3,
+      "cuts": 3,
+      "bound": 769.3942608929883,
+      "seconds": 14.411066978999997
+    },
+    {
+      "iteration": 4,
+      "conflicts": 4,
+      "cuts": 4,
+      "bound": 762.5396355882583,
+      "seconds": 22.426848772000085
+    },
+    {
+      "iteration": 5,
+      "conflicts": 1,
+      "cuts": 1,
+      "bound": 760.7508269178611,
+      "seconds": 29.636741550000124
+    },
+    {
+      "iteration": 6,
+      "conflicts": 1,
+      "cuts": 1,
+      "bound": 901.2593198621455,
+      "seconds": 30.006980246000012
+    }
+  ]
+}

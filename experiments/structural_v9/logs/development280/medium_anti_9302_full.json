@@ -1,0 +1,72 @@
+{
+  "case": "medium_anti",
+  "seed": 9302,
+  "variant": "full",
+  "command": [
+    "/usr/bin/time",
+    "-f",
+    "rss_kb=%M user=%U sys=%S",
+    "-o",
+    "./experiments/structural_v9/logs/development280/medium_anti_9302_full.resource",
+    "taskset",
+    "-c",
+    "8,10",
+    "./experiments/structural_v9/artifacts/final_research/candidate",
+    "./experiments/structural_v9/inputs/dev/medium_anti.json",
+    "./experiments/structural_v9/logs/development280/medium_anti_9302_full.solution.json",
+    "280"
+  ],
+  "env": {
+    "HOME": "/home/user",
+    "LANG": "C.UTF-8",
+    "PATH": "/usr/local/bin:/usr/bin:/bin",
+    "NT": "2",
+    "SEED": "9302"
+  },
+  "affinity": [
+    8,
+    10
+  ],
+  "rc": 0,
+  "timeout": false,
+  "wall": 279.45591040900035,
+  "started_unix": 1792638319.5731206,
+  "ended_unix": 1792638599.0650113,
+  "official": 2612.8097144480507,
+  "valid": true,
+  "snapshots": [
+    {
+      "at": 70.02782865400013,
+      "path": "experiments/structural_v9/logs/development280/medium_anti_9302_full.t70.00.solution.json",
+      "official": 2510.3163227032423
+    },
+    {
+      "at": 140.04369588600002,
+      "path": "experiments/structural_v9/logs/development280/medium_anti_9302_full.t140.00.solution.json",
+      "official": 2552.65629081919
+    },
+    {
+      "at": 238.03783015600038,
+      "path": "experiments/structural_v9/logs/development280/medium_anti_9302_full.t238.00.solution.json",
+      "official": 2592.5034422912795
+    }
+  ],
+  "solution_sha256": "18b0fce9fffe02d3f71b5a82e9f7fe766988c50493f3c319933060062ae446d9",
+  "resource": "rss_kb=6856 user=552.08 sys=0.24\n",
+  "error": false,
+  "internal_deadline_stop": false,
+  "logged_threads": 2,
+  "resource_fields": {
+    "rss_kb": 6856.0,
+    "user": 552.08,
+    "sys": 0.24
+  },
+  "success": true,
+  "components": {
+    "reward": 8005.626976113093,
+    "distance": 5058.968222724671,
+    "cost": 327.28704961568656,
+    "penalty": 6.561989324682863,
+    "objective": 2612.8097144480525
+  }
+}

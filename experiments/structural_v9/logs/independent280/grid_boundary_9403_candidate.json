@@ -1,0 +1,74 @@
+{
+  "case": "grid_boundary",
+  "seed": 9403,
+  "variant": "candidate",
+  "command": [
+    "/usr/bin/time",
+    "-f",
+    "rss_kb=%M user=%U sys=%S",
+    "-o",
+    "./experiments/structural_v9/logs/independent280/grid_boundary_9403_candidate.resource",
+    "taskset",
+    "-c",
+    "12,13",
+    "./experiments/structural_v9/artifacts/final_research/candidate",
+    "./experiments/structural_v9/inputs/holdout/grid_boundary.json",
+    "./experiments/structural_v9/logs/independent280/grid_boundary_9403_candidate.solution.json",
+    "280"
+  ],
+  "env": {
+    "HOME": "/home/user",
+    "LANG": "C.UTF-8",
+    "PATH": "/usr/local/bin:/usr/bin:/bin",
+    "NT": "2",
+    "SEED": "9403",
+    "ZM_POOL": "0",
+    "ZM_RESERVE": "0"
+  },
+  "affinity": [
+    12,
+    13
+  ],
+  "rc": 0,
+  "timeout": false,
+  "wall": 279.5184070160003,
+  "started_unix": 1792641695.726471,
+  "ended_unix": 1792641975.4256463,
+  "official": 49697.26950438544,
+  "valid": true,
+  "snapshots": [
+    {
+      "at": 70.01189110999985,
+      "path": "experiments/structural_v9/logs/independent280/grid_boundary_9403_candidate.t70.00.solution.json",
+      "official": 44511.97458316234
+    },
+    {
+      "at": 140.01998595199984,
+      "path": "experiments/structural_v9/logs/independent280/grid_boundary_9403_candidate.t140.00.solution.json",
+      "official": 49629.68871861307
+    },
+    {
+      "at": 238.02915162099998,
+      "path": "experiments/structural_v9/logs/independent280/grid_boundary_9403_candidate.t238.00.solution.json",
+      "official": 49629.68871861307
+    }
+  ],
+  "solution_sha256": "e45807fcb30b6b4bf79c550abe77aceeabead92a5be8e2165a33e735750a894f",
+  "resource": "rss_kb=5224 user=553.89 sys=0.00\n",
+  "error": false,
+  "internal_deadline_stop": false,
+  "logged_threads": 2,
+  "resource_fields": {
+    "rss_kb": 5224.0,
+    "user": 553.89,
+    "sys": 0.0
+  },
+  "success": true,
+  "components": {
+    "reward": 67150.99486256031,
+    "distance": 11770.113604332339,
+    "cost": 4578.595382686483,
+    "penalty": 1105.0163711560558,
+    "objective": 49697.26950438544
+  }
+}

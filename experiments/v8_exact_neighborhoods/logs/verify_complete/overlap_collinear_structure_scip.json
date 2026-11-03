@@ -1,0 +1,57 @@
+{
+  "case": "overlap_collinear",
+  "kind": "structure",
+  "backend": "scip",
+  "ok": true,
+  "expected": 9,
+  "result": {
+    "solution": [
+      {
+        "officeId": 0,
+        "sites": [
+          0
+        ],
+        "workers": [
+          0
+        ]
+      }
+    ],
+    "before": 0.0,
+    "value": 9.0,
+    "gain": 9.0,
+    "kind": "structure",
+    "backend": "scip",
+    "conditional_optimal": true,
+    "status": "optimal",
+    "bound": 9.0,
+    "gap": 0.0,
+    "build": 0.006786013999999341,
+    "solve": 0.0028333870000096795,
+    "check": 0.0018271389999426901,
+    "restore": 0.0003890440000304807,
+    "seconds": 0.013592309000046043,
+    "gain_per_second": 662.1391553097794,
+    "iterations": 2,
+    "nodes": 1,
+    "cuts": 1,
+    "variables": 12,
+    "rows": 24,
+    "selected": [
+      0,
+      1
+    ],
+    "offices": [
+      0,
+      1
+    ],
+    "events": [
+      {
+        "iteration": 1,
+        "conflicts": 2,
+        "cuts": 1,
+        "bound": 18.0,
+        "seconds": 0.011465068000006795
+      }
+    ]
+  }
+}

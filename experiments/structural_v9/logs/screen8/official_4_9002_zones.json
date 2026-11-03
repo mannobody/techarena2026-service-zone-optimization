@@ -1,0 +1,62 @@
+{
+  "case": "official_4",
+  "seed": 9002,
+  "variant": "zones",
+  "command": [
+    "/usr/bin/time",
+    "-f",
+    "rss_kb=%M user=%U sys=%S",
+    "-o",
+    "./experiments/structural_v9/logs/screen8/official_4_9002_zones.resource",
+    "taskset",
+    "-c",
+    "12,13",
+    "./experiments/structural_v9/artifacts/candidate",
+    "./task/instance4/instance.json",
+    "./experiments/structural_v9/logs/screen8/official_4_9002_zones.solution.json",
+    "8"
+  ],
+  "env": {
+    "HOME": "/home/user",
+    "LANG": "C.UTF-8",
+    "PATH": "/usr/local/bin:/usr/bin:/bin",
+    "NT": "2",
+    "SEED": "9002"
+  },
+  "affinity": [
+    12,
+    13
+  ],
+  "rc": 0,
+  "timeout": false,
+  "wall": 7.775889274999827,
+  "started_unix": 1792637604.8454704,
+  "ended_unix": 1792637612.6300883,
+  "official": 18143.5488383375,
+  "valid": true,
+  "snapshots": [
+    {
+      "at": 2.0131270859999404,
+      "path": "experiments/structural_v9/logs/screen8/official_4_9002_zones.t2.00.solution.json"
+    },
+    {
+      "at": 4.004743512999994,
+      "path": "experiments/structural_v9/logs/screen8/official_4_9002_zones.t4.00.solution.json"
+    },
+    {
+      "at": 6.817142512999908,
+      "path": "experiments/structural_v9/logs/screen8/official_4_9002_zones.t6.80.solution.json"
+    }
+  ],
+  "solution_sha256": "eeb1e19c16100ffac46d35e93d13ba8d8f1afca3a1343457de1c1439877aa77b",
+  "resource": "rss_kb=5440 user=15.10 sys=0.00\n",
+  "error": false,
+  "success": true,
+  "components": {
+    "reward": 27370.411648133086,
+    "distance": 8808.248273767866,
+    "cost": 414.8145360277188,
+    "penalty": 3.8000000000000003,
+    "objective": 18143.5488383375
+  }
+}

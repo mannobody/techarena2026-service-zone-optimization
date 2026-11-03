@@ -1,0 +1,81 @@
+{
+  "name": "development280_v4",
+  "seconds": 280,
+  "seeds": [
+    9403,
+    10302
+  ],
+  "cpus": [
+    [
+      0,
+      1
+    ],
+    [
+      3,
+      6
+    ],
+    [
+      8,
+      10
+    ],
+    [
+      12,
+      13
+    ],
+    [
+      16,
+      17
+    ],
+    [
+      18,
+      19
+    ],
+    [
+      20,
+      21
+    ]
+  ],
+  "cases": {
+    "medium_A0": "experiments/structural_v9/inputs/dev/medium_A0.json",
+    "medium_anti": "experiments/structural_v9/inputs/dev/medium_anti.json",
+    "grid_boundary": "experiments/structural_v9/inputs/dev/grid_boundary.json",
+    "official_3": "task/instance3/instance.json",
+    "regression_large": "experiments/structural_v9/inputs/holdout/large.json",
+    "huge": "experiments/structural_v9/inputs/dev/huge.json"
+  },
+  "variants": {
+    "v4": {
+      "binary": "experiments/structural_v9/artifacts/v4",
+      "env": {
+        "DBG": "1"
+      }
+    },
+    "v9": {
+      "binary": "experiments/structural_v9/artifacts/final_research/candidate",
+      "env": {
+        "ZM_POOL": "0",
+        "ZM_RESERVE": "0",
+        "DBG": "1"
+      }
+    },
+    "geometry": {
+      "binary": "experiments/warm_v10/artifacts/v4/candidate",
+      "env": {
+        "ZM_POOL": "0",
+        "ZM_RESERVE": "0",
+        "DBG": "1",
+        "GW_MODE": "1"
+      }
+    },
+    "memetic": {
+      "binary": "experiments/warm_v10/artifacts/v4/candidate",
+      "env": {
+        "ZM_POOL": "0",
+        "ZM_RESERVE": "0",
+        "DBG": "1",
+        "GW_MODE": "2"
+      }
+    }
+  },
+  "cancelled": "Preliminary office exploration still spent its budget decoding first niche. v5 makes the preliminary phase proxy-only; v4 long cancelled before start."
+}

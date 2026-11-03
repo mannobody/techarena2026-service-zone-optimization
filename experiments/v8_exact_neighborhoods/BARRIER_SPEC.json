@@ -1,0 +1,90 @@
+{
+  "destination": "experiments/v8_exact_neighborhoods/logs/barriers",
+  "seconds": 1,
+  "seeds": [
+    3111
+  ],
+  "cpu_pairs": [
+    [
+      18,
+      19
+    ]
+  ],
+  "cases": {
+    "fill_geo_fallback": "experiments/v8_exact_neighborhoods/inputs/fill_geo_fallback.json",
+    "negative_profit_balance": "experiments/v8_exact_neighborhoods/inputs/negative_profit_balance.json",
+    "large_A0_open": "experiments/v8_exact_neighborhoods/inputs/large_A0_open.json",
+    "joint_open_workers": "experiments/v8_exact_neighborhoods/inputs/joint_open_workers.json",
+    "joint_exchange": "experiments/v8_exact_neighborhoods/inputs/joint_exchange.json"
+  },
+  "checkpoints": {
+    "fill_geo_fallback": "experiments/v8_exact_neighborhoods/solutions/fill_geo_fallback.json",
+    "negative_profit_balance": "experiments/v8_exact_neighborhoods/solutions/negative_profit_balance.json",
+    "large_A0_open": "experiments/v8_exact_neighborhoods/solutions/large_A0_open.json",
+    "joint_open_workers": "experiments/v8_exact_neighborhoods/solutions/joint_open_workers.json",
+    "joint_exchange": "experiments/v8_exact_neighborhoods/solutions/joint_exchange.json"
+  },
+  "variants": {
+    "native_fill": {
+      "binary": "experiments/v8_exact_neighborhoods/artifacts/candidate_v2/checkpoint",
+      "source": "experiments/v8_exact_neighborhoods/artifacts/candidate_v2/main.cpp",
+      "mode": 5,
+      "env": {
+        "DBG": "1",
+        "XN_FILL": "0",
+        "XN_MODE": "0",
+        "ESCAPE_MODE": "0",
+        "XN_SIG_FIX": "0"
+      }
+    },
+    "full_fill": {
+      "binary": "experiments/v8_exact_neighborhoods/artifacts/candidate_v2/checkpoint",
+      "source": "experiments/v8_exact_neighborhoods/artifacts/candidate_v2/main.cpp",
+      "mode": 5,
+      "env": {
+        "DBG": "1",
+        "XN_FILL": "1",
+        "XN_MODE": "0",
+        "ESCAPE_MODE": "0",
+        "XN_SIG_FIX": "0"
+      }
+    },
+    "native_open": {
+      "binary": "experiments/v8_exact_neighborhoods/artifacts/candidate_v2/checkpoint",
+      "source": "experiments/v8_exact_neighborhoods/artifacts/candidate_v2/main.cpp",
+      "mode": 6,
+      "env": {
+        "DBG": "1",
+        "XN_FILL": "0",
+        "XN_MODE": "0",
+        "ESCAPE_MODE": "0",
+        "XN_SIG_FIX": "0"
+      }
+    },
+    "packets": {
+      "binary": "experiments/v8_exact_neighborhoods/artifacts/candidate_v2/checkpoint",
+      "source": "experiments/v8_exact_neighborhoods/artifacts/candidate_v2/main.cpp",
+      "mode": 4,
+      "env": {
+        "DBG": "1",
+        "XN_FILL": "0",
+        "XN_MODE": "0",
+        "ESCAPE_MODE": "0",
+        "XN_SIG_FIX": "0"
+      }
+    },
+    "exact": {
+      "binary": "experiments/v8_exact_neighborhoods/artifacts/candidate_v2/checkpoint",
+      "source": "experiments/v8_exact_neighborhoods/artifacts/candidate_v2/main.cpp",
+      "mode": 2,
+      "env": {
+        "DBG": "1",
+        "XN_FILL": "0",
+        "XN_MODE": "0",
+        "ESCAPE_MODE": "0",
+        "XN_SIG_FIX": "0"
+      }
+    }
+  },
+  "order_seed": 791
+}

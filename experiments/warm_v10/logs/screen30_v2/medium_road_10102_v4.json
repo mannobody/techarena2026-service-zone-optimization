@@ -1,0 +1,83 @@
+{
+  "case": "medium_road",
+  "seed": 10102,
+  "variant": "v4",
+  "command": [
+    "/usr/bin/time",
+    "-f",
+    "rss_kb=%M user=%U sys=%S",
+    "-o",
+    "./experiments/warm_v10/logs/screen30_v2/medium_road_10102_v4.resource",
+    "taskset",
+    "-c",
+    "8,10",
+    "./experiments/structural_v9/artifacts/v4",
+    "./experiments/structural_v9/inputs/dev/medium_road.json",
+    "./experiments/warm_v10/logs/screen30_v2/medium_road_10102_v4.solution.json",
+    "30"
+  ],
+  "env": {
+    "HOME": "/home/user",
+    "LANG": "C.UTF-8",
+    "PATH": "/usr/local/bin:/usr/bin:/bin",
+    "NT": "2",
+    "SEED": "10102",
+    "DBG": "1"
+  },
+  "affinity": [
+    8,
+    10
+  ],
+  "rc": 0,
+  "timeout": false,
+  "wall": 29.768620579001436,
+  "started_unix": 1792646361.5169857,
+  "ended_unix": 1792646391.2989287,
+  "official": 38.41466548438117,
+  "valid": true,
+  "snapshots": [
+    {
+      "at": 3.04693493600098,
+      "path": "experiments/warm_v10/logs/screen30_v2/medium_road_10102_v4.t3.00.solution.json",
+      "official": 38.21981613909224
+    },
+    {
+      "at": 6.622408667000855,
+      "path": "experiments/warm_v10/logs/screen30_v2/medium_road_10102_v4.t6.60.solution.json",
+      "official": 38.41466548438117
+    },
+    {
+      "at": 7.534051996000926,
+      "path": "experiments/warm_v10/logs/screen30_v2/medium_road_10102_v4.t7.50.solution.json",
+      "official": 38.41466548438117
+    },
+    {
+      "at": 15.045205709000584,
+      "path": "experiments/warm_v10/logs/screen30_v2/medium_road_10102_v4.t15.00.solution.json",
+      "official": 38.41466548438117
+    },
+    {
+      "at": 25.508964841001216,
+      "path": "experiments/warm_v10/logs/screen30_v2/medium_road_10102_v4.t25.50.solution.json",
+      "official": 38.41466548438117
+    }
+  ],
+  "solution_sha256": "c4ff27eb26359df17e3e1c200b7958233499f103ad0cb88e6344e627e1685add",
+  "resource": "rss_kb=5436 user=58.39 sys=0.00\n",
+  "error": false,
+  "internal_deadline_stop": false,
+  "logged_threads": 2,
+  "resource_fields": {
+    "rss_kb": 5436.0,
+    "user": 58.39,
+    "sys": 0.0
+  },
+  "success": true,
+  "components": {
+    "reward": 66.22909160232243,
+    "distance": 23.1058559310085,
+    "cost": 3.8948984901042234,
+    "penalty": 0.8136716968285326,
+    "objective": 38.41466548438117
+  }
+}

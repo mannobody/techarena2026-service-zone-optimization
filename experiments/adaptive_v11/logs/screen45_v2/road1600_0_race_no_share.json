@@ -1,0 +1,143 @@
+{
+  "case": "road1600",
+  "seed": 0,
+  "variant": "race_no_share",
+  "command": [
+    "/usr/bin/time",
+    "-f",
+    "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+    "-o",
+    "./experiments/adaptive_v11/logs/screen45_v2/road1600_0_race_no_share.resource",
+    "taskset",
+    "-c",
+    "12,13",
+    "./experiments/adaptive_v11/artifacts/v2/candidate",
+    "./experiments/adaptive_v11/inputs/dev/road1600.json",
+    "./experiments/adaptive_v11/logs/screen45_v2/road1600_0_race_no_share.solution.json",
+    "45"
+  ],
+  "env": {
+    "HOME": "/home/user",
+    "LANG": "C.UTF-8",
+    "PATH": "/usr/local/bin:/usr/bin:/bin",
+    "NT": "2",
+    "SEED": "0",
+    "AP_POLICY": "1",
+    "AP_SHARE": "0"
+  },
+  "affinity": [
+    12,
+    13
+  ],
+  "rc": 0,
+  "timeout": false,
+  "wall": 44.72079215199847,
+  "started_unix": 1792657747.3877816,
+  "ended_unix": 1792657792.4118357,
+  "official": 322.15349219447205,
+  "valid": true,
+  "snapshots": [
+    {
+      "at": 4.526187757001026,
+      "path": "experiments/adaptive_v11/logs/screen45_v2/road1600_0_race_no_share.t4.50.solution.json",
+      "official": 0.0
+    },
+    {
+      "at": 9.903634369999054,
+      "path": "experiments/adaptive_v11/logs/screen45_v2/road1600_0_race_no_share.t9.90.solution.json",
+      "official": 322.15349219447205
+    },
+    {
+      "at": 11.261595660998864,
+      "path": "experiments/adaptive_v11/logs/screen45_v2/road1600_0_race_no_share.t11.25.solution.json",
+      "official": 322.15349219447205
+    },
+    {
+      "at": 22.505770463998488,
+      "path": "experiments/adaptive_v11/logs/screen45_v2/road1600_0_race_no_share.t22.50.solution.json",
+      "official": 322.15349219447205
+    },
+    {
+      "at": 38.2671973280012,
+      "path": "experiments/adaptive_v11/logs/screen45_v2/road1600_0_race_no_share.t38.25.solution.json",
+      "official": 322.15349219447205
+    }
+  ],
+  "solution_sha256": "ccb64bfd9399a8d3d6e6825cb18390352f98c265b867517fab2d9714e5d85eea",
+  "resource": "rss_kb=20036 user=88.07 sys=0.07 majorfaults=0 minorfaults=4353 voluntary=3553 involuntary=3702 inputs=0 outputs=16\n",
+  "error": false,
+  "process_sampling": {
+    "last": {
+      "423": {
+        "runtime_ns": 52757133,
+        "runqueue_ns": 43611815,
+        "slices": 3519
+      },
+      "424": {
+        "runtime_ns": 44065460313,
+        "runqueue_ns": 659941,
+        "slices": 47
+      },
+      "425": {
+        "runtime_ns": 42987082433,
+        "runqueue_ns": 29081411,
+        "slices": 3571
+      },
+      "430": {
+        "runtime_ns": 70481,
+        "runqueue_ns": 126625,
+        "slices": 3
+      },
+      "431": {
+        "runtime_ns": 16269,
+        "runqueue_ns": 758294,
+        "slices": 1
+      }
+    },
+    "states": {
+      "S": 113,
+      "R": 87
+    },
+    "wchan": {
+      "hrtimer_nanosleep": 44,
+      "0": 87,
+      "futex_do_wait": 69
+    },
+    "max_sampled_threads": 5,
+    "samples": 44,
+    "last_io": {
+      "rchar": 2232419,
+      "wchar": 9639,
+      "syscr": 297,
+      "syscw": 14,
+      "read_bytes": 0,
+      "write_bytes": 8192,
+      "cancelled_write_bytes": 0
+    }
+  },
+  "resource_extra_fields": {
+    "majorfaults": 0.0,
+    "minorfaults": 4353.0,
+    "voluntary": 3553.0,
+    "involuntary": 3702.0,
+    "inputs": 0.0,
+    "outputs": 16.0
+  },
+  "internal_deadline_stop": false,
+  "cpu_pressure_before": "some avg10=1.37 avg60=1.17 avg300=0.94 total=6207942459\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+  "cpu_pressure_after": "some avg10=1.74 avg60=1.32 avg300=1.01 total=6208755043\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+  "logged_threads": 1,
+  "resource_fields": {
+    "rss_kb": 20036.0,
+    "user": 88.07,
+    "sys": 0.07
+  },
+  "success": true,
+  "components": {
+    "reward": 492.7715109019226,
+    "distance": 142.67877855495632,
+    "cost": 26.817305016065756,
+    "penalty": 1.1219351364284844,
+    "objective": 322.15349219447205
+  }
+}

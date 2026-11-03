@@ -1,0 +1,103 @@
+{
+  "parameters": [
+    [
+      "euclid420",
+      {
+        "ns": 420,
+        "no": 12,
+        "nw": 34,
+        "nsk": 5,
+        "A": 6,
+        "af": 0.03
+      }
+    ],
+    [
+      "road350",
+      {
+        "ns": 350,
+        "no": 11,
+        "nw": 30,
+        "nsk": 5,
+        "A": 4,
+        "af": 0.025,
+        "dist": "road",
+        "tmax": 5
+      }
+    ],
+    [
+      "anti330",
+      {
+        "ns": 330,
+        "no": 13,
+        "nw": 38,
+        "nsk": 5,
+        "A": 5,
+        "af": 0.02,
+        "dist": "anti"
+      }
+    ],
+    [
+      "equal260",
+      {
+        "ns": 260,
+        "no": 11,
+        "nw": 30,
+        "nsk": 4,
+        "A": 0,
+        "af": 0.8,
+        "wsk": 2,
+        "tmax": 7
+      }
+    ],
+    [
+      "grid300",
+      {
+        "ns": 300,
+        "no": 14,
+        "nw": 36,
+        "nsk": 4,
+        "A": 1,
+        "af": 0.18,
+        "layout": "grid",
+        "offices": "onsite",
+        "tmax": 4,
+        "wsk": 2
+      }
+    ],
+    [
+      "multi480",
+      {
+        "ns": 480,
+        "no": 16,
+        "nw": 22,
+        "nsk": 7,
+        "A": 6,
+        "af": 0.04,
+        "dist": "road",
+        "tmax": 5,
+        "wsk": 3,
+        "deficit": 2
+      }
+    ],
+    [
+      "huge9500",
+      {
+        "ns": 9500,
+        "no": 26,
+        "nw": 68,
+        "nsk": 6,
+        "A": 90,
+        "af": 0.015,
+        "tmax": 3
+      }
+    ]
+  ],
+  "seeds": [
+    0,
+    12702
+  ],
+  "seconds": 280,
+  "seed_offset": 1400000,
+  "generator_sha256": "f390366fcc6cf39f6a2ab51ac6189b3c9e6e2a5f94673f13f8a4f9ce2e22892a",
+  "note": "Fixed before any new screen results; only generated after source/config/package freeze."
+}

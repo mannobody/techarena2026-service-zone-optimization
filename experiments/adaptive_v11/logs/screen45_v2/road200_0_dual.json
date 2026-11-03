@@ -1,0 +1,143 @@
+{
+  "case": "road200",
+  "seed": 0,
+  "variant": "dual",
+  "command": [
+    "/usr/bin/time",
+    "-f",
+    "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+    "-o",
+    "./experiments/adaptive_v11/logs/screen45_v2/road200_0_dual.resource",
+    "taskset",
+    "-c",
+    "18,19",
+    "./experiments/adaptive_v11/artifacts/v2/candidate",
+    "./experiments/adaptive_v11/inputs/dev/road200.json",
+    "./experiments/adaptive_v11/logs/screen45_v2/road200_0_dual.solution.json",
+    "45"
+  ],
+  "env": {
+    "HOME": "/home/user",
+    "LANG": "C.UTF-8",
+    "PATH": "/usr/local/bin:/usr/bin:/bin",
+    "NT": "2",
+    "SEED": "0",
+    "AP_POLICY": "0",
+    "AP_SHARE": "1"
+  },
+  "affinity": [
+    18,
+    19
+  ],
+  "rc": 0,
+  "timeout": false,
+  "wall": 44.784025403998385,
+  "started_unix": 1792657203.4814281,
+  "ended_unix": 1792657248.3003821,
+  "official": 87419.13354009966,
+  "valid": true,
+  "snapshots": [
+    {
+      "at": 4.534500386998843,
+      "path": "experiments/adaptive_v11/logs/screen45_v2/road200_0_dual.t4.50.solution.json",
+      "official": 86290.16084575975
+    },
+    {
+      "at": 9.907996311998431,
+      "path": "experiments/adaptive_v11/logs/screen45_v2/road200_0_dual.t9.90.solution.json",
+      "official": 86654.23076852788
+    },
+    {
+      "at": 11.268970282999362,
+      "path": "experiments/adaptive_v11/logs/screen45_v2/road200_0_dual.t11.25.solution.json",
+      "official": 87419.13354009966
+    },
+    {
+      "at": 22.530143413001497,
+      "path": "experiments/adaptive_v11/logs/screen45_v2/road200_0_dual.t22.50.solution.json",
+      "official": 87419.13354009966
+    },
+    {
+      "at": 38.2563854450018,
+      "path": "experiments/adaptive_v11/logs/screen45_v2/road200_0_dual.t38.25.solution.json",
+      "official": 87419.13354009966
+    }
+  ],
+  "solution_sha256": "8e2c0f0e2530f51caab30a0fe6bd9f21a3858d88a09a805c199f1f2f53544d9b",
+  "resource": "rss_kb=6580 user=88.58 sys=0.09 majorfaults=0 minorfaults=564 voluntary=4449 involuntary=5542 inputs=0 outputs=40\n",
+  "error": false,
+  "process_sampling": {
+    "last": {
+      "112": {
+        "runtime_ns": 31924878,
+        "runqueue_ns": 50356344,
+        "slices": 4397
+      },
+      "113": {
+        "runtime_ns": 43809482533,
+        "runqueue_ns": 71664648,
+        "slices": 3084
+      },
+      "114": {
+        "runtime_ns": 43852495984,
+        "runqueue_ns": 25107642,
+        "slices": 2404
+      },
+      "121": {
+        "runtime_ns": 45003,
+        "runqueue_ns": 151405,
+        "slices": 2
+      },
+      "124": {
+        "runtime_ns": 31053,
+        "runqueue_ns": 961461,
+        "slices": 1
+      }
+    },
+    "states": {
+      "R": 89,
+      "S": 122
+    },
+    "wchan": {
+      "0": 90,
+      "hrtimer_nanosleep": 43,
+      "futex_do_wait": 78
+    },
+    "max_sampled_threads": 5,
+    "samples": 45,
+    "last_io": {
+      "rchar": 167822,
+      "wchar": 12244,
+      "syscr": 45,
+      "syscw": 24,
+      "read_bytes": 0,
+      "write_bytes": 20480,
+      "cancelled_write_bytes": 0
+    }
+  },
+  "resource_extra_fields": {
+    "majorfaults": 0.0,
+    "minorfaults": 564.0,
+    "voluntary": 4449.0,
+    "involuntary": 5542.0,
+    "inputs": 0.0,
+    "outputs": 40.0
+  },
+  "internal_deadline_stop": false,
+  "cpu_pressure_before": "some avg10=0.26 avg60=0.34 avg300=0.16 total=6200164658\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+  "cpu_pressure_after": "some avg10=0.21 avg60=0.25 avg300=0.15 total=6200517425\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+  "logged_threads": 1,
+  "resource_fields": {
+    "rss_kb": 6580.0,
+    "user": 88.58,
+    "sys": 0.09
+  },
+  "success": true,
+  "components": {
+    "reward": 143140.6506319566,
+    "distance": 45833.355812713424,
+    "cost": 9172.458025983746,
+    "penalty": 715.7032531597831,
+    "objective": 87419.13354009968
+  }
+}

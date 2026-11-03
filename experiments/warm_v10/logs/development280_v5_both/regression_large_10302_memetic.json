@@ -1,0 +1,88 @@
+{
+  "case": "regression_large",
+  "seed": 10302,
+  "variant": "memetic",
+  "command": [
+    "/usr/bin/time",
+    "-f",
+    "rss_kb=%M user=%U sys=%S",
+    "-o",
+    "./experiments/warm_v10/logs/development280_v5_both/regression_large_10302_memetic.resource",
+    "taskset",
+    "-c",
+    "20,21",
+    "./experiments/warm_v10/artifacts/v5/candidate",
+    "./experiments/structural_v9/inputs/holdout/large.json",
+    "./experiments/warm_v10/logs/development280_v5_both/regression_large_10302_memetic.solution.json",
+    "280"
+  ],
+  "env": {
+    "HOME": "/home/user",
+    "LANG": "C.UTF-8",
+    "PATH": "/usr/local/bin:/usr/bin:/bin",
+    "NT": "2",
+    "SEED": "10302",
+    "ZM_POOL": "0",
+    "ZM_RESERVE": "0",
+    "DBG": "1",
+    "GW_MODE": "2"
+  },
+  "affinity": [
+    20,
+    21
+  ],
+  "rc": 0,
+  "timeout": false,
+  "wall": 279.6042671319992,
+  "started_unix": 1792649118.351785,
+  "ended_unix": 1792649398.4071898,
+  "official": 597535.9246066243,
+  "valid": true,
+  "snapshots": [
+    {
+      "at": 28.013953964000393,
+      "path": "experiments/warm_v10/logs/development280_v5_both/regression_large_10302_memetic.t28.00.solution.json",
+      "official": 0.0
+    },
+    {
+      "at": 61.64533266000035,
+      "path": "experiments/warm_v10/logs/development280_v5_both/regression_large_10302_memetic.t61.60.solution.json",
+      "official": 576577.8965833784
+    },
+    {
+      "at": 70.01363647799917,
+      "path": "experiments/warm_v10/logs/development280_v5_both/regression_large_10302_memetic.t70.00.solution.json",
+      "official": 579345.8727396748
+    },
+    {
+      "at": 140.01341465199948,
+      "path": "experiments/warm_v10/logs/development280_v5_both/regression_large_10302_memetic.t140.00.solution.json",
+      "official": 593773.767663655
+    },
+    {
+      "at": 238.03541784700064,
+      "path": "experiments/warm_v10/logs/development280_v5_both/regression_large_10302_memetic.t238.00.solution.json",
+      "official": 594997.9552318541
+    }
+  ],
+  "solution_sha256": "c116c72d21774e9d7d85b87f752c5fa70580eae0d9e3dba6817dd90120f1832b",
+  "resource": "rss_kb=56460 user=521.51 sys=0.20\n",
+  "error": false,
+  "internal_deadline_stop": false,
+  "cpu_pressure_before": "some avg10=21.08 avg60=18.81 avg300=20.48 total=4294319227\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+  "cpu_pressure_after": "some avg10=4.34 avg60=14.70 avg300=18.64 total=4346360732\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+  "logged_threads": 2,
+  "resource_fields": {
+    "rss_kb": 56460.0,
+    "user": 521.51,
+    "sys": 0.2
+  },
+  "success": true,
+  "components": {
+    "reward": 778829.677578717,
+    "distance": 151488.4471552131,
+    "cost": 29037.799995679317,
+    "penalty": 767.5058212003512,
+    "objective": 597535.9246066243
+  }
+}

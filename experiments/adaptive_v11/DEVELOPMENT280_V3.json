@@ -1,0 +1,60 @@
+{
+  "name": "development280_v3",
+  "seconds": 280,
+  "seeds": [
+    0,
+    11602
+  ],
+  "cpus": [
+    [
+      0,
+      1
+    ],
+    [
+      12,
+      13
+    ],
+    [
+      16,
+      17
+    ],
+    [
+      18,
+      19
+    ],
+    [
+      20,
+      21
+    ]
+  ],
+  "cases": {
+    "euclid240": "experiments/adaptive_v11/inputs/dev/euclid240.json",
+    "anti220": "experiments/adaptive_v11/inputs/dev/anti220.json",
+    "equal180": "experiments/adaptive_v11/inputs/dev/equal180.json",
+    "grid180": "experiments/adaptive_v11/inputs/dev/grid180.json",
+    "multi260": "experiments/adaptive_v11/inputs/dev/multi260.json",
+    "cluster500": "experiments/adaptive_v11/inputs/dev/cluster500.json",
+    "road1600": "experiments/adaptive_v11/inputs/dev/road1600.json",
+    "huge10000": "experiments/adaptive_v11/inputs/dev/huge10000.json"
+  },
+  "variants": {
+    "v4": {
+      "binary": "experiments/structural_v9/artifacts/v4"
+    },
+    "v10": {
+      "binary": "experiments/warm_v10/artifacts/v5/candidate",
+      "env": {
+        "ZM_POOL": "0",
+        "ZM_RESERVE": "0",
+        "GW_MODE": "1"
+      }
+    },
+    "adaptive": {
+      "binary": "experiments/adaptive_v11/artifacts/v3/candidate",
+      "env": {
+        "AP_POLICY": "1",
+        "AP_SHARE": "0"
+      }
+    }
+  }
+}

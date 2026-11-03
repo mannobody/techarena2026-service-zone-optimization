@@ -1,0 +1,43 @@
+{
+  "stage": "before new holdout generation and outcomes",
+  "candidate_configs": {
+    "v4": {
+      "binary": "experiments/structural_v9/artifacts/v4"
+    },
+    "full": {
+      "binary": "experiments/structural_v9/artifacts/final_research/candidate"
+    },
+    "tail": {
+      "binary": "experiments/structural_v9/artifacts/final_research/candidate",
+      "env": {
+        "ZM_POOL": "0",
+        "ZM_RESERVE": "0"
+      }
+    }
+  },
+  "development": "development280",
+  "selection": "Prefer higher equal-input mean percent on successful paired TL280 runs; also report all valid pairs and all failures. Reject general promotion if mean<=0, worst<-1%, or fewer than half of non-tied input medians improve. If both fail, report failure; retain better one as experimental only. No algorithm changes after final_research build.",
+  "holdout": {
+    "generator": "src/generate.py holdout, offsets970000..970013; not generated yet",
+    "cases": [
+      "small_road",
+      "small_grid",
+      "small_load",
+      "medium_road",
+      "medium_anti",
+      "medium_A0",
+      "medium_multi",
+      "cluster_alpha0",
+      "grid_boundary",
+      "large",
+      "huge"
+    ],
+    "seeds": [
+      9401,
+      9402,
+      9403
+    ],
+    "seconds": 280
+  },
+  "scope": "Public and all existing data are development. Fresh generator seeds give independent instances, not independent generator families. Repeated solver seeds do not multiply number of independent inputs."
+}

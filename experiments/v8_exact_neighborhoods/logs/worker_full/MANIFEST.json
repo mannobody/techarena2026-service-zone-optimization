@@ -1,0 +1,119 @@
+{
+  "spec": {
+    "destination": "experiments/v8_exact_neighborhoods/logs/worker_full",
+    "seconds": 2,
+    "seeds": [
+      3601,
+      3602,
+      3603
+    ],
+    "cpu_pairs": [
+      [
+        14,
+        15
+      ]
+    ],
+    "variants": {
+      "v4": {
+        "binary": "experiments/v8_exact_neighborhoods/artifacts/v4",
+        "source": "experiments/v4_local_search/baseline/frozen_v4.cpp",
+        "env": {
+          "DBG": "1"
+        }
+      },
+      "v8": {
+        "binary": "experiments/v8_exact_neighborhoods/artifacts/v8",
+        "source": "experiments/v8_exact_neighborhoods/src/frozen_v8.cpp",
+        "env": {
+          "DBG": "1"
+        }
+      },
+      "off": {
+        "binary": "experiments/v8_exact_neighborhoods/artifacts/final/solution",
+        "source": "experiments/v8_exact_neighborhoods/artifacts/final/main.cpp",
+        "env": {
+          "DBG": "1",
+          "ESCAPE_MODE": "0",
+          "XN_FILL": "0",
+          "XN_WORKER": "0",
+          "XN_TINY": "0",
+          "XN_MODE": "0",
+          "XN_SIG_FIX": "0"
+        },
+        "internal_watchdog": true
+      },
+      "worker_only": {
+        "binary": "experiments/v8_exact_neighborhoods/artifacts/final/solution",
+        "source": "experiments/v8_exact_neighborhoods/artifacts/final/main.cpp",
+        "env": {
+          "DBG": "1",
+          "ESCAPE_MODE": "0",
+          "XN_FILL": "0",
+          "XN_WORKER": "1",
+          "XN_TINY": "0",
+          "XN_MODE": "0",
+          "XN_SIG_FIX": "0"
+        },
+        "internal_watchdog": true
+      },
+      "candidate": {
+        "binary": "experiments/v8_exact_neighborhoods/artifacts/final/solution",
+        "source": "experiments/v8_exact_neighborhoods/artifacts/final/main.cpp",
+        "env": {
+          "DBG": "1"
+        },
+        "internal_watchdog": true
+      },
+      "tiny_only": {
+        "binary": "experiments/v8_exact_neighborhoods/artifacts/final/solution",
+        "source": "experiments/v8_exact_neighborhoods/artifacts/final/main.cpp",
+        "env": {
+          "DBG": "1",
+          "ESCAPE_MODE": "0",
+          "XN_FILL": "0",
+          "XN_WORKER": "0",
+          "XN_TINY": "1",
+          "XN_MODE": "0",
+          "XN_SIG_FIX": "0"
+        },
+        "internal_watchdog": true
+      }
+    },
+    "cases": {
+      "worker_budget_isolated": "experiments/v8_exact_neighborhoods/inputs/worker_budget_isolated.json"
+    },
+    "order_seed": 20261024,
+    "hard_wall": true,
+    "snapshots": [
+      1
+    ],
+    "note": "One mechanism counterexample, 3 repeats; not a new general holdout. No instance-ID branch. Source/binary frozen unchanged.",
+    "declared_unix": 1792502213.00097,
+    "input_sha256": "f0d2dae49731f5314e8fbc92270151cd5b2ec0a2e59df1a839c8d3f20a330e55",
+    "known_optimum": 45
+  },
+  "spec_sha256": "2679ad3163ed0f92c7e9fa172da8525d1d58978b2acb538e53b510a3acfb2a43",
+  "runner_sha256": "23504a84a39ed773e33df3df5c5f2861698d1ea6e33e70e01975d733f63ba93b",
+  "sources": {
+    "v4": "5b3914fa9791cb879f3232fb2876a915de83b848ad4b353b0dbf25b574998c25",
+    "v8": "1857bec7e0882d15cf3091e79aeb0df1608ced5d4ee6883c1cb02656cfbd8e03",
+    "off": "52a30ca35edaca1cfbe7186390a5ceca2596965562c92fa6e811da648d642114",
+    "worker_only": "52a30ca35edaca1cfbe7186390a5ceca2596965562c92fa6e811da648d642114",
+    "candidate": "52a30ca35edaca1cfbe7186390a5ceca2596965562c92fa6e811da648d642114",
+    "tiny_only": "52a30ca35edaca1cfbe7186390a5ceca2596965562c92fa6e811da648d642114"
+  },
+  "validator_sha256": "6dd5948ebe72977976acf1b8dcaf7c819274c79addfb82328c0ec9a012ed56e0",
+  "checkpoints": {},
+  "binaries": {
+    "v4": "5cc54b6ad0f02a3d6d471d0e2f9129c229b4925aaa2b2c01ce26bd5305a4963c",
+    "v8": "9e545e0dba29f7f85bbcbcca42c32a8b66b8f9c34c81baf2b3ea1f0d16c85974",
+    "off": "b7dff7094ffe8da6930d0c0506ce376e32660340ebeb73d8add91afe9ec94fe6",
+    "worker_only": "b7dff7094ffe8da6930d0c0506ce376e32660340ebeb73d8add91afe9ec94fe6",
+    "candidate": "b7dff7094ffe8da6930d0c0506ce376e32660340ebeb73d8add91afe9ec94fe6",
+    "tiny_only": "b7dff7094ffe8da6930d0c0506ce376e32660340ebeb73d8add91afe9ec94fe6"
+  },
+  "inputs": {
+    "worker_budget_isolated": "f0d2dae49731f5314e8fbc92270151cd5b2ec0a2e59df1a839c8d3f20a330e55"
+  },
+  "topology": "<local-host-omitted>"
+}

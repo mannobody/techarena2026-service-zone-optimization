@@ -1,0 +1,50 @@
+{
+  "case": "coincident_boundary",
+  "kind": "structure",
+  "backend": "highs",
+  "ok": true,
+  "expected": 19,
+  "result": {
+    "solution": [
+      {
+        "officeId": 0,
+        "sites": [
+          0,
+          1
+        ],
+        "workers": [
+          0
+        ]
+      }
+    ],
+    "before": 0.0,
+    "value": 19.0,
+    "gain": 19.0,
+    "kind": "structure",
+    "backend": "highs",
+    "conditional_optimal": true,
+    "status": "HighsModelStatus.kOptimal",
+    "bound": 19.0,
+    "gap": 0.0,
+    "build": 0.0014610900000207039,
+    "solve": 0.02439609299995027,
+    "check": 0.0005215310000039608,
+    "restore": 0.00046318999989125587,
+    "seconds": 0.027851048000002265,
+    "gain_per_second": 682.2005405325665,
+    "iterations": 1,
+    "nodes": 1,
+    "cuts": 0,
+    "variables": 12,
+    "rows": 24,
+    "selected": [
+      0,
+      1
+    ],
+    "offices": [
+      0,
+      1
+    ],
+    "events": []
+  }
+}

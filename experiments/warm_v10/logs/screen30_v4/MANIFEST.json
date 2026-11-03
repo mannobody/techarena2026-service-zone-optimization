@@ -1,0 +1,100 @@
+{
+  "spec": {
+    "name": "screen30_v4",
+    "seconds": 30,
+    "seeds": [
+      10101,
+      10102
+    ],
+    "cpus": [
+      [
+        0,
+        1
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        8,
+        10
+      ],
+      [
+        12,
+        13
+      ],
+      [
+        16,
+        17
+      ],
+      [
+        18,
+        19
+      ],
+      [
+        20,
+        21
+      ]
+    ],
+    "cases": {
+      "medium_anti": "experiments/structural_v9/inputs/dev/medium_anti.json",
+      "cluster_alpha0": "experiments/structural_v9/inputs/dev/cluster_alpha0.json",
+      "large": "experiments/structural_v9/inputs/dev/large.json",
+      "huge": "experiments/structural_v9/inputs/dev/huge.json",
+      "official_4": "task/instance4/instance.json"
+    },
+    "variants": {
+      "v4": {
+        "binary": "experiments/structural_v9/artifacts/v4",
+        "env": {
+          "DBG": "1"
+        }
+      },
+      "v9": {
+        "binary": "experiments/structural_v9/artifacts/final_research/candidate",
+        "env": {
+          "ZM_POOL": "0",
+          "ZM_RESERVE": "0",
+          "DBG": "1"
+        }
+      },
+      "geometry": {
+        "binary": "experiments/warm_v10/artifacts/v4/candidate",
+        "env": {
+          "ZM_POOL": "0",
+          "ZM_RESERVE": "0",
+          "DBG": "1",
+          "GW_MODE": "1",
+          "GW_TRACE": "1"
+        }
+      },
+      "memetic": {
+        "binary": "experiments/warm_v10/artifacts/v4/candidate",
+        "env": {
+          "ZM_POOL": "0",
+          "ZM_RESERVE": "0",
+          "DBG": "1",
+          "GW_MODE": "2",
+          "GW_TRACE": "1"
+        }
+      }
+    }
+  },
+  "spec_sha256": "23a27f730a9f56e658bfb703c3aef70d16f914b4762dc84d6cd40262179d1646",
+  "inputs": {
+    "medium_anti": "3a73156656271a734e2db83b84d9ae11b2c3b892f8076aaaa59edc30c5d0f636",
+    "cluster_alpha0": "5d2482eaa9b62af3b60d1b974d6f355dac6e74e2c699584280aaf811ac2fd9dc",
+    "large": "c9ae04b01172558d0c5a83389e6e74c6400408f5042e96ed4d55611edecc9062",
+    "huge": "562cd07f929d32c2685674e97314a0fdbf196936fb93831dadb7c5fe88d80c04",
+    "official_4": "c1132c4ea260eebec47014e0c405a6ef41caeb6f6354f038532f428e3653a0f5"
+  },
+  "binaries": {
+    "v4": "5cc54b6ad0f02a3d6d471d0e2f9129c229b4925aaa2b2c01ce26bd5305a4963c",
+    "v9": "255d6f0d4c46a80f36307059bc48c3110eed1f9285b8c0fccb42361e23252670",
+    "geometry": "630ff2fb1fbc90114be004bdf3ef218b6e4106bc72e46500c58067f0f796906f",
+    "memetic": "630ff2fb1fbc90114be004bdf3ef218b6e4106bc72e46500c58067f0f796906f"
+  },
+  "validator": "6dd5948ebe72977976acf1b8dcaf7c819274c79addfb82328c0ec9a012ed56e0",
+  "cpu_topology": "<local-host-omitted>",
+  "runner_sha256": "eb64d1817fc90639ed684ccb1a30242c708f0a23e95741bfa45fc2a79acda288"
+}

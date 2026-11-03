@@ -1,0 +1,138 @@
+{
+  "case": "multi480",
+  "seed": 12702,
+  "variant": "candidate",
+  "command": [
+    "/usr/bin/time",
+    "-f",
+    "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+    "-o",
+    "./experiments/submission_1668601_v12/logs/independent280/multi480_12702_candidate.resource",
+    "taskset",
+    "-c",
+    "20,21",
+    "./experiments/submission_1668601_v12/artifacts/package_rebuild/solution",
+    "./experiments/submission_1668601_v12/inputs/fresh/multi480.json",
+    "./experiments/submission_1668601_v12/logs/independent280/multi480_12702_candidate.solution.json",
+    "280"
+  ],
+  "env": {
+    "HOME": "/home/user",
+    "LANG": "C.UTF-8",
+    "PATH": "/usr/local/bin:/usr/bin:/bin",
+    "NT": "2",
+    "SEED": "12702",
+    "GW_MODE": "1",
+    "ZM_POOL": "0",
+    "ZM_RESERVE": "0"
+  },
+  "affinity": [
+    20,
+    21
+  ],
+  "rc": 0,
+  "timeout": false,
+  "wall": 279.6705512590015,
+  "started_unix": 1792665487.9697974,
+  "ended_unix": 1792665767.8855917,
+  "official": 18729.338973512014,
+  "valid": true,
+  "snapshots": [
+    {
+      "at": 28.03959368300275,
+      "path": "experiments/submission_1668601_v12/logs/independent280/multi480_12702_candidate.t28.00.solution.json",
+      "official": 17968.377748577765
+    },
+    {
+      "at": 61.63188483600243,
+      "path": "experiments/submission_1668601_v12/logs/independent280/multi480_12702_candidate.t61.60.solution.json",
+      "official": 18312.847716720356
+    },
+    {
+      "at": 70.02030479000314,
+      "path": "experiments/submission_1668601_v12/logs/independent280/multi480_12702_candidate.t70.00.solution.json",
+      "official": 18525.459102930567
+    },
+    {
+      "at": 140.04501749100018,
+      "path": "experiments/submission_1668601_v12/logs/independent280/multi480_12702_candidate.t140.00.solution.json",
+      "official": 18729.338973512014
+    },
+    {
+      "at": 238.02258083299967,
+      "path": "experiments/submission_1668601_v12/logs/independent280/multi480_12702_candidate.t238.00.solution.json",
+      "official": 18729.338973512014
+    }
+  ],
+  "solution_sha256": "2f1d9a8e7e16ea6034a8738d74e4ca5283c408237a5234434dc98b306e04bce2",
+  "resource": "rss_kb=91996 user=526.67 sys=0.22 majorfaults=0 minorfaults=24108 voluntary=3 involuntary=2431 inputs=0 outputs=112\n",
+  "error": false,
+  "process_sampling": {
+    "last": {
+      "122": {
+        "runtime_ns": 270668104860,
+        "runqueue_ns": 138383397,
+        "slices": 1353
+      },
+      "133": {
+        "runtime_ns": 37992708809,
+        "runqueue_ns": 17875415,
+        "slices": 83
+      },
+      "138": {
+        "runtime_ns": 212341731873,
+        "runqueue_ns": 124296514,
+        "slices": 979
+      },
+      "142": {
+        "runtime_ns": 4540940478,
+        "runqueue_ns": 1854174,
+        "slices": 20
+      }
+    },
+    "states": {
+      "R": 532,
+      "S": 1
+    },
+    "wchan": {
+      "0": 532,
+      "futex_do_wait": 1
+    },
+    "max_sampled_threads": 2,
+    "samples": 277,
+    "last_io": {
+      "rchar": 211399,
+      "wchar": 28225,
+      "syscr": 47,
+      "syscw": 33,
+      "read_bytes": 0,
+      "write_bytes": 57344,
+      "cancelled_write_bytes": 0
+    }
+  },
+  "resource_extra_fields": {
+    "majorfaults": 0.0,
+    "minorfaults": 24108.0,
+    "voluntary": 3.0,
+    "involuntary": 2431.0,
+    "inputs": 0.0,
+    "outputs": 112.0
+  },
+  "internal_deadline_stop": false,
+  "cpu_pressure_before": "some avg10=0.00 avg60=0.02 avg300=0.05 total=6269149049\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+  "cpu_pressure_after": "some avg10=0.70 avg60=0.42 avg300=0.39 total=6272307604\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+  "logged_threads": 2,
+  "resource_fields": {
+    "rss_kb": 91996.0,
+    "user": 526.67,
+    "sys": 0.22
+  },
+  "success": true,
+  "components": {
+    "reward": 26248.58383355569,
+    "distance": 6027.549306066908,
+    "cost": 1319.8866416116748,
+    "penalty": 171.80891236509183,
+    "objective": 18729.338973512014
+  }
+}

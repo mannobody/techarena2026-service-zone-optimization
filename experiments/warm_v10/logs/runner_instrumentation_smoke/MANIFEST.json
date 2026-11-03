@@ -1,0 +1,55 @@
+{
+  "spec": {
+    "name": "runner_instrumentation_smoke",
+    "seconds": 2,
+    "seeds": [
+      10302
+    ],
+    "cpus": [
+      [
+        14,
+        15
+      ]
+    ],
+    "cases": {
+      "grid_boundary": "experiments/structural_v9/inputs/dev/grid_boundary.json"
+    },
+    "variants": {
+      "v4": {
+        "binary": "experiments/structural_v9/artifacts/v4",
+        "env": {
+          "DBG": "1"
+        }
+      },
+      "v9": {
+        "binary": "experiments/structural_v9/artifacts/final_research/candidate",
+        "env": {
+          "ZM_POOL": "0",
+          "ZM_RESERVE": "0",
+          "DBG": "1"
+        }
+      },
+      "memetic": {
+        "binary": "experiments/warm_v10/artifacts/v5/candidate",
+        "env": {
+          "ZM_POOL": "0",
+          "ZM_RESERVE": "0",
+          "DBG": "1",
+          "GW_MODE": "2"
+        }
+      }
+    }
+  },
+  "spec_sha256": "f1747f2e03352b02fb4acb991f267176c1b841029e2650089dfc45c1da978e7f",
+  "inputs": {
+    "grid_boundary": "2abdb42b579f1107d15f7bb15aa636f0c2dc7dd136c6497d0519c7c386dc5d24"
+  },
+  "binaries": {
+    "v4": "5cc54b6ad0f02a3d6d471d0e2f9129c229b4925aaa2b2c01ce26bd5305a4963c",
+    "v9": "255d6f0d4c46a80f36307059bc48c3110eed1f9285b8c0fccb42361e23252670",
+    "memetic": "c3f76ed684a521347cdd84fcdb2f5e9630a716f2eaf3747413ca7ecc6dc34706"
+  },
+  "validator": "6dd5948ebe72977976acf1b8dcaf7c819274c79addfb82328c0ec9a012ed56e0",
+  "cpu_topology": "<local-host-omitted>",
+  "runner_sha256": "22a50b59ccc3bc897538e818a0788d1d2b2740f798ff9493739d7f370f3df23e"
+}

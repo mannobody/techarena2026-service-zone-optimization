@@ -1,0 +1,143 @@
+{
+  "case": "euclid240",
+  "seed": 0,
+  "variant": "race_no_share",
+  "command": [
+    "/usr/bin/time",
+    "-f",
+    "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+    "-o",
+    "./experiments/adaptive_v11/logs/screen45_v2/euclid240_0_race_no_share.resource",
+    "taskset",
+    "-c",
+    "0,1",
+    "./experiments/adaptive_v11/artifacts/v2/candidate",
+    "./experiments/adaptive_v11/inputs/dev/euclid240.json",
+    "./experiments/adaptive_v11/logs/screen45_v2/euclid240_0_race_no_share.solution.json",
+    "45"
+  ],
+  "env": {
+    "HOME": "/home/user",
+    "LANG": "C.UTF-8",
+    "PATH": "/usr/local/bin:/usr/bin:/bin",
+    "NT": "2",
+    "SEED": "0",
+    "AP_POLICY": "1",
+    "AP_SHARE": "0"
+  },
+  "affinity": [
+    0,
+    1
+  ],
+  "rc": 0,
+  "timeout": false,
+  "wall": 44.79240603600192,
+  "started_unix": 1792657337.8910806,
+  "ended_unix": 1792657382.7319822,
+  "official": 87.2522155791981,
+  "valid": true,
+  "snapshots": [
+    {
+      "at": 4.539386594002281,
+      "path": "experiments/adaptive_v11/logs/screen45_v2/euclid240_0_race_no_share.t4.50.solution.json",
+      "official": 83.90462837177776
+    },
+    {
+      "at": 9.91286928000045,
+      "path": "experiments/adaptive_v11/logs/screen45_v2/euclid240_0_race_no_share.t9.90.solution.json",
+      "official": 83.90462837177776
+    },
+    {
+      "at": 11.274840119000146,
+      "path": "experiments/adaptive_v11/logs/screen45_v2/euclid240_0_race_no_share.t11.25.solution.json",
+      "official": 87.11205377538855
+    },
+    {
+      "at": 22.512481965000916,
+      "path": "experiments/adaptive_v11/logs/screen45_v2/euclid240_0_race_no_share.t22.50.solution.json",
+      "official": 87.20523975601705
+    },
+    {
+      "at": 38.30142236499887,
+      "path": "experiments/adaptive_v11/logs/screen45_v2/euclid240_0_race_no_share.t38.25.solution.json",
+      "official": 87.20523975601705
+    }
+  ],
+  "solution_sha256": "0d5c02fb8d5ac0a8997716dd69830a63f1afdf67d6ef1378ca0a24cffbe9b7bf",
+  "resource": "rss_kb=6928 user=88.32 sys=0.02 majorfaults=0 minorfaults=672 voluntary=3567 involuntary=3990 inputs=0 outputs=88\n",
+  "error": false,
+  "process_sampling": {
+    "last": {
+      "192": {
+        "runtime_ns": 15572048,
+        "runqueue_ns": 22675604,
+        "slices": 3512
+      },
+      "193": {
+        "runtime_ns": 16994304809,
+        "runqueue_ns": 1226564,
+        "slices": 96
+      },
+      "194": {
+        "runtime_ns": 44039516070,
+        "runqueue_ns": 20682402,
+        "slices": 3754
+      },
+      "195": {
+        "runtime_ns": 14188,
+        "runqueue_ns": 786283,
+        "slices": 1
+      },
+      "209": {
+        "runtime_ns": 25084647457,
+        "runqueue_ns": 2207295,
+        "slices": 132
+      }
+    },
+    "states": {
+      "S": 69,
+      "R": 87
+    },
+    "wchan": {
+      "hrtimer_nanosleep": 44,
+      "0": 87,
+      "futex_do_wait": 25
+    },
+    "max_sampled_threads": 5,
+    "samples": 44,
+    "last_io": {
+      "rchar": 219074,
+      "wchar": 17855,
+      "syscr": 51,
+      "syscw": 31,
+      "read_bytes": 0,
+      "write_bytes": 45056,
+      "cancelled_write_bytes": 0
+    }
+  },
+  "resource_extra_fields": {
+    "majorfaults": 0.0,
+    "minorfaults": 672.0,
+    "voluntary": 3567.0,
+    "involuntary": 3990.0,
+    "inputs": 0.0,
+    "outputs": 88.0
+  },
+  "internal_deadline_stop": false,
+  "cpu_pressure_before": "some avg10=0.25 avg60=0.50 avg300=0.27 total=6201576739\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+  "cpu_pressure_after": "some avg10=0.17 avg60=0.49 avg300=0.31 total=6201920567\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+  "logged_threads": 1,
+  "resource_fields": {
+    "rss_kb": 6928.0,
+    "user": 88.32,
+    "sys": 0.02
+  },
+  "success": true,
+  "components": {
+    "reward": 122.87547423671633,
+    "distance": 27.49615725847691,
+    "cost": 7.59286020670776,
+    "penalty": 0.5342411923335492,
+    "objective": 87.25221557919811
+  }
+}

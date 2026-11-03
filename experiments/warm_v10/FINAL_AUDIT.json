@@ -1,0 +1,454 @@
+{
+  "frozen_files_unchanged": true,
+  "exact_v4_sha256": "5b3914fa9791cb879f3232fb2876a915de83b848ad4b353b0dbf25b574998c25",
+  "fresh_inputs": 8,
+  "fresh_no_overlap": true,
+  "quality_runs": 294,
+  "quality_valid": 294,
+  "quality_working_success": 285,
+  "quality_emergency_timeouts": 1,
+  "cohorts": [
+    {
+      "series": "screen30_v2",
+      "expected": 80,
+      "runs": 80,
+      "valid": 80,
+      "working_success": 78,
+      "emergency_timeouts": 1,
+      "solver_errors": 0,
+      "max_wall": 32.028370096999424,
+      "failures": [
+        {
+          "case": "large",
+          "seed": 10101,
+          "variant": "v4",
+          "valid": true,
+          "rc": -15,
+          "timeout": true,
+          "wall": 32.028370096999424,
+          "error": false
+        },
+        {
+          "case": "medium_A0",
+          "seed": 10102,
+          "variant": "v4",
+          "valid": true,
+          "rc": 0,
+          "timeout": false,
+          "wall": 31.246179015999587,
+          "error": false
+        }
+      ]
+    },
+    {
+      "series": "screen30_v4",
+      "expected": 40,
+      "runs": 40,
+      "valid": 40,
+      "working_success": 38,
+      "emergency_timeouts": 0,
+      "solver_errors": 0,
+      "max_wall": 31.45858384500025,
+      "failures": [
+        {
+          "case": "large",
+          "seed": 10101,
+          "variant": "v4",
+          "valid": true,
+          "rc": 0,
+          "timeout": false,
+          "wall": 31.45858384500025,
+          "error": false
+        },
+        {
+          "case": "large",
+          "seed": 10102,
+          "variant": "v4",
+          "valid": true,
+          "rc": 0,
+          "timeout": false,
+          "wall": 30.458450535001248,
+          "error": false
+        }
+      ]
+    },
+    {
+      "series": "screen30_v5",
+      "expected": 24,
+      "runs": 24,
+      "valid": 24,
+      "working_success": 20,
+      "emergency_timeouts": 0,
+      "solver_errors": 0,
+      "max_wall": 30.282782076999865,
+      "failures": [
+        {
+          "case": "medium_anti",
+          "seed": 10101,
+          "variant": "memetic",
+          "valid": true,
+          "rc": 0,
+          "timeout": false,
+          "wall": 30.213727875001496,
+          "error": false
+        },
+        {
+          "case": "medium_anti",
+          "seed": 10102,
+          "variant": "v4",
+          "valid": true,
+          "rc": 0,
+          "timeout": false,
+          "wall": 30.27277782299825,
+          "error": false
+        },
+        {
+          "case": "large",
+          "seed": 10102,
+          "variant": "memetic",
+          "valid": true,
+          "rc": 0,
+          "timeout": false,
+          "wall": 30.282782076999865,
+          "error": false
+        },
+        {
+          "case": "large",
+          "seed": 10101,
+          "variant": "memetic",
+          "valid": true,
+          "rc": 0,
+          "timeout": false,
+          "wall": 30.204079564000494,
+          "error": false
+        }
+      ]
+    },
+    {
+      "series": "development280_v5_both",
+      "expected": 48,
+      "runs": 48,
+      "valid": 48,
+      "working_success": 48,
+      "emergency_timeouts": 0,
+      "solver_errors": 0,
+      "max_wall": 279.8409302510008,
+      "failures": []
+    },
+    {
+      "series": "acceleration280",
+      "expected": 30,
+      "runs": 30,
+      "valid": 30,
+      "working_success": 29,
+      "emergency_timeouts": 0,
+      "solver_errors": 0,
+      "max_wall": 280.3146758700004,
+      "failures": [
+        {
+          "case": "regression_large",
+          "seed": 9403,
+          "variant": "v4",
+          "valid": true,
+          "rc": 0,
+          "timeout": false,
+          "wall": 280.3146758700004,
+          "error": false
+        }
+      ]
+    },
+    {
+      "series": "independent280",
+      "expected": 72,
+      "runs": 72,
+      "valid": 72,
+      "working_success": 72,
+      "emergency_timeouts": 0,
+      "solver_errors": 0,
+      "max_wall": 279.65153957200164,
+      "failures": []
+    }
+  ],
+  "qa": [
+    {
+      "revision": "qa_v1",
+      "cases": 60,
+      "valid": 60,
+      "rc0": 60,
+      "stderr_errors": []
+    },
+    {
+      "revision": "qa_v2",
+      "cases": 60,
+      "valid": 60,
+      "rc0": 60,
+      "stderr_errors": []
+    },
+    {
+      "revision": "qa_v3",
+      "cases": 60,
+      "valid": 60,
+      "rc0": 60,
+      "stderr_errors": []
+    },
+    {
+      "revision": "qa_v4",
+      "cases": 60,
+      "valid": 60,
+      "rc0": 60,
+      "stderr_errors": []
+    },
+    {
+      "revision": "qa_v5",
+      "cases": 60,
+      "valid": 60,
+      "rc0": 60,
+      "stderr_errors": []
+    },
+    {
+      "revision": "qa_v6",
+      "cases": 60,
+      "valid": 60,
+      "rc0": 60,
+      "stderr_errors": []
+    },
+    {
+      "revision": "qa_v8",
+      "cases": 60,
+      "valid": 60,
+      "rc0": 60,
+      "stderr_errors": []
+    }
+  ],
+  "qa_total": 420,
+  "qa_valid": 420,
+  "viewed_endpoint_diagnostics": {
+    "OFFICE_TRANSPLANT_DIAGNOSTIC.json": {
+      "case": "equal_count150",
+      "seed": 10503,
+      "original": 60356.61728771129,
+      "instance_sha256": "d8f07f8f500427ff4b22fdf17c8dff508f86fd14cfd83914ee6c979a70045434",
+      "original_solution_sha256": "c1a8f4221e392dfe84798d2024a510abd4e150d78c825ac0930d93aaae6749e7",
+      "best": {
+        "old": 3,
+        "target": 2,
+        "official": 59016.24143608766,
+        "valid": true,
+        "gain": -1340.375851623634,
+        "solution": "experiments/warm_v10/logs/office_transplant_diagnostic/office3_to2.solution.json"
+      },
+      "proposals": [
+        {
+          "old": 3,
+          "target": 0,
+          "official": "Office capacity exceeded",
+          "valid": false,
+          "gain": null,
+          "solution": "experiments/warm_v10/logs/office_transplant_diagnostic/office3_to0.solution.json"
+        },
+        {
+          "old": 3,
+          "target": 1,
+          "official": "Office capacity exceeded",
+          "valid": false,
+          "gain": null,
+          "solution": "experiments/warm_v10/logs/office_transplant_diagnostic/office3_to1.solution.json"
+        },
+        {
+          "old": 3,
+          "target": 2,
+          "official": 59016.24143608766,
+          "valid": true,
+          "gain": -1340.375851623634,
+          "solution": "experiments/warm_v10/logs/office_transplant_diagnostic/office3_to2.solution.json"
+        },
+        {
+          "old": 3,
+          "target": 4,
+          "official": "Office capacity exceeded",
+          "valid": false,
+          "gain": null,
+          "solution": "experiments/warm_v10/logs/office_transplant_diagnostic/office3_to4.solution.json"
+        },
+        {
+          "old": 5,
+          "target": 0,
+          "official": "Office capacity exceeded",
+          "valid": false,
+          "gain": null,
+          "solution": "experiments/warm_v10/logs/office_transplant_diagnostic/office5_to0.solution.json"
+        },
+        {
+          "old": 5,
+          "target": 1,
+          "official": "Office capacity exceeded",
+          "valid": false,
+          "gain": null,
+          "solution": "experiments/warm_v10/logs/office_transplant_diagnostic/office5_to1.solution.json"
+        },
+        {
+          "old": 5,
+          "target": 2,
+          "official": "Hull conflict",
+          "valid": false,
+          "gain": null,
+          "solution": "experiments/warm_v10/logs/office_transplant_diagnostic/office5_to2.solution.json"
+        },
+        {
+          "old": 5,
+          "target": 4,
+          "official": "Office capacity exceeded",
+          "valid": false,
+          "gain": null,
+          "solution": "experiments/warm_v10/logs/office_transplant_diagnostic/office5_to4.solution.json"
+        },
+        {
+          "old": 6,
+          "target": 0,
+          "official": "Office capacity exceeded",
+          "valid": false,
+          "gain": null,
+          "solution": "experiments/warm_v10/logs/office_transplant_diagnostic/office6_to0.solution.json"
+        },
+        {
+          "old": 6,
+          "target": 1,
+          "official": "Office capacity exceeded",
+          "valid": false,
+          "gain": null,
+          "solution": "experiments/warm_v10/logs/office_transplant_diagnostic/office6_to1.solution.json"
+        },
+        {
+          "old": 6,
+          "target": 2,
+          "official": "Hull conflict",
+          "valid": false,
+          "gain": null,
+          "solution": "experiments/warm_v10/logs/office_transplant_diagnostic/office6_to2.solution.json"
+        },
+        {
+          "old": 6,
+          "target": 4,
+          "official": "Office capacity exceeded",
+          "valid": false,
+          "gain": null,
+          "solution": "experiments/warm_v10/logs/office_transplant_diagnostic/office6_to4.solution.json"
+        },
+        {
+          "old": 7,
+          "target": 0,
+          "official": "Office capacity exceeded",
+          "valid": false,
+          "gain": null,
+          "solution": "experiments/warm_v10/logs/office_transplant_diagnostic/office7_to0.solution.json"
+        },
+        {
+          "old": 7,
+          "target": 1,
+          "official": "Office capacity exceeded",
+          "valid": false,
+          "gain": null,
+          "solution": "experiments/warm_v10/logs/office_transplant_diagnostic/office7_to1.solution.json"
+        },
+        {
+          "old": 7,
+          "target": 2,
+          "official": "Hull conflict",
+          "valid": false,
+          "gain": null,
+          "solution": "experiments/warm_v10/logs/office_transplant_diagnostic/office7_to2.solution.json"
+        },
+        {
+          "old": 7,
+          "target": 4,
+          "official": "Office capacity exceeded",
+          "valid": false,
+          "gain": null,
+          "solution": "experiments/warm_v10/logs/office_transplant_diagnostic/office7_to4.solution.json"
+        }
+      ],
+      "note": "Viewed-input endpoint diagnostic only. Worker teams and site groups stay fixed, only one office anchor/id changes. Does not alter frozen solver or original primary outputs; not a full-solver quality result and not independent confirmation of a new operator."
+    },
+    "OFFICE_PAIR_DIAGNOSTIC.json": {
+      "original": 60356.61728771129,
+      "instance_sha256": "d8f07f8f500427ff4b22fdf17c8dff508f86fd14cfd83914ee6c979a70045434",
+      "solution_sha256": "c1a8f4221e392dfe84798d2024a510abd4e150d78c825ac0930d93aaae6749e7",
+      "best": null,
+      "proposals": [
+        {
+          "old": [
+            3,
+            7
+          ],
+          "new": [
+            3,
+            1
+          ],
+          "predicted_gain": 18.738382095682027,
+          "official": "Office capacity exceeded",
+          "valid": false,
+          "gain": null,
+          "solution": "experiments/warm_v10/logs/office_pair_diagnostic/3_7_to_3_1.solution.json"
+        },
+        {
+          "old": [
+            5,
+            7
+          ],
+          "new": [
+            5,
+            1
+          ],
+          "predicted_gain": 18.738382095682027,
+          "official": "Office capacity exceeded",
+          "valid": false,
+          "gain": null,
+          "solution": "experiments/warm_v10/logs/office_pair_diagnostic/5_7_to_5_1.solution.json"
+        },
+        {
+          "old": [
+            6,
+            7
+          ],
+          "new": [
+            6,
+            1
+          ],
+          "predicted_gain": 18.738382095682027,
+          "official": "Office capacity exceeded",
+          "valid": false,
+          "gain": null,
+          "solution": "experiments/warm_v10/logs/office_pair_diagnostic/6_7_to_6_1.solution.json"
+        }
+      ],
+      "note": "Post-holdout viewed-incumbent mechanism diagnosis only. Generic enumeration of two zone-to-office reassignments with fixed site groups and workers; no candidate code or primary answer modified, no complete-solver performance claim. Single-zone transplant had no positive valid move."
+    },
+    "logs/office_assignment_diagnostic/result.json": {
+      "original": 60356.61728771129,
+      "best_valid": 60356.61728771129,
+      "best_gain": 0.0,
+      "complete": true,
+      "enumerated": 1680,
+      "expected": 1680,
+      "capacity_feasible": 120,
+      "best_gain_ignoring_geometry": 0.0,
+      "positive_proposals": [],
+      "instance_sha256": "d8f07f8f500427ff4b22fdf17c8dff508f86fd14cfd83914ee6c979a70045434",
+      "incumbent_sha256": "c1a8f4221e392dfe84798d2024a510abd4e150d78c825ac0930d93aaae6749e7",
+      "command": [
+        "experiments/warm_v10/src/diagnose_zone_offices.py",
+        "experiments/warm_v10/inputs/fresh/equal_count150.json",
+        "experiments/warm_v10/logs/independent280/equal_count150_10503_prior.solution.json",
+        "experiments/warm_v10/logs/office_assignment_diagnostic"
+      ],
+      "note": "Viewed-input endpoint diagnosis. Site groups and worker teams fixed; all geometric conflicts checked officially. Not a complete-solver benchmark, no changes to frozen source or primary output."
+    }
+  },
+  "notes": [
+    "Superseded orchestrations did not create extra quality rows.",
+    "No selected algorithm changes after freeze or independent generation.",
+    "Resource diagnostic reuses viewed input and never replaces primary rows.",
+    "Endpoint proposal diagnostics include rejected invalid proposals, separately from completed-solver quality rows.",
+    "Same CPU allocation is not a claim of equal consumed CPU time or exclusive hardware."
+  ]
+}

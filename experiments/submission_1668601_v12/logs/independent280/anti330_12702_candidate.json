@@ -1,0 +1,136 @@
+{
+  "case": "anti330",
+  "seed": 12702,
+  "variant": "candidate",
+  "command": [
+    "/usr/bin/time",
+    "-f",
+    "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+    "-o",
+    "./experiments/submission_1668601_v12/logs/independent280/anti330_12702_candidate.resource",
+    "taskset",
+    "-c",
+    "8,10",
+    "./experiments/submission_1668601_v12/artifacts/package_rebuild/solution",
+    "./experiments/submission_1668601_v12/inputs/fresh/anti330.json",
+    "./experiments/submission_1668601_v12/logs/independent280/anti330_12702_candidate.solution.json",
+    "280"
+  ],
+  "env": {
+    "HOME": "/home/user",
+    "LANG": "C.UTF-8",
+    "PATH": "/usr/local/bin:/usr/bin:/bin",
+    "NT": "2",
+    "SEED": "12702",
+    "GW_MODE": "1",
+    "ZM_POOL": "0",
+    "ZM_RESERVE": "0"
+  },
+  "affinity": [
+    8,
+    10
+  ],
+  "rc": 0,
+  "timeout": false,
+  "wall": 279.4859676769993,
+  "started_unix": 1792665796.9036999,
+  "ended_unix": 1792666076.4698107,
+  "official": 172.62770331706807,
+  "valid": true,
+  "snapshots": [
+    {
+      "at": 28.019576456001232,
+      "path": "experiments/submission_1668601_v12/logs/independent280/anti330_12702_candidate.t28.00.solution.json",
+      "official": 134.5258269794984
+    },
+    {
+      "at": 61.61729264599853,
+      "path": "experiments/submission_1668601_v12/logs/independent280/anti330_12702_candidate.t61.60.solution.json",
+      "official": 153.7208185310221
+    },
+    {
+      "at": 70.04812913799833,
+      "path": "experiments/submission_1668601_v12/logs/independent280/anti330_12702_candidate.t70.00.solution.json",
+      "official": 153.7208185310221
+    },
+    {
+      "at": 140.01814978100083,
+      "path": "experiments/submission_1668601_v12/logs/independent280/anti330_12702_candidate.t140.00.solution.json",
+      "official": 161.6785118250987
+    },
+    {
+      "at": 238.02021932199932,
+      "path": "experiments/submission_1668601_v12/logs/independent280/anti330_12702_candidate.t238.00.solution.json",
+      "official": 163.56194961144092
+    }
+  ],
+  "solution_sha256": "99db8d4855dbbe8bb83af3d08b5b23fac5d3704f6f4b003a687c90c1b79ab5d1",
+  "resource": "rss_kb=14868 user=549.81 sys=0.37 majorfaults=0 minorfaults=2973 voluntary=3 involuntary=74817 inputs=0 outputs=344\n",
+  "error": false,
+  "process_sampling": {
+    "last": {
+      "164": {
+        "runtime_ns": 276103549887,
+        "runqueue_ns": 1577437755,
+        "slices": 33278
+      },
+      "165": {
+        "runtime_ns": 55432616283,
+        "runqueue_ns": 388434968,
+        "slices": 9032
+      },
+      "171": {
+        "runtime_ns": 212048568957,
+        "runqueue_ns": 886798692,
+        "slices": 31404
+      },
+      "177": {
+        "runtime_ns": 4501369354,
+        "runqueue_ns": 16192623,
+        "slices": 645
+      }
+    },
+    "states": {
+      "R": 551
+    },
+    "wchan": {
+      "0": 551
+    },
+    "max_sampled_threads": 2,
+    "samples": 277,
+    "last_io": {
+      "rchar": 132733,
+      "wchar": 76114,
+      "syscr": 37,
+      "syscw": 83,
+      "read_bytes": 0,
+      "write_bytes": 176128,
+      "cancelled_write_bytes": 0
+    }
+  },
+  "resource_extra_fields": {
+    "majorfaults": 0.0,
+    "minorfaults": 2973.0,
+    "voluntary": 3.0,
+    "involuntary": 74817.0,
+    "inputs": 0.0,
+    "outputs": 344.0
+  },
+  "internal_deadline_stop": false,
+  "cpu_pressure_before": "some avg10=0.50 avg60=0.44 avg300=0.40 total=6272585738\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+  "cpu_pressure_after": "some avg10=0.04 avg60=0.29 avg300=0.35 total=6275025462\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+  "logged_threads": 2,
+  "resource_fields": {
+    "rss_kb": 14868.0,
+    "user": 549.81,
+    "sys": 0.37
+  },
+  "success": true,
+  "components": {
+    "reward": 362.15825649994554,
+    "distance": 174.21801860961085,
+    "cost": 14.712272269675488,
+    "penalty": 0.6002623035910699,
+    "objective": 172.62770331706812
+  }
+}

@@ -1,0 +1,143 @@
+{
+  "case": "equal180",
+  "seed": 0,
+  "variant": "adaptive",
+  "command": [
+    "/usr/bin/time",
+    "-f",
+    "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+    "-o",
+    "./experiments/adaptive_v11/logs/development280_v3/equal180_0_adaptive.resource",
+    "taskset",
+    "-c",
+    "0,1",
+    "./experiments/adaptive_v11/artifacts/v3/candidate",
+    "./experiments/adaptive_v11/inputs/dev/equal180.json",
+    "./experiments/adaptive_v11/logs/development280_v3/equal180_0_adaptive.solution.json",
+    "280"
+  ],
+  "env": {
+    "HOME": "/home/user",
+    "LANG": "C.UTF-8",
+    "PATH": "/usr/local/bin:/usr/bin:/bin",
+    "NT": "2",
+    "SEED": "0",
+    "AP_POLICY": "1",
+    "AP_SHARE": "0"
+  },
+  "affinity": [
+    0,
+    1
+  ],
+  "rc": 0,
+  "timeout": false,
+  "wall": 279.48046581200106,
+  "started_unix": 1792659462.643533,
+  "ended_unix": 1792659742.1533935,
+  "official": 64646.90901507941,
+  "valid": true,
+  "snapshots": [
+    {
+      "at": 28.03929670800062,
+      "path": "experiments/adaptive_v11/logs/development280_v3/equal180_0_adaptive.t28.00.solution.json",
+      "official": 55571.30790928587
+    },
+    {
+      "at": 61.88826746400082,
+      "path": "experiments/adaptive_v11/logs/development280_v3/equal180_0_adaptive.t61.60.solution.json",
+      "official": 55571.30790928587
+    },
+    {
+      "at": 70.0513265490008,
+      "path": "experiments/adaptive_v11/logs/development280_v3/equal180_0_adaptive.t70.00.solution.json",
+      "official": 55571.30790928587
+    },
+    {
+      "at": 140.03541741499794,
+      "path": "experiments/adaptive_v11/logs/development280_v3/equal180_0_adaptive.t140.00.solution.json",
+      "official": 60126.90660106675
+    },
+    {
+      "at": 238.02793165299954,
+      "path": "experiments/adaptive_v11/logs/development280_v3/equal180_0_adaptive.t238.00.solution.json",
+      "official": 60126.90660106675
+    }
+  ],
+  "solution_sha256": "305b99c0a6360c5259a33ce5aaf28225379ba939e7cd5f51a04c031172bb4f08",
+  "resource": "rss_kb=6824 user=555.90 sys=0.22 majorfaults=0 minorfaults=641 voluntary=20155 involuntary=22169 inputs=0 outputs=160\n",
+  "error": false,
+  "process_sampling": {
+    "last": {
+      "152": {
+        "runtime_ns": 58526680,
+        "runqueue_ns": 115410003,
+        "slices": 20097
+      },
+      "153": {
+        "runtime_ns": 277725020470,
+        "runqueue_ns": 3683826,
+        "slices": 446
+      },
+      "154": {
+        "runtime_ns": 277314198748,
+        "runqueue_ns": 113208537,
+        "slices": 21665
+      },
+      "155": {
+        "runtime_ns": 32125,
+        "runqueue_ns": 853812,
+        "slices": 3
+      },
+      "164": {
+        "runtime_ns": 13548,
+        "runqueue_ns": 217612,
+        "slices": 1
+      }
+    },
+    "states": {
+      "S": 763,
+      "R": 552
+    },
+    "wchan": {
+      "hrtimer_nanosleep": 275,
+      "0": 553,
+      "futex_do_wait": 487
+    },
+    "max_sampled_threads": 5,
+    "samples": 276,
+    "last_io": {
+      "rchar": 164795,
+      "wchar": 21323,
+      "syscr": 45,
+      "syscw": 48,
+      "read_bytes": 0,
+      "write_bytes": 81920,
+      "cancelled_write_bytes": 0
+    }
+  },
+  "resource_extra_fields": {
+    "majorfaults": 0.0,
+    "minorfaults": 641.0,
+    "voluntary": 20155.0,
+    "involuntary": 22169.0,
+    "inputs": 0.0,
+    "outputs": 160.0
+  },
+  "internal_deadline_stop": false,
+  "cpu_pressure_before": "some avg10=0.67 avg60=0.99 avg300=0.84 total=6225972445\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+  "cpu_pressure_after": "some avg10=0.01 avg60=0.09 avg300=0.35 total=6226581859\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+  "logged_threads": 1,
+  "resource_fields": {
+    "rss_kb": 6824.0,
+    "user": 555.9,
+    "sys": 0.22
+  },
+  "success": true,
+  "components": {
+    "reward": 84533.78253307451,
+    "distance": 14270.864132568753,
+    "cost": 5616.009385426358,
+    "penalty": 0.0,
+    "objective": 64646.90901507941
+  }
+}

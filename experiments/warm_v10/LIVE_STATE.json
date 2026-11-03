@@ -1,0 +1,25 @@
+{
+  "stage": "Independent primary 72 runs actively running",
+  "runner_session": 74979,
+  "series": "logs/development280_v5_both",
+  "expected_quality_runs": 48,
+  "long_spec": "DEVELOPMENT280_V5_BOTH.json",
+  "binary_hashes": {
+    "experiments/structural_v9/artifacts/v4": "5cc54b6ad0f02a3d6d471d0e2f9129c229b4925aaa2b2c01ce26bd5305a4963c",
+    "experiments/structural_v9/artifacts/final_research/candidate": "255d6f0d4c46a80f36307059bc48c3110eed1f9285b8c0fccb42361e23252670",
+    "experiments/warm_v10/artifacts/v5/candidate": "c3f76ed684a521347cdd84fcdb2f5e9630a716f2eaf3747413ca7ecc6dc34706"
+  },
+  "independent_generated": false,
+  "next": "Only finish current frozen independent72 series. Optional resource-veto script already waiting; wrapup automatically creates report/audit/pair/resource summaries, appends EXPERIMENTS, creates inventory. Then inspect final artifacts, correct report errors without touching measured data, verify baseline hashes/package status, open REPORT_RU, give concise Russian final with honest recommendation and links. No more candidates for this iteration.",
+  "updated_unix": 1792653098.1722267,
+  "sessions": {
+    "confirmation_balanced": 29496,
+    "resource_diagnostic_campaign": 14931,
+    "wrapup_campaign": 47673
+  },
+  "important": "Only artifact v5/v6/v8 immutable main.cpp+candidate binaries are measured. v7 bugged intermediate never eligible. src/run.py and analysis.py frozen untouched; run_instrumented.py has an explicit superseded-protocol cancellation guard, archived before it. Old acceleration17468 cancelled before solver runs, metadata saved under artifacts/plans/superseded_*. Old confirmation71467 will fail arity24 when new30 complete before side effects; old confirmation71467/singleton-only confirmation are not active valid paths. New scripts share CONFIRMATION_STATUS only the balanced one reaches primary. All standalone sources/packages survive; no source edits after final FREEZE/fresh generation.",
+  "new_evidence": "Singleton Fast.search v5 vs v6: all24 exact score equality, 9.70895s -> .140350s (~69x subproblem only). QA v1..v6 60 each =360 VALID, no stderr error. Package v5 and v6 both byte-identical rebuilds and6/6 noarg contracts per revision.",
+  "resource_rule": "PROTOCOL.resource_veto hashes resource_diagnostic_campaign.py before fresh generation. Only runs if primary promotion passes and matched CPU ratio range>.5; uses worst CPU disparity case and same3seeds,3slots; diagnostic may veto on worst<-1% vs v4, never replace/merge primary.",
+  "phase_status": "V5 development48/48 VALID/success. Post comparison30/30 VALID,29 working successes (v4 280.315s). QA seven revisions v1-v6,v8 each60VALID=420. Package v5/v6/v8 each6noarg VALID/byte-identical. Independent selected v5 has no singleton shortcut or mass balancing active; those are rejected research prototypes. Selected configuration does not use whole-zone crossover/new global elite (mode2), but its internal geometric population/direct starters retain assignment diversity.",
+  "selection": "v5 geometry, GW_MODE1. V6 and V8 rejected by negative paired means vs v5 and worst about -14.7/-15.3%. SELECTION_REVIEW_RELEASE accepted automatic choice after hash checks and before generation. FREEZE intact; FRESH_INPUTS now exists; DO NOT TUNE OR ALTER algorithm/config/data/thresholds."
+}

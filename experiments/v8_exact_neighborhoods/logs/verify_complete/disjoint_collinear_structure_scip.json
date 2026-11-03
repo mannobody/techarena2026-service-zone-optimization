@@ -1,0 +1,58 @@
+{
+  "case": "disjoint_collinear",
+  "kind": "structure",
+  "backend": "scip",
+  "ok": true,
+  "expected": 18,
+  "result": {
+    "solution": [
+      {
+        "officeId": 0,
+        "sites": [
+          0
+        ],
+        "workers": [
+          0
+        ]
+      },
+      {
+        "officeId": 1,
+        "sites": [
+          1
+        ],
+        "workers": [
+          1
+        ]
+      }
+    ],
+    "before": 0.0,
+    "value": 18.0,
+    "gain": 18.0,
+    "kind": "structure",
+    "backend": "scip",
+    "conditional_optimal": true,
+    "status": "optimal",
+    "bound": 18.0,
+    "gap": 0.0,
+    "build": 0.006886869000027218,
+    "solve": 0.0016626619999442482,
+    "check": 0.0005270400000654263,
+    "restore": 0.0007399569999506639,
+    "seconds": 0.011564881000026617,
+    "gain_per_second": 1556.4362486703126,
+    "iterations": 1,
+    "nodes": 1,
+    "cuts": 0,
+    "variables": 12,
+    "rows": 24,
+    "selected": [
+      0,
+      1
+    ],
+    "offices": [
+      0,
+      1
+    ],
+    "events": []
+  }
+}

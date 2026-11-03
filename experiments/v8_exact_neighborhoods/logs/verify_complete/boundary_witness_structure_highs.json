@@ -1,0 +1,58 @@
+{
+  "case": "boundary_witness",
+  "kind": "structure",
+  "backend": "highs",
+  "ok": true,
+  "expected": 9,
+  "result": {
+    "solution": [
+      {
+        "officeId": 0,
+        "sites": [
+          0
+        ],
+        "workers": [
+          0
+        ]
+      }
+    ],
+    "before": 0.0,
+    "value": 9.0,
+    "gain": 9.0,
+    "kind": "structure",
+    "backend": "highs",
+    "conditional_optimal": true,
+    "status": "HighsModelStatus.kOptimal",
+    "bound": 9.0,
+    "gap": 0.0,
+    "build": 0.0015281699999150078,
+    "solve": 0.053441283999973166,
+    "check": 0.0012982909998981995,
+    "restore": 0.000470186000029571,
+    "seconds": 0.05780775999994603,
+    "gain_per_second": 155.6884404448192,
+    "iterations": 2,
+    "nodes": 2,
+    "cuts": 1,
+    "variables": 14,
+    "rows": 27,
+    "selected": [
+      0,
+      1,
+      2
+    ],
+    "offices": [
+      0,
+      1
+    ],
+    "events": [
+      {
+        "iteration": 1,
+        "conflicts": 1,
+        "cuts": 1,
+        "bound": 18.0,
+        "seconds": 0.03272416400000111
+      }
+    ]
+  }
+}

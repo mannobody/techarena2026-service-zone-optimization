@@ -1,0 +1,87 @@
+{
+  "case": "cluster_alpha0",
+  "seed": 10101,
+  "variant": "memetic",
+  "command": [
+    "/usr/bin/time",
+    "-f",
+    "rss_kb=%M user=%U sys=%S",
+    "-o",
+    "./experiments/warm_v10/logs/screen30_v4/cluster_alpha0_10101_memetic.resource",
+    "taskset",
+    "-c",
+    "0,1",
+    "./experiments/warm_v10/artifacts/v4/candidate",
+    "./experiments/structural_v9/inputs/dev/cluster_alpha0.json",
+    "./experiments/warm_v10/logs/screen30_v4/cluster_alpha0_10101_memetic.solution.json",
+    "30"
+  ],
+  "env": {
+    "HOME": "/home/user",
+    "LANG": "C.UTF-8",
+    "PATH": "/usr/local/bin:/usr/bin:/bin",
+    "NT": "2",
+    "SEED": "10101",
+    "ZM_POOL": "0",
+    "ZM_RESERVE": "0",
+    "DBG": "1",
+    "GW_MODE": "2",
+    "GW_TRACE": "1"
+  },
+  "affinity": [
+    0,
+    1
+  ],
+  "rc": 0,
+  "timeout": false,
+  "wall": 29.78452997900058,
+  "started_unix": 1792646866.2383256,
+  "ended_unix": 1792646896.1660216,
+  "official": 141591.9325015759,
+  "valid": true,
+  "snapshots": [
+    {
+      "at": 3.013295966999067,
+      "path": "experiments/warm_v10/logs/screen30_v4/cluster_alpha0_10101_memetic.t3.00.solution.json",
+      "official": 134975.03724553224
+    },
+    {
+      "at": 6.6224947449991305,
+      "path": "experiments/warm_v10/logs/screen30_v4/cluster_alpha0_10101_memetic.t6.60.solution.json",
+      "official": 134975.03724553224
+    },
+    {
+      "at": 7.524901442000555,
+      "path": "experiments/warm_v10/logs/screen30_v4/cluster_alpha0_10101_memetic.t7.50.solution.json",
+      "official": 137263.34249356796
+    },
+    {
+      "at": 15.038937397999689,
+      "path": "experiments/warm_v10/logs/screen30_v4/cluster_alpha0_10101_memetic.t15.00.solution.json",
+      "official": 141230.20525808271
+    },
+    {
+      "at": 25.509024020000652,
+      "path": "experiments/warm_v10/logs/screen30_v4/cluster_alpha0_10101_memetic.t25.50.solution.json",
+      "official": 141265.27427038646
+    }
+  ],
+  "solution_sha256": "f9c1eb0834dbabcfd0ac9734ae7058edb9257784853543e96652108c95e372fa",
+  "resource": "rss_kb=6460 user=58.40 sys=0.01\n",
+  "error": false,
+  "internal_deadline_stop": false,
+  "logged_threads": 2,
+  "resource_fields": {
+    "rss_kb": 6460.0,
+    "user": 58.4,
+    "sys": 0.01
+  },
+  "success": true,
+  "components": {
+    "reward": 202247.53841885144,
+    "distance": 49527.449626001624,
+    "cost": 11128.15629127386,
+    "penalty": 0.0,
+    "objective": 141591.93250157597
+  }
+}

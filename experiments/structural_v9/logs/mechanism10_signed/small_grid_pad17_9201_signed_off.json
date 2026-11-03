@@ -1,0 +1,63 @@
+{
+  "case": "small_grid_pad17",
+  "seed": 9201,
+  "variant": "signed_off",
+  "command": [
+    "/usr/bin/time",
+    "-f",
+    "rss_kb=%M user=%U sys=%S",
+    "-o",
+    "./experiments/structural_v9/logs/mechanism10_signed/small_grid_pad17_9201_signed_off.resource",
+    "taskset",
+    "-c",
+    "0,3",
+    "./experiments/structural_v9/artifacts/signed_v5/candidate",
+    "./experiments/structural_v9/inputs/small_grid_pad17.json",
+    "./experiments/structural_v9/logs/mechanism10_signed/small_grid_pad17_9201_signed_off.solution.json",
+    "10"
+  ],
+  "env": {
+    "HOME": "/home/user",
+    "LANG": "C.UTF-8",
+    "PATH": "/usr/local/bin:/usr/bin:/bin",
+    "NT": "2",
+    "SEED": "9201",
+    "ZM_SIGNED": "0"
+  },
+  "affinity": [
+    0,
+    3
+  ],
+  "rc": 0,
+  "timeout": false,
+  "wall": 10.012794477999705,
+  "started_unix": 1792638137.851312,
+  "ended_unix": 1792638147.8669941,
+  "official": 223.3677698310813,
+  "valid": true,
+  "snapshots": [
+    {
+      "at": 2.507620293999935,
+      "path": "experiments/structural_v9/logs/mechanism10_signed/small_grid_pad17_9201_signed_off.t2.50.solution.json"
+    },
+    {
+      "at": 5.0015173570000115,
+      "path": "experiments/structural_v9/logs/mechanism10_signed/small_grid_pad17_9201_signed_off.t5.00.solution.json"
+    },
+    {
+      "at": 8.508661257999847,
+      "path": "experiments/structural_v9/logs/mechanism10_signed/small_grid_pad17_9201_signed_off.t8.50.solution.json"
+    }
+  ],
+  "solution_sha256": "e35053b2523beb77fdf5e0b8270523d4c09b58c45557e0bdb72d9441eb3b95cc",
+  "resource": "rss_kb=281156 user=18.74 sys=0.23\n",
+  "error": false,
+  "success": true,
+  "components": {
+    "reward": 239.12552441718583,
+    "distance": 0.0,
+    "cost": 15.75775458610454,
+    "penalty": 0.0,
+    "objective": 223.3677698310813
+  }
+}

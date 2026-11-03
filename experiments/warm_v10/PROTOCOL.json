@@ -1,0 +1,35 @@
+{
+  "objective": "Improve v9 warm start, retaining exact server v4 control",
+  "development": "Previously viewed v9 development and holdout are development here; none will be relabelled independent.",
+  "screen": "NT2 / matched affinity pairs / identical seed and total TL. Full solver, includes warm construction.",
+  "new_methods": [
+    "Geometry genomes h/G plus inherited assignment centroids, true feasible fitness, two independent warm lanes, direct feasible transfer",
+    "Spatial whole-zone atomic crossover, memetic local search and assignment-diverse elite archive"
+  ],
+  "independent": "Freeze selected code and configuration before creating fresh inputs. New input seed offset 1080000. Search seeds 0,10502,10503 (default deployment seed included by pre-generation addendum), TL280. v4, v9, selected variant.",
+  "independent_cases": [
+    "road120",
+    "anti180",
+    "equal_count150",
+    "multi220",
+    "cluster400",
+    "grid160",
+    "road1500",
+    "huge10000"
+  ],
+  "selection": "After short screen and development TL280. Prioritize no invalids/timeouts; improvement over v9 and v4 on equal-weight inputs, inspect worst losses. No quality tuning after independent data generation.",
+  "promotion": "Independent mean >0 vs both controls; case-bootstrap 95 lower >0 vs v4; worst pair >=-1% vs v4; 100% candidate valid and below contest 300 sec. Otherwise experimental, report all outcomes.",
+  "preservation": "All revisions and outputs retained in new directory. No prior artifact rewritten; no deletions.",
+  "resource_veto": {
+    "rule": "Only if the primary promotion gate passes and a matched primary block has CPU/wall ratio range >0.5 across its three variants, repeat the case with largest CPU disparity using the same three seeds and all three versions at TL280, three CPU pairs. Require selected candidate valid/rc0/no emergency timeout/below300 on every repeat, all three v4 matches available, worst vs v4 >= -1%; otherwise veto promotion. Never replace/merge primary rows or call this fresh independent evidence.",
+    "script_sha256": "df90167745e4d8833b8dad542c571354f02ac4e6d7a07c36b0f0734834e0f25f",
+    "specified_before_independent_generation": true,
+    "created_unix": 1792649524.8154867
+  },
+  "balanced_addendum": {
+    "method": "Explicit capacity/task-mass power-cell weight updates, preserving offices in their cells. Feasible full objective remains the only genotype fitness.",
+    "mechanism": "4 sites: default3/1 cells+repair20, balanced2/2=40; official validation of both. Does not prove full v4 fails tiny instance.",
+    "development": "30 paired long runs: v4/v9/v5/v6/v8; same3 viewed inputs,2seeds,6CPU slots. Selection rule extended before those outcomes, fresh8inputs not generated.",
+    "specified_before_independent": true
+  }
+}

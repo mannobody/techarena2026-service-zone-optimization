@@ -1,0 +1,143 @@
+{
+  "case": "capacity240",
+  "seed": 0,
+  "variant": "race_no_share",
+  "command": [
+    "/usr/bin/time",
+    "-f",
+    "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+    "-o",
+    "./experiments/adaptive_v11/logs/screen45_v2/capacity240_0_race_no_share.resource",
+    "taskset",
+    "-c",
+    "16,17",
+    "./experiments/adaptive_v11/artifacts/v2/candidate",
+    "./experiments/adaptive_v11/inputs/dev/capacity240.json",
+    "./experiments/adaptive_v11/logs/screen45_v2/capacity240_0_race_no_share.solution.json",
+    "45"
+  ],
+  "env": {
+    "HOME": "/home/user",
+    "LANG": "C.UTF-8",
+    "PATH": "/usr/local/bin:/usr/bin:/bin",
+    "NT": "2",
+    "SEED": "0",
+    "AP_POLICY": "1",
+    "AP_SHARE": "0"
+  },
+  "affinity": [
+    16,
+    17
+  ],
+  "rc": 0,
+  "timeout": false,
+  "wall": 44.77782173600281,
+  "started_unix": 1792657701.2929997,
+  "ended_unix": 1792657746.123481,
+  "official": 3961.9628922089946,
+  "valid": true,
+  "snapshots": [
+    {
+      "at": 4.528961378000531,
+      "path": "experiments/adaptive_v11/logs/screen45_v2/capacity240_0_race_no_share.t4.50.solution.json",
+      "official": 3961.9628922089946
+    },
+    {
+      "at": 9.913968519002083,
+      "path": "experiments/adaptive_v11/logs/screen45_v2/capacity240_0_race_no_share.t9.90.solution.json",
+      "official": 3961.9628922089946
+    },
+    {
+      "at": 11.4834560470008,
+      "path": "experiments/adaptive_v11/logs/screen45_v2/capacity240_0_race_no_share.t11.25.solution.json",
+      "official": 3961.9628922089946
+    },
+    {
+      "at": 22.53214278700034,
+      "path": "experiments/adaptive_v11/logs/screen45_v2/capacity240_0_race_no_share.t22.50.solution.json",
+      "official": 3961.9628922089946
+    },
+    {
+      "at": 38.29916863499966,
+      "path": "experiments/adaptive_v11/logs/screen45_v2/capacity240_0_race_no_share.t38.25.solution.json",
+      "official": 3961.9628922089946
+    }
+  ],
+  "solution_sha256": "3baa3fb43a98dac99b1dfb86ff0014525d3b79378d6f42349ca728cf0f060199",
+  "resource": "rss_kb=6704 user=88.58 sys=0.05 majorfaults=0 minorfaults=623 voluntary=3555 involuntary=6045 inputs=0 outputs=40\n",
+  "error": false,
+  "process_sampling": {
+    "last": {
+      "392": {
+        "runtime_ns": 34846303,
+        "runqueue_ns": 44721198,
+        "slices": 3535
+      },
+      "394": {
+        "runtime_ns": 44182663113,
+        "runqueue_ns": 26259368,
+        "slices": 610
+      },
+      "395": {
+        "runtime_ns": 44061910444,
+        "runqueue_ns": 126105525,
+        "slices": 5390
+      },
+      "396": {
+        "runtime_ns": 47127,
+        "runqueue_ns": 137558,
+        "slices": 2
+      },
+      "404": {
+        "runtime_ns": 27981,
+        "runqueue_ns": 301790,
+        "slices": 1
+      }
+    },
+    "states": {
+      "S": 122,
+      "R": 88
+    },
+    "wchan": {
+      "hrtimer_nanosleep": 43,
+      "0": 89,
+      "futex_do_wait": 78
+    },
+    "max_sampled_threads": 5,
+    "samples": 44,
+    "last_io": {
+      "rchar": 210167,
+      "wchar": 2195,
+      "syscr": 48,
+      "syscw": 13,
+      "read_bytes": 0,
+      "write_bytes": 20480,
+      "cancelled_write_bytes": 0
+    }
+  },
+  "resource_extra_fields": {
+    "majorfaults": 0.0,
+    "minorfaults": 623.0,
+    "voluntary": 3555.0,
+    "involuntary": 6045.0,
+    "inputs": 0.0,
+    "outputs": 40.0
+  },
+  "internal_deadline_stop": false,
+  "cpu_pressure_before": "some avg10=1.23 avg60=1.01 avg300=0.86 total=6207124084\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+  "cpu_pressure_after": "some avg10=1.37 avg60=1.17 avg300=0.94 total=6207914926\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+  "logged_threads": 1,
+  "resource_fields": {
+    "rss_kb": 6704.0,
+    "user": 88.58,
+    "sys": 0.05
+  },
+  "success": true,
+  "components": {
+    "reward": 5472.276620338318,
+    "distance": 480.47660227855954,
+    "cost": 997.9155122321234,
+    "penalty": 31.921613618640187,
+    "objective": 3961.9628922089946
+  }
+}

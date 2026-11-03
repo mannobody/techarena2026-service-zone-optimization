@@ -1,0 +1,74 @@
+{
+  "case": "line0",
+  "seed": 0,
+  "variant": "adaptive",
+  "command": [
+    "/usr/bin/time",
+    "-f",
+    "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+    "-o",
+    "./experiments/adaptive_v11/logs/line_screen8/line0_0_adaptive.resource",
+    "taskset",
+    "-c",
+    "8,10",
+    "./experiments/adaptive_v11/artifacts/v3/candidate",
+    "./experiments/adaptive_v11/inputs/line_mechanism/line0.json",
+    "./experiments/adaptive_v11/logs/line_screen8/line0_0_adaptive.solution.json",
+    "8"
+  ],
+  "env": {
+    "HOME": "/home/user",
+    "LANG": "C.UTF-8",
+    "PATH": "/usr/local/bin:/usr/bin:/bin",
+    "NT": "2",
+    "SEED": "0"
+  },
+  "affinity": [
+    8,
+    10
+  ],
+  "rc": 0,
+  "timeout": false,
+  "wall": 0.016533844001969555,
+  "started_unix": 1792657970.870679,
+  "ended_unix": 1792657970.9064004,
+  "official": 789.6550209689726,
+  "valid": true,
+  "snapshots": [],
+  "solution_sha256": "c4475b8cc9583c71e8d46dfb08207e5b0ae7a9433c617a7198e420e84c132369",
+  "resource": "rss_kb=5132 user=0.00 sys=0.00 majorfaults=0 minorfaults=309 voluntary=1 involuntary=2 inputs=0 outputs=16\n",
+  "error": false,
+  "process_sampling": {
+    "last": {},
+    "states": {},
+    "wchan": {},
+    "max_sampled_threads": 0,
+    "samples": 0,
+    "last_io": {}
+  },
+  "resource_extra_fields": {
+    "majorfaults": 0.0,
+    "minorfaults": 309.0,
+    "voluntary": 1.0,
+    "involuntary": 2.0,
+    "inputs": 0.0,
+    "outputs": 16.0
+  },
+  "internal_deadline_stop": false,
+  "cpu_pressure_before": "some avg10=1.53 avg60=1.60 avg300=1.36 total=6212884920\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+  "cpu_pressure_after": "some avg10=1.53 avg60=1.60 avg300=1.36 total=6212886478\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+  "logged_threads": null,
+  "resource_fields": {
+    "rss_kb": 5132.0,
+    "user": 0.0,
+    "sys": 0.0
+  },
+  "success": true,
+  "components": {
+    "reward": 1544.7005892407033,
+    "distance": 672.7175221509763,
+    "cost": 82.32804612075425,
+    "penalty": 0,
+    "objective": 789.6550209689727
+  }
+}

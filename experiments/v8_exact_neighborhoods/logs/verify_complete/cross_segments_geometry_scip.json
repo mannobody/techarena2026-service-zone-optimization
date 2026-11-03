@@ -1,0 +1,58 @@
+{
+  "case": "cross_segments",
+  "kind": "geometry",
+  "backend": "scip",
+  "ok": true,
+  "expected": 18,
+  "result": {
+    "solution": [
+      {
+        "officeId": 0,
+        "sites": [
+          0
+        ],
+        "workers": [
+          0
+        ]
+      },
+      {
+        "officeId": 1,
+        "sites": [
+          1
+        ],
+        "workers": [
+          1
+        ]
+      }
+    ],
+    "before": 18.0,
+    "value": 18.0,
+    "gain": 0.0,
+    "kind": "geometry",
+    "backend": "scip",
+    "conditional_optimal": true,
+    "status": "optimal",
+    "bound": 18.0,
+    "gap": 0.0,
+    "build": 0.00734118100001524,
+    "solve": 0.0009031309999727455,
+    "check": 0.000520804000075259,
+    "restore": 0.0007203760000038528,
+    "seconds": 0.011131062999993446,
+    "gain_per_second": 0.0,
+    "iterations": 1,
+    "nodes": 0,
+    "cuts": 0,
+    "variables": 12,
+    "rows": 24,
+    "selected": [
+      0,
+      1
+    ],
+    "offices": [
+      0,
+      1
+    ],
+    "events": []
+  }
+}

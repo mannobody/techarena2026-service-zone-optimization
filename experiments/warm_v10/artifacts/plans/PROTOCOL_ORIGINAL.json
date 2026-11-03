@@ -1,0 +1,23 @@
+{
+  "objective": "Improve v9 warm start, retaining exact server v4 control",
+  "development": "Previously viewed v9 development and holdout are development here; none will be relabelled independent.",
+  "screen": "NT2 / matched affinity pairs / identical seed and total TL. Full solver, includes warm construction.",
+  "new_methods": [
+    "Geometry genomes h/G plus inherited assignment centroids, true feasible fitness, two independent warm lanes, direct feasible transfer",
+    "Spatial whole-zone atomic crossover, memetic local search and assignment-diverse elite archive"
+  ],
+  "independent": "Freeze selected code and configuration before creating fresh inputs. New seed offset 1080000. Three seeds 10501,10502,10503, TL280. v4, v9, selected variant.",
+  "independent_cases": [
+    "road120",
+    "anti180",
+    "equal_count150",
+    "multi220",
+    "cluster400",
+    "grid160",
+    "road1500",
+    "huge10000"
+  ],
+  "selection": "After short screen and development TL280. Prioritize no invalids/timeouts; improvement over v9 and v4 on equal-weight inputs, inspect worst losses. No quality tuning after independent data generation.",
+  "promotion": "Independent mean >0 vs both controls; case-bootstrap 95 lower >0 vs v4; worst pair >=-1% vs v4; 100% candidate valid and below contest 300 sec. Otherwise experimental, report all outcomes.",
+  "preservation": "All revisions and outputs retained in new directory. No prior artifact rewritten; no deletions."
+}

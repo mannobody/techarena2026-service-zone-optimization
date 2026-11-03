@@ -1,0 +1,74 @@
+{
+  "case": "official_3",
+  "seed": 9303,
+  "variant": "tail",
+  "command": [
+    "/usr/bin/time",
+    "-f",
+    "rss_kb=%M user=%U sys=%S",
+    "-o",
+    "./experiments/structural_v9/logs/development280/official_3_9303_tail.resource",
+    "taskset",
+    "-c",
+    "8,10",
+    "./experiments/structural_v9/artifacts/final_research/candidate",
+    "./task/instance3/instance.json",
+    "./experiments/structural_v9/logs/development280/official_3_9303_tail.solution.json",
+    "280"
+  ],
+  "env": {
+    "HOME": "/home/user",
+    "LANG": "C.UTF-8",
+    "PATH": "/usr/local/bin:/usr/bin:/bin",
+    "NT": "2",
+    "SEED": "9303",
+    "ZM_POOL": "0",
+    "ZM_RESERVE": "0"
+  },
+  "affinity": [
+    8,
+    10
+  ],
+  "rc": 0,
+  "timeout": false,
+  "wall": 279.4997771819999,
+  "started_unix": 1792639718.1588953,
+  "ended_unix": 1792639997.8003798,
+  "official": 136596.63298748079,
+  "valid": true,
+  "snapshots": [
+    {
+      "at": 70.04055550399971,
+      "path": "experiments/structural_v9/logs/development280/official_3_9303_tail.t70.00.solution.json",
+      "official": 136424.27241780786
+    },
+    {
+      "at": 140.02214704799962,
+      "path": "experiments/structural_v9/logs/development280/official_3_9303_tail.t140.00.solution.json",
+      "official": 136567.72198120007
+    },
+    {
+      "at": 238.03647202899992,
+      "path": "experiments/structural_v9/logs/development280/official_3_9303_tail.t238.00.solution.json",
+      "official": 136567.72198120007
+    }
+  ],
+  "solution_sha256": "bf7a409409a7058b63c6eaab53072eb8e908208b6442646135cfda18117f8dc7",
+  "resource": "rss_kb=6488 user=553.42 sys=0.11\n",
+  "error": false,
+  "internal_deadline_stop": false,
+  "logged_threads": 2,
+  "resource_fields": {
+    "rss_kb": 6488.0,
+    "user": 553.42,
+    "sys": 0.11
+  },
+  "success": true,
+  "components": {
+    "reward": 290418.0266026272,
+    "distance": 152519.50929262122,
+    "cost": 1301.8843225252008,
+    "penalty": 0.0,
+    "objective": 136596.63298748076
+  }
+}

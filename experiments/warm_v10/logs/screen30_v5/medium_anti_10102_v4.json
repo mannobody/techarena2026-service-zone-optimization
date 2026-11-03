@@ -1,0 +1,85 @@
+{
+  "case": "medium_anti",
+  "seed": 10102,
+  "variant": "v4",
+  "command": [
+    "/usr/bin/time",
+    "-f",
+    "rss_kb=%M user=%U sys=%S",
+    "-o",
+    "./experiments/warm_v10/logs/screen30_v5/medium_anti_10102_v4.resource",
+    "taskset",
+    "-c",
+    "3,6",
+    "./experiments/structural_v9/artifacts/v4",
+    "./experiments/structural_v9/inputs/dev/medium_anti.json",
+    "./experiments/warm_v10/logs/screen30_v5/medium_anti_10102_v4.solution.json",
+    "30"
+  ],
+  "env": {
+    "HOME": "/home/user",
+    "LANG": "C.UTF-8",
+    "PATH": "/usr/local/bin:/usr/bin:/bin",
+    "NT": "2",
+    "SEED": "10102",
+    "DBG": "1"
+  },
+  "affinity": [
+    3,
+    6
+  ],
+  "rc": 0,
+  "timeout": false,
+  "wall": 30.27277782299825,
+  "started_unix": 1792647170.5798025,
+  "ended_unix": 1792647201.1130474,
+  "official": 2429.1849651081525,
+  "valid": true,
+  "snapshots": [
+    {
+      "at": 3.0191108099988924,
+      "path": "experiments/warm_v10/logs/screen30_v5/medium_anti_10102_v4.t3.00.solution.json",
+      "official": 2428.3784730169655
+    },
+    {
+      "at": 6.62782493099985,
+      "path": "experiments/warm_v10/logs/screen30_v5/medium_anti_10102_v4.t6.60.solution.json",
+      "official": 2428.3784730169655
+    },
+    {
+      "at": 7.5311972979998245,
+      "path": "experiments/warm_v10/logs/screen30_v5/medium_anti_10102_v4.t7.50.solution.json",
+      "official": 2428.3784730169655
+    },
+    {
+      "at": 15.051407942999504,
+      "path": "experiments/warm_v10/logs/screen30_v5/medium_anti_10102_v4.t15.00.solution.json",
+      "official": 2428.3784730169655
+    },
+    {
+      "at": 25.52518520999911,
+      "path": "experiments/warm_v10/logs/screen30_v5/medium_anti_10102_v4.t25.50.solution.json",
+      "official": 2428.3784730169655
+    }
+  ],
+  "solution_sha256": "e2a8f9bd900ff05e6bebdbe6c6ea4af97c5a681d98479f33d9cc5c2feca386dd",
+  "resource": "rss_kb=5460 user=59.00 sys=0.00\n",
+  "error": false,
+  "internal_deadline_stop": false,
+  "cpu_pressure_before": "some avg10=49.79 avg60=49.39 avg300=40.21 total=3802283406\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+  "cpu_pressure_after": "some avg10=15.65 avg60=35.62 avg300=37.69 total=3807139476\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+  "logged_threads": 2,
+  "resource_fields": {
+    "rss_kb": 5460.0,
+    "user": 59.0,
+    "sys": 0.0
+  },
+  "success": false,
+  "components": {
+    "reward": 8268.106549100406,
+    "distance": 5492.289512555196,
+    "cost": 341.3824799773121,
+    "penalty": 5.2495914597462905,
+    "objective": 2429.1849651081525
+  }
+}

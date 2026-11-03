@@ -1,0 +1,74 @@
+{
+  "case": "line9",
+  "seed": 0,
+  "variant": "adaptive",
+  "command": [
+    "/usr/bin/time",
+    "-f",
+    "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+    "-o",
+    "./experiments/adaptive_v11/logs/line_screen8/line9_0_adaptive.resource",
+    "taskset",
+    "-c",
+    "8,10",
+    "./experiments/adaptive_v11/artifacts/v3/candidate",
+    "./experiments/adaptive_v11/inputs/line_mechanism/line9.json",
+    "./experiments/adaptive_v11/logs/line_screen8/line9_0_adaptive.solution.json",
+    "8"
+  ],
+  "env": {
+    "HOME": "/home/user",
+    "LANG": "C.UTF-8",
+    "PATH": "/usr/local/bin:/usr/bin:/bin",
+    "NT": "2",
+    "SEED": "0"
+  },
+  "affinity": [
+    8,
+    10
+  ],
+  "rc": 0,
+  "timeout": false,
+  "wall": 0.01723244399909163,
+  "started_unix": 1792658010.7540529,
+  "ended_unix": 1792658010.7831073,
+  "official": 753.6905418835589,
+  "valid": true,
+  "snapshots": [],
+  "solution_sha256": "441b67ad2dd5a866d4258d7be6ab91fa847b71d89c034f3a486800bcccf32110",
+  "resource": "rss_kb=5080 user=0.00 sys=0.00 majorfaults=0 minorfaults=311 voluntary=1 involuntary=1 inputs=0 outputs=16\n",
+  "error": false,
+  "process_sampling": {
+    "last": {},
+    "states": {},
+    "wchan": {},
+    "max_sampled_threads": 0,
+    "samples": 0,
+    "last_io": {}
+  },
+  "resource_extra_fields": {
+    "majorfaults": 0.0,
+    "minorfaults": 311.0,
+    "voluntary": 1.0,
+    "involuntary": 1.0,
+    "inputs": 0.0,
+    "outputs": 16.0
+  },
+  "internal_deadline_stop": false,
+  "cpu_pressure_before": "some avg10=1.51 avg60=1.55 avg300=1.37 total=6213669100\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+  "cpu_pressure_after": "some avg10=1.51 avg60=1.55 avg300=1.37 total=6213669726\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+  "logged_threads": null,
+  "resource_fields": {
+    "rss_kb": 5080.0,
+    "user": 0.0,
+    "sys": 0.0
+  },
+  "success": true,
+  "components": {
+    "reward": 1286.8682710522871,
+    "distance": 481.949595196666,
+    "cost": 51.22813397206194,
+    "penalty": 0,
+    "objective": 753.6905418835591
+  }
+}

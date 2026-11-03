@@ -1,0 +1,74 @@
+{
+  "case": "medium_anti",
+  "seed": 9302,
+  "variant": "tail",
+  "command": [
+    "/usr/bin/time",
+    "-f",
+    "rss_kb=%M user=%U sys=%S",
+    "-o",
+    "./experiments/structural_v9/logs/development280/medium_anti_9302_tail.resource",
+    "taskset",
+    "-c",
+    "8,10",
+    "./experiments/structural_v9/artifacts/final_research/candidate",
+    "./experiments/structural_v9/inputs/dev/medium_anti.json",
+    "./experiments/structural_v9/logs/development280/medium_anti_9302_tail.solution.json",
+    "280"
+  ],
+  "env": {
+    "HOME": "/home/user",
+    "LANG": "C.UTF-8",
+    "PATH": "/usr/local/bin:/usr/bin:/bin",
+    "NT": "2",
+    "SEED": "9302",
+    "ZM_POOL": "0",
+    "ZM_RESERVE": "0"
+  },
+  "affinity": [
+    8,
+    10
+  ],
+  "rc": 0,
+  "timeout": false,
+  "wall": 279.4651273979998,
+  "started_unix": 1792638878.828592,
+  "ended_unix": 1792639158.3094158,
+  "official": 2612.8097144480507,
+  "valid": true,
+  "snapshots": [
+    {
+      "at": 70.04234906500005,
+      "path": "experiments/structural_v9/logs/development280/medium_anti_9302_tail.t70.00.solution.json",
+      "official": 2428.3784730169655
+    },
+    {
+      "at": 140.0131745220001,
+      "path": "experiments/structural_v9/logs/development280/medium_anti_9302_tail.t140.00.solution.json",
+      "official": 2567.19614207779
+    },
+    {
+      "at": 238.03743207900015,
+      "path": "experiments/structural_v9/logs/development280/medium_anti_9302_tail.t238.00.solution.json",
+      "official": 2567.19614207779
+    }
+  ],
+  "solution_sha256": "0f29b1824ab45b63216698d3bd5bf42e7529040867cde21fd2af421867094b33",
+  "resource": "rss_kb=5216 user=552.36 sys=0.25\n",
+  "error": false,
+  "internal_deadline_stop": false,
+  "logged_threads": 2,
+  "resource_fields": {
+    "rss_kb": 5216.0,
+    "user": 552.36,
+    "sys": 0.25
+  },
+  "success": true,
+  "components": {
+    "reward": 8005.626976113093,
+    "distance": 5058.968222724671,
+    "cost": 327.28704961568656,
+    "penalty": 6.561989324682863,
+    "objective": 2612.8097144480525
+  }
+}

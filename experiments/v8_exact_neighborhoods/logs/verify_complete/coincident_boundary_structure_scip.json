@@ -1,0 +1,50 @@
+{
+  "case": "coincident_boundary",
+  "kind": "structure",
+  "backend": "scip",
+  "ok": true,
+  "expected": 19,
+  "result": {
+    "solution": [
+      {
+        "officeId": 0,
+        "sites": [
+          0,
+          1
+        ],
+        "workers": [
+          0
+        ]
+      }
+    ],
+    "before": 0.0,
+    "value": 19.0,
+    "gain": 19.0,
+    "kind": "structure",
+    "backend": "scip",
+    "conditional_optimal": true,
+    "status": "optimal",
+    "bound": 19.0,
+    "gap": 0.0,
+    "build": 0.007027976999893326,
+    "solve": 0.003919733999964592,
+    "check": 0.000442889000055402,
+    "restore": 0.0004057140000668369,
+    "seconds": 0.013470089999941592,
+    "gain_per_second": 1410.5325205757636,
+    "iterations": 1,
+    "nodes": 1,
+    "cuts": 0,
+    "variables": 12,
+    "rows": 24,
+    "selected": [
+      0,
+      1
+    ],
+    "offices": [
+      0,
+      1
+    ],
+    "events": []
+  }
+}

@@ -1,0 +1,4997 @@
+[
+  {
+    "case": "cross_segments",
+    "kind": "structure",
+    "backend": "highs",
+    "ok": true,
+    "expected": 18,
+    "result": {
+      "solution": [
+        {
+          "officeId": 0,
+          "sites": [
+            0
+          ],
+          "workers": [
+            0
+          ]
+        },
+        {
+          "officeId": 1,
+          "sites": [
+            1
+          ],
+          "workers": [
+            1
+          ]
+        }
+      ],
+      "before": 0.0,
+      "value": 18.0,
+      "gain": 18.0,
+      "kind": "structure",
+      "backend": "highs",
+      "conditional_optimal": true,
+      "status": "HighsModelStatus.kOptimal",
+      "bound": 18.0,
+      "gap": 0.0,
+      "build": 0.025686555999982374,
+      "solve": 0.021926959000097668,
+      "check": 0.0007275130000152785,
+      "restore": 0.0008659180000449851,
+      "seconds": 0.0504841839999699,
+      "gain_per_second": 356.5473099458383,
+      "iterations": 1,
+      "nodes": 1,
+      "cuts": 0,
+      "variables": 12,
+      "rows": 24,
+      "selected": [
+        0,
+        1
+      ],
+      "offices": [
+        0,
+        1
+      ],
+      "events": []
+    }
+  },
+  {
+    "case": "cross_segments",
+    "kind": "structure",
+    "backend": "scip",
+    "ok": true,
+    "expected": 18,
+    "result": {
+      "solution": [
+        {
+          "officeId": 0,
+          "sites": [
+            0
+          ],
+          "workers": [
+            0
+          ]
+        },
+        {
+          "officeId": 1,
+          "sites": [
+            1
+          ],
+          "workers": [
+            1
+          ]
+        }
+      ],
+      "before": 0.0,
+      "value": 18.0,
+      "gain": 18.0,
+      "kind": "structure",
+      "backend": "scip",
+      "conditional_optimal": true,
+      "status": "optimal",
+      "bound": 18.0,
+      "gap": 0.0,
+      "build": 0.031392112000048655,
+      "solve": 0.0021798400000534457,
+      "check": 0.0006048310000323909,
+      "restore": 0.0007705080000732778,
+      "seconds": 0.036796451000100205,
+      "gain_per_second": 489.1776111764415,
+      "iterations": 1,
+      "nodes": 0,
+      "cuts": 0,
+      "variables": 12,
+      "rows": 24,
+      "selected": [
+        0,
+        1
+      ],
+      "offices": [
+        0,
+        1
+      ],
+      "events": []
+    }
+  },
+  {
+    "case": "cross_segments",
+    "kind": "geometry",
+    "backend": "highs",
+    "ok": true,
+    "expected": 18,
+    "result": {
+      "solution": [
+        {
+          "officeId": 0,
+          "sites": [
+            0
+          ],
+          "workers": [
+            0
+          ]
+        },
+        {
+          "officeId": 1,
+          "sites": [
+            1
+          ],
+          "workers": [
+            1
+          ]
+        }
+      ],
+      "before": 18.0,
+      "value": 18.0,
+      "gain": 0.0,
+      "kind": "geometry",
+      "backend": "highs",
+      "conditional_optimal": true,
+      "status": "HighsModelStatus.kOptimal",
+      "bound": 18.0,
+      "gap": 0.0,
+      "build": 0.00195434700003716,
+      "solve": 0.001534271000082299,
+      "check": 0.0004883340000105818,
+      "restore": 0.0007225310000649188,
+      "seconds": 0.005653909999978168,
+      "gain_per_second": 0.0,
+      "iterations": 1,
+      "nodes": 0,
+      "cuts": 0,
+      "variables": 12,
+      "rows": 24,
+      "selected": [
+        0,
+        1
+      ],
+      "offices": [
+        0,
+        1
+      ],
+      "events": []
+    }
+  },
+  {
+    "case": "cross_segments",
+    "kind": "geometry",
+    "backend": "scip",
+    "ok": true,
+    "expected": 18,
+    "result": {
+      "solution": [
+        {
+          "officeId": 0,
+          "sites": [
+            0
+          ],
+          "workers": [
+            0
+          ]
+        },
+        {
+          "officeId": 1,
+          "sites": [
+            1
+          ],
+          "workers": [
+            1
+          ]
+        }
+      ],
+      "before": 18.0,
+      "value": 18.0,
+      "gain": 0.0,
+      "kind": "geometry",
+      "backend": "scip",
+      "conditional_optimal": true,
+      "status": "optimal",
+      "bound": 18.0,
+      "gap": 0.0,
+      "build": 0.00734118100001524,
+      "solve": 0.0009031309999727455,
+      "check": 0.000520804000075259,
+      "restore": 0.0007203760000038528,
+      "seconds": 0.011131062999993446,
+      "gain_per_second": 0.0,
+      "iterations": 1,
+      "nodes": 0,
+      "cuts": 0,
+      "variables": 12,
+      "rows": 24,
+      "selected": [
+        0,
+        1
+      ],
+      "offices": [
+        0,
+        1
+      ],
+      "events": []
+    }
+  },
+  {
+    "case": "cross_segments",
+    "kind": "runtime",
+    "ok": true,
+    "value": 18.0,
+    "expected": 18,
+    "rc": 0,
+    "wall": 0.011413563000019167
+  },
+  {
+    "case": "cross_triangles",
+    "kind": "structure",
+    "backend": "scip",
+    "ok": true,
+    "expected": 38,
+    "result": {
+      "solution": [
+        {
+          "officeId": 0,
+          "sites": [
+            0,
+            1
+          ],
+          "workers": [
+            0
+          ]
+        },
+        {
+          "officeId": 1,
+          "sites": [
+            2,
+            3
+          ],
+          "workers": [
+            1
+          ]
+        }
+      ],
+      "before": 0.0,
+      "value": 38.0,
+      "gain": 38.0,
+      "kind": "structure",
+      "backend": "scip",
+      "conditional_optimal": true,
+      "status": "optimal",
+      "bound": 38.0,
+      "gap": 0.0,
+      "build": 0.007319541000015306,
+      "solve": 0.005102220000026136,
+      "check": 0.0006432970000105342,
+      "restore": 0.0009050759999809088,
+      "seconds": 0.015916793999963375,
+      "gain_per_second": 2387.4154556556705,
+      "iterations": 1,
+      "nodes": 1,
+      "cuts": 0,
+      "variables": 16,
+      "rows": 30,
+      "selected": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "offices": [
+        0,
+        1
+      ],
+      "events": []
+    }
+  },
+  {
+    "case": "cross_triangles",
+    "kind": "structure",
+    "backend": "highs",
+    "ok": true,
+    "expected": 38,
+    "result": {
+      "solution": [
+        {
+          "officeId": 0,
+          "sites": [
+            0,
+            1
+          ],
+          "workers": [
+            0
+          ]
+        },
+        {
+          "officeId": 1,
+          "sites": [
+            2,
+            3
+          ],
+          "workers": [
+            1
+          ]
+        }
+      ],
+      "before": 0.0,
+      "value": 38.0,
+      "gain": 38.0,
+      "kind": "structure",
+      "backend": "highs",
+      "conditional_optimal": true,
+      "status": "HighsModelStatus.kOptimal",
+      "bound": 38.0,
+      "gap": 0.0,
+      "build": 0.0016936460000351872,
+      "solve": 0.01861125000004904,
+      "check": 0.0006092569999509578,
+      "restore": 0.0008620629999995799,
+      "seconds": 0.022844082000005983,
+      "gain_per_second": 1663.4505164177772,
+      "iterations": 1,
+      "nodes": 1,
+      "cuts": 0,
+      "variables": 16,
+      "rows": 30,
+      "selected": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "offices": [
+        0,
+        1
+      ],
+      "events": []
+    }
+  },
+  {
+    "case": "cross_triangles",
+    "kind": "geometry",
+    "backend": "scip",
+    "ok": true,
+    "expected": 38,
+    "result": {
+      "solution": [
+        {
+          "officeId": 0,
+          "sites": [
+            0,
+            1
+          ],
+          "workers": [
+            0
+          ]
+        },
+        {
+          "officeId": 1,
+          "sites": [
+            2,
+            3
+          ],
+          "workers": [
+            1
+          ]
+        }
+      ],
+      "before": 38.0,
+      "value": 38.0,
+      "gain": 0.0,
+      "kind": "geometry",
+      "backend": "scip",
+      "conditional_optimal": true,
+      "status": "optimal",
+      "bound": 38.0,
+      "gap": 0.0,
+      "build": 0.007769596000002821,
+      "solve": 0.0008509760000379174,
+      "check": 0.0006277349999663784,
+      "restore": 0.0008935339999425196,
+      "seconds": 0.012043136000102095,
+      "gain_per_second": 0.0,
+      "iterations": 1,
+      "nodes": 0,
+      "cuts": 0,
+      "variables": 16,
+      "rows": 30,
+      "selected": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "offices": [
+        0,
+        1
+      ],
+      "events": []
+    }
+  },
+  {
+    "case": "cross_triangles",
+    "kind": "geometry",
+    "backend": "highs",
+    "ok": true,
+    "expected": 38,
+    "result": {
+      "solution": [
+        {
+          "officeId": 0,
+          "sites": [
+            0,
+            1
+          ],
+          "workers": [
+            0
+          ]
+        },
+        {
+          "officeId": 1,
+          "sites": [
+            2,
+            3
+          ],
+          "workers": [
+            1
+          ]
+        }
+      ],
+      "before": 38.0,
+      "value": 38.0,
+      "gain": 0.0,
+      "kind": "geometry",
+      "backend": "highs",
+      "conditional_optimal": true,
+      "status": "HighsModelStatus.kOptimal",
+      "bound": 38.0,
+      "gap": 0.0,
+      "build": 0.00210655199998655,
+      "solve": 0.0017917420000230777,
+      "check": 0.0005842129999109602,
+      "restore": 0.0008431149999523768,
+      "seconds": 0.006403570999964359,
+      "gain_per_second": 0.0,
+      "iterations": 1,
+      "nodes": 0,
+      "cuts": 0,
+      "variables": 16,
+      "rows": 30,
+      "selected": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "offices": [
+        0,
+        1
+      ],
+      "events": []
+    }
+  },
+  {
+    "case": "cross_triangles",
+    "kind": "runtime",
+    "ok": true,
+    "value": 38.0,
+    "expected": 38,
+    "rc": 0,
+    "wall": 0.011411813999984588
+  },
+  {
+    "case": "unassigned_witness",
+    "kind": "structure",
+    "backend": "scip",
+    "ok": true,
+    "expected": 9,
+    "result": {
+      "solution": [
+        {
+          "officeId": 0,
+          "sites": [
+            0
+          ],
+          "workers": [
+            0
+          ]
+        }
+      ],
+      "before": 0.0,
+      "value": 9.0,
+      "gain": 9.0,
+      "kind": "structure",
+      "backend": "scip",
+      "conditional_optimal": true,
+      "status": "optimal",
+      "bound": 9.0,
+      "gap": 0.0,
+      "build": 0.006925312000021222,
+      "solve": 0.002944767000030879,
+      "check": 0.0016572940000969538,
+      "restore": 0.0004604419999623133,
+      "seconds": 0.014055750000011358,
+      "gain_per_second": 640.3073475262954,
+      "iterations": 2,
+      "nodes": 1,
+      "cuts": 1,
+      "variables": 14,
+      "rows": 27,
+      "selected": [
+        0,
+        1,
+        2
+      ],
+      "offices": [
+        0,
+        1
+      ],
+      "events": [
+        {
+          "iteration": 1,
+          "conflicts": 1,
+          "cuts": 1,
+          "bound": 18.0,
+          "seconds": 0.011894663000020955
+        }
+      ]
+    }
+  },
+  {
+    "case": "unassigned_witness",
+    "kind": "structure",
+    "backend": "highs",
+    "ok": true,
+    "expected": 9,
+    "result": {
+      "solution": [
+        {
+          "officeId": 0,
+          "sites": [
+            0
+          ],
+          "workers": [
+            0
+          ]
+        }
+      ],
+      "before": 0.0,
+      "value": 9.0,
+      "gain": 9.0,
+      "kind": "structure",
+      "backend": "highs",
+      "conditional_optimal": true,
+      "status": "HighsModelStatus.kOptimal",
+      "bound": 9.0,
+      "gap": 0.0,
+      "build": 0.001625117000003229,
+      "solve": 0.04786342700003843,
+      "check": 0.0012644820000105028,
+      "restore": 0.00047643599998536956,
+      "seconds": 0.05232833899992784,
+      "gain_per_second": 171.9909359250331,
+      "iterations": 2,
+      "nodes": 2,
+      "cuts": 1,
+      "variables": 14,
+      "rows": 27,
+      "selected": [
+        0,
+        1,
+        2
+      ],
+      "offices": [
+        0,
+        1
+      ],
+      "events": [
+        {
+          "iteration": 1,
+          "conflicts": 1,
+          "cuts": 1,
+          "bound": 18.0,
+          "seconds": 0.027176447999977427
+        }
+      ]
+    }
+  },
+  {
+    "case": "unassigned_witness",
+    "kind": "runtime",
+    "ok": true,
+    "value": 9.0,
+    "expected": 9,
+    "rc": 0,
+    "wall": 0.010763362000034249
+  },
+  {
+    "case": "boundary_witness",
+    "kind": "structure",
+    "backend": "scip",
+    "ok": true,
+    "expected": 9,
+    "result": {
+      "solution": [
+        {
+          "officeId": 0,
+          "sites": [
+            0
+          ],
+          "workers": [
+            0
+          ]
+        }
+      ],
+      "before": 0.0,
+      "value": 9.0,
+      "gain": 9.0,
+      "kind": "structure",
+      "backend": "scip",
+      "conditional_optimal": true,
+      "status": "optimal",
+      "bound": 9.0,
+      "gap": 0.0,
+      "build": 0.00722893700003624,
+      "solve": 0.0029646529998217375,
+      "check": 0.0015363429999979417,
+      "restore": 0.00045128299996122223,
+      "seconds": 0.014084996999940813,
+      "gain_per_second": 638.9777718829347,
+      "iterations": 2,
+      "nodes": 1,
+      "cuts": 1,
+      "variables": 14,
+      "rows": 27,
+      "selected": [
+        0,
+        1,
+        2
+      ],
+      "offices": [
+        0,
+        1
+      ],
+      "events": [
+        {
+          "iteration": 1,
+          "conflicts": 1,
+          "cuts": 1,
+          "bound": 18.0,
+          "seconds": 0.01189500999998927
+        }
+      ]
+    }
+  },
+  {
+    "case": "boundary_witness",
+    "kind": "structure",
+    "backend": "highs",
+    "ok": true,
+    "expected": 9,
+    "result": {
+      "solution": [
+        {
+          "officeId": 0,
+          "sites": [
+            0
+          ],
+          "workers": [
+            0
+          ]
+        }
+      ],
+      "before": 0.0,
+      "value": 9.0,
+      "gain": 9.0,
+      "kind": "structure",
+      "backend": "highs",
+      "conditional_optimal": true,
+      "status": "HighsModelStatus.kOptimal",
+      "bound": 9.0,
+      "gap": 0.0,
+      "build": 0.0015281699999150078,
+      "solve": 0.053441283999973166,
+      "check": 0.0012982909998981995,
+      "restore": 0.000470186000029571,
+      "seconds": 0.05780775999994603,
+      "gain_per_second": 155.6884404448192,
+      "iterations": 2,
+      "nodes": 2,
+      "cuts": 1,
+      "variables": 14,
+      "rows": 27,
+      "selected": [
+        0,
+        1,
+        2
+      ],
+      "offices": [
+        0,
+        1
+      ],
+      "events": [
+        {
+          "iteration": 1,
+          "conflicts": 1,
+          "cuts": 1,
+          "bound": 18.0,
+          "seconds": 0.03272416400000111
+        }
+      ]
+    }
+  },
+  {
+    "case": "boundary_witness",
+    "kind": "runtime",
+    "ok": true,
+    "value": 9.0,
+    "expected": 9,
+    "rc": 0,
+    "wall": 0.010930066000014449
+  },
+  {
+    "case": "closed_office_witness",
+    "kind": "structure",
+    "backend": "scip",
+    "ok": true,
+    "expected": 9,
+    "result": {
+      "solution": [
+        {
+          "officeId": 0,
+          "sites": [
+            0
+          ],
+          "workers": [
+            0
+          ]
+        }
+      ],
+      "before": 0.0,
+      "value": 9.0,
+      "gain": 9.0,
+      "kind": "structure",
+      "backend": "scip",
+      "conditional_optimal": true,
+      "status": "optimal",
+      "bound": 9.0,
+      "gap": 0.0,
+      "build": 0.007751327000050878,
+      "solve": 0.0032861419999790087,
+      "check": 0.0017009869999355942,
+      "restore": 0.0004933570000957843,
+      "seconds": 0.015398579000020618,
+      "gain_per_second": 584.4695150109598,
+      "iterations": 2,
+      "nodes": 1,
+      "cuts": 1,
+      "variables": 16,
+      "rows": 33,
+      "selected": [
+        0,
+        1
+      ],
+      "offices": [
+        0,
+        1,
+        2
+      ],
+      "events": [
+        {
+          "iteration": 1,
+          "conflicts": 1,
+          "cuts": 1,
+          "bound": 18.0,
+          "seconds": 0.01308467000001201
+        }
+      ]
+    }
+  },
+  {
+    "case": "closed_office_witness",
+    "kind": "structure",
+    "backend": "highs",
+    "ok": true,
+    "expected": 9,
+    "result": {
+      "solution": [
+        {
+          "officeId": 0,
+          "sites": [
+            0
+          ],
+          "workers": [
+            0
+          ]
+        }
+      ],
+      "before": 0.0,
+      "value": 9.0,
+      "gain": 9.0,
+      "kind": "structure",
+      "backend": "highs",
+      "conditional_optimal": true,
+      "status": "HighsModelStatus.kOptimal",
+      "bound": 9.0,
+      "gap": 0.0,
+      "build": 0.0017815549999795621,
+      "solve": 0.05023619700000381,
+      "check": 0.0015190829999482958,
+      "restore": 0.0005238740000095277,
+      "seconds": 0.05524421999996321,
+      "gain_per_second": 162.91297080501803,
+      "iterations": 2,
+      "nodes": 2,
+      "cuts": 1,
+      "variables": 16,
+      "rows": 33,
+      "selected": [
+        0,
+        1
+      ],
+      "offices": [
+        0,
+        1,
+        2
+      ],
+      "events": [
+        {
+          "iteration": 1,
+          "conflicts": 1,
+          "cuts": 1,
+          "bound": 18.0,
+          "seconds": 0.028555428999993637
+        }
+      ]
+    }
+  },
+  {
+    "case": "closed_office_witness",
+    "kind": "runtime",
+    "ok": true,
+    "value": 9.0,
+    "expected": 9,
+    "rc": 0,
+    "wall": 0.01099311799998759
+  },
+  {
+    "case": "disjoint_collinear",
+    "kind": "structure",
+    "backend": "scip",
+    "ok": true,
+    "expected": 18,
+    "result": {
+      "solution": [
+        {
+          "officeId": 0,
+          "sites": [
+            0
+          ],
+          "workers": [
+            0
+          ]
+        },
+        {
+          "officeId": 1,
+          "sites": [
+            1
+          ],
+          "workers": [
+            1
+          ]
+        }
+      ],
+      "before": 0.0,
+      "value": 18.0,
+      "gain": 18.0,
+      "kind": "structure",
+      "backend": "scip",
+      "conditional_optimal": true,
+      "status": "optimal",
+      "bound": 18.0,
+      "gap": 0.0,
+      "build": 0.006886869000027218,
+      "solve": 0.0016626619999442482,
+      "check": 0.0005270400000654263,
+      "restore": 0.0007399569999506639,
+      "seconds": 0.011564881000026617,
+      "gain_per_second": 1556.4362486703126,
+      "iterations": 1,
+      "nodes": 1,
+      "cuts": 0,
+      "variables": 12,
+      "rows": 24,
+      "selected": [
+        0,
+        1
+      ],
+      "offices": [
+        0,
+        1
+      ],
+      "events": []
+    }
+  },
+  {
+    "case": "disjoint_collinear",
+    "kind": "structure",
+    "backend": "highs",
+    "ok": true,
+    "expected": 18,
+    "result": {
+      "solution": [
+        {
+          "officeId": 0,
+          "sites": [
+            0
+          ],
+          "workers": [
+            0
+          ]
+        },
+        {
+          "officeId": 1,
+          "sites": [
+            1
+          ],
+          "workers": [
+            1
+          ]
+        }
+      ],
+      "before": 0.0,
+      "value": 18.0,
+      "gain": 18.0,
+      "kind": "structure",
+      "backend": "highs",
+      "conditional_optimal": true,
+      "status": "HighsModelStatus.kOptimal",
+      "bound": 18.0,
+      "gap": 0.0,
+      "build": 0.0014559770000914796,
+      "solve": 0.02286448699999255,
+      "check": 0.000529823999954715,
+      "restore": 0.0007283610000285989,
+      "seconds": 0.026562726000065595,
+      "gain_per_second": 677.6412932902876,
+      "iterations": 1,
+      "nodes": 1,
+      "cuts": 0,
+      "variables": 12,
+      "rows": 24,
+      "selected": [
+        0,
+        1
+      ],
+      "offices": [
+        0,
+        1
+      ],
+      "events": []
+    }
+  },
+  {
+    "case": "disjoint_collinear",
+    "kind": "geometry",
+    "backend": "scip",
+    "ok": true,
+    "expected": 18,
+    "result": {
+      "solution": [
+        {
+          "officeId": 0,
+          "sites": [
+            0
+          ],
+          "workers": [
+            0
+          ]
+        },
+        {
+          "officeId": 1,
+          "sites": [
+            1
+          ],
+          "workers": [
+            1
+          ]
+        }
+      ],
+      "before": 18.0,
+      "value": 18.0,
+      "gain": 0.0,
+      "kind": "geometry",
+      "backend": "scip",
+      "conditional_optimal": true,
+      "status": "optimal",
+      "bound": 18.0,
+      "gap": 0.0,
+      "build": 0.007060942000066461,
+      "solve": 0.0007414990000143007,
+      "check": 0.0005005980000305499,
+      "restore": 0.0007339280000451254,
+      "seconds": 0.010713505000012447,
+      "gain_per_second": 0.0,
+      "iterations": 1,
+      "nodes": 0,
+      "cuts": 0,
+      "variables": 12,
+      "rows": 24,
+      "selected": [
+        0,
+        1
+      ],
+      "offices": [
+        0,
+        1
+      ],
+      "events": []
+    }
+  },
+  {
+    "case": "disjoint_collinear",
+    "kind": "geometry",
+    "backend": "highs",
+    "ok": true,
+    "expected": 18,
+    "result": {
+      "solution": [
+        {
+          "officeId": 0,
+          "sites": [
+            0
+          ],
+          "workers": [
+            0
+          ]
+        },
+        {
+          "officeId": 1,
+          "sites": [
+            1
+          ],
+          "workers": [
+            1
+          ]
+        }
+      ],
+      "before": 18.0,
+      "value": 18.0,
+      "gain": 0.0,
+      "kind": "geometry",
+      "backend": "highs",
+      "conditional_optimal": true,
+      "status": "HighsModelStatus.kOptimal",
+      "bound": 18.0,
+      "gap": 0.0,
+      "build": 0.0017858979999800795,
+      "solve": 0.001176805999989483,
+      "check": 0.0005022729999382136,
+      "restore": 0.0007230190000200309,
+      "seconds": 0.005179161000000931,
+      "gain_per_second": 0.0,
+      "iterations": 1,
+      "nodes": 0,
+      "cuts": 0,
+      "variables": 12,
+      "rows": 24,
+      "selected": [
+        0,
+        1
+      ],
+      "offices": [
+        0,
+        1
+      ],
+      "events": []
+    }
+  },
+  {
+    "case": "disjoint_collinear",
+    "kind": "runtime",
+    "ok": true,
+    "value": 18.0,
+    "expected": 18,
+    "rc": 0,
+    "wall": 0.011054630999979054
+  },
+  {
+    "case": "overlap_collinear",
+    "kind": "structure",
+    "backend": "scip",
+    "ok": true,
+    "expected": 9,
+    "result": {
+      "solution": [
+        {
+          "officeId": 0,
+          "sites": [
+            0
+          ],
+          "workers": [
+            0
+          ]
+        }
+      ],
+      "before": 0.0,
+      "value": 9.0,
+      "gain": 9.0,
+      "kind": "structure",
+      "backend": "scip",
+      "conditional_optimal": true,
+      "status": "optimal",
+      "bound": 9.0,
+      "gap": 0.0,
+      "build": 0.006786013999999341,
+      "solve": 0.0028333870000096795,
+      "check": 0.0018271389999426901,
+      "restore": 0.0003890440000304807,
+      "seconds": 0.013592309000046043,
+      "gain_per_second": 662.1391553097794,
+      "iterations": 2,
+      "nodes": 1,
+      "cuts": 1,
+      "variables": 12,
+      "rows": 24,
+      "selected": [
+        0,
+        1
+      ],
+      "offices": [
+        0,
+        1
+      ],
+      "events": [
+        {
+          "iteration": 1,
+          "conflicts": 2,
+          "cuts": 1,
+          "bound": 18.0,
+          "seconds": 0.011465068000006795
+        }
+      ]
+    }
+  },
+  {
+    "case": "overlap_collinear",
+    "kind": "structure",
+    "backend": "highs",
+    "ok": true,
+    "expected": 9,
+    "result": {
+      "solution": [
+        {
+          "officeId": 0,
+          "sites": [
+            0
+          ],
+          "workers": [
+            0
+          ]
+        }
+      ],
+      "before": 0.0,
+      "value": 9.0,
+      "gain": 9.0,
+      "kind": "structure",
+      "backend": "highs",
+      "conditional_optimal": true,
+      "status": "HighsModelStatus.kOptimal",
+      "bound": 9.0,
+      "gap": 0.0,
+      "build": 0.001406149000104051,
+      "solve": 0.04575781400001233,
+      "check": 0.001498976999982915,
+      "restore": 0.00040474700006143394,
+      "seconds": 0.050086246000091705,
+      "gain_per_second": 179.69004904027986,
+      "iterations": 2,
+      "nodes": 2,
+      "cuts": 1,
+      "variables": 12,
+      "rows": 24,
+      "selected": [
+        0,
+        1
+      ],
+      "offices": [
+        0,
+        1
+      ],
+      "events": [
+        {
+          "iteration": 1,
+          "conflicts": 2,
+          "cuts": 1,
+          "bound": 18.0,
+          "seconds": 0.0264384390000032
+        }
+      ]
+    }
+  },
+  {
+    "case": "overlap_collinear",
+    "kind": "runtime",
+    "ok": true,
+    "value": 9.0,
+    "expected": 9,
+    "rc": 0,
+    "wall": 0.010788819000026706
+  },
+  {
+    "case": "coincident_boundary",
+    "kind": "structure",
+    "backend": "scip",
+    "ok": true,
+    "expected": 19,
+    "result": {
+      "solution": [
+        {
+          "officeId": 0,
+          "sites": [
+            0,
+            1
+          ],
+          "workers": [
+            0
+          ]
+        }
+      ],
+      "before": 0.0,
+      "value": 19.0,
+      "gain": 19.0,
+      "kind": "structure",
+      "backend": "scip",
+      "conditional_optimal": true,
+      "status": "optimal",
+      "bound": 19.0,
+      "gap": 0.0,
+      "build": 0.007027976999893326,
+      "solve": 0.003919733999964592,
+      "check": 0.000442889000055402,
+      "restore": 0.0004057140000668369,
+      "seconds": 0.013470089999941592,
+      "gain_per_second": 1410.5325205757636,
+      "iterations": 1,
+      "nodes": 1,
+      "cuts": 0,
+      "variables": 12,
+      "rows": 24,
+      "selected": [
+        0,
+        1
+      ],
+      "offices": [
+        0,
+        1
+      ],
+      "events": []
+    }
+  },
+  {
+    "case": "coincident_boundary",
+    "kind": "structure",
+    "backend": "highs",
+    "ok": true,
+    "expected": 19,
+    "result": {
+      "solution": [
+        {
+          "officeId": 0,
+          "sites": [
+            0,
+            1
+          ],
+          "workers": [
+            0
+          ]
+        }
+      ],
+      "before": 0.0,
+      "value": 19.0,
+      "gain": 19.0,
+      "kind": "structure",
+      "backend": "highs",
+      "conditional_optimal": true,
+      "status": "HighsModelStatus.kOptimal",
+      "bound": 19.0,
+      "gap": 0.0,
+      "build": 0.0014610900000207039,
+      "solve": 0.02439609299995027,
+      "check": 0.0005215310000039608,
+      "restore": 0.00046318999989125587,
+      "seconds": 0.027851048000002265,
+      "gain_per_second": 682.2005405325665,
+      "iterations": 1,
+      "nodes": 1,
+      "cuts": 0,
+      "variables": 12,
+      "rows": 24,
+      "selected": [
+        0,
+        1
+      ],
+      "offices": [
+        0,
+        1
+      ],
+      "events": []
+    }
+  },
+  {
+    "case": "coincident_boundary",
+    "kind": "runtime",
+    "ok": true,
+    "value": 19.0,
+    "expected": 19,
+    "rc": 0,
+    "wall": 0.010871350000002167
+  },
+  {
+    "case": "joint_open_workers",
+    "kind": "structure",
+    "backend": "highs",
+    "ok": true,
+    "expected": 34,
+    "result": {
+      "solution": [
+        {
+          "officeId": 0,
+          "sites": [
+            0,
+            1
+          ],
+          "workers": [
+            0
+          ]
+        },
+        {
+          "officeId": 1,
+          "sites": [
+            2,
+            3
+          ],
+          "workers": [
+            1
+          ]
+        }
+      ],
+      "before": 0.0,
+      "value": 34.0,
+      "gain": 34.0,
+      "kind": "structure",
+      "backend": "highs",
+      "conditional_optimal": true,
+      "status": "HighsModelStatus.kOptimal",
+      "bound": 34.0,
+      "gap": 0.0,
+      "build": 0.0017317199999524746,
+      "solve": 0.020069122999984756,
+      "check": 0.0006480859999555832,
+      "restore": 0.0008668919999763602,
+      "seconds": 0.02453145399999812,
+      "gain_per_second": 1385.9757354783212,
+      "iterations": 1,
+      "nodes": 1,
+      "cuts": 0,
+      "variables": 18,
+      "rows": 33,
+      "selected": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "offices": [
+        0,
+        1
+      ],
+      "events": []
+    }
+  },
+  {
+    "case": "joint_open_workers",
+    "kind": "structure",
+    "backend": "scip",
+    "ok": true,
+    "expected": 34,
+    "result": {
+      "solution": [
+        {
+          "officeId": 0,
+          "sites": [
+            0,
+            1
+          ],
+          "workers": [
+            0
+          ]
+        },
+        {
+          "officeId": 1,
+          "sites": [
+            2,
+            3
+          ],
+          "workers": [
+            1
+          ]
+        }
+      ],
+      "before": 0.0,
+      "value": 34.0,
+      "gain": 34.0,
+      "kind": "structure",
+      "backend": "scip",
+      "conditional_optimal": true,
+      "status": "optimal",
+      "bound": 34.0,
+      "gap": 0.0,
+      "build": 0.007456842999999935,
+      "solve": 0.006062207000013586,
+      "check": 0.0006632119999494535,
+      "restore": 0.000875322999945638,
+      "seconds": 0.017133204000060687,
+      "gain_per_second": 1984.450777559152,
+      "iterations": 1,
+      "nodes": 1,
+      "cuts": 0,
+      "variables": 18,
+      "rows": 33,
+      "selected": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "offices": [
+        0,
+        1
+      ],
+      "events": []
+    }
+  },
+  {
+    "case": "joint_open_workers",
+    "kind": "geometry",
+    "backend": "highs",
+    "ok": true,
+    "expected": 19,
+    "result": {
+      "solution": [
+        {
+          "officeId": 0,
+          "sites": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "workers": [
+            0
+          ]
+        }
+      ],
+      "before": 19.0,
+      "value": 19.0,
+      "gain": 0.0,
+      "kind": "geometry",
+      "backend": "highs",
+      "conditional_optimal": true,
+      "status": "HighsModelStatus.kOptimal",
+      "bound": 19.0,
+      "gap": 0.0,
+      "build": 0.0016584319999992658,
+      "solve": 0.001304143999959706,
+      "check": 0.0004390670000020691,
+      "restore": 0.00048123400006261363,
+      "seconds": 0.004853440999909253,
+      "gain_per_second": 0.0,
+      "iterations": 1,
+      "nodes": 0,
+      "cuts": 0,
+      "variables": 14,
+      "rows": 29,
+      "selected": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "offices": [
+        0,
+        1
+      ],
+      "events": []
+    }
+  },
+  {
+    "case": "joint_open_workers",
+    "kind": "geometry",
+    "backend": "scip",
+    "ok": true,
+    "expected": 19,
+    "result": {
+      "solution": [
+        {
+          "officeId": 0,
+          "sites": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "workers": [
+            0
+          ]
+        }
+      ],
+      "before": 19.0,
+      "value": 19.0,
+      "gain": 0.0,
+      "kind": "geometry",
+      "backend": "scip",
+      "conditional_optimal": true,
+      "status": "optimal",
+      "bound": 19.0,
+      "gap": 0.0,
+      "build": 0.006984097999975347,
+      "solve": 0.0007414030000063576,
+      "check": 0.0004539839999324613,
+      "restore": 0.0004837309999174977,
+      "seconds": 0.010391906999984712,
+      "gain_per_second": 0.0,
+      "iterations": 1,
+      "nodes": 0,
+      "cuts": 0,
+      "variables": 14,
+      "rows": 29,
+      "selected": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "offices": [
+        0,
+        1
+      ],
+      "events": []
+    }
+  },
+  {
+    "case": "joint_open_workers",
+    "kind": "runtime",
+    "ok": true,
+    "value": 34.0,
+    "expected": 34,
+    "rc": 0,
+    "wall": 0.011227296000015485
+  },
+  {
+    "case": "joint_exchange",
+    "kind": "structure",
+    "backend": "scip",
+    "ok": true,
+    "expected": 18,
+    "result": {
+      "solution": [
+        {
+          "officeId": 0,
+          "sites": [
+            1
+          ],
+          "workers": [
+            1
+          ]
+        },
+        {
+          "officeId": 1,
+          "sites": [
+            0
+          ],
+          "workers": [
+            0
+          ]
+        }
+      ],
+      "before": 0.0,
+      "value": 18.0,
+      "gain": 18.0,
+      "kind": "structure",
+      "backend": "scip",
+      "conditional_optimal": true,
+      "status": "optimal",
+      "bound": 18.0,
+      "gap": 0.0,
+      "build": 0.006905905000053281,
+      "solve": 0.0044930330000170215,
+      "check": 0.000540236000006189,
+      "restore": 0.0007817430000613967,
+      "seconds": 0.014506943000014871,
+      "gain_per_second": 1240.7851881669037,
+      "iterations": 1,
+      "nodes": 1,
+      "cuts": 0,
+      "variables": 14,
+      "rows": 27,
+      "selected": [
+        0,
+        1
+      ],
+      "offices": [
+        0,
+        1
+      ],
+      "events": []
+    }
+  },
+  {
+    "case": "joint_exchange",
+    "kind": "structure",
+    "backend": "highs",
+    "ok": true,
+    "expected": 18,
+    "result": {
+      "solution": [
+        {
+          "officeId": 0,
+          "sites": [
+            1
+          ],
+          "workers": [
+            1
+          ]
+        },
+        {
+          "officeId": 1,
+          "sites": [
+            0
+          ],
+          "workers": [
+            0
+          ]
+        }
+      ],
+      "before": 0.0,
+      "value": 18.0,
+      "gain": 18.0,
+      "kind": "structure",
+      "backend": "highs",
+      "conditional_optimal": true,
+      "status": "HighsModelStatus.kOptimal",
+      "bound": 18.0,
+      "gap": 0.0,
+      "build": 0.0014649850000978404,
+      "solve": 0.011374105000072632,
+      "check": 0.0005094159999998737,
+      "restore": 0.0007525800000394156,
+      "seconds": 0.015058077000048797,
+      "gain_per_second": 1195.3717596172253,
+      "iterations": 1,
+      "nodes": 1,
+      "cuts": 0,
+      "variables": 14,
+      "rows": 27,
+      "selected": [
+        0,
+        1
+      ],
+      "offices": [
+        0,
+        1
+      ],
+      "events": []
+    }
+  },
+  {
+    "case": "joint_exchange",
+    "kind": "geometry",
+    "backend": "scip",
+    "ok": true,
+    "expected": 18,
+    "result": {
+      "solution": [
+        {
+          "officeId": 0,
+          "sites": [
+            1
+          ],
+          "workers": [
+            1
+          ]
+        },
+        {
+          "officeId": 1,
+          "sites": [
+            0
+          ],
+          "workers": [
+            0
+          ]
+        }
+      ],
+      "before": 0.0,
+      "value": 18.0,
+      "gain": 18.0,
+      "kind": "geometry",
+      "backend": "scip",
+      "conditional_optimal": true,
+      "status": "optimal",
+      "bound": 18.0,
+      "gap": 0.0,
+      "build": 0.00772826399997939,
+      "solve": 0.0015282099999467391,
+      "check": 0.0005220460000145977,
+      "restore": 0.0007533970000395129,
+      "seconds": 0.012274318999971001,
+      "gain_per_second": 1466.4764701033537,
+      "iterations": 1,
+      "nodes": 0,
+      "cuts": 0,
+      "variables": 14,
+      "rows": 27,
+      "selected": [
+        0,
+        1
+      ],
+      "offices": [
+        0,
+        1
+      ],
+      "events": []
+    }
+  },
+  {
+    "case": "joint_exchange",
+    "kind": "geometry",
+    "backend": "highs",
+    "ok": true,
+    "expected": 18,
+    "result": {
+      "solution": [
+        {
+          "officeId": 0,
+          "sites": [
+            1
+          ],
+          "workers": [
+            1
+          ]
+        },
+        {
+          "officeId": 1,
+          "sites": [
+            0
+          ],
+          "workers": [
+            0
+          ]
+        }
+      ],
+      "before": 0.0,
+      "value": 18.0,
+      "gain": 18.0,
+      "kind": "geometry",
+      "backend": "highs",
+      "conditional_optimal": true,
+      "status": "HighsModelStatus.kOptimal",
+      "bound": 18.0,
+      "gap": 0.0,
+      "build": 0.0018384779999678358,
+      "solve": 0.0015001040000015564,
+      "check": 0.0005160259999001937,
+      "restore": 0.0007141349999528757,
+      "seconds": 0.005558128999950895,
+      "gain_per_second": 3238.4998621224922,
+      "iterations": 1,
+      "nodes": 0,
+      "cuts": 0,
+      "variables": 14,
+      "rows": 27,
+      "selected": [
+        0,
+        1
+      ],
+      "offices": [
+        0,
+        1
+      ],
+      "events": []
+    }
+  },
+  {
+    "case": "joint_exchange",
+    "kind": "runtime",
+    "ok": true,
+    "value": 18.0,
+    "expected": 18,
+    "rc": 0,
+    "wall": 0.011178096999969966
+  },
+  {
+    "case": "skill_counts_insufficient",
+    "kind": "structure",
+    "backend": "highs",
+    "ok": true,
+    "expected": 29,
+    "result": {
+      "solution": [
+        {
+          "officeId": 0,
+          "sites": [
+            0,
+            1,
+            2
+          ],
+          "workers": [
+            0,
+            1
+          ]
+        }
+      ],
+      "before": 0.0,
+      "value": 29.0,
+      "gain": 29.0,
+      "kind": "structure",
+      "backend": "highs",
+      "conditional_optimal": true,
+      "status": "HighsModelStatus.kOptimal",
+      "bound": 29.0,
+      "gap": 0.0,
+      "build": 0.0018218809999552832,
+      "solve": 0.03799978999995801,
+      "check": 0.0005179570000564127,
+      "restore": 0.0005358489999025551,
+      "seconds": 0.04224283199994261,
+      "gain_per_second": 686.5070031298895,
+      "iterations": 1,
+      "nodes": 1,
+      "cuts": 0,
+      "variables": 25,
+      "rows": 54,
+      "selected": [
+        0,
+        1,
+        2
+      ],
+      "offices": [
+        0,
+        1,
+        2
+      ],
+      "events": []
+    }
+  },
+  {
+    "case": "skill_counts_insufficient",
+    "kind": "structure",
+    "backend": "scip",
+    "ok": true,
+    "expected": 29,
+    "result": {
+      "solution": [
+        {
+          "officeId": 0,
+          "sites": [
+            0,
+            1,
+            2
+          ],
+          "workers": [
+            0,
+            1,
+            2
+          ]
+        }
+      ],
+      "before": 0.0,
+      "value": 29.0,
+      "gain": 29.0,
+      "kind": "structure",
+      "backend": "scip",
+      "conditional_optimal": true,
+      "status": "optimal",
+      "bound": 29.0,
+      "gap": 0.0,
+      "build": 0.008794856999998046,
+      "solve": 0.008445746999996118,
+      "check": 0.0006266980000191325,
+      "restore": 0.00058335200003512,
+      "seconds": 0.021096799000019928,
+      "gain_per_second": 1374.6161206717952,
+      "iterations": 1,
+      "nodes": 1,
+      "cuts": 0,
+      "variables": 25,
+      "rows": 54,
+      "selected": [
+        0,
+        1,
+        2
+      ],
+      "offices": [
+        0,
+        1,
+        2
+      ],
+      "events": []
+    }
+  },
+  {
+    "case": "skill_counts_insufficient",
+    "kind": "runtime",
+    "ok": true,
+    "value": 29.0,
+    "expected": 29,
+    "rc": 0,
+    "wall": 0.011037131999955818
+  },
+  {
+    "case": "random00",
+    "kind": "structure",
+    "backend": "highs",
+    "ok": true,
+    "expected": 0.0,
+    "result": {
+      "solution": [],
+      "before": 0.0,
+      "value": 0.0,
+      "gain": 0.0,
+      "kind": "structure",
+      "backend": "highs",
+      "conditional_optimal": true,
+      "status": "HighsModelStatus.kOptimal",
+      "bound": 0.0,
+      "gap": 0.0,
+      "build": 0.0022195459999920786,
+      "solve": 0.0015990770000371413,
+      "check": 5.011600001125771e-05,
+      "restore": 0.0005894659999512442,
+      "seconds": 0.005898462999994081,
+      "gain_per_second": 0.0,
+      "iterations": 1,
+      "nodes": 0,
+      "cuts": 0,
+      "variables": 28,
+      "rows": 52,
+      "selected": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "offices": [
+        0,
+        1,
+        2
+      ],
+      "events": []
+    }
+  },
+  {
+    "case": "random00",
+    "kind": "structure",
+    "backend": "scip",
+    "ok": true,
+    "expected": 0.0,
+    "result": {
+      "solution": [],
+      "before": 0.0,
+      "value": 0.0,
+      "gain": 0.0,
+      "kind": "structure",
+      "backend": "scip",
+      "conditional_optimal": true,
+      "status": "optimal",
+      "bound": 0.0,
+      "gap": 0.0,
+      "build": 0.008855343000050198,
+      "solve": 0.0015870080000013331,
+      "check": 4.6520999944732466e-05,
+      "restore": 0.0005653850000726379,
+      "seconds": 0.013819699000009678,
+      "gain_per_second": 0.0,
+      "iterations": 1,
+      "nodes": 0,
+      "cuts": 0,
+      "variables": 28,
+      "rows": 52,
+      "selected": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "offices": [
+        0,
+        1,
+        2
+      ],
+      "events": []
+    }
+  },
+  {
+    "case": "random00",
+    "kind": "runtime",
+    "ok": true,
+    "value": 0.0,
+    "expected": 0.0,
+    "rc": 0,
+    "wall": 0.01079902799995125
+  },
+  {
+    "case": "random01",
+    "kind": "structure",
+    "backend": "highs",
+    "ok": true,
+    "expected": 0.0,
+    "result": {
+      "solution": [],
+      "before": 0.0,
+      "value": 0.0,
+      "gain": 0.0,
+      "kind": "structure",
+      "backend": "highs",
+      "conditional_optimal": true,
+      "status": "HighsModelStatus.kOptimal",
+      "bound": 0.0,
+      "gap": 0.0,
+      "build": 0.0013283030000366125,
+      "solve": 0.0011913580000282309,
+      "check": 3.458499998032494e-05,
+      "restore": 0.0003454410000358621,
+      "seconds": 0.003794517000073938,
+      "gain_per_second": 0.0,
+      "iterations": 1,
+      "nodes": 0,
+      "cuts": 0,
+      "variables": 10,
+      "rows": 23,
+      "selected": [
+        0,
+        1
+      ],
+      "offices": [
+        0,
+        1
+      ],
+      "events": []
+    }
+  },
+  {
+    "case": "random01",
+    "kind": "structure",
+    "backend": "scip",
+    "ok": true,
+    "expected": 0.0,
+    "result": {
+      "solution": [],
+      "before": 0.0,
+      "value": 0.0,
+      "gain": 0.0,
+      "kind": "structure",
+      "backend": "scip",
+      "conditional_optimal": true,
+      "status": "optimal",
+      "bound": 0.0,
+      "gap": 0.0,
+      "build": 0.006546945999957643,
+      "solve": 0.0009883520000357748,
+      "check": 3.444399999352754e-05,
+      "restore": 0.0003535419999707301,
+      "seconds": 0.009447531999967396,
+      "gain_per_second": 0.0,
+      "iterations": 1,
+      "nodes": 0,
+      "cuts": 0,
+      "variables": 10,
+      "rows": 23,
+      "selected": [
+        0,
+        1
+      ],
+      "offices": [
+        0,
+        1
+      ],
+      "events": []
+    }
+  },
+  {
+    "case": "random01",
+    "kind": "runtime",
+    "ok": true,
+    "value": 0.0,
+    "expected": 0.0,
+    "rc": 0,
+    "wall": 0.010565775000031863
+  },
+  {
+    "case": "random02",
+    "kind": "structure",
+    "backend": "scip",
+    "ok": true,
+    "expected": 24,
+    "result": {
+      "solution": [
+        {
+          "officeId": 1,
+          "sites": [
+            1,
+            2,
+            3
+          ],
+          "workers": [
+            0
+          ]
+        }
+      ],
+      "before": 0.0,
+      "value": 24.0,
+      "gain": 24.0,
+      "kind": "structure",
+      "backend": "scip",
+      "conditional_optimal": true,
+      "status": "optimal",
+      "bound": 24.0,
+      "gap": 0.0,
+      "build": 0.008709873000043444,
+      "solve": 0.009641667000096277,
+      "check": 0.0005468880000307763,
+      "restore": 0.0005674469999803478,
+      "seconds": 0.021665241000050628,
+      "gain_per_second": 1107.7651986397898,
+      "iterations": 1,
+      "nodes": 1,
+      "cuts": 0,
+      "variables": 20,
+      "rows": 40,
+      "selected": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "offices": [
+        0,
+        1
+      ],
+      "events": []
+    }
+  },
+  {
+    "case": "random02",
+    "kind": "structure",
+    "backend": "highs",
+    "ok": true,
+    "expected": 24,
+    "result": {
+      "solution": [
+        {
+          "officeId": 1,
+          "sites": [
+            1,
+            2,
+            3
+          ],
+          "workers": [
+            0
+          ]
+        }
+      ],
+      "before": 0.0,
+      "value": 24.0,
+      "gain": 24.0,
+      "kind": "structure",
+      "backend": "highs",
+      "conditional_optimal": true,
+      "status": "HighsModelStatus.kOptimal",
+      "bound": 24.0,
+      "gap": 0.0,
+      "build": 0.001880996999943818,
+      "solve": 0.025038730999995096,
+      "check": 0.0005072519999202996,
+      "restore": 0.0005495330000258036,
+      "seconds": 0.02921312900002704,
+      "gain_per_second": 821.5484209164238,
+      "iterations": 1,
+      "nodes": 1,
+      "cuts": 0,
+      "variables": 20,
+      "rows": 40,
+      "selected": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "offices": [
+        0,
+        1
+      ],
+      "events": []
+    }
+  },
+  {
+    "case": "random02",
+    "kind": "runtime",
+    "ok": true,
+    "value": 24.0,
+    "expected": 24,
+    "rc": 0,
+    "wall": 0.01092359699998724
+  },
+  {
+    "case": "random03",
+    "kind": "structure",
+    "backend": "scip",
+    "ok": true,
+    "expected": 29,
+    "result": {
+      "solution": [
+        {
+          "officeId": 0,
+          "sites": [
+            1,
+            2
+          ],
+          "workers": [
+            1
+          ]
+        },
+        {
+          "officeId": 2,
+          "sites": [
+            3,
+            4
+          ],
+          "workers": [
+            0,
+            2
+          ]
+        }
+      ],
+      "before": 0.0,
+      "value": 29.0,
+      "gain": 29.0,
+      "kind": "structure",
+      "backend": "scip",
+      "conditional_optimal": true,
+      "status": "optimal",
+      "bound": 29.0,
+      "gap": 0.0,
+      "build": 0.009170185999892055,
+      "solve": 0.04077067499997611,
+      "check": 0.0031732959999999366,
+      "restore": 0.0011110010000265902,
+      "seconds": 0.05723732599994946,
+      "gain_per_second": 506.6623832152048,
+      "iterations": 2,
+      "nodes": 2,
+      "cuts": 1,
+      "variables": 31,
+      "rows": 56,
+      "selected": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "offices": [
+        0,
+        1,
+        2
+      ],
+      "events": [
+        {
+          "iteration": 1,
+          "conflicts": 1,
+          "cuts": 1,
+          "bound": 33.0,
+          "seconds": 0.02861304399993969
+        }
+      ]
+    }
+  },
+  {
+    "case": "random03",
+    "kind": "structure",
+    "backend": "highs",
+    "ok": true,
+    "expected": 29,
+    "result": {
+      "solution": [
+        {
+          "officeId": 0,
+          "sites": [
+            1,
+            2
+          ],
+          "workers": [
+            0,
+            2
+          ]
+        },
+        {
+          "officeId": 2,
+          "sites": [
+            3,
+            4
+          ],
+          "workers": [
+            1
+          ]
+        }
+      ],
+      "before": 0.0,
+      "value": 29.0,
+      "gain": 29.0,
+      "kind": "structure",
+      "backend": "highs",
+      "conditional_optimal": true,
+      "status": "HighsModelStatus.kOptimal",
+      "bound": 29.0,
+      "gap": 0.0,
+      "build": 0.0022952699999905235,
+      "solve": 0.06153261300005397,
+      "check": 0.0026218549999157403,
+      "restore": 0.001129952000042067,
+      "seconds": 0.06923335999999836,
+      "gain_per_second": 418.873213722412,
+      "iterations": 2,
+      "nodes": 2,
+      "cuts": 1,
+      "variables": 31,
+      "rows": 56,
+      "selected": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "offices": [
+        0,
+        1,
+        2
+      ],
+      "events": [
+        {
+          "iteration": 1,
+          "conflicts": 1,
+          "cuts": 1,
+          "bound": 33.0,
+          "seconds": 0.03192617499996686
+        }
+      ]
+    }
+  },
+  {
+    "case": "random03",
+    "kind": "runtime",
+    "ok": true,
+    "value": 29.0,
+    "expected": 29,
+    "rc": 0,
+    "wall": 0.011893688999975893
+  },
+  {
+    "case": "random04",
+    "kind": "structure",
+    "backend": "scip",
+    "ok": true,
+    "expected": 0,
+    "result": {
+      "solution": [],
+      "before": 0.0,
+      "value": 0.0,
+      "gain": 0.0,
+      "kind": "structure",
+      "backend": "scip",
+      "conditional_optimal": true,
+      "status": "optimal",
+      "bound": 0.0,
+      "gap": 0.0,
+      "build": 0.006965180000065629,
+      "solve": 0.001070560000016485,
+      "check": 3.298699994047638e-05,
+      "restore": 0.0004531280000037441,
+      "seconds": 0.010083344000008765,
+      "gain_per_second": 0.0,
+      "iterations": 1,
+      "nodes": 0,
+      "cuts": 0,
+      "variables": 10,
+      "rows": 20,
+      "selected": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "offices": [
+        0
+      ],
+      "events": []
+    }
+  },
+  {
+    "case": "random04",
+    "kind": "structure",
+    "backend": "highs",
+    "ok": true,
+    "expected": 0,
+    "result": {
+      "solution": [],
+      "before": 0.0,
+      "value": 0.0,
+      "gain": 0.0,
+      "kind": "structure",
+      "backend": "highs",
+      "conditional_optimal": true,
+      "status": "HighsModelStatus.kOptimal",
+      "bound": 0.0,
+      "gap": 0.0,
+      "build": 0.0014334329999883266,
+      "solve": 0.0010961929999666609,
+      "check": 3.1257000046025496e-05,
+      "restore": 0.00038190399993709434,
+      "seconds": 0.0038988239999753205,
+      "gain_per_second": 0.0,
+      "iterations": 1,
+      "nodes": 0,
+      "cuts": 0,
+      "variables": 10,
+      "rows": 20,
+      "selected": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "offices": [
+        0
+      ],
+      "events": []
+    }
+  },
+  {
+    "case": "random04",
+    "kind": "runtime",
+    "ok": true,
+    "value": 0.0,
+    "expected": 0,
+    "rc": 0,
+    "wall": 0.010616441000024679
+  },
+  {
+    "case": "random05",
+    "kind": "structure",
+    "backend": "scip",
+    "ok": true,
+    "expected": 0,
+    "result": {
+      "solution": [],
+      "before": 0.0,
+      "value": 0.0,
+      "gain": 0.0,
+      "kind": "structure",
+      "backend": "scip",
+      "conditional_optimal": true,
+      "status": "optimal",
+      "bound": 0.0,
+      "gap": 0.0,
+      "build": 0.007437650000042595,
+      "solve": 0.0011851440000327784,
+      "check": 3.959099990424875e-05,
+      "restore": 0.00040833700006714935,
+      "seconds": 0.011011596999992435,
+      "gain_per_second": 0.0,
+      "iterations": 1,
+      "nodes": 0,
+      "cuts": 0,
+      "variables": 16,
+      "rows": 33,
+      "selected": [
+        0,
+        1
+      ],
+      "offices": [
+        0,
+        1,
+        2
+      ],
+      "events": []
+    }
+  },
+  {
+    "case": "random05",
+    "kind": "structure",
+    "backend": "highs",
+    "ok": true,
+    "expected": 0,
+    "result": {
+      "solution": [],
+      "before": 0.0,
+      "value": 0.0,
+      "gain": 0.0,
+      "kind": "structure",
+      "backend": "highs",
+      "conditional_optimal": true,
+      "status": "HighsModelStatus.kOptimal",
+      "bound": 0.0,
+      "gap": 0.0,
+      "build": 0.0015987490000952675,
+      "solve": 0.0012962119999428978,
+      "check": 3.8612000025750604e-05,
+      "restore": 0.00038963600002261956,
+      "seconds": 0.004339421000054244,
+      "gain_per_second": 0.0,
+      "iterations": 1,
+      "nodes": 0,
+      "cuts": 0,
+      "variables": 16,
+      "rows": 33,
+      "selected": [
+        0,
+        1
+      ],
+      "offices": [
+        0,
+        1,
+        2
+      ],
+      "events": []
+    }
+  },
+  {
+    "case": "random05",
+    "kind": "runtime",
+    "ok": true,
+    "value": 0.0,
+    "expected": 0,
+    "rc": 0,
+    "wall": 0.010587492000013299
+  },
+  {
+    "case": "random06",
+    "kind": "structure",
+    "backend": "scip",
+    "ok": true,
+    "expected": 0,
+    "result": {
+      "solution": [],
+      "before": 0.0,
+      "value": 0.0,
+      "gain": 0.0,
+      "kind": "structure",
+      "backend": "scip",
+      "conditional_optimal": true,
+      "status": "optimal",
+      "bound": 0.0,
+      "gap": 0.0,
+      "build": 0.007463835999942603,
+      "solve": 0.0018429900000000998,
+      "check": 4.037300004711142e-05,
+      "restore": 0.00047168100002181745,
+      "seconds": 0.01171440200005236,
+      "gain_per_second": 0.0,
+      "iterations": 1,
+      "nodes": 0,
+      "cuts": 0,
+      "variables": 16,
+      "rows": 30,
+      "selected": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "offices": [
+        0,
+        1
+      ],
+      "events": []
+    }
+  },
+  {
+    "case": "random06",
+    "kind": "structure",
+    "backend": "highs",
+    "ok": true,
+    "expected": 0,
+    "result": {
+      "solution": [],
+      "before": 0.0,
+      "value": 0.0,
+      "gain": 0.0,
+      "kind": "structure",
+      "backend": "highs",
+      "conditional_optimal": true,
+      "status": "HighsModelStatus.kOptimal",
+      "bound": 0.0,
+      "gap": 0.0,
+      "build": 0.0016492880000669174,
+      "solve": 0.0014645620000237614,
+      "check": 5.5513000006612856e-05,
+      "restore": 0.00045336400000905996,
+      "seconds": 0.0046699880000460325,
+      "gain_per_second": 0.0,
+      "iterations": 1,
+      "nodes": 0,
+      "cuts": 0,
+      "variables": 16,
+      "rows": 30,
+      "selected": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "offices": [
+        0,
+        1
+      ],
+      "events": []
+    }
+  },
+  {
+    "case": "random06",
+    "kind": "runtime",
+    "ok": true,
+    "value": 0.0,
+    "expected": 0,
+    "rc": 0,
+    "wall": 0.010677358999942044
+  },
+  {
+    "case": "random07",
+    "kind": "structure",
+    "backend": "highs",
+    "ok": true,
+    "expected": 0.0,
+    "result": {
+      "solution": [],
+      "before": 0.0,
+      "value": 0.0,
+      "gain": 0.0,
+      "kind": "structure",
+      "backend": "highs",
+      "conditional_optimal": true,
+      "status": "HighsModelStatus.kOptimal",
+      "bound": 0.0,
+      "gap": 0.0,
+      "build": 0.00122326799998973,
+      "solve": 0.001071722000006048,
+      "check": 3.05930000195076e-05,
+      "restore": 0.00034223000000110915,
+      "seconds": 0.003563692999932755,
+      "gain_per_second": 0.0,
+      "iterations": 1,
+      "nodes": 0,
+      "cuts": 0,
+      "variables": 8,
+      "rows": 17,
+      "selected": [
+        0,
+        1,
+        2
+      ],
+      "offices": [
+        0
+      ],
+      "events": []
+    }
+  },
+  {
+    "case": "random07",
+    "kind": "structure",
+    "backend": "scip",
+    "ok": true,
+    "expected": 0.0,
+    "result": {
+      "solution": [],
+      "before": 0.0,
+      "value": 0.0,
+      "gain": 0.0,
+      "kind": "structure",
+      "backend": "scip",
+      "conditional_optimal": true,
+      "status": "optimal",
+      "bound": 0.0,
+      "gap": 0.0,
+      "build": 0.006659917999968457,
+      "solve": 0.0009190249999164735,
+      "check": 3.142000002753775e-05,
+      "restore": 0.0003989489999867146,
+      "seconds": 0.009548784999992677,
+      "gain_per_second": 0.0,
+      "iterations": 1,
+      "nodes": 0,
+      "cuts": 0,
+      "variables": 8,
+      "rows": 17,
+      "selected": [
+        0,
+        1,
+        2
+      ],
+      "offices": [
+        0
+      ],
+      "events": []
+    }
+  },
+  {
+    "case": "random07",
+    "kind": "runtime",
+    "ok": true,
+    "value": 0.0,
+    "expected": 0.0,
+    "rc": 0,
+    "wall": 0.010525401999984751
+  },
+  {
+    "case": "random08",
+    "kind": "structure",
+    "backend": "scip",
+    "ok": true,
+    "expected": 22,
+    "result": {
+      "solution": [
+        {
+          "officeId": 1,
+          "sites": [
+            0,
+            1,
+            3
+          ],
+          "workers": [
+            0,
+            1
+          ]
+        },
+        {
+          "officeId": 2,
+          "sites": [
+            2
+          ],
+          "workers": [
+            2
+          ]
+        }
+      ],
+      "before": 0.0,
+      "value": 22.0,
+      "gain": 22.0,
+      "kind": "structure",
+      "backend": "scip",
+      "conditional_optimal": true,
+      "status": "optimal",
+      "bound": 22.0,
+      "gap": 0.0,
+      "build": 0.009009186000071168,
+      "solve": 0.008344796000073984,
+      "check": 0.0007235650000438909,
+      "restore": 0.0009826629999452052,
+      "seconds": 0.021869154999990315,
+      "gain_per_second": 1005.9830843948814,
+      "iterations": 1,
+      "nodes": 1,
+      "cuts": 0,
+      "variables": 28,
+      "rows": 58,
+      "selected": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "offices": [
+        0,
+        1,
+        2
+      ],
+      "events": []
+    }
+  },
+  {
+    "case": "random08",
+    "kind": "structure",
+    "backend": "highs",
+    "ok": true,
+    "expected": 22,
+    "result": {
+      "solution": [
+        {
+          "officeId": 1,
+          "sites": [
+            0,
+            1,
+            3
+          ],
+          "workers": [
+            1
+          ]
+        },
+        {
+          "officeId": 2,
+          "sites": [
+            2
+          ],
+          "workers": [
+            2
+          ]
+        }
+      ],
+      "before": 0.0,
+      "value": 22.0,
+      "gain": 22.0,
+      "kind": "structure",
+      "backend": "highs",
+      "conditional_optimal": true,
+      "status": "HighsModelStatus.kOptimal",
+      "bound": 22.0,
+      "gap": 0.0,
+      "build": 0.002059118000033777,
+      "solve": 0.023924769000018387,
+      "check": 0.0007866270000249642,
+      "restore": 0.001015692000009949,
+      "seconds": 0.029274428999997326,
+      "gain_per_second": 751.5091071461038,
+      "iterations": 1,
+      "nodes": 1,
+      "cuts": 0,
+      "variables": 28,
+      "rows": 58,
+      "selected": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "offices": [
+        0,
+        1,
+        2
+      ],
+      "events": []
+    }
+  },
+  {
+    "case": "random08",
+    "kind": "runtime",
+    "ok": true,
+    "value": 22.0,
+    "expected": 22,
+    "rc": 0,
+    "wall": 0.011487488000057056
+  },
+  {
+    "case": "random09",
+    "kind": "structure",
+    "backend": "highs",
+    "ok": true,
+    "expected": 5.0,
+    "result": {
+      "solution": [
+        {
+          "officeId": 2,
+          "sites": [
+            0
+          ],
+          "workers": [
+            0,
+            1
+          ]
+        }
+      ],
+      "before": 0.0,
+      "value": 5.0,
+      "gain": 5.0,
+      "kind": "structure",
+      "backend": "highs",
+      "conditional_optimal": true,
+      "status": "HighsModelStatus.kOptimal",
+      "bound": 5.0,
+      "gap": 0.0,
+      "build": 0.0017435810000279162,
+      "solve": 0.023498111000094468,
+      "check": 0.0004036259999793401,
+      "restore": 0.0004510180000352193,
+      "seconds": 0.02739948499993261,
+      "gain_per_second": 182.485181747478,
+      "iterations": 1,
+      "nodes": 1,
+      "cuts": 0,
+      "variables": 19,
+      "rows": 46,
+      "selected": [
+        0,
+        1
+      ],
+      "offices": [
+        0,
+        1,
+        2
+      ],
+      "events": []
+    }
+  },
+  {
+    "case": "random09",
+    "kind": "structure",
+    "backend": "scip",
+    "ok": true,
+    "expected": 5.0,
+    "result": {
+      "solution": [
+        {
+          "officeId": 2,
+          "sites": [
+            0
+          ],
+          "workers": [
+            0,
+            1
+          ]
+        }
+      ],
+      "before": 0.0,
+      "value": 5.0,
+      "gain": 5.0,
+      "kind": "structure",
+      "backend": "scip",
+      "conditional_optimal": true,
+      "status": "optimal",
+      "bound": 5.0,
+      "gap": 0.0,
+      "build": 0.008119651000015438,
+      "solve": 0.0066908879999800774,
+      "check": 0.0003808569999819156,
+      "restore": 0.00046381099991776864,
+      "seconds": 0.01797991900002671,
+      "gain_per_second": 278.08801585772284,
+      "iterations": 1,
+      "nodes": 1,
+      "cuts": 0,
+      "variables": 19,
+      "rows": 46,
+      "selected": [
+        0,
+        1
+      ],
+      "offices": [
+        0,
+        1,
+        2
+      ],
+      "events": []
+    }
+  },
+  {
+    "case": "random09",
+    "kind": "runtime",
+    "ok": true,
+    "value": 5.0,
+    "expected": 5.0,
+    "rc": 0,
+    "wall": 0.010800240999969901
+  },
+  {
+    "case": "random10",
+    "kind": "structure",
+    "backend": "highs",
+    "ok": true,
+    "expected": 0,
+    "result": {
+      "solution": [],
+      "before": 0.0,
+      "value": 0.0,
+      "gain": 0.0,
+      "kind": "structure",
+      "backend": "highs",
+      "conditional_optimal": true,
+      "status": "HighsModelStatus.kOptimal",
+      "bound": 0.0,
+      "gap": 0.0,
+      "build": 0.0015434769999274067,
+      "solve": 0.0013639130000910882,
+      "check": 3.8268000025709625e-05,
+      "restore": 0.00039762899996276246,
+      "seconds": 0.004447755000001052,
+      "gain_per_second": 0.0,
+      "iterations": 1,
+      "nodes": 0,
+      "cuts": 0,
+      "variables": 14,
+      "rows": 27,
+      "selected": [
+        0,
+        1,
+        2
+      ],
+      "offices": [
+        0,
+        1
+      ],
+      "events": []
+    }
+  },
+  {
+    "case": "random10",
+    "kind": "structure",
+    "backend": "scip",
+    "ok": true,
+    "expected": 0,
+    "result": {
+      "solution": [],
+      "before": 0.0,
+      "value": 0.0,
+      "gain": 0.0,
+      "kind": "structure",
+      "backend": "scip",
+      "conditional_optimal": true,
+      "status": "optimal",
+      "bound": 0.0,
+      "gap": 0.0,
+      "build": 0.00726710699996147,
+      "solve": 0.0012286150000591078,
+      "check": 3.748500000710919e-05,
+      "restore": 0.00043700300000182324,
+      "seconds": 0.010691241000017726,
+      "gain_per_second": 0.0,
+      "iterations": 1,
+      "nodes": 0,
+      "cuts": 0,
+      "variables": 14,
+      "rows": 27,
+      "selected": [
+        0,
+        1,
+        2
+      ],
+      "offices": [
+        0,
+        1
+      ],
+      "events": []
+    }
+  },
+  {
+    "case": "random10",
+    "kind": "runtime",
+    "ok": true,
+    "value": 0.0,
+    "expected": 0,
+    "rc": 0,
+    "wall": 0.010623263000070438
+  },
+  {
+    "case": "random11",
+    "kind": "structure",
+    "backend": "highs",
+    "ok": true,
+    "expected": 0.0,
+    "result": {
+      "solution": [],
+      "before": 0.0,
+      "value": 0.0,
+      "gain": 0.0,
+      "kind": "structure",
+      "backend": "highs",
+      "conditional_optimal": true,
+      "status": "HighsModelStatus.kOptimal",
+      "bound": 0.0,
+      "gap": 0.0,
+      "build": 0.0012076759999217757,
+      "solve": 0.0012022099999740021,
+      "check": 3.223199996682524e-05,
+      "restore": 0.00031985999999051273,
+      "seconds": 0.003569291999951929,
+      "gain_per_second": 0.0,
+      "iterations": 1,
+      "nodes": 0,
+      "cuts": 0,
+      "variables": 8,
+      "rows": 14,
+      "selected": [
+        0,
+        1
+      ],
+      "offices": [
+        0
+      ],
+      "events": []
+    }
+  },
+  {
+    "case": "random11",
+    "kind": "structure",
+    "backend": "scip",
+    "ok": true,
+    "expected": 0.0,
+    "result": {
+      "solution": [],
+      "before": 0.0,
+      "value": 0.0,
+      "gain": 0.0,
+      "kind": "structure",
+      "backend": "scip",
+      "conditional_optimal": true,
+      "status": "optimal",
+      "bound": 0.0,
+      "gap": 0.0,
+      "build": 0.006435244000044804,
+      "solve": 0.0009076819999336294,
+      "check": 3.051499993489415e-05,
+      "restore": 0.00035292300003675336,
+      "seconds": 0.00902673500002038,
+      "gain_per_second": 0.0,
+      "iterations": 1,
+      "nodes": 0,
+      "cuts": 0,
+      "variables": 8,
+      "rows": 14,
+      "selected": [
+        0,
+        1
+      ],
+      "offices": [
+        0
+      ],
+      "events": []
+    }
+  },
+  {
+    "case": "random11",
+    "kind": "runtime",
+    "ok": true,
+    "value": 0.0,
+    "expected": 0.0,
+    "rc": 0,
+    "wall": 0.010550673000011557
+  },
+  {
+    "case": "random12",
+    "kind": "structure",
+    "backend": "highs",
+    "ok": true,
+    "expected": 2.0,
+    "result": {
+      "solution": [
+        {
+          "officeId": 1,
+          "sites": [
+            0
+          ],
+          "workers": []
+        }
+      ],
+      "before": 0.0,
+      "value": 2.0,
+      "gain": 2.0,
+      "kind": "structure",
+      "backend": "highs",
+      "conditional_optimal": true,
+      "status": "HighsModelStatus.kOptimal",
+      "bound": 2.0,
+      "gap": 0.0,
+      "build": 0.0013928859999623455,
+      "solve": 0.023216747999981635,
+      "check": 0.00043250299995634123,
+      "restore": 0.000531589000047461,
+      "seconds": 0.02652578499998981,
+      "gain_per_second": 75.39833411153595,
+      "iterations": 1,
+      "nodes": 1,
+      "cuts": 0,
+      "variables": 12,
+      "rows": 20,
+      "selected": [
+        0,
+        1,
+        2
+      ],
+      "offices": [
+        0,
+        1
+      ],
+      "events": []
+    }
+  },
+  {
+    "case": "random12",
+    "kind": "structure",
+    "backend": "scip",
+    "ok": true,
+    "expected": 2.0,
+    "result": {
+      "solution": [
+        {
+          "officeId": 1,
+          "sites": [
+            0
+          ],
+          "workers": []
+        }
+      ],
+      "before": 0.0,
+      "value": 2.0,
+      "gain": 2.0,
+      "kind": "structure",
+      "backend": "scip",
+      "conditional_optimal": true,
+      "status": "optimal",
+      "bound": 2.0,
+      "gap": 0.0,
+      "build": 0.007053154999994149,
+      "solve": 0.004300717999967674,
+      "check": 0.0003979110000500441,
+      "restore": 0.00041213500003323134,
+      "seconds": 0.013812627999982396,
+      "gain_per_second": 144.7950382796488,
+      "iterations": 1,
+      "nodes": 1,
+      "cuts": 0,
+      "variables": 12,
+      "rows": 20,
+      "selected": [
+        0,
+        1,
+        2
+      ],
+      "offices": [
+        0,
+        1
+      ],
+      "events": []
+    }
+  },
+  {
+    "case": "random12",
+    "kind": "runtime",
+    "ok": true,
+    "value": 2.0,
+    "expected": 2.0,
+    "rc": 0,
+    "wall": 0.010802350000062688
+  },
+  {
+    "case": "random13",
+    "kind": "structure",
+    "backend": "highs",
+    "ok": true,
+    "expected": 0.0,
+    "result": {
+      "solution": [],
+      "before": 0.0,
+      "value": 0.0,
+      "gain": 0.0,
+      "kind": "structure",
+      "backend": "highs",
+      "conditional_optimal": true,
+      "status": "HighsModelStatus.kOptimal",
+      "bound": 0.0,
+      "gap": 0.0,
+      "build": 0.0012924860000111948,
+      "solve": 0.0011652430000594904,
+      "check": 3.174300002228847e-05,
+      "restore": 0.000347108000028129,
+      "seconds": 0.0037219890000415035,
+      "gain_per_second": 0.0,
+      "iterations": 1,
+      "nodes": 0,
+      "cuts": 0,
+      "variables": 8,
+      "rows": 14,
+      "selected": [
+        0,
+        1
+      ],
+      "offices": [
+        0
+      ],
+      "events": []
+    }
+  },
+  {
+    "case": "random13",
+    "kind": "structure",
+    "backend": "scip",
+    "ok": true,
+    "expected": 0.0,
+    "result": {
+      "solution": [],
+      "before": 0.0,
+      "value": 0.0,
+      "gain": 0.0,
+      "kind": "structure",
+      "backend": "scip",
+      "conditional_optimal": true,
+      "status": "optimal",
+      "bound": 0.0,
+      "gap": 0.0,
+      "build": 0.006374247000053401,
+      "solve": 0.0009876849999272963,
+      "check": 3.407099995911267e-05,
+      "restore": 0.0004076289999375149,
+      "seconds": 0.009278406000021278,
+      "gain_per_second": 0.0,
+      "iterations": 1,
+      "nodes": 0,
+      "cuts": 0,
+      "variables": 8,
+      "rows": 14,
+      "selected": [
+        0,
+        1
+      ],
+      "offices": [
+        0
+      ],
+      "events": []
+    }
+  },
+  {
+    "case": "random13",
+    "kind": "runtime",
+    "ok": true,
+    "value": 0.0,
+    "expected": 0.0,
+    "rc": 0,
+    "wall": 0.01072312899998451
+  },
+  {
+    "case": "random14",
+    "kind": "structure",
+    "backend": "highs",
+    "ok": true,
+    "expected": 0,
+    "result": {
+      "solution": [],
+      "before": 0.0,
+      "value": 0.0,
+      "gain": 0.0,
+      "kind": "structure",
+      "backend": "highs",
+      "conditional_optimal": true,
+      "status": "HighsModelStatus.kOptimal",
+      "bound": 0.0,
+      "gap": 0.0,
+      "build": 0.0014232660000743635,
+      "solve": 0.001207508999982565,
+      "check": 3.33099999352271e-05,
+      "restore": 0.0004162730000416559,
+      "seconds": 0.00403548100007356,
+      "gain_per_second": 0.0,
+      "iterations": 1,
+      "nodes": 0,
+      "cuts": 0,
+      "variables": 9,
+      "rows": 21,
+      "selected": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "offices": [
+        0
+      ],
+      "events": []
+    }
+  },
+  {
+    "case": "random14",
+    "kind": "structure",
+    "backend": "scip",
+    "ok": true,
+    "expected": 0,
+    "result": {
+      "solution": [],
+      "before": 0.0,
+      "value": 0.0,
+      "gain": 0.0,
+      "kind": "structure",
+      "backend": "scip",
+      "conditional_optimal": true,
+      "status": "optimal",
+      "bound": 0.0,
+      "gap": 0.0,
+      "build": 0.006626048999919476,
+      "solve": 0.0009386650000351437,
+      "check": 3.1475000014324905e-05,
+      "restore": 0.0003982729999734147,
+      "seconds": 0.009496748999936244,
+      "gain_per_second": 0.0,
+      "iterations": 1,
+      "nodes": 0,
+      "cuts": 0,
+      "variables": 9,
+      "rows": 21,
+      "selected": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "offices": [
+        0
+      ],
+      "events": []
+    }
+  },
+  {
+    "case": "random14",
+    "kind": "runtime",
+    "ok": true,
+    "value": 0.0,
+    "expected": 0,
+    "rc": 0,
+    "wall": 0.010660790999963865
+  },
+  {
+    "case": "random15",
+    "kind": "structure",
+    "backend": "highs",
+    "ok": true,
+    "expected": 0,
+    "result": {
+      "solution": [],
+      "before": 0.0,
+      "value": 0.0,
+      "gain": 0.0,
+      "kind": "structure",
+      "backend": "highs",
+      "conditional_optimal": true,
+      "status": "HighsModelStatus.kOptimal",
+      "bound": 0.0,
+      "gap": 0.0,
+      "build": 0.0014970810000249912,
+      "solve": 0.0012874230000079478,
+      "check": 3.624399994350824e-05,
+      "restore": 0.0003892680000490145,
+      "seconds": 0.004238864000058129,
+      "gain_per_second": 0.0,
+      "iterations": 1,
+      "nodes": 0,
+      "cuts": 0,
+      "variables": 16,
+      "rows": 32,
+      "selected": [
+        0,
+        1,
+        2
+      ],
+      "offices": [
+        0,
+        1
+      ],
+      "events": []
+    }
+  },
+  {
+    "case": "random15",
+    "kind": "structure",
+    "backend": "scip",
+    "ok": true,
+    "expected": 0,
+    "result": {
+      "solution": [],
+      "before": 0.0,
+      "value": 0.0,
+      "gain": 0.0,
+      "kind": "structure",
+      "backend": "scip",
+      "conditional_optimal": true,
+      "status": "optimal",
+      "bound": 0.0,
+      "gap": 0.0,
+      "build": 0.007088047000024744,
+      "solve": 0.001072323000016695,
+      "check": 3.722799999650306e-05,
+      "restore": 0.0004015759999447255,
+      "seconds": 0.010440533000064534,
+      "gain_per_second": 0.0,
+      "iterations": 1,
+      "nodes": 0,
+      "cuts": 0,
+      "variables": 16,
+      "rows": 32,
+      "selected": [
+        0,
+        1,
+        2
+      ],
+      "offices": [
+        0,
+        1
+      ],
+      "events": []
+    }
+  },
+  {
+    "case": "random15",
+    "kind": "runtime",
+    "ok": true,
+    "value": 0.0,
+    "expected": 0,
+    "rc": 0,
+    "wall": 0.010671853999951963
+  },
+  {
+    "case": "random16",
+    "kind": "structure",
+    "backend": "scip",
+    "ok": true,
+    "expected": 9.0,
+    "result": {
+      "solution": [
+        {
+          "officeId": 0,
+          "sites": [
+            1
+          ],
+          "workers": []
+        }
+      ],
+      "before": 0.0,
+      "value": 9.0,
+      "gain": 9.0,
+      "kind": "structure",
+      "backend": "scip",
+      "conditional_optimal": true,
+      "status": "optimal",
+      "bound": 9.0,
+      "gap": 0.0,
+      "build": 0.006149335000031897,
+      "solve": 0.001381068000000596,
+      "check": 0.0004565839999486343,
+      "restore": 0.0004211200000554527,
+      "seconds": 0.009713138000051913,
+      "gain_per_second": 926.580060939307,
+      "iterations": 1,
+      "nodes": 0,
+      "cuts": 0,
+      "variables": 8,
+      "rows": 13,
+      "selected": [
+        0,
+        1,
+        2
+      ],
+      "offices": [
+        0
+      ],
+      "events": []
+    }
+  },
+  {
+    "case": "random16",
+    "kind": "structure",
+    "backend": "highs",
+    "ok": true,
+    "expected": 9.0,
+    "result": {
+      "solution": [
+        {
+          "officeId": 0,
+          "sites": [
+            1
+          ],
+          "workers": []
+        }
+      ],
+      "before": 0.0,
+      "value": 9.0,
+      "gain": 9.0,
+      "kind": "structure",
+      "backend": "highs",
+      "conditional_optimal": true,
+      "status": "HighsModelStatus.kOptimal",
+      "bound": 9.0,
+      "gap": 0.0,
+      "build": 0.0012329879999697368,
+      "solve": 0.0012164529999836304,
+      "check": 0.00038099300002159,
+      "restore": 0.0003503789999967921,
+      "seconds": 0.003997436999952697,
+      "gain_per_second": 2251.442611880187,
+      "iterations": 1,
+      "nodes": 0,
+      "cuts": 0,
+      "variables": 8,
+      "rows": 13,
+      "selected": [
+        0,
+        1,
+        2
+      ],
+      "offices": [
+        0
+      ],
+      "events": []
+    }
+  },
+  {
+    "case": "random16",
+    "kind": "runtime",
+    "ok": true,
+    "value": 9.0,
+    "expected": 9.0,
+    "rc": 0,
+    "wall": 0.01061506600001394
+  },
+  {
+    "case": "random17",
+    "kind": "structure",
+    "backend": "scip",
+    "ok": true,
+    "expected": 4,
+    "result": {
+      "solution": [
+        {
+          "officeId": 0,
+          "sites": [
+            1
+          ],
+          "workers": [
+            0
+          ]
+        }
+      ],
+      "before": 0.0,
+      "value": 4.0,
+      "gain": 4.0,
+      "kind": "structure",
+      "backend": "scip",
+      "conditional_optimal": true,
+      "status": "optimal",
+      "bound": 4.0,
+      "gap": 0.0,
+      "build": 0.006871576999969875,
+      "solve": 0.0012323700000251847,
+      "check": 0.0003743519999943601,
+      "restore": 0.00038485100003526895,
+      "seconds": 0.010457438000003094,
+      "gain_per_second": 382.5028654244774,
+      "iterations": 1,
+      "nodes": 0,
+      "cuts": 0,
+      "variables": 12,
+      "rows": 24,
+      "selected": [
+        0,
+        1
+      ],
+      "offices": [
+        0,
+        1
+      ],
+      "events": []
+    }
+  },
+  {
+    "case": "random17",
+    "kind": "structure",
+    "backend": "highs",
+    "ok": true,
+    "expected": 4,
+    "result": {
+      "solution": [
+        {
+          "officeId": 0,
+          "sites": [
+            1
+          ],
+          "workers": [
+            0
+          ]
+        }
+      ],
+      "before": 0.0,
+      "value": 4.0,
+      "gain": 4.0,
+      "kind": "structure",
+      "backend": "highs",
+      "conditional_optimal": true,
+      "status": "HighsModelStatus.kOptimal",
+      "bound": 4.0,
+      "gap": 0.0,
+      "build": 0.0013649170000462618,
+      "solve": 0.0014423420000184706,
+      "check": 0.00032552400000440684,
+      "restore": 0.0003672740000411068,
+      "seconds": 0.004412204999994174,
+      "gain_per_second": 906.5761903640656,
+      "iterations": 1,
+      "nodes": 0,
+      "cuts": 0,
+      "variables": 12,
+      "rows": 24,
+      "selected": [
+        0,
+        1
+      ],
+      "offices": [
+        0,
+        1
+      ],
+      "events": []
+    }
+  },
+  {
+    "case": "random17",
+    "kind": "runtime",
+    "ok": true,
+    "value": 4.0,
+    "expected": 4,
+    "rc": 0,
+    "wall": 0.010638847999985046
+  },
+  {
+    "case": "random18",
+    "kind": "structure",
+    "backend": "highs",
+    "ok": true,
+    "expected": 24,
+    "result": {
+      "solution": [
+        {
+          "officeId": 1,
+          "sites": [
+            0,
+            1,
+            3
+          ],
+          "workers": [
+            0
+          ]
+        }
+      ],
+      "before": 0.0,
+      "value": 24.0,
+      "gain": 24.0,
+      "kind": "structure",
+      "backend": "highs",
+      "conditional_optimal": true,
+      "status": "HighsModelStatus.kOptimal",
+      "bound": 24.0,
+      "gap": 0.0,
+      "build": 0.0016961200000196186,
+      "solve": 0.03010566000000381,
+      "check": 0.0005070830000022397,
+      "restore": 0.0005184829999507201,
+      "seconds": 0.03402458499999739,
+      "gain_per_second": 705.3723065248803,
+      "iterations": 1,
+      "nodes": 1,
+      "cuts": 0,
+      "variables": 22,
+      "rows": 38,
+      "selected": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "offices": [
+        0,
+        1,
+        2
+      ],
+      "events": []
+    }
+  },
+  {
+    "case": "random18",
+    "kind": "structure",
+    "backend": "scip",
+    "ok": true,
+    "expected": 24,
+    "result": {
+      "solution": [
+        {
+          "officeId": 1,
+          "sites": [
+            0,
+            1,
+            3
+          ],
+          "workers": [
+            0
+          ]
+        }
+      ],
+      "before": 0.0,
+      "value": 24.0,
+      "gain": 24.0,
+      "kind": "structure",
+      "backend": "scip",
+      "conditional_optimal": true,
+      "status": "optimal",
+      "bound": 24.0,
+      "gap": 0.0,
+      "build": 0.007947957000055794,
+      "solve": 0.013091207000002214,
+      "check": 0.0005031770000414326,
+      "restore": 0.0005383780001011473,
+      "seconds": 0.02429488300003868,
+      "gain_per_second": 987.8623412165347,
+      "iterations": 1,
+      "nodes": 1,
+      "cuts": 0,
+      "variables": 22,
+      "rows": 38,
+      "selected": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "offices": [
+        0,
+        1,
+        2
+      ],
+      "events": []
+    }
+  },
+  {
+    "case": "random18",
+    "kind": "runtime",
+    "ok": true,
+    "value": 24.0,
+    "expected": 24,
+    "rc": 0,
+    "wall": 0.010992010999984814
+  },
+  {
+    "case": "random19",
+    "kind": "structure",
+    "backend": "scip",
+    "ok": true,
+    "expected": 0,
+    "result": {
+      "solution": [],
+      "before": 0.0,
+      "value": 0.0,
+      "gain": 0.0,
+      "kind": "structure",
+      "backend": "scip",
+      "conditional_optimal": true,
+      "status": "optimal",
+      "bound": 0.0,
+      "gap": 0.0,
+      "build": 0.007344795999983944,
+      "solve": 0.0010774549999723604,
+      "check": 4.2474999986552575e-05,
+      "restore": 0.000443819999986772,
+      "seconds": 0.010770949000061592,
+      "gain_per_second": 0.0,
+      "iterations": 1,
+      "nodes": 0,
+      "cuts": 0,
+      "variables": 16,
+      "rows": 27,
+      "selected": [
+        0,
+        1,
+        2
+      ],
+      "offices": [
+        0,
+        1,
+        2
+      ],
+      "events": []
+    }
+  },
+  {
+    "case": "random19",
+    "kind": "structure",
+    "backend": "highs",
+    "ok": true,
+    "expected": 0,
+    "result": {
+      "solution": [],
+      "before": 0.0,
+      "value": 0.0,
+      "gain": 0.0,
+      "kind": "structure",
+      "backend": "highs",
+      "conditional_optimal": true,
+      "status": "HighsModelStatus.kOptimal",
+      "bound": 0.0,
+      "gap": 0.0,
+      "build": 0.0016179919999785852,
+      "solve": 0.001235678999933043,
+      "check": 4.0949999970507633e-05,
+      "restore": 0.0004435580000290429,
+      "seconds": 0.00433325500000592,
+      "gain_per_second": 0.0,
+      "iterations": 1,
+      "nodes": 0,
+      "cuts": 0,
+      "variables": 16,
+      "rows": 27,
+      "selected": [
+        0,
+        1,
+        2
+      ],
+      "offices": [
+        0,
+        1,
+        2
+      ],
+      "events": []
+    }
+  },
+  {
+    "case": "random19",
+    "kind": "runtime",
+    "ok": true,
+    "value": 0.0,
+    "expected": 0,
+    "rc": 0,
+    "wall": 0.010750516999905813
+  },
+  {
+    "case": "random20",
+    "kind": "structure",
+    "backend": "highs",
+    "ok": true,
+    "expected": 0.0,
+    "result": {
+      "solution": [],
+      "before": 0.0,
+      "value": 0.0,
+      "gain": 0.0,
+      "kind": "structure",
+      "backend": "highs",
+      "conditional_optimal": true,
+      "status": "HighsModelStatus.kOptimal",
+      "bound": 0.0,
+      "gap": 0.0,
+      "build": 0.0013205060000700541,
+      "solve": 0.0011432299999114548,
+      "check": 3.206499991392775e-05,
+      "restore": 0.00037894000001870154,
+      "seconds": 0.0037692810000180543,
+      "gain_per_second": 0.0,
+      "iterations": 1,
+      "nodes": 0,
+      "cuts": 0,
+      "variables": 9,
+      "rows": 19,
+      "selected": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "offices": [
+        0
+      ],
+      "events": []
+    }
+  },
+  {
+    "case": "random20",
+    "kind": "structure",
+    "backend": "scip",
+    "ok": true,
+    "expected": 0.0,
+    "result": {
+      "solution": [],
+      "before": 0.0,
+      "value": 0.0,
+      "gain": 0.0,
+      "kind": "structure",
+      "backend": "scip",
+      "conditional_optimal": true,
+      "status": "optimal",
+      "bound": 0.0,
+      "gap": 0.0,
+      "build": 0.0065820870000834475,
+      "solve": 0.0009761169999364938,
+      "check": 3.0253999966589618e-05,
+      "restore": 0.00039424499993856443,
+      "seconds": 0.009430465000036747,
+      "gain_per_second": 0.0,
+      "iterations": 1,
+      "nodes": 0,
+      "cuts": 0,
+      "variables": 9,
+      "rows": 19,
+      "selected": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "offices": [
+        0
+      ],
+      "events": []
+    }
+  },
+  {
+    "case": "random20",
+    "kind": "runtime",
+    "ok": true,
+    "value": 0.0,
+    "expected": 0.0,
+    "rc": 0,
+    "wall": 0.010613510999974096
+  },
+  {
+    "case": "random21",
+    "kind": "structure",
+    "backend": "scip",
+    "ok": true,
+    "expected": 0,
+    "result": {
+      "solution": [],
+      "before": 0.0,
+      "value": 0.0,
+      "gain": 0.0,
+      "kind": "structure",
+      "backend": "scip",
+      "conditional_optimal": true,
+      "status": "optimal",
+      "bound": 0.0,
+      "gap": 0.0,
+      "build": 0.006548510000015995,
+      "solve": 0.0009052499999597785,
+      "check": 3.094600003805681e-05,
+      "restore": 0.000444507999986854,
+      "seconds": 0.009431442000050083,
+      "gain_per_second": 0.0,
+      "iterations": 1,
+      "nodes": 0,
+      "cuts": 0,
+      "variables": 10,
+      "rows": 21,
+      "selected": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "offices": [
+        0
+      ],
+      "events": []
+    }
+  },
+  {
+    "case": "random21",
+    "kind": "structure",
+    "backend": "highs",
+    "ok": true,
+    "expected": 0,
+    "result": {
+      "solution": [],
+      "before": 0.0,
+      "value": 0.0,
+      "gain": 0.0,
+      "kind": "structure",
+      "backend": "highs",
+      "conditional_optimal": true,
+      "status": "HighsModelStatus.kOptimal",
+      "bound": 0.0,
+      "gap": 0.0,
+      "build": 0.0013904790000651701,
+      "solve": 0.0011132280000083483,
+      "check": 3.068199998779164e-05,
+      "restore": 0.00040382299994234927,
+      "seconds": 0.003872726000054172,
+      "gain_per_second": 0.0,
+      "iterations": 1,
+      "nodes": 0,
+      "cuts": 0,
+      "variables": 10,
+      "rows": 21,
+      "selected": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "offices": [
+        0
+      ],
+      "events": []
+    }
+  },
+  {
+    "case": "random21",
+    "kind": "runtime",
+    "ok": true,
+    "value": 0.0,
+    "expected": 0,
+    "rc": 0,
+    "wall": 0.01059088400006658
+  },
+  {
+    "case": "random22",
+    "kind": "structure",
+    "backend": "highs",
+    "ok": true,
+    "expected": 2,
+    "result": {
+      "solution": [
+        {
+          "officeId": 0,
+          "sites": [
+            2
+          ],
+          "workers": [
+            0
+          ]
+        }
+      ],
+      "before": 0.0,
+      "value": 2.0,
+      "gain": 2.0,
+      "kind": "structure",
+      "backend": "highs",
+      "conditional_optimal": true,
+      "status": "HighsModelStatus.kOptimal",
+      "bound": 2.0,
+      "gap": 0.0,
+      "build": 0.0012590949999093937,
+      "solve": 0.019007064999982504,
+      "check": 0.00046230199995989096,
+      "restore": 0.00039979700000003504,
+      "seconds": 0.021994543999994676,
+      "gain_per_second": 90.93164195631809,
+      "iterations": 1,
+      "nodes": 1,
+      "cuts": 0,
+      "variables": 10,
+      "rows": 19,
+      "selected": [
+        0,
+        1,
+        2
+      ],
+      "offices": [
+        0
+      ],
+      "events": []
+    }
+  },
+  {
+    "case": "random22",
+    "kind": "structure",
+    "backend": "scip",
+    "ok": true,
+    "expected": 2,
+    "result": {
+      "solution": [
+        {
+          "officeId": 0,
+          "sites": [
+            2
+          ],
+          "workers": [
+            0,
+            1
+          ]
+        }
+      ],
+      "before": 0.0,
+      "value": 2.0,
+      "gain": 2.0,
+      "kind": "structure",
+      "backend": "scip",
+      "conditional_optimal": true,
+      "status": "optimal",
+      "bound": 2.0,
+      "gap": 0.0,
+      "build": 0.00666961199999605,
+      "solve": 0.0028370039999572327,
+      "check": 0.00038418899998760025,
+      "restore": 0.0004261950000454817,
+      "seconds": 0.011825361999967754,
+      "gain_per_second": 169.12801485531298,
+      "iterations": 1,
+      "nodes": 1,
+      "cuts": 0,
+      "variables": 10,
+      "rows": 19,
+      "selected": [
+        0,
+        1,
+        2
+      ],
+      "offices": [
+        0
+      ],
+      "events": []
+    }
+  },
+  {
+    "case": "random22",
+    "kind": "runtime",
+    "ok": true,
+    "value": 2.0,
+    "expected": 2,
+    "rc": 0,
+    "wall": 0.010650774000055208
+  },
+  {
+    "case": "random23",
+    "kind": "structure",
+    "backend": "scip",
+    "ok": true,
+    "expected": 15,
+    "result": {
+      "solution": [
+        {
+          "officeId": 0,
+          "sites": [
+            1,
+            3
+          ],
+          "workers": [
+            0,
+            1
+          ]
+        }
+      ],
+      "before": 0.0,
+      "value": 15.0,
+      "gain": 15.0,
+      "kind": "structure",
+      "backend": "scip",
+      "conditional_optimal": true,
+      "status": "optimal",
+      "bound": 15.0,
+      "gap": 0.0,
+      "build": 0.006902540000055524,
+      "solve": 0.0033490319999600615,
+      "check": 0.00046310499999435706,
+      "restore": 0.00044334899996556487,
+      "seconds": 0.012729722000017318,
+      "gain_per_second": 1178.344664555879,
+      "iterations": 1,
+      "nodes": 1,
+      "cuts": 0,
+      "variables": 11,
+      "rows": 23,
+      "selected": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "offices": [
+        0
+      ],
+      "events": []
+    }
+  },
+  {
+    "case": "random23",
+    "kind": "structure",
+    "backend": "highs",
+    "ok": true,
+    "expected": 15,
+    "result": {
+      "solution": [
+        {
+          "officeId": 0,
+          "sites": [
+            1,
+            3
+          ],
+          "workers": [
+            1
+          ]
+        }
+      ],
+      "before": 0.0,
+      "value": 15.0,
+      "gain": 15.0,
+      "kind": "structure",
+      "backend": "highs",
+      "conditional_optimal": true,
+      "status": "HighsModelStatus.kOptimal",
+      "bound": 15.0,
+      "gap": 0.0,
+      "build": 0.0014380970000047455,
+      "solve": 0.021200305999968805,
+      "check": 0.0004083540000010544,
+      "restore": 0.00043195699993248127,
+      "seconds": 0.02440860399997291,
+      "gain_per_second": 614.5373983705356,
+      "iterations": 1,
+      "nodes": 1,
+      "cuts": 0,
+      "variables": 11,
+      "rows": 23,
+      "selected": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "offices": [
+        0
+      ],
+      "events": []
+    }
+  },
+  {
+    "case": "random23",
+    "kind": "runtime",
+    "ok": true,
+    "value": 15.0,
+    "expected": 15,
+    "rc": 0,
+    "wall": 0.010715198000070814
+  },
+  {
+    "case": "random24",
+    "kind": "structure",
+    "backend": "scip",
+    "ok": true,
+    "expected": 0,
+    "result": {
+      "solution": [],
+      "before": 0.0,
+      "value": 0.0,
+      "gain": 0.0,
+      "kind": "structure",
+      "backend": "scip",
+      "conditional_optimal": true,
+      "status": "optimal",
+      "bound": 0.0,
+      "gap": 0.0,
+      "build": 0.0077944599999000275,
+      "solve": 0.001221500000042397,
+      "check": 4.629900001873466e-05,
+      "restore": 0.0004961879999427765,
+      "seconds": 0.011622593999959463,
+      "gain_per_second": 0.0,
+      "iterations": 1,
+      "nodes": 0,
+      "cuts": 0,
+      "variables": 16,
+      "rows": 36,
+      "selected": [
+        0,
+        1
+      ],
+      "offices": [
+        0,
+        1,
+        2
+      ],
+      "events": []
+    }
+  },
+  {
+    "case": "random24",
+    "kind": "structure",
+    "backend": "highs",
+    "ok": true,
+    "expected": 0,
+    "result": {
+      "solution": [],
+      "before": 0.0,
+      "value": 0.0,
+      "gain": 0.0,
+      "kind": "structure",
+      "backend": "highs",
+      "conditional_optimal": true,
+      "status": "HighsModelStatus.kOptimal",
+      "bound": 0.0,
+      "gap": 0.0,
+      "build": 0.0017106650000187074,
+      "solve": 0.0012804110000388391,
+      "check": 4.0160000025935005e-05,
+      "restore": 0.00039296800002830423,
+      "seconds": 0.0045783949999531615,
+      "gain_per_second": 0.0,
+      "iterations": 1,
+      "nodes": 0,
+      "cuts": 0,
+      "variables": 16,
+      "rows": 36,
+      "selected": [
+        0,
+        1
+      ],
+      "offices": [
+        0,
+        1,
+        2
+      ],
+      "events": []
+    }
+  },
+  {
+    "case": "random24",
+    "kind": "runtime",
+    "ok": true,
+    "value": 0.0,
+    "expected": 0,
+    "rc": 0,
+    "wall": 0.010700484000039978
+  },
+  {
+    "case": "random25",
+    "kind": "structure",
+    "backend": "scip",
+    "ok": true,
+    "expected": 6,
+    "result": {
+      "solution": [
+        {
+          "officeId": 1,
+          "sites": [
+            0
+          ],
+          "workers": []
+        }
+      ],
+      "before": 0.0,
+      "value": 6.0,
+      "gain": 6.0,
+      "kind": "structure",
+      "backend": "scip",
+      "conditional_optimal": true,
+      "status": "optimal",
+      "bound": 6.0,
+      "gap": 0.0,
+      "build": 0.007525885000063681,
+      "solve": 0.0015733000000182074,
+      "check": 0.0004311110000116969,
+      "restore": 0.0005082879999918077,
+      "seconds": 0.011925071000064236,
+      "gain_per_second": 503.14165844108436,
+      "iterations": 1,
+      "nodes": 0,
+      "cuts": 0,
+      "variables": 16,
+      "rows": 30,
+      "selected": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "offices": [
+        0,
+        1
+      ],
+      "events": []
+    }
+  },
+  {
+    "case": "random25",
+    "kind": "structure",
+    "backend": "highs",
+    "ok": true,
+    "expected": 6,
+    "result": {
+      "solution": [
+        {
+          "officeId": 1,
+          "sites": [
+            0
+          ],
+          "workers": []
+        }
+      ],
+      "before": 0.0,
+      "value": 6.0,
+      "gain": 6.0,
+      "kind": "structure",
+      "backend": "highs",
+      "conditional_optimal": true,
+      "status": "HighsModelStatus.kOptimal",
+      "bound": 6.0,
+      "gap": 0.0,
+      "build": 0.0016327019999380354,
+      "solve": 0.024861412000063865,
+      "check": 0.0004842870000629773,
+      "restore": 0.0005431010000620518,
+      "seconds": 0.028635816000019076,
+      "gain_per_second": 209.5278164937225,
+      "iterations": 1,
+      "nodes": 1,
+      "cuts": 0,
+      "variables": 16,
+      "rows": 30,
+      "selected": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "offices": [
+        0,
+        1
+      ],
+      "events": []
+    }
+  },
+  {
+    "case": "random25",
+    "kind": "runtime",
+    "ok": true,
+    "value": 6.0,
+    "expected": 6,
+    "rc": 0,
+    "wall": 0.010955101000035938
+  },
+  {
+    "case": "random26",
+    "kind": "structure",
+    "backend": "highs",
+    "ok": true,
+    "expected": 7,
+    "result": {
+      "solution": [
+        {
+          "officeId": 0,
+          "sites": [
+            0
+          ],
+          "workers": [
+            0
+          ]
+        }
+      ],
+      "before": 0.0,
+      "value": 7.0,
+      "gain": 7.0,
+      "kind": "structure",
+      "backend": "highs",
+      "conditional_optimal": true,
+      "status": "HighsModelStatus.kOptimal",
+      "bound": 7.0,
+      "gap": 0.0,
+      "build": 0.0014498450000246521,
+      "solve": 0.023619385999950282,
+      "check": 0.0003910670000095706,
+      "restore": 0.0004163510000125825,
+      "seconds": 0.02690425600007984,
+      "gain_per_second": 260.18188349007784,
+      "iterations": 1,
+      "nodes": 1,
+      "cuts": 0,
+      "variables": 14,
+      "rows": 29,
+      "selected": [
+        0,
+        1
+      ],
+      "offices": [
+        0,
+        1
+      ],
+      "events": []
+    }
+  },
+  {
+    "case": "random26",
+    "kind": "structure",
+    "backend": "scip",
+    "ok": true,
+    "expected": 7,
+    "result": {
+      "solution": [
+        {
+          "officeId": 0,
+          "sites": [
+            0
+          ],
+          "workers": [
+            0,
+            1
+          ]
+        }
+      ],
+      "before": 0.0,
+      "value": 7.0,
+      "gain": 7.0,
+      "kind": "structure",
+      "backend": "scip",
+      "conditional_optimal": true,
+      "status": "optimal",
+      "bound": 7.0,
+      "gap": 0.0,
+      "build": 0.007064777999971739,
+      "solve": 0.004672622000043702,
+      "check": 0.0003768249999893669,
+      "restore": 0.00042578400007187156,
+      "seconds": 0.014345298999955958,
+      "gain_per_second": 487.9647332566223,
+      "iterations": 1,
+      "nodes": 1,
+      "cuts": 0,
+      "variables": 14,
+      "rows": 29,
+      "selected": [
+        0,
+        1
+      ],
+      "offices": [
+        0,
+        1
+      ],
+      "events": []
+    }
+  },
+  {
+    "case": "random26",
+    "kind": "runtime",
+    "ok": true,
+    "value": 7.0,
+    "expected": 7,
+    "rc": 0,
+    "wall": 0.010706551999987823
+  },
+  {
+    "case": "random27",
+    "kind": "structure",
+    "backend": "highs",
+    "ok": true,
+    "expected": 16,
+    "result": {
+      "solution": [
+        {
+          "officeId": 0,
+          "sites": [
+            1,
+            3
+          ],
+          "workers": []
+        }
+      ],
+      "before": 0.0,
+      "value": 16.0,
+      "gain": 16.0,
+      "kind": "structure",
+      "backend": "highs",
+      "conditional_optimal": true,
+      "status": "HighsModelStatus.kOptimal",
+      "bound": 16.0,
+      "gap": 0.0,
+      "build": 0.0012535250000382803,
+      "solve": 0.004841890999955467,
+      "check": 0.0004093510000302558,
+      "restore": 0.00041678000002320914,
+      "seconds": 0.007815903000050639,
+      "gain_per_second": 2047.1083123596002,
+      "iterations": 1,
+      "nodes": 1,
+      "cuts": 0,
+      "variables": 9,
+      "rows": 17,
+      "selected": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "offices": [
+        0
+      ],
+      "events": []
+    }
+  },
+  {
+    "case": "random27",
+    "kind": "structure",
+    "backend": "scip",
+    "ok": true,
+    "expected": 16,
+    "result": {
+      "solution": [
+        {
+          "officeId": 0,
+          "sites": [
+            1,
+            3
+          ],
+          "workers": []
+        }
+      ],
+      "before": 0.0,
+      "value": 16.0,
+      "gain": 16.0,
+      "kind": "structure",
+      "backend": "scip",
+      "conditional_optimal": true,
+      "status": "optimal",
+      "bound": 16.0,
+      "gap": 0.0,
+      "build": 0.00643894100005582,
+      "solve": 0.0016369170000416489,
+      "check": 0.0003903070000887965,
+      "restore": 0.00041879200000494166,
+      "seconds": 0.01033429000005981,
+      "gain_per_second": 1548.243759359124,
+      "iterations": 1,
+      "nodes": 0,
+      "cuts": 0,
+      "variables": 9,
+      "rows": 17,
+      "selected": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "offices": [
+        0
+      ],
+      "events": []
+    }
+  },
+  {
+    "case": "random27",
+    "kind": "runtime",
+    "ok": true,
+    "value": 16.0,
+    "expected": 16,
+    "rc": 0,
+    "wall": 0.01063757900010387
+  },
+  {
+    "case": "random28",
+    "kind": "structure",
+    "backend": "highs",
+    "ok": true,
+    "expected": 4,
+    "result": {
+      "solution": [
+        {
+          "officeId": 0,
+          "sites": [
+            2
+          ],
+          "workers": [
+            0,
+            1
+          ]
+        }
+      ],
+      "before": 0.0,
+      "value": 4.0,
+      "gain": 4.0,
+      "kind": "structure",
+      "backend": "highs",
+      "conditional_optimal": true,
+      "status": "HighsModelStatus.kOptimal",
+      "bound": 4.0,
+      "gap": 0.0,
+      "build": 0.00161718199990446,
+      "solve": 0.02379387799999222,
+      "check": 0.00039386299999932817,
+      "restore": 0.0004665079999313093,
+      "seconds": 0.027402295000001686,
+      "gain_per_second": 145.97317487457724,
+      "iterations": 1,
+      "nodes": 1,
+      "cuts": 0,
+      "variables": 16,
+      "rows": 40,
+      "selected": [
+        0,
+        1,
+        2
+      ],
+      "offices": [
+        0,
+        1
+      ],
+      "events": []
+    }
+  },
+  {
+    "case": "random28",
+    "kind": "structure",
+    "backend": "scip",
+    "ok": true,
+    "expected": 4,
+    "result": {
+      "solution": [
+        {
+          "officeId": 0,
+          "sites": [
+            2
+          ],
+          "workers": [
+            1
+          ]
+        }
+      ],
+      "before": 0.0,
+      "value": 4.0,
+      "gain": 4.0,
+      "kind": "structure",
+      "backend": "scip",
+      "conditional_optimal": true,
+      "status": "optimal",
+      "bound": 4.0,
+      "gap": 0.0,
+      "build": 0.0077348219999748835,
+      "solve": 0.005969410000034259,
+      "check": 0.00037342200005241466,
+      "restore": 0.00046701199994458875,
+      "seconds": 0.016557811999973637,
+      "gain_per_second": 241.57781233452636,
+      "iterations": 1,
+      "nodes": 1,
+      "cuts": 0,
+      "variables": 16,
+      "rows": 40,
+      "selected": [
+        0,
+        1,
+        2
+      ],
+      "offices": [
+        0,
+        1
+      ],
+      "events": []
+    }
+  },
+  {
+    "case": "random28",
+    "kind": "runtime",
+    "ok": true,
+    "value": 4.0,
+    "expected": 4,
+    "rc": 0,
+    "wall": 0.010707973999956266
+  },
+  {
+    "case": "random29",
+    "kind": "structure",
+    "backend": "highs",
+    "ok": true,
+    "expected": 9.0,
+    "result": {
+      "solution": [
+        {
+          "officeId": 2,
+          "sites": [
+            1
+          ],
+          "workers": []
+        }
+      ],
+      "before": 0.0,
+      "value": 9.0,
+      "gain": 9.0,
+      "kind": "structure",
+      "backend": "highs",
+      "conditional_optimal": true,
+      "status": "HighsModelStatus.kOptimal",
+      "bound": 9.0,
+      "gap": 0.0,
+      "build": 0.0015340590000505472,
+      "solve": 0.0012723820000246633,
+      "check": 0.000347375000046668,
+      "restore": 0.0004140239999514961,
+      "seconds": 0.004675238000004356,
+      "gain_per_second": 1925.0356880209338,
+      "iterations": 1,
+      "nodes": 0,
+      "cuts": 0,
+      "variables": 16,
+      "rows": 33,
+      "selected": [
+        0,
+        1,
+        2
+      ],
+      "offices": [
+        0,
+        1,
+        2
+      ],
+      "events": []
+    }
+  },
+  {
+    "case": "random29",
+    "kind": "structure",
+    "backend": "scip",
+    "ok": true,
+    "expected": 9.0,
+    "result": {
+      "solution": [
+        {
+          "officeId": 2,
+          "sites": [
+            1
+          ],
+          "workers": []
+        }
+      ],
+      "before": 0.0,
+      "value": 9.0,
+      "gain": 9.0,
+      "kind": "structure",
+      "backend": "scip",
+      "conditional_optimal": true,
+      "status": "optimal",
+      "bound": 9.0,
+      "gap": 0.0,
+      "build": 0.007418943999937255,
+      "solve": 0.0013946770000075048,
+      "check": 0.00034886399998868,
+      "restore": 0.00045431799992456945,
+      "seconds": 0.011551088999908643,
+      "gain_per_second": 779.147316765647,
+      "iterations": 1,
+      "nodes": 0,
+      "cuts": 0,
+      "variables": 16,
+      "rows": 33,
+      "selected": [
+        0,
+        1,
+        2
+      ],
+      "offices": [
+        0,
+        1,
+        2
+      ],
+      "events": []
+    }
+  },
+  {
+    "case": "random29",
+    "kind": "runtime",
+    "ok": true,
+    "value": 9.0,
+    "expected": 9.0,
+    "rc": 0,
+    "wall": 0.010709533000067495
+  }
+]

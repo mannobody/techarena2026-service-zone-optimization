@@ -1,0 +1,4266 @@
+{
+  "label": "geometry",
+  "command": [
+    "taskset",
+    "-c",
+    "14,15",
+    "./experiments/warm_v10/artifacts/v5/candidate",
+    "./experiments/structural_v9/inputs/dev/huge.json",
+    "./experiments/warm_v10/logs/cpu_profile20/geometry.solution.json",
+    "20"
+  ],
+  "env": {
+    "PATH": "/usr/local/bin:/usr/bin:/bin",
+    "NT": "2",
+    "SEED": "10302",
+    "ZM_POOL": "0",
+    "ZM_RESERVE": "0",
+    "GW_MODE": "1",
+    "DBG": "1"
+  },
+  "wall": 19.601908444999935,
+  "cpu": 35.873593,
+  "cpu_ratio": 1.830107160262278,
+  "rc": 0,
+  "official": 2593976.336569252,
+  "valid": true,
+  "states": {
+    "R": 359
+  },
+  "waits": {
+    "0": 359
+  },
+  "threads_last": {
+    "42": {
+      "tid": 42,
+      "state": "R",
+      "cpu_ticks": 1931,
+      "runtime_ns": 19327269778,
+      "runqueue_ns": 39742906,
+      "slices": 543,
+      "wchan": "0"
+    },
+    "43": {
+      "tid": 43,
+      "state": "R",
+      "cpu_ticks": 153,
+      "runtime_ns": 1538282338,
+      "runqueue_ns": 18221448,
+      "slices": 147,
+      "wchan": "0"
+    },
+    "44": {
+      "tid": 44,
+      "state": "R",
+      "cpu_ticks": 1478,
+      "runtime_ns": 14786181129,
+      "runqueue_ns": 157008655,
+      "slices": 1159,
+      "wchan": "0"
+    }
+  },
+  "samples": [
+    {
+      "wall": 0.001668333999987226,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 0,
+          "runtime_ns": 389383,
+          "runqueue_ns": 0,
+          "slices": 1,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 0.10251476899975387,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 9,
+          "runtime_ns": 100366132,
+          "runqueue_ns": 116070,
+          "slices": 3,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 0.2033250099993893,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 19,
+          "runtime_ns": 200615073,
+          "runqueue_ns": 116070,
+          "slices": 3,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 0.3040587609993963,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 29,
+          "runtime_ns": 299829573,
+          "runqueue_ns": 116070,
+          "slices": 3,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 0.4047253249991627,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 39,
+          "runtime_ns": 400083313,
+          "runqueue_ns": 116070,
+          "slices": 3,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 0.5054904659991735,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 49,
+          "runtime_ns": 500435850,
+          "runqueue_ns": 116070,
+          "slices": 3,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 0.606133059000058,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 59,
+          "runtime_ns": 599883157,
+          "runqueue_ns": 116070,
+          "slices": 3,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 0.706741157999204,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 69,
+          "runtime_ns": 700301527,
+          "runqueue_ns": 116070,
+          "slices": 3,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 0.8073670220001077,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 80,
+          "runtime_ns": 800708912,
+          "runqueue_ns": 132603,
+          "slices": 4,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 0.9081554529984714,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 89,
+          "runtime_ns": 898652919,
+          "runqueue_ns": 1508285,
+          "slices": 14,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 1.008954750999692,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 99,
+          "runtime_ns": 998031062,
+          "runqueue_ns": 2369660,
+          "slices": 29,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 1.109813043000031,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 109,
+          "runtime_ns": 1097493883,
+          "runqueue_ns": 3160017,
+          "slices": 42,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 1.2106475769996905,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 119,
+          "runtime_ns": 1196267383,
+          "runqueue_ns": 4649142,
+          "slices": 57,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 1.3114011449997633,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 129,
+          "runtime_ns": 1295738066,
+          "runqueue_ns": 5442482,
+          "slices": 72,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 1.41217277099895,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 139,
+          "runtime_ns": 1394329171,
+          "runqueue_ns": 6107274,
+          "slices": 86,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 1.5128640859984444,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 149,
+          "runtime_ns": 1493745901,
+          "runqueue_ns": 6923706,
+          "slices": 101,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 1.6135383839991846,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 159,
+          "runtime_ns": 1593136679,
+          "runqueue_ns": 7726997,
+          "slices": 115,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 1.714301832998899,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 169,
+          "runtime_ns": 1692908188,
+          "runqueue_ns": 8198154,
+          "slices": 123,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 1.81498125699909,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 179,
+          "runtime_ns": 1792218155,
+          "runqueue_ns": 8214131,
+          "slices": 124,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 1.915694330999031,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 189,
+          "runtime_ns": 1892306608,
+          "runqueue_ns": 8416635,
+          "slices": 127,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 2.0163904919991182,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 199,
+          "runtime_ns": 1992631972,
+          "runqueue_ns": 8416635,
+          "slices": 127,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 2.1177071160000196,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 209,
+          "runtime_ns": 2092986681,
+          "runqueue_ns": 8416635,
+          "slices": 127,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 2.218376933999025,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 219,
+          "runtime_ns": 2193399958,
+          "runqueue_ns": 8416635,
+          "slices": 127,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 2.319008558999485,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 229,
+          "runtime_ns": 2292719569,
+          "runqueue_ns": 8416635,
+          "slices": 127,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 2.4196295900001132,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 239,
+          "runtime_ns": 2393151952,
+          "runqueue_ns": 8427455,
+          "slices": 128,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 2.520323582999481,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 249,
+          "runtime_ns": 2493582577,
+          "runqueue_ns": 8427455,
+          "slices": 128,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 2.6209620399986306,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 259,
+          "runtime_ns": 2592932749,
+          "runqueue_ns": 8427455,
+          "slices": 128,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 2.7216824119986995,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 269,
+          "runtime_ns": 2693322968,
+          "runqueue_ns": 8440203,
+          "slices": 129,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 2.8229428729991923,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 279,
+          "runtime_ns": 2793719415,
+          "runqueue_ns": 8440203,
+          "slices": 129,
+          "wchan": "0"
+        },
+        {
+          "tid": 43,
+          "state": "R",
+          "cpu_ticks": 5,
+          "runtime_ns": 51163880,
+          "runqueue_ns": 116398,
+          "slices": 5,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 2.9237892759992974,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 289,
+          "runtime_ns": 2894090040,
+          "runqueue_ns": 8471249,
+          "slices": 130,
+          "wchan": "0"
+        },
+        {
+          "tid": 43,
+          "state": "R",
+          "cpu_ticks": 15,
+          "runtime_ns": 150347757,
+          "runqueue_ns": 1229759,
+          "slices": 14,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 3.0247929699999077,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 299,
+          "runtime_ns": 2994536224,
+          "runqueue_ns": 8471249,
+          "slices": 130,
+          "wchan": "0"
+        },
+        {
+          "tid": 43,
+          "state": "R",
+          "cpu_ticks": 24,
+          "runtime_ns": 249761465,
+          "runqueue_ns": 2224760,
+          "slices": 23,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 3.12585833599951,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 309,
+          "runtime_ns": 3094940002,
+          "runqueue_ns": 8471249,
+          "slices": 130,
+          "wchan": "0"
+        },
+        {
+          "tid": 43,
+          "state": "R",
+          "cpu_ticks": 34,
+          "runtime_ns": 349106192,
+          "runqueue_ns": 3201228,
+          "slices": 32,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 3.2266915679992962,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 319,
+          "runtime_ns": 3195335001,
+          "runqueue_ns": 8471249,
+          "slices": 130,
+          "wchan": "0"
+        },
+        {
+          "tid": 43,
+          "state": "R",
+          "cpu_ticks": 44,
+          "runtime_ns": 448301148,
+          "runqueue_ns": 4213577,
+          "slices": 41,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 3.327795116998459,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 329,
+          "runtime_ns": 3295706586,
+          "runqueue_ns": 8471249,
+          "slices": 130,
+          "wchan": "0"
+        },
+        {
+          "tid": 43,
+          "state": "R",
+          "cpu_ticks": 54,
+          "runtime_ns": 547776597,
+          "runqueue_ns": 5178821,
+          "slices": 50,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 3.4287572399989585,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 339,
+          "runtime_ns": 3396094277,
+          "runqueue_ns": 8471249,
+          "slices": 130,
+          "wchan": "0"
+        },
+        {
+          "tid": 43,
+          "state": "R",
+          "cpu_ticks": 64,
+          "runtime_ns": 647151253,
+          "runqueue_ns": 6116983,
+          "slices": 59,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 3.52961808299915,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 349,
+          "runtime_ns": 3496476594,
+          "runqueue_ns": 8471249,
+          "slices": 130,
+          "wchan": "0"
+        },
+        {
+          "tid": 43,
+          "state": "R",
+          "cpu_ticks": 74,
+          "runtime_ns": 746433474,
+          "runqueue_ns": 7006563,
+          "slices": 68,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 3.630775971998446,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 359,
+          "runtime_ns": 3596872878,
+          "runqueue_ns": 8471249,
+          "slices": 130,
+          "wchan": "0"
+        },
+        {
+          "tid": 43,
+          "state": "R",
+          "cpu_ticks": 84,
+          "runtime_ns": 846037357,
+          "runqueue_ns": 7929143,
+          "slices": 77,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 3.7318151509989548,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 369,
+          "runtime_ns": 3697244329,
+          "runqueue_ns": 8471249,
+          "slices": 130,
+          "wchan": "0"
+        },
+        {
+          "tid": 43,
+          "state": "R",
+          "cpu_ticks": 94,
+          "runtime_ns": 945426416,
+          "runqueue_ns": 8862349,
+          "slices": 86,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 3.832645018999756,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 379,
+          "runtime_ns": 3797621859,
+          "runqueue_ns": 8486812,
+          "slices": 131,
+          "wchan": "0"
+        },
+        {
+          "tid": 43,
+          "state": "R",
+          "cpu_ticks": 104,
+          "runtime_ns": 1044608785,
+          "runqueue_ns": 9848291,
+          "slices": 96,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 3.9337675099995977,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 389,
+          "runtime_ns": 3897989310,
+          "runqueue_ns": 8486812,
+          "slices": 131,
+          "wchan": "0"
+        },
+        {
+          "tid": 43,
+          "state": "R",
+          "cpu_ticks": 114,
+          "runtime_ns": 1141125486,
+          "runqueue_ns": 13626948,
+          "slices": 105,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 4.035015384999497,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 399,
+          "runtime_ns": 3998158006,
+          "runqueue_ns": 8486812,
+          "slices": 131,
+          "wchan": "0"
+        },
+        {
+          "tid": 43,
+          "state": "R",
+          "cpu_ticks": 123,
+          "runtime_ns": 1240171673,
+          "runqueue_ns": 14805555,
+          "slices": 116,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 4.136822083999505,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 409,
+          "runtime_ns": 4099328581,
+          "runqueue_ns": 8486812,
+          "slices": 131,
+          "wchan": "0"
+        },
+        {
+          "tid": 43,
+          "state": "R",
+          "cpu_ticks": 133,
+          "runtime_ns": 1339896322,
+          "runqueue_ns": 16008300,
+          "slices": 127,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 4.237896747999912,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 419,
+          "runtime_ns": 4199578906,
+          "runqueue_ns": 8486812,
+          "slices": 131,
+          "wchan": "0"
+        },
+        {
+          "tid": 43,
+          "state": "R",
+          "cpu_ticks": 143,
+          "runtime_ns": 1439092716,
+          "runqueue_ns": 17164618,
+          "slices": 138,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 4.338853352999649,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 429,
+          "runtime_ns": 4299860975,
+          "runqueue_ns": 8486812,
+          "slices": 131,
+          "wchan": "0"
+        },
+        {
+          "tid": 43,
+          "state": "R",
+          "cpu_ticks": 153,
+          "runtime_ns": 1538282338,
+          "runqueue_ns": 18221448,
+          "slices": 147,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 4.4395231700000295,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 439,
+          "runtime_ns": 4400247017,
+          "runqueue_ns": 8486812,
+          "slices": 131,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 4.540889361998779,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 449,
+          "runtime_ns": 4500684366,
+          "runqueue_ns": 8486812,
+          "slices": 131,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 9,
+          "runtime_ns": 91706181,
+          "runqueue_ns": 199942,
+          "slices": 10,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 4.6418193919998885,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 459,
+          "runtime_ns": 4601141307,
+          "runqueue_ns": 8486812,
+          "slices": 131,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 19,
+          "runtime_ns": 191084405,
+          "runqueue_ns": 1221538,
+          "slices": 20,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 4.742599036999309,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 469,
+          "runtime_ns": 4701537168,
+          "runqueue_ns": 8486812,
+          "slices": 131,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 29,
+          "runtime_ns": 290322701,
+          "runqueue_ns": 2170381,
+          "slices": 29,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 4.84379261399954,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 479,
+          "runtime_ns": 4801887663,
+          "runqueue_ns": 8512861,
+          "slices": 132,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 38,
+          "runtime_ns": 389889372,
+          "runqueue_ns": 3091034,
+          "slices": 39,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 4.9449615300000005,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 489,
+          "runtime_ns": 4900570861,
+          "runqueue_ns": 9966246,
+          "slices": 144,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 48,
+          "runtime_ns": 489008417,
+          "runqueue_ns": 4059199,
+          "slices": 48,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 5.045929939999041,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 499,
+          "runtime_ns": 4999903537,
+          "runqueue_ns": 10788483,
+          "slices": 160,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 58,
+          "runtime_ns": 587969770,
+          "runqueue_ns": 5193204,
+          "slices": 57,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 5.146966217998852,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 509,
+          "runtime_ns": 5099108627,
+          "runqueue_ns": 11683248,
+          "slices": 174,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 68,
+          "runtime_ns": 686856807,
+          "runqueue_ns": 6358371,
+          "slices": 66,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 5.247911356998884,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 519,
+          "runtime_ns": 5198417544,
+          "runqueue_ns": 12429163,
+          "slices": 188,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 78,
+          "runtime_ns": 785706284,
+          "runqueue_ns": 7510578,
+          "slices": 75,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 5.348883646998729,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 529,
+          "runtime_ns": 5297507861,
+          "runqueue_ns": 13441129,
+          "slices": 204,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 88,
+          "runtime_ns": 884587309,
+          "runqueue_ns": 8611554,
+          "slices": 84,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 5.449896971998896,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 539,
+          "runtime_ns": 5396771431,
+          "runqueue_ns": 14294684,
+          "slices": 219,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 98,
+          "runtime_ns": 983534244,
+          "runqueue_ns": 9771514,
+          "slices": 93,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 5.550893690999146,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 549,
+          "runtime_ns": 5496167249,
+          "runqueue_ns": 15009238,
+          "slices": 233,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 108,
+          "runtime_ns": 1082534752,
+          "runqueue_ns": 10872086,
+          "slices": 102,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 5.651830426999368,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 559,
+          "runtime_ns": 5595440050,
+          "runqueue_ns": 15828978,
+          "slices": 244,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 118,
+          "runtime_ns": 1181391204,
+          "runqueue_ns": 11969241,
+          "slices": 111,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 5.752868849000151,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 569,
+          "runtime_ns": 5695436936,
+          "runqueue_ns": 15983053,
+          "slices": 246,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 127,
+          "runtime_ns": 1280454824,
+          "runqueue_ns": 13105747,
+          "slices": 121,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 5.85381199099902,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 579,
+          "runtime_ns": 5795608383,
+          "runqueue_ns": 15983053,
+          "slices": 246,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 137,
+          "runtime_ns": 1379571192,
+          "runqueue_ns": 14128264,
+          "slices": 130,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 5.954681925999466,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 589,
+          "runtime_ns": 5895573332,
+          "runqueue_ns": 16215355,
+          "slices": 249,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 147,
+          "runtime_ns": 1478550678,
+          "runqueue_ns": 15125444,
+          "slices": 139,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 6.055797141998482,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 599,
+          "runtime_ns": 5995947449,
+          "runqueue_ns": 16215355,
+          "slices": 249,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 157,
+          "runtime_ns": 1578044797,
+          "runqueue_ns": 16130877,
+          "slices": 148,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 6.156829900999583,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 609,
+          "runtime_ns": 6096244249,
+          "runqueue_ns": 16215355,
+          "slices": 249,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 167,
+          "runtime_ns": 1677338556,
+          "runqueue_ns": 17094657,
+          "slices": 157,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 6.25766704399939,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 619,
+          "runtime_ns": 6196613275,
+          "runqueue_ns": 16215355,
+          "slices": 249,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 177,
+          "runtime_ns": 1776525443,
+          "runqueue_ns": 18083948,
+          "slices": 166,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 6.358786830000099,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 629,
+          "runtime_ns": 6297015950,
+          "runqueue_ns": 16225251,
+          "slices": 250,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 187,
+          "runtime_ns": 1876035378,
+          "runqueue_ns": 19067706,
+          "slices": 178,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 6.459773726999629,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 639,
+          "runtime_ns": 6397403498,
+          "runqueue_ns": 16225251,
+          "slices": 250,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 197,
+          "runtime_ns": 1975420302,
+          "runqueue_ns": 20016120,
+          "slices": 189,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 6.56065223099904,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 649,
+          "runtime_ns": 6497781223,
+          "runqueue_ns": 16225251,
+          "slices": 250,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 207,
+          "runtime_ns": 2074612513,
+          "runqueue_ns": 20944240,
+          "slices": 200,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 6.6617882840000675,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 659,
+          "runtime_ns": 6597992283,
+          "runqueue_ns": 16225251,
+          "slices": 250,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 217,
+          "runtime_ns": 2173959300,
+          "runqueue_ns": 21920390,
+          "slices": 211,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 6.762769422999554,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 669,
+          "runtime_ns": 6698143221,
+          "runqueue_ns": 16311768,
+          "slices": 251,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 227,
+          "runtime_ns": 2273121545,
+          "runqueue_ns": 22932975,
+          "slices": 223,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 6.86361837000004,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 679,
+          "runtime_ns": 6798436310,
+          "runqueue_ns": 16311768,
+          "slices": 251,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 237,
+          "runtime_ns": 2372238399,
+          "runqueue_ns": 23873970,
+          "slices": 235,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 6.964763963998848,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 689,
+          "runtime_ns": 6898696247,
+          "runqueue_ns": 16333669,
+          "slices": 252,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 247,
+          "runtime_ns": 2471683868,
+          "runqueue_ns": 24814730,
+          "slices": 246,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 7.0657542789995205,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 699,
+          "runtime_ns": 6999010524,
+          "runqueue_ns": 16333669,
+          "slices": 252,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 257,
+          "runtime_ns": 2571016859,
+          "runqueue_ns": 25735403,
+          "slices": 257,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 7.166676556998937,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 709,
+          "runtime_ns": 7099235951,
+          "runqueue_ns": 16333669,
+          "slices": 252,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 266,
+          "runtime_ns": 2670112016,
+          "runqueue_ns": 26645904,
+          "slices": 268,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 7.267650522999247,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 719,
+          "runtime_ns": 7199501476,
+          "runqueue_ns": 16333669,
+          "slices": 252,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 276,
+          "runtime_ns": 2769316336,
+          "runqueue_ns": 27651045,
+          "slices": 279,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 7.369376834998548,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 729,
+          "runtime_ns": 7299840005,
+          "runqueue_ns": 16333669,
+          "slices": 252,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 286,
+          "runtime_ns": 2869324173,
+          "runqueue_ns": 28630566,
+          "slices": 290,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 7.470365973998923,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 739,
+          "runtime_ns": 7400148574,
+          "runqueue_ns": 16333669,
+          "slices": 252,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 296,
+          "runtime_ns": 2968522057,
+          "runqueue_ns": 29641656,
+          "slices": 300,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 7.572978027999852,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 749,
+          "runtime_ns": 7502372384,
+          "runqueue_ns": 16333669,
+          "slices": 252,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 306,
+          "runtime_ns": 3069165642,
+          "runqueue_ns": 30674419,
+          "slices": 309,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 7.673848311998881,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 759,
+          "runtime_ns": 7602629708,
+          "runqueue_ns": 16333669,
+          "slices": 252,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 316,
+          "runtime_ns": 3168329055,
+          "runqueue_ns": 31771566,
+          "slices": 317,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 7.775796019999689,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 769,
+          "runtime_ns": 7703907225,
+          "runqueue_ns": 16333669,
+          "slices": 252,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 326,
+          "runtime_ns": 3268578011,
+          "runqueue_ns": 32765466,
+          "slices": 326,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 7.876722289998725,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 779,
+          "runtime_ns": 7803963549,
+          "runqueue_ns": 16404841,
+          "slices": 253,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 336,
+          "runtime_ns": 3367463017,
+          "runqueue_ns": 33739290,
+          "slices": 336,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 7.97786693099988,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 789,
+          "runtime_ns": 7904020624,
+          "runqueue_ns": 16404841,
+          "slices": 253,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 346,
+          "runtime_ns": 3466523177,
+          "runqueue_ns": 34811762,
+          "slices": 345,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 8.078722114998527,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 799,
+          "runtime_ns": 8004085308,
+          "runqueue_ns": 16404841,
+          "slices": 253,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 356,
+          "runtime_ns": 3565365567,
+          "runqueue_ns": 35828588,
+          "slices": 354,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 8.17983910699877,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 809,
+          "runtime_ns": 8104200428,
+          "runqueue_ns": 16404841,
+          "slices": 253,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 366,
+          "runtime_ns": 3664539040,
+          "runqueue_ns": 36810888,
+          "slices": 363,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 8.280813331999525,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 819,
+          "runtime_ns": 8204292383,
+          "runqueue_ns": 16404841,
+          "slices": 253,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 376,
+          "runtime_ns": 3763576700,
+          "runqueue_ns": 37792676,
+          "slices": 372,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 8.381654224998783,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 829,
+          "runtime_ns": 8304325306,
+          "runqueue_ns": 16404841,
+          "slices": 253,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 386,
+          "runtime_ns": 3862467398,
+          "runqueue_ns": 38760781,
+          "slices": 381,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 8.482757370999025,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 839,
+          "runtime_ns": 8404518996,
+          "runqueue_ns": 16404841,
+          "slices": 253,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 396,
+          "runtime_ns": 3961799516,
+          "runqueue_ns": 39715892,
+          "slices": 390,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 8.583766088999255,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 850,
+          "runtime_ns": 8504716183,
+          "runqueue_ns": 16404841,
+          "slices": 253,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 406,
+          "runtime_ns": 4061049259,
+          "runqueue_ns": 40626031,
+          "slices": 399,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 8.684618587998557,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 860,
+          "runtime_ns": 8604905742,
+          "runqueue_ns": 16404841,
+          "slices": 253,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 415,
+          "runtime_ns": 4160057983,
+          "runqueue_ns": 41543791,
+          "slices": 408,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 8.785770212998614,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 870,
+          "runtime_ns": 8705023395,
+          "runqueue_ns": 16466434,
+          "slices": 254,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 425,
+          "runtime_ns": 4259387227,
+          "runqueue_ns": 42491799,
+          "slices": 418,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 8.886940415999561,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 880,
+          "runtime_ns": 8804793101,
+          "runqueue_ns": 16780282,
+          "slices": 258,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 435,
+          "runtime_ns": 4358487953,
+          "runqueue_ns": 43444982,
+          "slices": 427,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 8.988006261999544,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 889,
+          "runtime_ns": 8903158985,
+          "runqueue_ns": 18379941,
+          "slices": 271,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 445,
+          "runtime_ns": 4457197086,
+          "runqueue_ns": 44611845,
+          "slices": 436,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 9.089986461998706,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 899,
+          "runtime_ns": 9003346054,
+          "runqueue_ns": 19293415,
+          "slices": 287,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 455,
+          "runtime_ns": 4557015242,
+          "runqueue_ns": 45840324,
+          "slices": 445,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 9.190933263998886,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 909,
+          "runtime_ns": 9102294444,
+          "runqueue_ns": 20212802,
+          "slices": 300,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 465,
+          "runtime_ns": 4655804904,
+          "runqueue_ns": 47018835,
+          "slices": 454,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 9.29195453200009,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 919,
+          "runtime_ns": 9201398311,
+          "runqueue_ns": 21162892,
+          "slices": 312,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 475,
+          "runtime_ns": 4754682650,
+          "runqueue_ns": 48157877,
+          "slices": 463,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 9.392936299998837,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 929,
+          "runtime_ns": 9300657739,
+          "runqueue_ns": 22071395,
+          "slices": 326,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 485,
+          "runtime_ns": 4853647323,
+          "runqueue_ns": 49331432,
+          "slices": 472,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 9.493882441000096,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 939,
+          "runtime_ns": 9400165779,
+          "runqueue_ns": 22774572,
+          "slices": 338,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 495,
+          "runtime_ns": 4952685902,
+          "runqueue_ns": 50454339,
+          "slices": 481,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 9.594958666999446,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 949,
+          "runtime_ns": 9498813018,
+          "runqueue_ns": 24324249,
+          "slices": 352,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 505,
+          "runtime_ns": 5051772459,
+          "runqueue_ns": 51592986,
+          "slices": 490,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 9.695934565999778,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 959,
+          "runtime_ns": 9598384822,
+          "runqueue_ns": 24994789,
+          "slices": 359,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 514,
+          "runtime_ns": 5150817202,
+          "runqueue_ns": 52753082,
+          "slices": 498,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 9.796903357999327,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 969,
+          "runtime_ns": 9698617218,
+          "runqueue_ns": 25048663,
+          "slices": 360,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 524,
+          "runtime_ns": 5249920162,
+          "runqueue_ns": 53881924,
+          "slices": 505,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 9.897966942999119,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 979,
+          "runtime_ns": 9798668221,
+          "runqueue_ns": 25287520,
+          "slices": 362,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 534,
+          "runtime_ns": 5349072209,
+          "runqueue_ns": 55035018,
+          "slices": 512,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 9.998927773000105,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 989,
+          "runtime_ns": 9899057837,
+          "runqueue_ns": 25287520,
+          "slices": 362,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 544,
+          "runtime_ns": 5448268098,
+          "runqueue_ns": 56192959,
+          "slices": 519,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 10.099824955999793,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 999,
+          "runtime_ns": 9999443518,
+          "runqueue_ns": 25287520,
+          "slices": 362,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 554,
+          "runtime_ns": 5547475331,
+          "runqueue_ns": 57281613,
+          "slices": 526,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 10.200808956999026,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 1009,
+          "runtime_ns": 10099845951,
+          "runqueue_ns": 25287520,
+          "slices": 362,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 564,
+          "runtime_ns": 5646844025,
+          "runqueue_ns": 58318711,
+          "slices": 533,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 10.301788209999359,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 1019,
+          "runtime_ns": 10200178332,
+          "runqueue_ns": 25287520,
+          "slices": 362,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 574,
+          "runtime_ns": 5746179062,
+          "runqueue_ns": 59294725,
+          "slices": 541,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 10.402631655999357,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 1029,
+          "runtime_ns": 10300591184,
+          "runqueue_ns": 25299964,
+          "slices": 363,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 584,
+          "runtime_ns": 5845423239,
+          "runqueue_ns": 60249473,
+          "slices": 549,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 10.503770620998694,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 1039,
+          "runtime_ns": 10400995934,
+          "runqueue_ns": 25299964,
+          "slices": 363,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 594,
+          "runtime_ns": 5944996570,
+          "runqueue_ns": 61216552,
+          "slices": 556,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 10.60478005799996,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 1049,
+          "runtime_ns": 10501429162,
+          "runqueue_ns": 25299964,
+          "slices": 363,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 604,
+          "runtime_ns": 6044468490,
+          "runqueue_ns": 62134701,
+          "slices": 563,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 10.705601562000084,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 1059,
+          "runtime_ns": 10601880483,
+          "runqueue_ns": 25299964,
+          "slices": 363,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 614,
+          "runtime_ns": 6143763839,
+          "runqueue_ns": 63070194,
+          "slices": 570,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 10.806764044999,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 1069,
+          "runtime_ns": 10702208525,
+          "runqueue_ns": 25358689,
+          "slices": 364,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 624,
+          "runtime_ns": 6243316416,
+          "runqueue_ns": 64040879,
+          "slices": 578,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 10.907898860999921,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 1079,
+          "runtime_ns": 10802547282,
+          "runqueue_ns": 25383767,
+          "slices": 365,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 633,
+          "runtime_ns": 6340044046,
+          "runqueue_ns": 67624927,
+          "slices": 585,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 11.008919867999793,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 1089,
+          "runtime_ns": 10902805613,
+          "runqueue_ns": 25383767,
+          "slices": 365,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 643,
+          "runtime_ns": 6439077710,
+          "runqueue_ns": 68722576,
+          "slices": 592,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 11.10989679999875,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 1099,
+          "runtime_ns": 11003162701,
+          "runqueue_ns": 25383767,
+          "slices": 365,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 653,
+          "runtime_ns": 6538280234,
+          "runqueue_ns": 69895946,
+          "slices": 599,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 11.210833755998465,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 1109,
+          "runtime_ns": 11103561518,
+          "runqueue_ns": 25383767,
+          "slices": 365,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 663,
+          "runtime_ns": 6637544940,
+          "runqueue_ns": 70982148,
+          "slices": 606,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 11.311661497999012,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 1119,
+          "runtime_ns": 11203986785,
+          "runqueue_ns": 25383767,
+          "slices": 365,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 673,
+          "runtime_ns": 6736769966,
+          "runqueue_ns": 71974940,
+          "slices": 615,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 11.412788402998558,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 1129,
+          "runtime_ns": 11304431611,
+          "runqueue_ns": 25383767,
+          "slices": 365,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 683,
+          "runtime_ns": 6836351644,
+          "runqueue_ns": 72937160,
+          "slices": 623,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 11.513785406999887,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 1139,
+          "runtime_ns": 11404842507,
+          "runqueue_ns": 25383767,
+          "slices": 365,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 693,
+          "runtime_ns": 6935783522,
+          "runqueue_ns": 73871014,
+          "slices": 630,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 11.614687296998454,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 1149,
+          "runtime_ns": 11505252493,
+          "runqueue_ns": 25383767,
+          "slices": 365,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 703,
+          "runtime_ns": 7035013221,
+          "runqueue_ns": 74831783,
+          "slices": 637,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 11.715799375999268,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 1160,
+          "runtime_ns": 11605686202,
+          "runqueue_ns": 25383767,
+          "slices": 365,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 713,
+          "runtime_ns": 7134513193,
+          "runqueue_ns": 75880887,
+          "slices": 644,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 11.816807572999096,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 1170,
+          "runtime_ns": 11706045940,
+          "runqueue_ns": 25450798,
+          "slices": 366,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 723,
+          "runtime_ns": 7233825186,
+          "runqueue_ns": 76938274,
+          "slices": 652,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 11.917647075999412,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 1180,
+          "runtime_ns": 11806500432,
+          "runqueue_ns": 25450798,
+          "slices": 366,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 733,
+          "runtime_ns": 7333055986,
+          "runqueue_ns": 77924456,
+          "slices": 659,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 12.018807978998666,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 1190,
+          "runtime_ns": 11906924319,
+          "runqueue_ns": 25450798,
+          "slices": 366,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 743,
+          "runtime_ns": 7432594551,
+          "runqueue_ns": 78923282,
+          "slices": 666,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 12.119793070000014,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 1200,
+          "runtime_ns": 12007279325,
+          "runqueue_ns": 25450798,
+          "slices": 366,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 753,
+          "runtime_ns": 7531952961,
+          "runqueue_ns": 79876882,
+          "slices": 673,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 12.220614878999186,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 1210,
+          "runtime_ns": 12107662875,
+          "runqueue_ns": 25450798,
+          "slices": 366,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 763,
+          "runtime_ns": 7631189318,
+          "runqueue_ns": 80812174,
+          "slices": 680,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 12.32177129899901,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 1220,
+          "runtime_ns": 12208105398,
+          "runqueue_ns": 25450798,
+          "slices": 366,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 772,
+          "runtime_ns": 7730819239,
+          "runqueue_ns": 81752011,
+          "slices": 687,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 12.422769619999599,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 1230,
+          "runtime_ns": 12308546688,
+          "runqueue_ns": 25450798,
+          "slices": 366,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 782,
+          "runtime_ns": 7830279808,
+          "runqueue_ns": 82676143,
+          "slices": 694,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 12.523630021998542,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 1240,
+          "runtime_ns": 12408981158,
+          "runqueue_ns": 25450798,
+          "slices": 366,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 792,
+          "runtime_ns": 7929533901,
+          "runqueue_ns": 83617865,
+          "slices": 702,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 12.624781353999424,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 1250,
+          "runtime_ns": 12509397884,
+          "runqueue_ns": 25450798,
+          "slices": 366,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 802,
+          "runtime_ns": 8029112367,
+          "runqueue_ns": 84583852,
+          "slices": 709,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 12.725794098998449,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 1260,
+          "runtime_ns": 12609753692,
+          "runqueue_ns": 25450798,
+          "slices": 366,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 812,
+          "runtime_ns": 8128479709,
+          "runqueue_ns": 85515814,
+          "slices": 716,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 12.826627943999483,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 1270,
+          "runtime_ns": 12710157486,
+          "runqueue_ns": 25465151,
+          "slices": 367,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 822,
+          "runtime_ns": 8227708270,
+          "runqueue_ns": 86479474,
+          "slices": 724,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 12.927938805998565,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 1280,
+          "runtime_ns": 12809675565,
+          "runqueue_ns": 26112210,
+          "slices": 374,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 832,
+          "runtime_ns": 8327012393,
+          "runqueue_ns": 87474113,
+          "slices": 731,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 13.029000394999457,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 1290,
+          "runtime_ns": 12909073389,
+          "runqueue_ns": 26906725,
+          "slices": 383,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 842,
+          "runtime_ns": 8426016928,
+          "runqueue_ns": 88609280,
+          "slices": 738,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 13.130987073998767,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 1300,
+          "runtime_ns": 13009432050,
+          "runqueue_ns": 27761543,
+          "slices": 394,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 852,
+          "runtime_ns": 8525985236,
+          "runqueue_ns": 89808607,
+          "slices": 745,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 13.231917913999496,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 1310,
+          "runtime_ns": 13108839783,
+          "runqueue_ns": 28565135,
+          "slices": 404,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 862,
+          "runtime_ns": 8625001455,
+          "runqueue_ns": 90976004,
+          "slices": 752,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 13.332872699998916,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 1320,
+          "runtime_ns": 13208206394,
+          "runqueue_ns": 29355558,
+          "slices": 414,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 872,
+          "runtime_ns": 8723947318,
+          "runqueue_ns": 92083916,
+          "slices": 759,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 13.433908106999297,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 1330,
+          "runtime_ns": 13307505025,
+          "runqueue_ns": 30170390,
+          "slices": 424,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 882,
+          "runtime_ns": 8822975167,
+          "runqueue_ns": 93220583,
+          "slices": 764,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 13.535911241999202,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 1340,
+          "runtime_ns": 13407017024,
+          "runqueue_ns": 30824652,
+          "slices": 433,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 891,
+          "runtime_ns": 8922857824,
+          "runqueue_ns": 94910273,
+          "slices": 770,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 13.636876580998432,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 1350,
+          "runtime_ns": 13507357554,
+          "runqueue_ns": 31630081,
+          "slices": 443,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 901,
+          "runtime_ns": 9021898783,
+          "runqueue_ns": 95571701,
+          "slices": 775,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 13.738671008999518,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 1360,
+          "runtime_ns": 13608291851,
+          "runqueue_ns": 31943471,
+          "slices": 447,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 911,
+          "runtime_ns": 9121802755,
+          "runqueue_ns": 96634334,
+          "slices": 781,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 13.839841630999217,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 1370,
+          "runtime_ns": 13708652335,
+          "runqueue_ns": 31943471,
+          "slices": 447,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 921,
+          "runtime_ns": 9221296282,
+          "runqueue_ns": 97735888,
+          "slices": 787,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 13.940891190999537,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 1380,
+          "runtime_ns": 13808689810,
+          "runqueue_ns": 32167087,
+          "slices": 449,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 931,
+          "runtime_ns": 9320485118,
+          "runqueue_ns": 98766047,
+          "slices": 794,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 14.04183314599868,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 1390,
+          "runtime_ns": 13908988361,
+          "runqueue_ns": 32167087,
+          "slices": 449,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 941,
+          "runtime_ns": 9419596517,
+          "runqueue_ns": 99824186,
+          "slices": 801,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 14.142878485999972,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 1400,
+          "runtime_ns": 14009286722,
+          "runqueue_ns": 32167087,
+          "slices": 449,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 951,
+          "runtime_ns": 9518862726,
+          "runqueue_ns": 100900431,
+          "slices": 806,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 14.243850696999289,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 1410,
+          "runtime_ns": 14109628352,
+          "runqueue_ns": 32167087,
+          "slices": 449,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 961,
+          "runtime_ns": 9618140148,
+          "runqueue_ns": 101931717,
+          "slices": 812,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 14.344724782999037,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 1420,
+          "runtime_ns": 14209992695,
+          "runqueue_ns": 32167087,
+          "slices": 449,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 971,
+          "runtime_ns": 9717334420,
+          "runqueue_ns": 102935963,
+          "slices": 817,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 14.44581040599951,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 1430,
+          "runtime_ns": 14310383358,
+          "runqueue_ns": 32177135,
+          "slices": 450,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 981,
+          "runtime_ns": 9816807152,
+          "runqueue_ns": 103958613,
+          "slices": 823,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 14.54676953499984,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 1440,
+          "runtime_ns": 14410789087,
+          "runqueue_ns": 32177135,
+          "slices": 450,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 991,
+          "runtime_ns": 9916218933,
+          "runqueue_ns": 104918321,
+          "slices": 828,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 14.647608111999944,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 1450,
+          "runtime_ns": 14511196939,
+          "runqueue_ns": 32177135,
+          "slices": 450,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 1001,
+          "runtime_ns": 10015492555,
+          "runqueue_ns": 105837019,
+          "slices": 833,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 14.74877401699996,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 1460,
+          "runtime_ns": 14611651257,
+          "runqueue_ns": 32177135,
+          "slices": 450,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 1011,
+          "runtime_ns": 10115135588,
+          "runqueue_ns": 106781488,
+          "slices": 838,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 14.849798456998542,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 1470,
+          "runtime_ns": 14712088913,
+          "runqueue_ns": 32188104,
+          "slices": 451,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 1021,
+          "runtime_ns": 10214604203,
+          "runqueue_ns": 107716142,
+          "slices": 843,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 14.950670673999412,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 1480,
+          "runtime_ns": 14812493296,
+          "runqueue_ns": 32215465,
+          "slices": 452,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 1031,
+          "runtime_ns": 10313856335,
+          "runqueue_ns": 108670924,
+          "slices": 848,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 15.051778330998786,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 1490,
+          "runtime_ns": 14912864521,
+          "runqueue_ns": 32215465,
+          "slices": 452,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 1041,
+          "runtime_ns": 10413383717,
+          "runqueue_ns": 109674585,
+          "slices": 853,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 15.15282857099919,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 1500,
+          "runtime_ns": 15013186494,
+          "runqueue_ns": 32215465,
+          "slices": 452,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 1050,
+          "runtime_ns": 10512746242,
+          "runqueue_ns": 110605093,
+          "slices": 858,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 15.253640064000137,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 1510,
+          "runtime_ns": 15113547604,
+          "runqueue_ns": 32215465,
+          "slices": 452,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 1060,
+          "runtime_ns": 10611948350,
+          "runqueue_ns": 111584507,
+          "slices": 863,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 15.354776412999854,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 1520,
+          "runtime_ns": 15213990568,
+          "runqueue_ns": 32215465,
+          "slices": 452,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 1070,
+          "runtime_ns": 10711564478,
+          "runqueue_ns": 112518892,
+          "slices": 868,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 15.455772755998623,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 1530,
+          "runtime_ns": 15314437534,
+          "runqueue_ns": 32215465,
+          "slices": 452,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 1080,
+          "runtime_ns": 10811050652,
+          "runqueue_ns": 113437435,
+          "slices": 873,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 15.55660226100008,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 1540,
+          "runtime_ns": 15414917297,
+          "runqueue_ns": 32215465,
+          "slices": 452,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 1090,
+          "runtime_ns": 10910393128,
+          "runqueue_ns": 114351064,
+          "slices": 878,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 15.657763354000053,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 1550,
+          "runtime_ns": 15515372169,
+          "runqueue_ns": 32215465,
+          "slices": 452,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 1100,
+          "runtime_ns": 11010062532,
+          "runqueue_ns": 115292336,
+          "slices": 883,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 15.758751325000048,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 1560,
+          "runtime_ns": 15615774018,
+          "runqueue_ns": 32215465,
+          "slices": 452,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 1110,
+          "runtime_ns": 11109516635,
+          "runqueue_ns": 116193143,
+          "slices": 890,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 15.859615241999563,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 1570,
+          "runtime_ns": 15716224883,
+          "runqueue_ns": 32232404,
+          "slices": 453,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 1120,
+          "runtime_ns": 11208850530,
+          "runqueue_ns": 117091755,
+          "slices": 897,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 15.960757492999619,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 1580,
+          "runtime_ns": 15816615517,
+          "runqueue_ns": 32232404,
+          "slices": 453,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 1130,
+          "runtime_ns": 11308418298,
+          "runqueue_ns": 118033838,
+          "slices": 903,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 16.061774845999025,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 1591,
+          "runtime_ns": 15917024290,
+          "runqueue_ns": 32232404,
+          "slices": 453,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 1140,
+          "runtime_ns": 11407874426,
+          "runqueue_ns": 118934380,
+          "slices": 909,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 16.16263134899964,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 1601,
+          "runtime_ns": 16017423434,
+          "runqueue_ns": 32232404,
+          "slices": 453,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 1150,
+          "runtime_ns": 11507128385,
+          "runqueue_ns": 119851076,
+          "slices": 914,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 16.26379198899849,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 1611,
+          "runtime_ns": 16117821956,
+          "runqueue_ns": 32232404,
+          "slices": 453,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 1160,
+          "runtime_ns": 11606719257,
+          "runqueue_ns": 120804041,
+          "slices": 919,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 16.364770925998528,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 1621,
+          "runtime_ns": 16218204726,
+          "runqueue_ns": 32232404,
+          "slices": 453,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 1170,
+          "runtime_ns": 11706131166,
+          "runqueue_ns": 121754228,
+          "slices": 925,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 16.46559710099973,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 1631,
+          "runtime_ns": 16318649391,
+          "runqueue_ns": 32232404,
+          "slices": 453,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 1180,
+          "runtime_ns": 11805443314,
+          "runqueue_ns": 122668879,
+          "slices": 930,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 16.566777681999156,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 1641,
+          "runtime_ns": 16419125679,
+          "runqueue_ns": 32232404,
+          "slices": 453,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 1190,
+          "runtime_ns": 11905118813,
+          "runqueue_ns": 123601190,
+          "slices": 935,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 16.667772568000146,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 1651,
+          "runtime_ns": 16519543926,
+          "runqueue_ns": 32232404,
+          "slices": 453,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 1200,
+          "runtime_ns": 12004572177,
+          "runqueue_ns": 124525982,
+          "slices": 940,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 16.76859934499953,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 1661,
+          "runtime_ns": 16619942648,
+          "runqueue_ns": 32245328,
+          "slices": 454,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 1209,
+          "runtime_ns": 12103875710,
+          "runqueue_ns": 125440745,
+          "slices": 945,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 16.869949033998637,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 1671,
+          "runtime_ns": 16720377802,
+          "runqueue_ns": 32245328,
+          "slices": 454,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 1219,
+          "runtime_ns": 12203526304,
+          "runqueue_ns": 126363719,
+          "slices": 950,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 16.97095924199857,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 1681,
+          "runtime_ns": 16819707326,
+          "runqueue_ns": 33144300,
+          "slices": 465,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 1229,
+          "runtime_ns": 12302576081,
+          "runqueue_ns": 127517103,
+          "slices": 956,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 17.071978983998633,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 1691,
+          "runtime_ns": 16919028483,
+          "runqueue_ns": 33975651,
+          "slices": 474,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 1239,
+          "runtime_ns": 12401505944,
+          "runqueue_ns": 128695887,
+          "slices": 963,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 17.173012589999416,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 1701,
+          "runtime_ns": 17018380827,
+          "runqueue_ns": 34811124,
+          "slices": 484,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 1249,
+          "runtime_ns": 12500496077,
+          "runqueue_ns": 129915702,
+          "slices": 968,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 17.274780797999483,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 1711,
+          "runtime_ns": 17117855427,
+          "runqueue_ns": 36434892,
+          "slices": 498,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 1259,
+          "runtime_ns": 12600132968,
+          "runqueue_ns": 131137576,
+          "slices": 975,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 17.37589846299852,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 1721,
+          "runtime_ns": 17217220205,
+          "runqueue_ns": 37268844,
+          "slices": 509,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 1269,
+          "runtime_ns": 12699337510,
+          "runqueue_ns": 132310117,
+          "slices": 981,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 17.476880502999848,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 1730,
+          "runtime_ns": 17316599336,
+          "runqueue_ns": 38098395,
+          "slices": 519,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 1279,
+          "runtime_ns": 12798443513,
+          "runqueue_ns": 133379165,
+          "slices": 988,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 17.577780100999007,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 1740,
+          "runtime_ns": 17416175216,
+          "runqueue_ns": 38737091,
+          "slices": 528,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 1289,
+          "runtime_ns": 12897498384,
+          "runqueue_ns": 134435200,
+          "slices": 995,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 17.678947331998643,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 1750,
+          "runtime_ns": 17515698367,
+          "runqueue_ns": 39449924,
+          "slices": 537,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 1299,
+          "runtime_ns": 12996732452,
+          "runqueue_ns": 135498237,
+          "slices": 1003,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 17.779879873000027,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 1760,
+          "runtime_ns": 17616005969,
+          "runqueue_ns": 39449924,
+          "slices": 537,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 1309,
+          "runtime_ns": 13095859847,
+          "runqueue_ns": 136618361,
+          "slices": 1012,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 17.8808532919993,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 1770,
+          "runtime_ns": 17716060323,
+          "runqueue_ns": 39692963,
+          "slices": 540,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 1319,
+          "runtime_ns": 13194950230,
+          "runqueue_ns": 137672086,
+          "slices": 1022,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 17.981866805999744,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 1780,
+          "runtime_ns": 17816452434,
+          "runqueue_ns": 39692963,
+          "slices": 540,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 1329,
+          "runtime_ns": 13294292464,
+          "runqueue_ns": 138774607,
+          "slices": 1031,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 18.082798782999816,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 1790,
+          "runtime_ns": 17916887328,
+          "runqueue_ns": 39692963,
+          "slices": 540,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 1338,
+          "runtime_ns": 13393675291,
+          "runqueue_ns": 139782341,
+          "slices": 1040,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 18.18379601400011,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 1800,
+          "runtime_ns": 18017239941,
+          "runqueue_ns": 39692963,
+          "slices": 540,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 1348,
+          "runtime_ns": 13492892305,
+          "runqueue_ns": 140714636,
+          "slices": 1049,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 18.28476730500006,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 1810,
+          "runtime_ns": 18117650490,
+          "runqueue_ns": 39692963,
+          "slices": 540,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 1358,
+          "runtime_ns": 13592329817,
+          "runqueue_ns": 141823653,
+          "slices": 1058,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 18.385774622998724,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 1820,
+          "runtime_ns": 18218041501,
+          "runqueue_ns": 39703819,
+          "slices": 541,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 1368,
+          "runtime_ns": 13691792731,
+          "runqueue_ns": 142751666,
+          "slices": 1068,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 18.48660359599853,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 1830,
+          "runtime_ns": 18318465210,
+          "runqueue_ns": 39703819,
+          "slices": 541,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 1378,
+          "runtime_ns": 13791083674,
+          "runqueue_ns": 143657504,
+          "slices": 1077,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 18.587778907998654,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 1841,
+          "runtime_ns": 18418887427,
+          "runqueue_ns": 39703819,
+          "slices": 541,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 1388,
+          "runtime_ns": 13890717832,
+          "runqueue_ns": 144578884,
+          "slices": 1086,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 18.688789470999836,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 1851,
+          "runtime_ns": 18519305041,
+          "runqueue_ns": 39703819,
+          "slices": 541,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 1398,
+          "runtime_ns": 13990197158,
+          "runqueue_ns": 145487604,
+          "slices": 1095,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 18.789640305998546,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 1861,
+          "runtime_ns": 18619696261,
+          "runqueue_ns": 39715932,
+          "slices": 542,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 1408,
+          "runtime_ns": 14089414304,
+          "runqueue_ns": 146429526,
+          "slices": 1105,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 18.890810943999895,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 1871,
+          "runtime_ns": 18720051835,
+          "runqueue_ns": 39742906,
+          "slices": 543,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 1418,
+          "runtime_ns": 14188934037,
+          "runqueue_ns": 147401921,
+          "slices": 1114,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 18.99181311999928,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 1881,
+          "runtime_ns": 18820496871,
+          "runqueue_ns": 39742906,
+          "slices": 543,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 1428,
+          "runtime_ns": 14288366201,
+          "runqueue_ns": 148352394,
+          "slices": 1123,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 19.09574352799973,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 1891,
+          "runtime_ns": 18920868429,
+          "runqueue_ns": 39742906,
+          "slices": 543,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 1438,
+          "runtime_ns": 14390332845,
+          "runqueue_ns": 149864020,
+          "slices": 1131,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 19.198732139999265,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 1901,
+          "runtime_ns": 19026214308,
+          "runqueue_ns": 39742906,
+          "slices": 543,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 1448,
+          "runtime_ns": 14491600624,
+          "runqueue_ns": 150743141,
+          "slices": 1136,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 19.299776245999965,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 1911,
+          "runtime_ns": 19126623575,
+          "runqueue_ns": 39742906,
+          "slices": 543,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 1458,
+          "runtime_ns": 14588220095,
+          "runqueue_ns": 151599313,
+          "slices": 1141,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 19.400808951999352,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 1921,
+          "runtime_ns": 19226890110,
+          "runqueue_ns": 39742906,
+          "slices": 543,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 1468,
+          "runtime_ns": 14686990878,
+          "runqueue_ns": 155797829,
+          "slices": 1150,
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "wall": 19.501723120998577,
+      "threads": [
+        {
+          "tid": 42,
+          "state": "R",
+          "cpu_ticks": 1931,
+          "runtime_ns": 19327269778,
+          "runqueue_ns": 39742906,
+          "slices": 543,
+          "wchan": "0"
+        },
+        {
+          "tid": 44,
+          "state": "R",
+          "cpu_ticks": 1478,
+          "runtime_ns": 14786181129,
+          "runqueue_ns": 157008655,
+          "slices": 1159,
+          "wchan": "0"
+        }
+      ]
+    }
+  ],
+  "binary_sha256": "c3f76ed684a521347cdd84fcdb2f5e9630a716f2eaf3747413ca7ecc6dc34706"
+}

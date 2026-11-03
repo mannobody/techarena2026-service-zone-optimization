@@ -1,0 +1,74 @@
+{
+  "case": "huge",
+  "seed": 9401,
+  "variant": "candidate",
+  "command": [
+    "/usr/bin/time",
+    "-f",
+    "rss_kb=%M user=%U sys=%S",
+    "-o",
+    "./experiments/structural_v9/logs/independent280/huge_9401_candidate.resource",
+    "taskset",
+    "-c",
+    "0,1",
+    "./experiments/structural_v9/artifacts/final_research/candidate",
+    "./experiments/structural_v9/inputs/holdout/huge.json",
+    "./experiments/structural_v9/logs/independent280/huge_9401_candidate.solution.json",
+    "280"
+  ],
+  "env": {
+    "HOME": "/home/user",
+    "LANG": "C.UTF-8",
+    "PATH": "/usr/local/bin:/usr/bin:/bin",
+    "NT": "2",
+    "SEED": "9401",
+    "ZM_POOL": "0",
+    "ZM_RESERVE": "0"
+  },
+  "affinity": [
+    0,
+    1
+  ],
+  "rc": 0,
+  "timeout": false,
+  "wall": 274.60518772700016,
+  "started_unix": 1792640846.7559898,
+  "ended_unix": 1792641124.149188,
+  "official": 3340.295929512352,
+  "valid": true,
+  "snapshots": [
+    {
+      "at": 70.02401411899973,
+      "path": "experiments/structural_v9/logs/independent280/huge_9401_candidate.t70.00.solution.json",
+      "official": 3339.7579293740882
+    },
+    {
+      "at": 140.00306570799967,
+      "path": "experiments/structural_v9/logs/independent280/huge_9401_candidate.t140.00.solution.json",
+      "official": 3340.295929512352
+    },
+    {
+      "at": 238.03507879900008,
+      "path": "experiments/structural_v9/logs/independent280/huge_9401_candidate.t238.00.solution.json",
+      "official": 3340.295929512352
+    }
+  ],
+  "solution_sha256": "b1bb53d2b19f9e46c7b4d0b978fe3629da5df47dd377cb9833b6afc9f6acc398",
+  "resource": "rss_kb=29924 user=487.10 sys=0.07\n",
+  "error": false,
+  "internal_deadline_stop": false,
+  "logged_threads": 2,
+  "resource_fields": {
+    "rss_kb": 29924.0,
+    "user": 487.1,
+    "sys": 0.07
+  },
+  "success": true,
+  "components": {
+    "reward": 4077.625551589703,
+    "distance": 542.0177958668355,
+    "cost": 193.42850604502252,
+    "penalty": 1.883320165492624,
+    "objective": 3340.2959295123524
+  }
+}

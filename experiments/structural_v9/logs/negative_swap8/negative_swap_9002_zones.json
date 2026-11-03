@@ -1,0 +1,49 @@
+{
+  "case": "negative_swap",
+  "seed": 9002,
+  "variant": "zones",
+  "command": [
+    "/usr/bin/time",
+    "-f",
+    "rss_kb=%M user=%U sys=%S",
+    "-o",
+    "./experiments/structural_v9/logs/negative_swap8/negative_swap_9002_zones.resource",
+    "taskset",
+    "-c",
+    "14,15",
+    "./experiments/structural_v9/artifacts/v3/candidate",
+    "./experiments/structural_v9/inputs/negative_swap.json",
+    "./experiments/structural_v9/logs/negative_swap8/negative_swap_9002_zones.solution.json",
+    "8"
+  ],
+  "env": {
+    "HOME": "/home/user",
+    "LANG": "C.UTF-8",
+    "PATH": "/usr/local/bin:/usr/bin:/bin",
+    "NT": "2",
+    "SEED": "9002"
+  },
+  "affinity": [
+    14,
+    15
+  ],
+  "rc": 0,
+  "timeout": false,
+  "wall": 0.015626883000095404,
+  "started_unix": 1792637787.7458923,
+  "ended_unix": 1792637787.7626443,
+  "official": 299.0,
+  "valid": true,
+  "snapshots": [],
+  "solution_sha256": "cafd380521ded7589539c73d54352841a75f606c92dc811449de8f3cad0374c9",
+  "resource": "rss_kb=4948 user=0.00 sys=0.00\n",
+  "error": false,
+  "success": true,
+  "components": {
+    "reward": 301.0,
+    "distance": 2.0,
+    "cost": 0.0,
+    "penalty": 0,
+    "objective": 299.0
+  }
+}

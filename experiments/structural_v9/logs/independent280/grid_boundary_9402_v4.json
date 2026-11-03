@@ -1,0 +1,72 @@
+{
+  "case": "grid_boundary",
+  "seed": 9402,
+  "variant": "v4",
+  "command": [
+    "/usr/bin/time",
+    "-f",
+    "rss_kb=%M user=%U sys=%S",
+    "-o",
+    "./experiments/structural_v9/logs/independent280/grid_boundary_9402_v4.resource",
+    "taskset",
+    "-c",
+    "20,21",
+    "./experiments/structural_v9/artifacts/v4",
+    "./experiments/structural_v9/inputs/holdout/grid_boundary.json",
+    "./experiments/structural_v9/logs/independent280/grid_boundary_9402_v4.solution.json",
+    "280"
+  ],
+  "env": {
+    "HOME": "/home/user",
+    "LANG": "C.UTF-8",
+    "PATH": "/usr/local/bin:/usr/bin:/bin",
+    "NT": "2",
+    "SEED": "9402"
+  },
+  "affinity": [
+    20,
+    21
+  ],
+  "rc": 0,
+  "timeout": false,
+  "wall": 279.48168671000076,
+  "started_unix": 1792641687.9099524,
+  "ended_unix": 1792641967.6202452,
+  "official": 48899.693808302676,
+  "valid": true,
+  "snapshots": [
+    {
+      "at": 70.03457977800008,
+      "path": "experiments/structural_v9/logs/independent280/grid_boundary_9402_v4.t70.00.solution.json",
+      "official": 47362.857782799074
+    },
+    {
+      "at": 140.02440568800012,
+      "path": "experiments/structural_v9/logs/independent280/grid_boundary_9402_v4.t140.00.solution.json",
+      "official": 47362.857782799074
+    },
+    {
+      "at": 238.02942254200025,
+      "path": "experiments/structural_v9/logs/independent280/grid_boundary_9402_v4.t238.00.solution.json",
+      "official": 47362.857782799074
+    }
+  ],
+  "solution_sha256": "4cc073675dc02c39f0d817c3e2ea04d14e1bc7bab866b713169a3c9e5892d659",
+  "resource": "rss_kb=5108 user=544.77 sys=0.07\n",
+  "error": false,
+  "internal_deadline_stop": false,
+  "logged_threads": 2,
+  "resource_fields": {
+    "rss_kb": 5108.0,
+    "user": 544.77,
+    "sys": 0.07
+  },
+  "success": true,
+  "components": {
+    "reward": 67150.99486256031,
+    "distance": 12737.691819054491,
+    "cost": 4578.595382686483,
+    "penalty": 935.0138525166626,
+    "objective": 48899.693808302676
+  }
+}

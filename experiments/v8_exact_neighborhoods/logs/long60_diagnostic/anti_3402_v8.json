@@ -1,0 +1,55 @@
+{
+  "case": "anti",
+  "seed": 3402,
+  "variant": "v8",
+  "started_unix": 1792502742.8256154,
+  "ended_unix": 1792502802.5896685,
+  "rc": 0,
+  "timeout": false,
+  "wall": 59.764046036999844,
+  "valid": true,
+  "objective": 342017.31764347374,
+  "validation_error": null,
+  "actual_nt": 2,
+  "error_log": false,
+  "affinity": [
+    20,
+    21
+  ],
+  "success": true,
+  "solution_sha256": "7b46c8f2322e6a7b43b4e31e11dfae26cff38d7fea8500d79bf3ed135dd8519f",
+  "source_sha256": "1857bec7e0882d15cf3091e79aeb0df1608ced5d4ee6883c1cb02656cfbd8e03",
+  "resource": "rss_kb=5236 user=116.57 sys=0.28\n",
+  "snapshots": [
+    {
+      "target_seconds": 20,
+      "observed_seconds": 20.003302418999738,
+      "file": "experiments/v8_exact_neighborhoods/logs/long60_diagnostic/anti_3402_v8.t20.solution.json",
+      "sha256": "bc2f313ba72291520a6eb9879980adbb539b28326d64cf7b107c3cc0a50bc473",
+      "valid": true,
+      "objective": 342010.57651128055
+    },
+    {
+      "target_seconds": 40,
+      "observed_seconds": 40.00036059099966,
+      "file": "experiments/v8_exact_neighborhoods/logs/long60_diagnostic/anti_3402_v8.t40.solution.json",
+      "sha256": "bc2f313ba72291520a6eb9879980adbb539b28326d64cf7b107c3cc0a50bc473",
+      "valid": true,
+      "objective": 342010.57651128055
+    },
+    {
+      "target_seconds": 55,
+      "observed_seconds": 55.004566089000036,
+      "file": "experiments/v8_exact_neighborhoods/logs/long60_diagnostic/anti_3402_v8.t55.solution.json",
+      "sha256": "bc2f313ba72291520a6eb9879980adbb539b28326d64cf7b107c3cc0a50bc473",
+      "valid": true,
+      "objective": 342010.57651128055
+    }
+  ],
+  "hard_stopped": false,
+  "hard_stop_at": null,
+  "within_nominal_plus_0.1": true,
+  "nominal_overrun": 0,
+  "watchdog_exit_inferred": false,
+  "thread_count_basis": "final log"
+}

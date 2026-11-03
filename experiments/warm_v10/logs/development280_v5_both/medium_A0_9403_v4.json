@@ -1,0 +1,85 @@
+{
+  "case": "medium_A0",
+  "seed": 9403,
+  "variant": "v4",
+  "command": [
+    "/usr/bin/time",
+    "-f",
+    "rss_kb=%M user=%U sys=%S",
+    "-o",
+    "./experiments/warm_v10/logs/development280_v5_both/medium_A0_9403_v4.resource",
+    "taskset",
+    "-c",
+    "12,13",
+    "./experiments/structural_v9/artifacts/v4",
+    "./experiments/structural_v9/inputs/dev/medium_A0.json",
+    "./experiments/warm_v10/logs/development280_v5_both/medium_A0_9403_v4.solution.json",
+    "280"
+  ],
+  "env": {
+    "HOME": "/home/user",
+    "LANG": "C.UTF-8",
+    "PATH": "/usr/local/bin:/usr/bin:/bin",
+    "NT": "2",
+    "SEED": "9403",
+    "DBG": "1"
+  },
+  "affinity": [
+    12,
+    13
+  ],
+  "rc": 0,
+  "timeout": false,
+  "wall": 279.48333899799945,
+  "started_unix": 1792648238.846703,
+  "ended_unix": 1792648518.4209778,
+  "official": 46.561238663352405,
+  "valid": true,
+  "snapshots": [
+    {
+      "at": 28.031685350999396,
+      "path": "experiments/warm_v10/logs/development280_v5_both/medium_A0_9403_v4.t28.00.solution.json",
+      "official": 46.12614798056597
+    },
+    {
+      "at": 61.602138526999624,
+      "path": "experiments/warm_v10/logs/development280_v5_both/medium_A0_9403_v4.t61.60.solution.json",
+      "official": 46.12614798056597
+    },
+    {
+      "at": 70.02336829700107,
+      "path": "experiments/warm_v10/logs/development280_v5_both/medium_A0_9403_v4.t70.00.solution.json",
+      "official": 46.12614798056597
+    },
+    {
+      "at": 140.03051553499972,
+      "path": "experiments/warm_v10/logs/development280_v5_both/medium_A0_9403_v4.t140.00.solution.json",
+      "official": 46.12614798056597
+    },
+    {
+      "at": 238.03347802499957,
+      "path": "experiments/warm_v10/logs/development280_v5_both/medium_A0_9403_v4.t238.00.solution.json",
+      "official": 46.133524497343736
+    }
+  ],
+  "solution_sha256": "47894490414902740457cbfbd8dc66f958a5e33347caf0593dacb86d5e28fc73",
+  "resource": "rss_kb=5656 user=414.14 sys=0.37\n",
+  "error": false,
+  "internal_deadline_stop": false,
+  "cpu_pressure_before": "some avg10=20.18 avg60=19.40 avg300=23.06 total=4080642573\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+  "cpu_pressure_after": "some avg10=37.26 avg60=35.69 avg300=27.76 total=4162624919\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+  "logged_threads": 2,
+  "resource_fields": {
+    "rss_kb": 5656.0,
+    "user": 414.14,
+    "sys": 0.37
+  },
+  "success": true,
+  "components": {
+    "reward": 70.17909833819498,
+    "distance": 15.985039237269167,
+    "cost": 6.170755888860993,
+    "penalty": 1.462064548712395,
+    "objective": 46.56123866335242
+  }
+}

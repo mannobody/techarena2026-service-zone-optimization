@@ -1,0 +1,79 @@
+{
+  "runs": 6,
+  "valid": 6,
+  "success": 6,
+  "metrics": {
+    "pairs": 6,
+    "mean_case_percent": 0.025691844619504984,
+    "median": 0.026738943411943883,
+    "sd": 1.0402605332053372,
+    "worst": -1.2953905354922792,
+    "best": 1.3942115703908562,
+    "wins": 3,
+    "ties": 1,
+    "losses": 2,
+    "case_bootstrap95": [
+      -0.7379185632784047,
+      0.7893022525174147
+    ]
+  },
+  "pairs": [
+    {
+      "case": "equal180",
+      "seed": 12602,
+      "delta": 863.8411908623384,
+      "percent": 1.3942115703908562,
+      "base": 61959.11791351491,
+      "candidate": 62822.959104377245,
+      "both_success": true
+    },
+    {
+      "case": "grid180",
+      "seed": 12602,
+      "delta": 4.754662299987103,
+      "percent": 0.053477886823887766,
+      "base": 8890.894129091255,
+      "candidate": 8895.648791391242,
+      "both_success": true
+    },
+    {
+      "case": "jury1",
+      "seed": 12602,
+      "delta": 0.0,
+      "percent": 0.0,
+      "base": 32.229957487864645,
+      "candidate": 32.229957487864645,
+      "both_success": true
+    },
+    {
+      "case": "multi260",
+      "seed": 12602,
+      "delta": -116.45136514161459,
+      "percent": -1.2953905354922792,
+      "base": 8989.672376860488,
+      "candidate": 8873.221011718873,
+      "both_success": true
+    },
+    {
+      "case": "anti220",
+      "seed": 12602,
+      "delta": 0.5887881998455242,
+      "percent": 0.9469562437494439,
+      "base": 62.17691722631614,
+      "candidate": 62.76570542616167,
+      "both_success": true
+    },
+    {
+      "case": "huge10000",
+      "seed": 12602,
+      "delta": -38578.920645914506,
+      "percent": -0.9451040977548787,
+      "base": 4081975.80960233,
+      "candidate": 4043396.8889564155,
+      "both_success": true
+    }
+  ],
+  "order_confounded": true,
+  "control_source": "logs/development280/results.json",
+  "interpretation": "Exploratory supplemental development; same actual controls reused, not6 additional control runs. Proper randomized independent evaluation follows."
+}

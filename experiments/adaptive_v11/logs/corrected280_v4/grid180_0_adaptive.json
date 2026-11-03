@@ -1,0 +1,143 @@
+{
+  "case": "grid180",
+  "seed": 0,
+  "variant": "adaptive",
+  "command": [
+    "/usr/bin/time",
+    "-f",
+    "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+    "-o",
+    "./experiments/adaptive_v11/logs/corrected280_v4/grid180_0_adaptive.resource",
+    "taskset",
+    "-c",
+    "3,6",
+    "./experiments/adaptive_v11/artifacts/v4/candidate",
+    "./experiments/adaptive_v11/inputs/dev/grid180.json",
+    "./experiments/adaptive_v11/logs/corrected280_v4/grid180_0_adaptive.solution.json",
+    "280"
+  ],
+  "env": {
+    "HOME": "/home/user",
+    "LANG": "C.UTF-8",
+    "PATH": "/usr/local/bin:/usr/bin:/bin",
+    "NT": "2",
+    "SEED": "0",
+    "AP_POLICY": "1",
+    "AP_SHARE": "0"
+  },
+  "affinity": [
+    3,
+    6
+  ],
+  "rc": 0,
+  "timeout": false,
+  "wall": 279.478290037001,
+  "started_unix": 1792659167.5207908,
+  "ended_unix": 1792659447.1038609,
+  "official": 8867.92544066924,
+  "valid": true,
+  "snapshots": [
+    {
+      "at": 28.00291729899982,
+      "path": "experiments/adaptive_v11/logs/corrected280_v4/grid180_0_adaptive.t28.00.solution.json",
+      "official": 7992.946455841399
+    },
+    {
+      "at": 61.6474656270002,
+      "path": "experiments/adaptive_v11/logs/corrected280_v4/grid180_0_adaptive.t61.60.solution.json",
+      "official": 7992.946455841399
+    },
+    {
+      "at": 70.04636748000121,
+      "path": "experiments/adaptive_v11/logs/corrected280_v4/grid180_0_adaptive.t70.00.solution.json",
+      "official": 7992.946455841399
+    },
+    {
+      "at": 140.02541900899814,
+      "path": "experiments/adaptive_v11/logs/corrected280_v4/grid180_0_adaptive.t140.00.solution.json",
+      "official": 8219.737659589842
+    },
+    {
+      "at": 238.00290496000162,
+      "path": "experiments/adaptive_v11/logs/corrected280_v4/grid180_0_adaptive.t238.00.solution.json",
+      "official": 8240.949326969447
+    }
+  ],
+  "solution_sha256": "584d8d5dff005b7bf04819421913254ce165ffb8a1ec658ab3dcd9ade7737ca9",
+  "resource": "rss_kb=7724 user=548.98 sys=0.22 majorfaults=0 minorfaults=830 voluntary=22224 involuntary=24361 inputs=0 outputs=392\n",
+  "error": false,
+  "process_sampling": {
+    "last": {
+      "25": {
+        "runtime_ns": 90959754,
+        "runqueue_ns": 192606721,
+        "slices": 22121
+      },
+      "26": {
+        "runtime_ns": 276578803091,
+        "runqueue_ns": 111849550,
+        "slices": 1995
+      },
+      "27": {
+        "runtime_ns": 109312016786,
+        "runqueue_ns": 77128952,
+        "slices": 5749
+      },
+      "30": {
+        "runtime_ns": 161398982394,
+        "runqueue_ns": 114117557,
+        "slices": 16553
+      },
+      "31": {
+        "runtime_ns": 21279,
+        "runqueue_ns": 277562,
+        "slices": 1
+      }
+    },
+    "states": {
+      "S": 440,
+      "R": 552
+    },
+    "wchan": {
+      "hrtimer_nanosleep": 277,
+      "0": 552,
+      "futex_do_wait": 163
+    },
+    "max_sampled_threads": 5,
+    "samples": 277,
+    "last_io": {
+      "rchar": 169871,
+      "wchar": 57823,
+      "syscr": 45,
+      "syscw": 75,
+      "read_bytes": 0,
+      "write_bytes": 192512,
+      "cancelled_write_bytes": 0
+    }
+  },
+  "resource_extra_fields": {
+    "majorfaults": 0.0,
+    "minorfaults": 830.0,
+    "voluntary": 22224.0,
+    "involuntary": 24361.0,
+    "inputs": 0.0,
+    "outputs": 392.0
+  },
+  "internal_deadline_stop": false,
+  "cpu_pressure_before": "some avg10=0.25 avg60=0.28 avg300=0.17 total=6220927329\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+  "cpu_pressure_after": "some avg10=1.02 avg60=1.08 avg300=0.84 total=6225758107\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+  "logged_threads": 1,
+  "resource_fields": {
+    "rss_kb": 7724.0,
+    "user": 548.98,
+    "sys": 0.22
+  },
+  "success": true,
+  "components": {
+    "reward": 12282.368399212273,
+    "distance": 2559.4260818152843,
+    "cost": 770.1715687068768,
+    "penalty": 84.84530802087427,
+    "objective": 8867.925440669236
+  }
+}

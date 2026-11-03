@@ -1,0 +1,168 @@
+{
+  "parameters": [
+    [
+      "euclid310",
+      {
+        "ns": 310,
+        "no": 11,
+        "nw": 32,
+        "nsk": 5,
+        "A": 6,
+        "af": 0.03
+      }
+    ],
+    [
+      "road230",
+      {
+        "ns": 230,
+        "no": 9,
+        "nw": 26,
+        "nsk": 5,
+        "A": 3,
+        "af": 0.025,
+        "dist": "road",
+        "tmax": 5
+      }
+    ],
+    [
+      "anti270",
+      {
+        "ns": 270,
+        "no": 12,
+        "nw": 36,
+        "nsk": 5,
+        "A": 5,
+        "af": 0.02,
+        "dist": "anti"
+      }
+    ],
+    [
+      "equal210",
+      {
+        "ns": 210,
+        "no": 10,
+        "nw": 26,
+        "nsk": 4,
+        "A": 0,
+        "af": 0.8,
+        "wsk": 2,
+        "tmax": 7
+      }
+    ],
+    [
+      "grid240",
+      {
+        "ns": 240,
+        "no": 12,
+        "nw": 32,
+        "nsk": 4,
+        "A": 1,
+        "af": 0.18,
+        "layout": "grid",
+        "offices": "onsite",
+        "tmax": 4,
+        "wsk": 2
+      }
+    ],
+    [
+      "multi330",
+      {
+        "ns": 330,
+        "no": 13,
+        "nw": 18,
+        "nsk": 7,
+        "A": 5,
+        "af": 0.04,
+        "dist": "road",
+        "tmax": 5,
+        "wsk": 3,
+        "deficit": 2
+      }
+    ],
+    [
+      "road1900",
+      {
+        "ns": 1900,
+        "no": 20,
+        "nw": 52,
+        "nsk": 7,
+        "A": 24,
+        "af": 0.02,
+        "dist": "road",
+        "tmax": 4
+      }
+    ],
+    [
+      "huge9000",
+      {
+        "ns": 9000,
+        "no": 26,
+        "nw": 68,
+        "nsk": 6,
+        "A": 90,
+        "af": 0.015,
+        "tmax": 3
+      }
+    ]
+  ],
+  "seed_offset": 1300000,
+  "seeds": [
+    0,
+    11702
+  ],
+  "seconds": 280,
+  "generator_sha256": "f390366fcc6cf39f6a2ab51ac6189b3c9e6e2a5f94673f13f8a4f9ce2e22892a",
+  "case_seeds": {
+    "euclid310": [
+      0
+    ],
+    "road230": [
+      0
+    ],
+    "anti270": [
+      0,
+      11702
+    ],
+    "equal210": [
+      0,
+      11702
+    ],
+    "grid240": [
+      0
+    ],
+    "multi330": [
+      0
+    ],
+    "road1900": [
+      0
+    ],
+    "huge9000": [
+      0
+    ]
+  },
+  "cpus": [
+    [
+      0,
+      1
+    ],
+    [
+      8,
+      10
+    ],
+    [
+      12,
+      13
+    ],
+    [
+      16,
+      17
+    ],
+    [
+      20,
+      21
+    ]
+  ],
+  "expected_runs": 30,
+  "reason": "Latest user requested faster completion before independent generation. All8 input classes and TL280 retained; seed replication reduced to two risky classes. No algorithm change; no fresh outcomes observed.",
+  "scheduling": "Five already freed quality slots; remaining development cluster500/11602 stays18,19 and remaining clean-line11802 stays3,6. No pending new blocks in either campaign."
+}

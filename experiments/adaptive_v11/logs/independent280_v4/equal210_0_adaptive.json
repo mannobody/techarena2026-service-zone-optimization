@@ -1,0 +1,143 @@
+{
+  "case": "equal210",
+  "seed": 0,
+  "variant": "adaptive",
+  "command": [
+    "/usr/bin/time",
+    "-f",
+    "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+    "-o",
+    "./experiments/adaptive_v11/logs/independent280_v4/equal210_0_adaptive.resource",
+    "taskset",
+    "-c",
+    "16,17",
+    "./experiments/adaptive_v11/artifacts/v4/candidate",
+    "./experiments/adaptive_v11/inputs/fresh/equal210.json",
+    "./experiments/adaptive_v11/logs/independent280_v4/equal210_0_adaptive.solution.json",
+    "280"
+  ],
+  "env": {
+    "HOME": "/home/user",
+    "LANG": "C.UTF-8",
+    "PATH": "/usr/local/bin:/usr/bin:/bin",
+    "NT": "2",
+    "SEED": "0",
+    "AP_POLICY": "1",
+    "AP_SHARE": "0"
+  },
+  "affinity": [
+    16,
+    17
+  ],
+  "rc": 0,
+  "timeout": false,
+  "wall": 279.5273986780012,
+  "started_unix": 1792660958.2254863,
+  "ended_unix": 1792661237.9414184,
+  "official": 92.10911302332413,
+  "valid": true,
+  "snapshots": [
+    {
+      "at": 28.041902269000275,
+      "path": "experiments/adaptive_v11/logs/independent280_v4/equal210_0_adaptive.t28.00.solution.json",
+      "official": 88.18274587105157
+    },
+    {
+      "at": 61.63148782099961,
+      "path": "experiments/adaptive_v11/logs/independent280_v4/equal210_0_adaptive.t61.60.solution.json",
+      "official": 88.9148660662186
+    },
+    {
+      "at": 70.0133742930011,
+      "path": "experiments/adaptive_v11/logs/independent280_v4/equal210_0_adaptive.t70.00.solution.json",
+      "official": 88.9148660662186
+    },
+    {
+      "at": 140.02289222900072,
+      "path": "experiments/adaptive_v11/logs/independent280_v4/equal210_0_adaptive.t140.00.solution.json",
+      "official": 88.9148660662186
+    },
+    {
+      "at": 238.00155022800027,
+      "path": "experiments/adaptive_v11/logs/independent280_v4/equal210_0_adaptive.t238.00.solution.json",
+      "official": 88.9148660662186
+    }
+  ],
+  "solution_sha256": "25b8732050b08ace40fc25a5b2430e15588a8383eb362a171e109ac43d152d74",
+  "resource": "rss_kb=7704 user=553.56 sys=0.35 majorfaults=0 minorfaults=882 voluntary=20131 involuntary=22131 inputs=0 outputs=88\n",
+  "error": false,
+  "process_sampling": {
+    "last": {
+      "32": {
+        "runtime_ns": 128372613,
+        "runqueue_ns": 275142906,
+        "slices": 20060
+      },
+      "41": {
+        "runtime_ns": 276378862433,
+        "runqueue_ns": 168169524,
+        "slices": 5700
+      },
+      "42": {
+        "runtime_ns": 276131672150,
+        "runqueue_ns": 389432970,
+        "slices": 16361
+      },
+      "49": {
+        "runtime_ns": 50991,
+        "runqueue_ns": 382193,
+        "slices": 2
+      },
+      "52": {
+        "runtime_ns": 23949,
+        "runqueue_ns": 878240,
+        "slices": 1
+      }
+    },
+    "states": {
+      "R": 556,
+      "S": 763
+    },
+    "wchan": {
+      "0": 556,
+      "hrtimer_nanosleep": 276,
+      "futex_do_wait": 487
+    },
+    "max_sampled_threads": 5,
+    "samples": 278,
+    "last_io": {
+      "rchar": 210200,
+      "wchar": 7787,
+      "syscr": 48,
+      "syscw": 22,
+      "read_bytes": 0,
+      "write_bytes": 40960,
+      "cancelled_write_bytes": 0
+    }
+  },
+  "resource_extra_fields": {
+    "majorfaults": 0.0,
+    "minorfaults": 882.0,
+    "voluntary": 20131.0,
+    "involuntary": 22131.0,
+    "inputs": 0.0,
+    "outputs": 88.0
+  },
+  "internal_deadline_stop": false,
+  "cpu_pressure_before": "some avg10=0.00 avg60=0.00 avg300=0.31 total=6238599848\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+  "cpu_pressure_after": "some avg10=0.00 avg60=0.19 avg300=0.28 total=6240009840\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+  "logged_threads": 1,
+  "resource_fields": {
+    "rss_kb": 7704.0,
+    "user": 553.56,
+    "sys": 0.35
+  },
+  "success": true,
+  "components": {
+    "reward": 116.4941263614559,
+    "distance": 17.661465235523288,
+    "cost": 6.723548102608506,
+    "penalty": 0.0,
+    "objective": 92.10911302332411
+  }
+}

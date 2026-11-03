@@ -1,0 +1,121 @@
+{
+  "parameters": [
+    [
+      "road120",
+      {
+        "ns": 120,
+        "no": 7,
+        "nw": 20,
+        "nsk": 4,
+        "dist": "road",
+        "af": 0.02,
+        "A": 2,
+        "tmax": 5
+      }
+    ],
+    [
+      "anti180",
+      {
+        "ns": 180,
+        "no": 10,
+        "nw": 30,
+        "nsk": 5,
+        "dist": "anti",
+        "af": 0.015,
+        "A": 4,
+        "tmax": 3
+      }
+    ],
+    [
+      "equal_count150",
+      {
+        "ns": 150,
+        "no": 8,
+        "nw": 18,
+        "nsk": 3,
+        "af": 0.6,
+        "A": 0,
+        "tmax": 7,
+        "wsk": 2
+      }
+    ],
+    [
+      "multi220",
+      {
+        "ns": 220,
+        "no": 11,
+        "nw": 13,
+        "nsk": 6,
+        "dist": "road",
+        "af": 0.03,
+        "A": 4,
+        "tmax": 4,
+        "wsk": 3,
+        "deficit": 2
+      }
+    ],
+    [
+      "cluster400",
+      {
+        "ns": 400,
+        "no": 12,
+        "nw": 32,
+        "nsk": 5,
+        "layout": "cluster",
+        "af": 0,
+        "A": 10,
+        "tmax": 3,
+        "span": 1.0,
+        "dscale": 10000.0
+      }
+    ],
+    [
+      "grid160",
+      {
+        "ns": 160,
+        "no": 9,
+        "nw": 24,
+        "nsk": 4,
+        "layout": "grid",
+        "offices": "onsite",
+        "af": 0.12,
+        "A": 1,
+        "tmax": 4,
+        "wsk": 2
+      }
+    ],
+    [
+      "road1500",
+      {
+        "ns": 1500,
+        "no": 18,
+        "nw": 48,
+        "nsk": 7,
+        "dist": "road",
+        "af": 0.015,
+        "A": 20,
+        "tmax": 4
+      }
+    ],
+    [
+      "huge10000",
+      {
+        "ns": 10000,
+        "no": 24,
+        "nw": 64,
+        "nsk": 6,
+        "af": 0.01,
+        "A": 100,
+        "tmax": 3
+      }
+    ]
+  ],
+  "seed_offset": 1080000,
+  "run_seeds": [
+    10501,
+    10502,
+    10503
+  ],
+  "seconds": 280,
+  "generator_sha256": "f390366fcc6cf39f6a2ab51ac6189b3c9e6e2a5f94673f13f8a4f9ce2e22892a"
+}

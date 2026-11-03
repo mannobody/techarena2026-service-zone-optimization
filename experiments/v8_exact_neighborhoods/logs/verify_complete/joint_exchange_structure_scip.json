@@ -1,0 +1,58 @@
+{
+  "case": "joint_exchange",
+  "kind": "structure",
+  "backend": "scip",
+  "ok": true,
+  "expected": 18,
+  "result": {
+    "solution": [
+      {
+        "officeId": 0,
+        "sites": [
+          1
+        ],
+        "workers": [
+          1
+        ]
+      },
+      {
+        "officeId": 1,
+        "sites": [
+          0
+        ],
+        "workers": [
+          0
+        ]
+      }
+    ],
+    "before": 0.0,
+    "value": 18.0,
+    "gain": 18.0,
+    "kind": "structure",
+    "backend": "scip",
+    "conditional_optimal": true,
+    "status": "optimal",
+    "bound": 18.0,
+    "gap": 0.0,
+    "build": 0.006905905000053281,
+    "solve": 0.0044930330000170215,
+    "check": 0.000540236000006189,
+    "restore": 0.0007817430000613967,
+    "seconds": 0.014506943000014871,
+    "gain_per_second": 1240.7851881669037,
+    "iterations": 1,
+    "nodes": 1,
+    "cuts": 0,
+    "variables": 14,
+    "rows": 27,
+    "selected": [
+      0,
+      1
+    ],
+    "offices": [
+      0,
+      1
+    ],
+    "events": []
+  }
+}

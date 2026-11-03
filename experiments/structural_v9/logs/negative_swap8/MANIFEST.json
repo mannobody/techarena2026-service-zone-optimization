@@ -1,0 +1,39 @@
+{
+  "spec": {
+    "name": "negative_swap8",
+    "seconds": 8,
+    "seeds": [
+      9001,
+      9002,
+      9003
+    ],
+    "cases": {
+      "negative_swap": "experiments/structural_v9/inputs/negative_swap.json"
+    },
+    "variants": {
+      "v4": {
+        "binary": "experiments/structural_v9/artifacts/v4"
+      },
+      "zones": {
+        "binary": "experiments/structural_v9/artifacts/v3/candidate"
+      }
+    },
+    "cpus": [
+      [
+        14,
+        15
+      ]
+    ]
+  },
+  "spec_sha256": "482eac2101a2996829f802cab7333aa6d2add9dd4fbc570474e90754a21252ae",
+  "inputs": {
+    "negative_swap": "1a3c0c9c335d4ce707e8566f767b01821cbeedaa3dd0742ce52b198d59407f63"
+  },
+  "binaries": {
+    "v4": "5cc54b6ad0f02a3d6d471d0e2f9129c229b4925aaa2b2c01ce26bd5305a4963c",
+    "zones": "e24358296cb08271381f7746cd6452601a721edbcdec3b9da50e4b63837a101c"
+  },
+  "validator": "6dd5948ebe72977976acf1b8dcaf7c819274c79addfb82328c0ec9a012ed56e0",
+  "cpu_topology": "<local-host-omitted>",
+  "runner_sha256": "ee9d7614ed87903c10b0fe7815ce394e4db58e585230ccb89c975e82e8651780"
+}

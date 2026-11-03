@@ -1,0 +1,668 @@
+{
+  "series": "development280",
+  "seconds": 280,
+  "runs": 63,
+  "expected_runs": 63,
+  "missing": [],
+  "valid": 63,
+  "success": 63,
+  "failures": [],
+  "variants": {
+    "full": {
+      "all_valid_pairs": {
+        "pairs": 21,
+        "nonzero_reference_pairs": 21,
+        "mean_case_percent": 1.4305901979962055,
+        "median_pair_percent": 0.0,
+        "sd_pair_percent": 3.56590044152348,
+        "worst_percent": -6.217655033068005,
+        "best_percent": 11.422044059787023,
+        "wins": 9,
+        "ties": 5,
+        "losses": 7
+      },
+      "successful_pairs": {
+        "pairs": 21,
+        "nonzero_reference_pairs": 21,
+        "mean_case_percent": 1.4305901979962055,
+        "median_pair_percent": 0.0,
+        "sd_pair_percent": 3.56590044152348,
+        "worst_percent": -6.217655033068005,
+        "best_percent": 11.422044059787023,
+        "wins": 9,
+        "ties": 5,
+        "losses": 7
+      },
+      "bootstrap_cases_95": [
+        -0.03142156953247513,
+        2.6949340986560197
+      ],
+      "per_case": {
+        "small_grid": {
+          "mean_percent": 3.8073480199290075,
+          "base_values": [
+            254.08981479007377,
+            254.08981479007377,
+            228.04267946631265
+          ],
+          "candidate_values": [
+            254.08981479007377,
+            254.08981479007377,
+            254.08981479007377
+          ],
+          "median_delta": 0.0,
+          "worst_percent": 0.0
+        },
+        "small_load": {
+          "mean_percent": 2.662821949510618,
+          "base_values": [
+            7364.395513715398,
+            6959.450586376661,
+            7207.994129660195
+          ],
+          "candidate_values": [
+            7364.395513715398,
+            7364.395513715398,
+            7364.395513715398
+          ],
+          "median_delta": 156.40138405520338,
+          "worst_percent": 0.0
+        },
+        "medium_A0": {
+          "mean_percent": -0.07735810865543556,
+          "base_values": [
+            48.250721659718884,
+            48.17493871399656,
+            48.582411746553305
+          ],
+          "candidate_values": [
+            48.286091275598494,
+            47.99508933810517,
+            48.61542226162233
+          ],
+          "median_delta": 0.03301051506902297,
+          "worst_percent": -0.37332559353965666
+        },
+        "medium_anti": {
+          "mean_percent": 2.5371431775994258,
+          "base_values": [
+            2601.89700497897,
+            2615.9839851525526,
+            2429.1849651081525
+          ],
+          "candidate_values": [
+            2681.2384399315033,
+            2612.8097144480507,
+            2542.9534652406646
+          ],
+          "median_delta": 79.34143495253329,
+          "worst_percent": -0.1213413660984909
+        },
+        "large": {
+          "mean_percent": -2.302879226523638,
+          "base_values": [
+            279.27165498869886,
+            282.6740019123195,
+            283.21891056858686
+          ],
+          "candidate_values": [
+            261.9075068763617,
+            282.1773176577456,
+            281.75955875421033
+          ],
+          "median_delta": -1.4593518143765323,
+          "worst_percent": -6.217655033068005
+        },
+        "official_3": {
+          "mean_percent": 2.051611425994203,
+          "base_values": [
+            136621.52758153845,
+            136548.71636368785,
+            136596.63298748079
+          ],
+          "candidate_values": [
+            136444.14471633898,
+            136300.9768254834,
+            145429.10639346708
+          ],
+          "median_delta": -177.38286519946996,
+          "worst_percent": -0.18142941567067683
+        },
+        "official_4": {
+          "mean_percent": 1.3354441481192578,
+          "base_values": [
+            18019.089861853645,
+            18162.01618379979,
+            18226.332950462875
+          ],
+          "candidate_values": [
+            18019.089861853645,
+            18889.64693072087,
+            18226.332950462875
+          ],
+          "median_delta": 0.0,
+          "worst_percent": 0.0
+        }
+      },
+      "pairs": [
+        {
+          "case": "small_grid",
+          "seed": 9301,
+          "base": 254.08981479007377,
+          "candidate": 254.08981479007377,
+          "delta": 0.0,
+          "percent": 0.0,
+          "both_success": true
+        },
+        {
+          "case": "small_grid",
+          "seed": 9302,
+          "base": 254.08981479007377,
+          "candidate": 254.08981479007377,
+          "delta": 0.0,
+          "percent": 0.0,
+          "both_success": true
+        },
+        {
+          "case": "small_grid",
+          "seed": 9303,
+          "base": 228.04267946631265,
+          "candidate": 254.08981479007377,
+          "delta": 26.047135323761125,
+          "percent": 11.422044059787023,
+          "both_success": true
+        },
+        {
+          "case": "small_load",
+          "seed": 9301,
+          "base": 7364.395513715398,
+          "candidate": 7364.395513715398,
+          "delta": 0.0,
+          "percent": 0.0,
+          "both_success": true
+        },
+        {
+          "case": "small_load",
+          "seed": 9302,
+          "base": 6959.450586376661,
+          "candidate": 7364.395513715398,
+          "delta": 404.9449273387372,
+          "percent": 5.818633558968425,
+          "both_success": true
+        },
+        {
+          "case": "small_load",
+          "seed": 9303,
+          "base": 7207.994129660195,
+          "candidate": 7364.395513715398,
+          "delta": 156.40138405520338,
+          "percent": 2.169832289563429,
+          "both_success": true
+        },
+        {
+          "case": "medium_A0",
+          "seed": 9301,
+          "base": 48.250721659718884,
+          "candidate": 48.286091275598494,
+          "delta": 0.03536961587960974,
+          "percent": 0.07330380699598392,
+          "both_success": true
+        },
+        {
+          "case": "medium_A0",
+          "seed": 9302,
+          "base": 48.17493871399656,
+          "candidate": 47.99508933810517,
+          "delta": -0.1798493758913935,
+          "percent": -0.37332559353965666,
+          "both_success": true
+        },
+        {
+          "case": "medium_A0",
+          "seed": 9303,
+          "base": 48.582411746553305,
+          "candidate": 48.61542226162233,
+          "delta": 0.03301051506902297,
+          "percent": 0.06794746057736607,
+          "both_success": true
+        },
+        {
+          "case": "medium_anti",
+          "seed": 9301,
+          "base": 2601.89700497897,
+          "candidate": 2681.2384399315033,
+          "delta": 79.34143495253329,
+          "percent": 3.049368779805893,
+          "both_success": true
+        },
+        {
+          "case": "medium_anti",
+          "seed": 9302,
+          "base": 2615.9839851525526,
+          "candidate": 2612.8097144480507,
+          "delta": -3.1742707045018506,
+          "percent": -0.1213413660984909,
+          "both_success": true
+        },
+        {
+          "case": "medium_anti",
+          "seed": 9303,
+          "base": 2429.1849651081525,
+          "candidate": 2542.9534652406646,
+          "delta": 113.76850013251214,
+          "percent": 4.683402119090875,
+          "both_success": true
+        },
+        {
+          "case": "large",
+          "seed": 9301,
+          "base": 279.27165498869886,
+          "candidate": 261.9075068763617,
+          "delta": -17.364148112337148,
+          "percent": -6.217655033068005,
+          "both_success": true
+        },
+        {
+          "case": "large",
+          "seed": 9302,
+          "base": 282.6740019123195,
+          "candidate": 282.1773176577456,
+          "delta": -0.49668425457389276,
+          "percent": -0.17570920962443354,
+          "both_success": true
+        },
+        {
+          "case": "large",
+          "seed": 9303,
+          "base": 283.21891056858686,
+          "candidate": 281.75955875421033,
+          "delta": -1.4593518143765323,
+          "percent": -0.515273436878475,
+          "both_success": true
+        },
+        {
+          "case": "official_3",
+          "seed": 9301,
+          "base": 136621.52758153845,
+          "candidate": 136444.14471633898,
+          "delta": -177.38286519946996,
+          "percent": -0.12983522314490617,
+          "both_success": true
+        },
+        {
+          "case": "official_3",
+          "seed": 9302,
+          "base": 136548.71636368785,
+          "candidate": 136300.9768254834,
+          "delta": -247.73953820444876,
+          "percent": -0.18142941567067683,
+          "both_success": true
+        },
+        {
+          "case": "official_3",
+          "seed": 9303,
+          "base": 136596.63298748079,
+          "candidate": 145429.10639346708,
+          "delta": 8832.473405986297,
+          "percent": 6.466098916798192,
+          "both_success": true
+        },
+        {
+          "case": "official_4",
+          "seed": 9301,
+          "base": 18019.089861853645,
+          "candidate": 18019.089861853645,
+          "delta": 0.0,
+          "percent": 0.0,
+          "both_success": true
+        },
+        {
+          "case": "official_4",
+          "seed": 9302,
+          "base": 18162.01618379979,
+          "candidate": 18889.64693072087,
+          "delta": 727.6307469210806,
+          "percent": 4.006332444357773,
+          "both_success": true
+        },
+        {
+          "case": "official_4",
+          "seed": 9303,
+          "base": 18226.332950462875,
+          "candidate": 18226.332950462875,
+          "delta": 0.0,
+          "percent": 0.0,
+          "both_success": true
+        }
+      ]
+    },
+    "tail": {
+      "all_valid_pairs": {
+        "pairs": 21,
+        "nonzero_reference_pairs": 21,
+        "mean_case_percent": 1.6826008882542796,
+        "median_pair_percent": 0.0,
+        "sd_pair_percent": 3.2295238180110903,
+        "worst_percent": -0.6962005493717734,
+        "best_percent": 11.422044059787023,
+        "wins": 10,
+        "ties": 6,
+        "losses": 5
+      },
+      "successful_pairs": {
+        "pairs": 21,
+        "nonzero_reference_pairs": 21,
+        "mean_case_percent": 1.6826008882542796,
+        "median_pair_percent": 0.0,
+        "sd_pair_percent": 3.2295238180110903,
+        "worst_percent": -0.6962005493717734,
+        "best_percent": 11.422044059787023,
+        "wins": 10,
+        "ties": 6,
+        "losses": 5
+      },
+      "bootstrap_cases_95": [
+        0.4833688848581833,
+        2.931825140719026
+      ],
+      "per_case": {
+        "small_grid": {
+          "mean_percent": 3.8073480199290075,
+          "base_values": [
+            254.08981479007377,
+            254.08981479007377,
+            228.04267946631265
+          ],
+          "candidate_values": [
+            254.08981479007377,
+            254.08981479007377,
+            254.08981479007377
+          ],
+          "median_delta": 0.0,
+          "worst_percent": 0.0
+        },
+        "small_load": {
+          "mean_percent": 2.662821949510618,
+          "base_values": [
+            7364.395513715398,
+            6959.450586376661,
+            7207.994129660195
+          ],
+          "candidate_values": [
+            7364.395513715398,
+            7364.395513715398,
+            7364.395513715398
+          ],
+          "median_delta": 156.40138405520338,
+          "worst_percent": 0.0
+        },
+        "medium_A0": {
+          "mean_percent": -0.19921477119801984,
+          "base_values": [
+            48.250721659718884,
+            48.17493871399656,
+            48.582411746553305
+          ],
+          "candidate_values": [
+            48.14956063111318,
+            48.32342026451592,
+            48.244180729075744
+          ],
+          "median_delta": -0.10116102860570209,
+          "worst_percent": -0.6962005493717734
+        },
+        "medium_anti": {
+          "mean_percent": 3.7986031273875636,
+          "base_values": [
+            2601.89700497897,
+            2615.9839851525526,
+            2429.1849651081525
+          ],
+          "candidate_values": [
+            2681.2384399315033,
+            2612.8097144480507,
+            2634.8830515640075
+          ],
+          "median_delta": 79.34143495253329,
+          "worst_percent": -0.1213413660984909
+        },
+        "large": {
+          "mean_percent": -0.0060253160797495596,
+          "base_values": [
+            279.27165498869886,
+            282.6740019123195,
+            283.21891056858686
+          ],
+          "candidate_values": [
+            279.04983352904327,
+            282.8090774546151,
+            283.2573368464557
+          ],
+          "median_delta": 0.03842627786883668,
+          "worst_percent": -0.07942856200875921
+        },
+        "official_3": {
+          "mean_percent": -0.004147847746060216,
+          "base_values": [
+            136621.52758153845,
+            136548.71636368785,
+            136596.63298748079
+          ],
+          "candidate_values": [
+            136621.52758153845,
+            136531.72486512596,
+            136596.63298748079
+          ],
+          "median_delta": 0.0,
+          "worst_percent": -0.012443543238180647
+        },
+        "official_4": {
+          "mean_percent": 1.7188210559765975,
+          "base_values": [
+            18019.089861853645,
+            18162.01618379979,
+            18226.332950462875
+          ],
+          "candidate_values": [
+            18226.332950462875,
+            18889.64693072087,
+            18226.332950462875
+          ],
+          "median_delta": 207.24308860922974,
+          "worst_percent": 0.0
+        }
+      },
+      "pairs": [
+        {
+          "case": "small_grid",
+          "seed": 9301,
+          "base": 254.08981479007377,
+          "candidate": 254.08981479007377,
+          "delta": 0.0,
+          "percent": 0.0,
+          "both_success": true
+        },
+        {
+          "case": "small_grid",
+          "seed": 9302,
+          "base": 254.08981479007377,
+          "candidate": 254.08981479007377,
+          "delta": 0.0,
+          "percent": 0.0,
+          "both_success": true
+        },
+        {
+          "case": "small_grid",
+          "seed": 9303,
+          "base": 228.04267946631265,
+          "candidate": 254.08981479007377,
+          "delta": 26.047135323761125,
+          "percent": 11.422044059787023,
+          "both_success": true
+        },
+        {
+          "case": "small_load",
+          "seed": 9301,
+          "base": 7364.395513715398,
+          "candidate": 7364.395513715398,
+          "delta": 0.0,
+          "percent": 0.0,
+          "both_success": true
+        },
+        {
+          "case": "small_load",
+          "seed": 9302,
+          "base": 6959.450586376661,
+          "candidate": 7364.395513715398,
+          "delta": 404.9449273387372,
+          "percent": 5.818633558968425,
+          "both_success": true
+        },
+        {
+          "case": "small_load",
+          "seed": 9303,
+          "base": 7207.994129660195,
+          "candidate": 7364.395513715398,
+          "delta": 156.40138405520338,
+          "percent": 2.169832289563429,
+          "both_success": true
+        },
+        {
+          "case": "medium_A0",
+          "seed": 9301,
+          "base": 48.250721659718884,
+          "candidate": 48.14956063111318,
+          "delta": -0.10116102860570209,
+          "percent": -0.20965702714070342,
+          "both_success": true
+        },
+        {
+          "case": "medium_A0",
+          "seed": 9302,
+          "base": 48.17493871399656,
+          "candidate": 48.32342026451592,
+          "delta": 0.14848155051935663,
+          "percent": 0.30821326291841733,
+          "both_success": true
+        },
+        {
+          "case": "medium_A0",
+          "seed": 9303,
+          "base": 48.582411746553305,
+          "candidate": 48.244180729075744,
+          "delta": -0.3382310174775611,
+          "percent": -0.6962005493717734,
+          "both_success": true
+        },
+        {
+          "case": "medium_anti",
+          "seed": 9301,
+          "base": 2601.89700497897,
+          "candidate": 2681.2384399315033,
+          "delta": 79.34143495253329,
+          "percent": 3.049368779805893,
+          "both_success": true
+        },
+        {
+          "case": "medium_anti",
+          "seed": 9302,
+          "base": 2615.9839851525526,
+          "candidate": 2612.8097144480507,
+          "delta": -3.1742707045018506,
+          "percent": -0.1213413660984909,
+          "both_success": true
+        },
+        {
+          "case": "medium_anti",
+          "seed": 9303,
+          "base": 2429.1849651081525,
+          "candidate": 2634.8830515640075,
+          "delta": 205.698086455855,
+          "percent": 8.467781968455288,
+          "both_success": true
+        },
+        {
+          "case": "large",
+          "seed": 9301,
+          "base": 279.27165498869886,
+          "candidate": 279.04983352904327,
+          "delta": -0.22182145965558675,
+          "percent": -0.07942856200875921,
+          "both_success": true
+        },
+        {
+          "case": "large",
+          "seed": 9302,
+          "base": 282.6740019123195,
+          "candidate": 282.8090774546151,
+          "delta": 0.13507554229556717,
+          "percent": 0.04778491880461834,
+          "both_success": true
+        },
+        {
+          "case": "large",
+          "seed": 9303,
+          "base": 283.21891056858686,
+          "candidate": 283.2573368464557,
+          "delta": 0.03842627786883668,
+          "percent": 0.01356769496489219,
+          "both_success": true
+        },
+        {
+          "case": "official_3",
+          "seed": 9301,
+          "base": 136621.52758153845,
+          "candidate": 136621.52758153845,
+          "delta": 0.0,
+          "percent": 0.0,
+          "both_success": true
+        },
+        {
+          "case": "official_3",
+          "seed": 9302,
+          "base": 136548.71636368785,
+          "candidate": 136531.72486512596,
+          "delta": -16.99149856189615,
+          "percent": -0.012443543238180647,
+          "both_success": true
+        },
+        {
+          "case": "official_3",
+          "seed": 9303,
+          "base": 136596.63298748079,
+          "candidate": 136596.63298748079,
+          "delta": 0.0,
+          "percent": 0.0,
+          "both_success": true
+        },
+        {
+          "case": "official_4",
+          "seed": 9301,
+          "base": 18019.089861853645,
+          "candidate": 18226.332950462875,
+          "delta": 207.24308860922974,
+          "percent": 1.1501307235720195,
+          "both_success": true
+        },
+        {
+          "case": "official_4",
+          "seed": 9302,
+          "base": 18162.01618379979,
+          "candidate": 18889.64693072087,
+          "delta": 727.6307469210806,
+          "percent": 4.006332444357773,
+          "both_success": true
+        },
+        {
+          "case": "official_4",
+          "seed": 9303,
+          "base": 18226.332950462875,
+          "candidate": 18226.332950462875,
+          "delta": 0.0,
+          "percent": 0.0,
+          "both_success": true
+        }
+      ]
+    }
+  }
+}

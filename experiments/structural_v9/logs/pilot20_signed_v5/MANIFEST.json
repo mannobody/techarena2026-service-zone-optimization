@@ -1,0 +1,44 @@
+{
+  "spec": {
+    "name": "pilot20_signed_v5",
+    "seconds": 20,
+    "seeds": [
+      9101,
+      9102
+    ],
+    "cases": {
+      "medium_anti": "experiments/structural_v9/inputs/dev/medium_anti.json",
+      "medium_A0": "experiments/structural_v9/inputs/dev/medium_A0.json",
+      "medium_multi": "experiments/structural_v9/inputs/dev/medium_multi.json",
+      "cluster_alpha0": "experiments/structural_v9/inputs/dev/cluster_alpha0.json",
+      "large": "experiments/structural_v9/inputs/dev/large.json",
+      "official_3": "task/instance3/instance.json",
+      "official_4": "task/instance4/instance.json"
+    },
+    "variants": {
+      "v4": {
+        "binary": "experiments/structural_v9/artifacts/v4"
+      },
+      "zones": {
+        "binary": "experiments/structural_v9/artifacts/signed_v5/candidate"
+      }
+    }
+  },
+  "spec_sha256": "44145ecb2e5416c6e46430e98920ea9a0977dd3fa4f9a021b2a61559e00d9c54",
+  "inputs": {
+    "medium_anti": "3a73156656271a734e2db83b84d9ae11b2c3b892f8076aaaa59edc30c5d0f636",
+    "medium_A0": "b268a3a102d4e00115170032917c6c336453c287e0aff1f2dd69e9e5425023b4",
+    "medium_multi": "c6ab3ed45e5b899fab0abf40cf118621b6d1d197fc90558cb08f1b6186017d95",
+    "cluster_alpha0": "5d2482eaa9b62af3b60d1b974d6f355dac6e74e2c699584280aaf811ac2fd9dc",
+    "large": "c9ae04b01172558d0c5a83389e6e74c6400408f5042e96ed4d55611edecc9062",
+    "official_3": "dd3f95826ed3b9fd6fca9b1be1b98fb1326419feb630bc2cabf37e56bef5dcc1",
+    "official_4": "c1132c4ea260eebec47014e0c405a6ef41caeb6f6354f038532f428e3653a0f5"
+  },
+  "binaries": {
+    "v4": "5cc54b6ad0f02a3d6d471d0e2f9129c229b4925aaa2b2c01ce26bd5305a4963c",
+    "zones": "805e411edfe01d3c4da9959978854efe42fc26b79aefee7173893561f96d8f49"
+  },
+  "validator": "6dd5948ebe72977976acf1b8dcaf7c819274c79addfb82328c0ec9a012ed56e0",
+  "cpu_topology": "<local-host-omitted>",
+  "runner_sha256": "ee9d7614ed87903c10b0fe7815ce394e4db58e585230ccb89c975e82e8651780"
+}

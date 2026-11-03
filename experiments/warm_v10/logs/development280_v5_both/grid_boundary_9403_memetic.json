@@ -1,0 +1,88 @@
+{
+  "case": "grid_boundary",
+  "seed": 9403,
+  "variant": "memetic",
+  "command": [
+    "/usr/bin/time",
+    "-f",
+    "rss_kb=%M user=%U sys=%S",
+    "-o",
+    "./experiments/warm_v10/logs/development280_v5_both/grid_boundary_9403_memetic.resource",
+    "taskset",
+    "-c",
+    "0,1",
+    "./experiments/warm_v10/artifacts/v5/candidate",
+    "./experiments/structural_v9/inputs/dev/grid_boundary.json",
+    "./experiments/warm_v10/logs/development280_v5_both/grid_boundary_9403_memetic.solution.json",
+    "280"
+  ],
+  "env": {
+    "HOME": "/home/user",
+    "LANG": "C.UTF-8",
+    "PATH": "/usr/local/bin:/usr/bin:/bin",
+    "NT": "2",
+    "SEED": "9403",
+    "ZM_POOL": "0",
+    "ZM_RESERVE": "0",
+    "DBG": "1",
+    "GW_MODE": "2"
+  },
+  "affinity": [
+    0,
+    1
+  ],
+  "rc": 0,
+  "timeout": false,
+  "wall": 279.46906180800033,
+  "started_unix": 1792648238.8543882,
+  "ended_unix": 1792648518.421147,
+  "official": 55.1841076559978,
+  "valid": true,
+  "snapshots": [
+    {
+      "at": 28.01053325400062,
+      "path": "experiments/warm_v10/logs/development280_v5_both/grid_boundary_9403_memetic.t28.00.solution.json",
+      "official": 49.32016328231239
+    },
+    {
+      "at": 61.630675263999365,
+      "path": "experiments/warm_v10/logs/development280_v5_both/grid_boundary_9403_memetic.t61.60.solution.json",
+      "official": 53.618468728124796
+    },
+    {
+      "at": 70.04881094499979,
+      "path": "experiments/warm_v10/logs/development280_v5_both/grid_boundary_9403_memetic.t70.00.solution.json",
+      "official": 53.861950696246
+    },
+    {
+      "at": 140.00373771699924,
+      "path": "experiments/warm_v10/logs/development280_v5_both/grid_boundary_9403_memetic.t140.00.solution.json",
+      "official": 53.861950696246
+    },
+    {
+      "at": 238.02201937099926,
+      "path": "experiments/warm_v10/logs/development280_v5_both/grid_boundary_9403_memetic.t238.00.solution.json",
+      "official": 53.90226890506446
+    }
+  ],
+  "solution_sha256": "33266d7af6f7b5d06e24e2d99ccd60a403a9fb22f25da6e5fbb4e3a1b59b3736",
+  "resource": "rss_kb=5596 user=556.02 sys=0.01\n",
+  "error": false,
+  "internal_deadline_stop": false,
+  "cpu_pressure_before": "some avg10=20.18 avg60=19.40 avg300=23.06 total=4080651814\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+  "cpu_pressure_after": "some avg10=37.26 avg60=35.69 avg300=27.76 total=4162623929\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+  "logged_threads": 2,
+  "resource_fields": {
+    "rss_kb": 5596.0,
+    "user": 556.02,
+    "sys": 0.01
+  },
+  "success": true,
+  "components": {
+    "reward": 74.00061730017111,
+    "distance": 12.647461494263348,
+    "cost": 5.308575855721923,
+    "penalty": 0.8604722941880363,
+    "objective": 55.18410765599781
+  }
+}

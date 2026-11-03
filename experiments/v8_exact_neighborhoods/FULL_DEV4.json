@@ -1,0 +1,98 @@
+{
+  "destination": "experiments/v8_exact_neighborhoods/logs/full_dev4",
+  "seconds": 4,
+  "seeds": [
+    3201,
+    3202
+  ],
+  "cpu_pairs": [
+    [
+      18,
+      19
+    ],
+    [
+      20,
+      21
+    ]
+  ],
+  "cases": {
+    "anti": "experiments/v4_perturbation/shared/inputs/dev/anti.json",
+    "tightA": "experiments/v4_perturbation/shared/inputs/dev/tightA.json",
+    "alphabig": "experiments/v4_perturbation/shared/inputs/dev/alphabig.json",
+    "multiskill": "experiments/v4_perturbation/shared/inputs/dev/multiskill.json",
+    "cluster": "experiments/v4_perturbation/shared/inputs/dev/cluster.json",
+    "grid": "experiments/v4_perturbation/shared/inputs/dev/grid.json",
+    "large": "experiments/v4_perturbation/shared/inputs/dev/large.json",
+    "huge": "experiments/v4_perturbation/shared/inputs/dev/huge.json",
+    "deficit": "experiments/v4_perturbation/shared/inputs/dev/deficit.json",
+    "alphazero": "experiments/v4_perturbation/shared/inputs/dev/alphazero.json",
+    "elongated": "experiments/v4_perturbation/shared/inputs/dev/elongated.json",
+    "negative": "experiments/v4_perturbation/shared/inputs/dev/negative.json"
+  },
+  "variants": {
+    "v4": {
+      "binary": "experiments/v8_exact_neighborhoods/artifacts/v4",
+      "source": "experiments/v4_local_search/baseline/frozen_v4.cpp",
+      "env": {
+        "DBG": "1"
+      }
+    },
+    "v8": {
+      "binary": "experiments/v8_exact_neighborhoods/artifacts/v8",
+      "source": "experiments/v8_exact_neighborhoods/src/frozen_v8.cpp",
+      "env": {
+        "DBG": "1"
+      }
+    },
+    "off": {
+      "binary": "experiments/v8_exact_neighborhoods/artifacts/candidate_v2/solution",
+      "source": "experiments/v8_exact_neighborhoods/artifacts/candidate_v2/main.cpp",
+      "env": {
+        "DBG": "1",
+        "ESCAPE_MODE": "5",
+        "XN_SIG_FIX": "0",
+        "XN_FILL": "0",
+        "XN_MODE": "0"
+      }
+    },
+    "fill": {
+      "binary": "experiments/v8_exact_neighborhoods/artifacts/candidate_v2/solution",
+      "source": "experiments/v8_exact_neighborhoods/artifacts/candidate_v2/main.cpp",
+      "env": {
+        "DBG": "1",
+        "ESCAPE_MODE": "5",
+        "XN_SIG_FIX": "0",
+        "XN_FILL": "1",
+        "XN_MODE": "0"
+      }
+    },
+    "packet": {
+      "binary": "experiments/v8_exact_neighborhoods/artifacts/candidate_v2/solution",
+      "source": "experiments/v8_exact_neighborhoods/artifacts/candidate_v2/main.cpp",
+      "env": {
+        "DBG": "1",
+        "ESCAPE_MODE": "5",
+        "XN_SIG_FIX": "0",
+        "XN_FILL": "0",
+        "XN_MODE": "4"
+      }
+    },
+    "exact": {
+      "binary": "experiments/v8_exact_neighborhoods/artifacts/candidate_v2/solution",
+      "source": "experiments/v8_exact_neighborhoods/artifacts/candidate_v2/main.cpp",
+      "env": {
+        "DBG": "1",
+        "ESCAPE_MODE": "5",
+        "XN_SIG_FIX": "0",
+        "XN_FILL": "0",
+        "XN_MODE": "3"
+      }
+    }
+  },
+  "order_seed": 20261021,
+  "snapshots": [
+    1,
+    2,
+    3
+  ]
+}

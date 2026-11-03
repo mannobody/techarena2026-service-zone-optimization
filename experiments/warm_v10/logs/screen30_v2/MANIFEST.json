@@ -1,0 +1,110 @@
+{
+  "spec": {
+    "name": "screen30_v2",
+    "seconds": 30,
+    "seeds": [
+      10101,
+      10102
+    ],
+    "cpus": [
+      [
+        0,
+        1
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        8,
+        10
+      ],
+      [
+        12,
+        13
+      ],
+      [
+        16,
+        17
+      ],
+      [
+        18,
+        19
+      ],
+      [
+        20,
+        21
+      ]
+    ],
+    "cases": {
+      "medium_road": "experiments/structural_v9/inputs/dev/medium_road.json",
+      "medium_anti": "experiments/structural_v9/inputs/dev/medium_anti.json",
+      "medium_A0": "experiments/structural_v9/inputs/dev/medium_A0.json",
+      "medium_multi": "experiments/structural_v9/inputs/dev/medium_multi.json",
+      "cluster_alpha0": "experiments/structural_v9/inputs/dev/cluster_alpha0.json",
+      "grid_boundary": "experiments/structural_v9/inputs/dev/grid_boundary.json",
+      "large": "experiments/structural_v9/inputs/dev/large.json",
+      "huge": "experiments/structural_v9/inputs/dev/huge.json",
+      "official_3": "task/instance3/instance.json",
+      "official_4": "task/instance4/instance.json"
+    },
+    "variants": {
+      "v4": {
+        "binary": "experiments/structural_v9/artifacts/v4",
+        "env": {
+          "DBG": "1"
+        }
+      },
+      "v9": {
+        "binary": "experiments/structural_v9/artifacts/final_research/candidate",
+        "env": {
+          "ZM_POOL": "0",
+          "ZM_RESERVE": "0",
+          "DBG": "1"
+        }
+      },
+      "geometry": {
+        "binary": "experiments/warm_v10/artifacts/v2/candidate",
+        "env": {
+          "ZM_POOL": "0",
+          "ZM_RESERVE": "0",
+          "DBG": "1",
+          "GW_MODE": "1",
+          "GW_TRACE": "1"
+        }
+      },
+      "memetic": {
+        "binary": "experiments/warm_v10/artifacts/v2/candidate",
+        "env": {
+          "ZM_POOL": "0",
+          "ZM_RESERVE": "0",
+          "DBG": "1",
+          "GW_MODE": "2",
+          "GW_TRACE": "1"
+        }
+      }
+    }
+  },
+  "spec_sha256": "8f142a478d6418d725b7b4b3db9790b06f8157c2ecc1b81ccc97959ba7346c19",
+  "inputs": {
+    "medium_road": "47a6e184274c46d688d06175121bc13259aa7ad8902c2ffd17033dcb6a82d68c",
+    "medium_anti": "3a73156656271a734e2db83b84d9ae11b2c3b892f8076aaaa59edc30c5d0f636",
+    "medium_A0": "b268a3a102d4e00115170032917c6c336453c287e0aff1f2dd69e9e5425023b4",
+    "medium_multi": "c6ab3ed45e5b899fab0abf40cf118621b6d1d197fc90558cb08f1b6186017d95",
+    "cluster_alpha0": "5d2482eaa9b62af3b60d1b974d6f355dac6e74e2c699584280aaf811ac2fd9dc",
+    "grid_boundary": "2abdb42b579f1107d15f7bb15aa636f0c2dc7dd136c6497d0519c7c386dc5d24",
+    "large": "c9ae04b01172558d0c5a83389e6e74c6400408f5042e96ed4d55611edecc9062",
+    "huge": "562cd07f929d32c2685674e97314a0fdbf196936fb93831dadb7c5fe88d80c04",
+    "official_3": "dd3f95826ed3b9fd6fca9b1be1b98fb1326419feb630bc2cabf37e56bef5dcc1",
+    "official_4": "c1132c4ea260eebec47014e0c405a6ef41caeb6f6354f038532f428e3653a0f5"
+  },
+  "binaries": {
+    "v4": "5cc54b6ad0f02a3d6d471d0e2f9129c229b4925aaa2b2c01ce26bd5305a4963c",
+    "v9": "255d6f0d4c46a80f36307059bc48c3110eed1f9285b8c0fccb42361e23252670",
+    "geometry": "d392b48a5601fd9e205f39afb84224c5217cda6c0c3fe9d8c6c76de57dafcd6f",
+    "memetic": "d392b48a5601fd9e205f39afb84224c5217cda6c0c3fe9d8c6c76de57dafcd6f"
+  },
+  "validator": "6dd5948ebe72977976acf1b8dcaf7c819274c79addfb82328c0ec9a012ed56e0",
+  "cpu_topology": "<local-host-omitted>",
+  "runner_sha256": "3d97807ae15eb73782f45da0ad45b9aa246685fc468ec798f097e97cee3c7baf"
+}

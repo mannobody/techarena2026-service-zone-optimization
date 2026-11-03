@@ -1,0 +1,131 @@
+{
+  "selected": [
+    {
+      "variant": "hybrid",
+      "operational": true,
+      "mean": 1.2631078812362617,
+      "worst": -0.8482164249605353,
+      "family": "hybrid",
+      "configuration": {
+        "binary": "experiments/submission_1668601_v12/artifacts/hybrid/candidate"
+      }
+    },
+    {
+      "variant": "plateau",
+      "operational": true,
+      "mean": 0.8531624555143968,
+      "worst": -1.9467502764609537,
+      "family": "plateau",
+      "configuration": {
+        "binary": "experiments/submission_1668601_v12/artifacts/plateau/candidate"
+      }
+    }
+  ],
+  "ranking": [
+    {
+      "variant": "hybrid",
+      "operational": true,
+      "mean": 1.2631078812362617,
+      "worst": -0.8482164249605353,
+      "family": "hybrid",
+      "configuration": {
+        "binary": "experiments/submission_1668601_v12/artifacts/hybrid/candidate"
+      }
+    },
+    {
+      "variant": "plateau",
+      "operational": true,
+      "mean": 0.8531624555143968,
+      "worst": -1.9467502764609537,
+      "family": "plateau",
+      "configuration": {
+        "binary": "experiments/submission_1668601_v12/artifacts/plateau/candidate"
+      }
+    },
+    {
+      "variant": "exact",
+      "operational": true,
+      "mean": 0.5085461651154096,
+      "worst": -3.4778367123897964,
+      "family": "exact",
+      "configuration": {
+        "binary": "experiments/submission_1668601_v12/artifacts/exact/candidate",
+        "env": {
+          "XN_MODE": "1",
+          "XN_FILL": "2",
+          "XN_WORKER": "1",
+          "ESCAPE_MODE": "0"
+        }
+      }
+    },
+    {
+      "variant": "zones",
+      "operational": true,
+      "mean": 0.3164803982979131,
+      "worst": -0.9571182425748223,
+      "family": "zones",
+      "configuration": {
+        "binary": "experiments/submission_1668601_v12/artifacts/zones/candidate",
+        "env": {
+          "ZM_POOL": "0",
+          "ZM_RESERVE": "0"
+        }
+      }
+    },
+    {
+      "variant": "geometry",
+      "operational": true,
+      "mean": -0.7620071026366596,
+      "worst": -40.55576872094463,
+      "family": "geometry",
+      "configuration": {
+        "binary": "experiments/submission_1668601_v12/artifacts/geometry/candidate",
+        "env": {
+          "GW_MODE": "1",
+          "ZM_POOL": "0",
+          "ZM_RESERVE": "0"
+        }
+      }
+    },
+    {
+      "variant": "zones_pool",
+      "operational": true,
+      "mean": -0.40654887148519764,
+      "worst": -5.052495438759789,
+      "family": "zones",
+      "configuration": {
+        "binary": "experiments/submission_1668601_v12/artifacts/zones/candidate",
+        "env": {
+          "ZM_POOL": "1",
+          "ZM_RESERVE": "1"
+        }
+      }
+    },
+    {
+      "variant": "geometry_diverse",
+      "operational": true,
+      "mean": 0.710483984858623,
+      "worst": -16.509878368898363,
+      "family": "geometry",
+      "configuration": {
+        "binary": "experiments/submission_1668601_v12/artifacts/geometry/candidate",
+        "env": {
+          "GW_MODE": "2",
+          "ZM_POOL": "0",
+          "ZM_RESERVE": "0"
+        }
+      }
+    },
+    {
+      "variant": "certified",
+      "operational": true,
+      "mean": -0.1757035757396461,
+      "worst": -2.5366536273269578,
+      "family": "certified",
+      "configuration": {
+        "binary": "experiments/submission_1668601_v12/artifacts/certified/candidate"
+      }
+    }
+  ],
+  "rule": "PROTOCOL.json; development only, no unseen inputs yet"
+}

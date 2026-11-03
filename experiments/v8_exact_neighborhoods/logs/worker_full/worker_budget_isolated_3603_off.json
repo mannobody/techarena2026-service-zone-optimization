@@ -1,0 +1,39 @@
+{
+  "case": "worker_budget_isolated",
+  "seed": 3603,
+  "variant": "off",
+  "started_unix": 1792502235.5170016,
+  "ended_unix": 1792502237.498944,
+  "rc": 0,
+  "timeout": false,
+  "wall": 1.9819376259997625,
+  "valid": true,
+  "objective": 36.0,
+  "validation_error": null,
+  "actual_nt": null,
+  "error_log": false,
+  "affinity": [
+    14,
+    15
+  ],
+  "success": true,
+  "solution_sha256": "58324bbbf0237732d1a06d281cb28679ab5398bc8b2131e2c5b1c9ff62332d82",
+  "source_sha256": "52a30ca35edaca1cfbe7186390a5ceca2596965562c92fa6e811da648d642114",
+  "resource": "rss_kb=4628 user=3.89 sys=0.00\n",
+  "snapshots": [
+    {
+      "target_seconds": 1,
+      "observed_seconds": 1.0025280310001108,
+      "file": "experiments/v8_exact_neighborhoods/logs/worker_full/worker_budget_isolated_3603_off.t1.solution.json",
+      "sha256": "58324bbbf0237732d1a06d281cb28679ab5398bc8b2131e2c5b1c9ff62332d82",
+      "valid": true,
+      "objective": 36.0
+    }
+  ],
+  "hard_stopped": false,
+  "hard_stop_at": null,
+  "within_nominal_plus_0.1": true,
+  "nominal_overrun": 0,
+  "watchdog_exit_inferred": true,
+  "thread_count_basis": "NT=2 env; final log absent at budget stop"
+}

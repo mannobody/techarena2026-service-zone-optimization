@@ -1,0 +1,68 @@
+{
+  "spec": {
+    "name": "line_screen8",
+    "seconds": 8,
+    "seeds": [
+      0
+    ],
+    "cpus": [
+      [
+        3,
+        6
+      ],
+      [
+        8,
+        10
+      ]
+    ],
+    "cases": {
+      "line0": "experiments/adaptive_v11/inputs/line_mechanism/line0.json",
+      "line1": "experiments/adaptive_v11/inputs/line_mechanism/line1.json",
+      "line2": "experiments/adaptive_v11/inputs/line_mechanism/line2.json",
+      "line3": "experiments/adaptive_v11/inputs/line_mechanism/line3.json",
+      "line4": "experiments/adaptive_v11/inputs/line_mechanism/line4.json",
+      "line5": "experiments/adaptive_v11/inputs/line_mechanism/line5.json",
+      "line6": "experiments/adaptive_v11/inputs/line_mechanism/line6.json",
+      "line7": "experiments/adaptive_v11/inputs/line_mechanism/line7.json",
+      "line8": "experiments/adaptive_v11/inputs/line_mechanism/line8.json",
+      "line9": "experiments/adaptive_v11/inputs/line_mechanism/line9.json"
+    },
+    "variants": {
+      "v4": {
+        "binary": "experiments/structural_v9/artifacts/v4"
+      },
+      "v10": {
+        "binary": "experiments/warm_v10/artifacts/v5/candidate",
+        "env": {
+          "ZM_POOL": "0",
+          "ZM_RESERVE": "0",
+          "GW_MODE": "1"
+        }
+      },
+      "adaptive": {
+        "binary": "experiments/adaptive_v11/artifacts/v3/candidate"
+      }
+    }
+  },
+  "spec_sha256": "94d9b9c28fbdf9a21755828aa88a3fa157c785bab5fef27838b0840a1f8cdfa8",
+  "inputs": {
+    "line0": "d4aedf20f0dd3a80ef46d7cc25bbb7dfeff7b3cd42a9e729742cd06ba0c6b603",
+    "line1": "b66ab691a7350e4cfa77afddcb9d82e5e9c5393ad2520613c70032e1b4cf4bb7",
+    "line2": "043d2fac2c1d0c6bc2562dcd2bd5afc9a512eb23833a1d706da9688efe7b4567",
+    "line3": "b18118b49c12fccb8a0070ed74bc5988a239e2accc01f4ac462b03b3e7bbccf6",
+    "line4": "297c8f5ff284ffb8ca6fc838c370638b9334f3955469c3165a87cddcdefabe9f",
+    "line5": "57446e051bd4227bfcb2f108df14121478b96fffb9ef2593bc32b02ae65c403d",
+    "line6": "cbddad53c8d9c8ce47413325672b179573f74dd78436e1b52ecbadf61e900dfc",
+    "line7": "a03aff558827c3509012cf580369b00b04d3ba69406d4f37f83e49f14b808b8d",
+    "line8": "3b24aac23a2ad1e3b50bd16efb142dacd97f89fd4d4a8a9c4530fb3cee46d35b",
+    "line9": "d04be44a5281c040b7044b1583e6ec8401f7b4b26f7b78746c1f67d0010ed192"
+  },
+  "binaries": {
+    "v4": "5cc54b6ad0f02a3d6d471d0e2f9129c229b4925aaa2b2c01ce26bd5305a4963c",
+    "v10": "c3f76ed684a521347cdd84fcdb2f5e9630a716f2eaf3747413ca7ecc6dc34706",
+    "adaptive": "db62e93d8c3fbbe4aeeda098249c0ccdd396526c102a0d21b65d4cee34d8c4fb"
+  },
+  "validator": "6dd5948ebe72977976acf1b8dcaf7c819274c79addfb82328c0ec9a012ed56e0",
+  "cpu_topology": "<local-host-omitted>",
+  "runner_sha256": "791e0a285aa770a1cbbbffccd17e767dcdfe8179c9ac6e9e7775d8732647da93"
+}

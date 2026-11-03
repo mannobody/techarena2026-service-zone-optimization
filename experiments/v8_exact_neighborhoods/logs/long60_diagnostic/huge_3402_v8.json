@@ -1,0 +1,55 @@
+{
+  "case": "huge",
+  "seed": 3402,
+  "variant": "v8",
+  "started_unix": 1792502721.1983504,
+  "ended_unix": 1792502781.1411884,
+  "rc": 0,
+  "timeout": false,
+  "wall": 59.94282817500016,
+  "valid": true,
+  "objective": 5262.533477148065,
+  "validation_error": null,
+  "actual_nt": 2,
+  "error_log": false,
+  "affinity": [
+    18,
+    19
+  ],
+  "success": true,
+  "solution_sha256": "6ff1a4db8ee65c520e2d844483f6141e481bf6ab6695235ad6e5e302a6f459c9",
+  "source_sha256": "1857bec7e0882d15cf3091e79aeb0df1608ced5d4ee6883c1cb02656cfbd8e03",
+  "resource": "rss_kb=18340 user=98.74 sys=0.29\n",
+  "snapshots": [
+    {
+      "target_seconds": 20,
+      "observed_seconds": 20.00104714700001,
+      "file": "experiments/v8_exact_neighborhoods/logs/long60_diagnostic/huge_3402_v8.t20.solution.json",
+      "sha256": "034440cfc8e0ad154d50edefe2699933708377a5c7f2cd4475c8a2b60bbf586e",
+      "valid": true,
+      "objective": 5260.3786429271995
+    },
+    {
+      "target_seconds": 40,
+      "observed_seconds": 40.00151671499998,
+      "file": "experiments/v8_exact_neighborhoods/logs/long60_diagnostic/huge_3402_v8.t40.solution.json",
+      "sha256": "034440cfc8e0ad154d50edefe2699933708377a5c7f2cd4475c8a2b60bbf586e",
+      "valid": true,
+      "objective": 5260.3786429271995
+    },
+    {
+      "target_seconds": 55,
+      "observed_seconds": 55.001290024000355,
+      "file": "experiments/v8_exact_neighborhoods/logs/long60_diagnostic/huge_3402_v8.t55.solution.json",
+      "sha256": "7112687dcfbc762e6c879a90ef5e0330bec64502c51f1ea574e5c14cde27f84a",
+      "valid": true,
+      "objective": 5262.293530807455
+    }
+  ],
+  "hard_stopped": false,
+  "hard_stop_at": null,
+  "within_nominal_plus_0.1": true,
+  "nominal_overrun": 0,
+  "watchdog_exit_inferred": false,
+  "thread_count_basis": "final log"
+}

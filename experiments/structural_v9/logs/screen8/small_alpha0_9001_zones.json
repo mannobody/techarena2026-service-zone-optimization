@@ -1,0 +1,49 @@
+{
+  "case": "small_alpha0",
+  "seed": 9001,
+  "variant": "zones",
+  "command": [
+    "/usr/bin/time",
+    "-f",
+    "rss_kb=%M user=%U sys=%S",
+    "-o",
+    "./experiments/structural_v9/logs/screen8/small_alpha0_9001_zones.resource",
+    "taskset",
+    "-c",
+    "16,17",
+    "./experiments/structural_v9/artifacts/candidate",
+    "./experiments/structural_v9/inputs/dev/small_alpha0.json",
+    "./experiments/structural_v9/logs/screen8/small_alpha0_9001_zones.solution.json",
+    "8"
+  ],
+  "env": {
+    "HOME": "/home/user",
+    "LANG": "C.UTF-8",
+    "PATH": "/usr/local/bin:/usr/bin:/bin",
+    "NT": "2",
+    "SEED": "9001"
+  },
+  "affinity": [
+    16,
+    17
+  ],
+  "rc": 0,
+  "timeout": false,
+  "wall": 0.09289544900002511,
+  "started_unix": 1792637531.062532,
+  "ended_unix": 1792637531.1592863,
+  "official": 874.6026836258101,
+  "valid": true,
+  "snapshots": [],
+  "solution_sha256": "e0f69445609c170434c45a597aa86d48bd92b9106fbfdf3ad383a788a4e89fd9",
+  "resource": "rss_kb=5876 user=0.05 sys=0.01\n",
+  "error": false,
+  "success": true,
+  "components": {
+    "reward": 1281.0167059775158,
+    "distance": 318.2284837674926,
+    "cost": 88.18553858421318,
+    "penalty": 0.0,
+    "objective": 874.60268362581
+  }
+}

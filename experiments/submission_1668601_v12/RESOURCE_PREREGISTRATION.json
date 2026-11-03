@@ -1,0 +1,7 @@
+{
+  "timing": "Before independent generation",
+  "primary": "independent280",
+  "design": "Same two physical CPUs per(case,seed), sequential randomized variants; no other quality jobs active.",
+  "veto": "If any primary matched block CPU/wall ratio spread>0.5, withhold robust promotion. No resource reruns or primary replacement. Record all GNUtime,/proc,PSI/RSS/IO/context switches.",
+  "reason": "Conservative resource audit while preserving faster staged campaign."
+}

@@ -1,0 +1,34 @@
+{
+  "registered_unix": 1792501813.2073677,
+  "freeze_sha256": "0698b342b8812f45007020b40357ca19c2d164079e8a7c0c83d1288022976448",
+  "motivation": "User explicitly noted that some search situations cannot be caught at ten seconds; original request permits TL60 for the best candidates.",
+  "candidate_unchanged": true,
+  "one_candidate_only": true,
+  "primary_criteria_unchanged": true,
+  "primary_failure_remains_failure": true,
+  "acceptance_requires_primary_AND_long": true,
+  "change": "Run a diagnostic TL60 even if the primary gate fails; redistribute the already capped 32 long processes into 4 named classes x 2 seeds x 4 variants.",
+  "names": [
+    "anti",
+    "tightA_alpha",
+    "multi_deficit",
+    "huge"
+  ],
+  "processes": 32,
+  "TL": 60,
+  "TL280": 0,
+  "scope": "Same four inputs already in the eight frozen primary inputs; not four additional independent tasks. No combined percentages across budgets.",
+  "no_selection_after_viewing_long_results": true,
+  "accept": {
+    "all_rc_zero_valid": true,
+    "all_process_wall_at_most_TL_plus_point1": true,
+    "mean_input_weighted_vs_v4_at_least": 0.1,
+    "median_nonnegative": true,
+    "every_input_median_nonnegative": true,
+    "worst_vs_v4_at_least": -1,
+    "bootstrap_lower_95_nonnegative": true,
+    "mean_vs_off_nonnegative": true,
+    "mean_vs_v8_nonnegative": true,
+    "undefined_percentage_rejects": true
+  }
+}

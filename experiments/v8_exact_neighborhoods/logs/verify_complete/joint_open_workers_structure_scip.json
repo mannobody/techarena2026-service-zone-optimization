@@ -1,0 +1,62 @@
+{
+  "case": "joint_open_workers",
+  "kind": "structure",
+  "backend": "scip",
+  "ok": true,
+  "expected": 34,
+  "result": {
+    "solution": [
+      {
+        "officeId": 0,
+        "sites": [
+          0,
+          1
+        ],
+        "workers": [
+          0
+        ]
+      },
+      {
+        "officeId": 1,
+        "sites": [
+          2,
+          3
+        ],
+        "workers": [
+          1
+        ]
+      }
+    ],
+    "before": 0.0,
+    "value": 34.0,
+    "gain": 34.0,
+    "kind": "structure",
+    "backend": "scip",
+    "conditional_optimal": true,
+    "status": "optimal",
+    "bound": 34.0,
+    "gap": 0.0,
+    "build": 0.007456842999999935,
+    "solve": 0.006062207000013586,
+    "check": 0.0006632119999494535,
+    "restore": 0.000875322999945638,
+    "seconds": 0.017133204000060687,
+    "gain_per_second": 1984.450777559152,
+    "iterations": 1,
+    "nodes": 1,
+    "cuts": 0,
+    "variables": 18,
+    "rows": 33,
+    "selected": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "offices": [
+      0,
+      1
+    ],
+    "events": []
+  }
+}

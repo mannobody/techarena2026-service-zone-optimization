@@ -1,0 +1,135 @@
+{
+  "spec": {
+    "destination": "experiments/v8_exact_neighborhoods/logs/full_dev4",
+    "seconds": 4,
+    "seeds": [
+      3201,
+      3202
+    ],
+    "cpu_pairs": [
+      [
+        18,
+        19
+      ],
+      [
+        20,
+        21
+      ]
+    ],
+    "cases": {
+      "anti": "experiments/v4_perturbation/shared/inputs/dev/anti.json",
+      "tightA": "experiments/v4_perturbation/shared/inputs/dev/tightA.json",
+      "alphabig": "experiments/v4_perturbation/shared/inputs/dev/alphabig.json",
+      "multiskill": "experiments/v4_perturbation/shared/inputs/dev/multiskill.json",
+      "cluster": "experiments/v4_perturbation/shared/inputs/dev/cluster.json",
+      "grid": "experiments/v4_perturbation/shared/inputs/dev/grid.json",
+      "large": "experiments/v4_perturbation/shared/inputs/dev/large.json",
+      "huge": "experiments/v4_perturbation/shared/inputs/dev/huge.json",
+      "deficit": "experiments/v4_perturbation/shared/inputs/dev/deficit.json",
+      "alphazero": "experiments/v4_perturbation/shared/inputs/dev/alphazero.json",
+      "elongated": "experiments/v4_perturbation/shared/inputs/dev/elongated.json",
+      "negative": "experiments/v4_perturbation/shared/inputs/dev/negative.json"
+    },
+    "variants": {
+      "v4": {
+        "binary": "experiments/v8_exact_neighborhoods/artifacts/v4",
+        "source": "experiments/v4_local_search/baseline/frozen_v4.cpp",
+        "env": {
+          "DBG": "1"
+        }
+      },
+      "v8": {
+        "binary": "experiments/v8_exact_neighborhoods/artifacts/v8",
+        "source": "experiments/v8_exact_neighborhoods/src/frozen_v8.cpp",
+        "env": {
+          "DBG": "1"
+        }
+      },
+      "off": {
+        "binary": "experiments/v8_exact_neighborhoods/artifacts/candidate_v2/solution",
+        "source": "experiments/v8_exact_neighborhoods/artifacts/candidate_v2/main.cpp",
+        "env": {
+          "DBG": "1",
+          "ESCAPE_MODE": "5",
+          "XN_SIG_FIX": "0",
+          "XN_FILL": "0",
+          "XN_MODE": "0"
+        }
+      },
+      "fill": {
+        "binary": "experiments/v8_exact_neighborhoods/artifacts/candidate_v2/solution",
+        "source": "experiments/v8_exact_neighborhoods/artifacts/candidate_v2/main.cpp",
+        "env": {
+          "DBG": "1",
+          "ESCAPE_MODE": "5",
+          "XN_SIG_FIX": "0",
+          "XN_FILL": "1",
+          "XN_MODE": "0"
+        }
+      },
+      "packet": {
+        "binary": "experiments/v8_exact_neighborhoods/artifacts/candidate_v2/solution",
+        "source": "experiments/v8_exact_neighborhoods/artifacts/candidate_v2/main.cpp",
+        "env": {
+          "DBG": "1",
+          "ESCAPE_MODE": "5",
+          "XN_SIG_FIX": "0",
+          "XN_FILL": "0",
+          "XN_MODE": "4"
+        }
+      },
+      "exact": {
+        "binary": "experiments/v8_exact_neighborhoods/artifacts/candidate_v2/solution",
+        "source": "experiments/v8_exact_neighborhoods/artifacts/candidate_v2/main.cpp",
+        "env": {
+          "DBG": "1",
+          "ESCAPE_MODE": "5",
+          "XN_SIG_FIX": "0",
+          "XN_FILL": "0",
+          "XN_MODE": "3"
+        }
+      }
+    },
+    "order_seed": 20261021,
+    "snapshots": [
+      1,
+      2,
+      3
+    ]
+  },
+  "spec_sha256": "1426937599930979b9f8dd708f18465d929ce6558acf5af6948f1dfaefeac9a1",
+  "runner_sha256": "edfa3a8b628cd9ecab65e5d5f28f7d8af9b84c36ed82b57c9a348d515613edd1",
+  "sources": {
+    "v4": "5b3914fa9791cb879f3232fb2876a915de83b848ad4b353b0dbf25b574998c25",
+    "v8": "1857bec7e0882d15cf3091e79aeb0df1608ced5d4ee6883c1cb02656cfbd8e03",
+    "off": "ea5c860e006e93d6b2287b05a1b65f2f96789bc429fd5a154d4013f25f1c7df8",
+    "fill": "ea5c860e006e93d6b2287b05a1b65f2f96789bc429fd5a154d4013f25f1c7df8",
+    "packet": "ea5c860e006e93d6b2287b05a1b65f2f96789bc429fd5a154d4013f25f1c7df8",
+    "exact": "ea5c860e006e93d6b2287b05a1b65f2f96789bc429fd5a154d4013f25f1c7df8"
+  },
+  "validator_sha256": "6dd5948ebe72977976acf1b8dcaf7c819274c79addfb82328c0ec9a012ed56e0",
+  "checkpoints": {},
+  "binaries": {
+    "v4": "5cc54b6ad0f02a3d6d471d0e2f9129c229b4925aaa2b2c01ce26bd5305a4963c",
+    "v8": "9e545e0dba29f7f85bbcbcca42c32a8b66b8f9c34c81baf2b3ea1f0d16c85974",
+    "off": "397e8990425f138cc88870569fdd04c1f3e5a547f4b7d95667d2061ee3c2a742",
+    "fill": "397e8990425f138cc88870569fdd04c1f3e5a547f4b7d95667d2061ee3c2a742",
+    "packet": "397e8990425f138cc88870569fdd04c1f3e5a547f4b7d95667d2061ee3c2a742",
+    "exact": "397e8990425f138cc88870569fdd04c1f3e5a547f4b7d95667d2061ee3c2a742"
+  },
+  "inputs": {
+    "anti": "28d3a2c81a0ef0bfa8e1ec588da62bd48122f37d9cd4952e413303f84d80d278",
+    "tightA": "1ae28e2cd6ea7c5c1c26e3f782a77f79f24bf0f562b09b3f7708aa6cc4c0df9a",
+    "alphabig": "15b841e52b8c4d71fa1dbb819566f48098a90b7b3db6871071f8f2a09ee58ffe",
+    "multiskill": "57f605ad34775503df27145009291f70a1079e69f4a3e4f6c55c729817131201",
+    "cluster": "31198c78efc75b7acd54ff2112ffed47674336fb38f642cbf736f064262dd078",
+    "grid": "0306bf511ce4b28e1985ad311311034aad696f020a440ddfe5aa0a02ec0072e3",
+    "large": "4f975dbbc6612bc2235d7c4c7b5d27adb589dd6d1237d6301dd2416ffc606c7a",
+    "huge": "cfab2ecaa9c6e7c5edf007d2353d172dcf36b1a47ab2c13664ecfe5b88d0f7c3",
+    "deficit": "f4b3c3a47eefe5e7d09f1c73b3cda00c83b62390ac74fc6d98a5b97c8fbdb2d0",
+    "alphazero": "64748cc11cf27e937e178ec52e58ba76cfc4284504ae5769d6c60ccb23674467",
+    "elongated": "5b6b6d56038d594264f3c529735e5140442ddfa104589ceff2fdcf1359aadac1",
+    "negative": "6013cf3d9dbe0fb91ef813a92d6c781c30586585f155579e65de1daf760b5fe8"
+  },
+  "topology": "<local-host-omitted>"
+}

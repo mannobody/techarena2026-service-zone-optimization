@@ -1,0 +1,30 @@
+{
+  "active_session": 32323,
+  "do_not_restart_campaign": true,
+  "algorithm_frozen": "FREEZE.json",
+  "current_stage": "independent280",
+  "selected_mode": "tail: ZM_POOL=0 ZM_RESERVE=0",
+  "after_campaign": [
+    "Wait for both CAMPAIGN_STATUS=complete and RESOURCE_REPEAT_STATUS=complete; sessions32323 and81542. Then run src/analyze_pairs.py defaults and optionally resource_repeat280 candidate.",
+    "Run src/final_report.py once (audits, report, package, ZIP).",
+    "Run src/package_check.py (compile package; require exact measured binary SHA and 3 noarg file-contract cases).",
+    "Append independent pair analysis Markdown to REPORT_RU.md; review primary statistics, ordinary vs tiny and bootstrap.",
+    "Append one concise row to existing EXPERIMENTS.md, preserving all user changes.",
+    "Check frozen v4 SHA again, frozen files, all final outputs/metrics/CPU caveats; open/report concise Russian final with code, report, ZIP links."
+  ],
+  "rules": [
+    "No solver or parameter changes based on holdout.",
+    "Do not confuse tiny exact wins with general improvement.",
+    "Full master negative: worst dev -6.2177%; large gap visible already70s.",
+    "Largest full public3 gain6.466% found before new operators; no causal master credit.",
+    "New code only in experiments/structural_v9; baseline and user dirty solver untouched.",
+    "First QA build-race moved with full hashes/reason to to_delet/structural_v9; all results preserved."
+  ],
+  "resource_repeat_session": 81542,
+  "resource_repeat_required": true,
+  "resource_repeat_scope": "same viewed large input, all3seeds, frozen v4/candidate,280s,3CPU pairs, starts after primary complete; do not merge with primary",
+  "primary_failure": "v4 large/9401 rc0 VALID but wall281.318>280.2, CPU65.68s; preserve and report",
+  "status": "complete",
+  "remaining": [],
+  "verdict": "Keep exact v4 for general contest use; experimental candidate and all evidence delivered."
+}

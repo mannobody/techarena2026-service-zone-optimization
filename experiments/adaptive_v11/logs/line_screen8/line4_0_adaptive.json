@@ -1,0 +1,92 @@
+{
+  "case": "line4",
+  "seed": 0,
+  "variant": "adaptive",
+  "command": [
+    "/usr/bin/time",
+    "-f",
+    "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+    "-o",
+    "./experiments/adaptive_v11/logs/line_screen8/line4_0_adaptive.resource",
+    "taskset",
+    "-c",
+    "8,10",
+    "./experiments/adaptive_v11/artifacts/v3/candidate",
+    "./experiments/adaptive_v11/inputs/line_mechanism/line4.json",
+    "./experiments/adaptive_v11/logs/line_screen8/line4_0_adaptive.solution.json",
+    "8"
+  ],
+  "env": {
+    "HOME": "/home/user",
+    "LANG": "C.UTF-8",
+    "PATH": "/usr/local/bin:/usr/bin:/bin",
+    "NT": "2",
+    "SEED": "0"
+  },
+  "affinity": [
+    8,
+    10
+  ],
+  "rc": 0,
+  "timeout": false,
+  "wall": 0.01842106500043883,
+  "started_unix": 1792657986.8139346,
+  "ended_unix": 1792657986.865122,
+  "official": 704.871777436989,
+  "valid": true,
+  "snapshots": [],
+  "solution_sha256": "7eb5dc2918b3532006da8a14e2dc303c6220f79d88a5ffe901932d6964791608",
+  "resource": "rss_kb=5000 user=0.00 sys=0.00 majorfaults=0 minorfaults=306 voluntary=1 involuntary=4 inputs=0 outputs=16\n",
+  "error": false,
+  "process_sampling": {
+    "last": {
+      "56": {
+        "runtime_ns": 0,
+        "runqueue_ns": 0,
+        "slices": 0
+      }
+    },
+    "states": {
+      "R": 1
+    },
+    "wchan": {
+      "ret_from_fork_asm": 1
+    },
+    "max_sampled_threads": 1,
+    "samples": 1,
+    "last_io": {
+      "rchar": 0,
+      "wchar": 0,
+      "syscr": 0,
+      "syscw": 0,
+      "read_bytes": 0,
+      "write_bytes": 0,
+      "cancelled_write_bytes": 0
+    }
+  },
+  "resource_extra_fields": {
+    "majorfaults": 0.0,
+    "minorfaults": 306.0,
+    "voluntary": 1.0,
+    "involuntary": 4.0,
+    "inputs": 0.0,
+    "outputs": 16.0
+  },
+  "internal_deadline_stop": false,
+  "cpu_pressure_before": "some avg10=1.25 avg60=1.54 avg300=1.35 total=6213174788\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+  "cpu_pressure_after": "some avg10=1.25 avg60=1.54 avg300=1.35 total=6213175978\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+  "logged_threads": null,
+  "resource_fields": {
+    "rss_kb": 5000.0,
+    "user": 0.0,
+    "sys": 0.0
+  },
+  "success": true,
+  "components": {
+    "reward": 1358.1316811969873,
+    "distance": 600.5712741402951,
+    "cost": 52.6886296197032,
+    "penalty": 0,
+    "objective": 704.871777436989
+  }
+}

@@ -1,0 +1,143 @@
+{
+  "case": "balance300",
+  "seed": 0,
+  "variant": "race_no_share",
+  "command": [
+    "/usr/bin/time",
+    "-f",
+    "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+    "-o",
+    "./experiments/adaptive_v11/logs/screen45_v2/balance300_0_race_no_share.resource",
+    "taskset",
+    "-c",
+    "16,17",
+    "./experiments/adaptive_v11/artifacts/v2/candidate",
+    "./experiments/adaptive_v11/inputs/dev/balance300.json",
+    "./experiments/adaptive_v11/logs/screen45_v2/balance300_0_race_no_share.solution.json",
+    "45"
+  ],
+  "env": {
+    "HOME": "/home/user",
+    "LANG": "C.UTF-8",
+    "PATH": "/usr/local/bin:/usr/bin:/bin",
+    "NT": "2",
+    "SEED": "0",
+    "AP_POLICY": "1",
+    "AP_SHARE": "0"
+  },
+  "affinity": [
+    16,
+    17
+  ],
+  "rc": 0,
+  "timeout": false,
+  "wall": 44.773804276999726,
+  "started_unix": 1792657248.8324401,
+  "ended_unix": 1792657293.6918185,
+  "official": 529843.6808324272,
+  "valid": true,
+  "snapshots": [
+    {
+      "at": 4.538848267999128,
+      "path": "experiments/adaptive_v11/logs/screen45_v2/balance300_0_race_no_share.t4.50.solution.json",
+      "official": 529192.6486045428
+    },
+    {
+      "at": 9.91312625899809,
+      "path": "experiments/adaptive_v11/logs/screen45_v2/balance300_0_race_no_share.t9.90.solution.json",
+      "official": 529192.6486045428
+    },
+    {
+      "at": 11.272499268998217,
+      "path": "experiments/adaptive_v11/logs/screen45_v2/balance300_0_race_no_share.t11.25.solution.json",
+      "official": 529192.6486045428
+    },
+    {
+      "at": 22.532557061997068,
+      "path": "experiments/adaptive_v11/logs/screen45_v2/balance300_0_race_no_share.t22.50.solution.json",
+      "official": 529192.6486045428
+    },
+    {
+      "at": 38.252251779998915,
+      "path": "experiments/adaptive_v11/logs/screen45_v2/balance300_0_race_no_share.t38.25.solution.json",
+      "official": 529192.6486045428
+    }
+  ],
+  "solution_sha256": "d96c58579cc918c52d41e7ffdaab0c287e4a99e0f61e92e70153b140a2061cac",
+  "resource": "rss_kb=8168 user=88.66 sys=0.07 majorfaults=0 minorfaults=956 voluntary=3224 involuntary=3414 inputs=0 outputs=64\n",
+  "error": false,
+  "process_sampling": {
+    "last": {
+      "145": {
+        "runtime_ns": 27296510,
+        "runqueue_ns": 36597841,
+        "slices": 3173
+      },
+      "146": {
+        "runtime_ns": 43899915395,
+        "runqueue_ns": 302810,
+        "slices": 21
+      },
+      "147": {
+        "runtime_ns": 43840176551,
+        "runqueue_ns": 28053504,
+        "slices": 3339
+      },
+      "153": {
+        "runtime_ns": 50425,
+        "runqueue_ns": 347315,
+        "slices": 2
+      },
+      "158": {
+        "runtime_ns": 28925,
+        "runqueue_ns": 714283,
+        "slices": 1
+      }
+    },
+    "states": {
+      "R": 89,
+      "S": 121
+    },
+    "wchan": {
+      "0": 89,
+      "hrtimer_nanosleep": 44,
+      "futex_do_wait": 77
+    },
+    "max_sampled_threads": 5,
+    "samples": 45,
+    "last_io": {
+      "rchar": 281486,
+      "wchar": 3649,
+      "syscr": 57,
+      "syscw": 15,
+      "read_bytes": 0,
+      "write_bytes": 32768,
+      "cancelled_write_bytes": 0
+    }
+  },
+  "resource_extra_fields": {
+    "majorfaults": 0.0,
+    "minorfaults": 956.0,
+    "voluntary": 3224.0,
+    "involuntary": 3414.0,
+    "inputs": 0.0,
+    "outputs": 64.0
+  },
+  "internal_deadline_stop": false,
+  "cpu_pressure_before": "some avg10=0.21 avg60=0.25 avg300=0.15 total=6200521075\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+  "cpu_pressure_after": "some avg10=0.85 avg60=0.53 avg300=0.24 total=6201116895\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+  "logged_threads": 1,
+  "resource_fields": {
+    "rss_kb": 8168.0,
+    "user": 88.66,
+    "sys": 0.07
+  },
+  "success": true,
+  "components": {
+    "reward": 793670.02636813,
+    "distance": 213659.92835280308,
+    "cost": 50166.41718289962,
+    "penalty": 0.0,
+    "objective": 529843.6808324272
+  }
+}

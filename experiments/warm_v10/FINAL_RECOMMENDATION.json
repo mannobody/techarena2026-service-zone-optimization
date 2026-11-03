@@ -1,0 +1,181 @@
+{
+  "promote": false,
+  "primary_gate": false,
+  "resource_diagnostic": null,
+  "recommended": "exact_server_v4_NT2_TL280",
+  "candidate": "v10_v5_geometry",
+  "configuration": {
+    "binary": "experiments/warm_v10/artifacts/v5/candidate",
+    "env": {
+      "ZM_POOL": "0",
+      "ZM_RESERVE": "0",
+      "GW_MODE": "1"
+    }
+  },
+  "primary_vs_v4": {
+    "pairs": 24,
+    "mean_case_percent": 3.9955694051562816,
+    "median": 0.7581006496672247,
+    "sd": 5.791599518066298,
+    "worst": -3.680016803647997,
+    "best": 15.898635129866438,
+    "wins": 19,
+    "ties": 1,
+    "losses": 4,
+    "case_bootstrap95": [
+      0.9277144786116628,
+      7.8716345380630806
+    ]
+  },
+  "primary_vs_v9": {
+    "pairs": 24,
+    "mean_case_percent": 4.7752553364911625,
+    "median": 1.7997160912840067,
+    "sd": 7.064142886836504,
+    "worst": -3.3200764398446605,
+    "best": 25.283439188631977,
+    "wins": 18,
+    "ties": 0,
+    "losses": 6,
+    "case_bootstrap95": [
+      1.0621411894638495,
+      9.59304637214906
+    ]
+  },
+  "selection": {
+    "variant": "prior",
+    "revision": "v5",
+    "architecture": "geometry",
+    "mode": 1,
+    "long_spec": "ACCELERATION280.json",
+    "source": "artifacts/v5/main.cpp",
+    "binary": "artifacts/v5/candidate",
+    "package": "geometry_experimental.zip",
+    "package_source": "package_geometry",
+    "post_development": {
+      "methods": {
+        "candidate": {
+          "pairs": [
+            {
+              "case": "medium_anti",
+              "seed": 9403,
+              "base": 3500.621376142122,
+              "candidate": 2985.506964827661,
+              "delta": -515.114411314461,
+              "percent": -14.714942176412851
+            },
+            {
+              "case": "medium_anti",
+              "seed": 10402,
+              "base": 2954.479749874058,
+              "candidate": 3147.8126156740686,
+              "delta": 193.3328658000105,
+              "percent": 6.543719441917033
+            },
+            {
+              "case": "regression_large",
+              "seed": 9403,
+              "base": 597283.9737690863,
+              "candidate": 580669.9733830672,
+              "delta": -16614.00038601912,
+              "percent": -2.7815915235727044
+            },
+            {
+              "case": "regression_large",
+              "seed": 10402,
+              "base": 599664.4151710698,
+              "candidate": 596823.127189235,
+              "delta": -2841.2879818348447,
+              "percent": -0.47381300439918445
+            },
+            {
+              "case": "huge",
+              "seed": 9403,
+              "base": 3113567.290398638,
+              "candidate": 3346922.153363581,
+              "delta": 233354.8629649426,
+              "percent": 7.494775002439904
+            },
+            {
+              "case": "huge",
+              "seed": 10402,
+              "base": 3314784.4177528434,
+              "candidate": 3356275.0788864405,
+              "delta": 41490.66113359714,
+              "percent": 1.2516850541286322
+            }
+          ],
+          "mean_case_percent": -0.44669453431652845,
+          "worst_pair_percent": -14.714942176412851,
+          "eligible": false
+        },
+        "balanced": {
+          "pairs": [
+            {
+              "case": "medium_anti",
+              "seed": 9403,
+              "base": 3500.621376142122,
+              "candidate": 2974.3642987840435,
+              "delta": -526.2570773580783,
+              "percent": -15.033247552697134
+            },
+            {
+              "case": "medium_anti",
+              "seed": 10402,
+              "base": 2954.479749874058,
+              "candidate": 3430.0160675296033,
+              "delta": 475.5363176555452,
+              "percent": 16.095433305163663
+            },
+            {
+              "case": "regression_large",
+              "seed": 9403,
+              "base": 597283.9737690863,
+              "candidate": 581488.0322479323,
+              "delta": -15795.941521154018,
+              "percent": -2.6446283869757448
+            },
+            {
+              "case": "regression_large",
+              "seed": 10402,
+              "base": 599664.4151710698,
+              "candidate": 599664.0228943664,
+              "delta": -0.3922767033800483,
+              "percent": -6.541603828003387e-05
+            },
+            {
+              "case": "huge",
+              "seed": 9403,
+              "base": 3113567.290398638,
+              "candidate": 2637972.7797634336,
+              "delta": -475594.5106352046,
+              "percent": -15.274907084931284
+            },
+            {
+              "case": "huge",
+              "seed": 10402,
+              "base": 3314784.4177528434,
+              "candidate": 3320608.215031528,
+              "delta": 5823.797278684564,
+              "percent": 0.17569158487334235
+            }
+          ],
+          "mean_case_percent": -2.7802872584342393,
+          "worst_pair_percent": -15.274907084931284,
+          "eligible": false
+        }
+      },
+      "selected": "prior",
+      "rule": {
+        "rule": "After 30 paired TL280 runs, consider v6 singleton acceleration and v8 geometric mass balancing against the same paired v5 architecture. A new method is eligible only if every result is valid/rc0/no emergency timeout/below300, equal-input mean against v5 >0 and worst pair against v5 >=-1%. Select highest mean among eligible new methods, otherwise retain v5. Preserve all outcomes; no tuning after fresh generation.",
+        "timing": "Written before acceleration280 starts; this is development selection, not the independent promotion gate.",
+        "created_unix": 1792648991.8909214,
+        "balanced_addendum_unix": 1792650341.2550678
+      }
+    },
+    "selected_unix": 1792652399.261943,
+    "independent_seen": false,
+    "reason": "Architecture selected from full six-input v5 development; singleton acceleration and explicit geometric mass balancing selected only by the declared paired TL280 rule. No independent inputs exist yet."
+  },
+  "reason": "Primary or predeclared resource-risk gate fails; selected candidate remains experimental"
+}

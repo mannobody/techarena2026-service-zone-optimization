@@ -1,0 +1,109 @@
+{
+  "spec": {
+    "name": "independent280_v4",
+    "seconds": 280,
+    "seeds": [
+      0,
+      11702
+    ],
+    "cpus": [
+      [
+        0,
+        1
+      ],
+      [
+        8,
+        10
+      ],
+      [
+        12,
+        13
+      ],
+      [
+        16,
+        17
+      ],
+      [
+        20,
+        21
+      ]
+    ],
+    "cases": {
+      "euclid310": "experiments/adaptive_v11/inputs/fresh/euclid310.json",
+      "road230": "experiments/adaptive_v11/inputs/fresh/road230.json",
+      "anti270": "experiments/adaptive_v11/inputs/fresh/anti270.json",
+      "equal210": "experiments/adaptive_v11/inputs/fresh/equal210.json",
+      "grid240": "experiments/adaptive_v11/inputs/fresh/grid240.json",
+      "multi330": "experiments/adaptive_v11/inputs/fresh/multi330.json",
+      "road1900": "experiments/adaptive_v11/inputs/fresh/road1900.json",
+      "huge9000": "experiments/adaptive_v11/inputs/fresh/huge9000.json"
+    },
+    "variants": {
+      "v4": {
+        "binary": "experiments/structural_v9/artifacts/v4"
+      },
+      "v10": {
+        "binary": "experiments/warm_v10/artifacts/v5/candidate",
+        "env": {
+          "ZM_POOL": "0",
+          "ZM_RESERVE": "0",
+          "GW_MODE": "1"
+        }
+      },
+      "adaptive": {
+        "binary": "experiments/adaptive_v11/artifacts/v4/candidate",
+        "env": {
+          "AP_POLICY": "1",
+          "AP_SHARE": "0"
+        }
+      }
+    },
+    "case_seeds": {
+      "euclid310": [
+        0
+      ],
+      "road230": [
+        0
+      ],
+      "anti270": [
+        0,
+        11702
+      ],
+      "equal210": [
+        0,
+        11702
+      ],
+      "grid240": [
+        0
+      ],
+      "multi330": [
+        0
+      ],
+      "road1900": [
+        0
+      ],
+      "huge9000": [
+        0
+      ]
+    }
+  },
+  "spec_sha256": "3c0ff775e3b2b8f7129084353661544a093334d1b8ae6d2ca2e663dd8c535e4a",
+  "inputs": {
+    "euclid310": "847b8040e67847acc16592d39288c0e91421811f6197a9d316c8708e7eb160d2",
+    "road230": "37cc90d5fcd0b7e31eda8c868aaa79e2bfed10818c85e91035997d6c8c54143b",
+    "anti270": "662db770f9c6e711915a3110d624b77da20cd3371d1d4d56cc041e2870b71223",
+    "equal210": "624cb22a9632b3b09771e166211241c1b76e60307724c08078137a5cac07e50d",
+    "grid240": "fabed30dda2e6e8fbb6cfaa538797abf20f5ebd3c64f889ff77cb5cab1f3a064",
+    "multi330": "e84dd5a5d62d7c8ca3479a674bc2c2406ad5bb86fe34168386e4f445e9b3ce9e",
+    "road1900": "86dc7f4e646c68c429f54c7d40c1cc6e68f4b84c79411a3700c1de9fd7e29156",
+    "huge9000": "7fa9c578ef62f70a57cd2ae33ca0725576dba14be7b5a768e87558a3d3b85834"
+  },
+  "binaries": {
+    "v4": "5cc54b6ad0f02a3d6d471d0e2f9129c229b4925aaa2b2c01ce26bd5305a4963c",
+    "v10": "c3f76ed684a521347cdd84fcdb2f5e9630a716f2eaf3747413ca7ecc6dc34706",
+    "adaptive": "2a01e3671e64280ddec73c0da102e7e0d2d559a8b206e41e874636a06d610b9b"
+  },
+  "validator": "6dd5948ebe72977976acf1b8dcaf7c819274c79addfb82328c0ec9a012ed56e0",
+  "cpu_topology": "<local-host-omitted>",
+  "runner_sha256": "f5888619f446650cad26b8de4220b82d7979e7bac768ed5c0f2a1163af66e7c6"
+}

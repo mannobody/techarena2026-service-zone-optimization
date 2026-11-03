@@ -1,0 +1,56 @@
+{
+  "case": "small_load",
+  "seed": 9302,
+  "variant": "full",
+  "command": [
+    "/usr/bin/time",
+    "-f",
+    "rss_kb=%M user=%U sys=%S",
+    "-o",
+    "./experiments/structural_v9/logs/development280/small_load_9302_full.resource",
+    "taskset",
+    "-c",
+    "12,13",
+    "./experiments/structural_v9/artifacts/final_research/candidate",
+    "./experiments/structural_v9/inputs/dev/small_load.json",
+    "./experiments/structural_v9/logs/development280/small_load_9302_full.solution.json",
+    "280"
+  ],
+  "env": {
+    "HOME": "/home/user",
+    "LANG": "C.UTF-8",
+    "PATH": "/usr/local/bin:/usr/bin:/bin",
+    "NT": "2",
+    "SEED": "9302"
+  },
+  "affinity": [
+    12,
+    13
+  ],
+  "rc": 0,
+  "timeout": false,
+  "wall": 4.473097509000127,
+  "started_unix": 1792638602.5907304,
+  "ended_unix": 1792638607.0681894,
+  "official": 7364.395513715398,
+  "valid": true,
+  "snapshots": [],
+  "solution_sha256": "ac7d23faa789a9c418293a72fac6e69bea1ba5c261ca3d4ca99f318e4468d8a7",
+  "resource": "rss_kb=11136 user=0.56 sys=0.02\n",
+  "error": false,
+  "internal_deadline_stop": false,
+  "logged_threads": 1,
+  "resource_fields": {
+    "rss_kb": 11136.0,
+    "user": 0.56,
+    "sys": 0.02
+  },
+  "success": true,
+  "components": {
+    "reward": 14921.700442025034,
+    "distance": 6044.810626729491,
+    "cost": 1512.4943015801427,
+    "penalty": 0.0,
+    "objective": 7364.395513715402
+  }
+}

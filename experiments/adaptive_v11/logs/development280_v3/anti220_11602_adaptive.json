@@ -1,0 +1,143 @@
+{
+  "case": "anti220",
+  "seed": 11602,
+  "variant": "adaptive",
+  "command": [
+    "/usr/bin/time",
+    "-f",
+    "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+    "-o",
+    "./experiments/adaptive_v11/logs/development280_v3/anti220_11602_adaptive.resource",
+    "taskset",
+    "-c",
+    "0,1",
+    "./experiments/adaptive_v11/artifacts/v3/candidate",
+    "./experiments/adaptive_v11/inputs/dev/anti220.json",
+    "./experiments/adaptive_v11/logs/development280_v3/anti220_11602_adaptive.solution.json",
+    "280"
+  ],
+  "env": {
+    "HOME": "/home/user",
+    "LANG": "C.UTF-8",
+    "PATH": "/usr/local/bin:/usr/bin:/bin",
+    "NT": "2",
+    "SEED": "11602",
+    "AP_POLICY": "1",
+    "AP_SHARE": "0"
+  },
+  "affinity": [
+    0,
+    1
+  ],
+  "rc": 0,
+  "timeout": false,
+  "wall": 279.50631315699866,
+  "started_unix": 1792658061.8619444,
+  "ended_unix": 1792658341.5507119,
+  "official": 57.41737293958519,
+  "valid": true,
+  "snapshots": [
+    {
+      "at": 28.022374475000106,
+      "path": "experiments/adaptive_v11/logs/development280_v3/anti220_11602_adaptive.t28.00.solution.json",
+      "official": 57.02869576497428
+    },
+    {
+      "at": 61.602075342001626,
+      "path": "experiments/adaptive_v11/logs/development280_v3/anti220_11602_adaptive.t61.60.solution.json",
+      "official": 57.02869576497428
+    },
+    {
+      "at": 70.03923056599888,
+      "path": "experiments/adaptive_v11/logs/development280_v3/anti220_11602_adaptive.t70.00.solution.json",
+      "official": 57.02869576497428
+    },
+    {
+      "at": 140.0095663030006,
+      "path": "experiments/adaptive_v11/logs/development280_v3/anti220_11602_adaptive.t140.00.solution.json",
+      "official": 57.02869576497428
+    },
+    {
+      "at": 238.02991484800077,
+      "path": "experiments/adaptive_v11/logs/development280_v3/anti220_11602_adaptive.t238.00.solution.json",
+      "official": 57.38041856902339
+    }
+  ],
+  "solution_sha256": "eef4005c5da0d25ee27652dcfe239c89a19b3d7b07f67fe0040af004fa9b2d67",
+  "resource": "rss_kb=7580 user=550.42 sys=0.21 majorfaults=0 minorfaults=852 voluntary=20153 involuntary=21615 inputs=0 outputs=136\n",
+  "error": false,
+  "process_sampling": {
+    "last": {
+      "35": {
+        "runtime_ns": 77161243,
+        "runqueue_ns": 166878607,
+        "slices": 20072
+      },
+      "39": {
+        "runtime_ns": 152280708842,
+        "runqueue_ns": 24744194,
+        "slices": 318
+      },
+      "40": {
+        "runtime_ns": 276867264687,
+        "runqueue_ns": 100419702,
+        "slices": 9121
+      },
+      "46": {
+        "runtime_ns": 15532,
+        "runqueue_ns": 933390,
+        "slices": 1
+      },
+      "50": {
+        "runtime_ns": 118930047435,
+        "runqueue_ns": 88448542,
+        "slices": 12097
+      }
+    },
+    "states": {
+      "R": 550,
+      "S": 522
+    },
+    "wchan": {
+      "0": 550,
+      "hrtimer_nanosleep": 277,
+      "futex_do_wait": 245
+    },
+    "max_sampled_threads": 5,
+    "samples": 278,
+    "last_io": {
+      "rchar": 213239,
+      "wchar": 8519,
+      "syscr": 51,
+      "syscw": 27,
+      "read_bytes": 0,
+      "write_bytes": 69632,
+      "cancelled_write_bytes": 0
+    }
+  },
+  "resource_extra_fields": {
+    "majorfaults": 0.0,
+    "minorfaults": 852.0,
+    "voluntary": 20153.0,
+    "involuntary": 21615.0,
+    "inputs": 0.0,
+    "outputs": 136.0
+  },
+  "internal_deadline_stop": false,
+  "cpu_pressure_before": "some avg10=0.82 avg60=1.00 avg300=1.24 total=6214168896\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+  "cpu_pressure_after": "some avg10=0.10 avg60=0.37 avg300=0.80 total=6217014883\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+  "logged_threads": 1,
+  "resource_fields": {
+    "rss_kb": 7580.0,
+    "user": 550.42,
+    "sys": 0.21
+  },
+  "success": true,
+  "components": {
+    "reward": 115.19512440724557,
+    "distance": 47.35430565198176,
+    "cost": 10.337049472373186,
+    "penalty": 0.08639634330543419,
+    "objective": 57.41737293958519
+  }
+}

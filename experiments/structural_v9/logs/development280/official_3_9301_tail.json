@@ -1,0 +1,74 @@
+{
+  "case": "official_3",
+  "seed": 9301,
+  "variant": "tail",
+  "command": [
+    "/usr/bin/time",
+    "-f",
+    "rss_kb=%M user=%U sys=%S",
+    "-o",
+    "./experiments/structural_v9/logs/development280/official_3_9301_tail.resource",
+    "taskset",
+    "-c",
+    "0,1",
+    "./experiments/structural_v9/artifacts/final_research/candidate",
+    "./task/instance3/instance.json",
+    "./experiments/structural_v9/logs/development280/official_3_9301_tail.solution.json",
+    "280"
+  ],
+  "env": {
+    "HOME": "/home/user",
+    "LANG": "C.UTF-8",
+    "PATH": "/usr/local/bin:/usr/bin:/bin",
+    "NT": "2",
+    "SEED": "9301",
+    "ZM_POOL": "0",
+    "ZM_RESERVE": "0"
+  },
+  "affinity": [
+    0,
+    1
+  ],
+  "rc": 0,
+  "timeout": false,
+  "wall": 279.505855762,
+  "started_unix": 1792639439.4830933,
+  "ended_unix": 1792639719.1248803,
+  "official": 136621.52758153845,
+  "valid": true,
+  "snapshots": [
+    {
+      "at": 70.0176935720001,
+      "path": "experiments/structural_v9/logs/development280/official_3_9301_tail.t70.00.solution.json",
+      "official": 136300.9768254834
+    },
+    {
+      "at": 140.02068934999988,
+      "path": "experiments/structural_v9/logs/development280/official_3_9301_tail.t140.00.solution.json",
+      "official": 136300.9768254834
+    },
+    {
+      "at": 238.02575203600009,
+      "path": "experiments/structural_v9/logs/development280/official_3_9301_tail.t238.00.solution.json",
+      "official": 136300.9768254834
+    }
+  ],
+  "solution_sha256": "a412291af2e6ba43e76dba356da27552f861ec55b58405372f57a01af54a8c39",
+  "resource": "rss_kb=6144 user=533.73 sys=0.43\n",
+  "error": false,
+  "internal_deadline_stop": false,
+  "logged_threads": 2,
+  "resource_fields": {
+    "rss_kb": 6144.0,
+    "user": 533.73,
+    "sys": 0.43
+  },
+  "success": true,
+  "components": {
+    "reward": 290418.0266026272,
+    "distance": 152494.61469856353,
+    "cost": 1301.8843225252008,
+    "penalty": 0.0,
+    "objective": 136621.52758153845
+  }
+}

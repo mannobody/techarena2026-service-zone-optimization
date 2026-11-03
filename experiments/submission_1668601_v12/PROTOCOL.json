@@ -1,0 +1,60 @@
+{
+  "control": "submission",
+  "original_archive": "/home/user/Downloads/submit_1668601.zip",
+  "baseline_source_sha256": "4144e63be49b938ca4885562dfd87bfdec78e46c8b3bd2ee9d32907997ff7bee",
+  "all_previous_inputs_are_development": true,
+  "initial_screen": {
+    "seconds": 20,
+    "seeds": [
+      0
+    ],
+    "general_inputs": 10,
+    "variants": 9
+  },
+  "families": {
+    "submission": "submission",
+    "hybrid": "hybrid",
+    "plateau": "plateau",
+    "exact": "exact",
+    "zones": "zones",
+    "geometry": "geometry",
+    "zones_pool": "zones",
+    "geometry_diverse": "geometry",
+    "certified": "certified"
+  },
+  "selection": "Among operational candidates choose highest equal-case mean vs submission, prefer worst>=-5% if any. Select second from a different family. Short ranking is development only. Then compare both selected candidates and submission atTL280 on6 viewed classes/seed12602. Choose operational highest equal-case mean, same worst>=-5 preference. No candidate code changes after independent freeze.",
+  "long_development": {
+    "seconds": 280,
+    "seeds": [
+      12602
+    ],
+    "cases": [
+      "jury1",
+      "anti220",
+      "equal180",
+      "grid180",
+      "multi260",
+      "huge10000"
+    ]
+  },
+  "independent": {
+    "seconds": 280,
+    "seeds": [
+      0,
+      12702
+    ],
+    "input_seed_offset": 1400000,
+    "inputs": 7,
+    "variants": [
+      "submission",
+      "selected"
+    ]
+  },
+  "promotion": "All28 operational/VALID, rc0/no timeout/error/wall<300; equal-case mean positive; bootstrap95 lower>0; worst pair>=-1%. Otherwise experimental. No input-name/hash/seed routing. Conservative additional veto: matched CPU/wall spread>0.5; never replace primary rows. See hashed resource preregistration.",
+  "resources": "Matched(case,seed) sequential variants randomized on same pair of physical CPUs; GNUtime,/proc/PSI/RSS/checkpoints;7 disjoint slots, controller14/15. No exclusive-machine claim. No other quality experiment active. HiGHS default absent; main measurements portable mode with no LD override. Separately test optional existing HiGHS ABI without mixing labels.",
+  "preservation": "All files and outcomes retained; no deletion/commit/push/submit; previous solver/user files and exactv4 remain unchanged. All candidate ports preserve submission MIP header and hooks, independently verified by roundtrip. Runtime instance\u2192solution only; no cross-run starts.",
+  "resource_preregistration": {
+    "path": "RESOURCE_PREREGISTRATION.json",
+    "sha256": "d8294143127e8980910fc414662a9ff71f2e0edc6cb6ca165632204235052058"
+  }
+}

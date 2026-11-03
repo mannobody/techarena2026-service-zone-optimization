@@ -1,0 +1,75 @@
+{
+  "selected": "geometry",
+  "configuration": {
+    "GW_MODE": "1",
+    "ZM_POOL": "0",
+    "ZM_RESERVE": "0"
+  },
+  "source_sha256": "e3e5cf98c114bfe4627f791aff1b02e4933e338cdd0453e90de9dae981daf26d",
+  "measured_binary_sha256": "4ad3f6bf8ef857d38f2bf04dcc802db7a2debef42395c68288ddc7cd2f7d0723",
+  "rebuilt_binary_sha256": "4ad3f6bf8ef857d38f2bf04dcc802db7a2debef42395c68288ddc7cd2f7d0723",
+  "zip_sha256": "bf83cb3ef7d07352daced8be848e103ecf322ebae5651b979af92164f6ca14d0",
+  "byte_identical": true,
+  "scale_tests": 411,
+  "scale_valid": 411,
+  "tests": [
+    {
+      "case": "jury4",
+      "rc": 0,
+      "wall": 1.771565588998783,
+      "official": 18019.089861853645,
+      "valid": true,
+      "data_files": [
+        "instance.json",
+        "solution.json"
+      ]
+    },
+    {
+      "case": "grid",
+      "rc": 0,
+      "wall": 1.771430078002595,
+      "official": 7833.457828478339,
+      "valid": true,
+      "data_files": [
+        "instance.json",
+        "solution.json"
+      ]
+    },
+    {
+      "case": "huge",
+      "rc": 0,
+      "wall": 2.0219332680026127,
+      "official": 1571854.584134685,
+      "valid": true,
+      "data_files": [
+        "instance.json",
+        "solution.json"
+      ]
+    },
+    {
+      "case": "line",
+      "rc": 0,
+      "wall": 0.0330108200032555,
+      "official": 753.6905418835589,
+      "valid": true,
+      "data_files": [
+        "instance.json",
+        "solution.json"
+      ]
+    },
+    {
+      "case": "micro",
+      "rc": 0,
+      "wall": 0.017187944999022875,
+      "official": 1.9999999999999998e-10,
+      "valid": true,
+      "data_files": [
+        "instance.json",
+        "solution.json"
+      ]
+    }
+  ],
+  "default_seconds": 280,
+  "default_compute_cpus": 2,
+  "contract": "make build/make run; instance.json\u2192solution.json, build files aside, no extra runtime data or answer starts"
+}

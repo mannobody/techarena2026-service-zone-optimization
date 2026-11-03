@@ -1,0 +1,370 @@
+{
+  "series": "development280",
+  "runs": 18,
+  "expected": 18,
+  "valid": 18,
+  "success": 18,
+  "failures": [],
+  "comparisons": {
+    "hybrid_vs_submission": {
+      "all_valid": {
+        "pairs": 6,
+        "mean_case_percent": -0.805936186054561,
+        "median": -0.02742544392922352,
+        "sd": 1.8875190820344538,
+        "worst": -4.654636954071385,
+        "best": 0.0677637812319151,
+        "wins": 1,
+        "ties": 2,
+        "losses": 3,
+        "case_bootstrap95": [
+          -2.359633986307267,
+          0.013446112434230524
+        ]
+      },
+      "successful": {
+        "pairs": 6,
+        "mean_case_percent": -0.805936186054561,
+        "median": -0.02742544392922352,
+        "sd": 1.8875190820344538,
+        "worst": -4.654636954071385,
+        "best": 0.0677637812319151,
+        "wins": 1,
+        "ties": 2,
+        "losses": 3,
+        "case_bootstrap95": [
+          -2.359633986307267,
+          0.013446112434230524
+        ]
+      },
+      "per_case": {
+        "jury1": {
+          "pairs": 1,
+          "mean_case_percent": 0.0,
+          "median": 0.0,
+          "sd": 0,
+          "worst": 0.0,
+          "best": 0.0,
+          "wins": 0,
+          "ties": 1,
+          "losses": 0,
+          "case_bootstrap95": [
+            0.0,
+            0.0
+          ]
+        },
+        "anti220": {
+          "pairs": 1,
+          "mean_case_percent": 0.0,
+          "median": 0.0,
+          "sd": 0,
+          "worst": 0.0,
+          "best": 0.0,
+          "wins": 0,
+          "ties": 1,
+          "losses": 0,
+          "case_bootstrap95": [
+            0.0,
+            0.0
+          ]
+        },
+        "equal180": {
+          "pairs": 1,
+          "mean_case_percent": -4.654636954071385,
+          "median": -4.654636954071385,
+          "sd": 0,
+          "worst": -4.654636954071385,
+          "best": -4.654636954071385,
+          "wins": 0,
+          "ties": 0,
+          "losses": 1,
+          "case_bootstrap95": [
+            -4.654636954071385,
+            -4.654636954071385
+          ]
+        },
+        "grid180": {
+          "pairs": 1,
+          "mean_case_percent": 0.0677637812319151,
+          "median": 0.0677637812319151,
+          "sd": 0,
+          "worst": 0.0677637812319151,
+          "best": 0.0677637812319151,
+          "wins": 1,
+          "ties": 0,
+          "losses": 0,
+          "case_bootstrap95": [
+            0.0677637812319151,
+            0.0677637812319151
+          ]
+        },
+        "multi260": {
+          "pairs": 1,
+          "mean_case_percent": -0.19389305562944958,
+          "median": -0.19389305562944958,
+          "sd": 0,
+          "worst": -0.19389305562944958,
+          "best": -0.19389305562944958,
+          "wins": 0,
+          "ties": 0,
+          "losses": 1,
+          "case_bootstrap95": [
+            -0.19389305562944958,
+            -0.19389305562944958
+          ]
+        },
+        "huge10000": {
+          "pairs": 1,
+          "mean_case_percent": -0.05485088785844704,
+          "median": -0.05485088785844704,
+          "sd": 0,
+          "worst": -0.05485088785844704,
+          "best": -0.05485088785844704,
+          "wins": 0,
+          "ties": 0,
+          "losses": 1,
+          "case_bootstrap95": [
+            -0.05485088785844704,
+            -0.05485088785844704
+          ]
+        }
+      },
+      "pairs": [
+        {
+          "case": "jury1",
+          "seed": 12602,
+          "delta": 0.0,
+          "percent": 0.0,
+          "base": 32.229957487864645,
+          "candidate": 32.229957487864645,
+          "both_success": true
+        },
+        {
+          "case": "anti220",
+          "seed": 12602,
+          "delta": 0.0,
+          "percent": 0.0,
+          "base": 62.17691722631614,
+          "candidate": 62.17691722631614,
+          "both_success": true
+        },
+        {
+          "case": "equal180",
+          "seed": 12602,
+          "delta": -2883.971998819128,
+          "percent": -4.654636954071385,
+          "base": 61959.11791351491,
+          "candidate": 59075.14591469578,
+          "both_success": true
+        },
+        {
+          "case": "grid180",
+          "seed": 12602,
+          "delta": 6.024806047198581,
+          "percent": 0.0677637812319151,
+          "base": 8890.894129091255,
+          "candidate": 8896.918935138454,
+          "both_success": true
+        },
+        {
+          "case": "multi260",
+          "seed": 12602,
+          "delta": -17.43035046257137,
+          "percent": -0.19389305562944958,
+          "base": 8989.672376860488,
+          "candidate": 8972.242026397917,
+          "both_success": true
+        },
+        {
+          "case": "huge10000",
+          "seed": 12602,
+          "delta": -2238.9999737339094,
+          "percent": -0.05485088785844704,
+          "base": 4081975.80960233,
+          "candidate": 4079736.809628596,
+          "both_success": true
+        }
+      ]
+    },
+    "plateau_vs_submission": {
+      "all_valid": {
+        "pairs": 6,
+        "mean_case_percent": -0.021461295694466188,
+        "median": 0.0,
+        "sd": 0.24038934236422024,
+        "worst": -0.3364066351020139,
+        "best": 0.3824102445638947,
+        "wins": 2,
+        "ties": 2,
+        "losses": 2,
+        "case_bootstrap95": [
+          -0.19733188148911995,
+          0.1612662737729284
+        ]
+      },
+      "successful": {
+        "pairs": 6,
+        "mean_case_percent": -0.021461295694466188,
+        "median": 0.0,
+        "sd": 0.24038934236422024,
+        "worst": -0.3364066351020139,
+        "best": 0.3824102445638947,
+        "wins": 2,
+        "ties": 2,
+        "losses": 2,
+        "case_bootstrap95": [
+          -0.19733188148911995,
+          0.1612662737729284
+        ]
+      },
+      "per_case": {
+        "jury1": {
+          "pairs": 1,
+          "mean_case_percent": 0.0,
+          "median": 0.0,
+          "sd": 0,
+          "worst": 0.0,
+          "best": 0.0,
+          "wins": 0,
+          "ties": 1,
+          "losses": 0,
+          "case_bootstrap95": [
+            0.0,
+            0.0
+          ]
+        },
+        "anti220": {
+          "pairs": 1,
+          "mean_case_percent": -0.3364066351020139,
+          "median": -0.3364066351020139,
+          "sd": 0,
+          "worst": -0.3364066351020139,
+          "best": -0.3364066351020139,
+          "wins": 0,
+          "ties": 0,
+          "losses": 1,
+          "case_bootstrap95": [
+            -0.3364066351020139,
+            -0.3364066351020139
+          ]
+        },
+        "equal180": {
+          "pairs": 1,
+          "mean_case_percent": 0.3824102445638947,
+          "median": 0.3824102445638947,
+          "sd": 0,
+          "worst": 0.3824102445638947,
+          "best": 0.3824102445638947,
+          "wins": 1,
+          "ties": 0,
+          "losses": 0,
+          "case_bootstrap95": [
+            0.3824102445638947,
+            0.3824102445638947
+          ]
+        },
+        "grid180": {
+          "pairs": 1,
+          "mean_case_percent": -0.1796330910541137,
+          "median": -0.1796330910541137,
+          "sd": 0,
+          "worst": -0.1796330910541137,
+          "best": -0.1796330910541137,
+          "wins": 0,
+          "ties": 0,
+          "losses": 1,
+          "case_bootstrap95": [
+            -0.1796330910541137,
+            -0.1796330910541137
+          ]
+        },
+        "multi260": {
+          "pairs": 1,
+          "mean_case_percent": 0.0,
+          "median": 0.0,
+          "sd": 0,
+          "worst": 0.0,
+          "best": 0.0,
+          "wins": 0,
+          "ties": 1,
+          "losses": 0,
+          "case_bootstrap95": [
+            0.0,
+            0.0
+          ]
+        },
+        "huge10000": {
+          "pairs": 1,
+          "mean_case_percent": 0.004861707425435773,
+          "median": 0.004861707425435773,
+          "sd": 0,
+          "worst": 0.004861707425435773,
+          "best": 0.004861707425435773,
+          "wins": 1,
+          "ties": 0,
+          "losses": 0,
+          "case_bootstrap95": [
+            0.004861707425435773,
+            0.004861707425435773
+          ]
+        }
+      },
+      "pairs": [
+        {
+          "case": "jury1",
+          "seed": 12602,
+          "delta": 0.0,
+          "percent": 0.0,
+          "base": 32.229957487864645,
+          "candidate": 32.229957487864645,
+          "both_success": true
+        },
+        {
+          "case": "anti220",
+          "seed": 12602,
+          "delta": -0.20916727505121457,
+          "percent": -0.3364066351020139,
+          "base": 62.17691722631614,
+          "candidate": 61.96774995126493,
+          "both_success": true
+        },
+        {
+          "case": "equal180",
+          "seed": 12602,
+          "delta": 236.93801434270426,
+          "percent": 0.3824102445638947,
+          "base": 61959.11791351491,
+          "candidate": 62196.05592785761,
+          "both_success": true
+        },
+        {
+          "case": "grid180",
+          "seed": 12602,
+          "delta": -15.970987946435343,
+          "percent": -0.1796330910541137,
+          "base": 8890.894129091255,
+          "candidate": 8874.92314114482,
+          "both_success": true
+        },
+        {
+          "case": "multi260",
+          "seed": 12602,
+          "delta": 0.0,
+          "percent": 0.0,
+          "base": 8989.672376860488,
+          "candidate": 8989.672376860488,
+          "both_success": true
+        },
+        {
+          "case": "huge10000",
+          "seed": 12602,
+          "delta": 198.4537210399285,
+          "percent": 0.004861707425435773,
+          "base": 4081975.80960233,
+          "candidate": 4082174.26332337,
+          "both_success": true
+        }
+      ]
+    }
+  }
+}

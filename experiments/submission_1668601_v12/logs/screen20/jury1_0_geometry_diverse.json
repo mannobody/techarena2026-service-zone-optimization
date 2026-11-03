@@ -1,0 +1,131 @@
+{
+  "case": "jury1",
+  "seed": 0,
+  "variant": "geometry_diverse",
+  "command": [
+    "/usr/bin/time",
+    "-f",
+    "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+    "-o",
+    "./experiments/submission_1668601_v12/logs/screen20/jury1_0_geometry_diverse.resource",
+    "taskset",
+    "-c",
+    "3,6",
+    "./experiments/submission_1668601_v12/artifacts/geometry/candidate",
+    "./task/instance1/instance.json",
+    "./experiments/submission_1668601_v12/logs/screen20/jury1_0_geometry_diverse.solution.json",
+    "20"
+  ],
+  "env": {
+    "HOME": "/home/user",
+    "LANG": "C.UTF-8",
+    "PATH": "/usr/local/bin:/usr/bin:/bin",
+    "NT": "2",
+    "SEED": "0",
+    "GW_MODE": "2",
+    "ZM_POOL": "0",
+    "ZM_RESERVE": "0"
+  },
+  "affinity": [
+    3,
+    6
+  ],
+  "rc": 0,
+  "timeout": false,
+  "wall": 19.782602046001557,
+  "started_unix": 1792663029.7278981,
+  "ended_unix": 1792663049.5184326,
+  "official": 32.229957487864645,
+  "valid": true,
+  "snapshots": [
+    {
+      "at": 2.0502738110008067,
+      "path": "experiments/submission_1668601_v12/logs/screen20/jury1_0_geometry_diverse.t2.00.solution.json",
+      "official": 32.229957487864645
+    },
+    {
+      "at": 4.4373647540014645,
+      "path": "experiments/submission_1668601_v12/logs/screen20/jury1_0_geometry_diverse.t4.40.solution.json",
+      "official": 32.229957487864645
+    },
+    {
+      "at": 5.055092352999054,
+      "path": "experiments/submission_1668601_v12/logs/screen20/jury1_0_geometry_diverse.t5.00.solution.json",
+      "official": 32.229957487864645
+    },
+    {
+      "at": 10.032124557001225,
+      "path": "experiments/submission_1668601_v12/logs/screen20/jury1_0_geometry_diverse.t10.00.solution.json",
+      "official": 32.229957487864645
+    },
+    {
+      "at": 17.016205756001,
+      "path": "experiments/submission_1668601_v12/logs/screen20/jury1_0_geometry_diverse.t17.00.solution.json",
+      "official": 32.229957487864645
+    }
+  ],
+  "solution_sha256": "86a8717261366ae1a615c7a5f2a4c420bf9269aa70d476e8c2d7ee2840a7948c",
+  "resource": "rss_kb=5440 user=38.75 sys=0.00 majorfaults=0 minorfaults=324 voluntary=2 involuntary=95 inputs=0 outputs=24\n",
+  "error": false,
+  "process_sampling": {
+    "last": {
+      "216": {
+        "runtime_ns": 19274203519,
+        "runqueue_ns": 5685372,
+        "slices": 61
+      },
+      "217": {
+        "runtime_ns": 4181074708,
+        "runqueue_ns": 260684,
+        "slices": 9
+      },
+      "221": {
+        "runtime_ns": 14558619910,
+        "runqueue_ns": 4919685,
+        "slices": 27
+      }
+    },
+    "states": {
+      "R": 40
+    },
+    "wchan": {
+      "0": 40
+    },
+    "max_sampled_threads": 2,
+    "samples": 20,
+    "last_io": {
+      "rchar": 28720,
+      "wchar": 833,
+      "syscr": 24,
+      "syscw": 9,
+      "read_bytes": 0,
+      "write_bytes": 8192,
+      "cancelled_write_bytes": 0
+    }
+  },
+  "resource_extra_fields": {
+    "majorfaults": 0.0,
+    "minorfaults": 324.0,
+    "voluntary": 2.0,
+    "involuntary": 95.0,
+    "inputs": 0.0,
+    "outputs": 24.0
+  },
+  "internal_deadline_stop": false,
+  "cpu_pressure_before": "some avg10=0.81 avg60=1.28 avg300=0.70 total=6249673232\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+  "cpu_pressure_after": "some avg10=0.81 avg60=1.24 avg300=0.74 total=6250007984\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+  "logged_threads": 2,
+  "resource_fields": {
+    "rss_kb": 5440.0,
+    "user": 38.75,
+    "sys": 0.0
+  },
+  "success": true,
+  "components": {
+    "reward": 43.75768289399722,
+    "distance": 10.10899359030423,
+    "cost": 1.4187318158283433,
+    "penalty": 0.0,
+    "objective": 32.229957487864645
+  }
+}

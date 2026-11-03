@@ -1,0 +1,37 @@
+{
+  "cpus": [
+    [
+      0,
+      1
+    ],
+    [
+      3,
+      6
+    ],
+    [
+      12,
+      13
+    ],
+    [
+      16,
+      17
+    ],
+    [
+      18,
+      19
+    ],
+    [
+      20,
+      21
+    ]
+  ],
+  "controller_cpus": [
+    14,
+    15
+  ],
+  "reason": "Six matched two-core slots use 12 of 16 physical cores, leaving two other physical cores plus controller cores. Lower than exploratory seven slots; complete 24 case-seed blocks divide evenly into six. Resource choice before independent generation; all three variants use identical slots.",
+  "independent_not_generated": true,
+  "updated_unix": 1792647743.4995728,
+  "diagnostic_logging": "Remove DBG and GW_TRACE from all independent variants before generation, matching package runtime. Development DBG1 retained for mechanism audit; output snapshots still capture trajectories independently.",
+  "updated_before_generation_unix": 1792648247.9319174
+}

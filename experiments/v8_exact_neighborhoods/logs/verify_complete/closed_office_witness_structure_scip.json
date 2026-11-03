@@ -1,0 +1,58 @@
+{
+  "case": "closed_office_witness",
+  "kind": "structure",
+  "backend": "scip",
+  "ok": true,
+  "expected": 9,
+  "result": {
+    "solution": [
+      {
+        "officeId": 0,
+        "sites": [
+          0
+        ],
+        "workers": [
+          0
+        ]
+      }
+    ],
+    "before": 0.0,
+    "value": 9.0,
+    "gain": 9.0,
+    "kind": "structure",
+    "backend": "scip",
+    "conditional_optimal": true,
+    "status": "optimal",
+    "bound": 9.0,
+    "gap": 0.0,
+    "build": 0.007751327000050878,
+    "solve": 0.0032861419999790087,
+    "check": 0.0017009869999355942,
+    "restore": 0.0004933570000957843,
+    "seconds": 0.015398579000020618,
+    "gain_per_second": 584.4695150109598,
+    "iterations": 2,
+    "nodes": 1,
+    "cuts": 1,
+    "variables": 16,
+    "rows": 33,
+    "selected": [
+      0,
+      1
+    ],
+    "offices": [
+      0,
+      1,
+      2
+    ],
+    "events": [
+      {
+        "iteration": 1,
+        "conflicts": 1,
+        "cuts": 1,
+        "bound": 18.0,
+        "seconds": 0.01308467000001201
+      }
+    ]
+  }
+}

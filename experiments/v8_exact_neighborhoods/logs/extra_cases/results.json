@@ -1,0 +1,625 @@
+[
+  {
+    "case": "fourth_office",
+    "backend": "scip",
+    "legacy": {
+      "solution": [
+        {
+          "officeId": 0,
+          "sites": [
+            0
+          ],
+          "workers": [
+            0
+          ]
+        },
+        {
+          "officeId": 1,
+          "sites": [
+            1
+          ],
+          "workers": [
+            1
+          ]
+        },
+        {
+          "officeId": 2,
+          "sites": [
+            2
+          ],
+          "workers": [
+            2
+          ]
+        },
+        {
+          "officeId": 3,
+          "sites": [
+            3
+          ],
+          "workers": [
+            3
+          ]
+        }
+      ],
+      "value": 36.0,
+      "before": 36.0,
+      "gain": 0.0,
+      "conditional_optimal": true,
+      "bound": 36.0,
+      "status": "optimal",
+      "seconds": 0.040713750000008986,
+      "prep": 0.035723948000054406,
+      "iterations": 1,
+      "nodes": 0,
+      "cuts": 0,
+      "max_cut_support": 0,
+      "variables": 15,
+      "rows": 40,
+      "selected": [
+        4
+      ],
+      "backend": "scip",
+      "joint": true,
+      "events": []
+    },
+    "full": {
+      "solution": [
+        {
+          "officeId": 0,
+          "sites": [
+            0
+          ],
+          "workers": [
+            0
+          ]
+        },
+        {
+          "officeId": 1,
+          "sites": [
+            1
+          ],
+          "workers": [
+            1
+          ]
+        },
+        {
+          "officeId": 2,
+          "sites": [
+            2
+          ],
+          "workers": [
+            2
+          ]
+        },
+        {
+          "officeId": 3,
+          "sites": [
+            3,
+            4
+          ],
+          "workers": [
+            3
+          ]
+        }
+      ],
+      "before": 36.0,
+      "value": 43.0,
+      "gain": 7.0,
+      "kind": "structure",
+      "backend": "scip",
+      "conditional_optimal": true,
+      "status": "optimal",
+      "bound": 43.0,
+      "gap": 0.0,
+      "build": 0.009489561000009417,
+      "solve": 0.0014079430000037974,
+      "check": 0.0009292140000525251,
+      "restore": 0.0024031709999690065,
+      "seconds": 0.016389399999980014,
+      "gain_per_second": 427.1053241734619,
+      "iterations": 1,
+      "nodes": 0,
+      "cuts": 0,
+      "variables": 16,
+      "rows": 41,
+      "selected": [
+        4
+      ],
+      "offices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "events": []
+    },
+    "oracle": 43
+  },
+  {
+    "case": "fourth_office",
+    "backend": "highs",
+    "legacy": {
+      "solution": [
+        {
+          "officeId": 0,
+          "sites": [
+            0
+          ],
+          "workers": [
+            0
+          ]
+        },
+        {
+          "officeId": 1,
+          "sites": [
+            1
+          ],
+          "workers": [
+            1
+          ]
+        },
+        {
+          "officeId": 2,
+          "sites": [
+            2
+          ],
+          "workers": [
+            2
+          ]
+        },
+        {
+          "officeId": 3,
+          "sites": [
+            3
+          ],
+          "workers": [
+            3
+          ]
+        }
+      ],
+      "value": 36.0,
+      "before": 36.0,
+      "gain": 0.0,
+      "conditional_optimal": true,
+      "bound": 36.0,
+      "status": "HighsModelStatus.kOptimal",
+      "seconds": 0.030473156999960338,
+      "prep": 0.026153382999950736,
+      "iterations": 1,
+      "nodes": 0,
+      "cuts": 0,
+      "max_cut_support": 0,
+      "variables": 15,
+      "rows": 40,
+      "selected": [
+        4
+      ],
+      "backend": "highs",
+      "joint": true,
+      "events": []
+    },
+    "full": {
+      "solution": [
+        {
+          "officeId": 0,
+          "sites": [
+            0
+          ],
+          "workers": [
+            0
+          ]
+        },
+        {
+          "officeId": 1,
+          "sites": [
+            1
+          ],
+          "workers": [
+            1
+          ]
+        },
+        {
+          "officeId": 2,
+          "sites": [
+            2
+          ],
+          "workers": [
+            2
+          ]
+        },
+        {
+          "officeId": 3,
+          "sites": [
+            3,
+            4
+          ],
+          "workers": [
+            3
+          ]
+        }
+      ],
+      "before": 36.0,
+      "value": 43.0,
+      "gain": 7.0,
+      "kind": "structure",
+      "backend": "highs",
+      "conditional_optimal": true,
+      "status": "HighsModelStatus.kOptimal",
+      "bound": 43.0,
+      "gap": 0.0,
+      "build": 0.0032672849999926257,
+      "solve": 0.001301118000014867,
+      "check": 0.0009610199999769975,
+      "restore": 0.002382503999911023,
+      "seconds": 0.009153028000014274,
+      "gain_per_second": 764.7742364591351,
+      "iterations": 1,
+      "nodes": 0,
+      "cuts": 0,
+      "variables": 16,
+      "rows": 41,
+      "selected": [
+        4
+      ],
+      "offices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "events": []
+    },
+    "oracle": 43
+  },
+  {
+    "case": "negative_profit_balance",
+    "backend": "scip",
+    "result": {
+      "solution": [
+        {
+          "officeId": 0,
+          "sites": [
+            0
+          ],
+          "workers": [
+            0
+          ]
+        },
+        {
+          "officeId": 1,
+          "sites": [
+            1,
+            2
+          ],
+          "workers": [
+            1
+          ]
+        }
+      ],
+      "before": 208.0,
+      "value": 293.0,
+      "gain": 85.0,
+      "kind": "geometry",
+      "backend": "scip",
+      "conditional_optimal": true,
+      "status": "optimal",
+      "bound": 293.0,
+      "gap": 0.0,
+      "build": 0.0076190460000589155,
+      "solve": 0.001265958000089995,
+      "check": 0.0005724400000417518,
+      "restore": 0.0007749019999891971,
+      "seconds": 0.011779794000062793,
+      "gain_per_second": 7215.745878030371,
+      "iterations": 1,
+      "nodes": 0,
+      "cuts": 0,
+      "variables": 10,
+      "rows": 23,
+      "selected": [
+        2
+      ],
+      "offices": [
+        0,
+        1
+      ],
+      "events": []
+    },
+    "oracle": 293
+  },
+  {
+    "case": "negative_profit_balance",
+    "backend": "highs",
+    "result": {
+      "solution": [
+        {
+          "officeId": 0,
+          "sites": [
+            0
+          ],
+          "workers": [
+            0
+          ]
+        },
+        {
+          "officeId": 1,
+          "sites": [
+            1,
+            2
+          ],
+          "workers": [
+            1
+          ]
+        }
+      ],
+      "before": 208.0,
+      "value": 293.0,
+      "gain": 85.0,
+      "kind": "geometry",
+      "backend": "highs",
+      "conditional_optimal": true,
+      "status": "HighsModelStatus.kOptimal",
+      "bound": 293.0,
+      "gap": 0.0,
+      "build": 0.0017516400000658905,
+      "solve": 0.0013840450000088822,
+      "check": 0.0005516100000022561,
+      "restore": 0.000770231000046806,
+      "seconds": 0.005340729000067768,
+      "gain_per_second": 15915.430271583045,
+      "iterations": 1,
+      "nodes": 0,
+      "cuts": 0,
+      "variables": 10,
+      "rows": 23,
+      "selected": [
+        2
+      ],
+      "offices": [
+        0,
+        1
+      ],
+      "events": []
+    },
+    "oracle": 293
+  },
+  {
+    "case": "skill_counts_insufficient",
+    "counts_pass": true,
+    "exact_staffing": false
+  },
+  {
+    "case": "numeric_probe",
+    "vertices": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        1.0,
+        1.0
+      ],
+      [
+        2.0,
+        2.000000000000001
+      ]
+    ],
+    "point": [
+      0.0,
+      0.0
+    ],
+    "exact": true,
+    "geos": true
+  },
+  {
+    "case": "numeric_probe",
+    "vertices": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        1.0,
+        1.0
+      ],
+      [
+        2.0,
+        2.000000000000001
+      ]
+    ],
+    "point": [
+      1.0,
+      1.0
+    ],
+    "exact": true,
+    "geos": true
+  },
+  {
+    "case": "numeric_probe",
+    "vertices": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        1.0,
+        1.0
+      ],
+      [
+        2.0,
+        2.000000000000001
+      ]
+    ],
+    "point": [
+      2.0,
+      2.000000000000001
+    ],
+    "exact": true,
+    "geos": true
+  },
+  {
+    "case": "numeric_probe",
+    "vertices": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        1.0,
+        1.0
+      ],
+      [
+        2.0,
+        2.000000000000001
+      ]
+    ],
+    "point": [
+      0.5,
+      0.5
+    ],
+    "exact": true,
+    "geos": true
+  },
+  {
+    "case": "numeric_probe",
+    "vertices": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        1.0,
+        1.0
+      ],
+      [
+        2.0,
+        2.000000000000001
+      ]
+    ],
+    "point": [
+      1.5274681817498023e-151,
+      1.5274681817498023e-151
+    ],
+    "exact": true,
+    "geos": true
+  },
+  {
+    "case": "numeric_probe",
+    "vertices": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        3.054936363499605e-151,
+        0.0
+      ],
+      [
+        0.0,
+        3.054936363499605e-151
+      ]
+    ],
+    "point": [
+      0.0,
+      0.0
+    ],
+    "exact": true,
+    "geos": true
+  },
+  {
+    "case": "numeric_probe",
+    "vertices": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        3.054936363499605e-151,
+        0.0
+      ],
+      [
+        0.0,
+        3.054936363499605e-151
+      ]
+    ],
+    "point": [
+      3.054936363499605e-151,
+      0.0
+    ],
+    "exact": true,
+    "geos": true
+  },
+  {
+    "case": "numeric_probe",
+    "vertices": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        3.054936363499605e-151,
+        0.0
+      ],
+      [
+        0.0,
+        3.054936363499605e-151
+      ]
+    ],
+    "point": [
+      0.0,
+      3.054936363499605e-151
+    ],
+    "exact": true,
+    "geos": true
+  },
+  {
+    "case": "numeric_probe",
+    "vertices": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        3.054936363499605e-151,
+        0.0
+      ],
+      [
+        0.0,
+        3.054936363499605e-151
+      ]
+    ],
+    "point": [
+      0.5,
+      0.5
+    ],
+    "exact": false,
+    "geos": false
+  },
+  {
+    "case": "numeric_probe",
+    "vertices": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        3.054936363499605e-151,
+        0.0
+      ],
+      [
+        0.0,
+        3.054936363499605e-151
+      ]
+    ],
+    "point": [
+      1.5274681817498023e-151,
+      1.5274681817498023e-151
+    ],
+    "exact": true,
+    "geos": true
+  },
+  {
+    "case": "independent_geometry",
+    "checks": 11000
+  }
+]

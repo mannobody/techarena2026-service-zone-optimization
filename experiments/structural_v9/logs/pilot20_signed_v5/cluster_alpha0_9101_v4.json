@@ -1,0 +1,62 @@
+{
+  "case": "cluster_alpha0",
+  "seed": 9101,
+  "variant": "v4",
+  "command": [
+    "/usr/bin/time",
+    "-f",
+    "rss_kb=%M user=%U sys=%S",
+    "-o",
+    "./experiments/structural_v9/logs/pilot20_signed_v5/cluster_alpha0_9101_v4.resource",
+    "taskset",
+    "-c",
+    "16,17",
+    "./experiments/structural_v9/artifacts/v4",
+    "./experiments/structural_v9/inputs/dev/cluster_alpha0.json",
+    "./experiments/structural_v9/logs/pilot20_signed_v5/cluster_alpha0_9101_v4.solution.json",
+    "20"
+  ],
+  "env": {
+    "HOME": "/home/user",
+    "LANG": "C.UTF-8",
+    "PATH": "/usr/local/bin:/usr/bin:/bin",
+    "NT": "2",
+    "SEED": "9101"
+  },
+  "affinity": [
+    16,
+    17
+  ],
+  "rc": 0,
+  "timeout": false,
+  "wall": 19.847421476999898,
+  "started_unix": 1792638112.6448996,
+  "ended_unix": 1792638132.652198,
+  "official": 140517.2995921919,
+  "valid": true,
+  "snapshots": [
+    {
+      "at": 5.015290540000024,
+      "path": "experiments/structural_v9/logs/pilot20_signed_v5/cluster_alpha0_9101_v4.t5.00.solution.json"
+    },
+    {
+      "at": 10.02714299299987,
+      "path": "experiments/structural_v9/logs/pilot20_signed_v5/cluster_alpha0_9101_v4.t10.00.solution.json"
+    },
+    {
+      "at": 17.041281865999736,
+      "path": "experiments/structural_v9/logs/pilot20_signed_v5/cluster_alpha0_9101_v4.t17.00.solution.json"
+    }
+  ],
+  "solution_sha256": "f6e06ef76f40b1d82c65ccb87713d36f08f1f2ac446dd45e7092f0aa968750aa",
+  "resource": "rss_kb=5560 user=37.30 sys=0.00\n",
+  "error": false,
+  "success": true,
+  "components": {
+    "reward": 202247.53841885144,
+    "distance": 50602.082535385605,
+    "cost": 11128.15629127386,
+    "penalty": 0.0,
+    "objective": 140517.29959219196
+  }
+}

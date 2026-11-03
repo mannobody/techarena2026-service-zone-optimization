@@ -1,0 +1,85 @@
+{
+  "destination": "experiments/v8_exact_neighborhoods/logs/checkpoint_screen2",
+  "seconds": 2,
+  "seeds": [
+    3101,
+    3102
+  ],
+  "cpu_pairs": [
+    [
+      18,
+      19
+    ]
+  ],
+  "cases": {
+    "anti": "experiments/v4_perturbation/shared/inputs/dev/anti.json",
+    "tightA": "experiments/v4_perturbation/shared/inputs/dev/tightA.json",
+    "alphabig": "experiments/v4_perturbation/shared/inputs/dev/alphabig.json",
+    "multiskill": "experiments/v4_perturbation/shared/inputs/dev/multiskill.json",
+    "cluster": "experiments/v4_perturbation/shared/inputs/dev/cluster.json",
+    "large": "experiments/v4_perturbation/shared/inputs/dev/large.json",
+    "huge": "experiments/v4_perturbation/shared/inputs/dev/huge.json"
+  },
+  "checkpoints": {
+    "anti": "experiments/v4_perturbation/shared/logs/checkpoint280/anti_1902_v4.solution.json",
+    "tightA": "experiments/v4_perturbation/shared/logs/checkpoint280/tightA_1902_v4.solution.json",
+    "alphabig": "experiments/v4_perturbation/shared/logs/checkpoint280/alphabig_1902_v4.solution.json",
+    "multiskill": "experiments/v4_perturbation/shared/logs/checkpoint280/multiskill_1902_v4.solution.json",
+    "cluster": "experiments/v4_perturbation/shared/logs/checkpoint280/cluster_1902_v4.solution.json",
+    "large": "experiments/v4_perturbation/shared/logs/checkpoint60/large_1901_v4.solution.json",
+    "huge": "experiments/v4_perturbation/shared/logs/checkpoint280/huge_1902_v4.solution.json"
+  },
+  "variants": {
+    "boundary": {
+      "binary": "experiments/v8_exact_neighborhoods/artifacts/checkpoint",
+      "source": "experiments/v8_exact_neighborhoods/artifacts/main.cpp",
+      "mode": 0,
+      "env": {
+        "DBG": "1",
+        "ESCAPE_MODE": "0",
+        "XN_SIG_FIX": "0"
+      }
+    },
+    "geometry": {
+      "binary": "experiments/v8_exact_neighborhoods/artifacts/checkpoint",
+      "source": "experiments/v8_exact_neighborhoods/artifacts/main.cpp",
+      "mode": 1,
+      "env": {
+        "DBG": "1",
+        "ESCAPE_MODE": "0",
+        "XN_SIG_FIX": "0"
+      }
+    },
+    "structure": {
+      "binary": "experiments/v8_exact_neighborhoods/artifacts/checkpoint",
+      "source": "experiments/v8_exact_neighborhoods/artifacts/main.cpp",
+      "mode": 2,
+      "env": {
+        "DBG": "1",
+        "ESCAPE_MODE": "0",
+        "XN_SIG_FIX": "0"
+      }
+    },
+    "mixed": {
+      "binary": "experiments/v8_exact_neighborhoods/artifacts/checkpoint",
+      "source": "experiments/v8_exact_neighborhoods/artifacts/main.cpp",
+      "mode": 3,
+      "env": {
+        "DBG": "1",
+        "ESCAPE_MODE": "0",
+        "XN_SIG_FIX": "0"
+      }
+    },
+    "lns": {
+      "binary": "experiments/v8_exact_neighborhoods/artifacts/checkpoint",
+      "source": "experiments/v8_exact_neighborhoods/artifacts/main.cpp",
+      "mode": 4,
+      "env": {
+        "DBG": "1",
+        "ESCAPE_MODE": "0",
+        "XN_SIG_FIX": "0"
+      }
+    }
+  },
+  "order_seed": 20261020
+}

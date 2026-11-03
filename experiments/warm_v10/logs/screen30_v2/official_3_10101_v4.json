@@ -1,0 +1,83 @@
+{
+  "case": "official_3",
+  "seed": 10101,
+  "variant": "v4",
+  "command": [
+    "/usr/bin/time",
+    "-f",
+    "rss_kb=%M user=%U sys=%S",
+    "-o",
+    "./experiments/warm_v10/logs/screen30_v2/official_3_10101_v4.resource",
+    "taskset",
+    "-c",
+    "3,6",
+    "./experiments/structural_v9/artifacts/v4",
+    "./task/instance3/instance.json",
+    "./experiments/warm_v10/logs/screen30_v2/official_3_10101_v4.solution.json",
+    "30"
+  ],
+  "env": {
+    "HOME": "/home/user",
+    "LANG": "C.UTF-8",
+    "PATH": "/usr/local/bin:/usr/bin:/bin",
+    "NT": "2",
+    "SEED": "10101",
+    "DBG": "1"
+  },
+  "affinity": [
+    3,
+    6
+  ],
+  "rc": 0,
+  "timeout": false,
+  "wall": 29.874725449000834,
+  "started_unix": 1792646543.3478374,
+  "ended_unix": 1792646573.306253,
+  "official": 136300.9768254834,
+  "valid": true,
+  "snapshots": [
+    {
+      "at": 3.0134360650008603,
+      "path": "experiments/warm_v10/logs/screen30_v2/official_3_10101_v4.t3.00.solution.json",
+      "official": 136300.9768254834
+    },
+    {
+      "at": 6.61180351800067,
+      "path": "experiments/warm_v10/logs/screen30_v2/official_3_10101_v4.t6.60.solution.json",
+      "official": 136300.9768254834
+    },
+    {
+      "at": 7.51467213900105,
+      "path": "experiments/warm_v10/logs/screen30_v2/official_3_10101_v4.t7.50.solution.json",
+      "official": 136300.9768254834
+    },
+    {
+      "at": 15.03260353800033,
+      "path": "experiments/warm_v10/logs/screen30_v2/official_3_10101_v4.t15.00.solution.json",
+      "official": 136300.9768254834
+    },
+    {
+      "at": 25.507307441001103,
+      "path": "experiments/warm_v10/logs/screen30_v2/official_3_10101_v4.t25.50.solution.json",
+      "official": 136300.9768254834
+    }
+  ],
+  "solution_sha256": "d10d97d2782f4061be48ec2a0515970eec29266093e24fe3e17b5ce31639b8be",
+  "resource": "rss_kb=5848 user=57.64 sys=0.02\n",
+  "error": false,
+  "internal_deadline_stop": false,
+  "logged_threads": 2,
+  "resource_fields": {
+    "rss_kb": 5848.0,
+    "user": 57.64,
+    "sys": 0.02
+  },
+  "success": true,
+  "components": {
+    "reward": 289246.98617277783,
+    "distance": 151644.12502476928,
+    "cost": 1301.8843225252008,
+    "penalty": 0.0,
+    "objective": 136300.97682548335
+  }
+}

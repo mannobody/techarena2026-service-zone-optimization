@@ -1,0 +1,49 @@
+{
+  "case": "small_anti",
+  "seed": 9002,
+  "variant": "zones",
+  "command": [
+    "/usr/bin/time",
+    "-f",
+    "rss_kb=%M user=%U sys=%S",
+    "-o",
+    "./experiments/structural_v9/logs/screen8/small_anti_9002_zones.resource",
+    "taskset",
+    "-c",
+    "12,13",
+    "./experiments/structural_v9/artifacts/candidate",
+    "./experiments/structural_v9/inputs/dev/small_anti.json",
+    "./experiments/structural_v9/logs/screen8/small_anti_9002_zones.solution.json",
+    "8"
+  ],
+  "env": {
+    "HOME": "/home/user",
+    "LANG": "C.UTF-8",
+    "PATH": "/usr/local/bin:/usr/bin:/bin",
+    "NT": "2",
+    "SEED": "9002"
+  },
+  "affinity": [
+    12,
+    13
+  ],
+  "rc": 0,
+  "timeout": false,
+  "wall": 0.258542972999976,
+  "started_unix": 1792637506.9714372,
+  "ended_unix": 1792637507.2337792,
+  "official": 5548.218242086177,
+  "valid": true,
+  "snapshots": [],
+  "solution_sha256": "e6eefe808fc53392461f7b9002b07c204aee72d4523b681543c0166f3f31e206",
+  "resource": "rss_kb=6404 user=0.23 sys=0.00\n",
+  "error": false,
+  "success": true,
+  "components": {
+    "reward": 17317.514986911927,
+    "distance": 10170.184786998949,
+    "cost": 949.7051458176034,
+    "penalty": 649.4068120091972,
+    "objective": 5548.218242086178
+  }
+}

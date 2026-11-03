@@ -1,0 +1,74 @@
+{
+  "case": "large",
+  "seed": 9402,
+  "variant": "candidate",
+  "command": [
+    "/usr/bin/time",
+    "-f",
+    "rss_kb=%M user=%U sys=%S",
+    "-o",
+    "./experiments/structural_v9/logs/independent280/large_9402_candidate.resource",
+    "taskset",
+    "-c",
+    "18,19",
+    "./experiments/structural_v9/artifacts/final_research/candidate",
+    "./experiments/structural_v9/inputs/holdout/large.json",
+    "./experiments/structural_v9/logs/independent280/large_9402_candidate.solution.json",
+    "280"
+  ],
+  "env": {
+    "HOME": "/home/user",
+    "LANG": "C.UTF-8",
+    "PATH": "/usr/local/bin:/usr/bin:/bin",
+    "NT": "2",
+    "SEED": "9402",
+    "ZM_POOL": "0",
+    "ZM_RESERVE": "0"
+  },
+  "affinity": [
+    18,
+    19
+  ],
+  "rc": 0,
+  "timeout": false,
+  "wall": 279.61151315700045,
+  "started_unix": 1792642805.9256248,
+  "ended_unix": 1792643086.3069377,
+  "official": 598825.4191321194,
+  "valid": true,
+  "snapshots": [
+    {
+      "at": 70.04123801399965,
+      "path": "experiments/structural_v9/logs/independent280/large_9402_candidate.t70.00.solution.json",
+      "official": 579345.8727396748
+    },
+    {
+      "at": 140.03784151000036,
+      "path": "experiments/structural_v9/logs/independent280/large_9402_candidate.t140.00.solution.json",
+      "official": 592600.2463605725
+    },
+    {
+      "at": 238.04691883600026,
+      "path": "experiments/structural_v9/logs/independent280/large_9402_candidate.t238.00.solution.json",
+      "official": 595021.5773152056
+    }
+  ],
+  "solution_sha256": "51a31d0ce9ab4ebda321e645bbe9d283203a2fc6d8f739ec4869c499ca552849",
+  "resource": "rss_kb=49228 user=495.63 sys=0.11\n",
+  "error": false,
+  "internal_deadline_stop": false,
+  "logged_threads": 2,
+  "resource_fields": {
+    "rss_kb": 49228.0,
+    "user": 495.63,
+    "sys": 0.11
+  },
+  "success": true,
+  "components": {
+    "reward": 780087.8838429799,
+    "distance": 151419.41270605283,
+    "cost": 29037.799995679317,
+    "penalty": 805.2520091282373,
+    "objective": 598825.4191321196
+  }
+}

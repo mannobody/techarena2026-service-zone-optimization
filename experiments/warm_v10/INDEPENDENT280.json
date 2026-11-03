@@ -1,0 +1,67 @@
+{
+  "name": "independent280",
+  "seconds": 280,
+  "seeds": [
+    0,
+    10502,
+    10503
+  ],
+  "cpus": [
+    [
+      0,
+      1
+    ],
+    [
+      3,
+      6
+    ],
+    [
+      12,
+      13
+    ],
+    [
+      16,
+      17
+    ],
+    [
+      18,
+      19
+    ],
+    [
+      20,
+      21
+    ]
+  ],
+  "cases": {
+    "road120": "experiments/warm_v10/inputs/fresh/road120.json",
+    "anti180": "experiments/warm_v10/inputs/fresh/anti180.json",
+    "equal_count150": "experiments/warm_v10/inputs/fresh/equal_count150.json",
+    "multi220": "experiments/warm_v10/inputs/fresh/multi220.json",
+    "cluster400": "experiments/warm_v10/inputs/fresh/cluster400.json",
+    "grid160": "experiments/warm_v10/inputs/fresh/grid160.json",
+    "road1500": "experiments/warm_v10/inputs/fresh/road1500.json",
+    "huge10000": "experiments/warm_v10/inputs/fresh/huge10000.json"
+  },
+  "variants": {
+    "v4": {
+      "binary": "experiments/structural_v9/artifacts/v4",
+      "env": {}
+    },
+    "v9": {
+      "binary": "experiments/structural_v9/artifacts/final_research/candidate",
+      "env": {
+        "ZM_POOL": "0",
+        "ZM_RESERVE": "0"
+      }
+    },
+    "prior": {
+      "binary": "experiments/warm_v10/artifacts/v5/candidate",
+      "env": {
+        "ZM_POOL": "0",
+        "ZM_RESERVE": "0",
+        "GW_MODE": "1"
+      }
+    }
+  },
+  "allow_superseded": true
+}

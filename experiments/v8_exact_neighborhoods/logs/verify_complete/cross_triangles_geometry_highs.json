@@ -1,0 +1,62 @@
+{
+  "case": "cross_triangles",
+  "kind": "geometry",
+  "backend": "highs",
+  "ok": true,
+  "expected": 38,
+  "result": {
+    "solution": [
+      {
+        "officeId": 0,
+        "sites": [
+          0,
+          1
+        ],
+        "workers": [
+          0
+        ]
+      },
+      {
+        "officeId": 1,
+        "sites": [
+          2,
+          3
+        ],
+        "workers": [
+          1
+        ]
+      }
+    ],
+    "before": 38.0,
+    "value": 38.0,
+    "gain": 0.0,
+    "kind": "geometry",
+    "backend": "highs",
+    "conditional_optimal": true,
+    "status": "HighsModelStatus.kOptimal",
+    "bound": 38.0,
+    "gap": 0.0,
+    "build": 0.00210655199998655,
+    "solve": 0.0017917420000230777,
+    "check": 0.0005842129999109602,
+    "restore": 0.0008431149999523768,
+    "seconds": 0.006403570999964359,
+    "gain_per_second": 0.0,
+    "iterations": 1,
+    "nodes": 0,
+    "cuts": 0,
+    "variables": 16,
+    "rows": 30,
+    "selected": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "offices": [
+      0,
+      1
+    ],
+    "events": []
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "case": "official_3",
+  "seed": 9301,
+  "variant": "v4",
+  "command": [
+    "/usr/bin/time",
+    "-f",
+    "rss_kb=%M user=%U sys=%S",
+    "-o",
+    "./experiments/structural_v9/logs/development280/official_3_9301_v4.resource",
+    "taskset",
+    "-c",
+    "0,1",
+    "./experiments/structural_v9/artifacts/v4",
+    "./task/instance3/instance.json",
+    "./experiments/structural_v9/logs/development280/official_3_9301_v4.solution.json",
+    "280"
+  ],
+  "env": {
+    "HOME": "/home/user",
+    "LANG": "C.UTF-8",
+    "PATH": "/usr/local/bin:/usr/bin:/bin",
+    "NT": "2",
+    "SEED": "9301"
+  },
+  "affinity": [
+    0,
+    1
+  ],
+  "rc": 0,
+  "timeout": false,
+  "wall": 279.4936234280003,
+  "started_unix": 1792639719.5692692,
+  "ended_unix": 1792639999.1944904,
+  "official": 136621.52758153845,
+  "valid": true,
+  "snapshots": [
+    {
+      "at": 70.018699061,
+      "path": "experiments/structural_v9/logs/development280/official_3_9301_v4.t70.00.solution.json",
+      "official": 136300.9768254834
+    },
+    {
+      "at": 140.01110447100018,
+      "path": "experiments/structural_v9/logs/development280/official_3_9301_v4.t140.00.solution.json",
+      "official": 136300.9768254834
+    },
+    {
+      "at": 238.02777079899988,
+      "path": "experiments/structural_v9/logs/development280/official_3_9301_v4.t238.00.solution.json",
+      "official": 136300.9768254834
+    }
+  ],
+  "solution_sha256": "a412291af2e6ba43e76dba356da27552f861ec55b58405372f57a01af54a8c39",
+  "resource": "rss_kb=5916 user=542.57 sys=0.24\n",
+  "error": false,
+  "internal_deadline_stop": false,
+  "logged_threads": 2,
+  "resource_fields": {
+    "rss_kb": 5916.0,
+    "user": 542.57,
+    "sys": 0.24
+  },
+  "success": true,
+  "components": {
+    "reward": 290418.0266026272,
+    "distance": 152494.61469856353,
+    "cost": 1301.8843225252008,
+    "penalty": 0.0,
+    "objective": 136621.52758153845
+  }
+}

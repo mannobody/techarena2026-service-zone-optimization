@@ -1,0 +1,143 @@
+{
+  "case": "large3000",
+  "seed": 0,
+  "variant": "race_no_share",
+  "command": [
+    "/usr/bin/time",
+    "-f",
+    "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+    "-o",
+    "./experiments/adaptive_v11/logs/screen45_v2/large3000_0_race_no_share.resource",
+    "taskset",
+    "-c",
+    "0,1",
+    "./experiments/adaptive_v11/artifacts/v2/candidate",
+    "./experiments/adaptive_v11/inputs/dev/large3000.json",
+    "./experiments/adaptive_v11/logs/screen45_v2/large3000_0_race_no_share.solution.json",
+    "45"
+  ],
+  "env": {
+    "HOME": "/home/user",
+    "LANG": "C.UTF-8",
+    "PATH": "/usr/local/bin:/usr/bin:/bin",
+    "NT": "2",
+    "SEED": "0",
+    "AP_POLICY": "1",
+    "AP_SHARE": "0"
+  },
+  "affinity": [
+    0,
+    1
+  ],
+  "rc": 0,
+  "timeout": false,
+  "wall": 44.632204811998236,
+  "started_unix": 1792657615.1654828,
+  "ended_unix": 1792657660.946822,
+  "official": 1200574.0837562717,
+  "valid": true,
+  "snapshots": [
+    {
+      "at": 4.548224948997813,
+      "path": "experiments/adaptive_v11/logs/screen45_v2/large3000_0_race_no_share.t4.50.solution.json",
+      "official": 0.0
+    },
+    {
+      "at": 9.901817414000107,
+      "path": "experiments/adaptive_v11/logs/screen45_v2/large3000_0_race_no_share.t9.90.solution.json",
+      "official": 1178203.2034362864
+    },
+    {
+      "at": 11.323159428000508,
+      "path": "experiments/adaptive_v11/logs/screen45_v2/large3000_0_race_no_share.t11.25.solution.json",
+      "official": 1182505.6871097684
+    },
+    {
+      "at": 22.67762748200039,
+      "path": "experiments/adaptive_v11/logs/screen45_v2/large3000_0_race_no_share.t22.50.solution.json",
+      "official": 1193288.8300085233
+    },
+    {
+      "at": 38.30747850399712,
+      "path": "experiments/adaptive_v11/logs/screen45_v2/large3000_0_race_no_share.t38.25.solution.json",
+      "official": 1200563.181246135
+    }
+  ],
+  "solution_sha256": "de55754c1968610abec24a0f0ff2fdc28291db690aa8b2553154cc30908f1691",
+  "resource": "rss_kb=25488 user=88.24 sys=0.04 majorfaults=0 minorfaults=6150 voluntary=3234 involuntary=3501 inputs=0 outputs=120\n",
+  "error": false,
+  "process_sampling": {
+    "last": {
+      "347": {
+        "runtime_ns": 36667595,
+        "runqueue_ns": 20091075,
+        "slices": 3114
+      },
+      "348": {
+        "runtime_ns": 43435636741,
+        "runqueue_ns": 1877839,
+        "slices": 299
+      },
+      "349": {
+        "runtime_ns": 43409641490,
+        "runqueue_ns": 19060401,
+        "slices": 3165
+      },
+      "355": {
+        "runtime_ns": 22100,
+        "runqueue_ns": 261197,
+        "slices": 1
+      },
+      "356": {
+        "runtime_ns": 16344,
+        "runqueue_ns": 145050,
+        "slices": 1
+      }
+    },
+    "states": {
+      "S": 111,
+      "R": 86
+    },
+    "wchan": {
+      "hrtimer_nanosleep": 43,
+      "0": 86,
+      "futex_do_wait": 68
+    },
+    "max_sampled_threads": 5,
+    "samples": 43,
+    "last_io": {
+      "rchar": 4330250,
+      "wchar": 297891,
+      "syscr": 552,
+      "syscw": 49,
+      "read_bytes": 0,
+      "write_bytes": 61440,
+      "cancelled_write_bytes": 0
+    }
+  },
+  "resource_extra_fields": {
+    "majorfaults": 0.0,
+    "minorfaults": 6150.0,
+    "voluntary": 3234.0,
+    "involuntary": 3501.0,
+    "inputs": 0.0,
+    "outputs": 120.0
+  },
+  "internal_deadline_stop": false,
+  "cpu_pressure_before": "some avg10=0.75 avg60=1.40 avg300=0.88 total=6206004534\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+  "cpu_pressure_after": "some avg10=0.88 avg60=0.97 avg300=0.83 total=6206455514\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+  "logged_threads": 1,
+  "resource_fields": {
+    "rss_kb": 25488.0,
+    "user": 88.24,
+    "sys": 0.04
+  },
+  "success": true,
+  "components": {
+    "reward": 1450647.0103403681,
+    "distance": 173026.36051662624,
+    "cost": 75139.78778068279,
+    "penalty": 1906.7782867875976,
+    "objective": 1200574.0837562715
+  }
+}

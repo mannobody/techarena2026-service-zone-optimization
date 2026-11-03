@@ -1,0 +1,21 @@
+{
+  "command": [
+    "taskset",
+    "-c",
+    "14,15",
+    "g++",
+    "-O3",
+    "-std=c++17",
+    "./experiments/warm_v10/artifacts/v2/main.cpp",
+    "-o",
+    "./experiments/warm_v10/artifacts/v2/candidate"
+  ],
+  "files": {
+    "experiments/structural_v9/artifacts/final_research/main.cpp": "d72e0c83540c0ddbeaa63aafbf9697906cae5b6c425314b244553b2d6a7e44e8",
+    "experiments/warm_v10/src/geometry_warm.h": "bd90f861751cd936468ca9924872702aa6cfc6b0b5c4503d576b40c726384ad7",
+    "experiments/warm_v10/src/build.py": "47b048fccd8ec62c07a2d7b186275b897bc870221b17e14b2efc8cbe0f5ae3b5",
+    "experiments/warm_v10/artifacts/v2/main.cpp": "b01edc4e2dc101368636809c38aa2856693a025f2f44a22c0f854aa9768413cb",
+    "experiments/warm_v10/artifacts/v2/candidate": "d392b48a5601fd9e205f39afb84224c5217cda6c0c3fe9d8c6c76de57dafcd6f",
+    "experiments/v4_local_search/baseline/frozen_v4.cpp": "5b3914fa9791cb879f3232fb2876a915de83b848ad4b353b0dbf25b574998c25"
+  }
+}

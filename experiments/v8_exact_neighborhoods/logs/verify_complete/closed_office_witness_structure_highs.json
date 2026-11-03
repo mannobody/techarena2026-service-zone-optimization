@@ -1,0 +1,58 @@
+{
+  "case": "closed_office_witness",
+  "kind": "structure",
+  "backend": "highs",
+  "ok": true,
+  "expected": 9,
+  "result": {
+    "solution": [
+      {
+        "officeId": 0,
+        "sites": [
+          0
+        ],
+        "workers": [
+          0
+        ]
+      }
+    ],
+    "before": 0.0,
+    "value": 9.0,
+    "gain": 9.0,
+    "kind": "structure",
+    "backend": "highs",
+    "conditional_optimal": true,
+    "status": "HighsModelStatus.kOptimal",
+    "bound": 9.0,
+    "gap": 0.0,
+    "build": 0.0017815549999795621,
+    "solve": 0.05023619700000381,
+    "check": 0.0015190829999482958,
+    "restore": 0.0005238740000095277,
+    "seconds": 0.05524421999996321,
+    "gain_per_second": 162.91297080501803,
+    "iterations": 2,
+    "nodes": 2,
+    "cuts": 1,
+    "variables": 16,
+    "rows": 33,
+    "selected": [
+      0,
+      1
+    ],
+    "offices": [
+      0,
+      1,
+      2
+    ],
+    "events": [
+      {
+        "iteration": 1,
+        "conflicts": 1,
+        "cuts": 1,
+        "bound": 18.0,
+        "seconds": 0.028555428999993637
+      }
+    ]
+  }
+}

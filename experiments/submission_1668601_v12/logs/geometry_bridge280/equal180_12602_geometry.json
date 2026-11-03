@@ -1,0 +1,136 @@
+{
+  "case": "equal180",
+  "seed": 12602,
+  "variant": "geometry",
+  "command": [
+    "/usr/bin/time",
+    "-f",
+    "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+    "-o",
+    "./experiments/submission_1668601_v12/logs/geometry_bridge280/equal180_12602_geometry.resource",
+    "taskset",
+    "-c",
+    "18,19",
+    "./experiments/submission_1668601_v12/artifacts/geometry/candidate",
+    "./experiments/adaptive_v11/inputs/dev/equal180.json",
+    "./experiments/submission_1668601_v12/logs/geometry_bridge280/equal180_12602_geometry.solution.json",
+    "280"
+  ],
+  "env": {
+    "HOME": "/home/user",
+    "LANG": "C.UTF-8",
+    "PATH": "/usr/local/bin:/usr/bin:/bin",
+    "NT": "2",
+    "SEED": "12602",
+    "GW_MODE": "1",
+    "ZM_POOL": "0",
+    "ZM_RESERVE": "0"
+  },
+  "affinity": [
+    18,
+    19
+  ],
+  "rc": 0,
+  "timeout": false,
+  "wall": 279.46343974000047,
+  "started_unix": 1792664510.022437,
+  "ended_unix": 1792664789.6979535,
+  "official": 62822.959104377245,
+  "valid": true,
+  "snapshots": [
+    {
+      "at": 28.02601625800162,
+      "path": "experiments/submission_1668601_v12/logs/geometry_bridge280/equal180_12602_geometry.t28.00.solution.json",
+      "official": 55571.30790928587
+    },
+    {
+      "at": 61.61009951199958,
+      "path": "experiments/submission_1668601_v12/logs/geometry_bridge280/equal180_12602_geometry.t61.60.solution.json",
+      "official": 55571.30790928587
+    },
+    {
+      "at": 70.03380708500117,
+      "path": "experiments/submission_1668601_v12/logs/geometry_bridge280/equal180_12602_geometry.t70.00.solution.json",
+      "official": 55571.30790928587
+    },
+    {
+      "at": 140.04940913799874,
+      "path": "experiments/submission_1668601_v12/logs/geometry_bridge280/equal180_12602_geometry.t140.00.solution.json",
+      "official": 55571.30790928587
+    },
+    {
+      "at": 238.04050940099842,
+      "path": "experiments/submission_1668601_v12/logs/geometry_bridge280/equal180_12602_geometry.t238.00.solution.json",
+      "official": 55571.30790928587
+    }
+  ],
+  "solution_sha256": "9a05435e520d7706916f028d09c0ffa66ecfbd6c0952cb0cbebeeba8caa9b04d",
+  "resource": "rss_kb=5872 user=554.49 sys=0.04 majorfaults=0 minorfaults=542 voluntary=2 involuntary=3783 inputs=0 outputs=176\n",
+  "error": false,
+  "process_sampling": {
+    "last": {
+      "39": {
+        "runtime_ns": 277345423763,
+        "runqueue_ns": 15841336,
+        "slices": 230
+      },
+      "42": {
+        "runtime_ns": 58482602303,
+        "runqueue_ns": 20323019,
+        "slices": 757
+      },
+      "51": {
+        "runtime_ns": 212081744241,
+        "runqueue_ns": 71460313,
+        "slices": 2686
+      },
+      "54": {
+        "runtime_ns": 4795164363,
+        "runqueue_ns": 2198940,
+        "slices": 100
+      }
+    },
+    "states": {
+      "R": 555
+    },
+    "wchan": {
+      "0": 555
+    },
+    "max_sampled_threads": 2,
+    "samples": 278,
+    "last_io": {
+      "rchar": 64013,
+      "wchar": 15051,
+      "syscr": 29,
+      "syscw": 37,
+      "read_bytes": 0,
+      "write_bytes": 40960,
+      "cancelled_write_bytes": 0
+    }
+  },
+  "resource_extra_fields": {
+    "majorfaults": 0.0,
+    "minorfaults": 542.0,
+    "voluntary": 2.0,
+    "involuntary": 3783.0,
+    "inputs": 0.0,
+    "outputs": 176.0
+  },
+  "internal_deadline_stop": false,
+  "cpu_pressure_before": "some avg10=0.12 avg60=0.02 avg300=0.21 total=6265163139\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+  "cpu_pressure_after": "some avg10=1.38 avg60=0.96 avg300=0.37 total=6267202190\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+  "logged_threads": 2,
+  "resource_fields": {
+    "rss_kb": 5872.0,
+    "user": 554.49,
+    "sys": 0.04
+  },
+  "success": true,
+  "components": {
+    "reward": 79250.42112475735,
+    "distance": 12452.612430331375,
+    "cost": 3974.8495900487383,
+    "penalty": 0.0,
+    "objective": 62822.959104377245
+  }
+}

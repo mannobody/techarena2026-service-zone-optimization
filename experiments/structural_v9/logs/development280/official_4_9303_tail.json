@@ -1,0 +1,74 @@
+{
+  "case": "official_4",
+  "seed": 9303,
+  "variant": "tail",
+  "command": [
+    "/usr/bin/time",
+    "-f",
+    "rss_kb=%M user=%U sys=%S",
+    "-o",
+    "./experiments/structural_v9/logs/development280/official_4_9303_tail.resource",
+    "taskset",
+    "-c",
+    "3,6",
+    "./experiments/structural_v9/artifacts/final_research/candidate",
+    "./task/instance4/instance.json",
+    "./experiments/structural_v9/logs/development280/official_4_9303_tail.solution.json",
+    "280"
+  ],
+  "env": {
+    "HOME": "/home/user",
+    "LANG": "C.UTF-8",
+    "PATH": "/usr/local/bin:/usr/bin:/bin",
+    "NT": "2",
+    "SEED": "9303",
+    "ZM_POOL": "0",
+    "ZM_RESERVE": "0"
+  },
+  "affinity": [
+    3,
+    6
+  ],
+  "rc": 0,
+  "timeout": false,
+  "wall": 279.47351832999993,
+  "started_unix": 1792638599.5893576,
+  "ended_unix": 1792638879.1249375,
+  "official": 18226.332950462875,
+  "valid": true,
+  "snapshots": [
+    {
+      "at": 70.0203663430002,
+      "path": "experiments/structural_v9/logs/development280/official_4_9303_tail.t70.00.solution.json",
+      "official": 18019.089861853645
+    },
+    {
+      "at": 140.00251043800017,
+      "path": "experiments/structural_v9/logs/development280/official_4_9303_tail.t140.00.solution.json",
+      "official": 18019.089861853645
+    },
+    {
+      "at": 238.0426916260003,
+      "path": "experiments/structural_v9/logs/development280/official_4_9303_tail.t238.00.solution.json",
+      "official": 18226.332950462875
+    }
+  ],
+  "solution_sha256": "42900e20dabc59c37c4a03a780d5ee4dad92d0e08bc3eb90d05606cc3f3414dd",
+  "resource": "rss_kb=5588 user=554.03 sys=0.04\n",
+  "error": false,
+  "internal_deadline_stop": false,
+  "logged_threads": 2,
+  "resource_fields": {
+    "rss_kb": 5588.0,
+    "user": 554.03,
+    "sys": 0.04
+  },
+  "success": true,
+  "components": {
+    "reward": 26157.798473848707,
+    "distance": 7511.250987358115,
+    "cost": 414.8145360277188,
+    "penalty": 5.4,
+    "objective": 18226.33295046287
+  }
+}

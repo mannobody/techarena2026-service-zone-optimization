@@ -1,0 +1,62 @@
+{
+  "case": "negative_swap",
+  "seed": 9001,
+  "variant": "v4",
+  "command": [
+    "/usr/bin/time",
+    "-f",
+    "rss_kb=%M user=%U sys=%S",
+    "-o",
+    "./experiments/structural_v9/logs/negative_swap8/negative_swap_9001_v4.resource",
+    "taskset",
+    "-c",
+    "14,15",
+    "./experiments/structural_v9/artifacts/v4",
+    "./experiments/structural_v9/inputs/negative_swap.json",
+    "./experiments/structural_v9/logs/negative_swap8/negative_swap_9001_v4.solution.json",
+    "8"
+  ],
+  "env": {
+    "HOME": "/home/user",
+    "LANG": "C.UTF-8",
+    "PATH": "/usr/local/bin:/usr/bin:/bin",
+    "NT": "2",
+    "SEED": "9001"
+  },
+  "affinity": [
+    14,
+    15
+  ],
+  "rc": 0,
+  "timeout": false,
+  "wall": 7.815541924000172,
+  "started_unix": 1792637764.2611673,
+  "ended_unix": 1792637772.0785956,
+  "official": 299.0,
+  "valid": true,
+  "snapshots": [
+    {
+      "at": 2.0071301259999927,
+      "path": "experiments/structural_v9/logs/negative_swap8/negative_swap_9001_v4.t2.00.solution.json"
+    },
+    {
+      "at": 4.00110629400001,
+      "path": "experiments/structural_v9/logs/negative_swap8/negative_swap_9001_v4.t4.00.solution.json"
+    },
+    {
+      "at": 6.803553061999992,
+      "path": "experiments/structural_v9/logs/negative_swap8/negative_swap_9001_v4.t6.80.solution.json"
+    }
+  ],
+  "solution_sha256": "cafd380521ded7589539c73d54352841a75f606c92dc811449de8f3cad0374c9",
+  "resource": "rss_kb=5128 user=10.89 sys=0.01\n",
+  "error": false,
+  "success": true,
+  "components": {
+    "reward": 301.0,
+    "distance": 2.0,
+    "cost": 0.0,
+    "penalty": 0,
+    "objective": 299.0
+  }
+}

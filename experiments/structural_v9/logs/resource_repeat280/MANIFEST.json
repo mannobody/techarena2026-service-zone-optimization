@@ -1,0 +1,51 @@
+{
+  "spec": {
+    "name": "resource_repeat280",
+    "seconds": 280,
+    "seeds": [
+      9401,
+      9402,
+      9403
+    ],
+    "cpus": [
+      [
+        12,
+        13
+      ],
+      [
+        16,
+        17
+      ],
+      [
+        20,
+        21
+      ]
+    ],
+    "cases": {
+      "large": "experiments/structural_v9/inputs/holdout/large.json"
+    },
+    "variants": {
+      "v4": {
+        "binary": "experiments/structural_v9/artifacts/v4"
+      },
+      "candidate": {
+        "binary": "experiments/structural_v9/artifacts/final_research/candidate",
+        "env": {
+          "ZM_POOL": "0",
+          "ZM_RESERVE": "0"
+        }
+      }
+    }
+  },
+  "spec_sha256": "7fcc00eb50f019068dc856d74331dd8a7b2977c50e8bfcc4a7e28d9fb9bb27d7",
+  "inputs": {
+    "large": "949d354e84f0449b3e0683c92b4cfc9b0b5cc54cea387290e3e3cc55182d4ec4"
+  },
+  "binaries": {
+    "v4": "5cc54b6ad0f02a3d6d471d0e2f9129c229b4925aaa2b2c01ce26bd5305a4963c",
+    "candidate": "255d6f0d4c46a80f36307059bc48c3110eed1f9285b8c0fccb42361e23252670"
+  },
+  "validator": "6dd5948ebe72977976acf1b8dcaf7c819274c79addfb82328c0ec9a012ed56e0",
+  "cpu_topology": "<local-host-omitted>",
+  "runner_sha256": "29f90a8a4a8a51100a9cc301695c9300da522d14ba7960824e3af402f9e3b780"
+}

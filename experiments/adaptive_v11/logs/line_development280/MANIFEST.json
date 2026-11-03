@@ -1,0 +1,52 @@
+{
+  "spec": {
+    "name": "line_development280",
+    "seconds": 280,
+    "seeds": [
+      0,
+      11802,
+      11803
+    ],
+    "cpus": [
+      [
+        3,
+        6
+      ],
+      [
+        8,
+        10
+      ]
+    ],
+    "cases": {
+      "line9": "experiments/adaptive_v11/inputs/line_mechanism/line9.json"
+    },
+    "variants": {
+      "v4": {
+        "binary": "experiments/structural_v9/artifacts/v4"
+      },
+      "v10": {
+        "binary": "experiments/warm_v10/artifacts/v5/candidate",
+        "env": {
+          "ZM_POOL": "0",
+          "ZM_RESERVE": "0",
+          "GW_MODE": "1"
+        }
+      },
+      "adaptive": {
+        "binary": "experiments/adaptive_v11/artifacts/v3/candidate"
+      }
+    }
+  },
+  "spec_sha256": "75f1f1a4ad16c09c171106f326d5d29cf3b6dc635b2651303d0d2a7b0982e30f",
+  "inputs": {
+    "line9": "d04be44a5281c040b7044b1583e6ec8401f7b4b26f7b78746c1f67d0010ed192"
+  },
+  "binaries": {
+    "v4": "5cc54b6ad0f02a3d6d471d0e2f9129c229b4925aaa2b2c01ce26bd5305a4963c",
+    "v10": "c3f76ed684a521347cdd84fcdb2f5e9630a716f2eaf3747413ca7ecc6dc34706",
+    "adaptive": "db62e93d8c3fbbe4aeeda098249c0ccdd396526c102a0d21b65d4cee34d8c4fb"
+  },
+  "validator": "6dd5948ebe72977976acf1b8dcaf7c819274c79addfb82328c0ec9a012ed56e0",
+  "cpu_topology": "<local-host-omitted>",
+  "runner_sha256": "791e0a285aa770a1cbbbffccd17e767dcdfe8179c9ac6e9e7775d8732647da93"
+}

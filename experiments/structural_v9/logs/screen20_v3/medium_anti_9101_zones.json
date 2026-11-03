@@ -1,0 +1,62 @@
+{
+  "case": "medium_anti",
+  "seed": 9101,
+  "variant": "zones",
+  "command": [
+    "/usr/bin/time",
+    "-f",
+    "rss_kb=%M user=%U sys=%S",
+    "-o",
+    "./experiments/structural_v9/logs/screen20_v3/medium_anti_9101_zones.resource",
+    "taskset",
+    "-c",
+    "12,13",
+    "./experiments/structural_v9/artifacts/v3/candidate",
+    "./experiments/structural_v9/inputs/dev/medium_anti.json",
+    "./experiments/structural_v9/logs/screen20_v3/medium_anti_9101_zones.solution.json",
+    "20"
+  ],
+  "env": {
+    "HOME": "/home/user",
+    "LANG": "C.UTF-8",
+    "PATH": "/usr/local/bin:/usr/bin:/bin",
+    "NT": "2",
+    "SEED": "9101"
+  },
+  "affinity": [
+    12,
+    13
+  ],
+  "rc": 0,
+  "timeout": false,
+  "wall": 19.797107880000112,
+  "started_unix": 1792637716.9437947,
+  "ended_unix": 1792637736.755555,
+  "official": 2429.1849651081525,
+  "valid": true,
+  "snapshots": [
+    {
+      "at": 5.013950068999975,
+      "path": "experiments/structural_v9/logs/screen20_v3/medium_anti_9101_zones.t5.00.solution.json"
+    },
+    {
+      "at": 10.025678898000024,
+      "path": "experiments/structural_v9/logs/screen20_v3/medium_anti_9101_zones.t10.00.solution.json"
+    },
+    {
+      "at": 17.03935618000014,
+      "path": "experiments/structural_v9/logs/screen20_v3/medium_anti_9101_zones.t17.00.solution.json"
+    }
+  ],
+  "solution_sha256": "d9235433e3691b5ba492d917cf5a953de51f06cb03f4ed492ed0b7ae22940149",
+  "resource": "rss_kb=6664 user=37.68 sys=0.00\n",
+  "error": false,
+  "success": true,
+  "components": {
+    "reward": 8268.106549100406,
+    "distance": 5492.289512555196,
+    "cost": 341.3824799773121,
+    "penalty": 5.2495914597462905,
+    "objective": 2429.1849651081525
+  }
+}

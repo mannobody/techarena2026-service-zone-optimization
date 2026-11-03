@@ -1,0 +1,143 @@
+{
+  "case": "grid180",
+  "seed": 0,
+  "variant": "adaptive",
+  "command": [
+    "/usr/bin/time",
+    "-f",
+    "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+    "-o",
+    "./experiments/adaptive_v11/logs/development280_v3/grid180_0_adaptive.resource",
+    "taskset",
+    "-c",
+    "0,1",
+    "./experiments/adaptive_v11/artifacts/v3/candidate",
+    "./experiments/adaptive_v11/inputs/dev/grid180.json",
+    "./experiments/adaptive_v11/logs/development280_v3/grid180_0_adaptive.solution.json",
+    "280"
+  ],
+  "env": {
+    "HOME": "/home/user",
+    "LANG": "C.UTF-8",
+    "PATH": "/usr/local/bin:/usr/bin:/bin",
+    "NT": "2",
+    "SEED": "0",
+    "AP_POLICY": "1",
+    "AP_SHARE": "0"
+  },
+  "affinity": [
+    0,
+    1
+  ],
+  "rc": 0,
+  "timeout": false,
+  "wall": 279.45644587599963,
+  "started_unix": 1792659742.2971413,
+  "ended_unix": 1792660021.813942,
+  "official": 9045.291195428095,
+  "valid": true,
+  "snapshots": [
+    {
+      "at": 28.020573313999193,
+      "path": "experiments/adaptive_v11/logs/development280_v3/grid180_0_adaptive.t28.00.solution.json",
+      "official": 7655.110794380526
+    },
+    {
+      "at": 61.785205592997954,
+      "path": "experiments/adaptive_v11/logs/development280_v3/grid180_0_adaptive.t61.60.solution.json",
+      "official": 8549.904538412698
+    },
+    {
+      "at": 70.0196222409977,
+      "path": "experiments/adaptive_v11/logs/development280_v3/grid180_0_adaptive.t70.00.solution.json",
+      "official": 8962.833186554755
+    },
+    {
+      "at": 140.02468239599693,
+      "path": "experiments/adaptive_v11/logs/development280_v3/grid180_0_adaptive.t140.00.solution.json",
+      "official": 8987.666177913163
+    },
+    {
+      "at": 238.01518106399817,
+      "path": "experiments/adaptive_v11/logs/development280_v3/grid180_0_adaptive.t238.00.solution.json",
+      "official": 9003.575739399867
+    }
+  ],
+  "solution_sha256": "5e39f3b5a56638c1379f6fcdfebc10bdf0d1822f914468a99345fa91a8f3fc36",
+  "resource": "rss_kb=7508 user=550.46 sys=0.24 majorfaults=0 minorfaults=830 voluntary=22231 involuntary=23712 inputs=0 outputs=496\n",
+  "error": false,
+  "process_sampling": {
+    "last": {
+      "176": {
+        "runtime_ns": 80215873,
+        "runqueue_ns": 162839850,
+        "slices": 22183
+      },
+      "177": {
+        "runtime_ns": 110608581967,
+        "runqueue_ns": 4281266,
+        "slices": 175
+      },
+      "178": {
+        "runtime_ns": 277381499930,
+        "runqueue_ns": 104422649,
+        "slices": 9307
+      },
+      "179": {
+        "runtime_ns": 14830,
+        "runqueue_ns": 198097,
+        "slices": 1
+      },
+      "186": {
+        "runtime_ns": 160851660015,
+        "runqueue_ns": 111984282,
+        "slices": 14226
+      }
+    },
+    "states": {
+      "S": 435,
+      "R": 547
+    },
+    "wchan": {
+      "hrtimer_nanosleep": 276,
+      "0": 547,
+      "futex_do_wait": 159
+    },
+    "max_sampled_threads": 5,
+    "samples": 276,
+    "last_io": {
+      "rchar": 169871,
+      "wchar": 47022,
+      "syscr": 45,
+      "syscw": 64,
+      "read_bytes": 0,
+      "write_bytes": 253952,
+      "cancelled_write_bytes": 0
+    }
+  },
+  "resource_extra_fields": {
+    "majorfaults": 0.0,
+    "minorfaults": 830.0,
+    "voluntary": 22231.0,
+    "involuntary": 23712.0,
+    "inputs": 0.0,
+    "outputs": 496.0
+  },
+  "internal_deadline_stop": false,
+  "cpu_pressure_before": "some avg10=0.01 avg60=0.09 avg300=0.35 total=6226582752\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+  "cpu_pressure_after": "some avg10=1.02 avg60=0.93 avg300=0.56 total=6229610376\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+  "logged_threads": 1,
+  "resource_fields": {
+    "rss_kb": 7508.0,
+    "user": 550.46,
+    "sys": 0.24
+  },
+  "success": true,
+  "components": {
+    "reward": 12282.368399212273,
+    "distance": 2406.3018436338216,
+    "cost": 770.1715687068768,
+    "penalty": 60.60379144348162,
+    "objective": 9045.291195428092
+  }
+}

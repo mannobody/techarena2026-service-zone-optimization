@@ -1,0 +1,54 @@
+{
+  "same_binary_as_measured": true,
+  "binary_sha256": "255d6f0d4c46a80f36307059bc48c3110eed1f9285b8c0fccb42361e23252670",
+  "rows": [
+    {
+      "case": "tiny",
+      "rc": 0,
+      "wall": 0.0665881230006562,
+      "official": 254.08981479007377,
+      "files": [
+        "instance.json",
+        "solution.json"
+      ],
+      "ok": true,
+      "env": {
+        "PATH": "/usr/local/bin:/usr/bin:/bin",
+        "TL": "1"
+      },
+      "recipe": "NT=2 ZM_POOL=0 ZM_RESERVE=0 ./experiments/structural_v9/package/solution"
+    },
+    {
+      "case": "native",
+      "rc": 0,
+      "wall": 0.5678507580005316,
+      "official": 5.626351596202081,
+      "files": [
+        "instance.json",
+        "solution.json"
+      ],
+      "ok": true,
+      "env": {
+        "PATH": "/usr/local/bin:/usr/bin:/bin",
+        "TL": "1"
+      },
+      "recipe": "NT=2 ZM_POOL=0 ZM_RESERVE=0 ./experiments/structural_v9/package/solution"
+    },
+    {
+      "case": "big",
+      "rc": 0,
+      "wall": 0.7761419530006606,
+      "official": 21805.160946374246,
+      "files": [
+        "instance.json",
+        "solution.json"
+      ],
+      "ok": true,
+      "env": {
+        "PATH": "/usr/local/bin:/usr/bin:/bin",
+        "TL": "1"
+      },
+      "recipe": "NT=2 ZM_POOL=0 ZM_RESERVE=0 ./experiments/structural_v9/package/solution"
+    }
+  ]
+}

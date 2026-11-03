@@ -1,0 +1,74 @@
+{
+  "case": "large",
+  "seed": 9301,
+  "variant": "tail",
+  "command": [
+    "/usr/bin/time",
+    "-f",
+    "rss_kb=%M user=%U sys=%S",
+    "-o",
+    "./experiments/structural_v9/logs/development280/large_9301_tail.resource",
+    "taskset",
+    "-c",
+    "16,17",
+    "./experiments/structural_v9/artifacts/final_research/candidate",
+    "./experiments/structural_v9/inputs/dev/large.json",
+    "./experiments/structural_v9/logs/development280/large_9301_tail.solution.json",
+    "280"
+  ],
+  "env": {
+    "HOME": "/home/user",
+    "LANG": "C.UTF-8",
+    "PATH": "/usr/local/bin:/usr/bin:/bin",
+    "NT": "2",
+    "SEED": "9301",
+    "ZM_POOL": "0",
+    "ZM_RESERVE": "0"
+  },
+  "affinity": [
+    16,
+    17
+  ],
+  "rc": 0,
+  "timeout": false,
+  "wall": 279.57904278299975,
+  "started_unix": 1792639440.1331058,
+  "ended_unix": 1792639720.7330532,
+  "official": 279.04983352904327,
+  "valid": true,
+  "snapshots": [
+    {
+      "at": 70.01945417999968,
+      "path": "experiments/structural_v9/logs/development280/large_9301_tail.t70.00.solution.json",
+      "official": 275.1842167241318
+    },
+    {
+      "at": 140.019973166,
+      "path": "experiments/structural_v9/logs/development280/large_9301_tail.t140.00.solution.json",
+      "official": 278.09028269996696
+    },
+    {
+      "at": 238.02205771599984,
+      "path": "experiments/structural_v9/logs/development280/large_9301_tail.t238.00.solution.json",
+      "official": 278.09028269996696
+    }
+  ],
+  "solution_sha256": "aaeabe54f0e5f501ffaf4732d1299ae6bccb80e03bba96e5d5e6e86f9a512ee9",
+  "resource": "rss_kb=12964 user=72.29 sys=0.16\n",
+  "error": false,
+  "internal_deadline_stop": false,
+  "logged_threads": 2,
+  "resource_fields": {
+    "rss_kb": 12964.0,
+    "user": 72.29,
+    "sys": 0.16
+  },
+  "success": true,
+  "components": {
+    "reward": 429.909390590206,
+    "distance": 133.94629426998776,
+    "cost": 16.20199249634783,
+    "penalty": 0.7112702948271343,
+    "objective": 279.04983352904327
+  }
+}

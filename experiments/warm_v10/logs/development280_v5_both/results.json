@@ -1,0 +1,4178 @@
+[
+  {
+    "case": "medium_A0",
+    "seed": 9403,
+    "variant": "memetic",
+    "command": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S",
+      "-o",
+      "./experiments/warm_v10/logs/development280_v5_both/medium_A0_9403_memetic.resource",
+      "taskset",
+      "-c",
+      "12,13",
+      "./experiments/warm_v10/artifacts/v5/candidate",
+      "./experiments/structural_v9/inputs/dev/medium_A0.json",
+      "./experiments/warm_v10/logs/development280_v5_both/medium_A0_9403_memetic.solution.json",
+      "280"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "9403",
+      "ZM_POOL": "0",
+      "ZM_RESERVE": "0",
+      "DBG": "1",
+      "GW_MODE": "2"
+    },
+    "affinity": [
+      12,
+      13
+    ],
+    "rc": 0,
+    "timeout": false,
+    "wall": 279.5136112830005,
+    "started_unix": 1792647397.902844,
+    "ended_unix": 1792647677.5173726,
+    "official": 47.78069971408052,
+    "valid": true,
+    "snapshots": [
+      {
+        "at": 28.0206541940006,
+        "path": "experiments/warm_v10/logs/development280_v5_both/medium_A0_9403_memetic.t28.00.solution.json",
+        "official": 44.6065295142661
+      },
+      {
+        "at": 61.60274262100029,
+        "path": "experiments/warm_v10/logs/development280_v5_both/medium_A0_9403_memetic.t61.60.solution.json",
+        "official": 44.81099562457886
+      },
+      {
+        "at": 70.02422732599916,
+        "path": "experiments/warm_v10/logs/development280_v5_both/medium_A0_9403_memetic.t70.00.solution.json",
+        "official": 44.81099562457886
+      },
+      {
+        "at": 140.0006010140005,
+        "path": "experiments/warm_v10/logs/development280_v5_both/medium_A0_9403_memetic.t140.00.solution.json",
+        "official": 46.18493851828903
+      },
+      {
+        "at": 238.0143929320002,
+        "path": "experiments/warm_v10/logs/development280_v5_both/medium_A0_9403_memetic.t238.00.solution.json",
+        "official": 46.42752513582512
+      }
+    ],
+    "solution_sha256": "f0bfee0e2951aeaa46d09cd232cabe5b00ed1e400fb143904484e315238a40b0",
+    "resource": "rss_kb=5944 user=552.05 sys=0.19\n",
+    "error": false,
+    "internal_deadline_stop": false,
+    "cpu_pressure_before": "some avg10=54.75 avg60=42.37 avg300=36.12 total=3871432431\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "cpu_pressure_after": "some avg10=37.03 avg60=28.40 avg300=27.80 total=3932865540\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "logged_threads": 2,
+    "resource_fields": {
+      "rss_kb": 5944.0,
+      "user": 552.05,
+      "sys": 0.19
+    },
+    "success": true,
+    "components": {
+      "reward": 70.17909833819498,
+      "distance": 15.13109432371915,
+      "cost": 6.170755888860993,
+      "penalty": 1.0965484115342963,
+      "objective": 47.780699714080534
+    }
+  },
+  {
+    "case": "medium_A0",
+    "seed": 9403,
+    "variant": "v9",
+    "command": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S",
+      "-o",
+      "./experiments/warm_v10/logs/development280_v5_both/medium_A0_9403_v9.resource",
+      "taskset",
+      "-c",
+      "12,13",
+      "./experiments/structural_v9/artifacts/final_research/candidate",
+      "./experiments/structural_v9/inputs/dev/medium_A0.json",
+      "./experiments/warm_v10/logs/development280_v5_both/medium_A0_9403_v9.solution.json",
+      "280"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "9403",
+      "ZM_POOL": "0",
+      "ZM_RESERVE": "0",
+      "DBG": "1"
+    },
+    "affinity": [
+      12,
+      13
+    ],
+    "rc": 0,
+    "timeout": false,
+    "wall": 279.5085014470005,
+    "started_unix": 1792647678.491787,
+    "ended_unix": 1792647958.090969,
+    "official": 47.969447441016484,
+    "valid": true,
+    "snapshots": [
+      {
+        "at": 28.02343444700091,
+        "path": "experiments/warm_v10/logs/development280_v5_both/medium_A0_9403_v9.t28.00.solution.json",
+        "official": 46.12614798056597
+      },
+      {
+        "at": 61.645697491001556,
+        "path": "experiments/warm_v10/logs/development280_v5_both/medium_A0_9403_v9.t61.60.solution.json",
+        "official": 46.133524497343736
+      },
+      {
+        "at": 70.01674623800136,
+        "path": "experiments/warm_v10/logs/development280_v5_both/medium_A0_9403_v9.t70.00.solution.json",
+        "official": 46.133524497343736
+      },
+      {
+        "at": 140.0142061890001,
+        "path": "experiments/warm_v10/logs/development280_v5_both/medium_A0_9403_v9.t140.00.solution.json",
+        "official": 46.133524497343736
+      },
+      {
+        "at": 238.04208646900042,
+        "path": "experiments/warm_v10/logs/development280_v5_both/medium_A0_9403_v9.t238.00.solution.json",
+        "official": 46.133524497343736
+      }
+    ],
+    "solution_sha256": "52fbbad02057e76336c3d070aebe7acd6e2be2bb78a652459d11fd2df8f015dd",
+    "resource": "rss_kb=5576 user=552.10 sys=0.21\n",
+    "error": false,
+    "internal_deadline_stop": false,
+    "cpu_pressure_before": "some avg10=40.28 avg60=29.27 avg300=27.99 total=3933489053\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "cpu_pressure_after": "some avg10=18.98 avg60=23.85 avg300=29.39 total=4024890639\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "logged_threads": 2,
+    "resource_fields": {
+      "rss_kb": 5576.0,
+      "user": 552.1,
+      "sys": 0.21
+    },
+    "success": true,
+    "components": {
+      "reward": 70.17909833819498,
+      "distance": 15.307862733961283,
+      "cost": 6.170755888860993,
+      "penalty": 0.7310322743561976,
+      "objective": 47.9694474410165
+    }
+  },
+  {
+    "case": "medium_A0",
+    "seed": 9403,
+    "variant": "geometry",
+    "command": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S",
+      "-o",
+      "./experiments/warm_v10/logs/development280_v5_both/medium_A0_9403_geometry.resource",
+      "taskset",
+      "-c",
+      "12,13",
+      "./experiments/warm_v10/artifacts/v5/candidate",
+      "./experiments/structural_v9/inputs/dev/medium_A0.json",
+      "./experiments/warm_v10/logs/development280_v5_both/medium_A0_9403_geometry.solution.json",
+      "280"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "9403",
+      "ZM_POOL": "0",
+      "ZM_RESERVE": "0",
+      "DBG": "1",
+      "GW_MODE": "1"
+    },
+    "affinity": [
+      12,
+      13
+    ],
+    "rc": 0,
+    "timeout": false,
+    "wall": 279.4875618440001,
+    "started_unix": 1792647958.6747983,
+    "ended_unix": 1792648238.233146,
+    "official": 48.06489595071814,
+    "valid": true,
+    "snapshots": [
+      {
+        "at": 28.04385587300021,
+        "path": "experiments/warm_v10/logs/development280_v5_both/medium_A0_9403_geometry.t28.00.solution.json",
+        "official": 44.38456676547913
+      },
+      {
+        "at": 61.61842479400002,
+        "path": "experiments/warm_v10/logs/development280_v5_both/medium_A0_9403_geometry.t61.60.solution.json",
+        "official": 46.2660226659468
+      },
+      {
+        "at": 70.03989689599985,
+        "path": "experiments/warm_v10/logs/development280_v5_both/medium_A0_9403_geometry.t70.00.solution.json",
+        "official": 46.2660226659468
+      },
+      {
+        "at": 140.00299212699974,
+        "path": "experiments/warm_v10/logs/development280_v5_both/medium_A0_9403_geometry.t140.00.solution.json",
+        "official": 46.293307897231955
+      },
+      {
+        "at": 238.0252098029996,
+        "path": "experiments/warm_v10/logs/development280_v5_both/medium_A0_9403_geometry.t238.00.solution.json",
+        "official": 46.293307897231955
+      }
+    ],
+    "solution_sha256": "467b179042aee34f4ca23944f55f633b4ec2cbd1405f823ff40c84edc0d802f1",
+    "resource": "rss_kb=5764 user=543.80 sys=0.25\n",
+    "error": false,
+    "internal_deadline_stop": false,
+    "cpu_pressure_before": "some avg10=19.89 avg60=23.85 avg300=29.35 total=4025109557\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "cpu_pressure_after": "some avg10=19.33 avg60=19.25 avg300=23.05 total=4080451337\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "logged_threads": 2,
+    "resource_fields": {
+      "rss_kb": 5764.0,
+      "user": 543.8,
+      "sys": 0.25
+    },
+    "success": true,
+    "components": {
+      "reward": 70.17909833819498,
+      "distance": 15.212414224259632,
+      "cost": 6.170755888860993,
+      "penalty": 0.7310322743561976,
+      "objective": 48.06489595071815
+    }
+  },
+  {
+    "case": "medium_A0",
+    "seed": 9403,
+    "variant": "v4",
+    "command": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S",
+      "-o",
+      "./experiments/warm_v10/logs/development280_v5_both/medium_A0_9403_v4.resource",
+      "taskset",
+      "-c",
+      "12,13",
+      "./experiments/structural_v9/artifacts/v4",
+      "./experiments/structural_v9/inputs/dev/medium_A0.json",
+      "./experiments/warm_v10/logs/development280_v5_both/medium_A0_9403_v4.solution.json",
+      "280"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "9403",
+      "DBG": "1"
+    },
+    "affinity": [
+      12,
+      13
+    ],
+    "rc": 0,
+    "timeout": false,
+    "wall": 279.48333899799945,
+    "started_unix": 1792648238.846703,
+    "ended_unix": 1792648518.4209778,
+    "official": 46.561238663352405,
+    "valid": true,
+    "snapshots": [
+      {
+        "at": 28.031685350999396,
+        "path": "experiments/warm_v10/logs/development280_v5_both/medium_A0_9403_v4.t28.00.solution.json",
+        "official": 46.12614798056597
+      },
+      {
+        "at": 61.602138526999624,
+        "path": "experiments/warm_v10/logs/development280_v5_both/medium_A0_9403_v4.t61.60.solution.json",
+        "official": 46.12614798056597
+      },
+      {
+        "at": 70.02336829700107,
+        "path": "experiments/warm_v10/logs/development280_v5_both/medium_A0_9403_v4.t70.00.solution.json",
+        "official": 46.12614798056597
+      },
+      {
+        "at": 140.03051553499972,
+        "path": "experiments/warm_v10/logs/development280_v5_both/medium_A0_9403_v4.t140.00.solution.json",
+        "official": 46.12614798056597
+      },
+      {
+        "at": 238.03347802499957,
+        "path": "experiments/warm_v10/logs/development280_v5_both/medium_A0_9403_v4.t238.00.solution.json",
+        "official": 46.133524497343736
+      }
+    ],
+    "solution_sha256": "47894490414902740457cbfbd8dc66f958a5e33347caf0593dacb86d5e28fc73",
+    "resource": "rss_kb=5656 user=414.14 sys=0.37\n",
+    "error": false,
+    "internal_deadline_stop": false,
+    "cpu_pressure_before": "some avg10=20.18 avg60=19.40 avg300=23.06 total=4080642573\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "cpu_pressure_after": "some avg10=37.26 avg60=35.69 avg300=27.76 total=4162624919\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "logged_threads": 2,
+    "resource_fields": {
+      "rss_kb": 5656.0,
+      "user": 414.14,
+      "sys": 0.37
+    },
+    "success": true,
+    "components": {
+      "reward": 70.17909833819498,
+      "distance": 15.985039237269167,
+      "cost": 6.170755888860993,
+      "penalty": 1.462064548712395,
+      "objective": 46.56123866335242
+    }
+  },
+  {
+    "case": "grid_boundary",
+    "seed": 9403,
+    "variant": "v4",
+    "command": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S",
+      "-o",
+      "./experiments/warm_v10/logs/development280_v5_both/grid_boundary_9403_v4.resource",
+      "taskset",
+      "-c",
+      "0,1",
+      "./experiments/structural_v9/artifacts/v4",
+      "./experiments/structural_v9/inputs/dev/grid_boundary.json",
+      "./experiments/warm_v10/logs/development280_v5_both/grid_boundary_9403_v4.solution.json",
+      "280"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "9403",
+      "DBG": "1"
+    },
+    "affinity": [
+      0,
+      1
+    ],
+    "rc": 0,
+    "timeout": false,
+    "wall": 279.51338099999884,
+    "started_unix": 1792647397.9028907,
+    "ended_unix": 1792647677.583495,
+    "official": 50.22936290856666,
+    "valid": true,
+    "snapshots": [
+      {
+        "at": 28.020757435999258,
+        "path": "experiments/warm_v10/logs/development280_v5_both/grid_boundary_9403_v4.t28.00.solution.json",
+        "official": 50.104142343760174
+      },
+      {
+        "at": 61.602604312998665,
+        "path": "experiments/warm_v10/logs/development280_v5_both/grid_boundary_9403_v4.t61.60.solution.json",
+        "official": 50.104142343760174
+      },
+      {
+        "at": 70.0245286069985,
+        "path": "experiments/warm_v10/logs/development280_v5_both/grid_boundary_9403_v4.t70.00.solution.json",
+        "official": 50.104142343760174
+      },
+      {
+        "at": 140.0121510359986,
+        "path": "experiments/warm_v10/logs/development280_v5_both/grid_boundary_9403_v4.t140.00.solution.json",
+        "official": 50.164275526608115
+      },
+      {
+        "at": 238.0010436779994,
+        "path": "experiments/warm_v10/logs/development280_v5_both/grid_boundary_9403_v4.t238.00.solution.json",
+        "official": 50.164275526608115
+      }
+    ],
+    "solution_sha256": "b45d25ab25b8bc324b65e183756ae8d09ece368aa2557ea833a040d4129d00ed",
+    "resource": "rss_kb=5264 user=555.87 sys=0.04\n",
+    "error": false,
+    "internal_deadline_stop": false,
+    "cpu_pressure_before": "some avg10=54.75 avg60=42.37 avg300=36.12 total=3871432431\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "cpu_pressure_after": "some avg10=37.03 avg60=28.40 avg300=27.80 total=3932850178\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "logged_threads": 2,
+    "resource_fields": {
+      "rss_kb": 5264.0,
+      "user": 555.87,
+      "sys": 0.04
+    },
+    "success": true,
+    "components": {
+      "reward": 64.53542206410272,
+      "distance": 9.967138852952965,
+      "cost": 4.166825843745489,
+      "penalty": 0.17209445883760727,
+      "objective": 50.22936290856666
+    }
+  },
+  {
+    "case": "grid_boundary",
+    "seed": 9403,
+    "variant": "v9",
+    "command": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S",
+      "-o",
+      "./experiments/warm_v10/logs/development280_v5_both/grid_boundary_9403_v9.resource",
+      "taskset",
+      "-c",
+      "0,1",
+      "./experiments/structural_v9/artifacts/final_research/candidate",
+      "./experiments/structural_v9/inputs/dev/grid_boundary.json",
+      "./experiments/warm_v10/logs/development280_v5_both/grid_boundary_9403_v9.solution.json",
+      "280"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "9403",
+      "ZM_POOL": "0",
+      "ZM_RESERVE": "0",
+      "DBG": "1"
+    },
+    "affinity": [
+      0,
+      1
+    ],
+    "rc": 0,
+    "timeout": false,
+    "wall": 279.53252401400096,
+    "started_unix": 1792647678.4344006,
+    "ended_unix": 1792647958.090655,
+    "official": 50.920826755588635,
+    "valid": true,
+    "snapshots": [
+      {
+        "at": 28.012978173999727,
+        "path": "experiments/warm_v10/logs/development280_v5_both/grid_boundary_9403_v9.t28.00.solution.json",
+        "official": 50.07380853425037
+      },
+      {
+        "at": 61.636480541999845,
+        "path": "experiments/warm_v10/logs/development280_v5_both/grid_boundary_9403_v9.t61.60.solution.json",
+        "official": 50.07380853425037
+      },
+      {
+        "at": 70.00593499299976,
+        "path": "experiments/warm_v10/logs/development280_v5_both/grid_boundary_9403_v9.t70.00.solution.json",
+        "official": 50.07380853425037
+      },
+      {
+        "at": 140.00347895999948,
+        "path": "experiments/warm_v10/logs/development280_v5_both/grid_boundary_9403_v9.t140.00.solution.json",
+        "official": 50.90279590445883
+      },
+      {
+        "at": 238.03871776100095,
+        "path": "experiments/warm_v10/logs/development280_v5_both/grid_boundary_9403_v9.t238.00.solution.json",
+        "official": 50.90279590445883
+      }
+    ],
+    "solution_sha256": "5849cd8929c5b13d645c5fcd1daedb9d0c768fcd3e5d679811b18861ec9674ec",
+    "resource": "rss_kb=5424 user=555.89 sys=0.02\n",
+    "error": false,
+    "internal_deadline_stop": false,
+    "cpu_pressure_before": "some avg10=37.03 avg60=28.40 avg300=27.80 total=3933403085\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "cpu_pressure_after": "some avg10=18.98 avg60=23.85 avg300=29.39 total=4024890639\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "logged_threads": 2,
+    "resource_fields": {
+      "rss_kb": 5424.0,
+      "user": 555.89,
+      "sys": 0.02
+    },
+    "success": true,
+    "components": {
+      "reward": 64.53542206410272,
+      "distance": 9.166374487532998,
+      "cost": 4.276126362143476,
+      "penalty": 0.17209445883760727,
+      "objective": 50.920826755588635
+    }
+  },
+  {
+    "case": "grid_boundary",
+    "seed": 9403,
+    "variant": "geometry",
+    "command": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S",
+      "-o",
+      "./experiments/warm_v10/logs/development280_v5_both/grid_boundary_9403_geometry.resource",
+      "taskset",
+      "-c",
+      "0,1",
+      "./experiments/warm_v10/artifacts/v5/candidate",
+      "./experiments/structural_v9/inputs/dev/grid_boundary.json",
+      "./experiments/warm_v10/logs/development280_v5_both/grid_boundary_9403_geometry.solution.json",
+      "280"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "9403",
+      "ZM_POOL": "0",
+      "ZM_RESERVE": "0",
+      "DBG": "1",
+      "GW_MODE": "1"
+    },
+    "affinity": [
+      0,
+      1
+    ],
+    "rc": 0,
+    "timeout": false,
+    "wall": 279.52187406600024,
+    "started_unix": 1792647958.6933696,
+    "ended_unix": 1792648238.2599187,
+    "official": 51.107175506617125,
+    "valid": true,
+    "snapshots": [
+      {
+        "at": 28.023848857001212,
+        "path": "experiments/warm_v10/logs/development280_v5_both/grid_boundary_9403_geometry.t28.00.solution.json",
+        "official": 50.04029077355789
+      },
+      {
+        "at": 61.64993046100062,
+        "path": "experiments/warm_v10/logs/development280_v5_both/grid_boundary_9403_geometry.t61.60.solution.json",
+        "official": 50.7150575208189
+      },
+      {
+        "at": 70.02243494600043,
+        "path": "experiments/warm_v10/logs/development280_v5_both/grid_boundary_9403_geometry.t70.00.solution.json",
+        "official": 50.98330347219369
+      },
+      {
+        "at": 140.03209497600074,
+        "path": "experiments/warm_v10/logs/development280_v5_both/grid_boundary_9403_geometry.t140.00.solution.json",
+        "official": 50.98330347219369
+      },
+      {
+        "at": 238.0063923730013,
+        "path": "experiments/warm_v10/logs/development280_v5_both/grid_boundary_9403_geometry.t238.00.solution.json",
+        "official": 50.98330347219369
+      }
+    ],
+    "solution_sha256": "6adbfbb860343b680fd17f947693d40563334fa39391643d2db4cc75b8297d00",
+    "resource": "rss_kb=5600 user=555.82 sys=0.03\n",
+    "error": false,
+    "internal_deadline_stop": false,
+    "cpu_pressure_before": "some avg10=19.89 avg60=23.85 avg300=29.35 total=4025118562\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "cpu_pressure_after": "some avg10=19.33 avg60=19.25 avg300=23.05 total=4080452408\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "logged_threads": 2,
+    "resource_fields": {
+      "rss_kb": 5600.0,
+      "user": 555.82,
+      "sys": 0.03
+    },
+    "success": true,
+    "components": {
+      "reward": 64.53542206410272,
+      "distance": 8.421320995640395,
+      "cost": 4.23250049707597,
+      "penalty": 0.7744250647692327,
+      "objective": 51.107175506617125
+    }
+  },
+  {
+    "case": "grid_boundary",
+    "seed": 9403,
+    "variant": "memetic",
+    "command": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S",
+      "-o",
+      "./experiments/warm_v10/logs/development280_v5_both/grid_boundary_9403_memetic.resource",
+      "taskset",
+      "-c",
+      "0,1",
+      "./experiments/warm_v10/artifacts/v5/candidate",
+      "./experiments/structural_v9/inputs/dev/grid_boundary.json",
+      "./experiments/warm_v10/logs/development280_v5_both/grid_boundary_9403_memetic.solution.json",
+      "280"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "9403",
+      "ZM_POOL": "0",
+      "ZM_RESERVE": "0",
+      "DBG": "1",
+      "GW_MODE": "2"
+    },
+    "affinity": [
+      0,
+      1
+    ],
+    "rc": 0,
+    "timeout": false,
+    "wall": 279.46906180800033,
+    "started_unix": 1792648238.8543882,
+    "ended_unix": 1792648518.421147,
+    "official": 55.1841076559978,
+    "valid": true,
+    "snapshots": [
+      {
+        "at": 28.01053325400062,
+        "path": "experiments/warm_v10/logs/development280_v5_both/grid_boundary_9403_memetic.t28.00.solution.json",
+        "official": 49.32016328231239
+      },
+      {
+        "at": 61.630675263999365,
+        "path": "experiments/warm_v10/logs/development280_v5_both/grid_boundary_9403_memetic.t61.60.solution.json",
+        "official": 53.618468728124796
+      },
+      {
+        "at": 70.04881094499979,
+        "path": "experiments/warm_v10/logs/development280_v5_both/grid_boundary_9403_memetic.t70.00.solution.json",
+        "official": 53.861950696246
+      },
+      {
+        "at": 140.00373771699924,
+        "path": "experiments/warm_v10/logs/development280_v5_both/grid_boundary_9403_memetic.t140.00.solution.json",
+        "official": 53.861950696246
+      },
+      {
+        "at": 238.02201937099926,
+        "path": "experiments/warm_v10/logs/development280_v5_both/grid_boundary_9403_memetic.t238.00.solution.json",
+        "official": 53.90226890506446
+      }
+    ],
+    "solution_sha256": "33266d7af6f7b5d06e24e2d99ccd60a403a9fb22f25da6e5fbb4e3a1b59b3736",
+    "resource": "rss_kb=5596 user=556.02 sys=0.01\n",
+    "error": false,
+    "internal_deadline_stop": false,
+    "cpu_pressure_before": "some avg10=20.18 avg60=19.40 avg300=23.06 total=4080651814\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "cpu_pressure_after": "some avg10=37.26 avg60=35.69 avg300=27.76 total=4162623929\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "logged_threads": 2,
+    "resource_fields": {
+      "rss_kb": 5596.0,
+      "user": 556.02,
+      "sys": 0.01
+    },
+    "success": true,
+    "components": {
+      "reward": 74.00061730017111,
+      "distance": 12.647461494263348,
+      "cost": 5.308575855721923,
+      "penalty": 0.8604722941880363,
+      "objective": 55.18410765599781
+    }
+  },
+  {
+    "case": "medium_anti",
+    "seed": 9403,
+    "variant": "v9",
+    "command": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S",
+      "-o",
+      "./experiments/warm_v10/logs/development280_v5_both/medium_anti_9403_v9.resource",
+      "taskset",
+      "-c",
+      "16,17",
+      "./experiments/structural_v9/artifacts/final_research/candidate",
+      "./experiments/structural_v9/inputs/dev/medium_anti.json",
+      "./experiments/warm_v10/logs/development280_v5_both/medium_anti_9403_v9.solution.json",
+      "280"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "9403",
+      "ZM_POOL": "0",
+      "ZM_RESERVE": "0",
+      "DBG": "1"
+    },
+    "affinity": [
+      16,
+      17
+    ],
+    "rc": 0,
+    "timeout": false,
+    "wall": 279.5086726850004,
+    "started_unix": 1792647397.907748,
+    "ended_unix": 1792647677.596381,
+    "official": 2429.1849651081525,
+    "valid": true,
+    "snapshots": [
+      {
+        "at": 28.016836033999425,
+        "path": "experiments/warm_v10/logs/development280_v5_both/medium_anti_9403_v9.t28.00.solution.json",
+        "official": 2428.3784730169655
+      },
+      {
+        "at": 61.64894010900025,
+        "path": "experiments/warm_v10/logs/development280_v5_both/medium_anti_9403_v9.t61.60.solution.json",
+        "official": 2428.3784730169655
+      },
+      {
+        "at": 70.01939163499992,
+        "path": "experiments/warm_v10/logs/development280_v5_both/medium_anti_9403_v9.t70.00.solution.json",
+        "official": 2428.3784730169655
+      },
+      {
+        "at": 140.00815805299862,
+        "path": "experiments/warm_v10/logs/development280_v5_both/medium_anti_9403_v9.t140.00.solution.json",
+        "official": 2428.3784730169655
+      },
+      {
+        "at": 238.00903604199993,
+        "path": "experiments/warm_v10/logs/development280_v5_both/medium_anti_9403_v9.t238.00.solution.json",
+        "official": 2429.1849651081525
+      }
+    ],
+    "solution_sha256": "e2a8f9bd900ff05e6bebdbe6c6ea4af97c5a681d98479f33d9cc5c2feca386dd",
+    "resource": "rss_kb=5400 user=496.05 sys=0.05\n",
+    "error": false,
+    "internal_deadline_stop": false,
+    "cpu_pressure_before": "some avg10=54.75 avg60=42.37 avg300=36.12 total=3871435764\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "cpu_pressure_after": "some avg10=37.03 avg60=28.40 avg300=27.80 total=3932857245\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "logged_threads": 2,
+    "resource_fields": {
+      "rss_kb": 5400.0,
+      "user": 496.05,
+      "sys": 0.05
+    },
+    "success": true,
+    "components": {
+      "reward": 8268.106549100406,
+      "distance": 5492.289512555196,
+      "cost": 341.3824799773121,
+      "penalty": 5.2495914597462905,
+      "objective": 2429.1849651081525
+    }
+  },
+  {
+    "case": "medium_anti",
+    "seed": 9403,
+    "variant": "memetic",
+    "command": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S",
+      "-o",
+      "./experiments/warm_v10/logs/development280_v5_both/medium_anti_9403_memetic.resource",
+      "taskset",
+      "-c",
+      "16,17",
+      "./experiments/warm_v10/artifacts/v5/candidate",
+      "./experiments/structural_v9/inputs/dev/medium_anti.json",
+      "./experiments/warm_v10/logs/development280_v5_both/medium_anti_9403_memetic.solution.json",
+      "280"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "9403",
+      "ZM_POOL": "0",
+      "ZM_RESERVE": "0",
+      "DBG": "1",
+      "GW_MODE": "2"
+    },
+    "affinity": [
+      16,
+      17
+    ],
+    "rc": 0,
+    "timeout": false,
+    "wall": 279.4674356380001,
+    "started_unix": 1792647678.4952123,
+    "ended_unix": 1792647958.0012538,
+    "official": 2958.4135125354137,
+    "valid": true,
+    "snapshots": [
+      {
+        "at": 28.020602922000762,
+        "path": "experiments/warm_v10/logs/development280_v5_both/medium_anti_9403_memetic.t28.00.solution.json",
+        "official": 2744.794979601309
+      },
+      {
+        "at": 61.64390828999967,
+        "path": "experiments/warm_v10/logs/development280_v5_both/medium_anti_9403_memetic.t61.60.solution.json",
+        "official": 2767.0992977121573
+      },
+      {
+        "at": 70.01228151600117,
+        "path": "experiments/warm_v10/logs/development280_v5_both/medium_anti_9403_memetic.t70.00.solution.json",
+        "official": 2787.3143066167195
+      },
+      {
+        "at": 140.04942366199975,
+        "path": "experiments/warm_v10/logs/development280_v5_both/medium_anti_9403_memetic.t140.00.solution.json",
+        "official": 2931.4843095556407
+      },
+      {
+        "at": 238.0278559819999,
+        "path": "experiments/warm_v10/logs/development280_v5_both/medium_anti_9403_memetic.t238.00.solution.json",
+        "official": 2931.4843095556407
+      }
+    ],
+    "solution_sha256": "c0209e2776fef29d755d8bdcd0bb8dff4000b6074eff732d8f7f1a952a2552e2",
+    "resource": "rss_kb=6112 user=166.25 sys=0.25\n",
+    "error": false,
+    "internal_deadline_stop": false,
+    "cpu_pressure_before": "some avg10=40.28 avg60=29.27 avg300=27.99 total=3933491572\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "cpu_pressure_after": "some avg10=18.98 avg60=23.85 avg300=29.39 total=4024890639\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "logged_threads": 2,
+    "resource_fields": {
+      "rss_kb": 6112.0,
+      "user": 166.25,
+      "sys": 0.25
+    },
+    "success": true,
+    "components": {
+      "reward": 9842.983987024294,
+      "distance": 6043.350007086641,
+      "cost": 832.0336823476833,
+      "penalty": 9.186785054556008,
+      "objective": 2958.4135125354137
+    }
+  },
+  {
+    "case": "medium_anti",
+    "seed": 9403,
+    "variant": "v4",
+    "command": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S",
+      "-o",
+      "./experiments/warm_v10/logs/development280_v5_both/medium_anti_9403_v4.resource",
+      "taskset",
+      "-c",
+      "16,17",
+      "./experiments/structural_v9/artifacts/v4",
+      "./experiments/structural_v9/inputs/dev/medium_anti.json",
+      "./experiments/warm_v10/logs/development280_v5_both/medium_anti_9403_v4.solution.json",
+      "280"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "9403",
+      "DBG": "1"
+    },
+    "affinity": [
+      16,
+      17
+    ],
+    "rc": 0,
+    "timeout": false,
+    "wall": 279.5069000330004,
+    "started_unix": 1792647958.6982055,
+    "ended_unix": 1792648238.232866,
+    "official": 2429.1849651081525,
+    "valid": true,
+    "snapshots": [
+      {
+        "at": 28.032504589000382,
+        "path": "experiments/warm_v10/logs/development280_v5_both/medium_anti_9403_v4.t28.00.solution.json",
+        "official": 2428.3784730169655
+      },
+      {
+        "at": 61.60117587900095,
+        "path": "experiments/warm_v10/logs/development280_v5_both/medium_anti_9403_v4.t61.60.solution.json",
+        "official": 2428.3784730169655
+      },
+      {
+        "at": 70.02326135800104,
+        "path": "experiments/warm_v10/logs/development280_v5_both/medium_anti_9403_v4.t70.00.solution.json",
+        "official": 2428.3784730169655
+      },
+      {
+        "at": 140.0282915550015,
+        "path": "experiments/warm_v10/logs/development280_v5_both/medium_anti_9403_v4.t140.00.solution.json",
+        "official": 2428.3784730169655
+      },
+      {
+        "at": 238.0014121690001,
+        "path": "experiments/warm_v10/logs/development280_v5_both/medium_anti_9403_v4.t238.00.solution.json",
+        "official": 2428.3784730169655
+      }
+    ],
+    "solution_sha256": "e2a8f9bd900ff05e6bebdbe6c6ea4af97c5a681d98479f33d9cc5c2feca386dd",
+    "resource": "rss_kb=5408 user=92.47 sys=0.07\n",
+    "error": false,
+    "internal_deadline_stop": false,
+    "cpu_pressure_before": "some avg10=19.89 avg60=23.85 avg300=29.35 total=4025120232\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "cpu_pressure_after": "some avg10=19.33 avg60=19.25 avg300=23.05 total=4080448677\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "logged_threads": 2,
+    "resource_fields": {
+      "rss_kb": 5408.0,
+      "user": 92.47,
+      "sys": 0.07
+    },
+    "success": true,
+    "components": {
+      "reward": 8268.106549100406,
+      "distance": 5492.289512555196,
+      "cost": 341.3824799773121,
+      "penalty": 5.2495914597462905,
+      "objective": 2429.1849651081525
+    }
+  },
+  {
+    "case": "medium_anti",
+    "seed": 9403,
+    "variant": "geometry",
+    "command": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S",
+      "-o",
+      "./experiments/warm_v10/logs/development280_v5_both/medium_anti_9403_geometry.resource",
+      "taskset",
+      "-c",
+      "16,17",
+      "./experiments/warm_v10/artifacts/v5/candidate",
+      "./experiments/structural_v9/inputs/dev/medium_anti.json",
+      "./experiments/warm_v10/logs/development280_v5_both/medium_anti_9403_geometry.solution.json",
+      "280"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "9403",
+      "ZM_POOL": "0",
+      "ZM_RESERVE": "0",
+      "DBG": "1",
+      "GW_MODE": "1"
+    },
+    "affinity": [
+      16,
+      17
+    ],
+    "rc": 0,
+    "timeout": false,
+    "wall": 279.4957960800002,
+    "started_unix": 1792648238.8275352,
+    "ended_unix": 1792648518.4471073,
+    "official": 3147.8126156740686,
+    "valid": true,
+    "snapshots": [
+      {
+        "at": 28.01407988400024,
+        "path": "experiments/warm_v10/logs/development280_v5_both/medium_anti_9403_geometry.t28.00.solution.json",
+        "official": 2438.4905088025985
+      },
+      {
+        "at": 61.632978386000104,
+        "path": "experiments/warm_v10/logs/development280_v5_both/medium_anti_9403_geometry.t61.60.solution.json",
+        "official": 2849.981132066428
+      },
+      {
+        "at": 70.00029576399902,
+        "path": "experiments/warm_v10/logs/development280_v5_both/medium_anti_9403_geometry.t70.00.solution.json",
+        "official": 3037.8032934866724
+      },
+      {
+        "at": 140.04685878800046,
+        "path": "experiments/warm_v10/logs/development280_v5_both/medium_anti_9403_geometry.t140.00.solution.json",
+        "official": 3060.3405870797797
+      },
+      {
+        "at": 238.00168346899954,
+        "path": "experiments/warm_v10/logs/development280_v5_both/medium_anti_9403_geometry.t238.00.solution.json",
+        "official": 3080.108433005935
+      }
+    ],
+    "solution_sha256": "ddf72fc1c6c76719d8e9943a20ae0e69b9c3a760ce3cf4eb7d4dbb1c6050d09e",
+    "resource": "rss_kb=5748 user=99.70 sys=0.13\n",
+    "error": false,
+    "internal_deadline_stop": false,
+    "cpu_pressure_before": "some avg10=20.18 avg60=19.40 avg300=23.06 total=4080642573\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "cpu_pressure_after": "some avg10=37.26 avg60=35.69 avg300=27.76 total=4162624577\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "logged_threads": 2,
+    "resource_fields": {
+      "rss_kb": 5748.0,
+      "user": 99.7,
+      "sys": 0.13
+    },
+    "success": true,
+    "components": {
+      "reward": 10761.662492479894,
+      "distance": 7098.905777144277,
+      "cost": 499.1953252823099,
+      "penalty": 15.74877437923887,
+      "objective": 3147.8126156740686
+    }
+  },
+  {
+    "case": "medium_A0",
+    "seed": 10302,
+    "variant": "v9",
+    "command": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S",
+      "-o",
+      "./experiments/warm_v10/logs/development280_v5_both/medium_A0_10302_v9.resource",
+      "taskset",
+      "-c",
+      "18,19",
+      "./experiments/structural_v9/artifacts/final_research/candidate",
+      "./experiments/structural_v9/inputs/dev/medium_A0.json",
+      "./experiments/warm_v10/logs/development280_v5_both/medium_A0_10302_v9.solution.json",
+      "280"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "10302",
+      "ZM_POOL": "0",
+      "ZM_RESERVE": "0",
+      "DBG": "1"
+    },
+    "affinity": [
+      18,
+      19
+    ],
+    "rc": 0,
+    "timeout": false,
+    "wall": 279.49623451499974,
+    "started_unix": 1792647397.9147098,
+    "ended_unix": 1792647677.5783334,
+    "official": 48.156305189530705,
+    "valid": true,
+    "snapshots": [
+      {
+        "at": 28.008984751000753,
+        "path": "experiments/warm_v10/logs/development280_v5_both/medium_A0_10302_v9.t28.00.solution.json",
+        "official": 46.022636971617544
+      },
+      {
+        "at": 61.64203153299968,
+        "path": "experiments/warm_v10/logs/development280_v5_both/medium_A0_10302_v9.t61.60.solution.json",
+        "official": 46.022636971617544
+      },
+      {
+        "at": 70.01250413100024,
+        "path": "experiments/warm_v10/logs/development280_v5_both/medium_A0_10302_v9.t70.00.solution.json",
+        "official": 46.022636971617544
+      },
+      {
+        "at": 140.0017457470003,
+        "path": "experiments/warm_v10/logs/development280_v5_both/medium_A0_10302_v9.t140.00.solution.json",
+        "official": 46.022636971617544
+      },
+      {
+        "at": 238.01809302000038,
+        "path": "experiments/warm_v10/logs/development280_v5_both/medium_A0_10302_v9.t238.00.solution.json",
+        "official": 47.11135677961575
+      }
+    ],
+    "solution_sha256": "a04742ad91a24e635ce7810aeaa0d87e4197cc111802e3aa4193bd280cc1fce5",
+    "resource": "rss_kb=5780 user=554.92 sys=0.01\n",
+    "error": false,
+    "internal_deadline_stop": false,
+    "cpu_pressure_before": "some avg10=54.75 avg60=42.37 avg300=36.12 total=3871441696\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "cpu_pressure_after": "some avg10=37.03 avg60=28.40 avg300=27.80 total=3932867807\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "logged_threads": 2,
+    "resource_fields": {
+      "rss_kb": 5780.0,
+      "user": 554.92,
+      "sys": 0.01
+    },
+    "success": true,
+    "components": {
+      "reward": 70.17909833819498,
+      "distance": 15.486521122625167,
+      "cost": 6.170755888860993,
+      "penalty": 0.3655161371780988,
+      "objective": 48.15630518953072
+    }
+  },
+  {
+    "case": "medium_A0",
+    "seed": 10302,
+    "variant": "memetic",
+    "command": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S",
+      "-o",
+      "./experiments/warm_v10/logs/development280_v5_both/medium_A0_10302_memetic.resource",
+      "taskset",
+      "-c",
+      "18,19",
+      "./experiments/warm_v10/artifacts/v5/candidate",
+      "./experiments/structural_v9/inputs/dev/medium_A0.json",
+      "./experiments/warm_v10/logs/development280_v5_both/medium_A0_10302_memetic.solution.json",
+      "280"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "10302",
+      "ZM_POOL": "0",
+      "ZM_RESERVE": "0",
+      "DBG": "1",
+      "GW_MODE": "2"
+    },
+    "affinity": [
+      18,
+      19
+    ],
+    "rc": 0,
+    "timeout": false,
+    "wall": 279.47728772700066,
+    "started_unix": 1792647678.4896796,
+    "ended_unix": 1792647958.0422232,
+    "official": 48.021150343767395,
+    "valid": true,
+    "snapshots": [
+      {
+        "at": 28.024642980999488,
+        "path": "experiments/warm_v10/logs/development280_v5_both/medium_A0_10302_memetic.t28.00.solution.json",
+        "official": 43.71054291675668
+      },
+      {
+        "at": 61.64879824300078,
+        "path": "experiments/warm_v10/logs/development280_v5_both/medium_A0_10302_memetic.t61.60.solution.json",
+        "official": 44.94806379101139
+      },
+      {
+        "at": 70.0178757850008,
+        "path": "experiments/warm_v10/logs/development280_v5_both/medium_A0_10302_memetic.t70.00.solution.json",
+        "official": 45.07360621541383
+      },
+      {
+        "at": 140.01570457600064,
+        "path": "experiments/warm_v10/logs/development280_v5_both/medium_A0_10302_memetic.t140.00.solution.json",
+        "official": 45.891016232095296
+      },
+      {
+        "at": 238.0334806890005,
+        "path": "experiments/warm_v10/logs/development280_v5_both/medium_A0_10302_memetic.t238.00.solution.json",
+        "official": 47.08566222386677
+      }
+    ],
+    "solution_sha256": "cfb5368247b170511cb14461cdf39fe5eb2c138abc388663a8c5a5480453fdd8",
+    "resource": "rss_kb=5744 user=554.79 sys=0.01\n",
+    "error": false,
+    "internal_deadline_stop": false,
+    "cpu_pressure_before": "some avg10=40.28 avg60=29.27 avg300=27.99 total=3933486139\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "cpu_pressure_after": "some avg10=18.98 avg60=23.85 avg300=29.39 total=4024890639\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "logged_threads": 2,
+    "resource_fields": {
+      "rss_kb": 5744.0,
+      "user": 554.79,
+      "sys": 0.01
+    },
+    "success": true,
+    "components": {
+      "reward": 70.17909833819498,
+      "distance": 15.256159831210374,
+      "cost": 6.170755888860993,
+      "penalty": 0.7310322743561976,
+      "objective": 48.02115034376741
+    }
+  },
+  {
+    "case": "medium_A0",
+    "seed": 10302,
+    "variant": "v4",
+    "command": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S",
+      "-o",
+      "./experiments/warm_v10/logs/development280_v5_both/medium_A0_10302_v4.resource",
+      "taskset",
+      "-c",
+      "18,19",
+      "./experiments/structural_v9/artifacts/v4",
+      "./experiments/structural_v9/inputs/dev/medium_A0.json",
+      "./experiments/warm_v10/logs/development280_v5_both/medium_A0_10302_v4.solution.json",
+      "280"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "10302",
+      "DBG": "1"
+    },
+    "affinity": [
+      18,
+      19
+    ],
+    "rc": 0,
+    "timeout": false,
+    "wall": 279.4695717350005,
+    "started_unix": 1792647958.6751213,
+    "ended_unix": 1792648238.205224,
+    "official": 48.15864368622819,
+    "valid": true,
+    "snapshots": [
+      {
+        "at": 28.00499951600068,
+        "path": "experiments/warm_v10/logs/development280_v5_both/medium_A0_10302_v4.t28.00.solution.json",
+        "official": 46.022636971617544
+      },
+      {
+        "at": 61.62496353300048,
+        "path": "experiments/warm_v10/logs/development280_v5_both/medium_A0_10302_v4.t61.60.solution.json",
+        "official": 46.022636971617544
+      },
+      {
+        "at": 70.04561621299945,
+        "path": "experiments/warm_v10/logs/development280_v5_both/medium_A0_10302_v4.t70.00.solution.json",
+        "official": 46.022636971617544
+      },
+      {
+        "at": 140.04971305000072,
+        "path": "experiments/warm_v10/logs/development280_v5_both/medium_A0_10302_v4.t140.00.solution.json",
+        "official": 46.022636971617544
+      },
+      {
+        "at": 238.02459601100054,
+        "path": "experiments/warm_v10/logs/development280_v5_both/medium_A0_10302_v4.t238.00.solution.json",
+        "official": 47.20383517503211
+      }
+    ],
+    "solution_sha256": "f0bb767ce79ef405e1f2f05d94f4446c493a6b0ae679371bc9f5ee6c39a47529",
+    "resource": "rss_kb=5584 user=554.59 sys=0.00\n",
+    "error": false,
+    "internal_deadline_stop": false,
+    "cpu_pressure_before": "some avg10=19.89 avg60=23.85 avg300=29.35 total=4025111970\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "cpu_pressure_after": "some avg10=19.33 avg60=19.25 avg300=23.05 total=4080438509\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "logged_threads": 2,
+    "resource_fields": {
+      "rss_kb": 5584.0,
+      "user": 554.59,
+      "sys": 0.0
+    },
+    "success": true,
+    "components": {
+      "reward": 70.17909833819498,
+      "distance": 15.484182625927678,
+      "cost": 6.170755888860993,
+      "penalty": 0.3655161371780988,
+      "objective": 48.1586436862282
+    }
+  },
+  {
+    "case": "medium_A0",
+    "seed": 10302,
+    "variant": "geometry",
+    "command": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S",
+      "-o",
+      "./experiments/warm_v10/logs/development280_v5_both/medium_A0_10302_geometry.resource",
+      "taskset",
+      "-c",
+      "18,19",
+      "./experiments/warm_v10/artifacts/v5/candidate",
+      "./experiments/structural_v9/inputs/dev/medium_A0.json",
+      "./experiments/warm_v10/logs/development280_v5_both/medium_A0_10302_geometry.solution.json",
+      "280"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "10302",
+      "ZM_POOL": "0",
+      "ZM_RESERVE": "0",
+      "DBG": "1",
+      "GW_MODE": "1"
+    },
+    "affinity": [
+      18,
+      19
+    ],
+    "rc": 0,
+    "timeout": false,
+    "wall": 279.4761152810006,
+    "started_unix": 1792648238.8474429,
+    "ended_unix": 1792648518.447614,
+    "official": 48.11915996086637,
+    "valid": true,
+    "snapshots": [
+      {
+        "at": 28.031367486000818,
+        "path": "experiments/warm_v10/logs/development280_v5_both/medium_A0_10302_geometry.t28.00.solution.json",
+        "official": 44.72400209127184
+      },
+      {
+        "at": 61.60086902200055,
+        "path": "experiments/warm_v10/logs/development280_v5_both/medium_A0_10302_geometry.t61.60.solution.json",
+        "official": 44.961177432374555
+      },
+      {
+        "at": 70.01942717100064,
+        "path": "experiments/warm_v10/logs/development280_v5_both/medium_A0_10302_geometry.t70.00.solution.json",
+        "official": 44.96444560446345
+      },
+      {
+        "at": 140.02209996099918,
+        "path": "experiments/warm_v10/logs/development280_v5_both/medium_A0_10302_geometry.t140.00.solution.json",
+        "official": 46.449117025589985
+      },
+      {
+        "at": 238.03200124499926,
+        "path": "experiments/warm_v10/logs/development280_v5_both/medium_A0_10302_geometry.t238.00.solution.json",
+        "official": 46.72365812596933
+      }
+    ],
+    "solution_sha256": "0652f841108fea83f2ebad3a411ce80d408bea92080d514f81cd948e57fde468",
+    "resource": "rss_kb=5936 user=554.61 sys=0.00\n",
+    "error": false,
+    "internal_deadline_stop": false,
+    "cpu_pressure_before": "some avg10=20.18 avg60=19.40 avg300=23.06 total=4080648926\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "cpu_pressure_after": "some avg10=37.26 avg60=35.69 avg300=27.76 total=4162627978\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "logged_threads": 2,
+    "resource_fields": {
+      "rss_kb": 5936.0,
+      "user": 554.61,
+      "sys": 0.0
+    },
+    "success": true,
+    "components": {
+      "reward": 70.17909833819498,
+      "distance": 15.158150214111402,
+      "cost": 6.170755888860993,
+      "penalty": 0.7310322743561976,
+      "objective": 48.119159960866384
+    }
+  },
+  {
+    "case": "huge",
+    "seed": 10302,
+    "variant": "geometry",
+    "command": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S",
+      "-o",
+      "./experiments/warm_v10/logs/development280_v5_both/huge_10302_geometry.resource",
+      "taskset",
+      "-c",
+      "20,21",
+      "./experiments/warm_v10/artifacts/v5/candidate",
+      "./experiments/structural_v9/inputs/dev/huge.json",
+      "./experiments/warm_v10/logs/development280_v5_both/huge_10302_geometry.solution.json",
+      "280"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "10302",
+      "ZM_POOL": "0",
+      "ZM_RESERVE": "0",
+      "DBG": "1",
+      "GW_MODE": "1"
+    },
+    "affinity": [
+      20,
+      21
+    ],
+    "rc": 0,
+    "timeout": false,
+    "wall": 275.3852985119993,
+    "started_unix": 1792647397.9288433,
+    "ended_unix": 1792647675.757361,
+    "official": 2847226.885413157,
+    "valid": true,
+    "snapshots": [
+      {
+        "at": 28.009948114999133,
+        "path": "experiments/warm_v10/logs/development280_v5_both/huge_10302_geometry.t28.00.solution.json",
+        "official": 0.0
+      },
+      {
+        "at": 61.63366361299995,
+        "path": "experiments/warm_v10/logs/development280_v5_both/huge_10302_geometry.t61.60.solution.json",
+        "official": 1585478.488910491
+      },
+      {
+        "at": 70.0029975089983,
+        "path": "experiments/warm_v10/logs/development280_v5_both/huge_10302_geometry.t70.00.solution.json",
+        "official": 1585478.488910491
+      },
+      {
+        "at": 140.0371287429989,
+        "path": "experiments/warm_v10/logs/development280_v5_both/huge_10302_geometry.t140.00.solution.json",
+        "official": 2847226.885413157
+      },
+      {
+        "at": 238.03811625399976,
+        "path": "experiments/warm_v10/logs/development280_v5_both/huge_10302_geometry.t238.00.solution.json",
+        "official": 2847226.885413157
+      }
+    ],
+    "solution_sha256": "8a46fabbdcbf595602f4868a75590fdb6e342dc2c347a25e65b240ac72dc7f89",
+    "resource": "rss_kb=18116 user=89.90 sys=0.15\n",
+    "error": false,
+    "internal_deadline_stop": false,
+    "cpu_pressure_before": "some avg10=54.75 avg60=42.37 avg300=36.12 total=3871446386\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "cpu_pressure_after": "some avg10=37.26 avg60=28.14 avg300=27.74 total=3932123370\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "logged_threads": 2,
+    "resource_fields": {
+      "rss_kb": 18116.0,
+      "user": 89.9,
+      "sys": 0.15
+    },
+    "success": true,
+    "components": {
+      "reward": 3337695.6386462236,
+      "distance": 393055.5540516179,
+      "cost": 95566.16210013125,
+      "penalty": 1847.0370813174277,
+      "objective": 2847226.885413157
+    }
+  },
+  {
+    "case": "huge",
+    "seed": 10302,
+    "variant": "v9",
+    "command": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S",
+      "-o",
+      "./experiments/warm_v10/logs/development280_v5_both/huge_10302_v9.resource",
+      "taskset",
+      "-c",
+      "20,21",
+      "./experiments/structural_v9/artifacts/final_research/candidate",
+      "./experiments/structural_v9/inputs/dev/huge.json",
+      "./experiments/warm_v10/logs/development280_v5_both/huge_10302_v9.solution.json",
+      "280"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "10302",
+      "ZM_POOL": "0",
+      "ZM_RESERVE": "0",
+      "DBG": "1"
+    },
+    "affinity": [
+      20,
+      21
+    ],
+    "rc": 0,
+    "timeout": false,
+    "wall": 274.6624062899991,
+    "started_unix": 1792647685.8837566,
+    "ended_unix": 1792647963.582542,
+    "official": 2888535.72983391,
+    "valid": true,
+    "snapshots": [
+      {
+        "at": 28.009709768999528,
+        "path": "experiments/warm_v10/logs/development280_v5_both/huge_10302_v9.t28.00.solution.json",
+        "official": 0.0
+      },
+      {
+        "at": 61.63286660399899,
+        "path": "experiments/warm_v10/logs/development280_v5_both/huge_10302_v9.t61.60.solution.json",
+        "official": 1326794.0209091515
+      },
+      {
+        "at": 70.00181236599929,
+        "path": "experiments/warm_v10/logs/development280_v5_both/huge_10302_v9.t70.00.solution.json",
+        "official": 2836179.0062479866
+      },
+      {
+        "at": 140.036819560999,
+        "path": "experiments/warm_v10/logs/development280_v5_both/huge_10302_v9.t140.00.solution.json",
+        "official": 2888535.72983391
+      },
+      {
+        "at": 238.01535742099986,
+        "path": "experiments/warm_v10/logs/development280_v5_both/huge_10302_v9.t238.00.solution.json",
+        "official": 2888535.72983391
+      }
+    ],
+    "solution_sha256": "fbc426975e59d584e25542a42ef5846487db541b67d259d0d6df5f8bd70dbd52",
+    "resource": "rss_kb=18188 user=244.98 sys=0.16\n",
+    "error": false,
+    "internal_deadline_stop": false,
+    "cpu_pressure_before": "some avg10=38.59 avg60=29.97 avg300=28.16 total=3936194849\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "cpu_pressure_after": "some avg10=20.43 avg60=23.70 avg300=29.24 total=4026187296\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "logged_threads": 2,
+    "resource_fields": {
+      "rss_kb": 18188.0,
+      "user": 244.98,
+      "sys": 0.16
+    },
+    "success": true,
+    "components": {
+      "reward": 3471050.1831064853,
+      "distance": 432243.2485600371,
+      "cost": 147067.63002378005,
+      "penalty": 3203.574688758028,
+      "objective": 2888535.72983391
+    }
+  },
+  {
+    "case": "huge",
+    "seed": 10302,
+    "variant": "memetic",
+    "command": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S",
+      "-o",
+      "./experiments/warm_v10/logs/development280_v5_both/huge_10302_memetic.resource",
+      "taskset",
+      "-c",
+      "20,21",
+      "./experiments/warm_v10/artifacts/v5/candidate",
+      "./experiments/structural_v9/inputs/dev/huge.json",
+      "./experiments/warm_v10/logs/development280_v5_both/huge_10302_memetic.solution.json",
+      "280"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "10302",
+      "ZM_POOL": "0",
+      "ZM_RESERVE": "0",
+      "DBG": "1",
+      "GW_MODE": "2"
+    },
+    "affinity": [
+      20,
+      21
+    ],
+    "rc": 0,
+    "timeout": false,
+    "wall": 274.74918809800147,
+    "started_unix": 1792647974.0537047,
+    "ended_unix": 1792648251.4848301,
+    "official": 3111192.220675953,
+    "valid": true,
+    "snapshots": [
+      {
+        "at": 28.008361128000615,
+        "path": "experiments/warm_v10/logs/development280_v5_both/huge_10302_memetic.t28.00.solution.json",
+        "official": 0.0
+      },
+      {
+        "at": 61.62865547399997,
+        "path": "experiments/warm_v10/logs/development280_v5_both/huge_10302_memetic.t61.60.solution.json",
+        "official": 3103922.3274708707
+      },
+      {
+        "at": 70.04871474100037,
+        "path": "experiments/warm_v10/logs/development280_v5_both/huge_10302_memetic.t70.00.solution.json",
+        "official": 3103922.3274708707
+      },
+      {
+        "at": 140.0073100919999,
+        "path": "experiments/warm_v10/logs/development280_v5_both/huge_10302_memetic.t140.00.solution.json",
+        "official": 3111192.220675953
+      },
+      {
+        "at": 238.0316983440007,
+        "path": "experiments/warm_v10/logs/development280_v5_both/huge_10302_memetic.t238.00.solution.json",
+        "official": 3111192.220675953
+      }
+    ],
+    "solution_sha256": "dcf81908f506ea520023b3e06ca204c662da732176c7394a4745b45e8e7e732f",
+    "resource": "rss_kb=23252 user=506.83 sys=0.09\n",
+    "error": false,
+    "internal_deadline_stop": false,
+    "cpu_pressure_before": "some avg10=21.37 avg60=23.43 avg300=29.00 total=4028517243\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "cpu_pressure_after": "some avg10=19.88 avg60=19.45 avg300=22.92 total=4083215149\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "logged_threads": 2,
+    "resource_fields": {
+      "rss_kb": 23252.0,
+      "user": 506.83,
+      "sys": 0.09
+    },
+    "success": true,
+    "components": {
+      "reward": 3727796.0014638873,
+      "distance": 470415.00093366194,
+      "cost": 144111.8211445746,
+      "penalty": 2076.9587096971904,
+      "objective": 3111192.220675953
+    }
+  },
+  {
+    "case": "huge",
+    "seed": 10302,
+    "variant": "v4",
+    "command": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S",
+      "-o",
+      "./experiments/warm_v10/logs/development280_v5_both/huge_10302_v4.resource",
+      "taskset",
+      "-c",
+      "20,21",
+      "./experiments/structural_v9/artifacts/v4",
+      "./experiments/structural_v9/inputs/dev/huge.json",
+      "./experiments/warm_v10/logs/development280_v5_both/huge_10302_v4.solution.json",
+      "280"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "10302",
+      "DBG": "1"
+    },
+    "affinity": [
+      20,
+      21
+    ],
+    "rc": 0,
+    "timeout": false,
+    "wall": 278.18674229799944,
+    "started_unix": 1792648263.2342541,
+    "ended_unix": 1792648544.2479646,
+    "official": 3114364.95182744,
+    "valid": true,
+    "snapshots": [
+      {
+        "at": 28.007518284999605,
+        "path": "experiments/warm_v10/logs/development280_v5_both/huge_10302_v4.t28.00.solution.json",
+        "official": 0.0
+      },
+      {
+        "at": 61.62710380899989,
+        "path": "experiments/warm_v10/logs/development280_v5_both/huge_10302_v4.t61.60.solution.json",
+        "official": 2476547.0145950215
+      },
+      {
+        "at": 70.04594662700038,
+        "path": "experiments/warm_v10/logs/development280_v5_both/huge_10302_v4.t70.00.solution.json",
+        "official": 3075425.431779111
+      },
+      {
+        "at": 140.04289539899946,
+        "path": "experiments/warm_v10/logs/development280_v5_both/huge_10302_v4.t140.00.solution.json",
+        "official": 3113807.4656375935
+      },
+      {
+        "at": 238.04586677000043,
+        "path": "experiments/warm_v10/logs/development280_v5_both/huge_10302_v4.t238.00.solution.json",
+        "official": 3114364.95182744
+      }
+    ],
+    "solution_sha256": "60d86bde6e8b85e498535ab1c055b4b09238e76588e2750f567e49eb599f79d6",
+    "resource": "rss_kb=20172 user=490.10 sys=0.08\n",
+    "error": false,
+    "internal_deadline_stop": false,
+    "cpu_pressure_before": "some avg10=21.03 avg60=19.82 avg300=22.86 total=4085797755\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "cpu_pressure_after": "some avg10=30.33 avg60=33.46 avg300=27.90 total=4170222655\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "logged_threads": 2,
+    "resource_fields": {
+      "rss_kb": 20172.0,
+      "user": 490.1,
+      "sys": 0.08
+    },
+    "success": true,
+    "components": {
+      "reward": 3743890.51545047,
+      "distance": 480769.23111105326,
+      "cost": 146211.86649124126,
+      "penalty": 2544.4660207360416,
+      "objective": 3114364.9518274395
+    }
+  },
+  {
+    "case": "medium_anti",
+    "seed": 10302,
+    "variant": "geometry",
+    "command": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S",
+      "-o",
+      "./experiments/warm_v10/logs/development280_v5_both/medium_anti_10302_geometry.resource",
+      "taskset",
+      "-c",
+      "0,1",
+      "./experiments/warm_v10/artifacts/v5/candidate",
+      "./experiments/structural_v9/inputs/dev/medium_anti.json",
+      "./experiments/warm_v10/logs/development280_v5_both/medium_anti_10302_geometry.solution.json",
+      "280"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "10302",
+      "ZM_POOL": "0",
+      "ZM_RESERVE": "0",
+      "DBG": "1",
+      "GW_MODE": "1"
+    },
+    "affinity": [
+      0,
+      1
+    ],
+    "rc": 0,
+    "timeout": false,
+    "wall": 279.46985828499965,
+    "started_unix": 1792648519.0854313,
+    "ended_unix": 1792648798.6574242,
+    "official": 3291.025613221812,
+    "valid": true,
+    "snapshots": [
+      {
+        "at": 28.02818423500139,
+        "path": "experiments/warm_v10/logs/development280_v5_both/medium_anti_10302_geometry.t28.00.solution.json",
+        "official": 2740.180020045535
+      },
+      {
+        "at": 61.639629000999776,
+        "path": "experiments/warm_v10/logs/development280_v5_both/medium_anti_10302_geometry.t61.60.solution.json",
+        "official": 3066.044665079242
+      },
+      {
+        "at": 70.01235898200139,
+        "path": "experiments/warm_v10/logs/development280_v5_both/medium_anti_10302_geometry.t70.00.solution.json",
+        "official": 3122.469670404488
+      },
+      {
+        "at": 140.02234765499998,
+        "path": "experiments/warm_v10/logs/development280_v5_both/medium_anti_10302_geometry.t140.00.solution.json",
+        "official": 3166.180503898654
+      },
+      {
+        "at": 238.03506111000024,
+        "path": "experiments/warm_v10/logs/development280_v5_both/medium_anti_10302_geometry.t238.00.solution.json",
+        "official": 3190.2870401982746
+      }
+    ],
+    "solution_sha256": "c8bac15ed7da32a72e18d7e0be2edc601fc7b5c3470e985b2500160ab1031186",
+    "resource": "rss_kb=6124 user=556.89 sys=0.01\n",
+    "error": false,
+    "internal_deadline_stop": false,
+    "cpu_pressure_before": "some avg10=37.03 avg60=35.70 avg300=27.82 total=4162803826\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "cpu_pressure_after": "some avg10=19.79 avg60=19.97 avg300=25.11 total=4234299277\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "logged_threads": 2,
+    "resource_fields": {
+      "rss_kb": 6124.0,
+      "user": 556.89,
+      "sys": 0.01
+    },
+    "success": true,
+    "components": {
+      "reward": 11417.86142494818,
+      "distance": 7515.011704205829,
+      "cost": 607.8869139257291,
+      "penalty": 3.9371935948097176,
+      "objective": 3291.025613221812
+    }
+  },
+  {
+    "case": "medium_anti",
+    "seed": 10302,
+    "variant": "memetic",
+    "command": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S",
+      "-o",
+      "./experiments/warm_v10/logs/development280_v5_both/medium_anti_10302_memetic.resource",
+      "taskset",
+      "-c",
+      "0,1",
+      "./experiments/warm_v10/artifacts/v5/candidate",
+      "./experiments/structural_v9/inputs/dev/medium_anti.json",
+      "./experiments/warm_v10/logs/development280_v5_both/medium_anti_10302_memetic.solution.json",
+      "280"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "10302",
+      "ZM_POOL": "0",
+      "ZM_RESERVE": "0",
+      "DBG": "1",
+      "GW_MODE": "2"
+    },
+    "affinity": [
+      0,
+      1
+    ],
+    "rc": 0,
+    "timeout": false,
+    "wall": 279.5078270169997,
+    "started_unix": 1792648799.3519788,
+    "ended_unix": 1792649078.8760047,
+    "official": 2882.9566472935758,
+    "valid": true,
+    "snapshots": [
+      {
+        "at": 28.023854071998358,
+        "path": "experiments/warm_v10/logs/development280_v5_both/medium_anti_10302_memetic.t28.00.solution.json",
+        "official": 2710.2155621235556
+      },
+      {
+        "at": 61.61337320199891,
+        "path": "experiments/warm_v10/logs/development280_v5_both/medium_anti_10302_memetic.t61.60.solution.json",
+        "official": 2757.7587509579685
+      },
+      {
+        "at": 70.03339225199852,
+        "path": "experiments/warm_v10/logs/development280_v5_both/medium_anti_10302_memetic.t70.00.solution.json",
+        "official": 2779.027985640138
+      },
+      {
+        "at": 140.02869549999923,
+        "path": "experiments/warm_v10/logs/development280_v5_both/medium_anti_10302_memetic.t140.00.solution.json",
+        "official": 2856.6376794338726
+      },
+      {
+        "at": 238.0489294529998,
+        "path": "experiments/warm_v10/logs/development280_v5_both/medium_anti_10302_memetic.t238.00.solution.json",
+        "official": 2856.6376794338726
+      }
+    ],
+    "solution_sha256": "fa7ad68cf1de7c757a37a09d1a7d24d99e24267d9ff4988cb4e7647cf84ea0e2",
+    "resource": "rss_kb=5860 user=555.72 sys=0.02\n",
+    "error": false,
+    "internal_deadline_stop": false,
+    "cpu_pressure_before": "some avg10=20.74 avg60=20.14 avg300=25.11 total=4234552708\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "cpu_pressure_after": "some avg10=17.36 avg60=17.24 avg300=20.50 total=4286026615\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "logged_threads": 2,
+    "resource_fields": {
+      "rss_kb": 5860.0,
+      "user": 555.72,
+      "sys": 0.02
+    },
+    "success": true,
+    "components": {
+      "reward": 8268.106549100406,
+      "distance": 4944.0928928116555,
+      "cost": 434.4950196704922,
+      "penalty": 6.561989324682863,
+      "objective": 2882.9566472935758
+    }
+  },
+  {
+    "case": "medium_anti",
+    "seed": 10302,
+    "variant": "v4",
+    "command": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S",
+      "-o",
+      "./experiments/warm_v10/logs/development280_v5_both/medium_anti_10302_v4.resource",
+      "taskset",
+      "-c",
+      "0,1",
+      "./experiments/structural_v9/artifacts/v4",
+      "./experiments/structural_v9/inputs/dev/medium_anti.json",
+      "./experiments/warm_v10/logs/development280_v5_both/medium_anti_10302_v4.solution.json",
+      "280"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "10302",
+      "DBG": "1"
+    },
+    "affinity": [
+      0,
+      1
+    ],
+    "rc": 0,
+    "timeout": false,
+    "wall": 279.4821894969991,
+    "started_unix": 1792649078.9596455,
+    "ended_unix": 1792649358.4573286,
+    "official": 2429.1849651081525,
+    "valid": true,
+    "snapshots": [
+      {
+        "at": 28.00292720699872,
+        "path": "experiments/warm_v10/logs/development280_v5_both/medium_anti_10302_v4.t28.00.solution.json",
+        "official": 2428.3784730169655
+      },
+      {
+        "at": 61.61941051499889,
+        "path": "experiments/warm_v10/logs/development280_v5_both/medium_anti_10302_v4.t61.60.solution.json",
+        "official": 2428.3784730169655
+      },
+      {
+        "at": 70.0389217539996,
+        "path": "experiments/warm_v10/logs/development280_v5_both/medium_anti_10302_v4.t70.00.solution.json",
+        "official": 2428.3784730169655
+      },
+      {
+        "at": 140.0012711299987,
+        "path": "experiments/warm_v10/logs/development280_v5_both/medium_anti_10302_v4.t140.00.solution.json",
+        "official": 2428.3784730169655
+      },
+      {
+        "at": 238.03543037899908,
+        "path": "experiments/warm_v10/logs/development280_v5_both/medium_anti_10302_v4.t238.00.solution.json",
+        "official": 2428.3784730169655
+      }
+    ],
+    "solution_sha256": "e2a8f9bd900ff05e6bebdbe6c6ea4af97c5a681d98479f33d9cc5c2feca386dd",
+    "resource": "rss_kb=5220 user=555.24 sys=0.01\n",
+    "error": false,
+    "internal_deadline_stop": false,
+    "cpu_pressure_before": "some avg10=17.36 avg60=17.24 avg300=20.50 total=4286041807\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "cpu_pressure_after": "some avg10=18.97 avg60=18.75 avg300=19.68 total=4341669732\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "logged_threads": 2,
+    "resource_fields": {
+      "rss_kb": 5220.0,
+      "user": 555.24,
+      "sys": 0.01
+    },
+    "success": true,
+    "components": {
+      "reward": 8268.106549100406,
+      "distance": 5492.289512555196,
+      "cost": 341.3824799773121,
+      "penalty": 5.2495914597462905,
+      "objective": 2429.1849651081525
+    }
+  },
+  {
+    "case": "medium_anti",
+    "seed": 10302,
+    "variant": "v9",
+    "command": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S",
+      "-o",
+      "./experiments/warm_v10/logs/development280_v5_both/medium_anti_10302_v9.resource",
+      "taskset",
+      "-c",
+      "0,1",
+      "./experiments/structural_v9/artifacts/final_research/candidate",
+      "./experiments/structural_v9/inputs/dev/medium_anti.json",
+      "./experiments/warm_v10/logs/development280_v5_both/medium_anti_10302_v9.solution.json",
+      "280"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "10302",
+      "ZM_POOL": "0",
+      "ZM_RESERVE": "0",
+      "DBG": "1"
+    },
+    "affinity": [
+      0,
+      1
+    ],
+    "rc": 0,
+    "timeout": false,
+    "wall": 279.47665628600043,
+    "started_unix": 1792649358.536476,
+    "ended_unix": 1792649638.0287182,
+    "official": 2429.1849651081525,
+    "valid": true,
+    "snapshots": [
+      {
+        "at": 28.003651854000054,
+        "path": "experiments/warm_v10/logs/development280_v5_both/medium_anti_10302_v9.t28.00.solution.json",
+        "official": 2428.3784730169655
+      },
+      {
+        "at": 61.630291892999594,
+        "path": "experiments/warm_v10/logs/development280_v5_both/medium_anti_10302_v9.t61.60.solution.json",
+        "official": 2428.3784730169655
+      },
+      {
+        "at": 70.04957295500026,
+        "path": "experiments/warm_v10/logs/development280_v5_both/medium_anti_10302_v9.t70.00.solution.json",
+        "official": 2428.3784730169655
+      },
+      {
+        "at": 140.0465772610005,
+        "path": "experiments/warm_v10/logs/development280_v5_both/medium_anti_10302_v9.t140.00.solution.json",
+        "official": 2428.3784730169655
+      },
+      {
+        "at": 238.02043802000117,
+        "path": "experiments/warm_v10/logs/development280_v5_both/medium_anti_10302_v9.t238.00.solution.json",
+        "official": 2428.3784730169655
+      }
+    ],
+    "solution_sha256": "e2a8f9bd900ff05e6bebdbe6c6ea4af97c5a681d98479f33d9cc5c2feca386dd",
+    "resource": "rss_kb=5392 user=555.63 sys=0.01\n",
+    "error": false,
+    "internal_deadline_stop": false,
+    "cpu_pressure_before": "some avg10=18.97 avg60=18.75 avg300=19.68 total=4341685161\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "cpu_pressure_after": "some avg10=1.24 avg60=0.96 avg300=8.38 total=4347651443\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "logged_threads": 2,
+    "resource_fields": {
+      "rss_kb": 5392.0,
+      "user": 555.63,
+      "sys": 0.01
+    },
+    "success": true,
+    "components": {
+      "reward": 8268.106549100406,
+      "distance": 5492.289512555196,
+      "cost": 341.3824799773121,
+      "penalty": 5.2495914597462905,
+      "objective": 2429.1849651081525
+    }
+  },
+  {
+    "case": "official_3",
+    "seed": 9403,
+    "variant": "v4",
+    "command": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S",
+      "-o",
+      "./experiments/warm_v10/logs/development280_v5_both/official_3_9403_v4.resource",
+      "taskset",
+      "-c",
+      "16,17",
+      "./experiments/structural_v9/artifacts/v4",
+      "./task/instance3/instance.json",
+      "./experiments/warm_v10/logs/development280_v5_both/official_3_9403_v4.solution.json",
+      "280"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "9403",
+      "DBG": "1"
+    },
+    "affinity": [
+      16,
+      17
+    ],
+    "rc": 0,
+    "timeout": false,
+    "wall": 279.4827880019984,
+    "started_unix": 1792648519.091872,
+    "ended_unix": 1792648798.6739335,
+    "official": 136551.08837931356,
+    "valid": true,
+    "snapshots": [
+      {
+        "at": 28.02251361099843,
+        "path": "experiments/warm_v10/logs/development280_v5_both/official_3_9403_v4.t28.00.solution.json",
+        "official": 136300.9768254834
+      },
+      {
+        "at": 61.63428938099969,
+        "path": "experiments/warm_v10/logs/development280_v5_both/official_3_9403_v4.t61.60.solution.json",
+        "official": 136300.9768254834
+      },
+      {
+        "at": 70.00600465599928,
+        "path": "experiments/warm_v10/logs/development280_v5_both/official_3_9403_v4.t70.00.solution.json",
+        "official": 136300.9768254834
+      },
+      {
+        "at": 140.01438609999968,
+        "path": "experiments/warm_v10/logs/development280_v5_both/official_3_9403_v4.t140.00.solution.json",
+        "official": 136300.9768254834
+      },
+      {
+        "at": 238.02894542899958,
+        "path": "experiments/warm_v10/logs/development280_v5_both/official_3_9403_v4.t238.00.solution.json",
+        "official": 136300.9768254834
+      }
+    ],
+    "solution_sha256": "1b243ddc9422e49f950fac0f96cd4f37a2358a6c6168fc47dd8d7530a233c48f",
+    "resource": "rss_kb=6344 user=378.81 sys=0.09\n",
+    "error": false,
+    "internal_deadline_stop": false,
+    "cpu_pressure_before": "some avg10=37.03 avg60=35.70 avg300=27.82 total=4162806566\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "cpu_pressure_after": "some avg10=19.79 avg60=19.97 avg300=25.11 total=4234302289\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "logged_threads": 2,
+    "resource_fields": {
+      "rss_kb": 6344.0,
+      "user": 378.81,
+      "sys": 0.09
+    },
+    "success": true,
+    "components": {
+      "reward": 290418.0266026272,
+      "distance": 152565.05390078842,
+      "cost": 1301.8843225252008,
+      "penalty": 0.0,
+      "objective": 136551.08837931356
+    }
+  },
+  {
+    "case": "official_3",
+    "seed": 9403,
+    "variant": "memetic",
+    "command": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S",
+      "-o",
+      "./experiments/warm_v10/logs/development280_v5_both/official_3_9403_memetic.resource",
+      "taskset",
+      "-c",
+      "16,17",
+      "./experiments/warm_v10/artifacts/v5/candidate",
+      "./task/instance3/instance.json",
+      "./experiments/warm_v10/logs/development280_v5_both/official_3_9403_memetic.solution.json",
+      "280"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "9403",
+      "ZM_POOL": "0",
+      "ZM_RESERVE": "0",
+      "DBG": "1",
+      "GW_MODE": "2"
+    },
+    "affinity": [
+      16,
+      17
+    ],
+    "rc": 0,
+    "timeout": false,
+    "wall": 279.486281073001,
+    "started_unix": 1792648799.5447495,
+    "ended_unix": 1792649079.0582073,
+    "official": 145560.53032316206,
+    "valid": true,
+    "snapshots": [
+      {
+        "at": 28.03146888500123,
+        "path": "experiments/warm_v10/logs/development280_v5_both/official_3_9403_memetic.t28.00.solution.json",
+        "official": 135989.1130187042
+      },
+      {
+        "at": 61.619896322001296,
+        "path": "experiments/warm_v10/logs/development280_v5_both/official_3_9403_memetic.t61.60.solution.json",
+        "official": 145397.7073923811
+      },
+      {
+        "at": 70.03834968900082,
+        "path": "experiments/warm_v10/logs/development280_v5_both/official_3_9403_memetic.t70.00.solution.json",
+        "official": 145528.35943046786
+      },
+      {
+        "at": 140.03552625800148,
+        "path": "experiments/warm_v10/logs/development280_v5_both/official_3_9403_memetic.t140.00.solution.json",
+        "official": 145528.35943046786
+      },
+      {
+        "at": 238.00606696600153,
+        "path": "experiments/warm_v10/logs/development280_v5_both/official_3_9403_memetic.t238.00.solution.json",
+        "official": 145528.35943046786
+      }
+    ],
+    "solution_sha256": "ce92fc306f49ef1ee8278323163accc754a72740590345eecd03cd50923f5e24",
+    "resource": "rss_kb=6436 user=553.97 sys=0.01\n",
+    "error": false,
+    "internal_deadline_stop": false,
+    "cpu_pressure_before": "some avg10=20.74 avg60=20.14 avg300=25.11 total=4234611229\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "cpu_pressure_after": "some avg10=17.36 avg60=17.24 avg300=20.50 total=4286061446\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "logged_threads": 2,
+    "resource_fields": {
+      "rss_kb": 6436.0,
+      "user": 553.97,
+      "sys": 0.01
+    },
+    "success": true,
+    "components": {
+      "reward": 283391.78402353136,
+      "distance": 136671.02689178014,
+      "cost": 1160.2268085891476,
+      "penalty": 0.0,
+      "objective": 145560.53032316206
+    }
+  },
+  {
+    "case": "official_3",
+    "seed": 9403,
+    "variant": "v9",
+    "command": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S",
+      "-o",
+      "./experiments/warm_v10/logs/development280_v5_both/official_3_9403_v9.resource",
+      "taskset",
+      "-c",
+      "16,17",
+      "./experiments/structural_v9/artifacts/final_research/candidate",
+      "./task/instance3/instance.json",
+      "./experiments/warm_v10/logs/development280_v5_both/official_3_9403_v9.solution.json",
+      "280"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "9403",
+      "ZM_POOL": "0",
+      "ZM_RESERVE": "0",
+      "DBG": "1"
+    },
+    "affinity": [
+      16,
+      17
+    ],
+    "rc": 0,
+    "timeout": false,
+    "wall": 279.49445047600057,
+    "started_unix": 1792649079.2015545,
+    "ended_unix": 1792649358.7211099,
+    "official": 136551.08837931356,
+    "valid": true,
+    "snapshots": [
+      {
+        "at": 28.03885897500004,
+        "path": "experiments/warm_v10/logs/development280_v5_both/official_3_9403_v9.t28.00.solution.json",
+        "official": 136300.9768254834
+      },
+      {
+        "at": 61.60127746000035,
+        "path": "experiments/warm_v10/logs/development280_v5_both/official_3_9403_v9.t61.60.solution.json",
+        "official": 136300.9768254834
+      },
+      {
+        "at": 70.02158460200008,
+        "path": "experiments/warm_v10/logs/development280_v5_both/official_3_9403_v9.t70.00.solution.json",
+        "official": 136300.9768254834
+      },
+      {
+        "at": 140.02964713999972,
+        "path": "experiments/warm_v10/logs/development280_v5_both/official_3_9403_v9.t140.00.solution.json",
+        "official": 136300.9768254834
+      },
+      {
+        "at": 238.0442145149991,
+        "path": "experiments/warm_v10/logs/development280_v5_both/official_3_9403_v9.t238.00.solution.json",
+        "official": 136300.9768254834
+      }
+    ],
+    "solution_sha256": "1b243ddc9422e49f950fac0f96cd4f37a2358a6c6168fc47dd8d7530a233c48f",
+    "resource": "rss_kb=6104 user=554.00 sys=0.00\n",
+    "error": false,
+    "internal_deadline_stop": false,
+    "cpu_pressure_before": "some avg10=17.48 avg60=17.26 avg300=20.48 total=4286088269\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "cpu_pressure_after": "some avg10=18.97 avg60=18.75 avg300=19.68 total=4341723086\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "logged_threads": 2,
+    "resource_fields": {
+      "rss_kb": 6104.0,
+      "user": 554.0,
+      "sys": 0.0
+    },
+    "success": true,
+    "components": {
+      "reward": 290418.0266026272,
+      "distance": 152565.05390078842,
+      "cost": 1301.8843225252008,
+      "penalty": 0.0,
+      "objective": 136551.08837931356
+    }
+  },
+  {
+    "case": "official_3",
+    "seed": 9403,
+    "variant": "geometry",
+    "command": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S",
+      "-o",
+      "./experiments/warm_v10/logs/development280_v5_both/official_3_9403_geometry.resource",
+      "taskset",
+      "-c",
+      "16,17",
+      "./experiments/warm_v10/artifacts/v5/candidate",
+      "./task/instance3/instance.json",
+      "./experiments/warm_v10/logs/development280_v5_both/official_3_9403_geometry.solution.json",
+      "280"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "9403",
+      "ZM_POOL": "0",
+      "ZM_RESERVE": "0",
+      "DBG": "1",
+      "GW_MODE": "1"
+    },
+    "affinity": [
+      16,
+      17
+    ],
+    "rc": 0,
+    "timeout": false,
+    "wall": 279.4632291259986,
+    "started_unix": 1792649358.858054,
+    "ended_unix": 1792649638.3568034,
+    "official": 137325.20943964744,
+    "valid": true,
+    "snapshots": [
+      {
+        "at": 28.042433679998794,
+        "path": "experiments/warm_v10/logs/development280_v5_both/official_3_9403_geometry.t28.00.solution.json",
+        "official": 135430.2936474196
+      },
+      {
+        "at": 61.6424101449993,
+        "path": "experiments/warm_v10/logs/development280_v5_both/official_3_9403_geometry.t61.60.solution.json",
+        "official": 136300.9768254834
+      },
+      {
+        "at": 70.0117947359995,
+        "path": "experiments/warm_v10/logs/development280_v5_both/official_3_9403_geometry.t70.00.solution.json",
+        "official": 136300.9768254834
+      },
+      {
+        "at": 140.01653217799867,
+        "path": "experiments/warm_v10/logs/development280_v5_both/official_3_9403_geometry.t140.00.solution.json",
+        "official": 136965.8540600786
+      },
+      {
+        "at": 238.04956191399833,
+        "path": "experiments/warm_v10/logs/development280_v5_both/official_3_9403_geometry.t238.00.solution.json",
+        "official": 136965.8540600786
+      }
+    ],
+    "solution_sha256": "46abb2dc173b0f7979a7b517d7d00f31ce4befcf917c9fcfe360bdba0c287f46",
+    "resource": "rss_kb=6852 user=554.14 sys=0.01\n",
+    "error": false,
+    "internal_deadline_stop": false,
+    "cpu_pressure_before": "some avg10=18.97 avg60=18.75 avg300=19.68 total=4341749756\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "cpu_pressure_after": "some avg10=1.24 avg60=0.96 avg300=8.38 total=4347659235\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "logged_threads": 2,
+    "resource_fields": {
+      "rss_kb": 6852.0,
+      "user": 554.14,
+      "sys": 0.01
+    },
+    "success": true,
+    "components": {
+      "reward": 352483.16938464023,
+      "distance": 213126.36029138503,
+      "cost": 2031.599653607724,
+      "penalty": 0.0,
+      "objective": 137325.20943964747
+    }
+  },
+  {
+    "case": "regression_large",
+    "seed": 9403,
+    "variant": "v9",
+    "command": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S",
+      "-o",
+      "./experiments/warm_v10/logs/development280_v5_both/regression_large_9403_v9.resource",
+      "taskset",
+      "-c",
+      "12,13",
+      "./experiments/structural_v9/artifacts/final_research/candidate",
+      "./experiments/structural_v9/inputs/holdout/large.json",
+      "./experiments/warm_v10/logs/development280_v5_both/regression_large_9403_v9.solution.json",
+      "280"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "9403",
+      "ZM_POOL": "0",
+      "ZM_RESERVE": "0",
+      "DBG": "1"
+    },
+    "affinity": [
+      12,
+      13
+    ],
+    "rc": 0,
+    "timeout": false,
+    "wall": 279.72405554299985,
+    "started_unix": 1792648519.0861428,
+    "ended_unix": 1792648799.5097,
+    "official": 596672.808948397,
+    "valid": true,
+    "snapshots": [
+      {
+        "at": 28.03148211000007,
+        "path": "experiments/warm_v10/logs/development280_v5_both/regression_large_9403_v9.t28.00.solution.json",
+        "official": 346643.2116523677
+      },
+      {
+        "at": 61.64318186000128,
+        "path": "experiments/warm_v10/logs/development280_v5_both/regression_large_9403_v9.t61.60.solution.json",
+        "official": 576577.8965833784
+      },
+      {
+        "at": 70.01315708400034,
+        "path": "experiments/warm_v10/logs/development280_v5_both/regression_large_9403_v9.t70.00.solution.json",
+        "official": 579345.8727396748
+      },
+      {
+        "at": 140.02022567800122,
+        "path": "experiments/warm_v10/logs/development280_v5_both/regression_large_9403_v9.t140.00.solution.json",
+        "official": 593041.4923661469
+      },
+      {
+        "at": 238.03312941600052,
+        "path": "experiments/warm_v10/logs/development280_v5_both/regression_large_9403_v9.t238.00.solution.json",
+        "official": 593041.4923661469
+      }
+    ],
+    "solution_sha256": "360ed607e4657eb6060e54b0fcfc36a6c73dd466797165831e1afb07429c6b9a",
+    "resource": "rss_kb=47372 user=159.80 sys=0.38\n",
+    "error": false,
+    "internal_deadline_stop": false,
+    "cpu_pressure_before": "some avg10=37.03 avg60=35.70 avg300=27.82 total=4162803410\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "cpu_pressure_after": "some avg10=20.74 avg60=20.14 avg300=25.11 total=4234601162\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "logged_threads": 2,
+    "resource_fields": {
+      "rss_kb": 47372.0,
+      "user": 159.8,
+      "sys": 0.38
+    },
+    "success": true,
+    "components": {
+      "reward": 775055.0587859284,
+      "distance": 148551.77989536634,
+      "cost": 29037.799995679317,
+      "penalty": 792.6699464856086,
+      "objective": 596672.808948397
+    }
+  },
+  {
+    "case": "regression_large",
+    "seed": 9403,
+    "variant": "geometry",
+    "command": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S",
+      "-o",
+      "./experiments/warm_v10/logs/development280_v5_both/regression_large_9403_geometry.resource",
+      "taskset",
+      "-c",
+      "12,13",
+      "./experiments/warm_v10/artifacts/v5/candidate",
+      "./experiments/structural_v9/inputs/holdout/large.json",
+      "./experiments/warm_v10/logs/development280_v5_both/regression_large_9403_geometry.solution.json",
+      "280"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "9403",
+      "ZM_POOL": "0",
+      "ZM_RESERVE": "0",
+      "DBG": "1",
+      "GW_MODE": "1"
+    },
+    "affinity": [
+      12,
+      13
+    ],
+    "rc": 0,
+    "timeout": false,
+    "wall": 279.61056666200056,
+    "started_unix": 1792648801.3834732,
+    "ended_unix": 1792649081.183818,
+    "official": 579972.6406295619,
+    "valid": true,
+    "snapshots": [
+      {
+        "at": 28.047068795000087,
+        "path": "experiments/warm_v10/logs/development280_v5_both/regression_large_9403_geometry.t28.00.solution.json",
+        "official": 0.0
+      },
+      {
+        "at": 61.60058040699914,
+        "path": "experiments/warm_v10/logs/development280_v5_both/regression_large_9403_geometry.t61.60.solution.json",
+        "official": 576577.8965833784
+      },
+      {
+        "at": 70.01989707800021,
+        "path": "experiments/warm_v10/logs/development280_v5_both/regression_large_9403_geometry.t70.00.solution.json",
+        "official": 576577.8965833784
+      },
+      {
+        "at": 140.00519998100026,
+        "path": "experiments/warm_v10/logs/development280_v5_both/regression_large_9403_geometry.t140.00.solution.json",
+        "official": 579517.0995983857
+      },
+      {
+        "at": 238.02499549799904,
+        "path": "experiments/warm_v10/logs/development280_v5_both/regression_large_9403_geometry.t238.00.solution.json",
+        "official": 579517.1342573143
+      }
+    ],
+    "solution_sha256": "e5e22cb717c9555b606d70726d57de8de86018b3dab4331ae77fbd34e66ccb19",
+    "resource": "rss_kb=15376 user=86.74 sys=0.25\n",
+    "error": false,
+    "internal_deadline_stop": false,
+    "cpu_pressure_before": "some avg10=21.69 avg60=20.33 avg300=25.11 total=4235034700\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "cpu_pressure_after": "some avg10=17.39 avg60=17.25 avg300=20.46 total=4286444227\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "logged_threads": 2,
+    "resource_fields": {
+      "rss_kb": 15376.0,
+      "user": 86.74,
+      "sys": 0.25
+    },
+    "success": true,
+    "components": {
+      "reward": 742341.6959150936,
+      "distance": 134832.12600687798,
+      "cost": 26417.125703460002,
+      "penalty": 1119.803575193955,
+      "objective": 579972.6406295617
+    }
+  },
+  {
+    "case": "regression_large",
+    "seed": 9403,
+    "variant": "memetic",
+    "command": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S",
+      "-o",
+      "./experiments/warm_v10/logs/development280_v5_both/regression_large_9403_memetic.resource",
+      "taskset",
+      "-c",
+      "12,13",
+      "./experiments/warm_v10/artifacts/v5/candidate",
+      "./experiments/structural_v9/inputs/holdout/large.json",
+      "./experiments/warm_v10/logs/development280_v5_both/regression_large_9403_memetic.solution.json",
+      "280"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "9403",
+      "ZM_POOL": "0",
+      "ZM_RESERVE": "0",
+      "DBG": "1",
+      "GW_MODE": "2"
+    },
+    "affinity": [
+      12,
+      13
+    ],
+    "rc": 0,
+    "timeout": false,
+    "wall": 279.57477245599875,
+    "started_unix": 1792649082.0350428,
+    "ended_unix": 1792649361.7906404,
+    "official": 579141.5928432561,
+    "valid": true,
+    "snapshots": [
+      {
+        "at": 28.011237374999837,
+        "path": "experiments/warm_v10/logs/development280_v5_both/regression_large_9403_memetic.t28.00.solution.json",
+        "official": 0.0
+      },
+      {
+        "at": 61.600875890999305,
+        "path": "experiments/warm_v10/logs/development280_v5_both/regression_large_9403_memetic.t61.60.solution.json",
+        "official": 579046.0275081011
+      },
+      {
+        "at": 70.02288450699962,
+        "path": "experiments/warm_v10/logs/development280_v5_both/regression_large_9403_memetic.t70.00.solution.json",
+        "official": 579046.0275081011
+      },
+      {
+        "at": 140.03356161400006,
+        "path": "experiments/warm_v10/logs/development280_v5_both/regression_large_9403_memetic.t140.00.solution.json",
+        "official": 579046.0275081011
+      },
+      {
+        "at": 238.01763286099958,
+        "path": "experiments/warm_v10/logs/development280_v5_both/regression_large_9403_memetic.t238.00.solution.json",
+        "official": 579046.0275081011
+      }
+    ],
+    "solution_sha256": "ae5be43922654b3d08b8888aae2a32ced50ef6cc284a5436baa931b269f09907",
+    "resource": "rss_kb=14064 user=90.17 sys=0.14\n",
+    "error": false,
+    "internal_deadline_stop": false,
+    "cpu_pressure_before": "some avg10=17.39 avg60=17.25 avg300=20.46 total=4286581183\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "cpu_pressure_after": "some avg10=19.16 avg60=18.80 avg300=19.68 total=4342313839\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "logged_threads": 2,
+    "resource_fields": {
+      "rss_kb": 14064.0,
+      "user": 90.17,
+      "sys": 0.14
+    },
+    "success": true,
+    "components": {
+      "reward": 742341.6959150936,
+      "distance": 135663.17379318379,
+      "cost": 26417.125703460002,
+      "penalty": 1119.803575193955,
+      "objective": 579141.592843256
+    }
+  },
+  {
+    "case": "regression_large",
+    "seed": 9403,
+    "variant": "v4",
+    "command": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S",
+      "-o",
+      "./experiments/warm_v10/logs/development280_v5_both/regression_large_9403_v4.resource",
+      "taskset",
+      "-c",
+      "12,13",
+      "./experiments/structural_v9/artifacts/v4",
+      "./experiments/structural_v9/inputs/holdout/large.json",
+      "./experiments/warm_v10/logs/development280_v5_both/regression_large_9403_v4.solution.json",
+      "280"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "9403",
+      "DBG": "1"
+    },
+    "affinity": [
+      12,
+      13
+    ],
+    "rc": 0,
+    "timeout": false,
+    "wall": 279.619891635999,
+    "started_unix": 1792649362.6167798,
+    "ended_unix": 1792649642.4179578,
+    "official": 580747.6567780258,
+    "valid": true,
+    "snapshots": [
+      {
+        "at": 28.01167871599864,
+        "path": "experiments/warm_v10/logs/development280_v5_both/regression_large_9403_v4.t28.00.solution.json",
+        "official": 0.0
+      },
+      {
+        "at": 61.64224810799897,
+        "path": "experiments/warm_v10/logs/development280_v5_both/regression_large_9403_v4.t61.60.solution.json",
+        "official": 576577.8965833784
+      },
+      {
+        "at": 70.01200654799868,
+        "path": "experiments/warm_v10/logs/development280_v5_both/regression_large_9403_v4.t70.00.solution.json",
+        "official": 579345.8727396748
+      },
+      {
+        "at": 140.01771798299887,
+        "path": "experiments/warm_v10/logs/development280_v5_both/regression_large_9403_v4.t140.00.solution.json",
+        "official": 579388.9112292096
+      },
+      {
+        "at": 238.049865777999,
+        "path": "experiments/warm_v10/logs/development280_v5_both/regression_large_9403_v4.t238.00.solution.json",
+        "official": 579388.9458881381
+      }
+    ],
+    "solution_sha256": "1d7280ff2746e0e5bc71d2effd29be1091c622a636323fd4fa9f314377d50a51",
+    "resource": "rss_kb=48204 user=465.14 sys=0.37\n",
+    "error": false,
+    "internal_deadline_stop": false,
+    "cpu_pressure_before": "some avg10=19.16 avg60=18.80 avg300=19.68 total=4342461750\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "cpu_pressure_after": "some avg10=1.13 avg60=0.96 avg300=8.28 total=4347694014\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "logged_threads": 2,
+    "resource_fields": {
+      "rss_kb": 48204.0,
+      "user": 465.14,
+      "sys": 0.37
+    },
+    "success": true,
+    "components": {
+      "reward": 742341.6959150936,
+      "distance": 134082.27398369924,
+      "cost": 26417.125703460002,
+      "penalty": 1094.6394499086975,
+      "objective": 580747.6567780257
+    }
+  },
+  {
+    "case": "regression_large",
+    "seed": 10302,
+    "variant": "geometry",
+    "command": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S",
+      "-o",
+      "./experiments/warm_v10/logs/development280_v5_both/regression_large_10302_geometry.resource",
+      "taskset",
+      "-c",
+      "20,21",
+      "./experiments/warm_v10/artifacts/v5/candidate",
+      "./experiments/structural_v9/inputs/holdout/large.json",
+      "./experiments/warm_v10/logs/development280_v5_both/regression_large_10302_geometry.solution.json",
+      "280"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "10302",
+      "ZM_POOL": "0",
+      "ZM_RESERVE": "0",
+      "DBG": "1",
+      "GW_MODE": "1"
+    },
+    "affinity": [
+      20,
+      21
+    ],
+    "rc": 0,
+    "timeout": false,
+    "wall": 279.5636463910014,
+    "started_unix": 1792648556.6380641,
+    "ended_unix": 1792648836.4256701,
+    "official": 599010.6403710869,
+    "valid": true,
+    "snapshots": [
+      {
+        "at": 28.028833890000897,
+        "path": "experiments/warm_v10/logs/development280_v5_both/regression_large_10302_geometry.t28.00.solution.json",
+        "official": 0.0
+      },
+      {
+        "at": 61.60474276000059,
+        "path": "experiments/warm_v10/logs/development280_v5_both/regression_large_10302_geometry.t61.60.solution.json",
+        "official": 576577.8965833784
+      },
+      {
+        "at": 70.02403680300085,
+        "path": "experiments/warm_v10/logs/development280_v5_both/regression_large_10302_geometry.t70.00.solution.json",
+        "official": 579240.6208798697
+      },
+      {
+        "at": 140.03727075300048,
+        "path": "experiments/warm_v10/logs/development280_v5_both/regression_large_10302_geometry.t140.00.solution.json",
+        "official": 590442.6692162564
+      },
+      {
+        "at": 238.0547080060005,
+        "path": "experiments/warm_v10/logs/development280_v5_both/regression_large_10302_geometry.t238.00.solution.json",
+        "official": 594994.0015546316
+      }
+    ],
+    "solution_sha256": "1c81dfa5d73f7a20a8be4c597af646da3b1d775bf4e791bc818f7c198466d109",
+    "resource": "rss_kb=56868 user=524.89 sys=0.12\n",
+    "error": false,
+    "internal_deadline_stop": false,
+    "cpu_pressure_before": "some avg10=31.64 avg60=33.23 avg300=28.07 total=4174296870\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "cpu_pressure_after": "some avg10=21.05 avg60=20.64 avg300=24.66 total=4242612844\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "logged_threads": 2,
+    "resource_fields": {
+      "rss_kb": 56868.0,
+      "user": 524.89,
+      "sys": 0.12
+    },
+    "success": true,
+    "components": {
+      "reward": 780087.8838429799,
+      "distance": 151297.10178029852,
+      "cost": 29037.799995679317,
+      "penalty": 742.3416959150937,
+      "objective": 599010.640371087
+    }
+  },
+  {
+    "case": "regression_large",
+    "seed": 10302,
+    "variant": "v4",
+    "command": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S",
+      "-o",
+      "./experiments/warm_v10/logs/development280_v5_both/regression_large_10302_v4.resource",
+      "taskset",
+      "-c",
+      "20,21",
+      "./experiments/structural_v9/artifacts/v4",
+      "./experiments/structural_v9/inputs/holdout/large.json",
+      "./experiments/warm_v10/logs/development280_v5_both/regression_large_10302_v4.solution.json",
+      "280"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "10302",
+      "DBG": "1"
+    },
+    "affinity": [
+      20,
+      21
+    ],
+    "rc": 0,
+    "timeout": false,
+    "wall": 279.6501225860011,
+    "started_unix": 1792648837.3343124,
+    "ended_unix": 1792649117.2019563,
+    "official": 598296.5774385601,
+    "valid": true,
+    "snapshots": [
+      {
+        "at": 28.00825959500071,
+        "path": "experiments/warm_v10/logs/development280_v5_both/regression_large_10302_v4.t28.00.solution.json",
+        "official": 353633.6031969293
+      },
+      {
+        "at": 61.6386119710005,
+        "path": "experiments/warm_v10/logs/development280_v5_both/regression_large_10302_v4.t61.60.solution.json",
+        "official": 576577.8965833784
+      },
+      {
+        "at": 70.01327422500071,
+        "path": "experiments/warm_v10/logs/development280_v5_both/regression_large_10302_v4.t70.00.solution.json",
+        "official": 579190.4831956559
+      },
+      {
+        "at": 140.0320705660015,
+        "path": "experiments/warm_v10/logs/development280_v5_both/regression_large_10302_v4.t140.00.solution.json",
+        "official": 594372.2403481579
+      },
+      {
+        "at": 238.0353854190016,
+        "path": "experiments/warm_v10/logs/development280_v5_both/regression_large_10302_v4.t238.00.solution.json",
+        "official": 594372.2403481579
+      }
+    ],
+    "solution_sha256": "760dd77a3b204f84b6ad78830f5ea9a4f0f21d86fd522388af436ce2e5cab418",
+    "resource": "rss_kb=48992 user=489.00 sys=0.17\n",
+    "error": false,
+    "internal_deadline_stop": false,
+    "cpu_pressure_before": "some avg10=21.41 avg60=20.71 avg300=24.65 total=4242831343\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "cpu_pressure_after": "some avg10=21.08 avg60=18.81 avg300=20.48 total=4294046906\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "logged_threads": 2,
+    "resource_fields": {
+      "rss_kb": 48992.0,
+      "user": 489.0,
+      "sys": 0.17
+    },
+    "success": true,
+    "components": {
+      "reward": 780087.8838429799,
+      "distance": 151935.67233696947,
+      "cost": 29037.799995679317,
+      "penalty": 817.834071770866,
+      "objective": 598296.5774385603
+    }
+  },
+  {
+    "case": "regression_large",
+    "seed": 10302,
+    "variant": "memetic",
+    "command": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S",
+      "-o",
+      "./experiments/warm_v10/logs/development280_v5_both/regression_large_10302_memetic.resource",
+      "taskset",
+      "-c",
+      "20,21",
+      "./experiments/warm_v10/artifacts/v5/candidate",
+      "./experiments/structural_v9/inputs/holdout/large.json",
+      "./experiments/warm_v10/logs/development280_v5_both/regression_large_10302_memetic.solution.json",
+      "280"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "10302",
+      "ZM_POOL": "0",
+      "ZM_RESERVE": "0",
+      "DBG": "1",
+      "GW_MODE": "2"
+    },
+    "affinity": [
+      20,
+      21
+    ],
+    "rc": 0,
+    "timeout": false,
+    "wall": 279.6042671319992,
+    "started_unix": 1792649118.351785,
+    "ended_unix": 1792649398.4071898,
+    "official": 597535.9246066243,
+    "valid": true,
+    "snapshots": [
+      {
+        "at": 28.013953964000393,
+        "path": "experiments/warm_v10/logs/development280_v5_both/regression_large_10302_memetic.t28.00.solution.json",
+        "official": 0.0
+      },
+      {
+        "at": 61.64533266000035,
+        "path": "experiments/warm_v10/logs/development280_v5_both/regression_large_10302_memetic.t61.60.solution.json",
+        "official": 576577.8965833784
+      },
+      {
+        "at": 70.01363647799917,
+        "path": "experiments/warm_v10/logs/development280_v5_both/regression_large_10302_memetic.t70.00.solution.json",
+        "official": 579345.8727396748
+      },
+      {
+        "at": 140.01341465199948,
+        "path": "experiments/warm_v10/logs/development280_v5_both/regression_large_10302_memetic.t140.00.solution.json",
+        "official": 593773.767663655
+      },
+      {
+        "at": 238.03541784700064,
+        "path": "experiments/warm_v10/logs/development280_v5_both/regression_large_10302_memetic.t238.00.solution.json",
+        "official": 594997.9552318541
+      }
+    ],
+    "solution_sha256": "c116c72d21774e9d7d85b87f752c5fa70580eae0d9e3dba6817dd90120f1832b",
+    "resource": "rss_kb=56460 user=521.51 sys=0.20\n",
+    "error": false,
+    "internal_deadline_stop": false,
+    "cpu_pressure_before": "some avg10=21.08 avg60=18.81 avg300=20.48 total=4294319227\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "cpu_pressure_after": "some avg10=4.34 avg60=14.70 avg300=18.64 total=4346360732\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "logged_threads": 2,
+    "resource_fields": {
+      "rss_kb": 56460.0,
+      "user": 521.51,
+      "sys": 0.2
+    },
+    "success": true,
+    "components": {
+      "reward": 778829.677578717,
+      "distance": 151488.4471552131,
+      "cost": 29037.799995679317,
+      "penalty": 767.5058212003512,
+      "objective": 597535.9246066243
+    }
+  },
+  {
+    "case": "regression_large",
+    "seed": 10302,
+    "variant": "v9",
+    "command": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S",
+      "-o",
+      "./experiments/warm_v10/logs/development280_v5_both/regression_large_10302_v9.resource",
+      "taskset",
+      "-c",
+      "20,21",
+      "./experiments/structural_v9/artifacts/final_research/candidate",
+      "./experiments/structural_v9/inputs/holdout/large.json",
+      "./experiments/warm_v10/logs/development280_v5_both/regression_large_10302_v9.solution.json",
+      "280"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "10302",
+      "ZM_POOL": "0",
+      "ZM_RESERVE": "0",
+      "DBG": "1"
+    },
+    "affinity": [
+      20,
+      21
+    ],
+    "rc": 0,
+    "timeout": false,
+    "wall": 279.8409302510008,
+    "started_unix": 1792649400.362808,
+    "ended_unix": 1792649680.9128077,
+    "official": 599509.9513374479,
+    "valid": true,
+    "snapshots": [
+      {
+        "at": 28.00585998399947,
+        "path": "experiments/warm_v10/logs/development280_v5_both/regression_large_10302_v9.t28.00.solution.json",
+        "official": 353633.6031969293
+      },
+      {
+        "at": 61.63184873499995,
+        "path": "experiments/warm_v10/logs/development280_v5_both/regression_large_10302_v9.t61.60.solution.json",
+        "official": 576577.8965833784
+      },
+      {
+        "at": 70.00000023900066,
+        "path": "experiments/warm_v10/logs/development280_v5_both/regression_large_10302_v9.t70.00.solution.json",
+        "official": 579190.4831956559
+      },
+      {
+        "at": 140.0118106000009,
+        "path": "experiments/warm_v10/logs/development280_v5_both/regression_large_10302_v9.t140.00.solution.json",
+        "official": 594271.4169496233
+      },
+      {
+        "at": 238.01636559399958,
+        "path": "experiments/warm_v10/logs/development280_v5_both/regression_large_10302_v9.t238.00.solution.json",
+        "official": 594520.4255218792
+      }
+    ],
+    "solution_sha256": "3084c6f357947a9b1a141994671ef8d23266cb0275c0e8ced36aaf3e517e1cdc",
+    "resource": "rss_kb=48940 user=495.67 sys=0.17\n",
+    "error": false,
+    "internal_deadline_stop": false,
+    "cpu_pressure_before": "some avg10=3.55 avg60=14.22 avg300=18.51 total=4346407984\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "cpu_pressure_after": "some avg10=0.02 avg60=0.50 avg300=7.26 total=4347708142\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "logged_threads": 2,
+    "resource_fields": {
+      "rss_kb": 48940.0,
+      "user": 495.67,
+      "sys": 0.17
+    },
+    "success": true,
+    "components": {
+      "reward": 780087.8838429799,
+      "distance": 150734.88050072442,
+      "cost": 29037.799995679317,
+      "penalty": 805.2520091282373,
+      "objective": 599509.951337448
+    }
+  },
+  {
+    "case": "huge",
+    "seed": 9403,
+    "variant": "v9",
+    "command": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S",
+      "-o",
+      "./experiments/warm_v10/logs/development280_v5_both/huge_9403_v9.resource",
+      "taskset",
+      "-c",
+      "18,19",
+      "./experiments/structural_v9/artifacts/final_research/candidate",
+      "./experiments/structural_v9/inputs/dev/huge.json",
+      "./experiments/warm_v10/logs/development280_v5_both/huge_9403_v9.solution.json",
+      "280"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "9403",
+      "ZM_POOL": "0",
+      "ZM_RESERVE": "0",
+      "DBG": "1"
+    },
+    "affinity": [
+      18,
+      19
+    ],
+    "rc": 0,
+    "timeout": false,
+    "wall": 274.4993141089999,
+    "started_unix": 1792648519.108908,
+    "ended_unix": 1792648796.6898737,
+    "official": 3186809.816030242,
+    "valid": true,
+    "snapshots": [
+      {
+        "at": 28.004036569000164,
+        "path": "experiments/warm_v10/logs/development280_v5_both/huge_9403_v9.t28.00.solution.json",
+        "official": 0.0
+      },
+      {
+        "at": 61.618017525999676,
+        "path": "experiments/warm_v10/logs/development280_v5_both/huge_9403_v9.t61.60.solution.json",
+        "official": 3087205.013307247
+      },
+      {
+        "at": 70.04121727500024,
+        "path": "experiments/warm_v10/logs/development280_v5_both/huge_9403_v9.t70.00.solution.json",
+        "official": 3116359.5168692083
+      },
+      {
+        "at": 140.04744238700005,
+        "path": "experiments/warm_v10/logs/development280_v5_both/huge_9403_v9.t140.00.solution.json",
+        "official": 3186809.816030242
+      },
+      {
+        "at": 238.01024663600037,
+        "path": "experiments/warm_v10/logs/development280_v5_both/huge_9403_v9.t238.00.solution.json",
+        "official": 3186809.816030242
+      }
+    ],
+    "solution_sha256": "f1a2e815e1315c8c58d0e0081a40b466018353876d78860e24f10f286b2dc1e2",
+    "resource": "rss_kb=22020 user=485.65 sys=0.04\n",
+    "error": false,
+    "internal_deadline_stop": false,
+    "cpu_pressure_before": "some avg10=37.03 avg60=35.70 avg300=27.82 total=4162812473\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "cpu_pressure_after": "some avg10=19.30 avg60=19.91 avg300=25.13 total=4233856082\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "logged_threads": 2,
+    "resource_fields": {
+      "rss_kb": 22020.0,
+      "user": 485.65,
+      "sys": 0.04
+    },
+    "success": true,
+    "components": {
+      "reward": 3855785.707928622,
+      "distance": 487195.10979321646,
+      "cost": 179312.9566272203,
+      "penalty": 2467.825477942787,
+      "objective": 3186809.8160302425
+    }
+  },
+  {
+    "case": "huge",
+    "seed": 9403,
+    "variant": "geometry",
+    "command": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S",
+      "-o",
+      "./experiments/warm_v10/logs/development280_v5_both/huge_9403_geometry.resource",
+      "taskset",
+      "-c",
+      "18,19",
+      "./experiments/warm_v10/artifacts/v5/candidate",
+      "./experiments/structural_v9/inputs/dev/huge.json",
+      "./experiments/warm_v10/logs/development280_v5_both/huge_9403_geometry.solution.json",
+      "280"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "9403",
+      "ZM_POOL": "0",
+      "ZM_RESERVE": "0",
+      "DBG": "1",
+      "GW_MODE": "1"
+    },
+    "affinity": [
+      18,
+      19
+    ],
+    "rc": 0,
+    "timeout": false,
+    "wall": 274.5544434080002,
+    "started_unix": 1792648811.502529,
+    "ended_unix": 1792649089.5712721,
+    "official": 3113317.204723778,
+    "valid": true,
+    "snapshots": [
+      {
+        "at": 28.011659940000754,
+        "path": "experiments/warm_v10/logs/development280_v5_both/huge_9403_geometry.t28.00.solution.json",
+        "official": 0.0
+      },
+      {
+        "at": 61.63885505500002,
+        "path": "experiments/warm_v10/logs/development280_v5_both/huge_9403_geometry.t61.60.solution.json",
+        "official": 2991107.7715718425
+      },
+      {
+        "at": 70.01452982900082,
+        "path": "experiments/warm_v10/logs/development280_v5_both/huge_9403_geometry.t70.00.solution.json",
+        "official": 2991107.7715718425
+      },
+      {
+        "at": 140.04754148599932,
+        "path": "experiments/warm_v10/logs/development280_v5_both/huge_9403_geometry.t140.00.solution.json",
+        "official": 3049002.7807530942
+      },
+      {
+        "at": 238.04275776599934,
+        "path": "experiments/warm_v10/logs/development280_v5_both/huge_9403_geometry.t238.00.solution.json",
+        "official": 3113262.825304482
+      }
+    ],
+    "solution_sha256": "fb5fc0991568b49231827c74d4d570b7a64edd3f2b87afa461b373445c5b1108",
+    "resource": "rss_kb=23292 user=507.53 sys=0.04\n",
+    "error": false,
+    "internal_deadline_stop": false,
+    "cpu_pressure_before": "some avg10=21.50 avg60=20.50 avg300=24.99 total=4237244938\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "cpu_pressure_after": "some avg10=19.36 avg60=17.61 avg300=20.45 total=4288168968\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "logged_threads": 2,
+    "resource_fields": {
+      "rss_kb": 23292.0,
+      "user": 507.53,
+      "sys": 0.04
+    },
+    "success": true,
+    "components": {
+      "reward": 3810567.7876806026,
+      "distance": 483376.3258683237,
+      "cost": 210410.1045542448,
+      "penalty": 3464.1525342550926,
+      "objective": 3113317.204723779
+    }
+  },
+  {
+    "case": "huge",
+    "seed": 9403,
+    "variant": "v4",
+    "command": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S",
+      "-o",
+      "./experiments/warm_v10/logs/development280_v5_both/huge_9403_v4.resource",
+      "taskset",
+      "-c",
+      "18,19",
+      "./experiments/structural_v9/artifacts/v4",
+      "./experiments/structural_v9/inputs/dev/huge.json",
+      "./experiments/warm_v10/logs/development280_v5_both/huge_9403_v4.solution.json",
+      "280"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "9403",
+      "DBG": "1"
+    },
+    "affinity": [
+      18,
+      19
+    ],
+    "rc": 0,
+    "timeout": false,
+    "wall": 278.30320555899925,
+    "started_unix": 1792649104.8710816,
+    "ended_unix": 1792649386.193197,
+    "official": 3186809.816030242,
+    "valid": true,
+    "snapshots": [
+      {
+        "at": 28.039477762999013,
+        "path": "experiments/warm_v10/logs/development280_v5_both/huge_9403_v4.t28.00.solution.json",
+        "official": 0.0
+      },
+      {
+        "at": 61.624146721000216,
+        "path": "experiments/warm_v10/logs/development280_v5_both/huge_9403_v4.t61.60.solution.json",
+        "official": 3087205.013307247
+      },
+      {
+        "at": 70.0445815919993,
+        "path": "experiments/warm_v10/logs/development280_v5_both/huge_9403_v4.t70.00.solution.json",
+        "official": 3116359.5168692083
+      },
+      {
+        "at": 140.00049757899978,
+        "path": "experiments/warm_v10/logs/development280_v5_both/huge_9403_v4.t140.00.solution.json",
+        "official": 3186809.816030242
+      },
+      {
+        "at": 238.03481828499935,
+        "path": "experiments/warm_v10/logs/development280_v5_both/huge_9403_v4.t238.00.solution.json",
+        "official": 3186809.816030242
+      }
+    ],
+    "solution_sha256": "f1a2e815e1315c8c58d0e0081a40b466018353876d78860e24f10f286b2dc1e2",
+    "resource": "rss_kb=21824 user=491.18 sys=0.05\n",
+    "error": false,
+    "internal_deadline_stop": false,
+    "cpu_pressure_before": "some avg10=20.12 avg60=18.22 avg300=20.45 total=4291360947\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "cpu_pressure_after": "some avg10=14.42 avg60=17.95 avg300=19.43 total=4346351252\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "logged_threads": 2,
+    "resource_fields": {
+      "rss_kb": 21824.0,
+      "user": 491.18,
+      "sys": 0.05
+    },
+    "success": true,
+    "components": {
+      "reward": 3855785.707928622,
+      "distance": 487195.10979321646,
+      "cost": 179312.9566272203,
+      "penalty": 2467.825477942787,
+      "objective": 3186809.8160302425
+    }
+  },
+  {
+    "case": "huge",
+    "seed": 9403,
+    "variant": "memetic",
+    "command": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S",
+      "-o",
+      "./experiments/warm_v10/logs/development280_v5_both/huge_9403_memetic.resource",
+      "taskset",
+      "-c",
+      "18,19",
+      "./experiments/warm_v10/artifacts/v5/candidate",
+      "./experiments/structural_v9/inputs/dev/huge.json",
+      "./experiments/warm_v10/logs/development280_v5_both/huge_9403_memetic.solution.json",
+      "280"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "9403",
+      "ZM_POOL": "0",
+      "ZM_RESERVE": "0",
+      "DBG": "1",
+      "GW_MODE": "2"
+    },
+    "affinity": [
+      18,
+      19
+    ],
+    "rc": 0,
+    "timeout": false,
+    "wall": 274.5965480720006,
+    "started_unix": 1792649400.5209477,
+    "ended_unix": 1792649678.8965814,
+    "official": 3076288.238498446,
+    "valid": true,
+    "snapshots": [
+      {
+        "at": 28.00823145600043,
+        "path": "experiments/warm_v10/logs/development280_v5_both/huge_9403_memetic.t28.00.solution.json",
+        "official": 0.0
+      },
+      {
+        "at": 61.63035690799916,
+        "path": "experiments/warm_v10/logs/development280_v5_both/huge_9403_memetic.t61.60.solution.json",
+        "official": 2991107.7715718425
+      },
+      {
+        "at": 70.00067026099896,
+        "path": "experiments/warm_v10/logs/development280_v5_both/huge_9403_memetic.t70.00.solution.json",
+        "official": 2991107.7715718425
+      },
+      {
+        "at": 140.00541534900003,
+        "path": "experiments/warm_v10/logs/development280_v5_both/huge_9403_memetic.t140.00.solution.json",
+        "official": 3048940.1795110274
+      },
+      {
+        "at": 238.01111000700075,
+        "path": "experiments/warm_v10/logs/development280_v5_both/huge_9403_memetic.t238.00.solution.json",
+        "official": 3067179.737757468
+      }
+    ],
+    "solution_sha256": "a2cc7fb8a9c87686301f2ac529ae17740d24b99f0d3c84c18fae25bacd44edd8",
+    "resource": "rss_kb=23424 user=507.69 sys=0.05\n",
+    "error": false,
+    "internal_deadline_stop": false,
+    "cpu_pressure_before": "some avg10=3.55 avg60=14.22 avg300=18.51 total=4346408308\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "cpu_pressure_after": "some avg10=0.02 avg60=0.52 avg300=7.31 total=4347705329\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "logged_threads": 2,
+    "resource_fields": {
+      "rss_kb": 23424.0,
+      "user": 507.69,
+      "sys": 0.05
+    },
+    "success": true,
+    "components": {
+      "reward": 3810567.7876806026,
+      "distance": 519654.2147742818,
+      "cost": 210410.1045542448,
+      "penalty": 4215.2298536289845,
+      "objective": 3076288.238498447
+    }
+  },
+  {
+    "case": "official_3",
+    "seed": 10302,
+    "variant": "v4",
+    "command": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S",
+      "-o",
+      "./experiments/warm_v10/logs/development280_v5_both/official_3_10302_v4.resource",
+      "taskset",
+      "-c",
+      "0,1",
+      "./experiments/structural_v9/artifacts/v4",
+      "./task/instance3/instance.json",
+      "./experiments/warm_v10/logs/development280_v5_both/official_3_10302_v4.solution.json",
+      "280"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "10302",
+      "DBG": "1"
+    },
+    "affinity": [
+      0,
+      1
+    ],
+    "rc": 0,
+    "timeout": false,
+    "wall": 279.48414550099915,
+    "started_unix": 1792649638.1144335,
+    "ended_unix": 1792649917.625113,
+    "official": 139192.3062068597,
+    "valid": true,
+    "snapshots": [
+      {
+        "at": 28.031726846998936,
+        "path": "experiments/warm_v10/logs/development280_v5_both/official_3_10302_v4.t28.00.solution.json",
+        "official": 136300.9768254834
+      },
+      {
+        "at": 61.630949779999355,
+        "path": "experiments/warm_v10/logs/development280_v5_both/official_3_10302_v4.t61.60.solution.json",
+        "official": 136300.9768254834
+      },
+      {
+        "at": 70.00292067299961,
+        "path": "experiments/warm_v10/logs/development280_v5_both/official_3_10302_v4.t70.00.solution.json",
+        "official": 136300.9768254834
+      },
+      {
+        "at": 140.02642717900017,
+        "path": "experiments/warm_v10/logs/development280_v5_both/official_3_10302_v4.t140.00.solution.json",
+        "official": 136300.9768254834
+      },
+      {
+        "at": 238.0015800099991,
+        "path": "experiments/warm_v10/logs/development280_v5_both/official_3_10302_v4.t238.00.solution.json",
+        "official": 138035.09109479433
+      }
+    ],
+    "solution_sha256": "222a5ad41ce785e8499be0624ae8c85330a819cf2dfb789f591492812be48172",
+    "resource": "rss_kb=6112 user=549.74 sys=0.15\n",
+    "error": false,
+    "internal_deadline_stop": false,
+    "cpu_pressure_before": "some avg10=1.24 avg60=0.96 avg300=8.38 total=4347653625\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "cpu_pressure_after": "some avg10=2.16 avg60=1.14 avg300=3.50 total=4349095380\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "logged_threads": 2,
+    "resource_fields": {
+      "rss_kb": 6112.0,
+      "user": 549.74,
+      "sys": 0.15
+    },
+    "success": true,
+    "components": {
+      "reward": 256457.85413699737,
+      "distance": 115835.9768308294,
+      "cost": 1429.5710993082605,
+      "penalty": 0.0,
+      "objective": 139192.3062068597
+    }
+  },
+  {
+    "case": "official_3",
+    "seed": 10302,
+    "variant": "v9",
+    "command": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S",
+      "-o",
+      "./experiments/warm_v10/logs/development280_v5_both/official_3_10302_v9.resource",
+      "taskset",
+      "-c",
+      "0,1",
+      "./experiments/structural_v9/artifacts/final_research/candidate",
+      "./task/instance3/instance.json",
+      "./experiments/warm_v10/logs/development280_v5_both/official_3_10302_v9.solution.json",
+      "280"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "10302",
+      "ZM_POOL": "0",
+      "ZM_RESERVE": "0",
+      "DBG": "1"
+    },
+    "affinity": [
+      0,
+      1
+    ],
+    "rc": 0,
+    "timeout": false,
+    "wall": 279.47629376999976,
+    "started_unix": 1792649917.7666292,
+    "ended_unix": 1792650197.2689438,
+    "official": 139056.71418579243,
+    "valid": true,
+    "snapshots": [
+      {
+        "at": 28.04905404800047,
+        "path": "experiments/warm_v10/logs/development280_v5_both/official_3_10302_v9.t28.00.solution.json",
+        "official": 136300.9768254834
+      },
+      {
+        "at": 61.642289629000516,
+        "path": "experiments/warm_v10/logs/development280_v5_both/official_3_10302_v9.t61.60.solution.json",
+        "official": 136300.9768254834
+      },
+      {
+        "at": 70.0146429109991,
+        "path": "experiments/warm_v10/logs/development280_v5_both/official_3_10302_v9.t70.00.solution.json",
+        "official": 136300.9768254834
+      },
+      {
+        "at": 140.00690177199976,
+        "path": "experiments/warm_v10/logs/development280_v5_both/official_3_10302_v9.t140.00.solution.json",
+        "official": 136300.9768254834
+      },
+      {
+        "at": 238.0090094089992,
+        "path": "experiments/warm_v10/logs/development280_v5_both/official_3_10302_v9.t238.00.solution.json",
+        "official": 137598.0015476413
+      }
+    ],
+    "solution_sha256": "bc8610978bca311feaae41c9c27dc7448106305f86e96d7accd48855ba0e2aee",
+    "resource": "rss_kb=6096 user=521.29 sys=0.71\n",
+    "error": false,
+    "internal_deadline_stop": false,
+    "cpu_pressure_before": "some avg10=2.16 avg60=1.14 avg300=3.50 total=4349095629\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "cpu_pressure_after": "some avg10=22.39 avg60=21.26 avg300=11.77 total=4392013083\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "logged_threads": 2,
+    "resource_fields": {
+      "rss_kb": 6096.0,
+      "user": 521.29,
+      "sys": 0.71
+    },
+    "success": true,
+    "components": {
+      "reward": 256457.85413699737,
+      "distance": 115971.56885189666,
+      "cost": 1429.5710993082605,
+      "penalty": 0.0,
+      "objective": 139056.71418579243
+    }
+  },
+  {
+    "case": "official_3",
+    "seed": 10302,
+    "variant": "memetic",
+    "command": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S",
+      "-o",
+      "./experiments/warm_v10/logs/development280_v5_both/official_3_10302_memetic.resource",
+      "taskset",
+      "-c",
+      "0,1",
+      "./experiments/warm_v10/artifacts/v5/candidate",
+      "./task/instance3/instance.json",
+      "./experiments/warm_v10/logs/development280_v5_both/official_3_10302_memetic.solution.json",
+      "280"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "10302",
+      "ZM_POOL": "0",
+      "ZM_RESERVE": "0",
+      "DBG": "1",
+      "GW_MODE": "2"
+    },
+    "affinity": [
+      0,
+      1
+    ],
+    "rc": 0,
+    "timeout": false,
+    "wall": 279.49685205600144,
+    "started_unix": 1792650197.410141,
+    "ended_unix": 1792650476.941675,
+    "official": 138653.8742608605,
+    "valid": true,
+    "snapshots": [
+      {
+        "at": 28.03788362800151,
+        "path": "experiments/warm_v10/logs/development280_v5_both/official_3_10302_memetic.t28.00.solution.json",
+        "official": 136300.9768254834
+      },
+      {
+        "at": 61.63680127000043,
+        "path": "experiments/warm_v10/logs/development280_v5_both/official_3_10302_memetic.t61.60.solution.json",
+        "official": 136991.70358451537
+      },
+      {
+        "at": 70.0073723100013,
+        "path": "experiments/warm_v10/logs/development280_v5_both/official_3_10302_memetic.t70.00.solution.json",
+        "official": 136991.70358451537
+      },
+      {
+        "at": 140.03960004000146,
+        "path": "experiments/warm_v10/logs/development280_v5_both/official_3_10302_memetic.t140.00.solution.json",
+        "official": 137066.10537408324
+      },
+      {
+        "at": 238.046667341001,
+        "path": "experiments/warm_v10/logs/development280_v5_both/official_3_10302_memetic.t238.00.solution.json",
+        "official": 137066.10537408324
+      }
+    ],
+    "solution_sha256": "4e2477ab62102c7939372cb1dd2e12058d6b34e280c007c11e874e3375c8ebbf",
+    "resource": "rss_kb=6636 user=529.66 sys=0.48\n",
+    "error": false,
+    "internal_deadline_stop": false,
+    "cpu_pressure_before": "some avg10=22.39 avg60=21.26 avg300=11.77 total=4392044129\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "cpu_pressure_after": "some avg10=61.94 avg60=53.84 avg300=32.82 total=4513012906\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "logged_threads": 2,
+    "resource_fields": {
+      "rss_kb": 6636.0,
+      "user": 529.66,
+      "sys": 0.48
+    },
+    "success": true,
+    "components": {
+      "reward": 352483.16938464023,
+      "distance": 211797.695470172,
+      "cost": 2031.599653607724,
+      "penalty": 0.0,
+      "objective": 138653.8742608605
+    }
+  },
+  {
+    "case": "official_3",
+    "seed": 10302,
+    "variant": "geometry",
+    "command": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S",
+      "-o",
+      "./experiments/warm_v10/logs/development280_v5_both/official_3_10302_geometry.resource",
+      "taskset",
+      "-c",
+      "0,1",
+      "./experiments/warm_v10/artifacts/v5/candidate",
+      "./task/instance3/instance.json",
+      "./experiments/warm_v10/logs/development280_v5_both/official_3_10302_geometry.solution.json",
+      "280"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "10302",
+      "ZM_POOL": "0",
+      "ZM_RESERVE": "0",
+      "DBG": "1",
+      "GW_MODE": "1"
+    },
+    "affinity": [
+      0,
+      1
+    ],
+    "rc": 0,
+    "timeout": false,
+    "wall": 279.4567994610006,
+    "started_unix": 1792650477.1128333,
+    "ended_unix": 1792650756.633901,
+    "official": 140948.7253832418,
+    "valid": true,
+    "snapshots": [
+      {
+        "at": 28.035814926999592,
+        "path": "experiments/warm_v10/logs/development280_v5_both/official_3_10302_geometry.t28.00.solution.json",
+        "official": 136300.9768254834
+      },
+      {
+        "at": 61.61661295900012,
+        "path": "experiments/warm_v10/logs/development280_v5_both/official_3_10302_geometry.t61.60.solution.json",
+        "official": 136501.4185685771
+      },
+      {
+        "at": 70.0382504829995,
+        "path": "experiments/warm_v10/logs/development280_v5_both/official_3_10302_geometry.t70.00.solution.json",
+        "official": 136501.4185685771
+      },
+      {
+        "at": 140.02396980199956,
+        "path": "experiments/warm_v10/logs/development280_v5_both/official_3_10302_geometry.t140.00.solution.json",
+        "official": 140527.64955100385
+      },
+      {
+        "at": 238.04483360300037,
+        "path": "experiments/warm_v10/logs/development280_v5_both/official_3_10302_geometry.t238.00.solution.json",
+        "official": 140527.64955100385
+      }
+    ],
+    "solution_sha256": "cda1c41fbbb9f31cfc2b33078ca5c54680b1157df899b9fee3a0e3bd550d5435",
+    "resource": "rss_kb=6828 user=543.11 sys=0.24\n",
+    "error": false,
+    "internal_deadline_stop": false,
+    "cpu_pressure_before": "some avg10=61.94 avg60=53.84 avg300=32.82 total=4513136191\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "cpu_pressure_after": "some avg10=63.40 avg60=62.90 avg300=51.27 total=4689767178\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "logged_threads": 2,
+    "resource_fields": {
+      "rss_kb": 6828.0,
+      "user": 543.11,
+      "sys": 0.24
+    },
+    "success": true,
+    "components": {
+      "reward": 355996.2906741881,
+      "distance": 213015.96563733864,
+      "cost": 2031.599653607724,
+      "penalty": 0.0,
+      "objective": 140948.72538324175
+    }
+  },
+  {
+    "case": "grid_boundary",
+    "seed": 10302,
+    "variant": "v4",
+    "command": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S",
+      "-o",
+      "./experiments/warm_v10/logs/development280_v5_both/grid_boundary_10302_v4.resource",
+      "taskset",
+      "-c",
+      "16,17",
+      "./experiments/structural_v9/artifacts/v4",
+      "./experiments/structural_v9/inputs/dev/grid_boundary.json",
+      "./experiments/warm_v10/logs/development280_v5_both/grid_boundary_10302_v4.solution.json",
+      "280"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "10302",
+      "DBG": "1"
+    },
+    "affinity": [
+      16,
+      17
+    ],
+    "rc": 0,
+    "timeout": false,
+    "wall": 279.4818182809995,
+    "started_unix": 1792649638.5210032,
+    "ended_unix": 1792649918.031803,
+    "official": 50.215569183578175,
+    "valid": true,
+    "snapshots": [
+      {
+        "at": 28.025879245000397,
+        "path": "experiments/warm_v10/logs/development280_v5_both/grid_boundary_10302_v4.t28.00.solution.json",
+        "official": 50.04757875897261
+      },
+      {
+        "at": 61.62538495300032,
+        "path": "experiments/warm_v10/logs/development280_v5_both/grid_boundary_10302_v4.t61.60.solution.json",
+        "official": 50.04757875897261
+      },
+      {
+        "at": 70.04775776799943,
+        "path": "experiments/warm_v10/logs/development280_v5_both/grid_boundary_10302_v4.t70.00.solution.json",
+        "official": 50.04757875897261
+      },
+      {
+        "at": 140.0208606719989,
+        "path": "experiments/warm_v10/logs/development280_v5_both/grid_boundary_10302_v4.t140.00.solution.json",
+        "official": 50.1713085571706
+      },
+      {
+        "at": 238.005845923999,
+        "path": "experiments/warm_v10/logs/development280_v5_both/grid_boundary_10302_v4.t238.00.solution.json",
+        "official": 50.1713085571706
+      }
+    ],
+    "solution_sha256": "86248616961b945ea4ae7dbb999feddcddec479f3f7f0f8bda3c9a58272faafd",
+    "resource": "rss_kb=5304 user=554.55 sys=0.01\n",
+    "error": false,
+    "internal_deadline_stop": false,
+    "cpu_pressure_before": "some avg10=1.24 avg60=0.96 avg300=8.38 total=4347664336\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "cpu_pressure_after": "some avg10=2.16 avg60=1.14 avg300=3.50 total=4349096064\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "logged_threads": 2,
+    "resource_fields": {
+      "rss_kb": 5304.0,
+      "user": 554.55,
+      "sys": 0.01
+    },
+    "success": true,
+    "components": {
+      "reward": 64.53542206410272,
+      "distance": 9.894885348522642,
+      "cost": 4.166825843745489,
+      "penalty": 0.25814168825641093,
+      "objective": 50.215569183578175
+    }
+  },
+  {
+    "case": "grid_boundary",
+    "seed": 10302,
+    "variant": "v9",
+    "command": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S",
+      "-o",
+      "./experiments/warm_v10/logs/development280_v5_both/grid_boundary_10302_v9.resource",
+      "taskset",
+      "-c",
+      "16,17",
+      "./experiments/structural_v9/artifacts/final_research/candidate",
+      "./experiments/structural_v9/inputs/dev/grid_boundary.json",
+      "./experiments/warm_v10/logs/development280_v5_both/grid_boundary_10302_v9.solution.json",
+      "280"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "10302",
+      "ZM_POOL": "0",
+      "ZM_RESERVE": "0",
+      "DBG": "1"
+    },
+    "affinity": [
+      16,
+      17
+    ],
+    "rc": 0,
+    "timeout": false,
+    "wall": 279.48300184099935,
+    "started_unix": 1792649918.171707,
+    "ended_unix": 1792650197.6813333,
+    "official": 50.920826755588635,
+    "valid": true,
+    "snapshots": [
+      {
+        "at": 28.025976898999943,
+        "path": "experiments/warm_v10/logs/development280_v5_both/grid_boundary_10302_v9.t28.00.solution.json",
+        "official": 50.07380853425037
+      },
+      {
+        "at": 61.61981143599951,
+        "path": "experiments/warm_v10/logs/development280_v5_both/grid_boundary_10302_v9.t61.60.solution.json",
+        "official": 50.07380853425037
+      },
+      {
+        "at": 70.04379461799908,
+        "path": "experiments/warm_v10/logs/development280_v5_both/grid_boundary_10302_v9.t70.00.solution.json",
+        "official": 50.07380853425037
+      },
+      {
+        "at": 140.00361355099994,
+        "path": "experiments/warm_v10/logs/development280_v5_both/grid_boundary_10302_v9.t140.00.solution.json",
+        "official": 50.12118079378598
+      },
+      {
+        "at": 238.0052911849998,
+        "path": "experiments/warm_v10/logs/development280_v5_both/grid_boundary_10302_v9.t238.00.solution.json",
+        "official": 50.877732022766516
+      }
+    ],
+    "solution_sha256": "5849cd8929c5b13d645c5fcd1daedb9d0c768fcd3e5d679811b18861ec9674ec",
+    "resource": "rss_kb=5040 user=554.08 sys=0.01\n",
+    "error": false,
+    "internal_deadline_stop": false,
+    "cpu_pressure_before": "some avg10=2.16 avg60=1.14 avg300=3.50 total=4349098233\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "cpu_pressure_after": "some avg10=22.39 avg60=21.26 avg300=11.77 total=4392109109\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "logged_threads": 2,
+    "resource_fields": {
+      "rss_kb": 5040.0,
+      "user": 554.08,
+      "sys": 0.01
+    },
+    "success": true,
+    "components": {
+      "reward": 64.53542206410272,
+      "distance": 9.166374487532998,
+      "cost": 4.276126362143476,
+      "penalty": 0.17209445883760727,
+      "objective": 50.920826755588635
+    }
+  },
+  {
+    "case": "grid_boundary",
+    "seed": 10302,
+    "variant": "geometry",
+    "command": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S",
+      "-o",
+      "./experiments/warm_v10/logs/development280_v5_both/grid_boundary_10302_geometry.resource",
+      "taskset",
+      "-c",
+      "16,17",
+      "./experiments/warm_v10/artifacts/v5/candidate",
+      "./experiments/structural_v9/inputs/dev/grid_boundary.json",
+      "./experiments/warm_v10/logs/development280_v5_both/grid_boundary_10302_geometry.solution.json",
+      "280"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "10302",
+      "ZM_POOL": "0",
+      "ZM_RESERVE": "0",
+      "DBG": "1",
+      "GW_MODE": "1"
+    },
+    "affinity": [
+      16,
+      17
+    ],
+    "rc": 0,
+    "timeout": false,
+    "wall": 279.4928143569996,
+    "started_unix": 1792650197.8224247,
+    "ended_unix": 1792650477.3499005,
+    "official": 53.467797125711556,
+    "valid": true,
+    "snapshots": [
+      {
+        "at": 28.033557607999683,
+        "path": "experiments/warm_v10/logs/development280_v5_both/grid_boundary_10302_geometry.t28.00.solution.json",
+        "official": 50.09483829998291
+      },
+      {
+        "at": 61.625931898999625,
+        "path": "experiments/warm_v10/logs/development280_v5_both/grid_boundary_10302_geometry.t61.60.solution.json",
+        "official": 50.99489850192057
+      },
+      {
+        "at": 70.04603970799872,
+        "path": "experiments/warm_v10/logs/development280_v5_both/grid_boundary_10302_geometry.t70.00.solution.json",
+        "official": 50.99489850192057
+      },
+      {
+        "at": 140.0302194629985,
+        "path": "experiments/warm_v10/logs/development280_v5_both/grid_boundary_10302_geometry.t140.00.solution.json",
+        "official": 51.050611921829564
+      },
+      {
+        "at": 238.03684424199855,
+        "path": "experiments/warm_v10/logs/development280_v5_both/grid_boundary_10302_geometry.t238.00.solution.json",
+        "official": 51.587687982843775
+      }
+    ],
+    "solution_sha256": "5dfc0dc97b9d5ed31890011988a872defa436f049204925edbd615d64ac0481f",
+    "resource": "rss_kb=5392 user=340.59 sys=0.23\n",
+    "error": false,
+    "internal_deadline_stop": false,
+    "cpu_pressure_before": "some avg10=22.50 avg60=21.32 avg300=11.85 total=4392145294\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "cpu_pressure_after": "some avg10=61.94 avg60=53.84 avg300=32.82 total=4513306052\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "logged_threads": 2,
+    "resource_fields": {
+      "rss_kb": 5392.0,
+      "user": 340.59,
+      "sys": 0.23
+    },
+    "success": true,
+    "components": {
+      "reward": 73.14014500598309,
+      "distance": 13.24515804210516,
+      "cost": 5.308575855721923,
+      "penalty": 1.1186139824444472,
+      "objective": 53.467797125711556
+    }
+  },
+  {
+    "case": "grid_boundary",
+    "seed": 10302,
+    "variant": "memetic",
+    "command": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S",
+      "-o",
+      "./experiments/warm_v10/logs/development280_v5_both/grid_boundary_10302_memetic.resource",
+      "taskset",
+      "-c",
+      "16,17",
+      "./experiments/warm_v10/artifacts/v5/candidate",
+      "./experiments/structural_v9/inputs/dev/grid_boundary.json",
+      "./experiments/warm_v10/logs/development280_v5_both/grid_boundary_10302_memetic.solution.json",
+      "280"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "10302",
+      "ZM_POOL": "0",
+      "ZM_RESERVE": "0",
+      "DBG": "1",
+      "GW_MODE": "2"
+    },
+    "affinity": [
+      16,
+      17
+    ],
+    "rc": 0,
+    "timeout": false,
+    "wall": 279.47703396699944,
+    "started_unix": 1792650477.4915946,
+    "ended_unix": 1792650757.00428,
+    "official": 51.107175506617125,
+    "valid": true,
+    "snapshots": [
+      {
+        "at": 28.008429219999016,
+        "path": "experiments/warm_v10/logs/development280_v5_both/grid_boundary_10302_memetic.t28.00.solution.json",
+        "official": 50.92878092045446
+      },
+      {
+        "at": 61.63617009399968,
+        "path": "experiments/warm_v10/logs/development280_v5_both/grid_boundary_10302_memetic.t61.60.solution.json",
+        "official": 50.92878092045446
+      },
+      {
+        "at": 70.00859174300058,
+        "path": "experiments/warm_v10/logs/development280_v5_both/grid_boundary_10302_memetic.t70.00.solution.json",
+        "official": 50.92878092045446
+      },
+      {
+        "at": 140.00108656699922,
+        "path": "experiments/warm_v10/logs/development280_v5_both/grid_boundary_10302_memetic.t140.00.solution.json",
+        "official": 51.00133432332351
+      },
+      {
+        "at": 238.00631627800067,
+        "path": "experiments/warm_v10/logs/development280_v5_both/grid_boundary_10302_memetic.t238.00.solution.json",
+        "official": 51.00133432332351
+      }
+    ],
+    "solution_sha256": "96f91d70c7ef7438f7ed49da86efda47006f470b9d58c9714dadb610120e5623",
+    "resource": "rss_kb=5596 user=305.62 sys=0.25\n",
+    "error": false,
+    "internal_deadline_stop": false,
+    "cpu_pressure_before": "some avg10=61.94 avg60=53.84 avg300=32.82 total=4513387888\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "cpu_pressure_after": "some avg10=63.40 avg60=62.90 avg300=51.27 total=4690092273\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "logged_threads": 2,
+    "resource_fields": {
+      "rss_kb": 5596.0,
+      "user": 305.62,
+      "sys": 0.25
+    },
+    "success": true,
+    "components": {
+      "reward": 64.53542206410272,
+      "distance": 8.421320995640395,
+      "cost": 4.23250049707597,
+      "penalty": 0.7744250647692327,
+      "objective": 51.107175506617125
+    }
+  }
+]

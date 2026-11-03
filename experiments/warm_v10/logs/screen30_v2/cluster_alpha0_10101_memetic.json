@@ -1,0 +1,87 @@
+{
+  "case": "cluster_alpha0",
+  "seed": 10101,
+  "variant": "memetic",
+  "command": [
+    "/usr/bin/time",
+    "-f",
+    "rss_kb=%M user=%U sys=%S",
+    "-o",
+    "./experiments/warm_v10/logs/screen30_v2/cluster_alpha0_10101_memetic.resource",
+    "taskset",
+    "-c",
+    "16,17",
+    "./experiments/warm_v10/artifacts/v2/candidate",
+    "./experiments/structural_v9/inputs/dev/cluster_alpha0.json",
+    "./experiments/warm_v10/logs/screen30_v2/cluster_alpha0_10101_memetic.solution.json",
+    "30"
+  ],
+  "env": {
+    "HOME": "/home/user",
+    "LANG": "C.UTF-8",
+    "PATH": "/usr/local/bin:/usr/bin:/bin",
+    "NT": "2",
+    "SEED": "10101",
+    "ZM_POOL": "0",
+    "ZM_RESERVE": "0",
+    "DBG": "1",
+    "GW_MODE": "2",
+    "GW_TRACE": "1"
+  },
+  "affinity": [
+    16,
+    17
+  ],
+  "rc": 0,
+  "timeout": false,
+  "wall": 29.78693930600093,
+  "started_unix": 1792646273.3619666,
+  "ended_unix": 1792646303.2127357,
+  "official": 140908.15256542043,
+  "valid": true,
+  "snapshots": [
+    {
+      "at": 3.017263042000195,
+      "path": "experiments/warm_v10/logs/screen30_v2/cluster_alpha0_10101_memetic.t3.00.solution.json",
+      "official": 134975.03724553224
+    },
+    {
+      "at": 6.624554997999439,
+      "path": "experiments/warm_v10/logs/screen30_v2/cluster_alpha0_10101_memetic.t6.60.solution.json",
+      "official": 134975.03724553224
+    },
+    {
+      "at": 7.527106854000522,
+      "path": "experiments/warm_v10/logs/screen30_v2/cluster_alpha0_10101_memetic.t7.50.solution.json",
+      "official": 135465.58796666743
+    },
+    {
+      "at": 15.045527418000347,
+      "path": "experiments/warm_v10/logs/screen30_v2/cluster_alpha0_10101_memetic.t15.00.solution.json",
+      "official": 137596.0378702753
+    },
+    {
+      "at": 25.519890665000275,
+      "path": "experiments/warm_v10/logs/screen30_v2/cluster_alpha0_10101_memetic.t25.50.solution.json",
+      "official": 140275.03346070755
+    }
+  ],
+  "solution_sha256": "166f6e81a3d3eecf610d29cba6f81f74c5365fe27223a47cbb37dbee1683adde",
+  "resource": "rss_kb=5580 user=24.48 sys=0.02\n",
+  "error": false,
+  "internal_deadline_stop": false,
+  "logged_threads": 2,
+  "resource_fields": {
+    "rss_kb": 5580.0,
+    "user": 24.48,
+    "sys": 0.02
+  },
+  "success": true,
+  "components": {
+    "reward": 205992.86320438568,
+    "distance": 53291.30793534425,
+    "cost": 11793.402703621008,
+    "penalty": 0.0,
+    "objective": 140908.1525654204
+  }
+}

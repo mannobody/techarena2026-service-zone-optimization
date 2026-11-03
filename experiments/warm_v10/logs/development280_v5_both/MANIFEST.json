@@ -1,0 +1,92 @@
+{
+  "spec": {
+    "name": "development280_v5_both",
+    "seconds": 280,
+    "seeds": [
+      9403,
+      10302
+    ],
+    "cpus": [
+      [
+        0,
+        1
+      ],
+      [
+        12,
+        13
+      ],
+      [
+        16,
+        17
+      ],
+      [
+        18,
+        19
+      ],
+      [
+        20,
+        21
+      ]
+    ],
+    "cases": {
+      "medium_A0": "experiments/structural_v9/inputs/dev/medium_A0.json",
+      "medium_anti": "experiments/structural_v9/inputs/dev/medium_anti.json",
+      "grid_boundary": "experiments/structural_v9/inputs/dev/grid_boundary.json",
+      "official_3": "task/instance3/instance.json",
+      "regression_large": "experiments/structural_v9/inputs/holdout/large.json",
+      "huge": "experiments/structural_v9/inputs/dev/huge.json"
+    },
+    "variants": {
+      "v4": {
+        "binary": "experiments/structural_v9/artifacts/v4",
+        "env": {
+          "DBG": "1"
+        }
+      },
+      "v9": {
+        "binary": "experiments/structural_v9/artifacts/final_research/candidate",
+        "env": {
+          "ZM_POOL": "0",
+          "ZM_RESERVE": "0",
+          "DBG": "1"
+        }
+      },
+      "geometry": {
+        "binary": "experiments/warm_v10/artifacts/v5/candidate",
+        "env": {
+          "ZM_POOL": "0",
+          "ZM_RESERVE": "0",
+          "DBG": "1",
+          "GW_MODE": "1"
+        }
+      },
+      "memetic": {
+        "binary": "experiments/warm_v10/artifacts/v5/candidate",
+        "env": {
+          "ZM_POOL": "0",
+          "ZM_RESERVE": "0",
+          "DBG": "1",
+          "GW_MODE": "2"
+        }
+      }
+    }
+  },
+  "spec_sha256": "81e61f9acdf5de9c7402d8864bc9eca11ac229adf75f3fce4ccda4d6208ee3db",
+  "inputs": {
+    "medium_A0": "b268a3a102d4e00115170032917c6c336453c287e0aff1f2dd69e9e5425023b4",
+    "medium_anti": "3a73156656271a734e2db83b84d9ae11b2c3b892f8076aaaa59edc30c5d0f636",
+    "grid_boundary": "2abdb42b579f1107d15f7bb15aa636f0c2dc7dd136c6497d0519c7c386dc5d24",
+    "official_3": "dd3f95826ed3b9fd6fca9b1be1b98fb1326419feb630bc2cabf37e56bef5dcc1",
+    "regression_large": "949d354e84f0449b3e0683c92b4cfc9b0b5cc54cea387290e3e3cc55182d4ec4",
+    "huge": "562cd07f929d32c2685674e97314a0fdbf196936fb93831dadb7c5fe88d80c04"
+  },
+  "binaries": {
+    "v4": "5cc54b6ad0f02a3d6d471d0e2f9129c229b4925aaa2b2c01ce26bd5305a4963c",
+    "v9": "255d6f0d4c46a80f36307059bc48c3110eed1f9285b8c0fccb42361e23252670",
+    "geometry": "c3f76ed684a521347cdd84fcdb2f5e9630a716f2eaf3747413ca7ecc6dc34706",
+    "memetic": "c3f76ed684a521347cdd84fcdb2f5e9630a716f2eaf3747413ca7ecc6dc34706"
+  },
+  "validator": "6dd5948ebe72977976acf1b8dcaf7c819274c79addfb82328c0ec9a012ed56e0",
+  "cpu_topology": "<local-host-omitted>",
+  "runner_sha256": "6ca73aaa4c2adc70e57f2edad2e7f3c964692844fc37547ac5c85f885ade8494"
+}

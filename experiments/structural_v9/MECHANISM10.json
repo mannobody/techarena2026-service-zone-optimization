@@ -1,0 +1,42 @@
+{
+  "name": "mechanism10_signed",
+  "seconds": 10,
+  "seeds": [
+    9201,
+    9202,
+    9203
+  ],
+  "cases": {
+    "small_grid_pad17": "experiments/structural_v9/inputs/small_grid_pad17.json",
+    "small_load_pad17": "experiments/structural_v9/inputs/small_load_pad17.json",
+    "small_grid_pad100": "experiments/structural_v9/inputs/small_grid_pad100.json"
+  },
+  "variants": {
+    "v4": {
+      "binary": "experiments/structural_v9/artifacts/v4"
+    },
+    "zones": {
+      "binary": "experiments/structural_v9/artifacts/signed_v5/candidate"
+    },
+    "signed_off": {
+      "binary": "experiments/structural_v9/artifacts/signed_v5/candidate",
+      "env": {
+        "ZM_SIGNED": "0"
+      }
+    }
+  },
+  "cpus": [
+    [
+      0,
+      3
+    ],
+    [
+      6,
+      8
+    ],
+    [
+      1,
+      10
+    ]
+  ]
+}

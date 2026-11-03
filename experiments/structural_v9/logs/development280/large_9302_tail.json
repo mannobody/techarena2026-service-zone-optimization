@@ -1,0 +1,74 @@
+{
+  "case": "large",
+  "seed": 9302,
+  "variant": "tail",
+  "command": [
+    "/usr/bin/time",
+    "-f",
+    "rss_kb=%M user=%U sys=%S",
+    "-o",
+    "./experiments/structural_v9/logs/development280/large_9302_tail.resource",
+    "taskset",
+    "-c",
+    "18,19",
+    "./experiments/structural_v9/artifacts/final_research/candidate",
+    "./experiments/structural_v9/inputs/dev/large.json",
+    "./experiments/structural_v9/logs/development280/large_9302_tail.solution.json",
+    "280"
+  ],
+  "env": {
+    "HOME": "/home/user",
+    "LANG": "C.UTF-8",
+    "PATH": "/usr/local/bin:/usr/bin:/bin",
+    "NT": "2",
+    "SEED": "9302",
+    "ZM_POOL": "0",
+    "ZM_RESERVE": "0"
+  },
+  "affinity": [
+    18,
+    19
+  ],
+  "rc": 0,
+  "timeout": false,
+  "wall": 279.6294815230003,
+  "started_unix": 1792640010.3135242,
+  "ended_unix": 1792640290.6498423,
+  "official": 282.8090774546151,
+  "valid": true,
+  "snapshots": [
+    {
+      "at": 70.01428020899993,
+      "path": "experiments/structural_v9/logs/development280/large_9302_tail.t70.00.solution.json",
+      "official": 277.8876058919447
+    },
+    {
+      "at": 140.0329531440002,
+      "path": "experiments/structural_v9/logs/development280/large_9302_tail.t140.00.solution.json",
+      "official": 280.959876722845
+    },
+    {
+      "at": 238.03012455800035,
+      "path": "experiments/structural_v9/logs/development280/large_9302_tail.t238.00.solution.json",
+      "official": 281.1633442214496
+    }
+  ],
+  "solution_sha256": "6393ab5aaf3e20f5dd2d337da5d75fcf68c69ae04c9c7fbd46e072706285e64d",
+  "resource": "rss_kb=48548 user=495.88 sys=0.10\n",
+  "error": false,
+  "internal_deadline_stop": false,
+  "logged_threads": 2,
+  "resource_fields": {
+    "rss_kb": 48548.0,
+    "user": 495.88,
+    "sys": 0.1
+  },
+  "success": true,
+  "components": {
+    "reward": 478.3764814766567,
+    "distance": 174.16382301204806,
+    "cost": 20.90632124635332,
+    "penalty": 0.49725976364020896,
+    "objective": 282.8090774546151
+  }
+}

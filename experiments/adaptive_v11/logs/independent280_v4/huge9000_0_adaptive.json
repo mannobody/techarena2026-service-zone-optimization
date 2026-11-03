@@ -1,0 +1,143 @@
+{
+  "case": "huge9000",
+  "seed": 0,
+  "variant": "adaptive",
+  "command": [
+    "/usr/bin/time",
+    "-f",
+    "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+    "-o",
+    "./experiments/adaptive_v11/logs/independent280_v4/huge9000_0_adaptive.resource",
+    "taskset",
+    "-c",
+    "20,21",
+    "./experiments/adaptive_v11/artifacts/v4/candidate",
+    "./experiments/adaptive_v11/inputs/fresh/huge9000.json",
+    "./experiments/adaptive_v11/logs/independent280_v4/huge9000_0_adaptive.solution.json",
+    "280"
+  ],
+  "env": {
+    "HOME": "/home/user",
+    "LANG": "C.UTF-8",
+    "PATH": "/usr/local/bin:/usr/bin:/bin",
+    "NT": "2",
+    "SEED": "0",
+    "AP_POLICY": "1",
+    "AP_SHARE": "0"
+  },
+  "affinity": [
+    20,
+    21
+  ],
+  "rc": 0,
+  "timeout": false,
+  "wall": 278.05240761499954,
+  "started_unix": 1792660958.2484982,
+  "ended_unix": 1792661242.2072265,
+  "official": 1846.500752863663,
+  "valid": true,
+  "snapshots": [
+    {
+      "at": 28.011051424997277,
+      "path": "experiments/adaptive_v11/logs/independent280_v4/huge9000_0_adaptive.t28.00.solution.json",
+      "official": 0.0
+    },
+    {
+      "at": 61.63288967100016,
+      "path": "experiments/adaptive_v11/logs/independent280_v4/huge9000_0_adaptive.t61.60.solution.json",
+      "official": 1795.6251357689441
+    },
+    {
+      "at": 70.01874847199724,
+      "path": "experiments/adaptive_v11/logs/independent280_v4/huge9000_0_adaptive.t70.00.solution.json",
+      "official": 1801.4226216057095
+    },
+    {
+      "at": 140.01658526199753,
+      "path": "experiments/adaptive_v11/logs/independent280_v4/huge9000_0_adaptive.t140.00.solution.json",
+      "official": 1833.9475536253053
+    },
+    {
+      "at": 238.02688325000054,
+      "path": "experiments/adaptive_v11/logs/independent280_v4/huge9000_0_adaptive.t238.00.solution.json",
+      "official": 1834.5034761220877
+    }
+  ],
+  "solution_sha256": "7ad0570fc4940bc23adf6502e2be18869aed3df9be47028c48fc4e69721c5e35",
+  "resource": "rss_kb=44844 user=546.39 sys=0.30 majorfaults=0 minorfaults=13377 voluntary=19988 involuntary=20569 inputs=48 outputs=528\n",
+  "error": false,
+  "process_sampling": {
+    "last": {
+      "44": {
+        "runtime_ns": 337416699,
+        "runqueue_ns": 303432609,
+        "slices": 19943
+      },
+      "45": {
+        "runtime_ns": 275366736397,
+        "runqueue_ns": 209245867,
+        "slices": 9173
+      },
+      "46": {
+        "runtime_ns": 269731154494,
+        "runqueue_ns": 354020246,
+        "slices": 11308
+      },
+      "55": {
+        "runtime_ns": 86967,
+        "runqueue_ns": 153397,
+        "slices": 3
+      },
+      "56": {
+        "runtime_ns": 47716,
+        "runqueue_ns": 595886,
+        "slices": 1
+      }
+    },
+    "states": {
+      "S": 706,
+      "R": 548
+    },
+    "wchan": {
+      "hrtimer_nanosleep": 275,
+      "0": 549,
+      "futex_do_wait": 430
+    },
+    "max_sampled_threads": 5,
+    "samples": 276,
+    "last_io": {
+      "rchar": 16852811,
+      "wchar": 768234,
+      "syscr": 2082,
+      "syscw": 45,
+      "read_bytes": 24576,
+      "write_bytes": 270336,
+      "cancelled_write_bytes": 0
+    }
+  },
+  "resource_extra_fields": {
+    "majorfaults": 0.0,
+    "minorfaults": 13377.0,
+    "voluntary": 19988.0,
+    "involuntary": 20569.0,
+    "inputs": 48.0,
+    "outputs": 528.0
+  },
+  "internal_deadline_stop": false,
+  "cpu_pressure_before": "some avg10=0.00 avg60=0.00 avg300=0.31 total=6238602570\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+  "cpu_pressure_after": "some avg10=0.18 avg60=0.21 avg300=0.28 total=6240058201\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+  "logged_threads": 1,
+  "resource_fields": {
+    "rss_kb": 44844.0,
+    "user": 546.39,
+    "sys": 0.3
+  },
+  "success": true,
+  "components": {
+    "reward": 2544.1510644451755,
+    "distance": 529.0146031058043,
+    "cost": 165.77699010578525,
+    "penalty": 2.8587183699235004,
+    "objective": 1846.5007528636625
+  }
+}

@@ -1,0 +1,124 @@
+{
+  "solution": [
+    {
+      "officeId": 0,
+      "sites": [
+        1,
+        6,
+        7
+      ],
+      "workers": [
+        2,
+        3
+      ]
+    },
+    {
+      "officeId": 1,
+      "sites": [
+        3,
+        4,
+        10
+      ],
+      "workers": [
+        0,
+        6
+      ]
+    },
+    {
+      "officeId": 2,
+      "sites": [
+        0,
+        11,
+        13
+      ],
+      "workers": [
+        5,
+        7
+      ]
+    },
+    {
+      "officeId": 3,
+      "sites": [
+        2,
+        5,
+        12
+      ],
+      "workers": [
+        1,
+        4
+      ]
+    }
+  ],
+  "before": 748.5206485503834,
+  "value": 748.5206485503834,
+  "gain": 0.0,
+  "kind": "structure",
+  "backend": "highs",
+  "conditional_optimal": false,
+  "status": "HighsModelStatus.kTimeLimit",
+  "bound": 859.974731742874,
+  "gap": 0.1488991431409906,
+  "build": 0.015925463000030504,
+  "solve": 29.960195987999896,
+  "check": 0.022432987000229332,
+  "restore": 0.003302888999996867,
+  "seconds": 30.009159488000023,
+  "gain_per_second": 0.0,
+  "iterations": 5,
+  "nodes": 2165,
+  "cuts": 16,
+  "variables": 84,
+  "rows": 182,
+  "selected": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13
+  ],
+  "offices": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "events": [
+    {
+      "iteration": 1,
+      "conflicts": 5,
+      "cuts": 5,
+      "bound": 791.3088787679385,
+      "seconds": 4.774297678000039
+    },
+    {
+      "iteration": 2,
+      "conflicts": 4,
+      "cuts": 4,
+      "bound": 777.4835043105257,
+      "seconds": 13.64868764400012
+    },
+    {
+      "iteration": 3,
+      "conflicts": 3,
+      "cuts": 3,
+      "bound": 769.3942608929901,
+      "seconds": 21.826606514000105
+    },
+    {
+      "iteration": 4,
+      "conflicts": 4,
+      "cuts": 4,
+      "bound": 762.5396355882582,
+      "seconds": 26.704998339999975
+    }
+  ]
+}

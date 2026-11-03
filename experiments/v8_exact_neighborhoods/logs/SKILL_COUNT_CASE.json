@@ -1,0 +1,138 @@
+{
+  "official_bad": "Missing skills",
+  "count_relaxation": 27,
+  "exact": {
+    "value": 18,
+    "solution": [
+      {
+        "officeId": 0,
+        "sites": [
+          1
+        ],
+        "workers": [
+          0
+        ]
+      },
+      {
+        "officeId": 1,
+        "sites": [
+          2
+        ],
+        "workers": [
+          1
+        ]
+      }
+    ],
+    "valid_assignments": 28,
+    "tested": 34,
+    "valid_crossings": 9
+  },
+  "models": [
+    {
+      "solution": [
+        {
+          "officeId": 1,
+          "sites": [
+            2
+          ],
+          "workers": [
+            1
+          ]
+        },
+        {
+          "officeId": 2,
+          "sites": [
+            1
+          ],
+          "workers": [
+            0
+          ]
+        }
+      ],
+      "before": 0.0,
+      "value": 18.0,
+      "gain": 18.0,
+      "kind": "structure",
+      "backend": "highs",
+      "conditional_optimal": true,
+      "status": "HighsModelStatus.kOptimal",
+      "bound": 18.0,
+      "gap": 0.0,
+      "build": 0.025441252000064196,
+      "solve": 0.020664885999849503,
+      "check": 0.0008107689998269052,
+      "restore": 0.0010240100000373786,
+      "seconds": 0.04930259100001422,
+      "gain_per_second": 365.09237415118423,
+      "iterations": 1,
+      "nodes": 0,
+      "cuts": 0,
+      "variables": 22,
+      "rows": 41,
+      "selected": [
+        0,
+        1,
+        2
+      ],
+      "offices": [
+        0,
+        1,
+        2
+      ],
+      "events": []
+    },
+    {
+      "solution": [
+        {
+          "officeId": 1,
+          "sites": [
+            1
+          ],
+          "workers": [
+            1
+          ]
+        },
+        {
+          "officeId": 2,
+          "sites": [
+            0
+          ],
+          "workers": [
+            0
+          ]
+        }
+      ],
+      "before": 0.0,
+      "value": 18.0,
+      "gain": 18.0,
+      "kind": "structure",
+      "backend": "scip",
+      "conditional_optimal": true,
+      "status": "optimal",
+      "bound": 18.0,
+      "gap": 0.0,
+      "build": 0.035312979999844174,
+      "solve": 0.03318740000008802,
+      "check": 0.000742693999882249,
+      "restore": 0.0009620369999083778,
+      "seconds": 0.0726222250000319,
+      "gain_per_second": 247.85800765526108,
+      "iterations": 1,
+      "nodes": 1,
+      "cuts": 0,
+      "variables": 22,
+      "rows": 41,
+      "selected": [
+        0,
+        1,
+        2
+      ],
+      "offices": [
+        0,
+        1,
+        2
+      ],
+      "events": []
+    }
+  ]
+}

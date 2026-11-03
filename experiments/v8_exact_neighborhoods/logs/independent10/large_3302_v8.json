@@ -1,0 +1,55 @@
+{
+  "case": "large",
+  "seed": 3302,
+  "variant": "v8",
+  "started_unix": 1792501498.811279,
+  "ended_unix": 1792501508.4626074,
+  "rc": 0,
+  "timeout": false,
+  "wall": 9.651321988000063,
+  "valid": true,
+  "objective": 66183.82964856751,
+  "validation_error": null,
+  "actual_nt": 2,
+  "error_log": false,
+  "affinity": [
+    20,
+    21
+  ],
+  "success": true,
+  "solution_sha256": "a00dcf1109ff0e2f487d307b9a8c4bb43a1125e3f261a445628a6db9bd4e403a",
+  "source_sha256": "1857bec7e0882d15cf3091e79aeb0df1608ced5d4ee6883c1cb02656cfbd8e03",
+  "resource": "rss_kb=9468 user=16.57 sys=0.03\n",
+  "snapshots": [
+    {
+      "target_seconds": 3,
+      "observed_seconds": 3.000179551000201,
+      "file": "experiments/v8_exact_neighborhoods/logs/independent10/large_3302_v8.t3.solution.json",
+      "sha256": "1ed09e2ed881427ff9ca0ed6cf24be833b39da2855f0036e5094f54fc6ea3fd1",
+      "valid": true,
+      "objective": 65905.95918354977
+    },
+    {
+      "target_seconds": 7,
+      "observed_seconds": 7.000324213000113,
+      "file": "experiments/v8_exact_neighborhoods/logs/independent10/large_3302_v8.t7.solution.json",
+      "sha256": "a00dcf1109ff0e2f487d307b9a8c4bb43a1125e3f261a445628a6db9bd4e403a",
+      "valid": true,
+      "objective": 66183.82964856751
+    },
+    {
+      "target_seconds": 9,
+      "observed_seconds": 9.000949859999992,
+      "file": "experiments/v8_exact_neighborhoods/logs/independent10/large_3302_v8.t9.solution.json",
+      "sha256": "a00dcf1109ff0e2f487d307b9a8c4bb43a1125e3f261a445628a6db9bd4e403a",
+      "valid": true,
+      "objective": 66183.82964856751
+    }
+  ],
+  "hard_stopped": false,
+  "hard_stop_at": null,
+  "within_nominal_plus_0.1": true,
+  "nominal_overrun": 0,
+  "watchdog_exit_inferred": false,
+  "thread_count_basis": "final log"
+}

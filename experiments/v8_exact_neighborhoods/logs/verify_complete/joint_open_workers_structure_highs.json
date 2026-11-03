@@ -1,0 +1,62 @@
+{
+  "case": "joint_open_workers",
+  "kind": "structure",
+  "backend": "highs",
+  "ok": true,
+  "expected": 34,
+  "result": {
+    "solution": [
+      {
+        "officeId": 0,
+        "sites": [
+          0,
+          1
+        ],
+        "workers": [
+          0
+        ]
+      },
+      {
+        "officeId": 1,
+        "sites": [
+          2,
+          3
+        ],
+        "workers": [
+          1
+        ]
+      }
+    ],
+    "before": 0.0,
+    "value": 34.0,
+    "gain": 34.0,
+    "kind": "structure",
+    "backend": "highs",
+    "conditional_optimal": true,
+    "status": "HighsModelStatus.kOptimal",
+    "bound": 34.0,
+    "gap": 0.0,
+    "build": 0.0017317199999524746,
+    "solve": 0.020069122999984756,
+    "check": 0.0006480859999555832,
+    "restore": 0.0008668919999763602,
+    "seconds": 0.02453145399999812,
+    "gain_per_second": 1385.9757354783212,
+    "iterations": 1,
+    "nodes": 1,
+    "cuts": 0,
+    "variables": 18,
+    "rows": 33,
+    "selected": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "offices": [
+      0,
+      1
+    ],
+    "events": []
+  }
+}

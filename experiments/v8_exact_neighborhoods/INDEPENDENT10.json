@@ -1,0 +1,101 @@
+{
+  "destination": "experiments/v8_exact_neighborhoods/logs/independent10",
+  "seconds": 10,
+  "seeds": [
+    3301,
+    3302
+  ],
+  "cpu_pairs": [
+    [
+      18,
+      19
+    ],
+    [
+      20,
+      21
+    ]
+  ],
+  "cases": {
+    "anti": "experiments/v8_exact_neighborhoods/inputs/independent/anti.json",
+    "tightA_alpha": "experiments/v8_exact_neighborhoods/inputs/independent/tightA_alpha.json",
+    "multi_deficit": "experiments/v8_exact_neighborhoods/inputs/independent/multi_deficit.json",
+    "cluster_alpha0": "experiments/v8_exact_neighborhoods/inputs/independent/cluster_alpha0.json",
+    "grid_onsite": "experiments/v8_exact_neighborhoods/inputs/independent/grid_onsite.json",
+    "elongated": "experiments/v8_exact_neighborhoods/inputs/independent/elongated.json",
+    "large": "experiments/v8_exact_neighborhoods/inputs/independent/large.json",
+    "huge": "experiments/v8_exact_neighborhoods/inputs/independent/huge.json"
+  },
+  "variants": {
+    "v4": {
+      "binary": "experiments/v8_exact_neighborhoods/artifacts/v4",
+      "source": "experiments/v4_local_search/baseline/frozen_v4.cpp",
+      "env": {
+        "DBG": "1"
+      }
+    },
+    "v8": {
+      "binary": "experiments/v8_exact_neighborhoods/artifacts/v8",
+      "source": "experiments/v8_exact_neighborhoods/src/frozen_v8.cpp",
+      "env": {
+        "DBG": "1"
+      }
+    },
+    "off": {
+      "binary": "experiments/v8_exact_neighborhoods/artifacts/final/solution",
+      "source": "experiments/v8_exact_neighborhoods/artifacts/final/main.cpp",
+      "env": {
+        "DBG": "1",
+        "ESCAPE_MODE": "0",
+        "XN_FILL": "0",
+        "XN_WORKER": "0",
+        "XN_TINY": "0",
+        "XN_MODE": "0",
+        "XN_SIG_FIX": "0"
+      },
+      "internal_watchdog": true
+    },
+    "fill_only": {
+      "binary": "experiments/v8_exact_neighborhoods/artifacts/final/solution",
+      "source": "experiments/v8_exact_neighborhoods/artifacts/final/main.cpp",
+      "env": {
+        "DBG": "1",
+        "ESCAPE_MODE": "0",
+        "XN_FILL": "2",
+        "XN_WORKER": "0",
+        "XN_TINY": "0",
+        "XN_MODE": "0",
+        "XN_SIG_FIX": "0"
+      },
+      "internal_watchdog": true
+    },
+    "worker_only": {
+      "binary": "experiments/v8_exact_neighborhoods/artifacts/final/solution",
+      "source": "experiments/v8_exact_neighborhoods/artifacts/final/main.cpp",
+      "env": {
+        "DBG": "1",
+        "ESCAPE_MODE": "0",
+        "XN_FILL": "0",
+        "XN_WORKER": "1",
+        "XN_TINY": "0",
+        "XN_MODE": "0",
+        "XN_SIG_FIX": "0"
+      },
+      "internal_watchdog": true
+    },
+    "candidate": {
+      "binary": "experiments/v8_exact_neighborhoods/artifacts/final/solution",
+      "source": "experiments/v8_exact_neighborhoods/artifacts/final/main.cpp",
+      "env": {
+        "DBG": "1"
+      },
+      "internal_watchdog": true
+    }
+  },
+  "order_seed": 20261022,
+  "hard_wall": true,
+  "snapshots": [
+    3,
+    7,
+    9
+  ]
+}

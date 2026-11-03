@@ -1,0 +1,72 @@
+{
+  "case": "medium_anti",
+  "seed": 9301,
+  "variant": "full",
+  "command": [
+    "/usr/bin/time",
+    "-f",
+    "rss_kb=%M user=%U sys=%S",
+    "-o",
+    "./experiments/structural_v9/logs/development280/medium_anti_9301_full.resource",
+    "taskset",
+    "-c",
+    "3,6",
+    "./experiments/structural_v9/artifacts/final_research/candidate",
+    "./experiments/structural_v9/inputs/dev/medium_anti.json",
+    "./experiments/structural_v9/logs/development280/medium_anti_9301_full.solution.json",
+    "280"
+  ],
+  "env": {
+    "HOME": "/home/user",
+    "LANG": "C.UTF-8",
+    "PATH": "/usr/local/bin:/usr/bin:/bin",
+    "NT": "2",
+    "SEED": "9301"
+  },
+  "affinity": [
+    3,
+    6
+  ],
+  "rc": 0,
+  "timeout": false,
+  "wall": 279.4725738440002,
+  "started_unix": 1792639438.7229037,
+  "ended_unix": 1792639718.229536,
+  "official": 2681.2384399315033,
+  "valid": true,
+  "snapshots": [
+    {
+      "at": 70.02804528500019,
+      "path": "experiments/structural_v9/logs/development280/medium_anti_9301_full.t70.00.solution.json",
+      "official": 2428.3784730169655
+    },
+    {
+      "at": 140.0212462039999,
+      "path": "experiments/structural_v9/logs/development280/medium_anti_9301_full.t140.00.solution.json",
+      "official": 2666.885405667684
+    },
+    {
+      "at": 238.00954592300013,
+      "path": "experiments/structural_v9/logs/development280/medium_anti_9301_full.t238.00.solution.json",
+      "official": 2666.885405667684
+    }
+  ],
+  "solution_sha256": "078d3b98b83f615c986c1a914db902d0f557053752587e7b96c881573fe0241c",
+  "resource": "rss_kb=6632 user=549.79 sys=2.21\n",
+  "error": false,
+  "internal_deadline_stop": false,
+  "logged_threads": 2,
+  "resource_fields": {
+    "rss_kb": 6632.0,
+    "user": 549.79,
+    "sys": 2.21
+  },
+  "success": true,
+  "components": {
+    "reward": 7874.387189619435,
+    "distance": 4886.62133161546,
+    "cost": 299.9654287477889,
+    "penalty": 6.561989324682863,
+    "objective": 2681.2384399315033
+  }
+}

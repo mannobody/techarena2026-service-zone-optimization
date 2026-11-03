@@ -1,0 +1,57 @@
+{
+  "case": "overlap_collinear",
+  "kind": "structure",
+  "backend": "highs",
+  "ok": true,
+  "expected": 9,
+  "result": {
+    "solution": [
+      {
+        "officeId": 0,
+        "sites": [
+          0
+        ],
+        "workers": [
+          0
+        ]
+      }
+    ],
+    "before": 0.0,
+    "value": 9.0,
+    "gain": 9.0,
+    "kind": "structure",
+    "backend": "highs",
+    "conditional_optimal": true,
+    "status": "HighsModelStatus.kOptimal",
+    "bound": 9.0,
+    "gap": 0.0,
+    "build": 0.001406149000104051,
+    "solve": 0.04575781400001233,
+    "check": 0.001498976999982915,
+    "restore": 0.00040474700006143394,
+    "seconds": 0.050086246000091705,
+    "gain_per_second": 179.69004904027986,
+    "iterations": 2,
+    "nodes": 2,
+    "cuts": 1,
+    "variables": 12,
+    "rows": 24,
+    "selected": [
+      0,
+      1
+    ],
+    "offices": [
+      0,
+      1
+    ],
+    "events": [
+      {
+        "iteration": 1,
+        "conflicts": 2,
+        "cuts": 1,
+        "bound": 18.0,
+        "seconds": 0.0264384390000032
+      }
+    ]
+  }
+}

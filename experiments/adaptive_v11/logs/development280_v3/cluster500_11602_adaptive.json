@@ -1,0 +1,143 @@
+{
+  "case": "cluster500",
+  "seed": 11602,
+  "variant": "adaptive",
+  "command": [
+    "/usr/bin/time",
+    "-f",
+    "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+    "-o",
+    "./experiments/adaptive_v11/logs/development280_v3/cluster500_11602_adaptive.resource",
+    "taskset",
+    "-c",
+    "18,19",
+    "./experiments/adaptive_v11/artifacts/v3/candidate",
+    "./experiments/adaptive_v11/inputs/dev/cluster500.json",
+    "./experiments/adaptive_v11/logs/development280_v3/cluster500_11602_adaptive.solution.json",
+    "280"
+  ],
+  "env": {
+    "HOME": "/home/user",
+    "LANG": "C.UTF-8",
+    "PATH": "/usr/local/bin:/usr/bin:/bin",
+    "NT": "2",
+    "SEED": "11602",
+    "AP_POLICY": "1",
+    "AP_SHARE": "0"
+  },
+  "affinity": [
+    18,
+    19
+  ],
+  "rc": 0,
+  "timeout": false,
+  "wall": 279.5102915410025,
+  "started_unix": 1792661140.2673168,
+  "ended_unix": 1792661419.8492954,
+  "official": 1871889.415984116,
+  "valid": true,
+  "snapshots": [
+    {
+      "at": 28.033901740000147,
+      "path": "experiments/adaptive_v11/logs/development280_v3/cluster500_11602_adaptive.t28.00.solution.json",
+      "official": 1863660.5331635438
+    },
+    {
+      "at": 61.63760940600332,
+      "path": "experiments/adaptive_v11/logs/development280_v3/cluster500_11602_adaptive.t61.60.solution.json",
+      "official": 1863660.5331635438
+    },
+    {
+      "at": 70.02550248000261,
+      "path": "experiments/adaptive_v11/logs/development280_v3/cluster500_11602_adaptive.t70.00.solution.json",
+      "official": 1863660.5331635438
+    },
+    {
+      "at": 140.0230472760013,
+      "path": "experiments/adaptive_v11/logs/development280_v3/cluster500_11602_adaptive.t140.00.solution.json",
+      "official": 1865058.9891763136
+    },
+    {
+      "at": 238.01069449400165,
+      "path": "experiments/adaptive_v11/logs/development280_v3/cluster500_11602_adaptive.t238.00.solution.json",
+      "official": 1866761.1351866256
+    }
+  ],
+  "solution_sha256": "5e737b17b348bbc2f6836753e90880b7865748a685ff7e6b5b6f616590df9318",
+  "resource": "rss_kb=12840 user=554.07 sys=0.19 majorfaults=2 minorfaults=2330 voluntary=22229 involuntary=23070 inputs=2136 outputs=552\n",
+  "error": false,
+  "process_sampling": {
+    "last": {
+      "256": {
+        "runtime_ns": 137943134,
+        "runqueue_ns": 243503704,
+        "slices": 22215
+      },
+      "257": {
+        "runtime_ns": 276720717792,
+        "runqueue_ns": 254829552,
+        "slices": 22801
+      },
+      "258": {
+        "runtime_ns": 277201457765,
+        "runqueue_ns": 87099144,
+        "slices": 261
+      },
+      "259": {
+        "runtime_ns": 54652,
+        "runqueue_ns": 653891,
+        "slices": 2
+      },
+      "260": {
+        "runtime_ns": 28891,
+        "runqueue_ns": 370736,
+        "slices": 1
+      }
+    },
+    "states": {
+      "S": 764,
+      "R": 556
+    },
+    "wchan": {
+      "hrtimer_nanosleep": 277,
+      "0": 557,
+      "futex_do_wait": 486
+    },
+    "max_sampled_threads": 5,
+    "samples": 278,
+    "last_io": {
+      "rchar": 509777,
+      "wchar": 68648,
+      "syscr": 87,
+      "syscw": 61,
+      "read_bytes": 1093632,
+      "write_bytes": 282624,
+      "cancelled_write_bytes": 0
+    }
+  },
+  "resource_extra_fields": {
+    "majorfaults": 2.0,
+    "minorfaults": 2330.0,
+    "voluntary": 22229.0,
+    "involuntary": 23070.0,
+    "inputs": 2136.0,
+    "outputs": 552.0
+  },
+  "internal_deadline_stop": false,
+  "cpu_pressure_before": "some avg10=0.71 avg60=0.61 avg300=0.33 total=6239579954\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+  "cpu_pressure_after": "some avg10=0.00 avg60=0.00 avg300=0.14 total=6240553240\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+  "logged_threads": 1,
+  "resource_fields": {
+    "rss_kb": 12840.0,
+    "user": 554.07,
+    "sys": 0.19
+  },
+  "success": true,
+  "components": {
+    "reward": 2766328.071360099,
+    "distance": 729192.4274036082,
+    "cost": 165246.2279723747,
+    "penalty": 0.0,
+    "objective": 1871889.415984116
+  }
+}

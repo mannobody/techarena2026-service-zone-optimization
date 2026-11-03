@@ -1,0 +1,85 @@
+{
+  "case": "huge",
+  "seed": 10302,
+  "variant": "v4",
+  "command": [
+    "/usr/bin/time",
+    "-f",
+    "rss_kb=%M user=%U sys=%S",
+    "-o",
+    "./experiments/warm_v10/logs/development280_v5_both/huge_10302_v4.resource",
+    "taskset",
+    "-c",
+    "20,21",
+    "./experiments/structural_v9/artifacts/v4",
+    "./experiments/structural_v9/inputs/dev/huge.json",
+    "./experiments/warm_v10/logs/development280_v5_both/huge_10302_v4.solution.json",
+    "280"
+  ],
+  "env": {
+    "HOME": "/home/user",
+    "LANG": "C.UTF-8",
+    "PATH": "/usr/local/bin:/usr/bin:/bin",
+    "NT": "2",
+    "SEED": "10302",
+    "DBG": "1"
+  },
+  "affinity": [
+    20,
+    21
+  ],
+  "rc": 0,
+  "timeout": false,
+  "wall": 278.18674229799944,
+  "started_unix": 1792648263.2342541,
+  "ended_unix": 1792648544.2479646,
+  "official": 3114364.95182744,
+  "valid": true,
+  "snapshots": [
+    {
+      "at": 28.007518284999605,
+      "path": "experiments/warm_v10/logs/development280_v5_both/huge_10302_v4.t28.00.solution.json",
+      "official": 0.0
+    },
+    {
+      "at": 61.62710380899989,
+      "path": "experiments/warm_v10/logs/development280_v5_both/huge_10302_v4.t61.60.solution.json",
+      "official": 2476547.0145950215
+    },
+    {
+      "at": 70.04594662700038,
+      "path": "experiments/warm_v10/logs/development280_v5_both/huge_10302_v4.t70.00.solution.json",
+      "official": 3075425.431779111
+    },
+    {
+      "at": 140.04289539899946,
+      "path": "experiments/warm_v10/logs/development280_v5_both/huge_10302_v4.t140.00.solution.json",
+      "official": 3113807.4656375935
+    },
+    {
+      "at": 238.04586677000043,
+      "path": "experiments/warm_v10/logs/development280_v5_both/huge_10302_v4.t238.00.solution.json",
+      "official": 3114364.95182744
+    }
+  ],
+  "solution_sha256": "60d86bde6e8b85e498535ab1c055b4b09238e76588e2750f567e49eb599f79d6",
+  "resource": "rss_kb=20172 user=490.10 sys=0.08\n",
+  "error": false,
+  "internal_deadline_stop": false,
+  "cpu_pressure_before": "some avg10=21.03 avg60=19.82 avg300=22.86 total=4085797755\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+  "cpu_pressure_after": "some avg10=30.33 avg60=33.46 avg300=27.90 total=4170222655\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+  "logged_threads": 2,
+  "resource_fields": {
+    "rss_kb": 20172.0,
+    "user": 490.1,
+    "sys": 0.08
+  },
+  "success": true,
+  "components": {
+    "reward": 3743890.51545047,
+    "distance": 480769.23111105326,
+    "cost": 146211.86649124126,
+    "penalty": 2544.4660207360416,
+    "objective": 3114364.9518274395
+  }
+}

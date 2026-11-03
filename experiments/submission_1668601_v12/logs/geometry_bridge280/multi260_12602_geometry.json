@@ -1,0 +1,136 @@
+{
+  "case": "multi260",
+  "seed": 12602,
+  "variant": "geometry",
+  "command": [
+    "/usr/bin/time",
+    "-f",
+    "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+    "-o",
+    "./experiments/submission_1668601_v12/logs/geometry_bridge280/multi260_12602_geometry.resource",
+    "taskset",
+    "-c",
+    "12,13",
+    "./experiments/submission_1668601_v12/artifacts/geometry/candidate",
+    "./experiments/adaptive_v11/inputs/dev/multi260.json",
+    "./experiments/submission_1668601_v12/logs/geometry_bridge280/multi260_12602_geometry.solution.json",
+    "280"
+  ],
+  "env": {
+    "HOME": "/home/user",
+    "LANG": "C.UTF-8",
+    "PATH": "/usr/local/bin:/usr/bin:/bin",
+    "NT": "2",
+    "SEED": "12602",
+    "GW_MODE": "1",
+    "ZM_POOL": "0",
+    "ZM_RESERVE": "0"
+  },
+  "affinity": [
+    12,
+    13
+  ],
+  "rc": 0,
+  "timeout": false,
+  "wall": 279.5254557240005,
+  "started_unix": 1792664510.0100408,
+  "ended_unix": 1792664789.8291092,
+  "official": 8873.221011718873,
+  "valid": true,
+  "snapshots": [
+    {
+      "at": 28.038480956001877,
+      "path": "experiments/submission_1668601_v12/logs/geometry_bridge280/multi260_12602_geometry.t28.00.solution.json",
+      "official": 8714.612271970323
+    },
+    {
+      "at": 61.61709704099849,
+      "path": "experiments/submission_1668601_v12/logs/geometry_bridge280/multi260_12602_geometry.t61.60.solution.json",
+      "official": 8873.221011718873
+    },
+    {
+      "at": 70.04511220100176,
+      "path": "experiments/submission_1668601_v12/logs/geometry_bridge280/multi260_12602_geometry.t70.00.solution.json",
+      "official": 8873.221011718873
+    },
+    {
+      "at": 140.01412920599978,
+      "path": "experiments/submission_1668601_v12/logs/geometry_bridge280/multi260_12602_geometry.t140.00.solution.json",
+      "official": 8873.221011718873
+    },
+    {
+      "at": 238.0243596500004,
+      "path": "experiments/submission_1668601_v12/logs/geometry_bridge280/multi260_12602_geometry.t238.00.solution.json",
+      "official": 8873.221011718873
+    }
+  ],
+  "solution_sha256": "cb9c8bed5a9d14d795c9c50a234aaccf8e8e58e1a0337220332856532a2577fc",
+  "resource": "rss_kb=10176 user=549.21 sys=0.55 majorfaults=0 minorfaults=1604 voluntary=4 involuntary=70445 inputs=0 outputs=72\n",
+  "error": false,
+  "process_sampling": {
+    "last": {
+      "34": {
+        "runtime_ns": 275548359642,
+        "runqueue_ns": 1522737113,
+        "slices": 26195
+      },
+      "45": {
+        "runtime_ns": 57167659700,
+        "runqueue_ns": 245579158,
+        "slices": 6559
+      },
+      "50": {
+        "runtime_ns": 210600511000,
+        "runqueue_ns": 1438625438,
+        "slices": 36071
+      },
+      "57": {
+        "runtime_ns": 4690166280,
+        "runqueue_ns": 48501070,
+        "slices": 1280
+      }
+    },
+    "states": {
+      "R": 554
+    },
+    "wchan": {
+      "0": 554
+    },
+    "max_sampled_threads": 2,
+    "samples": 278,
+    "last_io": {
+      "rchar": 100972,
+      "wchar": 9916,
+      "syscr": 33,
+      "syscw": 22,
+      "read_bytes": 0,
+      "write_bytes": 36864,
+      "cancelled_write_bytes": 0
+    }
+  },
+  "resource_extra_fields": {
+    "majorfaults": 0.0,
+    "minorfaults": 1604.0,
+    "voluntary": 4.0,
+    "involuntary": 70445.0,
+    "inputs": 0.0,
+    "outputs": 72.0
+  },
+  "internal_deadline_stop": false,
+  "cpu_pressure_before": "some avg10=0.12 avg60=0.02 avg300=0.21 total=6265159705\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+  "cpu_pressure_after": "some avg10=1.38 avg60=0.96 avg300=0.37 total=6267202190\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+  "logged_threads": 2,
+  "resource_fields": {
+    "rss_kb": 10176.0,
+    "user": 549.21,
+    "sys": 0.55
+  },
+  "success": true,
+  "components": {
+    "reward": 12705.470740781946,
+    "distance": 2918.0582406196954,
+    "cost": 808.312565603529,
+    "penalty": 105.87892283984955,
+    "objective": 8873.221011718873
+  }
+}

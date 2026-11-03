@@ -1,0 +1,75 @@
+{
+  "spec": {
+    "name": "development280",
+    "seconds": 280,
+    "seeds": [
+      12602
+    ],
+    "cpus": [
+      [
+        0,
+        1
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        8,
+        10
+      ],
+      [
+        12,
+        13
+      ],
+      [
+        16,
+        17
+      ],
+      [
+        18,
+        19
+      ],
+      [
+        20,
+        21
+      ]
+    ],
+    "cases": {
+      "jury1": "task/instance1/instance.json",
+      "anti220": "experiments/adaptive_v11/inputs/dev/anti220.json",
+      "equal180": "experiments/adaptive_v11/inputs/dev/equal180.json",
+      "grid180": "experiments/adaptive_v11/inputs/dev/grid180.json",
+      "multi260": "experiments/adaptive_v11/inputs/dev/multi260.json",
+      "huge10000": "experiments/adaptive_v11/inputs/dev/huge10000.json"
+    },
+    "variants": {
+      "submission": {
+        "binary": "experiments/submission_1668601_v12/baseline/solution"
+      },
+      "hybrid": {
+        "binary": "experiments/submission_1668601_v12/artifacts/hybrid/candidate"
+      },
+      "plateau": {
+        "binary": "experiments/submission_1668601_v12/artifacts/plateau/candidate"
+      }
+    }
+  },
+  "spec_sha256": "2b2110b66e6e36c6d673c7b99d645652da47d8ba09be91ee679da7ec1e5983c1",
+  "inputs": {
+    "jury1": "eefb6b7e4c814dd61e638e121dfccbb517dc1d160550d0164fc28ccd59174957",
+    "anti220": "dbc3263ca03113f1cea1ae4cbadfb1491c5ef2970cf9ccbfbf10715931e09486",
+    "equal180": "ea0356173e00711f870180aab58f67785c904b1a7ebb2c708be98486215ca8e6",
+    "grid180": "d33d87cb40793a654a49d2d0d4078e477d12f17b9a0ae68ada265b613e168a63",
+    "multi260": "ca8fade075ce4051d80a06718fb870596bf5229832fbcadf087fa317b137f20c",
+    "huge10000": "a7a72dc842d85b2bdd851f34e6a403bbb297ec4cd71eb47f35e7d950b9b8ee8a"
+  },
+  "binaries": {
+    "submission": "2d6ec1ffe23cef9af7e8fbb957b36dcf54837b5e4dc36aef1966df871e44f122",
+    "hybrid": "66bc591e00049fb3e94c7249a079d14f3afad4d63b8c6ee61b17d82c92a142a9",
+    "plateau": "e29d02403194d8a9c1fbd22a95f6befa3dd3e039612904d2b37a437d1493eccc"
+  },
+  "validator": "6dd5948ebe72977976acf1b8dcaf7c819274c79addfb82328c0ec9a012ed56e0",
+  "cpu_topology": "<local-host-omitted>",
+  "runner_sha256": "6dbfb58cff7b88b4b2952ad76f9439d39b1e03b1d014cb0ff94f3e3306f1ec7d"
+}

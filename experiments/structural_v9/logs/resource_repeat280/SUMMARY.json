@@ -1,0 +1,88 @@
+{
+  "series": "resource_repeat280",
+  "seconds": 280,
+  "runs": 6,
+  "expected_runs": 6,
+  "missing": [],
+  "valid": 6,
+  "success": 6,
+  "failures": [],
+  "variants": {
+    "candidate": {
+      "all_valid_pairs": {
+        "pairs": 3,
+        "nonzero_reference_pairs": 3,
+        "mean_case_percent": -0.0635534753911208,
+        "median_pair_percent": 0.09973783554497097,
+        "sd_pair_percent": 1.6164638441573975,
+        "worst_percent": -1.7554653573874668,
+        "best_percent": 1.4650670956691334,
+        "wins": 2,
+        "ties": 0,
+        "losses": 1
+      },
+      "successful_pairs": {
+        "pairs": 3,
+        "nonzero_reference_pairs": 3,
+        "mean_case_percent": -0.0635534753911208,
+        "median_pair_percent": 0.09973783554497097,
+        "sd_pair_percent": 1.6164638441573975,
+        "worst_percent": -1.7554653573874668,
+        "best_percent": 1.4650670956691334,
+        "wins": 2,
+        "ties": 0,
+        "losses": 1
+      },
+      "bootstrap_cases_95": [
+        -0.0635534753911208,
+        -0.0635534753911208
+      ],
+      "per_case": {
+        "large": {
+          "mean_percent": -0.0635534753911208,
+          "base_values": [
+            598010.8838630597,
+            590647.7797977924,
+            589793.118859799
+          ],
+          "candidate_values": [
+            598607.326974948,
+            599301.1660709102,
+            579439.5049779601
+          ],
+          "median_delta": 596.4431118883658,
+          "worst_percent": -1.7554653573874668
+        }
+      },
+      "pairs": [
+        {
+          "case": "large",
+          "seed": 9401,
+          "base": 598010.8838630597,
+          "candidate": 598607.326974948,
+          "delta": 596.4431118883658,
+          "percent": 0.09973783554497097,
+          "both_success": true
+        },
+        {
+          "case": "large",
+          "seed": 9402,
+          "base": 590647.7797977924,
+          "candidate": 599301.1660709102,
+          "delta": 8653.386273117736,
+          "percent": 1.4650670956691334,
+          "both_success": true
+        },
+        {
+          "case": "large",
+          "seed": 9403,
+          "base": 589793.118859799,
+          "candidate": 579439.5049779601,
+          "delta": -10353.613881838857,
+          "percent": -1.7554653573874668,
+          "both_success": true
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,1356 @@
+{
+  "inputs": 21,
+  "complete_blocks": 30,
+  "methods": [
+    "current_snapshot",
+    "exact_neighborhoods",
+    "v4_exact",
+    "v5_2_regions_safe",
+    "v6_hybrid",
+    "v8"
+  ],
+  "constant": {
+    "current_snapshot": 0.2403556254137978,
+    "exact_neighborhoods": 1.176430674676523,
+    "v4_exact": 0.0,
+    "v5_2_regions_safe": 1.1436029447374416,
+    "v6_hybrid": -0.10446510649044266,
+    "v8": -0.03342429891812806
+  },
+  "oracle": 1.5139737187221172,
+  "policies": [
+    {
+      "depth": 2,
+      "minleaf": 3,
+      "mean": -0.023940726437250027,
+      "worst": -0.6615786816192593,
+      "rows": [
+        {
+          "case": "experiments/server_v6/logs/package_check/gen10/instance.json",
+          "method": "current_snapshot",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "task/instance2/instance.json",
+          "method": "current_snapshot",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/dp_milp/data/controlled/dense_load.json",
+          "method": "current_snapshot",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/v8_exact_neighborhoods/inputs/worker_budget_isolated.json",
+          "method": "v4_exact",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/evolution/data/holdout/holdout_huge1.json",
+          "method": "v8",
+          "percent": 0.019647802964866956,
+          "worst": 0.019647802964866956
+        },
+        {
+          "case": "experiments/server_v6/logs/package_check/gen8/instance.json",
+          "method": "v8",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/v8_exact_neighborhoods/inputs/cross_triangles.json",
+          "method": "exact_neighborhoods",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/server_v6/logs/package_check/gen7/instance.json",
+          "method": "current_snapshot",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/boundary_beam/data/edge/edge_A0.json",
+          "method": "current_snapshot",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/evolution/data/suite_cluster0.json",
+          "method": "current_snapshot",
+          "percent": 0.00025650161960770766,
+          "worst": 0.00025650161960770766
+        },
+        {
+          "case": "experiments/boundary_beam/data/edge/edge_alpha_huge.json",
+          "method": "current_snapshot",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/v4_local_search/data/holdout_cycle/tightA.json",
+          "method": "current_snapshot",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/v8_exact_neighborhoods/inputs/closed_office_witness.json",
+          "method": "exact_neighborhoods",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "task/instance0/instance.json",
+          "method": "current_snapshot",
+          "percent": 0.009859036140546328,
+          "worst": 0.009859036140546328
+        },
+        {
+          "case": "experiments/milp_v5_boundaries/data/coop_holdout/multiskill0.json",
+          "method": "v8",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/dp_milp/data/controlled/gcd_large.json",
+          "method": "current_snapshot",
+          "percent": 0.005937879596371203,
+          "worst": 0.005937879596371203
+        },
+        {
+          "case": "experiments/boundary_beam/data/train/latent3.json",
+          "method": "v8",
+          "percent": 0.12312220611561649,
+          "worst": 0.0009165470542424601
+        },
+        {
+          "case": "experiments/geometry_islands/data/holdout/large0.json",
+          "method": "exact_neighborhoods",
+          "percent": -0.6615786816192593,
+          "worst": -0.6615786816192593
+        },
+        {
+          "case": "experiments/boundary_beam/data/edge/edge_A_big.json",
+          "method": "current_snapshot",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/v8_exact_neighborhoods/inputs/joint_open_workers.json",
+          "method": "exact_neighborhoods",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/milp_v5/data/lazy_holdout/multiskill0.json",
+          "method": "v4_exact",
+          "percent": 0.0,
+          "worst": 0.0
+        }
+      ],
+      "tree": {
+        "feature": "ns",
+        "threshold": 16,
+        "left": {
+          "action": "exact_neighborhoods",
+          "n": 4,
+          "mean": 6.25
+        },
+        "right": {
+          "feature": "multiskill_fraction",
+          "threshold": 0,
+          "left": {
+            "action": "current_snapshot",
+            "n": 12,
+            "mean": 0.4982340174256042
+          },
+          "right": {
+            "action": "v8",
+            "n": 5,
+            "mean": 0.13562864600715743
+          }
+        }
+      }
+    },
+    {
+      "depth": 2,
+      "minleaf": 4,
+      "mean": -0.023940726437250027,
+      "worst": -0.6615786816192593,
+      "rows": [
+        {
+          "case": "experiments/server_v6/logs/package_check/gen10/instance.json",
+          "method": "current_snapshot",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "task/instance2/instance.json",
+          "method": "current_snapshot",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/dp_milp/data/controlled/dense_load.json",
+          "method": "current_snapshot",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/v8_exact_neighborhoods/inputs/worker_budget_isolated.json",
+          "method": "v4_exact",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/evolution/data/holdout/holdout_huge1.json",
+          "method": "v8",
+          "percent": 0.019647802964866956,
+          "worst": 0.019647802964866956
+        },
+        {
+          "case": "experiments/server_v6/logs/package_check/gen8/instance.json",
+          "method": "v8",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/v8_exact_neighborhoods/inputs/cross_triangles.json",
+          "method": "exact_neighborhoods",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/server_v6/logs/package_check/gen7/instance.json",
+          "method": "current_snapshot",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/boundary_beam/data/edge/edge_A0.json",
+          "method": "current_snapshot",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/evolution/data/suite_cluster0.json",
+          "method": "current_snapshot",
+          "percent": 0.00025650161960770766,
+          "worst": 0.00025650161960770766
+        },
+        {
+          "case": "experiments/boundary_beam/data/edge/edge_alpha_huge.json",
+          "method": "current_snapshot",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/v4_local_search/data/holdout_cycle/tightA.json",
+          "method": "current_snapshot",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/v8_exact_neighborhoods/inputs/closed_office_witness.json",
+          "method": "exact_neighborhoods",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "task/instance0/instance.json",
+          "method": "current_snapshot",
+          "percent": 0.009859036140546328,
+          "worst": 0.009859036140546328
+        },
+        {
+          "case": "experiments/milp_v5_boundaries/data/coop_holdout/multiskill0.json",
+          "method": "v8",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/dp_milp/data/controlled/gcd_large.json",
+          "method": "current_snapshot",
+          "percent": 0.005937879596371203,
+          "worst": 0.005937879596371203
+        },
+        {
+          "case": "experiments/boundary_beam/data/train/latent3.json",
+          "method": "v8",
+          "percent": 0.12312220611561649,
+          "worst": 0.0009165470542424601
+        },
+        {
+          "case": "experiments/geometry_islands/data/holdout/large0.json",
+          "method": "exact_neighborhoods",
+          "percent": -0.6615786816192593,
+          "worst": -0.6615786816192593
+        },
+        {
+          "case": "experiments/boundary_beam/data/edge/edge_A_big.json",
+          "method": "current_snapshot",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/v8_exact_neighborhoods/inputs/joint_open_workers.json",
+          "method": "exact_neighborhoods",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/milp_v5/data/lazy_holdout/multiskill0.json",
+          "method": "v4_exact",
+          "percent": 0.0,
+          "worst": 0.0
+        }
+      ],
+      "tree": {
+        "feature": "ns",
+        "threshold": 16,
+        "left": {
+          "action": "exact_neighborhoods",
+          "n": 4,
+          "mean": 6.25
+        },
+        "right": {
+          "feature": "multiskill_fraction",
+          "threshold": 0,
+          "left": {
+            "action": "current_snapshot",
+            "n": 12,
+            "mean": 0.4982340174256042
+          },
+          "right": {
+            "action": "v8",
+            "n": 5,
+            "mean": 0.13562864600715743
+          }
+        }
+      }
+    },
+    {
+      "depth": 1,
+      "minleaf": 3,
+      "mean": -0.038381030609288,
+      "worst": -0.6615786816192593,
+      "rows": [
+        {
+          "case": "experiments/server_v6/logs/package_check/gen10/instance.json",
+          "method": "exact_neighborhoods",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "task/instance2/instance.json",
+          "method": "exact_neighborhoods",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/dp_milp/data/controlled/dense_load.json",
+          "method": "exact_neighborhoods",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/v8_exact_neighborhoods/inputs/worker_budget_isolated.json",
+          "method": "v8",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/evolution/data/holdout/holdout_huge1.json",
+          "method": "current_snapshot",
+          "percent": -0.46062154140103484,
+          "worst": -0.46062154140103484
+        },
+        {
+          "case": "experiments/server_v6/logs/package_check/gen8/instance.json",
+          "method": "current_snapshot",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/v8_exact_neighborhoods/inputs/cross_triangles.json",
+          "method": "current_snapshot",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/server_v6/logs/package_check/gen7/instance.json",
+          "method": "exact_neighborhoods",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/boundary_beam/data/edge/edge_A0.json",
+          "method": "exact_neighborhoods",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/evolution/data/suite_cluster0.json",
+          "method": "exact_neighborhoods",
+          "percent": 0.00025650161960770766,
+          "worst": 0.00025650161960770766
+        },
+        {
+          "case": "experiments/boundary_beam/data/edge/edge_alpha_huge.json",
+          "method": "exact_neighborhoods",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/v4_local_search/data/holdout_cycle/tightA.json",
+          "method": "exact_neighborhoods",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/v8_exact_neighborhoods/inputs/closed_office_witness.json",
+          "method": "current_snapshot",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "task/instance0/instance.json",
+          "method": "exact_neighborhoods",
+          "percent": 0.009859036140546328,
+          "worst": 0.009859036140546328
+        },
+        {
+          "case": "experiments/milp_v5_boundaries/data/coop_holdout/multiskill0.json",
+          "method": "exact_neighborhoods",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/dp_milp/data/controlled/gcd_large.json",
+          "method": "current_snapshot",
+          "percent": 0.005937879596371203,
+          "worst": 0.005937879596371203
+        },
+        {
+          "case": "experiments/boundary_beam/data/train/latent3.json",
+          "method": "current_snapshot",
+          "percent": 0.14518621125895084,
+          "worst": -0.6298114248027857
+        },
+        {
+          "case": "experiments/geometry_islands/data/holdout/large0.json",
+          "method": "exact_neighborhoods",
+          "percent": -0.6615786816192593,
+          "worst": -0.6615786816192593
+        },
+        {
+          "case": "experiments/boundary_beam/data/edge/edge_A_big.json",
+          "method": "exact_neighborhoods",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/v8_exact_neighborhoods/inputs/joint_open_workers.json",
+          "method": "exact_neighborhoods",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/milp_v5/data/lazy_holdout/multiskill0.json",
+          "method": "exact_neighborhoods",
+          "percent": 0.15495895160977,
+          "worst": 0.15495895160977
+        }
+      ],
+      "tree": {
+        "feature": "nearest_agreement",
+        "threshold": 0.75,
+        "left": {
+          "action": "current_snapshot",
+          "n": 5,
+          "mean": 1.2215882006019352
+        },
+        "right": {
+          "action": "exact_neighborhoods",
+          "n": 16,
+          "mean": 1.5782668125420987
+        }
+      }
+    },
+    {
+      "depth": 1,
+      "minleaf": 4,
+      "mean": -0.038381030609288,
+      "worst": -0.6615786816192593,
+      "rows": [
+        {
+          "case": "experiments/server_v6/logs/package_check/gen10/instance.json",
+          "method": "exact_neighborhoods",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "task/instance2/instance.json",
+          "method": "exact_neighborhoods",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/dp_milp/data/controlled/dense_load.json",
+          "method": "exact_neighborhoods",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/v8_exact_neighborhoods/inputs/worker_budget_isolated.json",
+          "method": "v8",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/evolution/data/holdout/holdout_huge1.json",
+          "method": "current_snapshot",
+          "percent": -0.46062154140103484,
+          "worst": -0.46062154140103484
+        },
+        {
+          "case": "experiments/server_v6/logs/package_check/gen8/instance.json",
+          "method": "current_snapshot",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/v8_exact_neighborhoods/inputs/cross_triangles.json",
+          "method": "current_snapshot",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/server_v6/logs/package_check/gen7/instance.json",
+          "method": "exact_neighborhoods",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/boundary_beam/data/edge/edge_A0.json",
+          "method": "exact_neighborhoods",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/evolution/data/suite_cluster0.json",
+          "method": "exact_neighborhoods",
+          "percent": 0.00025650161960770766,
+          "worst": 0.00025650161960770766
+        },
+        {
+          "case": "experiments/boundary_beam/data/edge/edge_alpha_huge.json",
+          "method": "exact_neighborhoods",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/v4_local_search/data/holdout_cycle/tightA.json",
+          "method": "exact_neighborhoods",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/v8_exact_neighborhoods/inputs/closed_office_witness.json",
+          "method": "current_snapshot",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "task/instance0/instance.json",
+          "method": "exact_neighborhoods",
+          "percent": 0.009859036140546328,
+          "worst": 0.009859036140546328
+        },
+        {
+          "case": "experiments/milp_v5_boundaries/data/coop_holdout/multiskill0.json",
+          "method": "exact_neighborhoods",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/dp_milp/data/controlled/gcd_large.json",
+          "method": "current_snapshot",
+          "percent": 0.005937879596371203,
+          "worst": 0.005937879596371203
+        },
+        {
+          "case": "experiments/boundary_beam/data/train/latent3.json",
+          "method": "current_snapshot",
+          "percent": 0.14518621125895084,
+          "worst": -0.6298114248027857
+        },
+        {
+          "case": "experiments/geometry_islands/data/holdout/large0.json",
+          "method": "exact_neighborhoods",
+          "percent": -0.6615786816192593,
+          "worst": -0.6615786816192593
+        },
+        {
+          "case": "experiments/boundary_beam/data/edge/edge_A_big.json",
+          "method": "exact_neighborhoods",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/v8_exact_neighborhoods/inputs/joint_open_workers.json",
+          "method": "exact_neighborhoods",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/milp_v5/data/lazy_holdout/multiskill0.json",
+          "method": "exact_neighborhoods",
+          "percent": 0.15495895160977,
+          "worst": 0.15495895160977
+        }
+      ],
+      "tree": {
+        "feature": "nearest_agreement",
+        "threshold": 0.75,
+        "left": {
+          "action": "current_snapshot",
+          "n": 5,
+          "mean": 1.2215882006019352
+        },
+        "right": {
+          "action": "exact_neighborhoods",
+          "n": 16,
+          "mean": 1.5782668125420987
+        }
+      }
+    },
+    {
+      "depth": 1,
+      "minleaf": 5,
+      "mean": -0.038381030609288,
+      "worst": -0.6615786816192593,
+      "rows": [
+        {
+          "case": "experiments/server_v6/logs/package_check/gen10/instance.json",
+          "method": "exact_neighborhoods",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "task/instance2/instance.json",
+          "method": "exact_neighborhoods",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/dp_milp/data/controlled/dense_load.json",
+          "method": "exact_neighborhoods",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/v8_exact_neighborhoods/inputs/worker_budget_isolated.json",
+          "method": "v8",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/evolution/data/holdout/holdout_huge1.json",
+          "method": "current_snapshot",
+          "percent": -0.46062154140103484,
+          "worst": -0.46062154140103484
+        },
+        {
+          "case": "experiments/server_v6/logs/package_check/gen8/instance.json",
+          "method": "exact_neighborhoods",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/v8_exact_neighborhoods/inputs/cross_triangles.json",
+          "method": "exact_neighborhoods",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/server_v6/logs/package_check/gen7/instance.json",
+          "method": "exact_neighborhoods",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/boundary_beam/data/edge/edge_A0.json",
+          "method": "exact_neighborhoods",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/evolution/data/suite_cluster0.json",
+          "method": "exact_neighborhoods",
+          "percent": 0.00025650161960770766,
+          "worst": 0.00025650161960770766
+        },
+        {
+          "case": "experiments/boundary_beam/data/edge/edge_alpha_huge.json",
+          "method": "exact_neighborhoods",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/v4_local_search/data/holdout_cycle/tightA.json",
+          "method": "exact_neighborhoods",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/v8_exact_neighborhoods/inputs/closed_office_witness.json",
+          "method": "exact_neighborhoods",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "task/instance0/instance.json",
+          "method": "exact_neighborhoods",
+          "percent": 0.009859036140546328,
+          "worst": 0.009859036140546328
+        },
+        {
+          "case": "experiments/milp_v5_boundaries/data/coop_holdout/multiskill0.json",
+          "method": "exact_neighborhoods",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/dp_milp/data/controlled/gcd_large.json",
+          "method": "current_snapshot",
+          "percent": 0.005937879596371203,
+          "worst": 0.005937879596371203
+        },
+        {
+          "case": "experiments/boundary_beam/data/train/latent3.json",
+          "method": "current_snapshot",
+          "percent": 0.14518621125895084,
+          "worst": -0.6298114248027857
+        },
+        {
+          "case": "experiments/geometry_islands/data/holdout/large0.json",
+          "method": "exact_neighborhoods",
+          "percent": -0.6615786816192593,
+          "worst": -0.6615786816192593
+        },
+        {
+          "case": "experiments/boundary_beam/data/edge/edge_A_big.json",
+          "method": "exact_neighborhoods",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/v8_exact_neighborhoods/inputs/joint_open_workers.json",
+          "method": "exact_neighborhoods",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/milp_v5/data/lazy_holdout/multiskill0.json",
+          "method": "exact_neighborhoods",
+          "percent": 0.15495895160977,
+          "worst": 0.15495895160977
+        }
+      ],
+      "tree": {
+        "feature": "nearest_agreement",
+        "threshold": 0.75,
+        "left": {
+          "action": "current_snapshot",
+          "n": 5,
+          "mean": 1.2215882006019352
+        },
+        "right": {
+          "action": "exact_neighborhoods",
+          "n": 16,
+          "mean": 1.5782668125420987
+        }
+      }
+    },
+    {
+      "depth": 2,
+      "minleaf": 5,
+      "mean": -0.039849238328635135,
+      "worst": -0.6615786816192593,
+      "rows": [
+        {
+          "case": "experiments/server_v6/logs/package_check/gen10/instance.json",
+          "method": "current_snapshot",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "task/instance2/instance.json",
+          "method": "current_snapshot",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/dp_milp/data/controlled/dense_load.json",
+          "method": "current_snapshot",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/v8_exact_neighborhoods/inputs/worker_budget_isolated.json",
+          "method": "v4_exact",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/evolution/data/holdout/holdout_huge1.json",
+          "method": "current_snapshot",
+          "percent": -0.46062154140103484,
+          "worst": -0.46062154140103484
+        },
+        {
+          "case": "experiments/server_v6/logs/package_check/gen8/instance.json",
+          "method": "current_snapshot",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/v8_exact_neighborhoods/inputs/cross_triangles.json",
+          "method": "exact_neighborhoods",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/server_v6/logs/package_check/gen7/instance.json",
+          "method": "current_snapshot",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/boundary_beam/data/edge/edge_A0.json",
+          "method": "exact_neighborhoods",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/evolution/data/suite_cluster0.json",
+          "method": "current_snapshot",
+          "percent": 0.00025650161960770766,
+          "worst": 0.00025650161960770766
+        },
+        {
+          "case": "experiments/boundary_beam/data/edge/edge_alpha_huge.json",
+          "method": "exact_neighborhoods",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/v4_local_search/data/holdout_cycle/tightA.json",
+          "method": "current_snapshot",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/v8_exact_neighborhoods/inputs/closed_office_witness.json",
+          "method": "exact_neighborhoods",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "task/instance0/instance.json",
+          "method": "current_snapshot",
+          "percent": 0.009859036140546328,
+          "worst": 0.009859036140546328
+        },
+        {
+          "case": "experiments/milp_v5_boundaries/data/coop_holdout/multiskill0.json",
+          "method": "current_snapshot",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/dp_milp/data/controlled/gcd_large.json",
+          "method": "current_snapshot",
+          "percent": 0.005937879596371203,
+          "worst": 0.005937879596371203
+        },
+        {
+          "case": "experiments/boundary_beam/data/train/latent3.json",
+          "method": "exact_neighborhoods",
+          "percent": 0.11435384915266104,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/geometry_islands/data/holdout/large0.json",
+          "method": "exact_neighborhoods",
+          "percent": -0.6615786816192593,
+          "worst": -0.6615786816192593
+        },
+        {
+          "case": "experiments/boundary_beam/data/edge/edge_A_big.json",
+          "method": "exact_neighborhoods",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/v8_exact_neighborhoods/inputs/joint_open_workers.json",
+          "method": "exact_neighborhoods",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/milp_v5/data/lazy_holdout/multiskill0.json",
+          "method": "exact_neighborhoods",
+          "percent": 0.15495895160977,
+          "worst": 0.15495895160977
+        }
+      ],
+      "tree": {
+        "feature": "ns",
+        "threshold": 64,
+        "left": {
+          "action": "exact_neighborhoods",
+          "n": 7,
+          "mean": 3.5714285714285716
+        },
+        "right": {
+          "feature": "multiskill_fraction",
+          "threshold": 0,
+          "left": {
+            "action": "current_snapshot",
+            "n": 9,
+            "mean": 0.6643120232341388
+          },
+          "right": {
+            "action": "v8",
+            "n": 5,
+            "mean": 0.13562864600715743
+          }
+        }
+      }
+    },
+    {
+      "depth": 0,
+      "minleaf": 3,
+      "mean": -0.08714764075637273,
+      "worst": -1.3801856724810386,
+      "rows": [
+        {
+          "case": "experiments/server_v6/logs/package_check/gen10/instance.json",
+          "method": "exact_neighborhoods",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "task/instance2/instance.json",
+          "method": "exact_neighborhoods",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/dp_milp/data/controlled/dense_load.json",
+          "method": "exact_neighborhoods",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/v8_exact_neighborhoods/inputs/worker_budget_isolated.json",
+          "method": "current_snapshot",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/evolution/data/holdout/holdout_huge1.json",
+          "method": "exact_neighborhoods",
+          "percent": 0.031577170075143324,
+          "worst": 0.031577170075143324
+        },
+        {
+          "case": "experiments/server_v6/logs/package_check/gen8/instance.json",
+          "method": "exact_neighborhoods",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/v8_exact_neighborhoods/inputs/cross_triangles.json",
+          "method": "exact_neighborhoods",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/server_v6/logs/package_check/gen7/instance.json",
+          "method": "exact_neighborhoods",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/boundary_beam/data/edge/edge_A0.json",
+          "method": "exact_neighborhoods",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/evolution/data/suite_cluster0.json",
+          "method": "exact_neighborhoods",
+          "percent": 0.00025650161960770766,
+          "worst": 0.00025650161960770766
+        },
+        {
+          "case": "experiments/boundary_beam/data/edge/edge_alpha_huge.json",
+          "method": "exact_neighborhoods",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/v4_local_search/data/holdout_cycle/tightA.json",
+          "method": "exact_neighborhoods",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/v8_exact_neighborhoods/inputs/closed_office_witness.json",
+          "method": "exact_neighborhoods",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "task/instance0/instance.json",
+          "method": "exact_neighborhoods",
+          "percent": 0.009859036140546328,
+          "worst": 0.009859036140546328
+        },
+        {
+          "case": "experiments/milp_v5_boundaries/data/coop_holdout/multiskill0.json",
+          "method": "exact_neighborhoods",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/dp_milp/data/controlled/gcd_large.json",
+          "method": "exact_neighborhoods",
+          "percent": 0.05561734122851214,
+          "worst": 0.05561734122851214
+        },
+        {
+          "case": "experiments/boundary_beam/data/train/latent3.json",
+          "method": "exact_neighborhoods",
+          "percent": 0.11435384915266104,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/geometry_islands/data/holdout/large0.json",
+          "method": "exact_neighborhoods",
+          "percent": -0.6615786816192593,
+          "worst": -0.6615786816192593
+        },
+        {
+          "case": "experiments/boundary_beam/data/edge/edge_A_big.json",
+          "method": "exact_neighborhoods",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/v8_exact_neighborhoods/inputs/joint_open_workers.json",
+          "method": "exact_neighborhoods",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/milp_v5/data/lazy_holdout/multiskill0.json",
+          "method": "v5_2_regions_safe",
+          "percent": -1.3801856724810386,
+          "worst": -1.3801856724810386
+        }
+      ],
+      "tree": {
+        "action": "exact_neighborhoods",
+        "n": 21,
+        "mean": 1.176430674676523
+      }
+    },
+    {
+      "depth": 0,
+      "minleaf": 4,
+      "mean": -0.08714764075637273,
+      "worst": -1.3801856724810386,
+      "rows": [
+        {
+          "case": "experiments/server_v6/logs/package_check/gen10/instance.json",
+          "method": "exact_neighborhoods",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "task/instance2/instance.json",
+          "method": "exact_neighborhoods",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/dp_milp/data/controlled/dense_load.json",
+          "method": "exact_neighborhoods",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/v8_exact_neighborhoods/inputs/worker_budget_isolated.json",
+          "method": "current_snapshot",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/evolution/data/holdout/holdout_huge1.json",
+          "method": "exact_neighborhoods",
+          "percent": 0.031577170075143324,
+          "worst": 0.031577170075143324
+        },
+        {
+          "case": "experiments/server_v6/logs/package_check/gen8/instance.json",
+          "method": "exact_neighborhoods",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/v8_exact_neighborhoods/inputs/cross_triangles.json",
+          "method": "exact_neighborhoods",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/server_v6/logs/package_check/gen7/instance.json",
+          "method": "exact_neighborhoods",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/boundary_beam/data/edge/edge_A0.json",
+          "method": "exact_neighborhoods",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/evolution/data/suite_cluster0.json",
+          "method": "exact_neighborhoods",
+          "percent": 0.00025650161960770766,
+          "worst": 0.00025650161960770766
+        },
+        {
+          "case": "experiments/boundary_beam/data/edge/edge_alpha_huge.json",
+          "method": "exact_neighborhoods",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/v4_local_search/data/holdout_cycle/tightA.json",
+          "method": "exact_neighborhoods",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/v8_exact_neighborhoods/inputs/closed_office_witness.json",
+          "method": "exact_neighborhoods",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "task/instance0/instance.json",
+          "method": "exact_neighborhoods",
+          "percent": 0.009859036140546328,
+          "worst": 0.009859036140546328
+        },
+        {
+          "case": "experiments/milp_v5_boundaries/data/coop_holdout/multiskill0.json",
+          "method": "exact_neighborhoods",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/dp_milp/data/controlled/gcd_large.json",
+          "method": "exact_neighborhoods",
+          "percent": 0.05561734122851214,
+          "worst": 0.05561734122851214
+        },
+        {
+          "case": "experiments/boundary_beam/data/train/latent3.json",
+          "method": "exact_neighborhoods",
+          "percent": 0.11435384915266104,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/geometry_islands/data/holdout/large0.json",
+          "method": "exact_neighborhoods",
+          "percent": -0.6615786816192593,
+          "worst": -0.6615786816192593
+        },
+        {
+          "case": "experiments/boundary_beam/data/edge/edge_A_big.json",
+          "method": "exact_neighborhoods",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/v8_exact_neighborhoods/inputs/joint_open_workers.json",
+          "method": "exact_neighborhoods",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/milp_v5/data/lazy_holdout/multiskill0.json",
+          "method": "v5_2_regions_safe",
+          "percent": -1.3801856724810386,
+          "worst": -1.3801856724810386
+        }
+      ],
+      "tree": {
+        "action": "exact_neighborhoods",
+        "n": 21,
+        "mean": 1.176430674676523
+      }
+    },
+    {
+      "depth": 0,
+      "minleaf": 5,
+      "mean": -0.08714764075637273,
+      "worst": -1.3801856724810386,
+      "rows": [
+        {
+          "case": "experiments/server_v6/logs/package_check/gen10/instance.json",
+          "method": "exact_neighborhoods",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "task/instance2/instance.json",
+          "method": "exact_neighborhoods",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/dp_milp/data/controlled/dense_load.json",
+          "method": "exact_neighborhoods",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/v8_exact_neighborhoods/inputs/worker_budget_isolated.json",
+          "method": "current_snapshot",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/evolution/data/holdout/holdout_huge1.json",
+          "method": "exact_neighborhoods",
+          "percent": 0.031577170075143324,
+          "worst": 0.031577170075143324
+        },
+        {
+          "case": "experiments/server_v6/logs/package_check/gen8/instance.json",
+          "method": "exact_neighborhoods",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/v8_exact_neighborhoods/inputs/cross_triangles.json",
+          "method": "exact_neighborhoods",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/server_v6/logs/package_check/gen7/instance.json",
+          "method": "exact_neighborhoods",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/boundary_beam/data/edge/edge_A0.json",
+          "method": "exact_neighborhoods",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/evolution/data/suite_cluster0.json",
+          "method": "exact_neighborhoods",
+          "percent": 0.00025650161960770766,
+          "worst": 0.00025650161960770766
+        },
+        {
+          "case": "experiments/boundary_beam/data/edge/edge_alpha_huge.json",
+          "method": "exact_neighborhoods",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/v4_local_search/data/holdout_cycle/tightA.json",
+          "method": "exact_neighborhoods",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/v8_exact_neighborhoods/inputs/closed_office_witness.json",
+          "method": "exact_neighborhoods",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "task/instance0/instance.json",
+          "method": "exact_neighborhoods",
+          "percent": 0.009859036140546328,
+          "worst": 0.009859036140546328
+        },
+        {
+          "case": "experiments/milp_v5_boundaries/data/coop_holdout/multiskill0.json",
+          "method": "exact_neighborhoods",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/dp_milp/data/controlled/gcd_large.json",
+          "method": "exact_neighborhoods",
+          "percent": 0.05561734122851214,
+          "worst": 0.05561734122851214
+        },
+        {
+          "case": "experiments/boundary_beam/data/train/latent3.json",
+          "method": "exact_neighborhoods",
+          "percent": 0.11435384915266104,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/geometry_islands/data/holdout/large0.json",
+          "method": "exact_neighborhoods",
+          "percent": -0.6615786816192593,
+          "worst": -0.6615786816192593
+        },
+        {
+          "case": "experiments/boundary_beam/data/edge/edge_A_big.json",
+          "method": "exact_neighborhoods",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/v8_exact_neighborhoods/inputs/joint_open_workers.json",
+          "method": "exact_neighborhoods",
+          "percent": 0.0,
+          "worst": 0.0
+        },
+        {
+          "case": "experiments/milp_v5/data/lazy_holdout/multiskill0.json",
+          "method": "v5_2_regions_safe",
+          "percent": -1.3801856724810386,
+          "worst": -1.3801856724810386
+        }
+      ],
+      "tree": {
+        "action": "exact_neighborhoods",
+        "n": 21,
+        "mean": 1.176430674676523
+      }
+    }
+  ],
+  "warning": "Exploratory TL250 model selection on unfinished21-input data; do not treat as independent or TL280 confirmation. One worker counterexample dominates positive mean, and existing v9/v10 tiny already covers that class."
+}

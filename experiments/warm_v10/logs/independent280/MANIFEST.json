@@ -1,0 +1,88 @@
+{
+  "spec": {
+    "name": "independent280",
+    "seconds": 280,
+    "seeds": [
+      0,
+      10502,
+      10503
+    ],
+    "cpus": [
+      [
+        0,
+        1
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        12,
+        13
+      ],
+      [
+        16,
+        17
+      ],
+      [
+        18,
+        19
+      ],
+      [
+        20,
+        21
+      ]
+    ],
+    "cases": {
+      "road120": "experiments/warm_v10/inputs/fresh/road120.json",
+      "anti180": "experiments/warm_v10/inputs/fresh/anti180.json",
+      "equal_count150": "experiments/warm_v10/inputs/fresh/equal_count150.json",
+      "multi220": "experiments/warm_v10/inputs/fresh/multi220.json",
+      "cluster400": "experiments/warm_v10/inputs/fresh/cluster400.json",
+      "grid160": "experiments/warm_v10/inputs/fresh/grid160.json",
+      "road1500": "experiments/warm_v10/inputs/fresh/road1500.json",
+      "huge10000": "experiments/warm_v10/inputs/fresh/huge10000.json"
+    },
+    "variants": {
+      "v4": {
+        "binary": "experiments/structural_v9/artifacts/v4",
+        "env": {}
+      },
+      "v9": {
+        "binary": "experiments/structural_v9/artifacts/final_research/candidate",
+        "env": {
+          "ZM_POOL": "0",
+          "ZM_RESERVE": "0"
+        }
+      },
+      "prior": {
+        "binary": "experiments/warm_v10/artifacts/v5/candidate",
+        "env": {
+          "ZM_POOL": "0",
+          "ZM_RESERVE": "0",
+          "GW_MODE": "1"
+        }
+      }
+    },
+    "allow_superseded": true
+  },
+  "spec_sha256": "906cf5a917c8d1c841c545742b93ca54e68cfdae91281950d0dd6ba00e5c7652",
+  "inputs": {
+    "road120": "552bf39a3d4dd81037901ffb4cf3f6c27790ccf220762e4e308eac71183da443",
+    "anti180": "83b340fe4be955c3f8d92050e805ec7cf5064e20717b24cd231f63fe1ed2017d",
+    "equal_count150": "d8f07f8f500427ff4b22fdf17c8dff508f86fd14cfd83914ee6c979a70045434",
+    "multi220": "4c7662eec76604e953408d69987abcd7f326fb7ff43241bc0a69b139a4647f90",
+    "cluster400": "d01c153d1d352e62344f0ddaf2b968f1ec6619c8ac57b661e5357d7d4669542b",
+    "grid160": "3d8dd27fadec1cbd22ebded103cec9f072960d1bbd06037345881f0c3d317567",
+    "road1500": "b317584ab6fcf67732fb341f6345f0fa2baa49a5007c5022cd6f372c27c767b5",
+    "huge10000": "c5ed4b25a57c9c449912b2cfe2022a33e7c8fdac57fef5e5d4073653293221d9"
+  },
+  "binaries": {
+    "v4": "5cc54b6ad0f02a3d6d471d0e2f9129c229b4925aaa2b2c01ce26bd5305a4963c",
+    "v9": "255d6f0d4c46a80f36307059bc48c3110eed1f9285b8c0fccb42361e23252670",
+    "prior": "c3f76ed684a521347cdd84fcdb2f5e9630a716f2eaf3747413ca7ecc6dc34706"
+  },
+  "validator": "6dd5948ebe72977976acf1b8dcaf7c819274c79addfb82328c0ec9a012ed56e0",
+  "cpu_topology": "<local-host-omitted>",
+  "runner_sha256": "791e0a285aa770a1cbbbffccd17e767dcdfe8179c9ac6e9e7775d8732647da93"
+}

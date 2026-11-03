@@ -1,0 +1,128 @@
+{
+  "case": "euclid240",
+  "seed": 0,
+  "variant": "v4",
+  "command": [
+    "/usr/bin/time",
+    "-f",
+    "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+    "-o",
+    "./experiments/adaptive_v11/logs/development280_v3/euclid240_0_v4.resource",
+    "taskset",
+    "-c",
+    "12,13",
+    "./experiments/structural_v9/artifacts/v4",
+    "./experiments/adaptive_v11/inputs/dev/euclid240.json",
+    "./experiments/adaptive_v11/logs/development280_v3/euclid240_0_v4.solution.json",
+    "280"
+  ],
+  "env": {
+    "HOME": "/home/user",
+    "LANG": "C.UTF-8",
+    "PATH": "/usr/local/bin:/usr/bin:/bin",
+    "NT": "2",
+    "SEED": "0"
+  },
+  "affinity": [
+    12,
+    13
+  ],
+  "rc": 0,
+  "timeout": false,
+  "wall": 279.52403890500136,
+  "started_unix": 1792658622.961532,
+  "ended_unix": 1792658902.6423995,
+  "official": 80.54171818632574,
+  "valid": true,
+  "snapshots": [
+    {
+      "at": 28.002432698998746,
+      "path": "experiments/adaptive_v11/logs/development280_v3/euclid240_0_v4.t28.00.solution.json",
+      "official": 80.50266501089506
+    },
+    {
+      "at": 61.64984129599907,
+      "path": "experiments/adaptive_v11/logs/development280_v3/euclid240_0_v4.t61.60.solution.json",
+      "official": 80.5074663225294
+    },
+    {
+      "at": 70.03422783600035,
+      "path": "experiments/adaptive_v11/logs/development280_v3/euclid240_0_v4.t70.00.solution.json",
+      "official": 80.5074663225294
+    },
+    {
+      "at": 140.02345909799988,
+      "path": "experiments/adaptive_v11/logs/development280_v3/euclid240_0_v4.t140.00.solution.json",
+      "official": 80.5074663225294
+    },
+    {
+      "at": 238.00334441800078,
+      "path": "experiments/adaptive_v11/logs/development280_v3/euclid240_0_v4.t238.00.solution.json",
+      "official": 80.5074663225294
+    }
+  ],
+  "solution_sha256": "86cd22aebb11926ca6c1cc83a1181f0da270ec8948967f23f11e50c279c35b80",
+  "resource": "rss_kb=5784 user=534.05 sys=0.70 majorfaults=0 minorfaults=444 voluntary=0 involuntary=81091 inputs=0 outputs=32\n",
+  "error": false,
+  "process_sampling": {
+    "last": {
+      "94": {
+        "runtime_ns": 263781129930,
+        "runqueue_ns": 13251168817,
+        "slices": 51051
+      },
+      "97": {
+        "runtime_ns": 267687395558,
+        "runqueue_ns": 5143703996,
+        "slices": 29859
+      },
+      "102": {
+        "runtime_ns": 2018598751,
+        "runqueue_ns": 37268998,
+        "slices": 87
+      }
+    },
+    "states": {
+      "R": 555
+    },
+    "wchan": {
+      "0": 555
+    },
+    "max_sampled_threads": 2,
+    "samples": 278,
+    "last_io": {
+      "rchar": 82106,
+      "wchar": 5358,
+      "syscr": 31,
+      "syscw": 9,
+      "read_bytes": 0,
+      "write_bytes": 12288,
+      "cancelled_write_bytes": 0
+    }
+  },
+  "resource_extra_fields": {
+    "majorfaults": 0.0,
+    "minorfaults": 444.0,
+    "voluntary": 0.0,
+    "involuntary": 81091.0,
+    "inputs": 0.0,
+    "outputs": 32.0
+  },
+  "internal_deadline_stop": false,
+  "cpu_pressure_before": "some avg10=0.04 avg60=0.08 avg300=0.32 total=6218188555\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+  "cpu_pressure_after": "some avg10=0.36 avg60=0.20 avg300=0.20 total=6219821929\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+  "logged_threads": 2,
+  "resource_fields": {
+    "rss_kb": 5784.0,
+    "user": 534.05,
+    "sys": 0.7
+  },
+  "success": true,
+  "components": {
+    "reward": 104.55863335670892,
+    "distance": 17.810721371143472,
+    "cost": 5.778800845372855,
+    "penalty": 0.42739295386683934,
+    "objective": 80.54171818632575
+  }
+}

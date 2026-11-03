@@ -1,0 +1,74 @@
+{
+  "case": "large",
+  "seed": 9303,
+  "variant": "tail",
+  "command": [
+    "/usr/bin/time",
+    "-f",
+    "rss_kb=%M user=%U sys=%S",
+    "-o",
+    "./experiments/structural_v9/logs/development280/large_9303_tail.resource",
+    "taskset",
+    "-c",
+    "3,6",
+    "./experiments/structural_v9/artifacts/final_research/candidate",
+    "./experiments/structural_v9/inputs/dev/large.json",
+    "./experiments/structural_v9/logs/development280/large_9303_tail.solution.json",
+    "280"
+  ],
+  "env": {
+    "HOME": "/home/user",
+    "LANG": "C.UTF-8",
+    "PATH": "/usr/local/bin:/usr/bin:/bin",
+    "NT": "2",
+    "SEED": "9303",
+    "ZM_POOL": "0",
+    "ZM_RESERVE": "0"
+  },
+  "affinity": [
+    3,
+    6
+  ],
+  "rc": 0,
+  "timeout": false,
+  "wall": 279.5305148139996,
+  "started_unix": 1792640564.6756783,
+  "ended_unix": 1792640844.4631488,
+  "official": 283.2573368464557,
+  "valid": true,
+  "snapshots": [
+    {
+      "at": 70.04179858299995,
+      "path": "experiments/structural_v9/logs/development280/large_9303_tail.t70.00.solution.json",
+      "official": 279.75768479019956
+    },
+    {
+      "at": 140.04736887499985,
+      "path": "experiments/structural_v9/logs/development280/large_9303_tail.t140.00.solution.json",
+      "official": 282.1741296637785
+    },
+    {
+      "at": 238.0332598269997,
+      "path": "experiments/structural_v9/logs/development280/large_9303_tail.t238.00.solution.json",
+      "official": 282.3677032216347
+    }
+  ],
+  "solution_sha256": "e8403231c2db77397325218026194b85e7a434ca83280c534b77df4fa7ccf4c5",
+  "resource": "rss_kb=49204 user=516.45 sys=1.02\n",
+  "error": false,
+  "internal_deadline_stop": false,
+  "logged_threads": 2,
+  "resource_fields": {
+    "rss_kb": 49204.0,
+    "user": 516.45,
+    "sys": 1.02
+  },
+  "success": true,
+  "components": {
+    "reward": 479.6353669542268,
+    "distance": 174.94297696083834,
+    "cost": 20.90632124635332,
+    "penalty": 0.5287319005794627,
+    "objective": 283.25733684645564
+  }
+}

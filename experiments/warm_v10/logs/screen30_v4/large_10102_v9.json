@@ -1,0 +1,80 @@
+{
+  "case": "large",
+  "seed": 10102,
+  "variant": "v9",
+  "command": [
+    "/usr/bin/time",
+    "-f",
+    "rss_kb=%M user=%U sys=%S",
+    "-o",
+    "./experiments/warm_v10/logs/screen30_v4/large_10102_v9.resource",
+    "taskset",
+    "-c",
+    "16,17",
+    "./experiments/structural_v9/artifacts/final_research/candidate",
+    "./experiments/structural_v9/inputs/dev/large.json",
+    "./experiments/warm_v10/logs/screen30_v4/large_10102_v9.solution.json",
+    "30"
+  ],
+  "env": {
+    "HOME": "/home/user",
+    "LANG": "C.UTF-8",
+    "PATH": "/usr/local/bin:/usr/bin:/bin",
+    "NT": "2",
+    "SEED": "10102",
+    "ZM_POOL": "0",
+    "ZM_RESERVE": "0",
+    "DBG": "1"
+  },
+  "affinity": [
+    16,
+    17
+  ],
+  "rc": 0,
+  "timeout": false,
+  "wall": 29.815381332999095,
+  "started_unix": 1792646958.4442303,
+  "ended_unix": 1792646988.4745162,
+  "official": 278.6255267430942,
+  "valid": true,
+  "snapshots": [
+    {
+      "at": 6.6991391079991445,
+      "path": "experiments/warm_v10/logs/screen30_v4/large_10102_v9.t6.60.solution.json",
+      "official": 275.1842167241318
+    },
+    {
+      "at": 7.544220836000022,
+      "path": "experiments/warm_v10/logs/screen30_v4/large_10102_v9.t7.50.solution.json",
+      "official": 275.1842167241318
+    },
+    {
+      "at": 15.028688700000203,
+      "path": "experiments/warm_v10/logs/screen30_v4/large_10102_v9.t15.00.solution.json",
+      "official": 278.13578262014613
+    },
+    {
+      "at": 25.50300735199926,
+      "path": "experiments/warm_v10/logs/screen30_v4/large_10102_v9.t25.50.solution.json",
+      "official": 278.13578262014613
+    }
+  ],
+  "solution_sha256": "0e6ccc164f944aee4bb6de5eeebc9af65873bb1af83e503e006a2a7956a78637",
+  "resource": "rss_kb=12044 user=52.48 sys=0.01\n",
+  "error": false,
+  "internal_deadline_stop": false,
+  "logged_threads": 2,
+  "resource_fields": {
+    "rss_kb": 12044.0,
+    "user": 52.48,
+    "sys": 0.01
+  },
+  "success": true,
+  "components": {
+    "reward": 429.909390590206,
+    "distance": 134.446134184591,
+    "cost": 16.20199249634783,
+    "penalty": 0.6357371661729254,
+    "objective": 278.6255267430942
+  }
+}

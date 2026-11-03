@@ -1,0 +1,38 @@
+{
+  "name": "line_development280",
+  "seconds": 280,
+  "seeds": [
+    0,
+    11802,
+    11803
+  ],
+  "cpus": [
+    [
+      3,
+      6
+    ],
+    [
+      8,
+      10
+    ]
+  ],
+  "cases": {
+    "line9": "experiments/adaptive_v11/inputs/line_mechanism/line9.json"
+  },
+  "variants": {
+    "v4": {
+      "binary": "experiments/structural_v9/artifacts/v4"
+    },
+    "v10": {
+      "binary": "experiments/warm_v10/artifacts/v5/candidate",
+      "env": {
+        "ZM_POOL": "0",
+        "ZM_RESERVE": "0",
+        "GW_MODE": "1"
+      }
+    },
+    "adaptive": {
+      "binary": "experiments/adaptive_v11/artifacts/v3/candidate"
+    }
+  }
+}

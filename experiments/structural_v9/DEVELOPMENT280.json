@@ -1,0 +1,63 @@
+{
+  "name": "development280",
+  "seconds": 280,
+  "seeds": [
+    9301,
+    9302,
+    9303
+  ],
+  "cpus": [
+    [
+      0,
+      1
+    ],
+    [
+      3,
+      6
+    ],
+    [
+      8,
+      10
+    ],
+    [
+      12,
+      13
+    ],
+    [
+      16,
+      17
+    ],
+    [
+      18,
+      19
+    ],
+    [
+      20,
+      21
+    ]
+  ],
+  "cases": {
+    "small_grid": "experiments/structural_v9/inputs/dev/small_grid.json",
+    "small_load": "experiments/structural_v9/inputs/dev/small_load.json",
+    "medium_A0": "experiments/structural_v9/inputs/dev/medium_A0.json",
+    "medium_anti": "experiments/structural_v9/inputs/dev/medium_anti.json",
+    "large": "experiments/structural_v9/inputs/dev/large.json",
+    "official_3": "task/instance3/instance.json",
+    "official_4": "task/instance4/instance.json"
+  },
+  "variants": {
+    "v4": {
+      "binary": "experiments/structural_v9/artifacts/v4"
+    },
+    "full": {
+      "binary": "experiments/structural_v9/artifacts/final_research/candidate"
+    },
+    "tail": {
+      "binary": "experiments/structural_v9/artifacts/final_research/candidate",
+      "env": {
+        "ZM_POOL": "0",
+        "ZM_RESERVE": "0"
+      }
+    }
+  }
+}

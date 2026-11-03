@@ -1,0 +1,55 @@
+{
+  "case": "cluster_alpha0",
+  "seed": 3302,
+  "variant": "fill_only",
+  "started_unix": 1792501417.2370777,
+  "ended_unix": 1792501426.9997022,
+  "rc": 0,
+  "timeout": false,
+  "wall": 9.762617292999948,
+  "valid": true,
+  "objective": 6411.059280266127,
+  "validation_error": null,
+  "actual_nt": 2,
+  "error_log": false,
+  "affinity": [
+    20,
+    21
+  ],
+  "success": true,
+  "solution_sha256": "0d156f9925510a6dbba39babdece24bb315b7362dd83ae6935994889e81f7bfa",
+  "source_sha256": "52a30ca35edaca1cfbe7186390a5ceca2596965562c92fa6e811da648d642114",
+  "resource": "rss_kb=5700 user=18.66 sys=0.01\n",
+  "snapshots": [
+    {
+      "target_seconds": 3,
+      "observed_seconds": 3.000547159000007,
+      "file": "experiments/v8_exact_neighborhoods/logs/independent10/cluster_alpha0_3302_fill_only.t3.solution.json",
+      "sha256": "19b7f4ed3da413ab6c6889a7731f0d4ca33111c305065a3fed2c3b11e4a7b070",
+      "valid": true,
+      "objective": 6393.609419601888
+    },
+    {
+      "target_seconds": 7,
+      "observed_seconds": 7.001616069999955,
+      "file": "experiments/v8_exact_neighborhoods/logs/independent10/cluster_alpha0_3302_fill_only.t7.solution.json",
+      "sha256": "19b7f4ed3da413ab6c6889a7731f0d4ca33111c305065a3fed2c3b11e4a7b070",
+      "valid": true,
+      "objective": 6393.609419601888
+    },
+    {
+      "target_seconds": 9,
+      "observed_seconds": 9.00161087299989,
+      "file": "experiments/v8_exact_neighborhoods/logs/independent10/cluster_alpha0_3302_fill_only.t9.solution.json",
+      "sha256": "ccb83df93ce54c2a415dab195e5a94e771fe27ee9c14d033e0894acd0404bd2f",
+      "valid": true,
+      "objective": 6401.077949324828
+    }
+  ],
+  "hard_stopped": false,
+  "hard_stop_at": null,
+  "within_nominal_plus_0.1": true,
+  "nominal_overrun": 0,
+  "watchdog_exit_inferred": false,
+  "thread_count_basis": "final log"
+}

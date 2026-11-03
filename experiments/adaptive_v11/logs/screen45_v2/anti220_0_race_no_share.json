@@ -1,0 +1,143 @@
+{
+  "case": "anti220",
+  "seed": 0,
+  "variant": "race_no_share",
+  "command": [
+    "/usr/bin/time",
+    "-f",
+    "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+    "-o",
+    "./experiments/adaptive_v11/logs/screen45_v2/anti220_0_race_no_share.resource",
+    "taskset",
+    "-c",
+    "0,1",
+    "./experiments/adaptive_v11/artifacts/v2/candidate",
+    "./experiments/adaptive_v11/inputs/dev/anti220.json",
+    "./experiments/adaptive_v11/logs/screen45_v2/anti220_0_race_no_share.solution.json",
+    "45"
+  ],
+  "env": {
+    "HOME": "/home/user",
+    "LANG": "C.UTF-8",
+    "PATH": "/usr/local/bin:/usr/bin:/bin",
+    "NT": "2",
+    "SEED": "0",
+    "AP_POLICY": "1",
+    "AP_SHARE": "0"
+  },
+  "affinity": [
+    0,
+    1
+  ],
+  "rc": 0,
+  "timeout": false,
+  "wall": 44.781011928000225,
+  "started_unix": 1792657292.8997445,
+  "ended_unix": 1792657337.7091906,
+  "official": 62.76570542616167,
+  "valid": true,
+  "snapshots": [
+    {
+      "at": 4.534452512998541,
+      "path": "experiments/adaptive_v11/logs/screen45_v2/anti220_0_race_no_share.t4.50.solution.json",
+      "official": 54.25071812378168
+    },
+    {
+      "at": 9.911426853999728,
+      "path": "experiments/adaptive_v11/logs/screen45_v2/anti220_0_race_no_share.t9.90.solution.json",
+      "official": 54.25071812378168
+    },
+    {
+      "at": 11.26963583700126,
+      "path": "experiments/adaptive_v11/logs/screen45_v2/anti220_0_race_no_share.t11.25.solution.json",
+      "official": 54.25071812378168
+    },
+    {
+      "at": 22.528796555001463,
+      "path": "experiments/adaptive_v11/logs/screen45_v2/anti220_0_race_no_share.t22.50.solution.json",
+      "official": 61.72003752714817
+    },
+    {
+      "at": 38.2518218160003,
+      "path": "experiments/adaptive_v11/logs/screen45_v2/anti220_0_race_no_share.t38.25.solution.json",
+      "official": 62.47799018068908
+    }
+  ],
+  "solution_sha256": "1b6f1d874f9cf6b485b184c349b6082161408c0bb6141820719375b826cc6db4",
+  "resource": "rss_kb=7636 user=88.29 sys=0.04 majorfaults=1 minorfaults=854 voluntary=3235 involuntary=3711 inputs=24 outputs=240\n",
+  "error": false,
+  "process_sampling": {
+    "last": {
+      "164": {
+        "runtime_ns": 17554028,
+        "runqueue_ns": 24995218,
+        "slices": 3180
+      },
+      "165": {
+        "runtime_ns": 24051414904,
+        "runqueue_ns": 3845259,
+        "slices": 195
+      },
+      "166": {
+        "runtime_ns": 43982392007,
+        "runqueue_ns": 10670065,
+        "slices": 1475
+      },
+      "167": {
+        "runtime_ns": 15319,
+        "runqueue_ns": 116945,
+        "slices": 1
+      },
+      "182": {
+        "runtime_ns": 18366560288,
+        "runqueue_ns": 11037576,
+        "slices": 1949
+      }
+    },
+    "states": {
+      "S": 83,
+      "R": 87
+    },
+    "wchan": {
+      "hrtimer_nanosleep": 43,
+      "0": 88,
+      "futex_do_wait": 39
+    },
+    "max_sampled_threads": 5,
+    "samples": 44,
+    "last_io": {
+      "rchar": 213239,
+      "wchar": 16350,
+      "syscr": 51,
+      "syscw": 43,
+      "read_bytes": 12288,
+      "write_bytes": 122880,
+      "cancelled_write_bytes": 0
+    }
+  },
+  "resource_extra_fields": {
+    "majorfaults": 1.0,
+    "minorfaults": 854.0,
+    "voluntary": 3235.0,
+    "involuntary": 3711.0,
+    "inputs": 24.0,
+    "outputs": 240.0
+  },
+  "internal_deadline_stop": false,
+  "cpu_pressure_before": "some avg10=0.82 avg60=0.52 avg300=0.24 total=6201105807\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+  "cpu_pressure_after": "some avg10=0.25 avg60=0.50 avg300=0.27 total=6201575755\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+  "logged_threads": 1,
+  "resource_fields": {
+    "rss_kb": 7636.0,
+    "user": 88.29,
+    "sys": 0.04
+  },
+  "success": true,
+  "components": {
+    "reward": 120.95488062760785,
+    "distance": 48.965550266157585,
+    "cost": 9.094030420330455,
+    "penalty": 0.12959451495815127,
+    "objective": 62.76570542616167
+  }
+}

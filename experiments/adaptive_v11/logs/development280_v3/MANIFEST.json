@@ -1,0 +1,81 @@
+{
+  "spec": {
+    "name": "development280_v3",
+    "seconds": 280,
+    "seeds": [
+      0,
+      11602
+    ],
+    "cpus": [
+      [
+        0,
+        1
+      ],
+      [
+        12,
+        13
+      ],
+      [
+        16,
+        17
+      ],
+      [
+        18,
+        19
+      ],
+      [
+        20,
+        21
+      ]
+    ],
+    "cases": {
+      "euclid240": "experiments/adaptive_v11/inputs/dev/euclid240.json",
+      "anti220": "experiments/adaptive_v11/inputs/dev/anti220.json",
+      "equal180": "experiments/adaptive_v11/inputs/dev/equal180.json",
+      "grid180": "experiments/adaptive_v11/inputs/dev/grid180.json",
+      "multi260": "experiments/adaptive_v11/inputs/dev/multi260.json",
+      "cluster500": "experiments/adaptive_v11/inputs/dev/cluster500.json",
+      "road1600": "experiments/adaptive_v11/inputs/dev/road1600.json",
+      "huge10000": "experiments/adaptive_v11/inputs/dev/huge10000.json"
+    },
+    "variants": {
+      "v4": {
+        "binary": "experiments/structural_v9/artifacts/v4"
+      },
+      "v10": {
+        "binary": "experiments/warm_v10/artifacts/v5/candidate",
+        "env": {
+          "ZM_POOL": "0",
+          "ZM_RESERVE": "0",
+          "GW_MODE": "1"
+        }
+      },
+      "adaptive": {
+        "binary": "experiments/adaptive_v11/artifacts/v3/candidate",
+        "env": {
+          "AP_POLICY": "1",
+          "AP_SHARE": "0"
+        }
+      }
+    }
+  },
+  "spec_sha256": "3bb2e54a982390ae09f91ba793220d39953727bdf152a58dc1f2ae7cd547f4f6",
+  "inputs": {
+    "euclid240": "71da90d8a588bba5ebdac07a64176dac1d55f4af8e870a1e3f38d3f2be394a4a",
+    "anti220": "dbc3263ca03113f1cea1ae4cbadfb1491c5ef2970cf9ccbfbf10715931e09486",
+    "equal180": "ea0356173e00711f870180aab58f67785c904b1a7ebb2c708be98486215ca8e6",
+    "grid180": "d33d87cb40793a654a49d2d0d4078e477d12f17b9a0ae68ada265b613e168a63",
+    "multi260": "ca8fade075ce4051d80a06718fb870596bf5229832fbcadf087fa317b137f20c",
+    "cluster500": "083315b11d57cfa3a50c61d31e44b17ddc160ad54ec066f238504f2bb9e28565",
+    "road1600": "9ad0bfc0c4e8d3bfcd34a385aae219ed34295bbdc16e85ba02c129375a91c809",
+    "huge10000": "a7a72dc842d85b2bdd851f34e6a403bbb297ec4cd71eb47f35e7d950b9b8ee8a"
+  },
+  "binaries": {
+    "v4": "5cc54b6ad0f02a3d6d471d0e2f9129c229b4925aaa2b2c01ce26bd5305a4963c",
+    "v10": "c3f76ed684a521347cdd84fcdb2f5e9630a716f2eaf3747413ca7ecc6dc34706",
+    "adaptive": "db62e93d8c3fbbe4aeeda098249c0ccdd396526c102a0d21b65d4cee34d8c4fb"
+  },
+  "validator": "6dd5948ebe72977976acf1b8dcaf7c819274c79addfb82328c0ec9a012ed56e0",
+  "cpu_topology": "<local-host-omitted>",
+  "runner_sha256": "791e0a285aa770a1cbbbffccd17e767dcdfe8179c9ac6e9e7775d8732647da93"
+}

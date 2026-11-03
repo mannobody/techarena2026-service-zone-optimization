@@ -1,0 +1,38 @@
+{
+  "name": "resource_repeat280",
+  "seconds": 280,
+  "seeds": [
+    9401,
+    9402,
+    9403
+  ],
+  "cpus": [
+    [
+      12,
+      13
+    ],
+    [
+      16,
+      17
+    ],
+    [
+      20,
+      21
+    ]
+  ],
+  "cases": {
+    "large": "experiments/structural_v9/inputs/holdout/large.json"
+  },
+  "variants": {
+    "v4": {
+      "binary": "experiments/structural_v9/artifacts/v4"
+    },
+    "candidate": {
+      "binary": "experiments/structural_v9/artifacts/final_research/candidate",
+      "env": {
+        "ZM_POOL": "0",
+        "ZM_RESERVE": "0"
+      }
+    }
+  }
+}

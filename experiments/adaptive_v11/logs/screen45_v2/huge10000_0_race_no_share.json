@@ -1,0 +1,143 @@
+{
+  "case": "huge10000",
+  "seed": 0,
+  "variant": "race_no_share",
+  "command": [
+    "/usr/bin/time",
+    "-f",
+    "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+    "-o",
+    "./experiments/adaptive_v11/logs/screen45_v2/huge10000_0_race_no_share.resource",
+    "taskset",
+    "-c",
+    "18,19",
+    "./experiments/adaptive_v11/artifacts/v2/candidate",
+    "./experiments/adaptive_v11/inputs/dev/huge10000.json",
+    "./experiments/adaptive_v11/logs/screen45_v2/huge10000_0_race_no_share.solution.json",
+    "45"
+  ],
+  "env": {
+    "HOME": "/home/user",
+    "LANG": "C.UTF-8",
+    "PATH": "/usr/local/bin:/usr/bin:/bin",
+    "NT": "2",
+    "SEED": "0",
+    "AP_POLICY": "1",
+    "AP_SHARE": "0"
+  },
+  "affinity": [
+    18,
+    19
+  ],
+  "rc": 0,
+  "timeout": false,
+  "wall": 44.86061554600019,
+  "started_unix": 1792657517.0236657,
+  "ended_unix": 1792657566.2936904,
+  "official": 3471474.7178592267,
+  "valid": true,
+  "snapshots": [
+    {
+      "at": 4.527234316999966,
+      "path": "experiments/adaptive_v11/logs/screen45_v2/huge10000_0_race_no_share.t4.50.solution.json",
+      "official": 0.0
+    },
+    {
+      "at": 9.924711193998519,
+      "path": "experiments/adaptive_v11/logs/screen45_v2/huge10000_0_race_no_share.t9.90.solution.json",
+      "official": 2302357.7733229427
+    },
+    {
+      "at": 11.28503221599749,
+      "path": "experiments/adaptive_v11/logs/screen45_v2/huge10000_0_race_no_share.t11.25.solution.json",
+      "official": 3453750.5508415503
+    },
+    {
+      "at": 22.54165057499995,
+      "path": "experiments/adaptive_v11/logs/screen45_v2/huge10000_0_race_no_share.t22.50.solution.json",
+      "official": 3471474.7178592267
+    },
+    {
+      "at": 38.27035564999824,
+      "path": "experiments/adaptive_v11/logs/screen45_v2/huge10000_0_race_no_share.t38.25.solution.json",
+      "official": 3471474.7178592267
+    }
+  ],
+  "solution_sha256": "056410b608538db87260001e13e00f9462be3198b36dd7e13807a7ad429b1983",
+  "resource": "rss_kb=43956 user=88.04 sys=0.12 majorfaults=0 minorfaults=13149 voluntary=3222 involuntary=7136 inputs=0 outputs=152\n",
+  "error": false,
+  "process_sampling": {
+    "last": {
+      "289": {
+        "runtime_ns": 228483440,
+        "runqueue_ns": 39599601,
+        "slices": 3199
+      },
+      "290": {
+        "runtime_ns": 43460536120,
+        "runqueue_ns": 191789414,
+        "slices": 7015
+      },
+      "291": {
+        "runtime_ns": 43683027335,
+        "runqueue_ns": 1321297,
+        "slices": 52
+      },
+      "304": {
+        "runtime_ns": 43484,
+        "runqueue_ns": 356102,
+        "slices": 1
+      },
+      "305": {
+        "runtime_ns": 35185,
+        "runqueue_ns": 786251,
+        "slices": 1
+      }
+    },
+    "states": {
+      "S": 114,
+      "R": 88
+    },
+    "wchan": {
+      "hrtimer_nanosleep": 44,
+      "0": 88,
+      "futex_do_wait": 70
+    },
+    "max_sampled_threads": 5,
+    "samples": 44,
+    "last_io": {
+      "rchar": 16696580,
+      "wchar": 100898,
+      "syscr": 2061,
+      "syscw": 17,
+      "read_bytes": 0,
+      "write_bytes": 77824,
+      "cancelled_write_bytes": 0
+    }
+  },
+  "resource_extra_fields": {
+    "majorfaults": 0.0,
+    "minorfaults": 13149.0,
+    "voluntary": 3222.0,
+    "involuntary": 7136.0,
+    "inputs": 0.0,
+    "outputs": 152.0
+  },
+  "internal_deadline_stop": false,
+  "cpu_pressure_before": "some avg10=3.01 avg60=1.58 avg300=0.65 total=6204109885\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+  "cpu_pressure_after": "some avg10=1.33 avg60=1.45 avg300=0.77 total=6205064286\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+  "logged_threads": 1,
+  "resource_fields": {
+    "rss_kb": 43956.0,
+    "user": 88.04,
+    "sys": 0.12
+  },
+  "success": true,
+  "components": {
+    "reward": 4064609.330268964,
+    "distance": 402774.0477924636,
+    "cost": 188538.89096785407,
+    "penalty": 1821.6736494202646,
+    "objective": 3471474.717859226
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "name": "screen45_v2",
+  "seconds": 45,
+  "seeds": [
+    0
+  ],
+  "cpus": [
+    [
+      0,
+      1
+    ],
+    [
+      12,
+      13
+    ],
+    [
+      16,
+      17
+    ],
+    [
+      18,
+      19
+    ],
+    [
+      20,
+      21
+    ]
+  ],
+  "cases": {
+    "tiny12": "experiments/adaptive_v11/inputs/dev/tiny12.json",
+    "euclid240": "experiments/adaptive_v11/inputs/dev/euclid240.json",
+    "road200": "experiments/adaptive_v11/inputs/dev/road200.json",
+    "anti220": "experiments/adaptive_v11/inputs/dev/anti220.json",
+    "equal180": "experiments/adaptive_v11/inputs/dev/equal180.json",
+    "balance300": "experiments/adaptive_v11/inputs/dev/balance300.json",
+    "grid180": "experiments/adaptive_v11/inputs/dev/grid180.json",
+    "multi260": "experiments/adaptive_v11/inputs/dev/multi260.json",
+    "cluster500": "experiments/adaptive_v11/inputs/dev/cluster500.json",
+    "capacity240": "experiments/adaptive_v11/inputs/dev/capacity240.json",
+    "free500": "experiments/adaptive_v11/inputs/dev/free500.json",
+    "manhattan350": "experiments/adaptive_v11/inputs/dev/manhattan350.json",
+    "road1600": "experiments/adaptive_v11/inputs/dev/road1600.json",
+    "large3000": "experiments/adaptive_v11/inputs/dev/large3000.json",
+    "huge10000": "experiments/adaptive_v11/inputs/dev/huge10000.json",
+    "sparse300": "experiments/adaptive_v11/inputs/dev/sparse300.json"
+  },
+  "variants": {
+    "v4": {
+      "binary": "experiments/structural_v9/artifacts/v4"
+    },
+    "v10": {
+      "binary": "experiments/warm_v10/artifacts/v5/candidate",
+      "env": {
+        "ZM_POOL": "0",
+        "ZM_RESERVE": "0",
+        "GW_MODE": "1"
+      }
+    },
+    "dual": {
+      "binary": "experiments/adaptive_v11/artifacts/v2/candidate",
+      "env": {
+        "AP_POLICY": "0",
+        "AP_SHARE": "1"
+      }
+    },
+    "race": {
+      "binary": "experiments/adaptive_v11/artifacts/v2/candidate",
+      "env": {
+        "AP_POLICY": "1",
+        "AP_SHARE": "1"
+      }
+    },
+    "race_no_share": {
+      "binary": "experiments/adaptive_v11/artifacts/v2/candidate",
+      "env": {
+        "AP_POLICY": "1",
+        "AP_SHARE": "0"
+      }
+    }
+  }
+}

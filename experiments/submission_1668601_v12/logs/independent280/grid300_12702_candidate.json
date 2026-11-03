@@ -1,0 +1,138 @@
+{
+  "case": "grid300",
+  "seed": 12702,
+  "variant": "candidate",
+  "command": [
+    "/usr/bin/time",
+    "-f",
+    "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+    "-o",
+    "./experiments/submission_1668601_v12/logs/independent280/grid300_12702_candidate.resource",
+    "taskset",
+    "-c",
+    "18,19",
+    "./experiments/submission_1668601_v12/artifacts/package_rebuild/solution",
+    "./experiments/submission_1668601_v12/inputs/fresh/grid300.json",
+    "./experiments/submission_1668601_v12/logs/independent280/grid300_12702_candidate.solution.json",
+    "280"
+  ],
+  "env": {
+    "HOME": "/home/user",
+    "LANG": "C.UTF-8",
+    "PATH": "/usr/local/bin:/usr/bin:/bin",
+    "NT": "2",
+    "SEED": "12702",
+    "GW_MODE": "1",
+    "ZM_POOL": "0",
+    "ZM_RESERVE": "0"
+  },
+  "affinity": [
+    18,
+    19
+  ],
+  "rc": 0,
+  "timeout": false,
+  "wall": 279.52513346200067,
+  "started_unix": 1792665769.6792824,
+  "ended_unix": 1792666049.358312,
+  "official": 109.8762283824137,
+  "valid": true,
+  "snapshots": [
+    {
+      "at": 28.019903013999283,
+      "path": "experiments/submission_1668601_v12/logs/independent280/grid300_12702_candidate.t28.00.solution.json",
+      "official": 107.67843695806226
+    },
+    {
+      "at": 61.639742471998034,
+      "path": "experiments/submission_1668601_v12/logs/independent280/grid300_12702_candidate.t61.60.solution.json",
+      "official": 108.54623114052245
+    },
+    {
+      "at": 70.03810916300063,
+      "path": "experiments/submission_1668601_v12/logs/independent280/grid300_12702_candidate.t70.00.solution.json",
+      "official": 108.7724197583514
+    },
+    {
+      "at": 140.01846241599924,
+      "path": "experiments/submission_1668601_v12/logs/independent280/grid300_12702_candidate.t140.00.solution.json",
+      "official": 109.01484455286075
+    },
+    {
+      "at": 238.0432444049984,
+      "path": "experiments/submission_1668601_v12/logs/independent280/grid300_12702_candidate.t238.00.solution.json",
+      "official": 109.34797386342225
+    }
+  ],
+  "solution_sha256": "78a413668863eec5dd0867e739fb409a51c5d75c64ddbb69653ba13800d216fe",
+  "resource": "rss_kb=25328 user=541.13 sys=0.09 majorfaults=0 minorfaults=5861 voluntary=4 involuntary=4376 inputs=0 outputs=440\n",
+  "error": false,
+  "process_sampling": {
+    "last": {
+      "154": {
+        "runtime_ns": 276858210041,
+        "runqueue_ns": 25116342,
+        "slices": 357
+      },
+      "159": {
+        "runtime_ns": 46450254630,
+        "runqueue_ns": 39931326,
+        "slices": 1022
+      },
+      "169": {
+        "runtime_ns": 212243286603,
+        "runqueue_ns": 83319716,
+        "slices": 2779
+      },
+      "173": {
+        "runtime_ns": 4544479385,
+        "runqueue_ns": 8689526,
+        "slices": 204
+      }
+    },
+    "states": {
+      "R": 542,
+      "S": 1
+    },
+    "wchan": {
+      "0": 542,
+      "futex_do_wait": 1
+    },
+    "max_sampled_threads": 2,
+    "samples": 278,
+    "last_io": {
+      "rchar": 127814,
+      "wchar": 43473,
+      "syscr": 36,
+      "syscw": 45,
+      "read_bytes": 0,
+      "write_bytes": 221184,
+      "cancelled_write_bytes": 0
+    }
+  },
+  "resource_extra_fields": {
+    "majorfaults": 0.0,
+    "minorfaults": 5861.0,
+    "voluntary": 4.0,
+    "involuntary": 4376.0,
+    "inputs": 0.0,
+    "outputs": 440.0
+  },
+  "internal_deadline_stop": false,
+  "cpu_pressure_before": "some avg10=0.93 avg60=0.47 avg300=0.40 total=6272345879\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+  "cpu_pressure_after": "some avg10=0.77 avg60=0.47 avg300=0.39 total=6274956712\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+  "logged_threads": 2,
+  "resource_fields": {
+    "rss_kb": 25328.0,
+    "user": 541.13,
+    "sys": 0.09
+  },
+  "success": true,
+  "components": {
+    "reward": 140.1465023550285,
+    "distance": 18.11913875513833,
+    "cost": 11.159086942379096,
+    "penalty": 0.9920482750973927,
+    "objective": 109.8762283824137
+  }
+}

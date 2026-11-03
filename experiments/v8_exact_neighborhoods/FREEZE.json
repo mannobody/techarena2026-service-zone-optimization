@@ -1,0 +1,211 @@
+{
+  "frozen_unix": 1792501303.5735333,
+  "status": "frozen before independent input generation; do not tune on outcomes",
+  "files": {
+    "experiments/v8_exact_neighborhoods/artifacts/final/main.cpp": "52a30ca35edaca1cfbe7186390a5ceca2596965562c92fa6e811da648d642114",
+    "experiments/v8_exact_neighborhoods/artifacts/final/solution": "b7dff7094ffe8da6930d0c0506ce376e32660340ebeb73d8add91afe9ec94fe6",
+    "experiments/v8_exact_neighborhoods/artifacts/final/Makefile": "094a3b3b44fa0b6b16eff942a0b3dfad293d0541da6d96c9083a950339e67abe",
+    "experiments/v8_exact_neighborhoods/artifacts/v4": "5cc54b6ad0f02a3d6d471d0e2f9129c229b4925aaa2b2c01ce26bd5305a4963c",
+    "experiments/v8_exact_neighborhoods/artifacts/v8": "9e545e0dba29f7f85bbcbcca42c32a8b66b8f9c34c81baf2b3ea1f0d16c85974",
+    "experiments/v8_exact_neighborhoods/src/run_blocks.py": "23504a84a39ed773e33df3df5c5f2861698d1ea6e33e70e01975d733f63ba93b",
+    "experiments/v8_exact_neighborhoods/src/independent.py": "d8d14eef2411f4f58d33d5b4fe43d7d511cf6318a882d742b44019cc49008c1a",
+    "tools/gen.py": "f390366fcc6cf39f6a2ab51ac6189b3c9e6e2a5f94673f13f8a4f9ce2e22892a",
+    "task/validate_solution.py": "6dd5948ebe72977976acf1b8dcaf7c819274c79addfb82328c0ec9a012ed56e0"
+  },
+  "independent_inputs": {
+    "anti": {
+      "ns": 240,
+      "no": 8,
+      "nw": 24,
+      "nsk": 4,
+      "dist": "anti",
+      "A": 10,
+      "af": 0.01,
+      "span": 1,
+      "dscale": 10000
+    },
+    "tightA_alpha": {
+      "ns": 300,
+      "no": 7,
+      "nw": 18,
+      "nsk": 5,
+      "dist": "road",
+      "A": 0,
+      "af": 20,
+      "span": 100
+    },
+    "multi_deficit": {
+      "ns": 200,
+      "no": 6,
+      "nw": 9,
+      "nsk": 6,
+      "wsk": 3,
+      "deficit": 1,
+      "A": 10000,
+      "af": 0.05
+    },
+    "cluster_alpha0": {
+      "ns": 350,
+      "no": 8,
+      "nw": 24,
+      "nsk": 4,
+      "layout": "cluster",
+      "A": 10000,
+      "af": 0
+    },
+    "grid_onsite": {
+      "ns": 220,
+      "no": 7,
+      "nw": 20,
+      "nsk": 4,
+      "layout": "grid",
+      "offices": "onsite",
+      "A": 0,
+      "af": 0.01
+    },
+    "elongated": {
+      "ns": 450,
+      "no": 8,
+      "nw": 24,
+      "nsk": 4,
+      "dist": "road",
+      "A": 10000,
+      "af": 0.05
+    },
+    "large": {
+      "ns": 3500,
+      "no": 20,
+      "nw": 50,
+      "nsk": 7,
+      "dist": "road",
+      "A": 50,
+      "af": 0.01
+    },
+    "huge": {
+      "ns": 10000,
+      "no": 25,
+      "nw": 60,
+      "nsk": 6,
+      "dist": "road",
+      "A": 200,
+      "af": 0.01
+    }
+  },
+  "generator_seeds": {
+    "anti": 1051000,
+    "tightA_alpha": 1051301,
+    "multi_deficit": 1051602,
+    "cluster_alpha0": 1051903,
+    "grid_onsite": 1052204,
+    "elongated": 1052505,
+    "large": 1052806,
+    "huge": 1053107
+  },
+  "transforms": {
+    "elongated": "y *= 0.001 for every site and office; retain road distances"
+  },
+  "test_seeds": [
+    3301,
+    3302
+  ],
+  "seconds": 10,
+  "cpu_pairs": [
+    [
+      18,
+      19
+    ],
+    [
+      20,
+      21
+    ]
+  ],
+  "variants": {
+    "v4": {
+      "binary": "experiments/v8_exact_neighborhoods/artifacts/v4",
+      "source": "experiments/v4_local_search/baseline/frozen_v4.cpp",
+      "env": {
+        "DBG": "1"
+      }
+    },
+    "v8": {
+      "binary": "experiments/v8_exact_neighborhoods/artifacts/v8",
+      "source": "experiments/v8_exact_neighborhoods/src/frozen_v8.cpp",
+      "env": {
+        "DBG": "1"
+      }
+    },
+    "off": {
+      "binary": "experiments/v8_exact_neighborhoods/artifacts/final/solution",
+      "source": "experiments/v8_exact_neighborhoods/artifacts/final/main.cpp",
+      "env": {
+        "DBG": "1",
+        "ESCAPE_MODE": "0",
+        "XN_FILL": "0",
+        "XN_WORKER": "0",
+        "XN_TINY": "0",
+        "XN_MODE": "0",
+        "XN_SIG_FIX": "0"
+      },
+      "internal_watchdog": true
+    },
+    "fill_only": {
+      "binary": "experiments/v8_exact_neighborhoods/artifacts/final/solution",
+      "source": "experiments/v8_exact_neighborhoods/artifacts/final/main.cpp",
+      "env": {
+        "DBG": "1",
+        "ESCAPE_MODE": "0",
+        "XN_FILL": "2",
+        "XN_WORKER": "0",
+        "XN_TINY": "0",
+        "XN_MODE": "0",
+        "XN_SIG_FIX": "0"
+      },
+      "internal_watchdog": true
+    },
+    "worker_only": {
+      "binary": "experiments/v8_exact_neighborhoods/artifacts/final/solution",
+      "source": "experiments/v8_exact_neighborhoods/artifacts/final/main.cpp",
+      "env": {
+        "DBG": "1",
+        "ESCAPE_MODE": "0",
+        "XN_FILL": "0",
+        "XN_WORKER": "1",
+        "XN_TINY": "0",
+        "XN_MODE": "0",
+        "XN_SIG_FIX": "0"
+      },
+      "internal_watchdog": true
+    },
+    "candidate": {
+      "binary": "experiments/v8_exact_neighborhoods/artifacts/final/solution",
+      "source": "experiments/v8_exact_neighborhoods/artifacts/final/main.cpp",
+      "env": {
+        "DBG": "1"
+      },
+      "internal_watchdog": true
+    }
+  },
+  "order_seed": 20261022,
+  "accept": {
+    "all_rc_zero_valid": true,
+    "all_process_wall_at_most_TL_plus_point1": true,
+    "mean_input_weighted_vs_v4_at_least": 0.1,
+    "median_nonnegative": true,
+    "every_input_median_nonnegative": true,
+    "worst_vs_v4_at_least": -1,
+    "bootstrap_lower_95_nonnegative": true,
+    "mean_vs_off_nonnegative": true,
+    "mean_vs_v8_nonnegative": true,
+    "undefined_percentage_rejects": true
+  },
+  "run_cap": {
+    "primary": 96,
+    "additional_repeats": 0,
+    "TL60": 32,
+    "TL280": 0
+  },
+  "tl60_trigger": "Only if all primary acceptance criteria pass. Same 8 inputs, seed3401, variants v4/v8/off/candidate, same frozen binaries, TL60. No changes after viewing primary.",
+  "compiler": "g++ (GCC) 16.2.1 20260819 (Red Hat 16.2.1-2)",
+  "flags": "-O3 -std=c++17 -pthread",
+  "no_instance_id_branches": true
+}

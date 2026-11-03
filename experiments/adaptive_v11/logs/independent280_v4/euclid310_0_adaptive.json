@@ -1,0 +1,145 @@
+{
+  "case": "euclid310",
+  "seed": 0,
+  "variant": "adaptive",
+  "command": [
+    "/usr/bin/time",
+    "-f",
+    "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+    "-o",
+    "./experiments/adaptive_v11/logs/independent280_v4/euclid310_0_adaptive.resource",
+    "taskset",
+    "-c",
+    "8,10",
+    "./experiments/adaptive_v11/artifacts/v4/candidate",
+    "./experiments/adaptive_v11/inputs/fresh/euclid310.json",
+    "./experiments/adaptive_v11/logs/independent280_v4/euclid310_0_adaptive.solution.json",
+    "280"
+  ],
+  "env": {
+    "HOME": "/home/user",
+    "LANG": "C.UTF-8",
+    "PATH": "/usr/local/bin:/usr/bin:/bin",
+    "NT": "2",
+    "SEED": "0",
+    "AP_POLICY": "1",
+    "AP_SHARE": "0"
+  },
+  "affinity": [
+    8,
+    10
+  ],
+  "rc": 0,
+  "timeout": false,
+  "wall": 279.4718329110001,
+  "started_unix": 1792660958.2248237,
+  "ended_unix": 1792661237.9876134,
+  "official": 8615.465204458085,
+  "valid": true,
+  "snapshots": [
+    {
+      "at": 28.04087661200174,
+      "path": "experiments/adaptive_v11/logs/independent280_v4/euclid310_0_adaptive.t28.00.solution.json",
+      "official": 8580.826242846651
+    },
+    {
+      "at": 61.621445122000296,
+      "path": "experiments/adaptive_v11/logs/independent280_v4/euclid310_0_adaptive.t61.60.solution.json",
+      "official": 8580.826242846651
+    },
+    {
+      "at": 70.00322454600246,
+      "path": "experiments/adaptive_v11/logs/independent280_v4/euclid310_0_adaptive.t70.00.solution.json",
+      "official": 8580.826242846651
+    },
+    {
+      "at": 140.04248985600134,
+      "path": "experiments/adaptive_v11/logs/independent280_v4/euclid310_0_adaptive.t140.00.solution.json",
+      "official": 8597.35391115612
+    },
+    {
+      "at": 238.01375004000147,
+      "path": "experiments/adaptive_v11/logs/independent280_v4/euclid310_0_adaptive.t238.00.solution.json",
+      "official": 8607.315882994104
+    }
+  ],
+  "solution_sha256": "bae829371da23b88a848fb4052e87fabebe898d37daf6ea820c6877ef221f04b",
+  "resource": "rss_kb=9260 user=551.35 sys=0.30 majorfaults=1 minorfaults=1329 voluntary=22231 involuntary=39408 inputs=0 outputs=184\n",
+  "error": false,
+  "process_sampling": {
+    "last": {
+      "36": {
+        "runtime_ns": 86073239,
+        "runqueue_ns": 188234120,
+        "slices": 22144
+      },
+      "37": {
+        "runtime_ns": 276039945335,
+        "runqueue_ns": 554992729,
+        "slices": 11069
+      },
+      "38": {
+        "runtime_ns": 110588415050,
+        "runqueue_ns": 250404006,
+        "slices": 3243
+      },
+      "47": {
+        "runtime_ns": 163089176678,
+        "runqueue_ns": 387835781,
+        "slices": 25053
+      },
+      "54": {
+        "runtime_ns": 19164,
+        "runqueue_ns": 613533,
+        "slices": 1
+      }
+    },
+    "states": {
+      "D": 1,
+      "S": 441,
+      "R": 551
+    },
+    "wchan": {
+      "folio_wait_bit_common": 1,
+      "hrtimer_nanosleep": 277,
+      "0": 551,
+      "futex_do_wait": 164
+    },
+    "max_sampled_threads": 5,
+    "samples": 278,
+    "last_io": {
+      "rchar": 303956,
+      "wchar": 40918,
+      "syscr": 60,
+      "syscw": 46,
+      "read_bytes": 0,
+      "write_bytes": 90112,
+      "cancelled_write_bytes": 0
+    }
+  },
+  "resource_extra_fields": {
+    "majorfaults": 1.0,
+    "minorfaults": 1329.0,
+    "voluntary": 22231.0,
+    "involuntary": 39408.0,
+    "inputs": 0.0,
+    "outputs": 184.0
+  },
+  "internal_deadline_stop": false,
+  "cpu_pressure_before": "some avg10=0.00 avg60=0.00 avg300=0.31 total=6238599848\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+  "cpu_pressure_after": "some avg10=0.00 avg60=0.19 avg300=0.28 total=6240009842\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+  "logged_threads": 1,
+  "resource_fields": {
+    "rss_kb": 9260.0,
+    "user": 551.35,
+    "sys": 0.3
+  },
+  "success": true,
+  "components": {
+    "reward": 12770.370037663124,
+    "distance": 3505.3620719839255,
+    "cost": 594.8126039168396,
+    "penalty": 54.73015730427052,
+    "objective": 8615.465204458087
+  }
+}

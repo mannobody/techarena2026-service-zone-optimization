@@ -1,0 +1,72 @@
+{
+  "case": "medium_anti",
+  "seed": 9303,
+  "variant": "full",
+  "command": [
+    "/usr/bin/time",
+    "-f",
+    "rss_kb=%M user=%U sys=%S",
+    "-o",
+    "./experiments/structural_v9/logs/development280/medium_anti_9303_full.resource",
+    "taskset",
+    "-c",
+    "0,1",
+    "./experiments/structural_v9/artifacts/final_research/candidate",
+    "./experiments/structural_v9/inputs/dev/medium_anti.json",
+    "./experiments/structural_v9/logs/development280/medium_anti_9303_full.solution.json",
+    "280"
+  ],
+  "env": {
+    "HOME": "/home/user",
+    "LANG": "C.UTF-8",
+    "PATH": "/usr/local/bin:/usr/bin:/bin",
+    "NT": "2",
+    "SEED": "9303"
+  },
+  "affinity": [
+    0,
+    1
+  ],
+  "rc": 0,
+  "timeout": false,
+  "wall": 279.47910727400085,
+  "started_unix": 1792640559.4400887,
+  "ended_unix": 1792640838.9340289,
+  "official": 2542.9534652406646,
+  "valid": true,
+  "snapshots": [
+    {
+      "at": 70.03829953900004,
+      "path": "experiments/structural_v9/logs/development280/medium_anti_9303_full.t70.00.solution.json",
+      "official": 2428.3784730169655
+    },
+    {
+      "at": 140.0449647560008,
+      "path": "experiments/structural_v9/logs/development280/medium_anti_9303_full.t140.00.solution.json",
+      "official": 2428.3784730169655
+    },
+    {
+      "at": 238.03276262500003,
+      "path": "experiments/structural_v9/logs/development280/medium_anti_9303_full.t238.00.solution.json",
+      "official": 2453.939401817703
+    }
+  ],
+  "solution_sha256": "c3d3d9748c575a8ef032a56efd39735ecdc0258a70a11d9cb7129fbcd0adcae6",
+  "resource": "rss_kb=6448 user=556.08 sys=0.01\n",
+  "error": false,
+  "internal_deadline_stop": false,
+  "logged_threads": 2,
+  "resource_fields": {
+    "rss_kb": 6448.0,
+    "user": 556.08,
+    "sys": 0.01
+  },
+  "success": true,
+  "components": {
+    "reward": 8530.586122087721,
+    "distance": 5564.5392629415455,
+    "cost": 408.6570173912081,
+    "penalty": 14.4363765143023,
+    "objective": 2542.9534652406655
+  }
+}

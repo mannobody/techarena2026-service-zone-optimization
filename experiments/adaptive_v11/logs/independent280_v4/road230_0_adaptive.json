@@ -1,0 +1,143 @@
+{
+  "case": "road230",
+  "seed": 0,
+  "variant": "adaptive",
+  "command": [
+    "/usr/bin/time",
+    "-f",
+    "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+    "-o",
+    "./experiments/adaptive_v11/logs/independent280_v4/road230_0_adaptive.resource",
+    "taskset",
+    "-c",
+    "12,13",
+    "./experiments/adaptive_v11/artifacts/v4/candidate",
+    "./experiments/adaptive_v11/inputs/fresh/road230.json",
+    "./experiments/adaptive_v11/logs/independent280_v4/road230_0_adaptive.solution.json",
+    "280"
+  ],
+  "env": {
+    "HOME": "/home/user",
+    "LANG": "C.UTF-8",
+    "PATH": "/usr/local/bin:/usr/bin:/bin",
+    "NT": "2",
+    "SEED": "0",
+    "AP_POLICY": "1",
+    "AP_SHARE": "0"
+  },
+  "affinity": [
+    12,
+    13
+  ],
+  "rc": 0,
+  "timeout": false,
+  "wall": 279.51721863000057,
+  "started_unix": 1792660958.22392,
+  "ended_unix": 1792661237.903935,
+  "official": 7034.566368238286,
+  "valid": true,
+  "snapshots": [
+    {
+      "at": 28.03889951900055,
+      "path": "experiments/adaptive_v11/logs/independent280_v4/road230_0_adaptive.t28.00.solution.json",
+      "official": 6691.356971377245
+    },
+    {
+      "at": 61.62993049000215,
+      "path": "experiments/adaptive_v11/logs/independent280_v4/road230_0_adaptive.t61.60.solution.json",
+      "official": 6691.356971377245
+    },
+    {
+      "at": 70.01323405700168,
+      "path": "experiments/adaptive_v11/logs/independent280_v4/road230_0_adaptive.t70.00.solution.json",
+      "official": 6691.356971377245
+    },
+    {
+      "at": 140.00355808200038,
+      "path": "experiments/adaptive_v11/logs/independent280_v4/road230_0_adaptive.t140.00.solution.json",
+      "official": 6769.114242746906
+    },
+    {
+      "at": 238.0029754970019,
+      "path": "experiments/adaptive_v11/logs/independent280_v4/road230_0_adaptive.t238.00.solution.json",
+      "official": 6841.169260862207
+    }
+  ],
+  "solution_sha256": "3878f737fa9ca64e1f4f6aa92e1366faf45c7ef060177242b5d07391b2cea3f6",
+  "resource": "rss_kb=7112 user=553.34 sys=0.29 majorfaults=1 minorfaults=674 voluntary=22207 involuntary=23321 inputs=88 outputs=272\n",
+  "error": false,
+  "process_sampling": {
+    "last": {
+      "33": {
+        "runtime_ns": 150466192,
+        "runqueue_ns": 323646380,
+        "slices": 22136
+      },
+      "39": {
+        "runtime_ns": 276233637508,
+        "runqueue_ns": 279562132,
+        "slices": 9571
+      },
+      "40": {
+        "runtime_ns": 276037810590,
+        "runqueue_ns": 475028328,
+        "slices": 13687
+      },
+      "48": {
+        "runtime_ns": 38845,
+        "runqueue_ns": 528816,
+        "slices": 2
+      },
+      "53": {
+        "runtime_ns": 28274,
+        "runqueue_ns": 683637,
+        "slices": 1
+      }
+    },
+    "states": {
+      "S": 764,
+      "R": 554
+    },
+    "wchan": {
+      "hrtimer_nanosleep": 277,
+      "0": 554,
+      "futex_do_wait": 487
+    },
+    "max_sampled_threads": 5,
+    "samples": 277,
+    "last_io": {
+      "rchar": 204191,
+      "wchar": 30209,
+      "syscr": 48,
+      "syscw": 51,
+      "read_bytes": 45056,
+      "write_bytes": 139264,
+      "cancelled_write_bytes": 0
+    }
+  },
+  "resource_extra_fields": {
+    "majorfaults": 1.0,
+    "minorfaults": 674.0,
+    "voluntary": 22207.0,
+    "involuntary": 23321.0,
+    "inputs": 88.0,
+    "outputs": 272.0
+  },
+  "internal_deadline_stop": false,
+  "cpu_pressure_before": "some avg10=0.00 avg60=0.00 avg300=0.31 total=6238599848\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+  "cpu_pressure_after": "some avg10=0.00 avg60=0.19 avg300=0.28 total=6240008540\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+  "logged_threads": 1,
+  "resource_fields": {
+    "rss_kb": 7112.0,
+    "user": 553.34,
+    "sys": 0.29
+  },
+  "success": true,
+  "components": {
+    "reward": 12013.269498873417,
+    "distance": 4305.628806779912,
+    "cost": 625.1046713423542,
+    "penalty": 47.969652512862595,
+    "objective": 7034.566368238287
+  }
+}

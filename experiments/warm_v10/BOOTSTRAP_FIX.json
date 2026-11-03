@@ -1,0 +1,7 @@
+{
+  "reason": "v2 short screen: huge negative outliers caused by replacing office-subset exploration before it populated multi-office masks. Initial greedy cache can contain singletons only on 10k.",
+  "evidence": "logs/screen30_v2/ANALYSIS.json and huge_* stderr, all original outputs retained",
+  "revision": "v4 retains 30% of remaining warm window for old broad subset exploration, then performs geometric feasible evolution; seed order starts with top proxies before cardinality niches. Total warm deadline unchanged.",
+  "v3_long": "cancelled before any solver quality runs; qa_v3 completed",
+  "updated": 1792646672.6885438
+}

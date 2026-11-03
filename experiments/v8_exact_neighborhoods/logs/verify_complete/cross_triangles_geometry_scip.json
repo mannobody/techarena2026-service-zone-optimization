@@ -1,0 +1,62 @@
+{
+  "case": "cross_triangles",
+  "kind": "geometry",
+  "backend": "scip",
+  "ok": true,
+  "expected": 38,
+  "result": {
+    "solution": [
+      {
+        "officeId": 0,
+        "sites": [
+          0,
+          1
+        ],
+        "workers": [
+          0
+        ]
+      },
+      {
+        "officeId": 1,
+        "sites": [
+          2,
+          3
+        ],
+        "workers": [
+          1
+        ]
+      }
+    ],
+    "before": 38.0,
+    "value": 38.0,
+    "gain": 0.0,
+    "kind": "geometry",
+    "backend": "scip",
+    "conditional_optimal": true,
+    "status": "optimal",
+    "bound": 38.0,
+    "gap": 0.0,
+    "build": 0.007769596000002821,
+    "solve": 0.0008509760000379174,
+    "check": 0.0006277349999663784,
+    "restore": 0.0008935339999425196,
+    "seconds": 0.012043136000102095,
+    "gain_per_second": 0.0,
+    "iterations": 1,
+    "nodes": 0,
+    "cuts": 0,
+    "variables": 16,
+    "rows": 30,
+    "selected": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "offices": [
+      0,
+      1
+    ],
+    "events": []
+  }
+}

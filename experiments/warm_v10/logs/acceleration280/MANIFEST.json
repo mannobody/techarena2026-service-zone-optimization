@@ -1,0 +1,95 @@
+{
+  "spec": {
+    "name": "acceleration280",
+    "seconds": 280,
+    "seeds": [
+      9403,
+      10402
+    ],
+    "cpus": [
+      [
+        0,
+        1
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        12,
+        13
+      ],
+      [
+        16,
+        17
+      ],
+      [
+        18,
+        19
+      ],
+      [
+        20,
+        21
+      ]
+    ],
+    "cases": {
+      "medium_anti": "experiments/structural_v9/inputs/dev/medium_anti.json",
+      "regression_large": "experiments/structural_v9/inputs/holdout/large.json",
+      "huge": "experiments/structural_v9/inputs/dev/huge.json"
+    },
+    "variants": {
+      "v4": {
+        "binary": "experiments/structural_v9/artifacts/v4",
+        "env": {}
+      },
+      "v9": {
+        "binary": "experiments/structural_v9/artifacts/final_research/candidate",
+        "env": {
+          "ZM_POOL": "0",
+          "ZM_RESERVE": "0"
+        }
+      },
+      "prior": {
+        "binary": "experiments/warm_v10/artifacts/v5/candidate",
+        "env": {
+          "ZM_POOL": "0",
+          "ZM_RESERVE": "0",
+          "GW_MODE": "1"
+        }
+      },
+      "candidate": {
+        "binary": "experiments/warm_v10/artifacts/v6/candidate",
+        "env": {
+          "ZM_POOL": "0",
+          "ZM_RESERVE": "0",
+          "GW_MODE": "1"
+        }
+      },
+      "balanced": {
+        "binary": "experiments/warm_v10/artifacts/v8/candidate",
+        "env": {
+          "ZM_POOL": "0",
+          "ZM_RESERVE": "0",
+          "GW_MODE": "1"
+        }
+      }
+    },
+    "allow_superseded": true
+  },
+  "spec_sha256": "2835d29d579f7d2788a4cb6f780a4bd05005d8ee2693de44a2412d05713c3d11",
+  "inputs": {
+    "medium_anti": "3a73156656271a734e2db83b84d9ae11b2c3b892f8076aaaa59edc30c5d0f636",
+    "regression_large": "949d354e84f0449b3e0683c92b4cfc9b0b5cc54cea387290e3e3cc55182d4ec4",
+    "huge": "562cd07f929d32c2685674e97314a0fdbf196936fb93831dadb7c5fe88d80c04"
+  },
+  "binaries": {
+    "v4": "5cc54b6ad0f02a3d6d471d0e2f9129c229b4925aaa2b2c01ce26bd5305a4963c",
+    "v9": "255d6f0d4c46a80f36307059bc48c3110eed1f9285b8c0fccb42361e23252670",
+    "prior": "c3f76ed684a521347cdd84fcdb2f5e9630a716f2eaf3747413ca7ecc6dc34706",
+    "candidate": "2f0aa1facefc76b82fbe73a3ef3632de88603e17526a3b8a3be93a54e8b64b96",
+    "balanced": "38df2f6d68eaaaddd01e1e23db18c21e7d65e3d1c128bb736e5d20b8a8c16918"
+  },
+  "validator": "6dd5948ebe72977976acf1b8dcaf7c819274c79addfb82328c0ec9a012ed56e0",
+  "cpu_topology": "<local-host-omitted>",
+  "runner_sha256": "791e0a285aa770a1cbbbffccd17e767dcdfe8179c9ac6e9e7775d8732647da93"
+}

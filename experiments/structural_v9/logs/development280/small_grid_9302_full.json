@@ -1,0 +1,56 @@
+{
+  "case": "small_grid",
+  "seed": 9302,
+  "variant": "full",
+  "command": [
+    "/usr/bin/time",
+    "-f",
+    "rss_kb=%M user=%U sys=%S",
+    "-o",
+    "./experiments/structural_v9/logs/development280/small_grid_9302_full.resource",
+    "taskset",
+    "-c",
+    "0,1",
+    "./experiments/structural_v9/artifacts/final_research/candidate",
+    "./experiments/structural_v9/inputs/dev/small_grid.json",
+    "./experiments/structural_v9/logs/development280/small_grid_9302_full.solution.json",
+    "280"
+  ],
+  "env": {
+    "HOME": "/home/user",
+    "LANG": "C.UTF-8",
+    "PATH": "/usr/local/bin:/usr/bin:/bin",
+    "NT": "2",
+    "SEED": "9302"
+  },
+  "affinity": [
+    0,
+    1
+  ],
+  "rc": 0,
+  "timeout": false,
+  "wall": 0.052423939000163955,
+  "started_unix": 1792638599.629778,
+  "ended_unix": 1792638599.6853554,
+  "official": 254.08981479007377,
+  "valid": true,
+  "snapshots": [],
+  "solution_sha256": "46f7f70c827d675fe176024df5a1674e6edb4c522b3b82f5eafb6588a68cb4f2",
+  "resource": "rss_kb=5704 user=0.01 sys=0.00\n",
+  "error": false,
+  "internal_deadline_stop": false,
+  "logged_threads": 1,
+  "resource_fields": {
+    "rss_kb": 5704.0,
+    "user": 0.01,
+    "sys": 0.0
+  },
+  "success": true,
+  "components": {
+    "reward": 318.8340325562478,
+    "distance": 47.14045207910317,
+    "cost": 17.60376568707086,
+    "penalty": 0.0,
+    "objective": 254.08981479007377
+  }
+}

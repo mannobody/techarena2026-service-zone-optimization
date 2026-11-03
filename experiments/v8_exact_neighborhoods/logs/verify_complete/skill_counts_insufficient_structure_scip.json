@@ -1,0 +1,55 @@
+{
+  "case": "skill_counts_insufficient",
+  "kind": "structure",
+  "backend": "scip",
+  "ok": true,
+  "expected": 29,
+  "result": {
+    "solution": [
+      {
+        "officeId": 0,
+        "sites": [
+          0,
+          1,
+          2
+        ],
+        "workers": [
+          0,
+          1,
+          2
+        ]
+      }
+    ],
+    "before": 0.0,
+    "value": 29.0,
+    "gain": 29.0,
+    "kind": "structure",
+    "backend": "scip",
+    "conditional_optimal": true,
+    "status": "optimal",
+    "bound": 29.0,
+    "gap": 0.0,
+    "build": 0.008794856999998046,
+    "solve": 0.008445746999996118,
+    "check": 0.0006266980000191325,
+    "restore": 0.00058335200003512,
+    "seconds": 0.021096799000019928,
+    "gain_per_second": 1374.6161206717952,
+    "iterations": 1,
+    "nodes": 1,
+    "cuts": 0,
+    "variables": 25,
+    "rows": 54,
+    "selected": [
+      0,
+      1,
+      2
+    ],
+    "offices": [
+      0,
+      1,
+      2
+    ],
+    "events": []
+  }
+}

@@ -1,0 +1,4604 @@
+[
+  {
+    "series": "screen20",
+    "case": "jury1",
+    "seed": 0,
+    "variant": "certified",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/screen20/jury1_0_certified.resource",
+      "taskset",
+      "-c",
+      "3,6",
+      "./experiments/submission_1668601_v12/artifacts/certified/candidate",
+      "./task/instance1/instance.json",
+      "./experiments/submission_1668601_v12/logs/screen20/jury1_0_certified.solution.json",
+      "20"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "0"
+    },
+    "affinity": [
+      3,
+      6
+    ]
+  },
+  {
+    "series": "screen20",
+    "case": "jury1",
+    "seed": 0,
+    "variant": "submission",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/screen20/jury1_0_submission.resource",
+      "taskset",
+      "-c",
+      "3,6",
+      "./experiments/submission_1668601_v12/baseline/solution",
+      "./task/instance1/instance.json",
+      "./experiments/submission_1668601_v12/logs/screen20/jury1_0_submission.solution.json",
+      "20"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "0"
+    },
+    "affinity": [
+      3,
+      6
+    ]
+  },
+  {
+    "series": "screen20",
+    "case": "jury1",
+    "seed": 0,
+    "variant": "zones",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/screen20/jury1_0_zones.resource",
+      "taskset",
+      "-c",
+      "3,6",
+      "./experiments/submission_1668601_v12/artifacts/zones/candidate",
+      "./task/instance1/instance.json",
+      "./experiments/submission_1668601_v12/logs/screen20/jury1_0_zones.solution.json",
+      "20"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "0",
+      "ZM_POOL": "0",
+      "ZM_RESERVE": "0"
+    },
+    "affinity": [
+      3,
+      6
+    ]
+  },
+  {
+    "series": "screen20",
+    "case": "jury1",
+    "seed": 0,
+    "variant": "zones_pool",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/screen20/jury1_0_zones_pool.resource",
+      "taskset",
+      "-c",
+      "3,6",
+      "./experiments/submission_1668601_v12/artifacts/zones/candidate",
+      "./task/instance1/instance.json",
+      "./experiments/submission_1668601_v12/logs/screen20/jury1_0_zones_pool.solution.json",
+      "20"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "0",
+      "ZM_POOL": "1",
+      "ZM_RESERVE": "1"
+    },
+    "affinity": [
+      3,
+      6
+    ]
+  },
+  {
+    "series": "screen20",
+    "case": "jury1",
+    "seed": 0,
+    "variant": "hybrid",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/screen20/jury1_0_hybrid.resource",
+      "taskset",
+      "-c",
+      "3,6",
+      "./experiments/submission_1668601_v12/artifacts/hybrid/candidate",
+      "./task/instance1/instance.json",
+      "./experiments/submission_1668601_v12/logs/screen20/jury1_0_hybrid.solution.json",
+      "20"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "0"
+    },
+    "affinity": [
+      3,
+      6
+    ]
+  },
+  {
+    "series": "screen20",
+    "case": "jury1",
+    "seed": 0,
+    "variant": "geometry",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/screen20/jury1_0_geometry.resource",
+      "taskset",
+      "-c",
+      "3,6",
+      "./experiments/submission_1668601_v12/artifacts/geometry/candidate",
+      "./task/instance1/instance.json",
+      "./experiments/submission_1668601_v12/logs/screen20/jury1_0_geometry.solution.json",
+      "20"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "0",
+      "GW_MODE": "1",
+      "ZM_POOL": "0",
+      "ZM_RESERVE": "0"
+    },
+    "affinity": [
+      3,
+      6
+    ]
+  },
+  {
+    "series": "screen20",
+    "case": "jury1",
+    "seed": 0,
+    "variant": "exact",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/screen20/jury1_0_exact.resource",
+      "taskset",
+      "-c",
+      "3,6",
+      "./experiments/submission_1668601_v12/artifacts/exact/candidate",
+      "./task/instance1/instance.json",
+      "./experiments/submission_1668601_v12/logs/screen20/jury1_0_exact.solution.json",
+      "20"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "0",
+      "XN_MODE": "1",
+      "XN_FILL": "2",
+      "XN_WORKER": "1",
+      "ESCAPE_MODE": "0"
+    },
+    "affinity": [
+      3,
+      6
+    ]
+  },
+  {
+    "series": "screen20",
+    "case": "jury1",
+    "seed": 0,
+    "variant": "plateau",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/screen20/jury1_0_plateau.resource",
+      "taskset",
+      "-c",
+      "3,6",
+      "./experiments/submission_1668601_v12/artifacts/plateau/candidate",
+      "./task/instance1/instance.json",
+      "./experiments/submission_1668601_v12/logs/screen20/jury1_0_plateau.solution.json",
+      "20"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "0"
+    },
+    "affinity": [
+      3,
+      6
+    ]
+  },
+  {
+    "series": "screen20",
+    "case": "jury1",
+    "seed": 0,
+    "variant": "geometry_diverse",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/screen20/jury1_0_geometry_diverse.resource",
+      "taskset",
+      "-c",
+      "3,6",
+      "./experiments/submission_1668601_v12/artifacts/geometry/candidate",
+      "./task/instance1/instance.json",
+      "./experiments/submission_1668601_v12/logs/screen20/jury1_0_geometry_diverse.solution.json",
+      "20"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "0",
+      "GW_MODE": "2",
+      "ZM_POOL": "0",
+      "ZM_RESERVE": "0"
+    },
+    "affinity": [
+      3,
+      6
+    ]
+  },
+  {
+    "series": "screen20",
+    "case": "grid180",
+    "seed": 0,
+    "variant": "geometry",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/screen20/grid180_0_geometry.resource",
+      "taskset",
+      "-c",
+      "20,21",
+      "./experiments/submission_1668601_v12/artifacts/geometry/candidate",
+      "./experiments/adaptive_v11/inputs/dev/grid180.json",
+      "./experiments/submission_1668601_v12/logs/screen20/grid180_0_geometry.solution.json",
+      "20"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "0",
+      "GW_MODE": "1",
+      "ZM_POOL": "0",
+      "ZM_RESERVE": "0"
+    },
+    "affinity": [
+      20,
+      21
+    ]
+  },
+  {
+    "series": "screen20",
+    "case": "grid180",
+    "seed": 0,
+    "variant": "plateau",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/screen20/grid180_0_plateau.resource",
+      "taskset",
+      "-c",
+      "20,21",
+      "./experiments/submission_1668601_v12/artifacts/plateau/candidate",
+      "./experiments/adaptive_v11/inputs/dev/grid180.json",
+      "./experiments/submission_1668601_v12/logs/screen20/grid180_0_plateau.solution.json",
+      "20"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "0"
+    },
+    "affinity": [
+      20,
+      21
+    ]
+  },
+  {
+    "series": "screen20",
+    "case": "grid180",
+    "seed": 0,
+    "variant": "hybrid",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/screen20/grid180_0_hybrid.resource",
+      "taskset",
+      "-c",
+      "20,21",
+      "./experiments/submission_1668601_v12/artifacts/hybrid/candidate",
+      "./experiments/adaptive_v11/inputs/dev/grid180.json",
+      "./experiments/submission_1668601_v12/logs/screen20/grid180_0_hybrid.solution.json",
+      "20"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "0"
+    },
+    "affinity": [
+      20,
+      21
+    ]
+  },
+  {
+    "series": "screen20",
+    "case": "grid180",
+    "seed": 0,
+    "variant": "certified",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/screen20/grid180_0_certified.resource",
+      "taskset",
+      "-c",
+      "20,21",
+      "./experiments/submission_1668601_v12/artifacts/certified/candidate",
+      "./experiments/adaptive_v11/inputs/dev/grid180.json",
+      "./experiments/submission_1668601_v12/logs/screen20/grid180_0_certified.solution.json",
+      "20"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "0"
+    },
+    "affinity": [
+      20,
+      21
+    ]
+  },
+  {
+    "series": "screen20",
+    "case": "grid180",
+    "seed": 0,
+    "variant": "zones_pool",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/screen20/grid180_0_zones_pool.resource",
+      "taskset",
+      "-c",
+      "20,21",
+      "./experiments/submission_1668601_v12/artifacts/zones/candidate",
+      "./experiments/adaptive_v11/inputs/dev/grid180.json",
+      "./experiments/submission_1668601_v12/logs/screen20/grid180_0_zones_pool.solution.json",
+      "20"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "0",
+      "ZM_POOL": "1",
+      "ZM_RESERVE": "1"
+    },
+    "affinity": [
+      20,
+      21
+    ]
+  },
+  {
+    "series": "screen20",
+    "case": "grid180",
+    "seed": 0,
+    "variant": "geometry_diverse",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/screen20/grid180_0_geometry_diverse.resource",
+      "taskset",
+      "-c",
+      "20,21",
+      "./experiments/submission_1668601_v12/artifacts/geometry/candidate",
+      "./experiments/adaptive_v11/inputs/dev/grid180.json",
+      "./experiments/submission_1668601_v12/logs/screen20/grid180_0_geometry_diverse.solution.json",
+      "20"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "0",
+      "GW_MODE": "2",
+      "ZM_POOL": "0",
+      "ZM_RESERVE": "0"
+    },
+    "affinity": [
+      20,
+      21
+    ]
+  },
+  {
+    "series": "screen20",
+    "case": "grid180",
+    "seed": 0,
+    "variant": "exact",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/screen20/grid180_0_exact.resource",
+      "taskset",
+      "-c",
+      "20,21",
+      "./experiments/submission_1668601_v12/artifacts/exact/candidate",
+      "./experiments/adaptive_v11/inputs/dev/grid180.json",
+      "./experiments/submission_1668601_v12/logs/screen20/grid180_0_exact.solution.json",
+      "20"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "0",
+      "XN_MODE": "1",
+      "XN_FILL": "2",
+      "XN_WORKER": "1",
+      "ESCAPE_MODE": "0"
+    },
+    "affinity": [
+      20,
+      21
+    ]
+  },
+  {
+    "series": "screen20",
+    "case": "grid180",
+    "seed": 0,
+    "variant": "submission",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/screen20/grid180_0_submission.resource",
+      "taskset",
+      "-c",
+      "20,21",
+      "./experiments/submission_1668601_v12/baseline/solution",
+      "./experiments/adaptive_v11/inputs/dev/grid180.json",
+      "./experiments/submission_1668601_v12/logs/screen20/grid180_0_submission.solution.json",
+      "20"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "0"
+    },
+    "affinity": [
+      20,
+      21
+    ]
+  },
+  {
+    "series": "screen20",
+    "case": "grid180",
+    "seed": 0,
+    "variant": "zones",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/screen20/grid180_0_zones.resource",
+      "taskset",
+      "-c",
+      "20,21",
+      "./experiments/submission_1668601_v12/artifacts/zones/candidate",
+      "./experiments/adaptive_v11/inputs/dev/grid180.json",
+      "./experiments/submission_1668601_v12/logs/screen20/grid180_0_zones.solution.json",
+      "20"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "0",
+      "ZM_POOL": "0",
+      "ZM_RESERVE": "0"
+    },
+    "affinity": [
+      20,
+      21
+    ]
+  },
+  {
+    "series": "screen20",
+    "case": "jury4",
+    "seed": 0,
+    "variant": "hybrid",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/screen20/jury4_0_hybrid.resource",
+      "taskset",
+      "-c",
+      "8,10",
+      "./experiments/submission_1668601_v12/artifacts/hybrid/candidate",
+      "./task/instance4/instance.json",
+      "./experiments/submission_1668601_v12/logs/screen20/jury4_0_hybrid.solution.json",
+      "20"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "0"
+    },
+    "affinity": [
+      8,
+      10
+    ]
+  },
+  {
+    "series": "screen20",
+    "case": "jury4",
+    "seed": 0,
+    "variant": "plateau",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/screen20/jury4_0_plateau.resource",
+      "taskset",
+      "-c",
+      "8,10",
+      "./experiments/submission_1668601_v12/artifacts/plateau/candidate",
+      "./task/instance4/instance.json",
+      "./experiments/submission_1668601_v12/logs/screen20/jury4_0_plateau.solution.json",
+      "20"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "0"
+    },
+    "affinity": [
+      8,
+      10
+    ]
+  },
+  {
+    "series": "screen20",
+    "case": "jury4",
+    "seed": 0,
+    "variant": "geometry_diverse",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/screen20/jury4_0_geometry_diverse.resource",
+      "taskset",
+      "-c",
+      "8,10",
+      "./experiments/submission_1668601_v12/artifacts/geometry/candidate",
+      "./task/instance4/instance.json",
+      "./experiments/submission_1668601_v12/logs/screen20/jury4_0_geometry_diverse.solution.json",
+      "20"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "0",
+      "GW_MODE": "2",
+      "ZM_POOL": "0",
+      "ZM_RESERVE": "0"
+    },
+    "affinity": [
+      8,
+      10
+    ]
+  },
+  {
+    "series": "screen20",
+    "case": "jury4",
+    "seed": 0,
+    "variant": "submission",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/screen20/jury4_0_submission.resource",
+      "taskset",
+      "-c",
+      "8,10",
+      "./experiments/submission_1668601_v12/baseline/solution",
+      "./task/instance4/instance.json",
+      "./experiments/submission_1668601_v12/logs/screen20/jury4_0_submission.solution.json",
+      "20"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "0"
+    },
+    "affinity": [
+      8,
+      10
+    ]
+  },
+  {
+    "series": "screen20",
+    "case": "jury4",
+    "seed": 0,
+    "variant": "geometry",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/screen20/jury4_0_geometry.resource",
+      "taskset",
+      "-c",
+      "8,10",
+      "./experiments/submission_1668601_v12/artifacts/geometry/candidate",
+      "./task/instance4/instance.json",
+      "./experiments/submission_1668601_v12/logs/screen20/jury4_0_geometry.solution.json",
+      "20"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "0",
+      "GW_MODE": "1",
+      "ZM_POOL": "0",
+      "ZM_RESERVE": "0"
+    },
+    "affinity": [
+      8,
+      10
+    ]
+  },
+  {
+    "series": "screen20",
+    "case": "jury4",
+    "seed": 0,
+    "variant": "exact",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/screen20/jury4_0_exact.resource",
+      "taskset",
+      "-c",
+      "8,10",
+      "./experiments/submission_1668601_v12/artifacts/exact/candidate",
+      "./task/instance4/instance.json",
+      "./experiments/submission_1668601_v12/logs/screen20/jury4_0_exact.solution.json",
+      "20"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "0",
+      "XN_MODE": "1",
+      "XN_FILL": "2",
+      "XN_WORKER": "1",
+      "ESCAPE_MODE": "0"
+    },
+    "affinity": [
+      8,
+      10
+    ]
+  },
+  {
+    "series": "screen20",
+    "case": "jury4",
+    "seed": 0,
+    "variant": "zones_pool",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/screen20/jury4_0_zones_pool.resource",
+      "taskset",
+      "-c",
+      "8,10",
+      "./experiments/submission_1668601_v12/artifacts/zones/candidate",
+      "./task/instance4/instance.json",
+      "./experiments/submission_1668601_v12/logs/screen20/jury4_0_zones_pool.solution.json",
+      "20"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "0",
+      "ZM_POOL": "1",
+      "ZM_RESERVE": "1"
+    },
+    "affinity": [
+      8,
+      10
+    ]
+  },
+  {
+    "series": "screen20",
+    "case": "jury4",
+    "seed": 0,
+    "variant": "zones",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/screen20/jury4_0_zones.resource",
+      "taskset",
+      "-c",
+      "8,10",
+      "./experiments/submission_1668601_v12/artifacts/zones/candidate",
+      "./task/instance4/instance.json",
+      "./experiments/submission_1668601_v12/logs/screen20/jury4_0_zones.solution.json",
+      "20"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "0",
+      "ZM_POOL": "0",
+      "ZM_RESERVE": "0"
+    },
+    "affinity": [
+      8,
+      10
+    ]
+  },
+  {
+    "series": "screen20",
+    "case": "jury4",
+    "seed": 0,
+    "variant": "certified",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/screen20/jury4_0_certified.resource",
+      "taskset",
+      "-c",
+      "8,10",
+      "./experiments/submission_1668601_v12/artifacts/certified/candidate",
+      "./task/instance4/instance.json",
+      "./experiments/submission_1668601_v12/logs/screen20/jury4_0_certified.solution.json",
+      "20"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "0"
+    },
+    "affinity": [
+      8,
+      10
+    ]
+  },
+  {
+    "series": "screen20",
+    "case": "anti220",
+    "seed": 0,
+    "variant": "hybrid",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/screen20/anti220_0_hybrid.resource",
+      "taskset",
+      "-c",
+      "12,13",
+      "./experiments/submission_1668601_v12/artifacts/hybrid/candidate",
+      "./experiments/adaptive_v11/inputs/dev/anti220.json",
+      "./experiments/submission_1668601_v12/logs/screen20/anti220_0_hybrid.solution.json",
+      "20"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "0"
+    },
+    "affinity": [
+      12,
+      13
+    ]
+  },
+  {
+    "series": "screen20",
+    "case": "anti220",
+    "seed": 0,
+    "variant": "zones_pool",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/screen20/anti220_0_zones_pool.resource",
+      "taskset",
+      "-c",
+      "12,13",
+      "./experiments/submission_1668601_v12/artifacts/zones/candidate",
+      "./experiments/adaptive_v11/inputs/dev/anti220.json",
+      "./experiments/submission_1668601_v12/logs/screen20/anti220_0_zones_pool.solution.json",
+      "20"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "0",
+      "ZM_POOL": "1",
+      "ZM_RESERVE": "1"
+    },
+    "affinity": [
+      12,
+      13
+    ]
+  },
+  {
+    "series": "screen20",
+    "case": "anti220",
+    "seed": 0,
+    "variant": "geometry",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/screen20/anti220_0_geometry.resource",
+      "taskset",
+      "-c",
+      "12,13",
+      "./experiments/submission_1668601_v12/artifacts/geometry/candidate",
+      "./experiments/adaptive_v11/inputs/dev/anti220.json",
+      "./experiments/submission_1668601_v12/logs/screen20/anti220_0_geometry.solution.json",
+      "20"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "0",
+      "GW_MODE": "1",
+      "ZM_POOL": "0",
+      "ZM_RESERVE": "0"
+    },
+    "affinity": [
+      12,
+      13
+    ]
+  },
+  {
+    "series": "screen20",
+    "case": "anti220",
+    "seed": 0,
+    "variant": "certified",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/screen20/anti220_0_certified.resource",
+      "taskset",
+      "-c",
+      "12,13",
+      "./experiments/submission_1668601_v12/artifacts/certified/candidate",
+      "./experiments/adaptive_v11/inputs/dev/anti220.json",
+      "./experiments/submission_1668601_v12/logs/screen20/anti220_0_certified.solution.json",
+      "20"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "0"
+    },
+    "affinity": [
+      12,
+      13
+    ]
+  },
+  {
+    "series": "screen20",
+    "case": "anti220",
+    "seed": 0,
+    "variant": "plateau",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/screen20/anti220_0_plateau.resource",
+      "taskset",
+      "-c",
+      "12,13",
+      "./experiments/submission_1668601_v12/artifacts/plateau/candidate",
+      "./experiments/adaptive_v11/inputs/dev/anti220.json",
+      "./experiments/submission_1668601_v12/logs/screen20/anti220_0_plateau.solution.json",
+      "20"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "0"
+    },
+    "affinity": [
+      12,
+      13
+    ]
+  },
+  {
+    "series": "screen20",
+    "case": "anti220",
+    "seed": 0,
+    "variant": "zones",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/screen20/anti220_0_zones.resource",
+      "taskset",
+      "-c",
+      "12,13",
+      "./experiments/submission_1668601_v12/artifacts/zones/candidate",
+      "./experiments/adaptive_v11/inputs/dev/anti220.json",
+      "./experiments/submission_1668601_v12/logs/screen20/anti220_0_zones.solution.json",
+      "20"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "0",
+      "ZM_POOL": "0",
+      "ZM_RESERVE": "0"
+    },
+    "affinity": [
+      12,
+      13
+    ]
+  },
+  {
+    "series": "screen20",
+    "case": "anti220",
+    "seed": 0,
+    "variant": "submission",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/screen20/anti220_0_submission.resource",
+      "taskset",
+      "-c",
+      "12,13",
+      "./experiments/submission_1668601_v12/baseline/solution",
+      "./experiments/adaptive_v11/inputs/dev/anti220.json",
+      "./experiments/submission_1668601_v12/logs/screen20/anti220_0_submission.solution.json",
+      "20"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "0"
+    },
+    "affinity": [
+      12,
+      13
+    ]
+  },
+  {
+    "series": "screen20",
+    "case": "anti220",
+    "seed": 0,
+    "variant": "exact",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/screen20/anti220_0_exact.resource",
+      "taskset",
+      "-c",
+      "12,13",
+      "./experiments/submission_1668601_v12/artifacts/exact/candidate",
+      "./experiments/adaptive_v11/inputs/dev/anti220.json",
+      "./experiments/submission_1668601_v12/logs/screen20/anti220_0_exact.solution.json",
+      "20"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "0",
+      "XN_MODE": "1",
+      "XN_FILL": "2",
+      "XN_WORKER": "1",
+      "ESCAPE_MODE": "0"
+    },
+    "affinity": [
+      12,
+      13
+    ]
+  },
+  {
+    "series": "screen20",
+    "case": "anti220",
+    "seed": 0,
+    "variant": "geometry_diverse",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/screen20/anti220_0_geometry_diverse.resource",
+      "taskset",
+      "-c",
+      "12,13",
+      "./experiments/submission_1668601_v12/artifacts/geometry/candidate",
+      "./experiments/adaptive_v11/inputs/dev/anti220.json",
+      "./experiments/submission_1668601_v12/logs/screen20/anti220_0_geometry_diverse.solution.json",
+      "20"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "0",
+      "GW_MODE": "2",
+      "ZM_POOL": "0",
+      "ZM_RESERVE": "0"
+    },
+    "affinity": [
+      12,
+      13
+    ]
+  },
+  {
+    "series": "screen20",
+    "case": "road200",
+    "seed": 0,
+    "variant": "certified",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/screen20/road200_0_certified.resource",
+      "taskset",
+      "-c",
+      "18,19",
+      "./experiments/submission_1668601_v12/artifacts/certified/candidate",
+      "./experiments/adaptive_v11/inputs/dev/road200.json",
+      "./experiments/submission_1668601_v12/logs/screen20/road200_0_certified.solution.json",
+      "20"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "0"
+    },
+    "affinity": [
+      18,
+      19
+    ]
+  },
+  {
+    "series": "screen20",
+    "case": "road200",
+    "seed": 0,
+    "variant": "zones_pool",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/screen20/road200_0_zones_pool.resource",
+      "taskset",
+      "-c",
+      "18,19",
+      "./experiments/submission_1668601_v12/artifacts/zones/candidate",
+      "./experiments/adaptive_v11/inputs/dev/road200.json",
+      "./experiments/submission_1668601_v12/logs/screen20/road200_0_zones_pool.solution.json",
+      "20"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "0",
+      "ZM_POOL": "1",
+      "ZM_RESERVE": "1"
+    },
+    "affinity": [
+      18,
+      19
+    ]
+  },
+  {
+    "series": "screen20",
+    "case": "road200",
+    "seed": 0,
+    "variant": "geometry_diverse",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/screen20/road200_0_geometry_diverse.resource",
+      "taskset",
+      "-c",
+      "18,19",
+      "./experiments/submission_1668601_v12/artifacts/geometry/candidate",
+      "./experiments/adaptive_v11/inputs/dev/road200.json",
+      "./experiments/submission_1668601_v12/logs/screen20/road200_0_geometry_diverse.solution.json",
+      "20"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "0",
+      "GW_MODE": "2",
+      "ZM_POOL": "0",
+      "ZM_RESERVE": "0"
+    },
+    "affinity": [
+      18,
+      19
+    ]
+  },
+  {
+    "series": "screen20",
+    "case": "road200",
+    "seed": 0,
+    "variant": "geometry",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/screen20/road200_0_geometry.resource",
+      "taskset",
+      "-c",
+      "18,19",
+      "./experiments/submission_1668601_v12/artifacts/geometry/candidate",
+      "./experiments/adaptive_v11/inputs/dev/road200.json",
+      "./experiments/submission_1668601_v12/logs/screen20/road200_0_geometry.solution.json",
+      "20"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "0",
+      "GW_MODE": "1",
+      "ZM_POOL": "0",
+      "ZM_RESERVE": "0"
+    },
+    "affinity": [
+      18,
+      19
+    ]
+  },
+  {
+    "series": "screen20",
+    "case": "road200",
+    "seed": 0,
+    "variant": "plateau",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/screen20/road200_0_plateau.resource",
+      "taskset",
+      "-c",
+      "18,19",
+      "./experiments/submission_1668601_v12/artifacts/plateau/candidate",
+      "./experiments/adaptive_v11/inputs/dev/road200.json",
+      "./experiments/submission_1668601_v12/logs/screen20/road200_0_plateau.solution.json",
+      "20"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "0"
+    },
+    "affinity": [
+      18,
+      19
+    ]
+  },
+  {
+    "series": "screen20",
+    "case": "road200",
+    "seed": 0,
+    "variant": "exact",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/screen20/road200_0_exact.resource",
+      "taskset",
+      "-c",
+      "18,19",
+      "./experiments/submission_1668601_v12/artifacts/exact/candidate",
+      "./experiments/adaptive_v11/inputs/dev/road200.json",
+      "./experiments/submission_1668601_v12/logs/screen20/road200_0_exact.solution.json",
+      "20"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "0",
+      "XN_MODE": "1",
+      "XN_FILL": "2",
+      "XN_WORKER": "1",
+      "ESCAPE_MODE": "0"
+    },
+    "affinity": [
+      18,
+      19
+    ]
+  },
+  {
+    "series": "screen20",
+    "case": "road200",
+    "seed": 0,
+    "variant": "zones",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/screen20/road200_0_zones.resource",
+      "taskset",
+      "-c",
+      "18,19",
+      "./experiments/submission_1668601_v12/artifacts/zones/candidate",
+      "./experiments/adaptive_v11/inputs/dev/road200.json",
+      "./experiments/submission_1668601_v12/logs/screen20/road200_0_zones.solution.json",
+      "20"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "0",
+      "ZM_POOL": "0",
+      "ZM_RESERVE": "0"
+    },
+    "affinity": [
+      18,
+      19
+    ]
+  },
+  {
+    "series": "screen20",
+    "case": "road200",
+    "seed": 0,
+    "variant": "submission",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/screen20/road200_0_submission.resource",
+      "taskset",
+      "-c",
+      "18,19",
+      "./experiments/submission_1668601_v12/baseline/solution",
+      "./experiments/adaptive_v11/inputs/dev/road200.json",
+      "./experiments/submission_1668601_v12/logs/screen20/road200_0_submission.solution.json",
+      "20"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "0"
+    },
+    "affinity": [
+      18,
+      19
+    ]
+  },
+  {
+    "series": "screen20",
+    "case": "road200",
+    "seed": 0,
+    "variant": "hybrid",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/screen20/road200_0_hybrid.resource",
+      "taskset",
+      "-c",
+      "18,19",
+      "./experiments/submission_1668601_v12/artifacts/hybrid/candidate",
+      "./experiments/adaptive_v11/inputs/dev/road200.json",
+      "./experiments/submission_1668601_v12/logs/screen20/road200_0_hybrid.solution.json",
+      "20"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "0"
+    },
+    "affinity": [
+      18,
+      19
+    ]
+  },
+  {
+    "series": "screen20",
+    "case": "euclid240",
+    "seed": 0,
+    "variant": "plateau",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/screen20/euclid240_0_plateau.resource",
+      "taskset",
+      "-c",
+      "0,1",
+      "./experiments/submission_1668601_v12/artifacts/plateau/candidate",
+      "./experiments/adaptive_v11/inputs/dev/euclid240.json",
+      "./experiments/submission_1668601_v12/logs/screen20/euclid240_0_plateau.solution.json",
+      "20"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "0"
+    },
+    "affinity": [
+      0,
+      1
+    ]
+  },
+  {
+    "series": "screen20",
+    "case": "euclid240",
+    "seed": 0,
+    "variant": "zones",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/screen20/euclid240_0_zones.resource",
+      "taskset",
+      "-c",
+      "0,1",
+      "./experiments/submission_1668601_v12/artifacts/zones/candidate",
+      "./experiments/adaptive_v11/inputs/dev/euclid240.json",
+      "./experiments/submission_1668601_v12/logs/screen20/euclid240_0_zones.solution.json",
+      "20"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "0",
+      "ZM_POOL": "0",
+      "ZM_RESERVE": "0"
+    },
+    "affinity": [
+      0,
+      1
+    ]
+  },
+  {
+    "series": "screen20",
+    "case": "euclid240",
+    "seed": 0,
+    "variant": "submission",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/screen20/euclid240_0_submission.resource",
+      "taskset",
+      "-c",
+      "0,1",
+      "./experiments/submission_1668601_v12/baseline/solution",
+      "./experiments/adaptive_v11/inputs/dev/euclid240.json",
+      "./experiments/submission_1668601_v12/logs/screen20/euclid240_0_submission.solution.json",
+      "20"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "0"
+    },
+    "affinity": [
+      0,
+      1
+    ]
+  },
+  {
+    "series": "screen20",
+    "case": "euclid240",
+    "seed": 0,
+    "variant": "certified",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/screen20/euclid240_0_certified.resource",
+      "taskset",
+      "-c",
+      "0,1",
+      "./experiments/submission_1668601_v12/artifacts/certified/candidate",
+      "./experiments/adaptive_v11/inputs/dev/euclid240.json",
+      "./experiments/submission_1668601_v12/logs/screen20/euclid240_0_certified.solution.json",
+      "20"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "0"
+    },
+    "affinity": [
+      0,
+      1
+    ]
+  },
+  {
+    "series": "screen20",
+    "case": "euclid240",
+    "seed": 0,
+    "variant": "hybrid",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/screen20/euclid240_0_hybrid.resource",
+      "taskset",
+      "-c",
+      "0,1",
+      "./experiments/submission_1668601_v12/artifacts/hybrid/candidate",
+      "./experiments/adaptive_v11/inputs/dev/euclid240.json",
+      "./experiments/submission_1668601_v12/logs/screen20/euclid240_0_hybrid.solution.json",
+      "20"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "0"
+    },
+    "affinity": [
+      0,
+      1
+    ]
+  },
+  {
+    "series": "screen20",
+    "case": "euclid240",
+    "seed": 0,
+    "variant": "geometry_diverse",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/screen20/euclid240_0_geometry_diverse.resource",
+      "taskset",
+      "-c",
+      "0,1",
+      "./experiments/submission_1668601_v12/artifacts/geometry/candidate",
+      "./experiments/adaptive_v11/inputs/dev/euclid240.json",
+      "./experiments/submission_1668601_v12/logs/screen20/euclid240_0_geometry_diverse.solution.json",
+      "20"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "0",
+      "GW_MODE": "2",
+      "ZM_POOL": "0",
+      "ZM_RESERVE": "0"
+    },
+    "affinity": [
+      0,
+      1
+    ]
+  },
+  {
+    "series": "screen20",
+    "case": "euclid240",
+    "seed": 0,
+    "variant": "zones_pool",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/screen20/euclid240_0_zones_pool.resource",
+      "taskset",
+      "-c",
+      "0,1",
+      "./experiments/submission_1668601_v12/artifacts/zones/candidate",
+      "./experiments/adaptive_v11/inputs/dev/euclid240.json",
+      "./experiments/submission_1668601_v12/logs/screen20/euclid240_0_zones_pool.solution.json",
+      "20"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "0",
+      "ZM_POOL": "1",
+      "ZM_RESERVE": "1"
+    },
+    "affinity": [
+      0,
+      1
+    ]
+  },
+  {
+    "series": "screen20",
+    "case": "euclid240",
+    "seed": 0,
+    "variant": "geometry",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/screen20/euclid240_0_geometry.resource",
+      "taskset",
+      "-c",
+      "0,1",
+      "./experiments/submission_1668601_v12/artifacts/geometry/candidate",
+      "./experiments/adaptive_v11/inputs/dev/euclid240.json",
+      "./experiments/submission_1668601_v12/logs/screen20/euclid240_0_geometry.solution.json",
+      "20"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "0",
+      "GW_MODE": "1",
+      "ZM_POOL": "0",
+      "ZM_RESERVE": "0"
+    },
+    "affinity": [
+      0,
+      1
+    ]
+  },
+  {
+    "series": "screen20",
+    "case": "euclid240",
+    "seed": 0,
+    "variant": "exact",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/screen20/euclid240_0_exact.resource",
+      "taskset",
+      "-c",
+      "0,1",
+      "./experiments/submission_1668601_v12/artifacts/exact/candidate",
+      "./experiments/adaptive_v11/inputs/dev/euclid240.json",
+      "./experiments/submission_1668601_v12/logs/screen20/euclid240_0_exact.solution.json",
+      "20"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "0",
+      "XN_MODE": "1",
+      "XN_FILL": "2",
+      "XN_WORKER": "1",
+      "ESCAPE_MODE": "0"
+    },
+    "affinity": [
+      0,
+      1
+    ]
+  },
+  {
+    "series": "screen20",
+    "case": "huge10000",
+    "seed": 0,
+    "variant": "certified",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/screen20/huge10000_0_certified.resource",
+      "taskset",
+      "-c",
+      "16,17",
+      "./experiments/submission_1668601_v12/artifacts/certified/candidate",
+      "./experiments/adaptive_v11/inputs/dev/huge10000.json",
+      "./experiments/submission_1668601_v12/logs/screen20/huge10000_0_certified.solution.json",
+      "20"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "0"
+    },
+    "affinity": [
+      16,
+      17
+    ]
+  },
+  {
+    "series": "screen20",
+    "case": "huge10000",
+    "seed": 0,
+    "variant": "hybrid",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/screen20/huge10000_0_hybrid.resource",
+      "taskset",
+      "-c",
+      "16,17",
+      "./experiments/submission_1668601_v12/artifacts/hybrid/candidate",
+      "./experiments/adaptive_v11/inputs/dev/huge10000.json",
+      "./experiments/submission_1668601_v12/logs/screen20/huge10000_0_hybrid.solution.json",
+      "20"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "0"
+    },
+    "affinity": [
+      16,
+      17
+    ]
+  },
+  {
+    "series": "screen20",
+    "case": "huge10000",
+    "seed": 0,
+    "variant": "geometry",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/screen20/huge10000_0_geometry.resource",
+      "taskset",
+      "-c",
+      "16,17",
+      "./experiments/submission_1668601_v12/artifacts/geometry/candidate",
+      "./experiments/adaptive_v11/inputs/dev/huge10000.json",
+      "./experiments/submission_1668601_v12/logs/screen20/huge10000_0_geometry.solution.json",
+      "20"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "0",
+      "GW_MODE": "1",
+      "ZM_POOL": "0",
+      "ZM_RESERVE": "0"
+    },
+    "affinity": [
+      16,
+      17
+    ]
+  },
+  {
+    "series": "screen20",
+    "case": "huge10000",
+    "seed": 0,
+    "variant": "submission",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/screen20/huge10000_0_submission.resource",
+      "taskset",
+      "-c",
+      "16,17",
+      "./experiments/submission_1668601_v12/baseline/solution",
+      "./experiments/adaptive_v11/inputs/dev/huge10000.json",
+      "./experiments/submission_1668601_v12/logs/screen20/huge10000_0_submission.solution.json",
+      "20"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "0"
+    },
+    "affinity": [
+      16,
+      17
+    ]
+  },
+  {
+    "series": "screen20",
+    "case": "huge10000",
+    "seed": 0,
+    "variant": "zones",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/screen20/huge10000_0_zones.resource",
+      "taskset",
+      "-c",
+      "16,17",
+      "./experiments/submission_1668601_v12/artifacts/zones/candidate",
+      "./experiments/adaptive_v11/inputs/dev/huge10000.json",
+      "./experiments/submission_1668601_v12/logs/screen20/huge10000_0_zones.solution.json",
+      "20"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "0",
+      "ZM_POOL": "0",
+      "ZM_RESERVE": "0"
+    },
+    "affinity": [
+      16,
+      17
+    ]
+  },
+  {
+    "series": "screen20",
+    "case": "huge10000",
+    "seed": 0,
+    "variant": "plateau",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/screen20/huge10000_0_plateau.resource",
+      "taskset",
+      "-c",
+      "16,17",
+      "./experiments/submission_1668601_v12/artifacts/plateau/candidate",
+      "./experiments/adaptive_v11/inputs/dev/huge10000.json",
+      "./experiments/submission_1668601_v12/logs/screen20/huge10000_0_plateau.solution.json",
+      "20"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "0"
+    },
+    "affinity": [
+      16,
+      17
+    ]
+  },
+  {
+    "series": "screen20",
+    "case": "huge10000",
+    "seed": 0,
+    "variant": "exact",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/screen20/huge10000_0_exact.resource",
+      "taskset",
+      "-c",
+      "16,17",
+      "./experiments/submission_1668601_v12/artifacts/exact/candidate",
+      "./experiments/adaptive_v11/inputs/dev/huge10000.json",
+      "./experiments/submission_1668601_v12/logs/screen20/huge10000_0_exact.solution.json",
+      "20"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "0",
+      "XN_MODE": "1",
+      "XN_FILL": "2",
+      "XN_WORKER": "1",
+      "ESCAPE_MODE": "0"
+    },
+    "affinity": [
+      16,
+      17
+    ]
+  },
+  {
+    "series": "screen20",
+    "case": "huge10000",
+    "seed": 0,
+    "variant": "zones_pool",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/screen20/huge10000_0_zones_pool.resource",
+      "taskset",
+      "-c",
+      "16,17",
+      "./experiments/submission_1668601_v12/artifacts/zones/candidate",
+      "./experiments/adaptive_v11/inputs/dev/huge10000.json",
+      "./experiments/submission_1668601_v12/logs/screen20/huge10000_0_zones_pool.solution.json",
+      "20"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "0",
+      "ZM_POOL": "1",
+      "ZM_RESERVE": "1"
+    },
+    "affinity": [
+      16,
+      17
+    ]
+  },
+  {
+    "series": "screen20",
+    "case": "huge10000",
+    "seed": 0,
+    "variant": "geometry_diverse",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/screen20/huge10000_0_geometry_diverse.resource",
+      "taskset",
+      "-c",
+      "16,17",
+      "./experiments/submission_1668601_v12/artifacts/geometry/candidate",
+      "./experiments/adaptive_v11/inputs/dev/huge10000.json",
+      "./experiments/submission_1668601_v12/logs/screen20/huge10000_0_geometry_diverse.solution.json",
+      "20"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "0",
+      "GW_MODE": "2",
+      "ZM_POOL": "0",
+      "ZM_RESERVE": "0"
+    },
+    "affinity": [
+      16,
+      17
+    ]
+  },
+  {
+    "series": "screen20",
+    "case": "cluster500",
+    "seed": 0,
+    "variant": "exact",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/screen20/cluster500_0_exact.resource",
+      "taskset",
+      "-c",
+      "3,6",
+      "./experiments/submission_1668601_v12/artifacts/exact/candidate",
+      "./experiments/adaptive_v11/inputs/dev/cluster500.json",
+      "./experiments/submission_1668601_v12/logs/screen20/cluster500_0_exact.solution.json",
+      "20"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "0",
+      "XN_MODE": "1",
+      "XN_FILL": "2",
+      "XN_WORKER": "1",
+      "ESCAPE_MODE": "0"
+    },
+    "affinity": [
+      3,
+      6
+    ]
+  },
+  {
+    "series": "screen20",
+    "case": "cluster500",
+    "seed": 0,
+    "variant": "zones_pool",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/screen20/cluster500_0_zones_pool.resource",
+      "taskset",
+      "-c",
+      "3,6",
+      "./experiments/submission_1668601_v12/artifacts/zones/candidate",
+      "./experiments/adaptive_v11/inputs/dev/cluster500.json",
+      "./experiments/submission_1668601_v12/logs/screen20/cluster500_0_zones_pool.solution.json",
+      "20"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "0",
+      "ZM_POOL": "1",
+      "ZM_RESERVE": "1"
+    },
+    "affinity": [
+      3,
+      6
+    ]
+  },
+  {
+    "series": "screen20",
+    "case": "cluster500",
+    "seed": 0,
+    "variant": "submission",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/screen20/cluster500_0_submission.resource",
+      "taskset",
+      "-c",
+      "3,6",
+      "./experiments/submission_1668601_v12/baseline/solution",
+      "./experiments/adaptive_v11/inputs/dev/cluster500.json",
+      "./experiments/submission_1668601_v12/logs/screen20/cluster500_0_submission.solution.json",
+      "20"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "0"
+    },
+    "affinity": [
+      3,
+      6
+    ]
+  },
+  {
+    "series": "screen20",
+    "case": "cluster500",
+    "seed": 0,
+    "variant": "geometry",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/screen20/cluster500_0_geometry.resource",
+      "taskset",
+      "-c",
+      "3,6",
+      "./experiments/submission_1668601_v12/artifacts/geometry/candidate",
+      "./experiments/adaptive_v11/inputs/dev/cluster500.json",
+      "./experiments/submission_1668601_v12/logs/screen20/cluster500_0_geometry.solution.json",
+      "20"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "0",
+      "GW_MODE": "1",
+      "ZM_POOL": "0",
+      "ZM_RESERVE": "0"
+    },
+    "affinity": [
+      3,
+      6
+    ]
+  },
+  {
+    "series": "screen20",
+    "case": "cluster500",
+    "seed": 0,
+    "variant": "geometry_diverse",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/screen20/cluster500_0_geometry_diverse.resource",
+      "taskset",
+      "-c",
+      "3,6",
+      "./experiments/submission_1668601_v12/artifacts/geometry/candidate",
+      "./experiments/adaptive_v11/inputs/dev/cluster500.json",
+      "./experiments/submission_1668601_v12/logs/screen20/cluster500_0_geometry_diverse.solution.json",
+      "20"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "0",
+      "GW_MODE": "2",
+      "ZM_POOL": "0",
+      "ZM_RESERVE": "0"
+    },
+    "affinity": [
+      3,
+      6
+    ]
+  },
+  {
+    "series": "screen20",
+    "case": "cluster500",
+    "seed": 0,
+    "variant": "hybrid",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/screen20/cluster500_0_hybrid.resource",
+      "taskset",
+      "-c",
+      "3,6",
+      "./experiments/submission_1668601_v12/artifacts/hybrid/candidate",
+      "./experiments/adaptive_v11/inputs/dev/cluster500.json",
+      "./experiments/submission_1668601_v12/logs/screen20/cluster500_0_hybrid.solution.json",
+      "20"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "0"
+    },
+    "affinity": [
+      3,
+      6
+    ]
+  },
+  {
+    "series": "screen20",
+    "case": "cluster500",
+    "seed": 0,
+    "variant": "plateau",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/screen20/cluster500_0_plateau.resource",
+      "taskset",
+      "-c",
+      "3,6",
+      "./experiments/submission_1668601_v12/artifacts/plateau/candidate",
+      "./experiments/adaptive_v11/inputs/dev/cluster500.json",
+      "./experiments/submission_1668601_v12/logs/screen20/cluster500_0_plateau.solution.json",
+      "20"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "0"
+    },
+    "affinity": [
+      3,
+      6
+    ]
+  },
+  {
+    "series": "screen20",
+    "case": "cluster500",
+    "seed": 0,
+    "variant": "zones",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/screen20/cluster500_0_zones.resource",
+      "taskset",
+      "-c",
+      "3,6",
+      "./experiments/submission_1668601_v12/artifacts/zones/candidate",
+      "./experiments/adaptive_v11/inputs/dev/cluster500.json",
+      "./experiments/submission_1668601_v12/logs/screen20/cluster500_0_zones.solution.json",
+      "20"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "0",
+      "ZM_POOL": "0",
+      "ZM_RESERVE": "0"
+    },
+    "affinity": [
+      3,
+      6
+    ]
+  },
+  {
+    "series": "screen20",
+    "case": "cluster500",
+    "seed": 0,
+    "variant": "certified",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/screen20/cluster500_0_certified.resource",
+      "taskset",
+      "-c",
+      "3,6",
+      "./experiments/submission_1668601_v12/artifacts/certified/candidate",
+      "./experiments/adaptive_v11/inputs/dev/cluster500.json",
+      "./experiments/submission_1668601_v12/logs/screen20/cluster500_0_certified.solution.json",
+      "20"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "0"
+    },
+    "affinity": [
+      3,
+      6
+    ]
+  },
+  {
+    "series": "screen20",
+    "case": "equal180",
+    "seed": 0,
+    "variant": "hybrid",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/screen20/equal180_0_hybrid.resource",
+      "taskset",
+      "-c",
+      "8,10",
+      "./experiments/submission_1668601_v12/artifacts/hybrid/candidate",
+      "./experiments/adaptive_v11/inputs/dev/equal180.json",
+      "./experiments/submission_1668601_v12/logs/screen20/equal180_0_hybrid.solution.json",
+      "20"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "0"
+    },
+    "affinity": [
+      8,
+      10
+    ]
+  },
+  {
+    "series": "screen20",
+    "case": "equal180",
+    "seed": 0,
+    "variant": "zones_pool",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/screen20/equal180_0_zones_pool.resource",
+      "taskset",
+      "-c",
+      "8,10",
+      "./experiments/submission_1668601_v12/artifacts/zones/candidate",
+      "./experiments/adaptive_v11/inputs/dev/equal180.json",
+      "./experiments/submission_1668601_v12/logs/screen20/equal180_0_zones_pool.solution.json",
+      "20"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "0",
+      "ZM_POOL": "1",
+      "ZM_RESERVE": "1"
+    },
+    "affinity": [
+      8,
+      10
+    ]
+  },
+  {
+    "series": "screen20",
+    "case": "equal180",
+    "seed": 0,
+    "variant": "geometry_diverse",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/screen20/equal180_0_geometry_diverse.resource",
+      "taskset",
+      "-c",
+      "8,10",
+      "./experiments/submission_1668601_v12/artifacts/geometry/candidate",
+      "./experiments/adaptive_v11/inputs/dev/equal180.json",
+      "./experiments/submission_1668601_v12/logs/screen20/equal180_0_geometry_diverse.solution.json",
+      "20"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "0",
+      "GW_MODE": "2",
+      "ZM_POOL": "0",
+      "ZM_RESERVE": "0"
+    },
+    "affinity": [
+      8,
+      10
+    ]
+  },
+  {
+    "series": "screen20",
+    "case": "equal180",
+    "seed": 0,
+    "variant": "certified",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/screen20/equal180_0_certified.resource",
+      "taskset",
+      "-c",
+      "8,10",
+      "./experiments/submission_1668601_v12/artifacts/certified/candidate",
+      "./experiments/adaptive_v11/inputs/dev/equal180.json",
+      "./experiments/submission_1668601_v12/logs/screen20/equal180_0_certified.solution.json",
+      "20"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "0"
+    },
+    "affinity": [
+      8,
+      10
+    ]
+  },
+  {
+    "series": "screen20",
+    "case": "equal180",
+    "seed": 0,
+    "variant": "zones",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/screen20/equal180_0_zones.resource",
+      "taskset",
+      "-c",
+      "8,10",
+      "./experiments/submission_1668601_v12/artifacts/zones/candidate",
+      "./experiments/adaptive_v11/inputs/dev/equal180.json",
+      "./experiments/submission_1668601_v12/logs/screen20/equal180_0_zones.solution.json",
+      "20"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "0",
+      "ZM_POOL": "0",
+      "ZM_RESERVE": "0"
+    },
+    "affinity": [
+      8,
+      10
+    ]
+  },
+  {
+    "series": "screen20",
+    "case": "equal180",
+    "seed": 0,
+    "variant": "exact",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/screen20/equal180_0_exact.resource",
+      "taskset",
+      "-c",
+      "8,10",
+      "./experiments/submission_1668601_v12/artifacts/exact/candidate",
+      "./experiments/adaptive_v11/inputs/dev/equal180.json",
+      "./experiments/submission_1668601_v12/logs/screen20/equal180_0_exact.solution.json",
+      "20"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "0",
+      "XN_MODE": "1",
+      "XN_FILL": "2",
+      "XN_WORKER": "1",
+      "ESCAPE_MODE": "0"
+    },
+    "affinity": [
+      8,
+      10
+    ]
+  },
+  {
+    "series": "screen20",
+    "case": "equal180",
+    "seed": 0,
+    "variant": "submission",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/screen20/equal180_0_submission.resource",
+      "taskset",
+      "-c",
+      "8,10",
+      "./experiments/submission_1668601_v12/baseline/solution",
+      "./experiments/adaptive_v11/inputs/dev/equal180.json",
+      "./experiments/submission_1668601_v12/logs/screen20/equal180_0_submission.solution.json",
+      "20"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "0"
+    },
+    "affinity": [
+      8,
+      10
+    ]
+  },
+  {
+    "series": "screen20",
+    "case": "equal180",
+    "seed": 0,
+    "variant": "geometry",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/screen20/equal180_0_geometry.resource",
+      "taskset",
+      "-c",
+      "8,10",
+      "./experiments/submission_1668601_v12/artifacts/geometry/candidate",
+      "./experiments/adaptive_v11/inputs/dev/equal180.json",
+      "./experiments/submission_1668601_v12/logs/screen20/equal180_0_geometry.solution.json",
+      "20"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "0",
+      "GW_MODE": "1",
+      "ZM_POOL": "0",
+      "ZM_RESERVE": "0"
+    },
+    "affinity": [
+      8,
+      10
+    ]
+  },
+  {
+    "series": "screen20",
+    "case": "equal180",
+    "seed": 0,
+    "variant": "plateau",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/screen20/equal180_0_plateau.resource",
+      "taskset",
+      "-c",
+      "8,10",
+      "./experiments/submission_1668601_v12/artifacts/plateau/candidate",
+      "./experiments/adaptive_v11/inputs/dev/equal180.json",
+      "./experiments/submission_1668601_v12/logs/screen20/equal180_0_plateau.solution.json",
+      "20"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "0"
+    },
+    "affinity": [
+      8,
+      10
+    ]
+  },
+  {
+    "series": "screen20",
+    "case": "multi260",
+    "seed": 0,
+    "variant": "hybrid",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/screen20/multi260_0_hybrid.resource",
+      "taskset",
+      "-c",
+      "20,21",
+      "./experiments/submission_1668601_v12/artifacts/hybrid/candidate",
+      "./experiments/adaptive_v11/inputs/dev/multi260.json",
+      "./experiments/submission_1668601_v12/logs/screen20/multi260_0_hybrid.solution.json",
+      "20"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "0"
+    },
+    "affinity": [
+      20,
+      21
+    ]
+  },
+  {
+    "series": "screen20",
+    "case": "multi260",
+    "seed": 0,
+    "variant": "certified",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/screen20/multi260_0_certified.resource",
+      "taskset",
+      "-c",
+      "20,21",
+      "./experiments/submission_1668601_v12/artifacts/certified/candidate",
+      "./experiments/adaptive_v11/inputs/dev/multi260.json",
+      "./experiments/submission_1668601_v12/logs/screen20/multi260_0_certified.solution.json",
+      "20"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "0"
+    },
+    "affinity": [
+      20,
+      21
+    ]
+  },
+  {
+    "series": "screen20",
+    "case": "multi260",
+    "seed": 0,
+    "variant": "plateau",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/screen20/multi260_0_plateau.resource",
+      "taskset",
+      "-c",
+      "20,21",
+      "./experiments/submission_1668601_v12/artifacts/plateau/candidate",
+      "./experiments/adaptive_v11/inputs/dev/multi260.json",
+      "./experiments/submission_1668601_v12/logs/screen20/multi260_0_plateau.solution.json",
+      "20"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "0"
+    },
+    "affinity": [
+      20,
+      21
+    ]
+  },
+  {
+    "series": "screen20",
+    "case": "multi260",
+    "seed": 0,
+    "variant": "exact",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/screen20/multi260_0_exact.resource",
+      "taskset",
+      "-c",
+      "20,21",
+      "./experiments/submission_1668601_v12/artifacts/exact/candidate",
+      "./experiments/adaptive_v11/inputs/dev/multi260.json",
+      "./experiments/submission_1668601_v12/logs/screen20/multi260_0_exact.solution.json",
+      "20"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "0",
+      "XN_MODE": "1",
+      "XN_FILL": "2",
+      "XN_WORKER": "1",
+      "ESCAPE_MODE": "0"
+    },
+    "affinity": [
+      20,
+      21
+    ]
+  },
+  {
+    "series": "screen20",
+    "case": "multi260",
+    "seed": 0,
+    "variant": "zones_pool",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/screen20/multi260_0_zones_pool.resource",
+      "taskset",
+      "-c",
+      "20,21",
+      "./experiments/submission_1668601_v12/artifacts/zones/candidate",
+      "./experiments/adaptive_v11/inputs/dev/multi260.json",
+      "./experiments/submission_1668601_v12/logs/screen20/multi260_0_zones_pool.solution.json",
+      "20"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "0",
+      "ZM_POOL": "1",
+      "ZM_RESERVE": "1"
+    },
+    "affinity": [
+      20,
+      21
+    ]
+  },
+  {
+    "series": "screen20",
+    "case": "multi260",
+    "seed": 0,
+    "variant": "geometry_diverse",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/screen20/multi260_0_geometry_diverse.resource",
+      "taskset",
+      "-c",
+      "20,21",
+      "./experiments/submission_1668601_v12/artifacts/geometry/candidate",
+      "./experiments/adaptive_v11/inputs/dev/multi260.json",
+      "./experiments/submission_1668601_v12/logs/screen20/multi260_0_geometry_diverse.solution.json",
+      "20"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "0",
+      "GW_MODE": "2",
+      "ZM_POOL": "0",
+      "ZM_RESERVE": "0"
+    },
+    "affinity": [
+      20,
+      21
+    ]
+  },
+  {
+    "series": "screen20",
+    "case": "multi260",
+    "seed": 0,
+    "variant": "zones",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/screen20/multi260_0_zones.resource",
+      "taskset",
+      "-c",
+      "20,21",
+      "./experiments/submission_1668601_v12/artifacts/zones/candidate",
+      "./experiments/adaptive_v11/inputs/dev/multi260.json",
+      "./experiments/submission_1668601_v12/logs/screen20/multi260_0_zones.solution.json",
+      "20"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "0",
+      "ZM_POOL": "0",
+      "ZM_RESERVE": "0"
+    },
+    "affinity": [
+      20,
+      21
+    ]
+  },
+  {
+    "series": "screen20",
+    "case": "multi260",
+    "seed": 0,
+    "variant": "geometry",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/screen20/multi260_0_geometry.resource",
+      "taskset",
+      "-c",
+      "20,21",
+      "./experiments/submission_1668601_v12/artifacts/geometry/candidate",
+      "./experiments/adaptive_v11/inputs/dev/multi260.json",
+      "./experiments/submission_1668601_v12/logs/screen20/multi260_0_geometry.solution.json",
+      "20"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "0",
+      "GW_MODE": "1",
+      "ZM_POOL": "0",
+      "ZM_RESERVE": "0"
+    },
+    "affinity": [
+      20,
+      21
+    ]
+  },
+  {
+    "series": "screen20",
+    "case": "multi260",
+    "seed": 0,
+    "variant": "submission",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/screen20/multi260_0_submission.resource",
+      "taskset",
+      "-c",
+      "20,21",
+      "./experiments/submission_1668601_v12/baseline/solution",
+      "./experiments/adaptive_v11/inputs/dev/multi260.json",
+      "./experiments/submission_1668601_v12/logs/screen20/multi260_0_submission.solution.json",
+      "20"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "0"
+    },
+    "affinity": [
+      20,
+      21
+    ]
+  },
+  {
+    "series": "development280",
+    "case": "equal180",
+    "seed": 12602,
+    "variant": "hybrid",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/development280/equal180_12602_hybrid.resource",
+      "taskset",
+      "-c",
+      "18,19",
+      "./experiments/submission_1668601_v12/artifacts/hybrid/candidate",
+      "./experiments/adaptive_v11/inputs/dev/equal180.json",
+      "./experiments/submission_1668601_v12/logs/development280/equal180_12602_hybrid.solution.json",
+      "280"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "12602"
+    },
+    "affinity": [
+      18,
+      19
+    ]
+  },
+  {
+    "series": "development280",
+    "case": "equal180",
+    "seed": 12602,
+    "variant": "plateau",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/development280/equal180_12602_plateau.resource",
+      "taskset",
+      "-c",
+      "18,19",
+      "./experiments/submission_1668601_v12/artifacts/plateau/candidate",
+      "./experiments/adaptive_v11/inputs/dev/equal180.json",
+      "./experiments/submission_1668601_v12/logs/development280/equal180_12602_plateau.solution.json",
+      "280"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "12602"
+    },
+    "affinity": [
+      18,
+      19
+    ]
+  },
+  {
+    "series": "development280",
+    "case": "equal180",
+    "seed": 12602,
+    "variant": "submission",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/development280/equal180_12602_submission.resource",
+      "taskset",
+      "-c",
+      "18,19",
+      "./experiments/submission_1668601_v12/baseline/solution",
+      "./experiments/adaptive_v11/inputs/dev/equal180.json",
+      "./experiments/submission_1668601_v12/logs/development280/equal180_12602_submission.solution.json",
+      "280"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "12602"
+    },
+    "affinity": [
+      18,
+      19
+    ]
+  },
+  {
+    "series": "development280",
+    "case": "jury1",
+    "seed": 12602,
+    "variant": "plateau",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/development280/jury1_12602_plateau.resource",
+      "taskset",
+      "-c",
+      "0,1",
+      "./experiments/submission_1668601_v12/artifacts/plateau/candidate",
+      "./task/instance1/instance.json",
+      "./experiments/submission_1668601_v12/logs/development280/jury1_12602_plateau.solution.json",
+      "280"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "12602"
+    },
+    "affinity": [
+      0,
+      1
+    ]
+  },
+  {
+    "series": "development280",
+    "case": "jury1",
+    "seed": 12602,
+    "variant": "submission",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/development280/jury1_12602_submission.resource",
+      "taskset",
+      "-c",
+      "0,1",
+      "./experiments/submission_1668601_v12/baseline/solution",
+      "./task/instance1/instance.json",
+      "./experiments/submission_1668601_v12/logs/development280/jury1_12602_submission.solution.json",
+      "280"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "12602"
+    },
+    "affinity": [
+      0,
+      1
+    ]
+  },
+  {
+    "series": "development280",
+    "case": "jury1",
+    "seed": 12602,
+    "variant": "hybrid",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/development280/jury1_12602_hybrid.resource",
+      "taskset",
+      "-c",
+      "0,1",
+      "./experiments/submission_1668601_v12/artifacts/hybrid/candidate",
+      "./task/instance1/instance.json",
+      "./experiments/submission_1668601_v12/logs/development280/jury1_12602_hybrid.solution.json",
+      "280"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "12602"
+    },
+    "affinity": [
+      0,
+      1
+    ]
+  },
+  {
+    "series": "development280",
+    "case": "anti220",
+    "seed": 12602,
+    "variant": "plateau",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/development280/anti220_12602_plateau.resource",
+      "taskset",
+      "-c",
+      "8,10",
+      "./experiments/submission_1668601_v12/artifacts/plateau/candidate",
+      "./experiments/adaptive_v11/inputs/dev/anti220.json",
+      "./experiments/submission_1668601_v12/logs/development280/anti220_12602_plateau.solution.json",
+      "280"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "12602"
+    },
+    "affinity": [
+      8,
+      10
+    ]
+  },
+  {
+    "series": "development280",
+    "case": "anti220",
+    "seed": 12602,
+    "variant": "submission",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/development280/anti220_12602_submission.resource",
+      "taskset",
+      "-c",
+      "8,10",
+      "./experiments/submission_1668601_v12/baseline/solution",
+      "./experiments/adaptive_v11/inputs/dev/anti220.json",
+      "./experiments/submission_1668601_v12/logs/development280/anti220_12602_submission.solution.json",
+      "280"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "12602"
+    },
+    "affinity": [
+      8,
+      10
+    ]
+  },
+  {
+    "series": "development280",
+    "case": "anti220",
+    "seed": 12602,
+    "variant": "hybrid",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/development280/anti220_12602_hybrid.resource",
+      "taskset",
+      "-c",
+      "8,10",
+      "./experiments/submission_1668601_v12/artifacts/hybrid/candidate",
+      "./experiments/adaptive_v11/inputs/dev/anti220.json",
+      "./experiments/submission_1668601_v12/logs/development280/anti220_12602_hybrid.solution.json",
+      "280"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "12602"
+    },
+    "affinity": [
+      8,
+      10
+    ]
+  },
+  {
+    "series": "development280",
+    "case": "grid180",
+    "seed": 12602,
+    "variant": "plateau",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/development280/grid180_12602_plateau.resource",
+      "taskset",
+      "-c",
+      "16,17",
+      "./experiments/submission_1668601_v12/artifacts/plateau/candidate",
+      "./experiments/adaptive_v11/inputs/dev/grid180.json",
+      "./experiments/submission_1668601_v12/logs/development280/grid180_12602_plateau.solution.json",
+      "280"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "12602"
+    },
+    "affinity": [
+      16,
+      17
+    ]
+  },
+  {
+    "series": "development280",
+    "case": "grid180",
+    "seed": 12602,
+    "variant": "submission",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/development280/grid180_12602_submission.resource",
+      "taskset",
+      "-c",
+      "16,17",
+      "./experiments/submission_1668601_v12/baseline/solution",
+      "./experiments/adaptive_v11/inputs/dev/grid180.json",
+      "./experiments/submission_1668601_v12/logs/development280/grid180_12602_submission.solution.json",
+      "280"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "12602"
+    },
+    "affinity": [
+      16,
+      17
+    ]
+  },
+  {
+    "series": "development280",
+    "case": "grid180",
+    "seed": 12602,
+    "variant": "hybrid",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/development280/grid180_12602_hybrid.resource",
+      "taskset",
+      "-c",
+      "16,17",
+      "./experiments/submission_1668601_v12/artifacts/hybrid/candidate",
+      "./experiments/adaptive_v11/inputs/dev/grid180.json",
+      "./experiments/submission_1668601_v12/logs/development280/grid180_12602_hybrid.solution.json",
+      "280"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "12602"
+    },
+    "affinity": [
+      16,
+      17
+    ]
+  },
+  {
+    "series": "development280",
+    "case": "multi260",
+    "seed": 12602,
+    "variant": "plateau",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/development280/multi260_12602_plateau.resource",
+      "taskset",
+      "-c",
+      "12,13",
+      "./experiments/submission_1668601_v12/artifacts/plateau/candidate",
+      "./experiments/adaptive_v11/inputs/dev/multi260.json",
+      "./experiments/submission_1668601_v12/logs/development280/multi260_12602_plateau.solution.json",
+      "280"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "12602"
+    },
+    "affinity": [
+      12,
+      13
+    ]
+  },
+  {
+    "series": "development280",
+    "case": "multi260",
+    "seed": 12602,
+    "variant": "hybrid",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/development280/multi260_12602_hybrid.resource",
+      "taskset",
+      "-c",
+      "12,13",
+      "./experiments/submission_1668601_v12/artifacts/hybrid/candidate",
+      "./experiments/adaptive_v11/inputs/dev/multi260.json",
+      "./experiments/submission_1668601_v12/logs/development280/multi260_12602_hybrid.solution.json",
+      "280"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "12602"
+    },
+    "affinity": [
+      12,
+      13
+    ]
+  },
+  {
+    "series": "development280",
+    "case": "multi260",
+    "seed": 12602,
+    "variant": "submission",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/development280/multi260_12602_submission.resource",
+      "taskset",
+      "-c",
+      "12,13",
+      "./experiments/submission_1668601_v12/baseline/solution",
+      "./experiments/adaptive_v11/inputs/dev/multi260.json",
+      "./experiments/submission_1668601_v12/logs/development280/multi260_12602_submission.solution.json",
+      "280"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "12602"
+    },
+    "affinity": [
+      12,
+      13
+    ]
+  },
+  {
+    "series": "development280",
+    "case": "huge10000",
+    "seed": 12602,
+    "variant": "submission",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/development280/huge10000_12602_submission.resource",
+      "taskset",
+      "-c",
+      "3,6",
+      "./experiments/submission_1668601_v12/baseline/solution",
+      "./experiments/adaptive_v11/inputs/dev/huge10000.json",
+      "./experiments/submission_1668601_v12/logs/development280/huge10000_12602_submission.solution.json",
+      "280"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "12602"
+    },
+    "affinity": [
+      3,
+      6
+    ]
+  },
+  {
+    "series": "development280",
+    "case": "huge10000",
+    "seed": 12602,
+    "variant": "hybrid",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/development280/huge10000_12602_hybrid.resource",
+      "taskset",
+      "-c",
+      "3,6",
+      "./experiments/submission_1668601_v12/artifacts/hybrid/candidate",
+      "./experiments/adaptive_v11/inputs/dev/huge10000.json",
+      "./experiments/submission_1668601_v12/logs/development280/huge10000_12602_hybrid.solution.json",
+      "280"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "12602"
+    },
+    "affinity": [
+      3,
+      6
+    ]
+  },
+  {
+    "series": "development280",
+    "case": "huge10000",
+    "seed": 12602,
+    "variant": "plateau",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/development280/huge10000_12602_plateau.resource",
+      "taskset",
+      "-c",
+      "3,6",
+      "./experiments/submission_1668601_v12/artifacts/plateau/candidate",
+      "./experiments/adaptive_v11/inputs/dev/huge10000.json",
+      "./experiments/submission_1668601_v12/logs/development280/huge10000_12602_plateau.solution.json",
+      "280"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "12602"
+    },
+    "affinity": [
+      3,
+      6
+    ]
+  },
+  {
+    "series": "geometry_bridge280",
+    "case": "equal180",
+    "seed": 12602,
+    "variant": "geometry",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/geometry_bridge280/equal180_12602_geometry.resource",
+      "taskset",
+      "-c",
+      "18,19",
+      "./experiments/submission_1668601_v12/artifacts/geometry/candidate",
+      "./experiments/adaptive_v11/inputs/dev/equal180.json",
+      "./experiments/submission_1668601_v12/logs/geometry_bridge280/equal180_12602_geometry.solution.json",
+      "280"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "12602",
+      "GW_MODE": "1",
+      "ZM_POOL": "0",
+      "ZM_RESERVE": "0"
+    },
+    "affinity": [
+      18,
+      19
+    ]
+  },
+  {
+    "series": "geometry_bridge280",
+    "case": "grid180",
+    "seed": 12602,
+    "variant": "geometry",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/geometry_bridge280/grid180_12602_geometry.resource",
+      "taskset",
+      "-c",
+      "16,17",
+      "./experiments/submission_1668601_v12/artifacts/geometry/candidate",
+      "./experiments/adaptive_v11/inputs/dev/grid180.json",
+      "./experiments/submission_1668601_v12/logs/geometry_bridge280/grid180_12602_geometry.solution.json",
+      "280"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "12602",
+      "GW_MODE": "1",
+      "ZM_POOL": "0",
+      "ZM_RESERVE": "0"
+    },
+    "affinity": [
+      16,
+      17
+    ]
+  },
+  {
+    "series": "geometry_bridge280",
+    "case": "jury1",
+    "seed": 12602,
+    "variant": "geometry",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/geometry_bridge280/jury1_12602_geometry.resource",
+      "taskset",
+      "-c",
+      "0,1",
+      "./experiments/submission_1668601_v12/artifacts/geometry/candidate",
+      "./task/instance1/instance.json",
+      "./experiments/submission_1668601_v12/logs/geometry_bridge280/jury1_12602_geometry.solution.json",
+      "280"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "12602",
+      "GW_MODE": "1",
+      "ZM_POOL": "0",
+      "ZM_RESERVE": "0"
+    },
+    "affinity": [
+      0,
+      1
+    ]
+  },
+  {
+    "series": "geometry_bridge280",
+    "case": "multi260",
+    "seed": 12602,
+    "variant": "geometry",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/geometry_bridge280/multi260_12602_geometry.resource",
+      "taskset",
+      "-c",
+      "12,13",
+      "./experiments/submission_1668601_v12/artifacts/geometry/candidate",
+      "./experiments/adaptive_v11/inputs/dev/multi260.json",
+      "./experiments/submission_1668601_v12/logs/geometry_bridge280/multi260_12602_geometry.solution.json",
+      "280"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "12602",
+      "GW_MODE": "1",
+      "ZM_POOL": "0",
+      "ZM_RESERVE": "0"
+    },
+    "affinity": [
+      12,
+      13
+    ]
+  },
+  {
+    "series": "geometry_bridge280",
+    "case": "anti220",
+    "seed": 12602,
+    "variant": "geometry",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/geometry_bridge280/anti220_12602_geometry.resource",
+      "taskset",
+      "-c",
+      "8,10",
+      "./experiments/submission_1668601_v12/artifacts/geometry/candidate",
+      "./experiments/adaptive_v11/inputs/dev/anti220.json",
+      "./experiments/submission_1668601_v12/logs/geometry_bridge280/anti220_12602_geometry.solution.json",
+      "280"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "12602",
+      "GW_MODE": "1",
+      "ZM_POOL": "0",
+      "ZM_RESERVE": "0"
+    },
+    "affinity": [
+      8,
+      10
+    ]
+  },
+  {
+    "series": "geometry_bridge280",
+    "case": "huge10000",
+    "seed": 12602,
+    "variant": "geometry",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/geometry_bridge280/huge10000_12602_geometry.resource",
+      "taskset",
+      "-c",
+      "3,6",
+      "./experiments/submission_1668601_v12/artifacts/geometry/candidate",
+      "./experiments/adaptive_v11/inputs/dev/huge10000.json",
+      "./experiments/submission_1668601_v12/logs/geometry_bridge280/huge10000_12602_geometry.solution.json",
+      "280"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "12602",
+      "GW_MODE": "1",
+      "ZM_POOL": "0",
+      "ZM_RESERVE": "0"
+    },
+    "affinity": [
+      3,
+      6
+    ]
+  },
+  {
+    "series": "independent280",
+    "case": "anti330",
+    "seed": 0,
+    "variant": "submission",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/independent280/anti330_0_submission.resource",
+      "taskset",
+      "-c",
+      "12,13",
+      "./experiments/submission_1668601_v12/baseline/solution",
+      "./experiments/submission_1668601_v12/inputs/fresh/anti330.json",
+      "./experiments/submission_1668601_v12/logs/independent280/anti330_0_submission.solution.json",
+      "280"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "0"
+    },
+    "affinity": [
+      12,
+      13
+    ]
+  },
+  {
+    "series": "independent280",
+    "case": "anti330",
+    "seed": 0,
+    "variant": "candidate",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/independent280/anti330_0_candidate.resource",
+      "taskset",
+      "-c",
+      "12,13",
+      "./experiments/submission_1668601_v12/artifacts/package_rebuild/solution",
+      "./experiments/submission_1668601_v12/inputs/fresh/anti330.json",
+      "./experiments/submission_1668601_v12/logs/independent280/anti330_0_candidate.solution.json",
+      "280"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "0",
+      "GW_MODE": "1",
+      "ZM_POOL": "0",
+      "ZM_RESERVE": "0"
+    },
+    "affinity": [
+      12,
+      13
+    ]
+  },
+  {
+    "series": "independent280",
+    "case": "road350",
+    "seed": 0,
+    "variant": "submission",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/independent280/road350_0_submission.resource",
+      "taskset",
+      "-c",
+      "3,6",
+      "./experiments/submission_1668601_v12/baseline/solution",
+      "./experiments/submission_1668601_v12/inputs/fresh/road350.json",
+      "./experiments/submission_1668601_v12/logs/independent280/road350_0_submission.solution.json",
+      "280"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "0"
+    },
+    "affinity": [
+      3,
+      6
+    ]
+  },
+  {
+    "series": "independent280",
+    "case": "road350",
+    "seed": 0,
+    "variant": "candidate",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/independent280/road350_0_candidate.resource",
+      "taskset",
+      "-c",
+      "3,6",
+      "./experiments/submission_1668601_v12/artifacts/package_rebuild/solution",
+      "./experiments/submission_1668601_v12/inputs/fresh/road350.json",
+      "./experiments/submission_1668601_v12/logs/independent280/road350_0_candidate.solution.json",
+      "280"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "0",
+      "GW_MODE": "1",
+      "ZM_POOL": "0",
+      "ZM_RESERVE": "0"
+    },
+    "affinity": [
+      3,
+      6
+    ]
+  },
+  {
+    "series": "independent280",
+    "case": "road350",
+    "seed": 12702,
+    "variant": "submission",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/independent280/road350_12702_submission.resource",
+      "taskset",
+      "-c",
+      "20,21",
+      "./experiments/submission_1668601_v12/baseline/solution",
+      "./experiments/submission_1668601_v12/inputs/fresh/road350.json",
+      "./experiments/submission_1668601_v12/logs/independent280/road350_12702_submission.solution.json",
+      "280"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "12702"
+    },
+    "affinity": [
+      20,
+      21
+    ]
+  },
+  {
+    "series": "independent280",
+    "case": "road350",
+    "seed": 12702,
+    "variant": "candidate",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/independent280/road350_12702_candidate.resource",
+      "taskset",
+      "-c",
+      "20,21",
+      "./experiments/submission_1668601_v12/artifacts/package_rebuild/solution",
+      "./experiments/submission_1668601_v12/inputs/fresh/road350.json",
+      "./experiments/submission_1668601_v12/logs/independent280/road350_12702_candidate.solution.json",
+      "280"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "12702",
+      "GW_MODE": "1",
+      "ZM_POOL": "0",
+      "ZM_RESERVE": "0"
+    },
+    "affinity": [
+      20,
+      21
+    ]
+  },
+  {
+    "series": "independent280",
+    "case": "multi480",
+    "seed": 0,
+    "variant": "submission",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/independent280/multi480_0_submission.resource",
+      "taskset",
+      "-c",
+      "18,19",
+      "./experiments/submission_1668601_v12/baseline/solution",
+      "./experiments/submission_1668601_v12/inputs/fresh/multi480.json",
+      "./experiments/submission_1668601_v12/logs/independent280/multi480_0_submission.solution.json",
+      "280"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "0"
+    },
+    "affinity": [
+      18,
+      19
+    ]
+  },
+  {
+    "series": "independent280",
+    "case": "multi480",
+    "seed": 0,
+    "variant": "candidate",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/independent280/multi480_0_candidate.resource",
+      "taskset",
+      "-c",
+      "18,19",
+      "./experiments/submission_1668601_v12/artifacts/package_rebuild/solution",
+      "./experiments/submission_1668601_v12/inputs/fresh/multi480.json",
+      "./experiments/submission_1668601_v12/logs/independent280/multi480_0_candidate.solution.json",
+      "280"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "0",
+      "GW_MODE": "1",
+      "ZM_POOL": "0",
+      "ZM_RESERVE": "0"
+    },
+    "affinity": [
+      18,
+      19
+    ]
+  },
+  {
+    "series": "independent280",
+    "case": "euclid420",
+    "seed": 0,
+    "variant": "candidate",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/independent280/euclid420_0_candidate.resource",
+      "taskset",
+      "-c",
+      "0,1",
+      "./experiments/submission_1668601_v12/artifacts/package_rebuild/solution",
+      "./experiments/submission_1668601_v12/inputs/fresh/euclid420.json",
+      "./experiments/submission_1668601_v12/logs/independent280/euclid420_0_candidate.solution.json",
+      "280"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "0",
+      "GW_MODE": "1",
+      "ZM_POOL": "0",
+      "ZM_RESERVE": "0"
+    },
+    "affinity": [
+      0,
+      1
+    ]
+  },
+  {
+    "series": "independent280",
+    "case": "euclid420",
+    "seed": 0,
+    "variant": "submission",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/independent280/euclid420_0_submission.resource",
+      "taskset",
+      "-c",
+      "0,1",
+      "./experiments/submission_1668601_v12/baseline/solution",
+      "./experiments/submission_1668601_v12/inputs/fresh/euclid420.json",
+      "./experiments/submission_1668601_v12/logs/independent280/euclid420_0_submission.solution.json",
+      "280"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "0"
+    },
+    "affinity": [
+      0,
+      1
+    ]
+  },
+  {
+    "series": "independent280",
+    "case": "euclid420",
+    "seed": 12702,
+    "variant": "submission",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/independent280/euclid420_12702_submission.resource",
+      "taskset",
+      "-c",
+      "16,17",
+      "./experiments/submission_1668601_v12/baseline/solution",
+      "./experiments/submission_1668601_v12/inputs/fresh/euclid420.json",
+      "./experiments/submission_1668601_v12/logs/independent280/euclid420_12702_submission.solution.json",
+      "280"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "12702"
+    },
+    "affinity": [
+      16,
+      17
+    ]
+  },
+  {
+    "series": "independent280",
+    "case": "euclid420",
+    "seed": 12702,
+    "variant": "candidate",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/independent280/euclid420_12702_candidate.resource",
+      "taskset",
+      "-c",
+      "16,17",
+      "./experiments/submission_1668601_v12/artifacts/package_rebuild/solution",
+      "./experiments/submission_1668601_v12/inputs/fresh/euclid420.json",
+      "./experiments/submission_1668601_v12/logs/independent280/euclid420_12702_candidate.solution.json",
+      "280"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "12702",
+      "GW_MODE": "1",
+      "ZM_POOL": "0",
+      "ZM_RESERVE": "0"
+    },
+    "affinity": [
+      16,
+      17
+    ]
+  },
+  {
+    "series": "independent280",
+    "case": "huge9500",
+    "seed": 12702,
+    "variant": "candidate",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/independent280/huge9500_12702_candidate.resource",
+      "taskset",
+      "-c",
+      "8,10",
+      "./experiments/submission_1668601_v12/artifacts/package_rebuild/solution",
+      "./experiments/submission_1668601_v12/inputs/fresh/huge9500.json",
+      "./experiments/submission_1668601_v12/logs/independent280/huge9500_12702_candidate.solution.json",
+      "280"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "12702",
+      "GW_MODE": "1",
+      "ZM_POOL": "0",
+      "ZM_RESERVE": "0"
+    },
+    "affinity": [
+      8,
+      10
+    ]
+  },
+  {
+    "series": "independent280",
+    "case": "huge9500",
+    "seed": 12702,
+    "variant": "submission",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/independent280/huge9500_12702_submission.resource",
+      "taskset",
+      "-c",
+      "8,10",
+      "./experiments/submission_1668601_v12/baseline/solution",
+      "./experiments/submission_1668601_v12/inputs/fresh/huge9500.json",
+      "./experiments/submission_1668601_v12/logs/independent280/huge9500_12702_submission.solution.json",
+      "280"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "12702"
+    },
+    "affinity": [
+      8,
+      10
+    ]
+  },
+  {
+    "series": "independent280",
+    "case": "grid300",
+    "seed": 0,
+    "variant": "candidate",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/independent280/grid300_0_candidate.resource",
+      "taskset",
+      "-c",
+      "12,13",
+      "./experiments/submission_1668601_v12/artifacts/package_rebuild/solution",
+      "./experiments/submission_1668601_v12/inputs/fresh/grid300.json",
+      "./experiments/submission_1668601_v12/logs/independent280/grid300_0_candidate.solution.json",
+      "280"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "0",
+      "GW_MODE": "1",
+      "ZM_POOL": "0",
+      "ZM_RESERVE": "0"
+    },
+    "affinity": [
+      12,
+      13
+    ]
+  },
+  {
+    "series": "independent280",
+    "case": "grid300",
+    "seed": 0,
+    "variant": "submission",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/independent280/grid300_0_submission.resource",
+      "taskset",
+      "-c",
+      "12,13",
+      "./experiments/submission_1668601_v12/baseline/solution",
+      "./experiments/submission_1668601_v12/inputs/fresh/grid300.json",
+      "./experiments/submission_1668601_v12/logs/independent280/grid300_0_submission.solution.json",
+      "280"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "0"
+    },
+    "affinity": [
+      12,
+      13
+    ]
+  },
+  {
+    "series": "independent280",
+    "case": "equal260",
+    "seed": 0,
+    "variant": "submission",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/independent280/equal260_0_submission.resource",
+      "taskset",
+      "-c",
+      "3,6",
+      "./experiments/submission_1668601_v12/baseline/solution",
+      "./experiments/submission_1668601_v12/inputs/fresh/equal260.json",
+      "./experiments/submission_1668601_v12/logs/independent280/equal260_0_submission.solution.json",
+      "280"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "0"
+    },
+    "affinity": [
+      3,
+      6
+    ]
+  },
+  {
+    "series": "independent280",
+    "case": "equal260",
+    "seed": 0,
+    "variant": "candidate",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/independent280/equal260_0_candidate.resource",
+      "taskset",
+      "-c",
+      "3,6",
+      "./experiments/submission_1668601_v12/artifacts/package_rebuild/solution",
+      "./experiments/submission_1668601_v12/inputs/fresh/equal260.json",
+      "./experiments/submission_1668601_v12/logs/independent280/equal260_0_candidate.solution.json",
+      "280"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "0",
+      "GW_MODE": "1",
+      "ZM_POOL": "0",
+      "ZM_RESERVE": "0"
+    },
+    "affinity": [
+      3,
+      6
+    ]
+  },
+  {
+    "series": "independent280",
+    "case": "grid300",
+    "seed": 12702,
+    "variant": "submission",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/independent280/grid300_12702_submission.resource",
+      "taskset",
+      "-c",
+      "18,19",
+      "./experiments/submission_1668601_v12/baseline/solution",
+      "./experiments/submission_1668601_v12/inputs/fresh/grid300.json",
+      "./experiments/submission_1668601_v12/logs/independent280/grid300_12702_submission.solution.json",
+      "280"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "12702"
+    },
+    "affinity": [
+      18,
+      19
+    ]
+  },
+  {
+    "series": "independent280",
+    "case": "grid300",
+    "seed": 12702,
+    "variant": "candidate",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/independent280/grid300_12702_candidate.resource",
+      "taskset",
+      "-c",
+      "18,19",
+      "./experiments/submission_1668601_v12/artifacts/package_rebuild/solution",
+      "./experiments/submission_1668601_v12/inputs/fresh/grid300.json",
+      "./experiments/submission_1668601_v12/logs/independent280/grid300_12702_candidate.solution.json",
+      "280"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "12702",
+      "GW_MODE": "1",
+      "ZM_POOL": "0",
+      "ZM_RESERVE": "0"
+    },
+    "affinity": [
+      18,
+      19
+    ]
+  },
+  {
+    "series": "independent280",
+    "case": "equal260",
+    "seed": 12702,
+    "variant": "candidate",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/independent280/equal260_12702_candidate.resource",
+      "taskset",
+      "-c",
+      "0,1",
+      "./experiments/submission_1668601_v12/artifacts/package_rebuild/solution",
+      "./experiments/submission_1668601_v12/inputs/fresh/equal260.json",
+      "./experiments/submission_1668601_v12/logs/independent280/equal260_12702_candidate.solution.json",
+      "280"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "12702",
+      "GW_MODE": "1",
+      "ZM_POOL": "0",
+      "ZM_RESERVE": "0"
+    },
+    "affinity": [
+      0,
+      1
+    ]
+  },
+  {
+    "series": "independent280",
+    "case": "equal260",
+    "seed": 12702,
+    "variant": "submission",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/independent280/equal260_12702_submission.resource",
+      "taskset",
+      "-c",
+      "0,1",
+      "./experiments/submission_1668601_v12/baseline/solution",
+      "./experiments/submission_1668601_v12/inputs/fresh/equal260.json",
+      "./experiments/submission_1668601_v12/logs/independent280/equal260_12702_submission.solution.json",
+      "280"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "12702"
+    },
+    "affinity": [
+      0,
+      1
+    ]
+  },
+  {
+    "series": "independent280",
+    "case": "multi480",
+    "seed": 12702,
+    "variant": "candidate",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/independent280/multi480_12702_candidate.resource",
+      "taskset",
+      "-c",
+      "20,21",
+      "./experiments/submission_1668601_v12/artifacts/package_rebuild/solution",
+      "./experiments/submission_1668601_v12/inputs/fresh/multi480.json",
+      "./experiments/submission_1668601_v12/logs/independent280/multi480_12702_candidate.solution.json",
+      "280"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "12702",
+      "GW_MODE": "1",
+      "ZM_POOL": "0",
+      "ZM_RESERVE": "0"
+    },
+    "affinity": [
+      20,
+      21
+    ]
+  },
+  {
+    "series": "independent280",
+    "case": "multi480",
+    "seed": 12702,
+    "variant": "submission",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/independent280/multi480_12702_submission.resource",
+      "taskset",
+      "-c",
+      "20,21",
+      "./experiments/submission_1668601_v12/baseline/solution",
+      "./experiments/submission_1668601_v12/inputs/fresh/multi480.json",
+      "./experiments/submission_1668601_v12/logs/independent280/multi480_12702_submission.solution.json",
+      "280"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "12702"
+    },
+    "affinity": [
+      20,
+      21
+    ]
+  },
+  {
+    "series": "independent280",
+    "case": "huge9500",
+    "seed": 0,
+    "variant": "submission",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/independent280/huge9500_0_submission.resource",
+      "taskset",
+      "-c",
+      "16,17",
+      "./experiments/submission_1668601_v12/baseline/solution",
+      "./experiments/submission_1668601_v12/inputs/fresh/huge9500.json",
+      "./experiments/submission_1668601_v12/logs/independent280/huge9500_0_submission.solution.json",
+      "280"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "0"
+    },
+    "affinity": [
+      16,
+      17
+    ]
+  },
+  {
+    "series": "independent280",
+    "case": "huge9500",
+    "seed": 0,
+    "variant": "candidate",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/independent280/huge9500_0_candidate.resource",
+      "taskset",
+      "-c",
+      "16,17",
+      "./experiments/submission_1668601_v12/artifacts/package_rebuild/solution",
+      "./experiments/submission_1668601_v12/inputs/fresh/huge9500.json",
+      "./experiments/submission_1668601_v12/logs/independent280/huge9500_0_candidate.solution.json",
+      "280"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "0",
+      "GW_MODE": "1",
+      "ZM_POOL": "0",
+      "ZM_RESERVE": "0"
+    },
+    "affinity": [
+      16,
+      17
+    ]
+  },
+  {
+    "series": "independent280",
+    "case": "anti330",
+    "seed": 12702,
+    "variant": "submission",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/independent280/anti330_12702_submission.resource",
+      "taskset",
+      "-c",
+      "8,10",
+      "./experiments/submission_1668601_v12/baseline/solution",
+      "./experiments/submission_1668601_v12/inputs/fresh/anti330.json",
+      "./experiments/submission_1668601_v12/logs/independent280/anti330_12702_submission.solution.json",
+      "280"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "12702"
+    },
+    "affinity": [
+      8,
+      10
+    ]
+  },
+  {
+    "series": "independent280",
+    "case": "anti330",
+    "seed": 12702,
+    "variant": "candidate",
+    "argv": [
+      "/usr/bin/time",
+      "-f",
+      "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+      "-o",
+      "./experiments/submission_1668601_v12/logs/independent280/anti330_12702_candidate.resource",
+      "taskset",
+      "-c",
+      "8,10",
+      "./experiments/submission_1668601_v12/artifacts/package_rebuild/solution",
+      "./experiments/submission_1668601_v12/inputs/fresh/anti330.json",
+      "./experiments/submission_1668601_v12/logs/independent280/anti330_12702_candidate.solution.json",
+      "280"
+    ],
+    "env": {
+      "HOME": "/home/user",
+      "LANG": "C.UTF-8",
+      "PATH": "/usr/local/bin:/usr/bin:/bin",
+      "NT": "2",
+      "SEED": "12702",
+      "GW_MODE": "1",
+      "ZM_POOL": "0",
+      "ZM_RESERVE": "0"
+    },
+    "affinity": [
+      8,
+      10
+    ]
+  }
+]

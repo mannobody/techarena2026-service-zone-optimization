@@ -1,0 +1,22 @@
+{
+  "command": [
+    "taskset",
+    "-c",
+    "14,15",
+    "g++",
+    "-O3",
+    "-std=c++17",
+    "./experiments/structural_v9/artifacts/main.cpp",
+    "-o",
+    "./experiments/structural_v9/artifacts/candidate"
+  ],
+  "files": {
+    "experiments/v4_local_search/baseline/frozen_v4.cpp": "5b3914fa9791cb879f3232fb2876a915de83b848ad4b353b0dbf25b574998c25",
+    "experiments/structural_v9/src/zone_master.h": "ada4f1286659a2af2d89bb601385a121437a3c8e769da31a853eefbcff961bec",
+    "experiments/structural_v9/src/build.py": "42d96bb394f2c511d74c4eae3618b4db433ffb27f1a7ca67d21450ba85981016",
+    "experiments/structural_v9/artifacts/main.cpp": "f71a24fd439220688a3ec97b252e575d56ceff229efa4ff109a1ed4f07598c2d",
+    "experiments/structural_v9/artifacts/Makefile": "688a876355d4d66112384fa2e44195ab7e7ebecf5ebafdd0d308cc821cf4d25b",
+    "experiments/structural_v9/artifacts/candidate": "12100a6650e012641fab0a9b94ecaf6aaad18955919144ffb31822f65ffd3ec5",
+    "experiments/structural_v9/artifacts/v4": "5cc54b6ad0f02a3d6d471d0e2f9129c229b4925aaa2b2c01ce26bd5305a4963c"
+  }
+}

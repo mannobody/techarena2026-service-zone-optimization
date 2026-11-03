@@ -1,0 +1,28 @@
+{
+  "revision": "v4",
+  "variant": "adaptive",
+  "configuration": {
+    "AP_POLICY": "1",
+    "AP_SHARE": "0"
+  },
+  "source": "artifacts/v4/main.cpp",
+  "binary": "artifacts/v4/candidate",
+  "package": "adaptive_v11_final.zip",
+  "package_source": "package_final",
+  "screen_selection": {
+    "variant": "race_no_share",
+    "operational": true,
+    "mean_vs_v10": -0.14417549300034463,
+    "mean_vs_v4": 2.6741019770803107,
+    "worst_vs_v4": -8.964956022656073,
+    "env": {
+      "AP_POLICY": "1",
+      "AP_SHARE": "0"
+    }
+  },
+  "development": "logs/development280_v3 (prior numerical revision, same racing policy)",
+  "corrected_development": "logs/corrected280_v4 (final source, directTL280)",
+  "certified_mechanism": "logs/line_corrected280_v4",
+  "reason": "Policy selected on completed16-input screen; final numerical source validated by411 oracle tests,66 QA,5 package contracts and completed6 directTL280 runs. Remaining development/clean-line blocks continue on disjoint CPUs and cannot change the frozen algorithm. User speed request permits independent evaluation to start on five already freed slots.",
+  "selected_unix": 1792660932.058216
+}

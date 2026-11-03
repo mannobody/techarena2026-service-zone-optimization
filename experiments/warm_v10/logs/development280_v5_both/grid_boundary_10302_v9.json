@@ -1,0 +1,87 @@
+{
+  "case": "grid_boundary",
+  "seed": 10302,
+  "variant": "v9",
+  "command": [
+    "/usr/bin/time",
+    "-f",
+    "rss_kb=%M user=%U sys=%S",
+    "-o",
+    "./experiments/warm_v10/logs/development280_v5_both/grid_boundary_10302_v9.resource",
+    "taskset",
+    "-c",
+    "16,17",
+    "./experiments/structural_v9/artifacts/final_research/candidate",
+    "./experiments/structural_v9/inputs/dev/grid_boundary.json",
+    "./experiments/warm_v10/logs/development280_v5_both/grid_boundary_10302_v9.solution.json",
+    "280"
+  ],
+  "env": {
+    "HOME": "/home/user",
+    "LANG": "C.UTF-8",
+    "PATH": "/usr/local/bin:/usr/bin:/bin",
+    "NT": "2",
+    "SEED": "10302",
+    "ZM_POOL": "0",
+    "ZM_RESERVE": "0",
+    "DBG": "1"
+  },
+  "affinity": [
+    16,
+    17
+  ],
+  "rc": 0,
+  "timeout": false,
+  "wall": 279.48300184099935,
+  "started_unix": 1792649918.171707,
+  "ended_unix": 1792650197.6813333,
+  "official": 50.920826755588635,
+  "valid": true,
+  "snapshots": [
+    {
+      "at": 28.025976898999943,
+      "path": "experiments/warm_v10/logs/development280_v5_both/grid_boundary_10302_v9.t28.00.solution.json",
+      "official": 50.07380853425037
+    },
+    {
+      "at": 61.61981143599951,
+      "path": "experiments/warm_v10/logs/development280_v5_both/grid_boundary_10302_v9.t61.60.solution.json",
+      "official": 50.07380853425037
+    },
+    {
+      "at": 70.04379461799908,
+      "path": "experiments/warm_v10/logs/development280_v5_both/grid_boundary_10302_v9.t70.00.solution.json",
+      "official": 50.07380853425037
+    },
+    {
+      "at": 140.00361355099994,
+      "path": "experiments/warm_v10/logs/development280_v5_both/grid_boundary_10302_v9.t140.00.solution.json",
+      "official": 50.12118079378598
+    },
+    {
+      "at": 238.0052911849998,
+      "path": "experiments/warm_v10/logs/development280_v5_both/grid_boundary_10302_v9.t238.00.solution.json",
+      "official": 50.877732022766516
+    }
+  ],
+  "solution_sha256": "5849cd8929c5b13d645c5fcd1daedb9d0c768fcd3e5d679811b18861ec9674ec",
+  "resource": "rss_kb=5040 user=554.08 sys=0.01\n",
+  "error": false,
+  "internal_deadline_stop": false,
+  "cpu_pressure_before": "some avg10=2.16 avg60=1.14 avg300=3.50 total=4349098233\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+  "cpu_pressure_after": "some avg10=22.39 avg60=21.26 avg300=11.77 total=4392109109\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+  "logged_threads": 2,
+  "resource_fields": {
+    "rss_kb": 5040.0,
+    "user": 554.08,
+    "sys": 0.01
+  },
+  "success": true,
+  "components": {
+    "reward": 64.53542206410272,
+    "distance": 9.166374487532998,
+    "cost": 4.276126362143476,
+    "penalty": 0.17209445883760727,
+    "objective": 50.920826755588635
+  }
+}

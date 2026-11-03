@@ -1,0 +1,69 @@
+{
+  "source_sha256": "7e590599cffb3a67afdf4885a7c27c6417209dfcb62101505e428cfb199e2e0c",
+  "measured_binary_sha256": "2a01e3671e64280ddec73c0da102e7e0d2d559a8b206e41e874636a06d610b9b",
+  "rebuilt_binary_sha256": "2a01e3671e64280ddec73c0da102e7e0d2d559a8b206e41e874636a06d610b9b",
+  "zip_sha256": "3a5e7bdb618b849db968c8abc074646dac97da1a5b6f10447de6ea18a1857bca",
+  "byte_identical": true,
+  "configuration": {
+    "AP_POLICY": "1",
+    "AP_SHARE": "0"
+  },
+  "tests": [
+    {
+      "case": "negative_balance",
+      "rc": 0,
+      "wall": 0.01739060399995651,
+      "official": 35.0,
+      "valid": true,
+      "data_files": [
+        "instance.json",
+        "solution.json"
+      ]
+    },
+    {
+      "case": "grid",
+      "rc": 0,
+      "wall": 1.869648681000399,
+      "official": 7712.537422170306,
+      "valid": true,
+      "data_files": [
+        "instance.json",
+        "solution.json"
+      ]
+    },
+    {
+      "case": "huge",
+      "rc": 0,
+      "wall": 2.021116937001352,
+      "official": 361091.7014492619,
+      "valid": true,
+      "data_files": [
+        "instance.json",
+        "solution.json"
+      ]
+    },
+    {
+      "case": "single",
+      "rc": 0,
+      "wall": 0.017284559999097837,
+      "official": 0.0,
+      "valid": true,
+      "data_files": [
+        "instance.json",
+        "solution.json"
+      ]
+    },
+    {
+      "case": "line",
+      "rc": 0,
+      "wall": 0.016936674001044594,
+      "official": 789.6550209689726,
+      "valid": true,
+      "data_files": [
+        "instance.json",
+        "solution.json"
+      ]
+    }
+  ],
+  "contract": "make build/make run, no solver arguments, instance.json and solution.json; executable/Makefile are build files, no other runtime data"
+}

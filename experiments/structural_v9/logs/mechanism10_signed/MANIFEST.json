@@ -1,0 +1,58 @@
+{
+  "spec": {
+    "name": "mechanism10_signed",
+    "seconds": 10,
+    "seeds": [
+      9201,
+      9202,
+      9203
+    ],
+    "cases": {
+      "small_grid_pad17": "experiments/structural_v9/inputs/small_grid_pad17.json",
+      "small_load_pad17": "experiments/structural_v9/inputs/small_load_pad17.json",
+      "small_grid_pad100": "experiments/structural_v9/inputs/small_grid_pad100.json"
+    },
+    "variants": {
+      "v4": {
+        "binary": "experiments/structural_v9/artifacts/v4"
+      },
+      "zones": {
+        "binary": "experiments/structural_v9/artifacts/signed_v5/candidate"
+      },
+      "signed_off": {
+        "binary": "experiments/structural_v9/artifacts/signed_v5/candidate",
+        "env": {
+          "ZM_SIGNED": "0"
+        }
+      }
+    },
+    "cpus": [
+      [
+        0,
+        3
+      ],
+      [
+        6,
+        8
+      ],
+      [
+        1,
+        10
+      ]
+    ]
+  },
+  "spec_sha256": "490f9687c15089ce052090431c13e0297b982b9b6c97b1362e117cc97ae98b77",
+  "inputs": {
+    "small_grid_pad17": "39e26b782f170b4a029bf213b6ef9b64845b694cdb5bdc7cb3b76732ce56879e",
+    "small_load_pad17": "ab18b36bc14c886eafbdacd102aadf3fe3da84892e6e71201f9491b8e2d30650",
+    "small_grid_pad100": "7f4a6e343109bcf14239f726ce0df1d38a378b5b5bd4bed5f286098d50a560e1"
+  },
+  "binaries": {
+    "v4": "5cc54b6ad0f02a3d6d471d0e2f9129c229b4925aaa2b2c01ce26bd5305a4963c",
+    "zones": "805e411edfe01d3c4da9959978854efe42fc26b79aefee7173893561f96d8f49",
+    "signed_off": "805e411edfe01d3c4da9959978854efe42fc26b79aefee7173893561f96d8f49"
+  },
+  "validator": "6dd5948ebe72977976acf1b8dcaf7c819274c79addfb82328c0ec9a012ed56e0",
+  "cpu_topology": "<local-host-omitted>",
+  "runner_sha256": "ee9d7614ed87903c10b0fe7815ce394e4db58e585230ccb89c975e82e8651780"
+}

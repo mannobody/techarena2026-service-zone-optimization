@@ -1,0 +1,85 @@
+{
+  "case": "regression_large",
+  "seed": 9403,
+  "variant": "v4",
+  "command": [
+    "/usr/bin/time",
+    "-f",
+    "rss_kb=%M user=%U sys=%S",
+    "-o",
+    "./experiments/warm_v10/logs/development280_v5_both/regression_large_9403_v4.resource",
+    "taskset",
+    "-c",
+    "12,13",
+    "./experiments/structural_v9/artifacts/v4",
+    "./experiments/structural_v9/inputs/holdout/large.json",
+    "./experiments/warm_v10/logs/development280_v5_both/regression_large_9403_v4.solution.json",
+    "280"
+  ],
+  "env": {
+    "HOME": "/home/user",
+    "LANG": "C.UTF-8",
+    "PATH": "/usr/local/bin:/usr/bin:/bin",
+    "NT": "2",
+    "SEED": "9403",
+    "DBG": "1"
+  },
+  "affinity": [
+    12,
+    13
+  ],
+  "rc": 0,
+  "timeout": false,
+  "wall": 279.619891635999,
+  "started_unix": 1792649362.6167798,
+  "ended_unix": 1792649642.4179578,
+  "official": 580747.6567780258,
+  "valid": true,
+  "snapshots": [
+    {
+      "at": 28.01167871599864,
+      "path": "experiments/warm_v10/logs/development280_v5_both/regression_large_9403_v4.t28.00.solution.json",
+      "official": 0.0
+    },
+    {
+      "at": 61.64224810799897,
+      "path": "experiments/warm_v10/logs/development280_v5_both/regression_large_9403_v4.t61.60.solution.json",
+      "official": 576577.8965833784
+    },
+    {
+      "at": 70.01200654799868,
+      "path": "experiments/warm_v10/logs/development280_v5_both/regression_large_9403_v4.t70.00.solution.json",
+      "official": 579345.8727396748
+    },
+    {
+      "at": 140.01771798299887,
+      "path": "experiments/warm_v10/logs/development280_v5_both/regression_large_9403_v4.t140.00.solution.json",
+      "official": 579388.9112292096
+    },
+    {
+      "at": 238.049865777999,
+      "path": "experiments/warm_v10/logs/development280_v5_both/regression_large_9403_v4.t238.00.solution.json",
+      "official": 579388.9458881381
+    }
+  ],
+  "solution_sha256": "1d7280ff2746e0e5bc71d2effd29be1091c622a636323fd4fa9f314377d50a51",
+  "resource": "rss_kb=48204 user=465.14 sys=0.37\n",
+  "error": false,
+  "internal_deadline_stop": false,
+  "cpu_pressure_before": "some avg10=19.16 avg60=18.80 avg300=19.68 total=4342461750\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+  "cpu_pressure_after": "some avg10=1.13 avg60=0.96 avg300=8.28 total=4347694014\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+  "logged_threads": 2,
+  "resource_fields": {
+    "rss_kb": 48204.0,
+    "user": 465.14,
+    "sys": 0.37
+  },
+  "success": true,
+  "components": {
+    "reward": 742341.6959150936,
+    "distance": 134082.27398369924,
+    "cost": 26417.125703460002,
+    "penalty": 1094.6394499086975,
+    "objective": 580747.6567780257
+  }
+}

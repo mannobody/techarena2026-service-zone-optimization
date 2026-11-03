@@ -1,0 +1,156 @@
+{
+  "promote": false,
+  "criteria": {
+    "all28_valid_operational": true,
+    "all_within_working_budget": true,
+    "all14_percentages_defined": true,
+    "mean_positive": true,
+    "bootstrap95_lower_positive": false,
+    "worst_at_least_minus1": false,
+    "matched_cpu_spread_at_most_half": true
+  },
+  "metrics": {
+    "pairs": 14,
+    "mean_case_percent": 0.9657661779798744,
+    "median": 0.03846108114142812,
+    "sd": 4.918245597145931,
+    "worst": -5.850346442389088,
+    "best": 16.497470439677286,
+    "wins": 9,
+    "ties": 0,
+    "losses": 5,
+    "case_bootstrap95": [
+      -0.33607640105934444,
+      2.658234871985034
+    ]
+  },
+  "disparities": [
+    {
+      "case": "multi480",
+      "seed": 12702,
+      "ratios": {
+        "candidate": 1.8839666801816748,
+        "submission": 1.7753692594651544
+      },
+      "spread": 0.10859742071652034
+    },
+    {
+      "case": "huge9500",
+      "seed": 12702,
+      "ratios": {
+        "candidate": 1.8542261240165023,
+        "submission": 1.7685234128439955
+      },
+      "spread": 0.08570271117250683
+    },
+    {
+      "case": "huge9500",
+      "seed": 0,
+      "ratios": {
+        "submission": 1.7681561028709731,
+        "candidate": 1.848272325362752
+      },
+      "spread": 0.08011622249177885
+    },
+    {
+      "case": "multi480",
+      "seed": 0,
+      "ratios": {
+        "submission": 1.8545210564179226,
+        "candidate": 1.905255582034234
+      },
+      "spread": 0.05073452561631142
+    },
+    {
+      "case": "road350",
+      "seed": 0,
+      "ratios": {
+        "submission": 1.9743804295151615,
+        "candidate": 1.9406788812522902
+      },
+      "spread": 0.033701548262871306
+    },
+    {
+      "case": "grid300",
+      "seed": 0,
+      "ratios": {
+        "candidate": 1.8139504065247405,
+        "submission": 1.8400054311985634
+      },
+      "spread": 0.026055024673822924
+    },
+    {
+      "case": "equal260",
+      "seed": 12702,
+      "ratios": {
+        "candidate": 1.9863498590606126,
+        "submission": 1.9801885564718855
+      },
+      "spread": 0.006161302588727047
+    },
+    {
+      "case": "euclid420",
+      "seed": 12702,
+      "ratios": {
+        "submission": 1.9552546226730854,
+        "candidate": 1.9589964881159754
+      },
+      "spread": 0.0037418654428900133
+    },
+    {
+      "case": "anti330",
+      "seed": 12702,
+      "ratios": {
+        "submission": 1.9658823643551262,
+        "candidate": 1.9685424802287055
+      },
+      "spread": 0.002660115873579283
+    },
+    {
+      "case": "equal260",
+      "seed": 0,
+      "ratios": {
+        "submission": 1.9711219648407003,
+        "candidate": 1.973134099627634
+      },
+      "spread": 0.002012134786933739
+    },
+    {
+      "case": "road350",
+      "seed": 12702,
+      "ratios": {
+        "submission": 1.9624096524916883,
+        "candidate": 1.9635640696602823
+      },
+      "spread": 0.0011544171685939908
+    },
+    {
+      "case": "grid300",
+      "seed": 12702,
+      "ratios": {
+        "submission": 1.936789493335133,
+        "candidate": 1.9362122943895304
+      },
+      "spread": 0.0005771989456027082
+    },
+    {
+      "case": "anti330",
+      "seed": 0,
+      "ratios": {
+        "submission": 1.9631159627424044,
+        "candidate": 1.9633782307587881
+      },
+      "spread": 0.00026226801638373765
+    },
+    {
+      "case": "euclid420",
+      "seed": 0,
+      "ratios": {
+        "candidate": 1.9768459467311768,
+        "submission": 1.9771062078526582
+      },
+      "spread": 0.0002602611214814754
+    }
+  ],
+  "interpretation": "Seven new inputs, two seeds each, equal-input mean and grouped-input bootstrap; no code/config changes after generation. No universal hidden-score claim."
+}

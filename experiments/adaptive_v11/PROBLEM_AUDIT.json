@@ -1,0 +1,1044 @@
+{
+  "primary_sources": {
+    "task/Techarena.pdf": "89edd9089e02cf9d15c42f1d500eb8c2c9509cff4b1d07dcb7a0eaf9cef48085",
+    "task/validate_solution.py": "6dd5948ebe72977976acf1b8dcaf7c819274c79addfb82328c0ec9a012ed56e0"
+  },
+  "direction": "maximize",
+  "formula": "reward-distance-open_cost-alpha*(max_task_load-min_task_load)",
+  "geometry": "all input sites and offices, covers includes boundaries; hull intersections without shared input points allowed",
+  "tests": [
+    {
+      "name": "profitable",
+      "instance": {
+        "sites": [
+          {
+            "x": 1,
+            "y": 0,
+            "reward": 10,
+            "tasks": []
+          }
+        ],
+        "offices": [
+          {
+            "x": 0,
+            "y": 0,
+            "cost": 2,
+            "maxSize": 20
+          }
+        ],
+        "workers": [],
+        "distances": [
+          [
+            3
+          ]
+        ],
+        "maxDifference": 20,
+        "balanceCoefficient": 0
+      },
+      "solution": [
+        {
+          "officeId": 0,
+          "sites": [
+            0
+          ],
+          "workers": []
+        }
+      ],
+      "expected": 5,
+      "official": 5.0
+    },
+    {
+      "name": "unprofitable",
+      "instance": {
+        "sites": [
+          {
+            "x": 1,
+            "y": 0,
+            "reward": 10,
+            "tasks": []
+          }
+        ],
+        "offices": [
+          {
+            "x": 0,
+            "y": 0,
+            "cost": 2,
+            "maxSize": 20
+          }
+        ],
+        "workers": [],
+        "distances": [
+          [
+            13
+          ]
+        ],
+        "maxDifference": 20,
+        "balanceCoefficient": 0
+      },
+      "solution": [
+        {
+          "officeId": 0,
+          "sites": [
+            0
+          ],
+          "workers": []
+        }
+      ],
+      "expected": -5,
+      "official": -5.0
+    },
+    {
+      "name": "empty",
+      "instance": {
+        "sites": [
+          {
+            "x": 1,
+            "y": 0,
+            "reward": 10,
+            "tasks": []
+          }
+        ],
+        "offices": [
+          {
+            "x": 0,
+            "y": 0,
+            "cost": 2,
+            "maxSize": 20
+          }
+        ],
+        "workers": [],
+        "distances": [
+          [
+            0
+          ]
+        ],
+        "maxDifference": 20,
+        "balanceCoefficient": 0
+      },
+      "solution": [],
+      "expected": 0,
+      "official": 0.0
+    },
+    {
+      "name": "open_two_offices_cost5",
+      "instance": {
+        "sites": [
+          {
+            "x": -2,
+            "y": 0,
+            "reward": 10,
+            "tasks": [
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "x": 2,
+            "y": 0,
+            "reward": 10,
+            "tasks": [
+              0
+            ]
+          }
+        ],
+        "offices": [
+          {
+            "x": -3,
+            "y": 0,
+            "cost": 2,
+            "maxSize": 20
+          },
+          {
+            "x": 3,
+            "y": 0,
+            "cost": 3,
+            "maxSize": 20
+          }
+        ],
+        "workers": [
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "distances": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "maxDifference": 0,
+        "balanceCoefficient": 0
+      },
+      "solution": [
+        {
+          "officeId": 0,
+          "sites": [
+            0
+          ],
+          "workers": [
+            0
+          ]
+        },
+        {
+          "officeId": 1,
+          "sites": [
+            1
+          ],
+          "workers": [
+            1
+          ]
+        }
+      ],
+      "expected": 15,
+      "official": 15.0
+    },
+    {
+      "name": "equal_site_count_unequal_task_load",
+      "instance": {
+        "sites": [
+          {
+            "x": -2,
+            "y": 0,
+            "reward": 10,
+            "tasks": [
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "x": 2,
+            "y": 0,
+            "reward": 10,
+            "tasks": [
+              0
+            ]
+          }
+        ],
+        "offices": [
+          {
+            "x": -3,
+            "y": 0,
+            "cost": 2,
+            "maxSize": 20
+          },
+          {
+            "x": 3,
+            "y": 0,
+            "cost": 3,
+            "maxSize": 20
+          }
+        ],
+        "workers": [
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "distances": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "maxDifference": 0,
+        "balanceCoefficient": 100
+      },
+      "solution": [
+        {
+          "officeId": 0,
+          "sites": [
+            0
+          ],
+          "workers": [
+            0
+          ]
+        },
+        {
+          "officeId": 1,
+          "sites": [
+            1
+          ],
+          "workers": [
+            1
+          ]
+        }
+      ],
+      "expected": -285,
+      "official": -285.0
+    },
+    {
+      "name": "before_negative",
+      "instance": {
+        "sites": [
+          {
+            "x": -2,
+            "y": 0,
+            "reward": 20,
+            "tasks": [
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "x": 2,
+            "y": 0,
+            "reward": 20,
+            "tasks": [
+              0
+            ]
+          },
+          {
+            "x": 3,
+            "y": 1,
+            "reward": 1,
+            "tasks": [
+              0,
+              0,
+              0
+            ]
+          }
+        ],
+        "offices": [
+          {
+            "x": -3,
+            "y": 0,
+            "cost": 0,
+            "maxSize": 20
+          },
+          {
+            "x": 4,
+            "y": 0,
+            "cost": 0,
+            "maxSize": 20
+          }
+        ],
+        "workers": [
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "distances": [
+          [
+            0,
+            99,
+            99
+          ],
+          [
+            99,
+            0,
+            6
+          ]
+        ],
+        "maxDifference": 1,
+        "balanceCoefficient": 10
+      },
+      "solution": [
+        {
+          "officeId": 0,
+          "sites": [
+            0
+          ],
+          "workers": [
+            0
+          ]
+        },
+        {
+          "officeId": 1,
+          "sites": [
+            1
+          ],
+          "workers": [
+            1
+          ]
+        }
+      ],
+      "expected": 10,
+      "official": 10.0
+    },
+    {
+      "name": "negative_site_reduces_penalty",
+      "instance": {
+        "sites": [
+          {
+            "x": -2,
+            "y": 0,
+            "reward": 20,
+            "tasks": [
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "x": 2,
+            "y": 0,
+            "reward": 20,
+            "tasks": [
+              0
+            ]
+          },
+          {
+            "x": 3,
+            "y": 1,
+            "reward": 1,
+            "tasks": [
+              0,
+              0,
+              0
+            ]
+          }
+        ],
+        "offices": [
+          {
+            "x": -3,
+            "y": 0,
+            "cost": 0,
+            "maxSize": 20
+          },
+          {
+            "x": 4,
+            "y": 0,
+            "cost": 0,
+            "maxSize": 20
+          }
+        ],
+        "workers": [
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "distances": [
+          [
+            0,
+            99,
+            99
+          ],
+          [
+            99,
+            0,
+            6
+          ]
+        ],
+        "maxDifference": 1,
+        "balanceCoefficient": 10
+      },
+      "solution": [
+        {
+          "officeId": 0,
+          "sites": [
+            0
+          ],
+          "workers": [
+            0
+          ]
+        },
+        {
+          "officeId": 1,
+          "sites": [
+            1,
+            2
+          ],
+          "workers": [
+            1
+          ]
+        }
+      ],
+      "expected": 35,
+      "official": 35.0
+    },
+    {
+      "name": "capacity_counts_sites",
+      "instance": {
+        "sites": [
+          {
+            "x": 1,
+            "y": 0,
+            "reward": 10,
+            "tasks": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        ],
+        "offices": [
+          {
+            "x": 0,
+            "y": 0,
+            "cost": 0,
+            "maxSize": 1
+          }
+        ],
+        "workers": [
+          [
+            0
+          ]
+        ],
+        "distances": [
+          [
+            0
+          ]
+        ],
+        "maxDifference": 20,
+        "balanceCoefficient": 0
+      },
+      "solution": [
+        {
+          "officeId": 0,
+          "sites": [
+            0
+          ],
+          "workers": [
+            0
+          ]
+        }
+      ],
+      "expected": 10,
+      "official": 10.0
+    },
+    {
+      "name": "capacity_violation",
+      "instance": {
+        "sites": [
+          {
+            "x": 1,
+            "y": 0,
+            "reward": 10,
+            "tasks": []
+          },
+          {
+            "x": 2,
+            "y": 0,
+            "reward": 10,
+            "tasks": []
+          }
+        ],
+        "offices": [
+          {
+            "x": 0,
+            "y": 0,
+            "cost": 0,
+            "maxSize": 1
+          }
+        ],
+        "workers": [],
+        "distances": [
+          [
+            0,
+            0
+          ]
+        ],
+        "maxDifference": 20,
+        "balanceCoefficient": 0
+      },
+      "solution": [
+        {
+          "officeId": 0,
+          "sites": [
+            0,
+            1
+          ],
+          "workers": []
+        }
+      ],
+      "expected": "Office capacity exceeded",
+      "official": "Office capacity exceeded"
+    },
+    {
+      "name": "site_count_imbalance",
+      "instance": {
+        "sites": [
+          {
+            "x": -2,
+            "y": 0,
+            "reward": 20,
+            "tasks": [
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "x": 2,
+            "y": 0,
+            "reward": 20,
+            "tasks": [
+              0
+            ]
+          },
+          {
+            "x": 3,
+            "y": 1,
+            "reward": 1,
+            "tasks": [
+              0,
+              0,
+              0
+            ]
+          }
+        ],
+        "offices": [
+          {
+            "x": -3,
+            "y": 0,
+            "cost": 0,
+            "maxSize": 20
+          },
+          {
+            "x": 4,
+            "y": 0,
+            "cost": 0,
+            "maxSize": 20
+          }
+        ],
+        "workers": [
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "distances": [
+          [
+            0,
+            99,
+            99
+          ],
+          [
+            99,
+            0,
+            6
+          ]
+        ],
+        "maxDifference": 0,
+        "balanceCoefficient": 10
+      },
+      "solution": [
+        {
+          "officeId": 0,
+          "sites": [
+            0
+          ],
+          "workers": [
+            0
+          ]
+        },
+        {
+          "officeId": 1,
+          "sites": [
+            1,
+            2
+          ],
+          "workers": [
+            1
+          ]
+        }
+      ],
+      "expected": "Site-count imbalance",
+      "official": "Site-count imbalance"
+    },
+    {
+      "name": "actual_worker_required",
+      "instance": {
+        "sites": [
+          {
+            "x": -2,
+            "y": 0,
+            "reward": 10,
+            "tasks": [
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "x": 2,
+            "y": 0,
+            "reward": 10,
+            "tasks": [
+              0
+            ]
+          }
+        ],
+        "offices": [
+          {
+            "x": -3,
+            "y": 0,
+            "cost": 2,
+            "maxSize": 20
+          },
+          {
+            "x": 3,
+            "y": 0,
+            "cost": 3,
+            "maxSize": 20
+          }
+        ],
+        "workers": [
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "distances": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "maxDifference": 0,
+        "balanceCoefficient": 100
+      },
+      "solution": [
+        {
+          "officeId": 0,
+          "sites": [
+            0
+          ],
+          "workers": []
+        }
+      ],
+      "expected": "Missing skills",
+      "official": "Missing skills"
+    },
+    {
+      "name": "crossing_without_input_point_allowed",
+      "instance": {
+        "sites": [
+          {
+            "x": 1,
+            "y": 0,
+            "reward": 10,
+            "tasks": []
+          },
+          {
+            "x": 0,
+            "y": 1,
+            "reward": 10,
+            "tasks": []
+          }
+        ],
+        "offices": [
+          {
+            "x": -1,
+            "y": 0,
+            "cost": 0,
+            "maxSize": 20
+          },
+          {
+            "x": 0,
+            "y": -1,
+            "cost": 0,
+            "maxSize": 20
+          }
+        ],
+        "workers": [],
+        "distances": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "maxDifference": 20,
+        "balanceCoefficient": 0
+      },
+      "solution": [
+        {
+          "officeId": 0,
+          "sites": [
+            0
+          ],
+          "workers": []
+        },
+        {
+          "officeId": 1,
+          "sites": [
+            1
+          ],
+          "workers": []
+        }
+      ],
+      "expected": 20,
+      "official": 20.0
+    },
+    {
+      "name": "unassigned_site_on_both_boundaries",
+      "instance": {
+        "sites": [
+          {
+            "x": 1,
+            "y": 0,
+            "reward": 10,
+            "tasks": []
+          },
+          {
+            "x": 0,
+            "y": 1,
+            "reward": 10,
+            "tasks": []
+          },
+          {
+            "x": 0,
+            "y": 0,
+            "reward": 10,
+            "tasks": []
+          }
+        ],
+        "offices": [
+          {
+            "x": -1,
+            "y": 0,
+            "cost": 0,
+            "maxSize": 20
+          },
+          {
+            "x": 0,
+            "y": -1,
+            "cost": 0,
+            "maxSize": 20
+          }
+        ],
+        "workers": [],
+        "distances": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "maxDifference": 20,
+        "balanceCoefficient": 0
+      },
+      "solution": [
+        {
+          "officeId": 0,
+          "sites": [
+            0
+          ],
+          "workers": []
+        },
+        {
+          "officeId": 1,
+          "sites": [
+            1
+          ],
+          "workers": []
+        }
+      ],
+      "expected": "Hull conflict",
+      "official": "Hull conflict"
+    },
+    {
+      "name": "closed_office_on_both_boundaries",
+      "instance": {
+        "sites": [
+          {
+            "x": 1,
+            "y": 0,
+            "reward": 10,
+            "tasks": []
+          },
+          {
+            "x": 0,
+            "y": 1,
+            "reward": 10,
+            "tasks": []
+          }
+        ],
+        "offices": [
+          {
+            "x": -1,
+            "y": 0,
+            "cost": 0,
+            "maxSize": 20
+          },
+          {
+            "x": 0,
+            "y": -1,
+            "cost": 0,
+            "maxSize": 20
+          },
+          {
+            "x": 0,
+            "y": 0,
+            "cost": 0,
+            "maxSize": 20
+          }
+        ],
+        "workers": [],
+        "distances": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "maxDifference": 20,
+        "balanceCoefficient": 0
+      },
+      "solution": [
+        {
+          "officeId": 0,
+          "sites": [
+            0
+          ],
+          "workers": []
+        },
+        {
+          "officeId": 1,
+          "sites": [
+            1
+          ],
+          "workers": []
+        }
+      ],
+      "expected": "Hull conflict",
+      "official": "Hull conflict"
+    },
+    {
+      "name": "worker_cannot_be_shared",
+      "instance": {
+        "sites": [
+          {
+            "x": -1,
+            "y": 0,
+            "reward": 10,
+            "tasks": [
+              0
+            ]
+          },
+          {
+            "x": 1,
+            "y": 0,
+            "reward": 10,
+            "tasks": [
+              1
+            ]
+          }
+        ],
+        "offices": [
+          {
+            "x": -2,
+            "y": 0,
+            "cost": 0,
+            "maxSize": 20
+          },
+          {
+            "x": 2,
+            "y": 0,
+            "cost": 0,
+            "maxSize": 20
+          }
+        ],
+        "workers": [
+          [
+            0,
+            1
+          ]
+        ],
+        "distances": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "maxDifference": 20,
+        "balanceCoefficient": 0
+      },
+      "solution": [
+        {
+          "officeId": 0,
+          "sites": [
+            0
+          ],
+          "workers": [
+            0
+          ]
+        },
+        {
+          "officeId": 1,
+          "sites": [
+            1
+          ],
+          "workers": [
+            0
+          ]
+        }
+      ],
+      "expected": "Duplicate worker",
+      "official": "Duplicate worker"
+    }
+  ]
+}

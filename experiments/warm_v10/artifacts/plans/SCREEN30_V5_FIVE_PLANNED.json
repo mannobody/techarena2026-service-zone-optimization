@@ -1,0 +1,81 @@
+{
+  "name": "screen30_v5",
+  "seconds": 30,
+  "seeds": [
+    10101,
+    10102
+  ],
+  "cpus": [
+    [
+      0,
+      1
+    ],
+    [
+      3,
+      6
+    ],
+    [
+      8,
+      10
+    ],
+    [
+      12,
+      13
+    ],
+    [
+      16,
+      17
+    ],
+    [
+      18,
+      19
+    ],
+    [
+      20,
+      21
+    ]
+  ],
+  "cases": {
+    "medium_anti": "experiments/structural_v9/inputs/dev/medium_anti.json",
+    "cluster_alpha0": "experiments/structural_v9/inputs/dev/cluster_alpha0.json",
+    "large": "experiments/structural_v9/inputs/dev/large.json",
+    "huge": "experiments/structural_v9/inputs/dev/huge.json",
+    "official_4": "task/instance4/instance.json"
+  },
+  "variants": {
+    "v4": {
+      "binary": "experiments/structural_v9/artifacts/v4",
+      "env": {
+        "DBG": "1"
+      }
+    },
+    "v9": {
+      "binary": "experiments/structural_v9/artifacts/final_research/candidate",
+      "env": {
+        "ZM_POOL": "0",
+        "ZM_RESERVE": "0",
+        "DBG": "1"
+      }
+    },
+    "geometry": {
+      "binary": "experiments/warm_v10/artifacts/v5/candidate",
+      "env": {
+        "ZM_POOL": "0",
+        "ZM_RESERVE": "0",
+        "DBG": "1",
+        "GW_MODE": "1",
+        "GW_TRACE": "1"
+      }
+    },
+    "memetic": {
+      "binary": "experiments/warm_v10/artifacts/v5/candidate",
+      "env": {
+        "ZM_POOL": "0",
+        "ZM_RESERVE": "0",
+        "DBG": "1",
+        "GW_MODE": "2",
+        "GW_TRACE": "1"
+      }
+    }
+  }
+}

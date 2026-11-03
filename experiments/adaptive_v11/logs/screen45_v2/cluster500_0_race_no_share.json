@@ -1,0 +1,143 @@
+{
+  "case": "cluster500",
+  "seed": 0,
+  "variant": "race_no_share",
+  "command": [
+    "/usr/bin/time",
+    "-f",
+    "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+    "-o",
+    "./experiments/adaptive_v11/logs/screen45_v2/cluster500_0_race_no_share.resource",
+    "taskset",
+    "-c",
+    "20,21",
+    "./experiments/adaptive_v11/artifacts/v2/candidate",
+    "./experiments/adaptive_v11/inputs/dev/cluster500.json",
+    "./experiments/adaptive_v11/logs/screen45_v2/cluster500_0_race_no_share.solution.json",
+    "45"
+  ],
+  "env": {
+    "HOME": "/home/user",
+    "LANG": "C.UTF-8",
+    "PATH": "/usr/local/bin:/usr/bin:/bin",
+    "NT": "2",
+    "SEED": "0",
+    "AP_POLICY": "1",
+    "AP_SHARE": "0"
+  },
+  "affinity": [
+    20,
+    21
+  ],
+  "rc": 0,
+  "timeout": false,
+  "wall": 44.81268499699945,
+  "started_unix": 1792657294.5250018,
+  "ended_unix": 1792657339.4109159,
+  "official": 1869327.4369689517,
+  "valid": true,
+  "snapshots": [
+    {
+      "at": 4.517859881001641,
+      "path": "experiments/adaptive_v11/logs/screen45_v2/cluster500_0_race_no_share.t4.50.solution.json",
+      "official": 1857430.0740432907
+    },
+    {
+      "at": 9.943246251001256,
+      "path": "experiments/adaptive_v11/logs/screen45_v2/cluster500_0_race_no_share.t9.90.solution.json",
+      "official": 1857430.0740432907
+    },
+    {
+      "at": 11.253797706001933,
+      "path": "experiments/adaptive_v11/logs/screen45_v2/cluster500_0_race_no_share.t11.25.solution.json",
+      "official": 1864054.308975379
+    },
+    {
+      "at": 22.514363483001944,
+      "path": "experiments/adaptive_v11/logs/screen45_v2/cluster500_0_race_no_share.t22.50.solution.json",
+      "official": 1866737.9567850898
+    },
+    {
+      "at": 38.28941330499947,
+      "path": "experiments/adaptive_v11/logs/screen45_v2/cluster500_0_race_no_share.t38.25.solution.json",
+      "official": 1868691.2041293778
+    }
+  ],
+  "solution_sha256": "b93268f5238abf6c83b21b3b2d0b082d39f2551d8640be597b671558d347c8d6",
+  "resource": "rss_kb=12648 user=88.27 sys=0.06 majorfaults=0 minorfaults=2333 voluntary=3563 involuntary=3658 inputs=0 outputs=120\n",
+  "error": false,
+  "process_sampling": {
+    "last": {
+      "175": {
+        "runtime_ns": 33417464,
+        "runqueue_ns": 42177739,
+        "slices": 3504
+      },
+      "176": {
+        "runtime_ns": 43913565739,
+        "runqueue_ns": 9672043,
+        "slices": 1151
+      },
+      "177": {
+        "runtime_ns": 43328466834,
+        "runqueue_ns": 22563627,
+        "slices": 2454
+      },
+      "180": {
+        "runtime_ns": 71024,
+        "runqueue_ns": 181471,
+        "slices": 2
+      },
+      "184": {
+        "runtime_ns": 34150,
+        "runqueue_ns": 656782,
+        "slices": 1
+      }
+    },
+    "states": {
+      "S": 120,
+      "R": 88
+    },
+    "wchan": {
+      "hrtimer_nanosleep": 44,
+      "0": 88,
+      "futex_do_wait": 76
+    },
+    "max_sampled_threads": 5,
+    "samples": 44,
+    "last_io": {
+      "rchar": 509777,
+      "wchar": 25567,
+      "syscr": 87,
+      "syscw": 30,
+      "read_bytes": 0,
+      "write_bytes": 61440,
+      "cancelled_write_bytes": 0
+    }
+  },
+  "resource_extra_fields": {
+    "majorfaults": 0.0,
+    "minorfaults": 2333.0,
+    "voluntary": 3563.0,
+    "involuntary": 3658.0,
+    "inputs": 0.0,
+    "outputs": 120.0
+  },
+  "internal_deadline_stop": false,
+  "cpu_pressure_before": "some avg10=0.85 avg60=0.53 avg300=0.24 total=6201130945\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+  "cpu_pressure_after": "some avg10=0.38 avg60=0.51 avg300=0.28 total=6201603135\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+  "logged_threads": 1,
+  "resource_fields": {
+    "rss_kb": 12648.0,
+    "user": 88.27,
+    "sys": 0.06
+  },
+  "success": true,
+  "components": {
+    "reward": 2766328.071360099,
+    "distance": 731754.4064187726,
+    "cost": 165246.2279723747,
+    "penalty": 0.0,
+    "objective": 1869327.4369689517
+  }
+}

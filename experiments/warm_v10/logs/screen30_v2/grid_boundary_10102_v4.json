@@ -1,0 +1,83 @@
+{
+  "case": "grid_boundary",
+  "seed": 10102,
+  "variant": "v4",
+  "command": [
+    "/usr/bin/time",
+    "-f",
+    "rss_kb=%M user=%U sys=%S",
+    "-o",
+    "./experiments/warm_v10/logs/screen30_v2/grid_boundary_10102_v4.resource",
+    "taskset",
+    "-c",
+    "18,19",
+    "./experiments/structural_v9/artifacts/v4",
+    "./experiments/structural_v9/inputs/dev/grid_boundary.json",
+    "./experiments/warm_v10/logs/screen30_v2/grid_boundary_10102_v4.solution.json",
+    "30"
+  ],
+  "env": {
+    "HOME": "/home/user",
+    "LANG": "C.UTF-8",
+    "PATH": "/usr/local/bin:/usr/bin:/bin",
+    "NT": "2",
+    "SEED": "10102",
+    "DBG": "1"
+  },
+  "affinity": [
+    18,
+    19
+  ],
+  "rc": 0,
+  "timeout": false,
+  "wall": 29.817856683999707,
+  "started_unix": 1792646549.8276649,
+  "ended_unix": 1792646579.7859993,
+  "official": 49.98659541124612,
+  "valid": true,
+  "snapshots": [
+    {
+      "at": 3.0084914849994675,
+      "path": "experiments/warm_v10/logs/screen30_v2/grid_boundary_10102_v4.t3.00.solution.json",
+      "official": 49.92150802928757
+    },
+    {
+      "at": 6.616481196000677,
+      "path": "experiments/warm_v10/logs/screen30_v2/grid_boundary_10102_v4.t6.60.solution.json",
+      "official": 49.92150802928757
+    },
+    {
+      "at": 7.5190616639993095,
+      "path": "experiments/warm_v10/logs/screen30_v2/grid_boundary_10102_v4.t7.50.solution.json",
+      "official": 49.92150802928757
+    },
+    {
+      "at": 15.035163713000657,
+      "path": "experiments/warm_v10/logs/screen30_v2/grid_boundary_10102_v4.t15.00.solution.json",
+      "official": 49.92150802928757
+    },
+    {
+      "at": 25.52702856600081,
+      "path": "experiments/warm_v10/logs/screen30_v2/grid_boundary_10102_v4.t25.50.solution.json",
+      "official": 49.92150802928757
+    }
+  ],
+  "solution_sha256": "01e13ca2732817a6f6854df3af8603b943c337e16d63e81d514b7138d3fd0434",
+  "resource": "rss_kb=5032 user=58.79 sys=0.00\n",
+  "error": false,
+  "internal_deadline_stop": false,
+  "logged_threads": 2,
+  "resource_fields": {
+    "rss_kb": 5032.0,
+    "user": 58.79,
+    "sys": 0.0
+  },
+  "success": true,
+  "components": {
+    "reward": 64.53542206410272,
+    "distance": 9.607575744341876,
+    "cost": 4.166825843745489,
+    "penalty": 0.7744250647692327,
+    "objective": 49.98659541124613
+  }
+}

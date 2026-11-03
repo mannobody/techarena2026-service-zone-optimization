@@ -1,0 +1,136 @@
+{
+  "case": "regression_large",
+  "seed": 9403,
+  "variant": "prior",
+  "command": [
+    "/usr/bin/time",
+    "-f",
+    "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+    "-o",
+    "./experiments/warm_v10/logs/acceleration280/regression_large_9403_prior.resource",
+    "taskset",
+    "-c",
+    "20,21",
+    "./experiments/warm_v10/artifacts/v5/candidate",
+    "./experiments/structural_v9/inputs/holdout/large.json",
+    "./experiments/warm_v10/logs/acceleration280/regression_large_9403_prior.solution.json",
+    "280"
+  ],
+  "env": {
+    "HOME": "/home/user",
+    "LANG": "C.UTF-8",
+    "PATH": "/usr/local/bin:/usr/bin:/bin",
+    "NT": "2",
+    "SEED": "9403",
+    "ZM_POOL": "0",
+    "ZM_RESERVE": "0",
+    "GW_MODE": "1"
+  },
+  "affinity": [
+    20,
+    21
+  ],
+  "rc": 0,
+  "timeout": false,
+  "wall": 279.75542334999955,
+  "started_unix": 1792651053.249081,
+  "ended_unix": 1792651333.978668,
+  "official": 597283.9737690863,
+  "valid": true,
+  "snapshots": [
+    {
+      "at": 28.0306913229997,
+      "path": "experiments/warm_v10/logs/acceleration280/regression_large_9403_prior.t28.00.solution.json",
+      "official": 0.0
+    },
+    {
+      "at": 61.63897852699847,
+      "path": "experiments/warm_v10/logs/acceleration280/regression_large_9403_prior.t61.60.solution.json",
+      "official": 576577.8965833784
+    },
+    {
+      "at": 70.03043664199868,
+      "path": "experiments/warm_v10/logs/acceleration280/regression_large_9403_prior.t70.00.solution.json",
+      "official": 579046.0275081011
+    },
+    {
+      "at": 140.0347688109996,
+      "path": "experiments/warm_v10/logs/acceleration280/regression_large_9403_prior.t140.00.solution.json",
+      "official": 592717.8709363459
+    },
+    {
+      "at": 238.0415852699989,
+      "path": "experiments/warm_v10/logs/acceleration280/regression_large_9403_prior.t238.00.solution.json",
+      "official": 593084.4458500732
+    }
+  ],
+  "solution_sha256": "a019766a2253a0c8dc030f195bfb17c1302e9849ddc58e451f7f55d4ec2ecebe",
+  "resource": "rss_kb=34856 user=229.85 sys=0.22 majorfaults=0 minorfaults=8963 voluntary=2 involuntary=96924 inputs=0 outputs=104\n",
+  "error": false,
+  "process_sampling": {
+    "last": {
+      "81": {
+        "runtime_ns": 125641590182,
+        "runqueue_ns": 152899872589,
+        "slices": 52269
+      },
+      "82": {
+        "runtime_ns": 13294012231,
+        "runqueue_ns": 11806180400,
+        "slices": 5389
+      },
+      "89": {
+        "runtime_ns": 89973006808,
+        "runqueue_ns": 123274164976,
+        "slices": 38595
+      },
+      "102": {
+        "runtime_ns": 757096233,
+        "runqueue_ns": 2642176263,
+        "slices": 418
+      }
+    },
+    "states": {
+      "R": 518
+    },
+    "wchan": {
+      "0": 518
+    },
+    "max_sampled_threads": 2,
+    "samples": 276,
+    "last_io": {
+      "rchar": 502930,
+      "wchar": 89646,
+      "syscr": 82,
+      "syscw": 41,
+      "read_bytes": 0,
+      "write_bytes": 53248,
+      "cancelled_write_bytes": 0
+    }
+  },
+  "resource_extra_fields": {
+    "majorfaults": 0.0,
+    "minorfaults": 8963.0,
+    "voluntary": 2.0,
+    "involuntary": 96924.0,
+    "inputs": 0.0,
+    "outputs": 104.0
+  },
+  "internal_deadline_stop": false,
+  "cpu_pressure_before": "some avg10=25.29 avg60=19.17 avg300=29.56 total=4742617776\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+  "cpu_pressure_after": "some avg10=28.80 avg60=26.41 avg300=27.43 total=4818327231\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+  "logged_threads": 2,
+  "resource_fields": {
+    "rss_kb": 34856.0,
+    "user": 229.85,
+    "sys": 0.22
+  },
+  "success": true,
+  "components": {
+    "reward": 777571.4713144541,
+    "distance": 150469.6096658455,
+    "cost": 29037.799995679317,
+    "penalty": 780.0878838429799,
+    "objective": 597283.9737690863
+  }
+}

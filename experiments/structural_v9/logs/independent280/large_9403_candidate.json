@@ -1,0 +1,74 @@
+{
+  "case": "large",
+  "seed": 9403,
+  "variant": "candidate",
+  "command": [
+    "/usr/bin/time",
+    "-f",
+    "rss_kb=%M user=%U sys=%S",
+    "-o",
+    "./experiments/structural_v9/logs/independent280/large_9403_candidate.resource",
+    "taskset",
+    "-c",
+    "12,13",
+    "./experiments/structural_v9/artifacts/final_research/candidate",
+    "./experiments/structural_v9/inputs/holdout/large.json",
+    "./experiments/structural_v9/logs/independent280/large_9403_candidate.solution.json",
+    "280"
+  ],
+  "env": {
+    "HOME": "/home/user",
+    "LANG": "C.UTF-8",
+    "PATH": "/usr/local/bin:/usr/bin:/bin",
+    "NT": "2",
+    "SEED": "9403",
+    "ZM_POOL": "0",
+    "ZM_RESERVE": "0"
+  },
+  "affinity": [
+    12,
+    13
+  ],
+  "rc": 0,
+  "timeout": false,
+  "wall": 279.66088084199964,
+  "started_unix": 1792640846.744061,
+  "ended_unix": 1792641127.7687597,
+  "official": 596784.6931971959,
+  "valid": true,
+  "snapshots": [
+    {
+      "at": 70.04316460999962,
+      "path": "experiments/structural_v9/logs/independent280/large_9403_candidate.t70.00.solution.json",
+      "official": 579345.8727396748
+    },
+    {
+      "at": 140.01372525599982,
+      "path": "experiments/structural_v9/logs/independent280/large_9403_candidate.t140.00.solution.json",
+      "official": 595348.347928468
+    },
+    {
+      "at": 238.03922393500034,
+      "path": "experiments/structural_v9/logs/independent280/large_9403_candidate.t238.00.solution.json",
+      "official": 595348.347928468
+    }
+  ],
+  "solution_sha256": "c9f998828a32b2dbf8761724ceeb743562ea5e2c43a00a57dc2ed13e1a8aa493",
+  "resource": "rss_kb=48844 user=494.15 sys=0.11\n",
+  "error": false,
+  "internal_deadline_stop": false,
+  "logged_threads": 2,
+  "resource_fields": {
+    "rss_kb": 48844.0,
+    "user": 494.15,
+    "sys": 0.11
+  },
+  "success": true,
+  "components": {
+    "reward": 780087.8838429799,
+    "distance": 153434.97451569117,
+    "cost": 29037.799995679317,
+    "penalty": 830.4161344134948,
+    "objective": 596784.693197196
+  }
+}

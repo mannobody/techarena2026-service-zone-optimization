@@ -1,0 +1,19 @@
+{
+  "rc": 0,
+  "wall": 75.98574209213257,
+  "command": [
+    "taskset",
+    "-c",
+    "18,19",
+    "g++",
+    "-O3",
+    "-std=c++17",
+    "-o",
+    "./experiments/submission_1668601_v12/artifacts/certified/candidate",
+    "./experiments/submission_1668601_v12/artifacts/certified/main.cpp",
+    "-ldl"
+  ],
+  "source_sha256": "bb88dc9bda46f3ee69f9f49eb358b12d0597444739a25af23c78bc4af9970dbe",
+  "binary_sha256": "36cde80fba6583544d5e40cabe03438689f4ab2f663e4ac3a9960d6bb39174ab",
+  "roundtrip_to_original_submission_exact": true
+}

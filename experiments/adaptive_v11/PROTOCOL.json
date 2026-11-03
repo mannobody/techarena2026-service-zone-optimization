@@ -1,0 +1,55 @@
+{
+  "task": "Input-feature and online adaptive solver portfolio",
+  "controls": {
+    "v4": "experiments/v4_local_search/baseline/frozen_v4.cpp",
+    "v4_sha256": "5b3914fa9791cb879f3232fb2876a915de83b848ad4b353b0dbf25b574998c25",
+    "geometry": "experiments/warm_v10/artifacts/v5/main.cpp"
+  },
+  "historical": "All previous inputs/results, including former holdouts, are development. Local checkpoint operators and different TL are not merged into full TL280 labels.",
+  "classification": "Dimensionless physical features; leave entire instance+all seeds out in development diagnostics. Static tree failed to beat constant geometry; no runtime input hash/id/file-name/seed routing.",
+  "new_method": "Two native experts on one compute worker each, common best verified publisher, optional in-invocation incumbent exchange; race observed at .40TL or .55TL for ns>2000/pressure>1/negative geo correlation. Promote only if >2% objective gap and observed slope projection also favors leader; otherwise preserve both. Cancellation precedes second-worker start.",
+  "screen": {
+    "seconds": 45,
+    "seeds": [
+      0
+    ],
+    "variants": [
+      "v4",
+      "v10",
+      "dual",
+      "race",
+      "race_no_share"
+    ]
+  },
+  "selection": "Among operationally valid portfolio configurations choose greatest mean improvement over v10 on screen, prefer worst>=-5% vs v4 if any. This is a short-budget development screen. Confirm full TL280, two seeds, fixed8-case subset with both controls. No fresh inputs before selection/freeze. If long development has material implementation failures repair on development only, retain all revisions; do not call short score confirmation.",
+  "development": {
+    "seconds": 280,
+    "seeds": [
+      0,
+      11602
+    ],
+    "cases": [
+      "euclid240",
+      "anti220",
+      "equal180",
+      "grid180",
+      "multi260",
+      "cluster500",
+      "road1600",
+      "huge10000"
+    ]
+  },
+  "independent": {
+    "seconds": 280,
+    "seeds": [
+      0,
+      11702,
+      11703
+    ],
+    "input_seed_offset": 1300000,
+    "count": 8
+  },
+  "promotion": "100% candidate valid, rc0, no emergency/error, wall<300; equal-case means>0 vs exactv4 and geometryv10; case-bootstrap95 lower>0 vs v4; worst pair vs v4>=-1%. Otherwise candidate experimental. All primary rows preserved; fixed-seed wall scheduling does not guarantee bitwise answers.",
+  "resources": "Matched (case,seed) same two CPU affinity, randomized variant order, GNUtime and /proc thread runqueue/runtime plus PSI snapshots. 5 slots distinct physical cores, controller14/15. No exclusive-machine claim. If primary promotion passes but CPU/wall range>.5 in a matched block, one predeclared viewed-case repeat on largest-disparity case, same3seeds/all3versions/3slots may veto on worst<-1% vs v4 or any operational failure; never replace primary.",
+  "preservation": "New directory only, no removal, no staging/commit/push/submit. Source versions and canceled/failed logs retained. Read only current instance/write only solution in packaged runtime."
+}

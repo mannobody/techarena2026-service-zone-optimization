@@ -1,0 +1,95 @@
+{
+  "source_sha256": "1f203b00cf5fa7137635ee9c218e4267bdd1645cfc86e33caabc24d2feceef0d",
+  "measured_binary_sha256": "38df2f6d68eaaaddd01e1e23db18c21e7d65e3d1c128bb736e5d20b8a8c16918",
+  "rebuild_binary_sha256": "38df2f6d68eaaaddd01e1e23db18c21e7d65e3d1c128bb736e5d20b8a8c16918",
+  "command": [
+    "taskset",
+    "-c",
+    "14,15",
+    "g++",
+    "-O3",
+    "-std=c++17",
+    "./experiments/warm_v10/artifacts/package_v8_rebuild/main.cpp",
+    "-o",
+    "./experiments/warm_v10/artifacts/package_v8_rebuild/solution"
+  ],
+  "byte_identical": true,
+  "cases": [
+    {
+      "mode": 1,
+      "case": "negative_balance",
+      "rc": 0,
+      "wall": 0.01000597399979597,
+      "official": 35.0,
+      "valid": true,
+      "files": [
+        "instance.json",
+        "solution.json"
+      ]
+    },
+    {
+      "mode": 1,
+      "case": "grid",
+      "rc": 0,
+      "wall": 1.777971391000392,
+      "official": 50.16954545442561,
+      "valid": true,
+      "files": [
+        "instance.json",
+        "solution.json"
+      ]
+    },
+    {
+      "mode": 1,
+      "case": "huge",
+      "rc": 0,
+      "wall": 2.0461801660003403,
+      "official": 833244.5491768576,
+      "valid": true,
+      "files": [
+        "instance.json",
+        "solution.json"
+      ]
+    },
+    {
+      "mode": 2,
+      "case": "negative_balance",
+      "rc": 0,
+      "wall": 0.00928357600059826,
+      "official": 35.0,
+      "valid": true,
+      "files": [
+        "instance.json",
+        "solution.json"
+      ]
+    },
+    {
+      "mode": 2,
+      "case": "grid",
+      "rc": 0,
+      "wall": 1.777014135999707,
+      "official": 50.16954545442561,
+      "valid": true,
+      "files": [
+        "instance.json",
+        "solution.json"
+      ]
+    },
+    {
+      "mode": 2,
+      "case": "huge",
+      "rc": 0,
+      "wall": 1.9880175159996725,
+      "official": 833244.5491768576,
+      "valid": true,
+      "files": [
+        "instance.json",
+        "solution.json"
+      ]
+    }
+  ],
+  "zip_sha256": {
+    "geometry": "e121bf62bf452d84f4136e352baae8858539a5f139d282700c62a2564889f114",
+    "memetic": "a71e3aab4247bafd8ae2a84146030fee366174f5f295ced386d92710ce0afe10"
+  }
+}

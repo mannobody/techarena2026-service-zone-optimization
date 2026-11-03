@@ -1,0 +1,1495 @@
+{
+  "series": "screen30_v2",
+  "runs": 80,
+  "expected": 80,
+  "valid": 80,
+  "success": 78,
+  "failures": [
+    {
+      "case": "large",
+      "seed": 10101,
+      "variant": "v4",
+      "rc": -15,
+      "timeout": true,
+      "wall": 32.028370096999424,
+      "valid": true,
+      "error": false
+    },
+    {
+      "case": "medium_A0",
+      "seed": 10102,
+      "variant": "v4",
+      "rc": 0,
+      "timeout": false,
+      "wall": 31.246179015999587,
+      "valid": true,
+      "error": false
+    }
+  ],
+  "comparisons": {
+    "geometry_vs_v4": {
+      "all_valid": {
+        "pairs": 20,
+        "mean_case_percent": -1.002409834043595,
+        "median": 0.16370198386526422,
+        "sd": 15.241637066739328,
+        "worst": -60.99109003201359,
+        "best": 17.181309064642885,
+        "wins": 11,
+        "ties": 4,
+        "losses": 5,
+        "case_bootstrap95": [
+          -9.895662201834398,
+          5.352218303170481
+        ]
+      },
+      "successful": {
+        "pairs": 18,
+        "mean_case_percent": -1.1233118384312006,
+        "median": 0.16370198386526422,
+        "sd": 15.974346620707434,
+        "worst": -60.99109003201359,
+        "best": 17.181309064642885,
+        "wins": 10,
+        "ties": 3,
+        "losses": 5,
+        "case_bootstrap95": [
+          -9.956436310032052,
+          5.249396454756308
+        ]
+      },
+      "per_case": {
+        "medium_road": {
+          "pairs": 2,
+          "mean_case_percent": 0.0,
+          "median": 0.0,
+          "sd": 0.0,
+          "worst": 0.0,
+          "best": 0.0,
+          "wins": 0,
+          "ties": 2,
+          "losses": 0,
+          "case_bootstrap95": [
+            0.0,
+            0.0
+          ]
+        },
+        "medium_anti": {
+          "pairs": 2,
+          "mean_case_percent": 15.956853131457812,
+          "median": 15.956853131457812,
+          "sd": 1.731642187238536,
+          "worst": 14.732397198272738,
+          "best": 17.181309064642885,
+          "wins": 2,
+          "ties": 0,
+          "losses": 0,
+          "case_bootstrap95": [
+            15.956853131457812,
+            15.956853131457812
+          ]
+        },
+        "medium_A0": {
+          "pairs": 2,
+          "mean_case_percent": 6.09325279135108,
+          "median": 6.09325279135108,
+          "sd": 1.789844722527101,
+          "worst": 4.827641450781213,
+          "best": 7.3588641319209485,
+          "wins": 2,
+          "ties": 0,
+          "losses": 0,
+          "case_bootstrap95": [
+            6.09325279135108,
+            6.09325279135108
+          ]
+        },
+        "medium_multi": {
+          "pairs": 2,
+          "mean_case_percent": 1.9769224009369748,
+          "median": 1.9769224009369748,
+          "sd": 0.703302461832012,
+          "worst": 1.479612460950366,
+          "best": 2.4742323409235834,
+          "wins": 2,
+          "ties": 0,
+          "losses": 0,
+          "case_bootstrap95": [
+            1.9769224009369748,
+            1.9769224009369748
+          ]
+        },
+        "cluster_alpha0": {
+          "pairs": 2,
+          "mean_case_percent": -1.0824484481147474,
+          "median": -1.0824484481147474,
+          "sd": 0.01823913472763883,
+          "worst": -1.0953454639636357,
+          "best": -1.0695514322658588,
+          "wins": 0,
+          "ties": 0,
+          "losses": 2,
+          "case_bootstrap95": [
+            -1.0824484481147474,
+            -1.0824484481147474
+          ]
+        },
+        "grid_boundary": {
+          "pairs": 2,
+          "mean_case_percent": 2.324514566111167,
+          "median": 2.324514566111167,
+          "sd": 0.11703094898054461,
+          "worst": 2.241761188478327,
+          "best": 2.407267943744007,
+          "wins": 2,
+          "ties": 0,
+          "losses": 0,
+          "case_bootstrap95": [
+            2.324514566111167,
+            2.324514566111167
+          ]
+        },
+        "large": {
+          "pairs": 2,
+          "mean_case_percent": 0.056591296693810675,
+          "median": 0.056591296693810675,
+          "sd": 0.08003217929666676,
+          "worst": 0.0,
+          "best": 0.11318259338762135,
+          "wins": 1,
+          "ties": 1,
+          "losses": 0,
+          "case_bootstrap95": [
+            0.056591296693810675,
+            0.056591296693810675
+          ]
+        },
+        "huge": {
+          "pairs": 2,
+          "mean_case_percent": -35.56363171272673,
+          "median": -35.56363171272673,
+          "sd": 35.959856411812055,
+          "worst": -60.99109003201359,
+          "best": -10.13617339343988,
+          "wins": 0,
+          "ties": 0,
+          "losses": 2,
+          "case_bootstrap95": [
+            -35.56363171272673,
+            -35.56363171272673
+          ]
+        },
+        "official_3": {
+          "pairs": 2,
+          "mean_case_percent": 0.21890967495549052,
+          "median": 0.21890967495549052,
+          "sd": 0.006630258310797583,
+          "worst": 0.21422137434290708,
+          "best": 0.22359797556807395,
+          "wins": 2,
+          "ties": 0,
+          "losses": 0,
+          "case_bootstrap95": [
+            0.21890967495549052,
+            0.21890967495549052
+          ]
+        },
+        "official_4": {
+          "pairs": 2,
+          "mean_case_percent": -0.005062041100806686,
+          "median": -0.005062041100806686,
+          "sd": 0.007158807178050846,
+          "worst": -0.010124082201613371,
+          "best": 0.0,
+          "wins": 0,
+          "ties": 1,
+          "losses": 1,
+          "case_bootstrap95": [
+            -0.005062041100806686,
+            -0.005062041100806686
+          ]
+        }
+      },
+      "pairs": [
+        {
+          "case": "medium_road",
+          "seed": 10101,
+          "delta": 0.0,
+          "percent": 0.0,
+          "base": 38.41466548438117,
+          "candidate": 38.41466548438117,
+          "both_success": true
+        },
+        {
+          "case": "medium_road",
+          "seed": 10102,
+          "delta": 0.0,
+          "percent": 0.0,
+          "base": 38.41466548438117,
+          "candidate": 38.41466548438117,
+          "both_success": true
+        },
+        {
+          "case": "medium_anti",
+          "seed": 10101,
+          "delta": 417.2272107083004,
+          "percent": 17.181309064642885,
+          "base": 2428.3784730169655,
+          "candidate": 2845.605683725266,
+          "both_success": true
+        },
+        {
+          "case": "medium_anti",
+          "seed": 10102,
+          "delta": 357.75836212220975,
+          "percent": 14.732397198272738,
+          "base": 2428.3784730169655,
+          "candidate": 2786.136835139175,
+          "both_success": true
+        },
+        {
+          "case": "medium_A0",
+          "seed": 10101,
+          "delta": 2.1529683852135477,
+          "percent": 4.827641450781213,
+          "base": 44.59669192841885,
+          "candidate": 46.7496603136324,
+          "both_success": true
+        },
+        {
+          "case": "medium_A0",
+          "seed": 10102,
+          "delta": 3.271540591785424,
+          "percent": 7.3588641319209485,
+          "base": 44.45714084588521,
+          "candidate": 47.72868143767064,
+          "both_success": false
+        },
+        {
+          "case": "medium_multi",
+          "seed": 10101,
+          "delta": 287.5979719641473,
+          "percent": 1.479612460950366,
+          "base": 19437.385096055557,
+          "candidate": 19724.983068019705,
+          "both_success": true
+        },
+        {
+          "case": "medium_multi",
+          "seed": 10102,
+          "delta": 484.60773828208403,
+          "percent": 2.4742323409235834,
+          "base": 19586.185592464986,
+          "candidate": 20070.79333074707,
+          "both_success": true
+        },
+        {
+          "case": "cluster_alpha0",
+          "seed": 10101,
+          "delta": -1530.5767907699337,
+          "percent": -1.0953454639636357,
+          "base": 139734.61717103957,
+          "candidate": 138204.04038026964,
+          "both_success": true
+        },
+        {
+          "case": "cluster_alpha0",
+          "seed": 10102,
+          "delta": -1500.241733734263,
+          "percent": -1.0695514322658588,
+          "base": 140268.31141312965,
+          "candidate": 138768.06967939538,
+          "both_success": true
+        },
+        {
+          "case": "grid_boundary",
+          "seed": 10101,
+          "delta": 1.201366541288479,
+          "percent": 2.407267943744007,
+          "base": 49.905808965328646,
+          "candidate": 51.107175506617125,
+          "both_success": true
+        },
+        {
+          "case": "grid_boundary",
+          "seed": 10102,
+          "delta": 1.120580095371004,
+          "percent": 2.241761188478327,
+          "base": 49.98659541124612,
+          "candidate": 51.107175506617125,
+          "both_success": true
+        },
+        {
+          "case": "large",
+          "seed": 10101,
+          "delta": 0.0,
+          "percent": 0.0,
+          "base": 277.8876058919447,
+          "candidate": 277.8876058919447,
+          "both_success": false
+        },
+        {
+          "case": "large",
+          "seed": 10102,
+          "delta": 0.3145203990512755,
+          "percent": 0.11318259338762135,
+          "base": 277.8876058919447,
+          "candidate": 278.202126290996,
+          "both_success": true
+        },
+        {
+          "case": "huge",
+          "seed": 10101,
+          "delta": -1585467.6847880771,
+          "percent": -60.99109003201359,
+          "base": 2599507.049236014,
+          "candidate": 1014039.3644479368,
+          "both_success": true
+        },
+        {
+          "case": "huge",
+          "seed": 10102,
+          "delta": -306200.87585947243,
+          "percent": -10.13617339343988,
+          "base": 3020872.5124773947,
+          "candidate": 2714671.636617922,
+          "both_success": true
+        },
+        {
+          "case": "official_3",
+          "seed": 10101,
+          "delta": 304.76622486129054,
+          "percent": 0.22359797556807395,
+          "base": 136300.9768254834,
+          "candidate": 136605.7430503447,
+          "both_success": true
+        },
+        {
+          "case": "official_3",
+          "seed": 10102,
+          "delta": 291.98582579835784,
+          "percent": 0.21422137434290708,
+          "base": 136300.9768254834,
+          "candidate": 136592.96265128176,
+          "both_success": true
+        },
+        {
+          "case": "official_4",
+          "seed": 10101,
+          "delta": 0.0,
+          "percent": 0.0,
+          "base": 18019.089861853645,
+          "candidate": 18019.089861853645,
+          "both_success": true
+        },
+        {
+          "case": "official_4",
+          "seed": 10102,
+          "delta": -1.8389236220573366,
+          "percent": -0.010124082201613371,
+          "base": 18163.85510742185,
+          "candidate": 18162.01618379979,
+          "both_success": true
+        }
+      ]
+    },
+    "geometry_vs_v9": {
+      "all_valid": {
+        "pairs": 20,
+        "mean_case_percent": -1.8583453674967403,
+        "median": 0.0,
+        "sd": 15.050907612073377,
+        "worst": -60.994672364974896,
+        "best": 17.14240474061939,
+        "wins": 7,
+        "ties": 4,
+        "losses": 9,
+        "case_bootstrap95": [
+          -10.613029958722283,
+          4.640376956816017
+        ]
+      },
+      "successful": {
+        "pairs": 20,
+        "mean_case_percent": -1.8583453674967403,
+        "median": 0.0,
+        "sd": 15.050907612073377,
+        "worst": -60.994672364974896,
+        "best": 17.14240474061939,
+        "wins": 7,
+        "ties": 4,
+        "losses": 9,
+        "case_bootstrap95": [
+          -10.613029958722283,
+          4.640376956816017
+        ]
+      },
+      "per_case": {
+        "medium_road": {
+          "pairs": 2,
+          "mean_case_percent": 0.0,
+          "median": 0.0,
+          "sd": 0.0,
+          "worst": 0.0,
+          "best": 0.0,
+          "wins": 0,
+          "ties": 2,
+          "losses": 0,
+          "case_bootstrap95": [
+            0.0,
+            0.0
+          ]
+        },
+        "medium_anti": {
+          "pairs": 2,
+          "mean_case_percent": 15.918355328156412,
+          "median": 15.918355328156412,
+          "sd": 1.7310672801199638,
+          "worst": 14.694305915693432,
+          "best": 17.14240474061939,
+          "wins": 2,
+          "ties": 0,
+          "losses": 0,
+          "case_bootstrap95": [
+            15.918355328156412,
+            15.918355328156412
+          ]
+        },
+        "medium_A0": {
+          "pairs": 2,
+          "mean_case_percent": 1.0008713840795105,
+          "median": 1.0008713840795105,
+          "sd": 2.288769843453324,
+          "worst": -0.6175332928016078,
+          "best": 2.6192760609606287,
+          "wins": 1,
+          "ties": 0,
+          "losses": 1,
+          "case_bootstrap95": [
+            1.0008713840795105,
+            1.0008713840795105
+          ]
+        },
+        "medium_multi": {
+          "pairs": 2,
+          "mean_case_percent": 1.5914410973329924,
+          "median": 1.5914410973329924,
+          "sd": 1.2484553494300243,
+          "worst": 0.7086498537424013,
+          "best": 2.4742323409235834,
+          "wins": 2,
+          "ties": 0,
+          "losses": 0,
+          "case_bootstrap95": [
+            1.5914410973329924,
+            1.5914410973329924
+          ]
+        },
+        "cluster_alpha0": {
+          "pairs": 2,
+          "mean_case_percent": -1.5437532715684728,
+          "median": -1.5437532715684728,
+          "sd": 1.121303104614021,
+          "worst": -2.3366343006065757,
+          "best": -0.75087224253037,
+          "wins": 0,
+          "ties": 0,
+          "losses": 2,
+          "case_bootstrap95": [
+            -1.5437532715684728,
+            -1.5437532715684728
+          ]
+        },
+        "grid_boundary": {
+          "pairs": 2,
+          "mean_case_percent": 1.9070058929426732,
+          "median": 1.9070058929426732,
+          "sd": 0.13419584007457452,
+          "worst": 1.812115104418916,
+          "best": 2.0018966814664303,
+          "wins": 2,
+          "ties": 0,
+          "losses": 0,
+          "case_bootstrap95": [
+            1.9070058929426732,
+            1.9070058929426732
+          ]
+        },
+        "large": {
+          "pairs": 2,
+          "mean_case_percent": -0.0807200420027106,
+          "median": -0.0807200420027106,
+          "sd": 0.1007490739495511,
+          "worst": -0.15196039539070313,
+          "best": -0.009479688614718082,
+          "wins": 0,
+          "ties": 0,
+          "losses": 2,
+          "case_bootstrap95": [
+            -0.0807200420027106,
+            -0.0807200420027106
+          ]
+        },
+        "huge": {
+          "pairs": 2,
+          "mean_case_percent": -35.56542287920739,
+          "median": -35.56542287920739,
+          "sd": 35.96238950374146,
+          "worst": -60.994672364974896,
+          "best": -10.13617339343988,
+          "wins": 0,
+          "ties": 0,
+          "losses": 2,
+          "case_bootstrap95": [
+            -35.56542287920739,
+            -35.56542287920739
+          ]
+        },
+        "official_3": {
+          "pairs": 2,
+          "mean_case_percent": -0.004677841054684872,
+          "median": -0.004677841054684872,
+          "sd": 0.0066154662621610094,
+          "worst": -0.009355682109369745,
+          "best": 0.0,
+          "wins": 0,
+          "ties": 1,
+          "losses": 1,
+          "case_bootstrap95": [
+            -0.004677841054684872,
+            -0.004677841054684872
+          ]
+        },
+        "official_4": {
+          "pairs": 2,
+          "mean_case_percent": -1.8065533436457346,
+          "median": -1.8065533436457346,
+          "sd": 2.5548522397342603,
+          "worst": -3.613106687291469,
+          "best": 0.0,
+          "wins": 0,
+          "ties": 1,
+          "losses": 1,
+          "case_bootstrap95": [
+            -1.8065533436457346,
+            -1.8065533436457346
+          ]
+        }
+      },
+      "pairs": [
+        {
+          "case": "medium_road",
+          "seed": 10101,
+          "delta": 0.0,
+          "percent": 0.0,
+          "base": 38.41466548438117,
+          "candidate": 38.41466548438117,
+          "both_success": true
+        },
+        {
+          "case": "medium_road",
+          "seed": 10102,
+          "delta": 0.0,
+          "percent": 0.0,
+          "base": 38.41466548438117,
+          "candidate": 38.41466548438117,
+          "both_success": true
+        },
+        {
+          "case": "medium_anti",
+          "seed": 10101,
+          "delta": 416.4207186171134,
+          "percent": 17.14240474061939,
+          "base": 2429.1849651081525,
+          "candidate": 2845.605683725266,
+          "both_success": true
+        },
+        {
+          "case": "medium_anti",
+          "seed": 10102,
+          "delta": 356.95187003102274,
+          "percent": 14.694305915693432,
+          "base": 2429.1849651081525,
+          "candidate": 2786.136835139175,
+          "both_success": true
+        },
+        {
+          "case": "medium_A0",
+          "seed": 10101,
+          "delta": -0.29048858040412284,
+          "percent": -0.6175332928016078,
+          "base": 47.04014889403652,
+          "candidate": 46.7496603136324,
+          "both_success": true
+        },
+        {
+          "case": "medium_A0",
+          "seed": 10102,
+          "delta": 1.2182369386102678,
+          "percent": 2.6192760609606287,
+          "base": 46.51044449906037,
+          "candidate": 47.72868143767064,
+          "both_success": true
+        },
+        {
+          "case": "medium_multi",
+          "seed": 10101,
+          "delta": 138.7974755547184,
+          "percent": 0.7086498537424013,
+          "base": 19586.185592464986,
+          "candidate": 19724.983068019705,
+          "both_success": true
+        },
+        {
+          "case": "medium_multi",
+          "seed": 10102,
+          "delta": 484.60773828208403,
+          "percent": 2.4742323409235834,
+          "base": 19586.185592464986,
+          "candidate": 20070.79333074707,
+          "both_success": true
+        },
+        {
+          "case": "cluster_alpha0",
+          "seed": 10101,
+          "delta": -3306.5858310570184,
+          "percent": -2.3366343006065757,
+          "base": 141510.62621132666,
+          "candidate": 138204.04038026964,
+          "both_success": true
+        },
+        {
+          "case": "cluster_alpha0",
+          "seed": 10102,
+          "delta": -1049.8539788319322,
+          "percent": -0.75087224253037,
+          "base": 139817.92365822732,
+          "candidate": 138768.06967939538,
+          "both_success": true
+        },
+        {
+          "case": "grid_boundary",
+          "seed": 10101,
+          "delta": 0.9096371741687719,
+          "percent": 1.812115104418916,
+          "base": 50.19753833244835,
+          "candidate": 51.107175506617125,
+          "both_success": true
+        },
+        {
+          "case": "grid_boundary",
+          "seed": 10102,
+          "delta": 1.0030331628569513,
+          "percent": 2.0018966814664303,
+          "base": 50.104142343760174,
+          "candidate": 51.107175506617125,
+          "both_success": true
+        },
+        {
+          "case": "large",
+          "seed": 10101,
+          "delta": -0.026345377197174003,
+          "percent": -0.009479688614718082,
+          "base": 277.9139512691419,
+          "candidate": 277.8876058919447,
+          "both_success": true
+        },
+        {
+          "case": "large",
+          "seed": 10102,
+          "delta": -0.4234004520982353,
+          "percent": -0.15196039539070313,
+          "base": 278.6255267430942,
+          "candidate": 278.202126290996,
+          "both_success": true
+        },
+        {
+          "case": "huge",
+          "seed": 10101,
+          "delta": -1585706.429091747,
+          "percent": -60.994672364974896,
+          "base": 2599745.793539684,
+          "candidate": 1014039.3644479368,
+          "both_success": true
+        },
+        {
+          "case": "huge",
+          "seed": 10102,
+          "delta": -306200.87585947243,
+          "percent": -10.13617339343988,
+          "base": 3020872.5124773947,
+          "candidate": 2714671.636617922,
+          "both_success": true
+        },
+        {
+          "case": "official_3",
+          "seed": 10101,
+          "delta": 0.0,
+          "percent": 0.0,
+          "base": 136605.7430503447,
+          "candidate": 136605.7430503447,
+          "both_success": true
+        },
+        {
+          "case": "official_3",
+          "seed": 10102,
+          "delta": -12.780399062932702,
+          "percent": -0.009355682109369745,
+          "base": 136605.7430503447,
+          "candidate": 136592.96265128176,
+          "both_success": true
+        },
+        {
+          "case": "official_4",
+          "seed": 10101,
+          "delta": 0.0,
+          "percent": 0.0,
+          "base": 18019.089861853645,
+          "candidate": 18019.089861853645,
+          "both_success": true
+        },
+        {
+          "case": "official_4",
+          "seed": 10102,
+          "delta": -680.8114658855884,
+          "percent": -3.613106687291469,
+          "base": 18842.82764968538,
+          "candidate": 18162.01618379979,
+          "both_success": true
+        }
+      ]
+    },
+    "memetic_vs_v4": {
+      "all_valid": {
+        "pairs": 20,
+        "mean_case_percent": -1.1417893612717172,
+        "median": 0.7467893765813014,
+        "sd": 12.32012630823037,
+        "worst": -41.66473372599103,
+        "best": 22.50808529816288,
+        "wins": 13,
+        "ties": 4,
+        "losses": 3,
+        "case_bootstrap95": [
+          -9.033192439633632,
+          4.13458637855479
+        ]
+      },
+      "successful": {
+        "pairs": 18,
+        "mean_case_percent": -0.8211236316185931,
+        "median": 0.7803662370202553,
+        "sd": 13.012557116511617,
+        "worst": -41.66473372599103,
+        "best": 22.50808529816288,
+        "wins": 11,
+        "ties": 4,
+        "losses": 3,
+        "case_bootstrap95": [
+          -8.886422692228704,
+          4.593441379261141
+        ]
+      },
+      "per_case": {
+        "medium_road": {
+          "pairs": 2,
+          "mean_case_percent": 0.0,
+          "median": 0.0,
+          "sd": 0.0,
+          "worst": 0.0,
+          "best": 0.0,
+          "wins": 0,
+          "ties": 2,
+          "losses": 0,
+          "case_bootstrap95": [
+            0.0,
+            0.0
+          ]
+        },
+        "medium_anti": {
+          "pairs": 2,
+          "mean_case_percent": 11.651640073131,
+          "median": 11.651640073131,
+          "sd": 15.35333207640071,
+          "worst": 0.7951948480991227,
+          "best": 22.50808529816288,
+          "wins": 2,
+          "ties": 0,
+          "losses": 0,
+          "case_bootstrap95": [
+            11.651640073131,
+            11.651640073131
+          ]
+        },
+        "medium_A0": {
+          "pairs": 2,
+          "mean_case_percent": 3.9028927518183414,
+          "median": 3.9028927518183414,
+          "sd": 4.489918226027511,
+          "worst": 0.728041127221215,
+          "best": 7.077744376415468,
+          "wins": 2,
+          "ties": 0,
+          "losses": 0,
+          "case_bootstrap95": [
+            3.9028927518183414,
+            3.9028927518183414
+          ]
+        },
+        "medium_multi": {
+          "pairs": 2,
+          "mean_case_percent": 0.382768812970694,
+          "median": 0.382768812970694,
+          "sd": 0.5413168465566061,
+          "worst": 0.0,
+          "best": 0.765537625941388,
+          "wins": 1,
+          "ties": 1,
+          "losses": 0,
+          "case_bootstrap95": [
+            0.382768812970694,
+            0.382768812970694
+          ]
+        },
+        "cluster_alpha0": {
+          "pairs": 2,
+          "mean_case_percent": -0.1372345792757776,
+          "median": -0.1372345792757776,
+          "sd": 1.3817801643807308,
+          "worst": -1.1143007036184547,
+          "best": 0.8398315450668995,
+          "wins": 1,
+          "ties": 0,
+          "losses": 1,
+          "case_bootstrap95": [
+            -0.1372345792757776,
+            -0.1372345792757776
+          ]
+        },
+        "grid_boundary": {
+          "pairs": 2,
+          "mean_case_percent": 2.017262791282458,
+          "median": 2.017262791282458,
+          "sd": 0.5607712784964478,
+          "worst": 1.6207376175629695,
+          "best": 2.413787965001946,
+          "wins": 2,
+          "ties": 0,
+          "losses": 0,
+          "case_bootstrap95": [
+            2.017262791282458,
+            2.017262791282458
+          ]
+        },
+        "large": {
+          "pairs": 2,
+          "mean_case_percent": 0.05750263939011677,
+          "median": 0.05750263939011677,
+          "sd": 0.04498001260961305,
+          "worst": 0.025696967456002973,
+          "best": 0.08930831132423057,
+          "wins": 2,
+          "ties": 0,
+          "losses": 0,
+          "case_bootstrap95": [
+            0.05750263939011677,
+            0.05750263939011677
+          ]
+        },
+        "huge": {
+          "pairs": 2,
+          "mean_case_percent": -32.93441171389767,
+          "median": -32.93441171389767,
+          "sd": 12.346539793386798,
+          "worst": -41.66473372599103,
+          "best": -24.204089701804307,
+          "wins": 0,
+          "ties": 0,
+          "losses": 2,
+          "case_bootstrap95": [
+            -32.93441171389767,
+            -32.93441171389767
+          ]
+        },
+        "official_3": {
+          "pairs": 2,
+          "mean_case_percent": 2.953931069648128,
+          "median": 2.953931069648128,
+          "sd": 0.03709669614317137,
+          "worst": 2.9276997442456745,
+          "best": 2.980162395050581,
+          "wins": 2,
+          "ties": 0,
+          "losses": 0,
+          "case_bootstrap95": [
+            2.953931069648128,
+            2.953931069648128
+          ]
+        },
+        "official_4": {
+          "pairs": 2,
+          "mean_case_percent": 0.6877545422155343,
+          "median": 0.6877545422155343,
+          "sd": 0.972631801184908,
+          "worst": 0.0,
+          "best": 1.3755090844310687,
+          "wins": 1,
+          "ties": 1,
+          "losses": 0,
+          "case_bootstrap95": [
+            0.6877545422155343,
+            0.6877545422155343
+          ]
+        }
+      },
+      "pairs": [
+        {
+          "case": "medium_road",
+          "seed": 10101,
+          "delta": 0.0,
+          "percent": 0.0,
+          "base": 38.41466548438117,
+          "candidate": 38.41466548438117,
+          "both_success": true
+        },
+        {
+          "case": "medium_road",
+          "seed": 10102,
+          "delta": 0.0,
+          "percent": 0.0,
+          "base": 38.41466548438117,
+          "candidate": 38.41466548438117,
+          "both_success": true
+        },
+        {
+          "case": "medium_anti",
+          "seed": 10101,
+          "delta": 19.310340509779053,
+          "percent": 0.7951948480991227,
+          "base": 2428.3784730169655,
+          "candidate": 2447.6888135267445,
+          "both_success": true
+        },
+        {
+          "case": "medium_anti",
+          "seed": 10102,
+          "delta": 546.5814980688838,
+          "percent": 22.50808529816288,
+          "base": 2428.3784730169655,
+          "candidate": 2974.9599710858492,
+          "both_success": true
+        },
+        {
+          "case": "medium_A0",
+          "seed": 10101,
+          "delta": 3.156439855030996,
+          "percent": 7.077744376415468,
+          "base": 44.59669192841885,
+          "candidate": 47.753131783449845,
+          "both_success": true
+        },
+        {
+          "case": "medium_A0",
+          "seed": 10102,
+          "delta": 0.3236662693447059,
+          "percent": 0.728041127221215,
+          "base": 44.45714084588521,
+          "candidate": 44.78080711522992,
+          "both_success": false
+        },
+        {
+          "case": "medium_multi",
+          "seed": 10101,
+          "delta": 148.8004964094289,
+          "percent": 0.765537625941388,
+          "base": 19437.385096055557,
+          "candidate": 19586.185592464986,
+          "both_success": true
+        },
+        {
+          "case": "medium_multi",
+          "seed": 10102,
+          "delta": 0.0,
+          "percent": 0.0,
+          "base": 19586.185592464986,
+          "candidate": 19586.185592464986,
+          "both_success": true
+        },
+        {
+          "case": "cluster_alpha0",
+          "seed": 10101,
+          "delta": 1173.5353943808586,
+          "percent": 0.8398315450668995,
+          "base": 139734.61717103957,
+          "candidate": 140908.15256542043,
+          "both_success": true
+        },
+        {
+          "case": "cluster_alpha0",
+          "seed": 10102,
+          "delta": -1563.0107810302288,
+          "percent": -1.1143007036184547,
+          "base": 140268.31141312965,
+          "candidate": 138705.30063209942,
+          "both_success": true
+        },
+        {
+          "case": "grid_boundary",
+          "seed": 10101,
+          "delta": 1.2046204106419651,
+          "percent": 2.413787965001946,
+          "base": 49.905808965328646,
+          "candidate": 51.11042937597061,
+          "both_success": true
+        },
+        {
+          "case": "grid_boundary",
+          "seed": 10102,
+          "delta": 0.810151555569071,
+          "percent": 1.6207376175629695,
+          "base": 49.98659541124612,
+          "candidate": 50.79674696681519,
+          "both_success": true
+        },
+        {
+          "case": "large",
+          "seed": 10101,
+          "delta": 0.07140868765031883,
+          "percent": 0.025696967456002973,
+          "base": 277.8876058919447,
+          "candidate": 277.959014579595,
+          "both_success": false
+        },
+        {
+          "case": "large",
+          "seed": 10102,
+          "delta": 0.2481767282014289,
+          "percent": 0.08930831132423057,
+          "base": 277.8876058919447,
+          "candidate": 278.13578262014613,
+          "both_success": true
+        },
+        {
+          "case": "huge",
+          "seed": 10101,
+          "delta": -1083077.6902525518,
+          "percent": -41.66473372599103,
+          "base": 2599507.049236014,
+          "candidate": 1516429.3589834622,
+          "both_success": true
+        },
+        {
+          "case": "huge",
+          "seed": 10102,
+          "delta": -731174.6926971781,
+          "percent": -24.204089701804307,
+          "base": 3020872.5124773947,
+          "candidate": 2289697.8197802166,
+          "both_success": true
+        },
+        {
+          "case": "official_3",
+          "seed": 10101,
+          "delta": 3990.483349924034,
+          "percent": 2.9276997442456745,
+          "base": 136300.9768254834,
+          "candidate": 140291.46017540744,
+          "both_success": true
+        },
+        {
+          "case": "official_3",
+          "seed": 10102,
+          "delta": 4061.9904554396635,
+          "percent": 2.980162395050581,
+          "base": 136300.9768254834,
+          "candidate": 140362.96728092307,
+          "both_success": true
+        },
+        {
+          "case": "official_4",
+          "seed": 10101,
+          "delta": 0.0,
+          "percent": 0.0,
+          "base": 18019.089861853645,
+          "candidate": 18019.089861853645,
+          "both_success": true
+        },
+        {
+          "case": "official_4",
+          "seed": 10102,
+          "delta": 249.84547708548416,
+          "percent": 1.3755090844310687,
+          "base": 18163.85510742185,
+          "candidate": 18413.700584507333,
+          "both_success": true
+        }
+      ]
+    },
+    "memetic_vs_v9": {
+      "all_valid": {
+        "pairs": 20,
+        "mean_case_percent": -1.992861043421363,
+        "median": 0.0,
+        "sd": 12.118691519457164,
+        "worst": -41.670090869970494,
+        "best": 22.467412478547004,
+        "wins": 8,
+        "ties": 5,
+        "losses": 7,
+        "case_bootstrap95": [
+          -9.848987997073781,
+          3.4092060832396673
+        ]
+      },
+      "successful": {
+        "pairs": 20,
+        "mean_case_percent": -1.992861043421363,
+        "median": 0.0,
+        "sd": 12.118691519457164,
+        "worst": -41.670090869970494,
+        "best": 22.467412478547004,
+        "wins": 8,
+        "ties": 5,
+        "losses": 7,
+        "case_bootstrap95": [
+          -9.848987997073781,
+          3.4092060832396673
+        ]
+      },
+      "per_case": {
+        "medium_road": {
+          "pairs": 2,
+          "mean_case_percent": 0.0,
+          "median": 0.0,
+          "sd": 0.0,
+          "worst": 0.0,
+          "best": 0.0,
+          "wins": 0,
+          "ties": 2,
+          "losses": 0,
+          "case_bootstrap95": [
+            0.0,
+            0.0
+          ]
+        },
+        "medium_anti": {
+          "pairs": 2,
+          "mean_case_percent": 11.614571605319604,
+          "median": 11.614571605319604,
+          "sd": 15.348234753195253,
+          "worst": 0.7617307320922024,
+          "best": 22.467412478547004,
+          "wins": 2,
+          "ties": 0,
+          "losses": 0,
+          "case_bootstrap95": [
+            11.614571605319604,
+            11.614571605319604
+          ]
+        },
+        "medium_A0": {
+          "pairs": 2,
+          "mean_case_percent": -1.1015624368198202,
+          "median": -1.1015624368198202,
+          "sd": 3.701354062590859,
+          "worst": -3.7188149940501933,
+          "best": 1.5156901204105528,
+          "wins": 1,
+          "ties": 0,
+          "losses": 1,
+          "case_bootstrap95": [
+            -1.1015624368198202,
+            -1.1015624368198202
+          ]
+        },
+        "medium_multi": {
+          "pairs": 2,
+          "mean_case_percent": 0.0,
+          "median": 0.0,
+          "sd": 0.0,
+          "worst": 0.0,
+          "best": 0.0,
+          "wins": 0,
+          "ties": 2,
+          "losses": 0,
+          "case_bootstrap95": [
+            0.0,
+            0.0
+          ]
+        },
+        "cluster_alpha0": {
+          "pairs": 2,
+          "mean_case_percent": -0.6107550591763183,
+          "median": -0.6107550591763183,
+          "sd": 0.2616445040342576,
+          "worst": -0.7957656622391329,
+          "best": -0.4257444561135038,
+          "wins": 0,
+          "ties": 0,
+          "losses": 2,
+          "case_bootstrap95": [
+            -0.6107550591763183,
+            -0.6107550591763183
+          ]
+        },
+        "grid_boundary": {
+          "pairs": 2,
+          "mean_case_percent": 1.6004636490003668,
+          "median": 1.6004636490003668,
+          "sd": 0.30848747395567117,
+          "worst": 1.3823300642552032,
+          "best": 1.8185972337455303,
+          "wins": 2,
+          "ties": 0,
+          "losses": 0,
+          "case_bootstrap95": [
+            1.6004636490003668,
+            1.6004636490003668
+          ]
+        },
+        "large": {
+          "pairs": 2,
+          "mean_case_percent": -0.07977830259249637,
+          "median": -0.07977830259249637,
+          "sd": 0.13575480817791546,
+          "worst": -0.17577144803377936,
+          "best": 0.016214842848786635,
+          "wins": 1,
+          "ties": 0,
+          "losses": 1,
+          "case_bootstrap95": [
+            -0.07977830259249637,
+            -0.07977830259249637
+          ]
+        },
+        "huge": {
+          "pairs": 2,
+          "mean_case_percent": -32.9370902858874,
+          "median": -32.9370902858874,
+          "sd": 12.350327866222472,
+          "worst": -41.670090869970494,
+          "best": -24.204089701804307,
+          "wins": 0,
+          "ties": 0,
+          "losses": 2,
+          "case_bootstrap95": [
+            -32.9370902858874,
+            -32.9370902858874
+          ]
+        },
+        "official_3": {
+          "pairs": 2,
+          "mean_case_percent": 2.724241744689348,
+          "median": 2.724241744689348,
+          "sd": 0.03701393373665804,
+          "worst": 2.6980689411457677,
+          "best": 2.7504145482329285,
+          "wins": 2,
+          "ties": 0,
+          "losses": 0,
+          "case_bootstrap95": [
+            2.724241744689348,
+            2.724241744689348
+          ]
+        },
+        "official_4": {
+          "pairs": 2,
+          "mean_case_percent": -1.138701348746912,
+          "median": -1.138701348746912,
+          "sd": 1.6103668908904185,
+          "worst": -2.277402697493824,
+          "best": 0.0,
+          "wins": 0,
+          "ties": 1,
+          "losses": 1,
+          "case_bootstrap95": [
+            -1.138701348746912,
+            -1.138701348746912
+          ]
+        }
+      },
+      "pairs": [
+        {
+          "case": "medium_road",
+          "seed": 10101,
+          "delta": 0.0,
+          "percent": 0.0,
+          "base": 38.41466548438117,
+          "candidate": 38.41466548438117,
+          "both_success": true
+        },
+        {
+          "case": "medium_road",
+          "seed": 10102,
+          "delta": 0.0,
+          "percent": 0.0,
+          "base": 38.41466548438117,
+          "candidate": 38.41466548438117,
+          "both_success": true
+        },
+        {
+          "case": "medium_anti",
+          "seed": 10101,
+          "delta": 18.503848418592042,
+          "percent": 0.7617307320922024,
+          "base": 2429.1849651081525,
+          "candidate": 2447.6888135267445,
+          "both_success": true
+        },
+        {
+          "case": "medium_anti",
+          "seed": 10102,
+          "delta": 545.7750059776968,
+          "percent": 22.467412478547004,
+          "base": 2429.1849651081525,
+          "candidate": 2974.9599710858492,
+          "both_success": true
+        },
+        {
+          "case": "medium_A0",
+          "seed": 10101,
+          "delta": 0.7129828894133254,
+          "percent": 1.5156901204105528,
+          "base": 47.04014889403652,
+          "candidate": 47.753131783449845,
+          "both_success": true
+        },
+        {
+          "case": "medium_A0",
+          "seed": 10102,
+          "delta": -1.7296373838304504,
+          "percent": -3.7188149940501933,
+          "base": 46.51044449906037,
+          "candidate": 44.78080711522992,
+          "both_success": true
+        },
+        {
+          "case": "medium_multi",
+          "seed": 10101,
+          "delta": 0.0,
+          "percent": 0.0,
+          "base": 19586.185592464986,
+          "candidate": 19586.185592464986,
+          "both_success": true
+        },
+        {
+          "case": "medium_multi",
+          "seed": 10102,
+          "delta": 0.0,
+          "percent": 0.0,
+          "base": 19586.185592464986,
+          "candidate": 19586.185592464986,
+          "both_success": true
+        },
+        {
+          "case": "cluster_alpha0",
+          "seed": 10101,
+          "delta": -602.473645906226,
+          "percent": -0.4257444561135038,
+          "base": 141510.62621132666,
+          "candidate": 140908.15256542043,
+          "both_success": true
+        },
+        {
+          "case": "cluster_alpha0",
+          "seed": 10102,
+          "delta": -1112.623026127898,
+          "percent": -0.7957656622391329,
+          "base": 139817.92365822732,
+          "candidate": 138705.30063209942,
+          "both_success": true
+        },
+        {
+          "case": "grid_boundary",
+          "seed": 10101,
+          "delta": 0.9128910435222579,
+          "percent": 1.8185972337455303,
+          "base": 50.19753833244835,
+          "candidate": 51.11042937597061,
+          "both_success": true
+        },
+        {
+          "case": "grid_boundary",
+          "seed": 10102,
+          "delta": 0.6926046230550185,
+          "percent": 1.3823300642552032,
+          "base": 50.104142343760174,
+          "candidate": 50.79674696681519,
+          "both_success": true
+        },
+        {
+          "case": "large",
+          "seed": 10101,
+          "delta": 0.04506331045314482,
+          "percent": 0.016214842848786635,
+          "base": 277.9139512691419,
+          "candidate": 277.959014579595,
+          "both_success": true
+        },
+        {
+          "case": "large",
+          "seed": 10102,
+          "delta": -0.4897441229480819,
+          "percent": -0.17577144803377936,
+          "base": 278.6255267430942,
+          "candidate": 278.13578262014613,
+          "both_success": true
+        },
+        {
+          "case": "huge",
+          "seed": 10101,
+          "delta": -1083316.4345562216,
+          "percent": -41.670090869970494,
+          "base": 2599745.793539684,
+          "candidate": 1516429.3589834622,
+          "both_success": true
+        },
+        {
+          "case": "huge",
+          "seed": 10102,
+          "delta": -731174.6926971781,
+          "percent": -24.204089701804307,
+          "base": 3020872.5124773947,
+          "candidate": 2289697.8197802166,
+          "both_success": true
+        },
+        {
+          "case": "official_3",
+          "seed": 10101,
+          "delta": 3685.7171250627434,
+          "percent": 2.6980689411457677,
+          "base": 136605.7430503447,
+          "candidate": 140291.46017540744,
+          "both_success": true
+        },
+        {
+          "case": "official_3",
+          "seed": 10102,
+          "delta": 3757.224230578373,
+          "percent": 2.7504145482329285,
+          "base": 136605.7430503447,
+          "candidate": 140362.96728092307,
+          "both_success": true
+        },
+        {
+          "case": "official_4",
+          "seed": 10101,
+          "delta": 0.0,
+          "percent": 0.0,
+          "base": 18019.089861853645,
+          "candidate": 18019.089861853645,
+          "both_success": true
+        },
+        {
+          "case": "official_4",
+          "seed": 10102,
+          "delta": -429.1270651780469,
+          "percent": -2.277402697493824,
+          "base": 18842.82764968538,
+          "candidate": 18413.700584507333,
+          "both_success": true
+        }
+      ]
+    }
+  }
+}

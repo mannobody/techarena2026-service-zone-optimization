@@ -1,0 +1,79 @@
+{
+  "spec": {
+    "name": "independent280",
+    "seconds": 280,
+    "seeds": [
+      0,
+      12702
+    ],
+    "cpus": [
+      [
+        0,
+        1
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        8,
+        10
+      ],
+      [
+        12,
+        13
+      ],
+      [
+        16,
+        17
+      ],
+      [
+        18,
+        19
+      ],
+      [
+        20,
+        21
+      ]
+    ],
+    "cases": {
+      "euclid420": "experiments/submission_1668601_v12/inputs/fresh/euclid420.json",
+      "road350": "experiments/submission_1668601_v12/inputs/fresh/road350.json",
+      "anti330": "experiments/submission_1668601_v12/inputs/fresh/anti330.json",
+      "equal260": "experiments/submission_1668601_v12/inputs/fresh/equal260.json",
+      "grid300": "experiments/submission_1668601_v12/inputs/fresh/grid300.json",
+      "multi480": "experiments/submission_1668601_v12/inputs/fresh/multi480.json",
+      "huge9500": "experiments/submission_1668601_v12/inputs/fresh/huge9500.json"
+    },
+    "variants": {
+      "submission": {
+        "binary": "experiments/submission_1668601_v12/baseline/solution"
+      },
+      "candidate": {
+        "binary": "experiments/submission_1668601_v12/artifacts/package_rebuild/solution",
+        "env": {
+          "GW_MODE": "1",
+          "ZM_POOL": "0",
+          "ZM_RESERVE": "0"
+        }
+      }
+    }
+  },
+  "spec_sha256": "ed7153d44e558d0a662acfbbd3926053d1a42255e97aa85bb5f0e2becd2dbd2b",
+  "inputs": {
+    "euclid420": "df39ad7fba6962d062d6f708dbb89dcb27e8cc1b757615e61ebd3d503a50fd0e",
+    "road350": "ffdf72c179e513b426273d62fb57a13ce1506725e4449a0363a41a8e91125d0f",
+    "anti330": "c29248d70ba63f15bd3461e7a0a021a6554709e9e3efb1c76adb3f847f5abb5f",
+    "equal260": "54bd7e95b0ff5dd94c1be421804bbcf1155a7a155b6e7f2a44d214845a3f3d9d",
+    "grid300": "588bbf45847190ca845d1c2d552a6a7d21e53f5be47d259394eb24ba0d3cbc5a",
+    "multi480": "ebb0f41dab4e3f0f1e7c7fdb4d9ac562c28ec7225215a27e357feaba7b3728af",
+    "huge9500": "81663c5879f3f32a4dd067cc9fb131380908448a502dfc833aba5b2388187af1"
+  },
+  "binaries": {
+    "submission": "2d6ec1ffe23cef9af7e8fbb957b36dcf54837b5e4dc36aef1966df871e44f122",
+    "candidate": "4ad3f6bf8ef857d38f2bf04dcc802db7a2debef42395c68288ddc7cd2f7d0723"
+  },
+  "validator": "6dd5948ebe72977976acf1b8dcaf7c819274c79addfb82328c0ec9a012ed56e0",
+  "cpu_topology": "<local-host-omitted>",
+  "runner_sha256": "6dbfb58cff7b88b4b2952ad76f9439d39b1e03b1d014cb0ff94f3e3306f1ec7d"
+}

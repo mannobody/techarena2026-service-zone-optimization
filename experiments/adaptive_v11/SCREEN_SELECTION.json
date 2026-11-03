@@ -1,0 +1,50 @@
+{
+  "selected": {
+    "variant": "race_no_share",
+    "operational": true,
+    "mean_vs_v10": -0.14417549300034463,
+    "mean_vs_v4": 2.6741019770803107,
+    "worst_vs_v4": -8.964956022656073,
+    "env": {
+      "AP_POLICY": "1",
+      "AP_SHARE": "0"
+    }
+  },
+  "all_candidates": [
+    {
+      "variant": "dual",
+      "operational": true,
+      "mean_vs_v10": -0.5060603284977659,
+      "mean_vs_v4": 2.2195858086782985,
+      "worst_vs_v4": -10.057423836338513,
+      "env": {
+        "AP_POLICY": "0",
+        "AP_SHARE": "1"
+      }
+    },
+    {
+      "variant": "race",
+      "operational": true,
+      "mean_vs_v10": -0.8353788258469775,
+      "mean_vs_v4": 1.8235768827059489,
+      "worst_vs_v4": -8.940629917526971,
+      "env": {
+        "AP_POLICY": "1",
+        "AP_SHARE": "1"
+      }
+    },
+    {
+      "variant": "race_no_share",
+      "operational": true,
+      "mean_vs_v10": -0.14417549300034463,
+      "mean_vs_v4": 2.6741019770803107,
+      "worst_vs_v4": -8.964956022656073,
+      "env": {
+        "AP_POLICY": "1",
+        "AP_SHARE": "0"
+      }
+    }
+  ],
+  "rule": "PROTOCOL.selection, screen45 development; includes tiny input, no claim at TL280",
+  "new_revision": "v3 adds verified specialists, all general random screen instances use the same racing algorithm"
+}

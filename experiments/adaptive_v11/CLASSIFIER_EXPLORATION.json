@@ -1,0 +1,3267 @@
+{
+  "method": "Grouped leave-one-input-out, historical TL280 only. Model-selection evidence, not independent confirmation.",
+  "bins": {
+    "ns": [
+      16,
+      64,
+      256,
+      1024,
+      4096
+    ],
+    "balance_pressure": [
+      0,
+      0.05,
+      0.2,
+      1,
+      5
+    ],
+    "count_slack": [
+      0,
+      0.1,
+      0.5,
+      1,
+      2
+    ],
+    "geo_distance_corr": [
+      -0.5,
+      0.5,
+      0.95
+    ],
+    "nearest_agreement": [
+      0.25,
+      0.75,
+      0.99
+    ],
+    "capacity_ratio": [
+      0.75,
+      1,
+      1.25,
+      2
+    ],
+    "workers_per_skill_office": [
+      0.25,
+      0.5,
+      1
+    ],
+    "multiskill_fraction": [
+      0,
+      0.5
+    ],
+    "unservable_fraction": [
+      0,
+      0.1
+    ],
+    "task_mean": [
+      1,
+      2,
+      4
+    ],
+    "positive_pair_fraction": [
+      0.25,
+      0.5,
+      0.75,
+      0.95
+    ],
+    "anisotropy": [
+      0.1,
+      0.5,
+      0.9
+    ]
+  },
+  "inputs": [
+    {
+      "h": "2abdb42b579f1107d15f7bb15aa636f0c2dc7dd136c6497d0519c7c386dc5d24",
+      "f": {
+        "ns": 120,
+        "no": 8,
+        "nw": 22,
+        "nsk": 3,
+        "log_ns": 4.795790545596741,
+        "sites_per_office": 15.0,
+        "workers_per_office": 2.75,
+        "workers_per_skill_office": 0.9166666666666666,
+        "min_skill_offices": 0.625,
+        "multiskill_fraction": 0.0,
+        "unservable_fraction": 0.0,
+        "task_mean": 2.1416666666666666,
+        "task_cv": 0.6854326097407576,
+        "reward_cv": 1.2902484276647062e-16,
+        "capacity_ratio": 0.9333333333333333,
+        "capacity_cv": 0.2672612419124244,
+        "count_slack": 0.06666666666666667,
+        "balance_pressure": 0.21416666666666664,
+        "cost_ratio": 0.05141145441848335,
+        "geo_distance_corr": 1.0,
+        "nearest_agreement": 1.0,
+        "profitable_fraction": 1.0,
+        "positive_pair_fraction": 0.9416666666666667,
+        "positive_offices_per_site": 7.533333333333333,
+        "best_profit_ratio": 0.8228761115344612,
+        "profit_gap_ratio": 0.15116518300193216,
+        "anisotropy": 0.8482240449410033
+      },
+      "y": 4.112070765125251,
+      "raw": [
+        1.7476084648900787,
+        6.4765330653604245
+      ],
+      "name": "grid_boundary"
+    },
+    {
+      "h": "3a73156656271a734e2db83b84d9ae11b2c3b892f8076aaaa59edc30c5d0f636",
+      "f": {
+        "ns": 160,
+        "no": 9,
+        "nw": 28,
+        "nsk": 4,
+        "log_ns": 5.081404364984463,
+        "sites_per_office": 17.77777777777778,
+        "workers_per_office": 3.111111111111111,
+        "workers_per_skill_office": 0.7777777777777778,
+        "min_skill_offices": 0.6666666666666666,
+        "multiskill_fraction": 0.0,
+        "unservable_fraction": 0.0,
+        "task_mean": 1.5125,
+        "task_cv": 0.7428368398170897,
+        "reward_cv": 0.0,
+        "capacity_ratio": 1.0875,
+        "capacity_cv": 0.18728931881379682,
+        "count_slack": 0.22499999999999998,
+        "balance_pressure": 0.015125000000000001,
+        "cost_ratio": 0.058665586660629744,
+        "geo_distance_corr": -0.8792970109311584,
+        "nearest_agreement": 0.0,
+        "profitable_fraction": 1.0,
+        "positive_pair_fraction": 0.7979166666666666,
+        "positive_offices_per_site": 7.18125,
+        "best_profit_ratio": 0.443059608915892,
+        "profit_gap_ratio": 0.07127975528068879,
+        "anisotropy": 0.9067513346310329
+      },
+      "y": 30.518622635955392,
+      "raw": [
+        44.106827039672,
+        12.905993792670447,
+        29.583076665136584,
+        35.47859304634254
+      ],
+      "name": "medium_anti"
+    },
+    {
+      "h": "3d8dd27fadec1cbd22ebded103cec9f072960d1bbd06037345881f0c3d317567",
+      "f": {
+        "ns": 160,
+        "no": 9,
+        "nw": 24,
+        "nsk": 4,
+        "log_ns": 5.081404364984463,
+        "sites_per_office": 17.77777777777778,
+        "workers_per_office": 2.6666666666666665,
+        "workers_per_skill_office": 0.6666666666666666,
+        "min_skill_offices": 0.6666666666666666,
+        "multiskill_fraction": 0.625,
+        "unservable_fraction": 0.0,
+        "task_mean": 2.13125,
+        "task_cv": 0.6658829022878896,
+        "reward_cv": 0.0,
+        "capacity_ratio": 1.08125,
+        "capacity_cv": 0.15467153942496709,
+        "count_slack": 0.056249999999999994,
+        "balance_pressure": 0.25575,
+        "cost_ratio": 0.05229130123270302,
+        "geo_distance_corr": 1.0,
+        "nearest_agreement": 1.0,
+        "profitable_fraction": 1.0,
+        "positive_pair_fraction": 0.6868055555555556,
+        "positive_offices_per_site": 6.18125,
+        "best_profit_ratio": 0.7648621489509252,
+        "profit_gap_ratio": 0.1273208163757622,
+        "anisotropy": 0.9194589407774076
+      },
+      "y": 14.616605501041443,
+      "raw": [
+        12.7082135729249,
+        15.242967800332991,
+        15.898635129866438
+      ],
+      "name": "grid160"
+    },
+    {
+      "h": "4c7662eec76604e953408d69987abcd7f326fb7ff43241bc0a69b139a4647f90",
+      "f": {
+        "ns": 220,
+        "no": 11,
+        "nw": 13,
+        "nsk": 6,
+        "log_ns": 5.3981627015177525,
+        "sites_per_office": 20.0,
+        "workers_per_office": 1.1818181818181819,
+        "workers_per_skill_office": 0.19696969696969696,
+        "min_skill_offices": 0.0,
+        "multiskill_fraction": 0.5384615384615384,
+        "unservable_fraction": 0.30454545454545456,
+        "task_mean": 2.0636363636363635,
+        "task_cv": 0.6672372983981149,
+        "reward_cv": 0.0,
+        "capacity_ratio": 0.9681818181818181,
+        "capacity_cv": 0.22269560987101264,
+        "count_slack": 0.2,
+        "balance_pressure": 0.06190909090909091,
+        "cost_ratio": 0.052714339443410946,
+        "geo_distance_corr": 0.864431591131775,
+        "nearest_agreement": 0.7136363636363636,
+        "profitable_fraction": 0.6954545454545454,
+        "positive_pair_fraction": 0.5338842975206611,
+        "positive_offices_per_site": 5.872727272727273,
+        "best_profit_ratio": 0.7153687619512075,
+        "profit_gap_ratio": 0.19271232993421086,
+        "anisotropy": 0.8929267508377441
+      },
+      "y": 0.15230915200437814,
+      "raw": [
+        0.2284637280065672,
+        0.0,
+        0.2284637280065672
+      ],
+      "name": "multi220"
+    },
+    {
+      "h": "552bf39a3d4dd81037901ffb4cf3f6c27790ccf220762e4e308eac71183da443",
+      "f": {
+        "ns": 120,
+        "no": 7,
+        "nw": 20,
+        "nsk": 4,
+        "log_ns": 4.795790545596741,
+        "sites_per_office": 17.142857142857142,
+        "workers_per_office": 2.857142857142857,
+        "workers_per_skill_office": 0.7142857142857143,
+        "min_skill_offices": 0.42857142857142855,
+        "multiskill_fraction": 0.0,
+        "unservable_fraction": 0.0,
+        "task_mean": 2.4,
+        "task_cv": 0.7480685005275128,
+        "reward_cv": 0.0,
+        "capacity_ratio": 0.9166666666666666,
+        "capacity_cv": 0.23496087242400157,
+        "count_slack": 0.11666666666666667,
+        "balance_pressure": 0.047999999999999994,
+        "cost_ratio": 0.04855799370682732,
+        "geo_distance_corr": 0.876637072807836,
+        "nearest_agreement": 0.7333333333333333,
+        "profitable_fraction": 1.0,
+        "positive_pair_fraction": 0.8571428571428572,
+        "positive_offices_per_site": 6.0,
+        "best_profit_ratio": 0.7872786356047635,
+        "profit_gap_ratio": 0.12773907798169173,
+        "anisotropy": 0.8287030640742888
+      },
+      "y": 8.562494224903823,
+      "raw": [
+        8.674774413373415,
+        4.878836572910571,
+        12.133871688427483
+      ],
+      "name": "road120"
+    },
+    {
+      "h": "562cd07f929d32c2685674e97314a0fdbf196936fb93831dadb7c5fe88d80c04",
+      "f": {
+        "ns": 10000,
+        "no": 24,
+        "nw": 64,
+        "nsk": 6,
+        "log_ns": 9.210440366976517,
+        "sites_per_office": 416.6666666666667,
+        "workers_per_office": 2.6666666666666665,
+        "workers_per_skill_office": 0.4444444444444444,
+        "min_skill_offices": 0.3333333333333333,
+        "multiskill_fraction": 0.0,
+        "unservable_fraction": 0.0,
+        "task_mean": 1.505,
+        "task_cv": 0.7401930727351554,
+        "reward_cv": 0.0,
+        "capacity_ratio": 0.9763,
+        "capacity_cv": 0.22925174183706534,
+        "count_slack": 0.24,
+        "balance_pressure": 0.01505,
+        "cost_ratio": 0.05332022962070809,
+        "geo_distance_corr": 1.0,
+        "nearest_agreement": 1.0,
+        "profitable_fraction": 1.0,
+        "positive_pair_fraction": 0.8239291666666666,
+        "positive_offices_per_site": 19.7743,
+        "best_profit_ratio": 0.8664026191251507,
+        "profit_gap_ratio": 0.07391271806033656,
+        "anisotropy": 0.9688102664737399
+      },
+      "y": -3.5094150926135375,
+      "raw": [
+        -2.2983023732128713,
+        -0.8555985213236246,
+        -2.30614989751765,
+        -8.577609578400004
+      ],
+      "name": "huge"
+    },
+    {
+      "h": "83b340fe4be955c3f8d92050e805ec7cf5064e20717b24cd231f63fe1ed2017d",
+      "f": {
+        "ns": 180,
+        "no": 10,
+        "nw": 30,
+        "nsk": 5,
+        "log_ns": 5.198497031265826,
+        "sites_per_office": 18.0,
+        "workers_per_office": 3.0,
+        "workers_per_skill_office": 0.6,
+        "min_skill_offices": 0.1,
+        "multiskill_fraction": 0.0,
+        "unservable_fraction": 0.0,
+        "task_mean": 1.5166666666666666,
+        "task_cv": 0.7722859266291914,
+        "reward_cv": 0.0,
+        "capacity_ratio": 0.9388888888888889,
+        "capacity_cv": 0.18608503187593362,
+        "count_slack": 0.2222222222222222,
+        "balance_pressure": 0.02275,
+        "cost_ratio": 0.04705431252941967,
+        "geo_distance_corr": -0.8951250810163033,
+        "nearest_agreement": 0.0,
+        "profitable_fraction": 1.0,
+        "positive_pair_fraction": 0.856111111111111,
+        "positive_offices_per_site": 8.561111111111112,
+        "best_profit_ratio": 0.4953303011354726,
+        "profit_gap_ratio": 0.06301233445854436,
+        "anisotropy": 0.9166181696264242
+      },
+      "y": 0.012616197428215811,
+      "raw": [
+        -3.680016803647997,
+        -0.6358150134883731,
+        4.353680409421018
+      ],
+      "name": "anti180"
+    },
+    {
+      "h": "949d354e84f0449b3e0683c92b4cfc9b0b5cc54cea387290e3e3cc55182d4ec4",
+      "f": {
+        "ns": 1200,
+        "no": 16,
+        "nw": 40,
+        "nsk": 6,
+        "log_ns": 7.0909098220799835,
+        "sites_per_office": 75.0,
+        "workers_per_office": 2.5,
+        "workers_per_skill_office": 0.4166666666666667,
+        "min_skill_offices": 0.125,
+        "multiskill_fraction": 0.0,
+        "unservable_fraction": 0.0,
+        "task_mean": 2.0375,
+        "task_cv": 0.707173313001524,
+        "reward_cv": 0.0,
+        "capacity_ratio": 1.075,
+        "capacity_cv": 0.20497390571757834,
+        "count_slack": 0.26666666666666666,
+        "balance_pressure": 0.020375000000000004,
+        "cost_ratio": 0.05073907626196538,
+        "geo_distance_corr": 0.8689639463974357,
+        "nearest_agreement": 0.7333333333333333,
+        "profitable_fraction": 1.0,
+        "positive_pair_fraction": 0.8901041666666667,
+        "positive_offices_per_site": 14.241666666666667,
+        "best_profit_ratio": 0.8517888975031375,
+        "profit_gap_ratio": 0.07074397341932706,
+        "anisotropy": 0.9705162918760134
+      },
+      "y": 0.18081279087749613,
+      "raw": [
+        0.6088514913136115,
+        0.12850179271398113,
+        -0.13345144649635102,
+        0.11934932597874293
+      ],
+      "name": "regression_large"
+    },
+    {
+      "h": "b268a3a102d4e00115170032917c6c336453c287e0aff1f2dd69e9e5425023b4",
+      "f": {
+        "ns": 140,
+        "no": 8,
+        "nw": 18,
+        "nsk": 3,
+        "log_ns": 4.948759890378168,
+        "sites_per_office": 17.5,
+        "workers_per_office": 2.25,
+        "workers_per_skill_office": 0.75,
+        "min_skill_offices": 1.0,
+        "multiskill_fraction": 0.5,
+        "unservable_fraction": 0.0,
+        "task_mean": 2.9285714285714284,
+        "task_cv": 0.6676871032278336,
+        "reward_cv": 0.0,
+        "capacity_ratio": 0.9714285714285714,
+        "capacity_cv": 0.22591605140790022,
+        "count_slack": 0.0,
+        "balance_pressure": 1.4642857142857142,
+        "cost_ratio": 0.06029395599037802,
+        "geo_distance_corr": 1.0,
+        "nearest_agreement": 1.0,
+        "profitable_fraction": 1.0,
+        "positive_pair_fraction": 0.8044642857142857,
+        "positive_offices_per_site": 6.435714285714286,
+        "best_profit_ratio": 0.7351064922563154,
+        "profit_gap_ratio": 0.1259948807883084,
+        "anisotropy": 0.760256959895384
+      },
+      "y": 1.5737158902471098,
+      "raw": [
+        3.229418569032266,
+        -0.08198678853804654
+      ],
+      "name": "medium_A0"
+    },
+    {
+      "h": "b317584ab6fcf67732fb341f6345f0fa2baa49a5007c5022cd6f372c27c767b5",
+      "f": {
+        "ns": 1500,
+        "no": 18,
+        "nw": 48,
+        "nsk": 7,
+        "log_ns": 7.313886831633462,
+        "sites_per_office": 83.33333333333333,
+        "workers_per_office": 2.6666666666666665,
+        "workers_per_skill_office": 0.38095238095238093,
+        "min_skill_offices": 0.2777777777777778,
+        "multiskill_fraction": 0.0,
+        "unservable_fraction": 0.0,
+        "task_mean": 1.9913333333333334,
+        "task_cv": 0.6981135624206214,
+        "reward_cv": 0.0,
+        "capacity_ratio": 0.968,
+        "capacity_cv": 0.23579078706920836,
+        "count_slack": 0.24000000000000002,
+        "balance_pressure": 0.029869999999999997,
+        "cost_ratio": 0.06159569966678376,
+        "geo_distance_corr": 0.8678474271798352,
+        "nearest_agreement": 0.778,
+        "profitable_fraction": 1.0,
+        "positive_pair_fraction": 0.8611111111111112,
+        "positive_offices_per_site": 15.5,
+        "best_profit_ratio": 0.8764138030520618,
+        "profit_gap_ratio": 0.07902855405629311,
+        "anisotropy": 0.9252802009944222
+      },
+      "y": 0.04948379479589748,
+      "raw": [
+        0.061644535076635844,
+        0.09533467264909663,
+        -0.008527823338040036
+      ],
+      "name": "road1500"
+    },
+    {
+      "h": "c5ed4b25a57c9c449912b2cfe2022a33e7c8fdac57fef5e5d4073653293221d9",
+      "f": {
+        "ns": 10000,
+        "no": 24,
+        "nw": 64,
+        "nsk": 6,
+        "log_ns": 9.210440366976517,
+        "sites_per_office": 416.6666666666667,
+        "workers_per_office": 2.6666666666666665,
+        "workers_per_skill_office": 0.4444444444444444,
+        "min_skill_offices": 0.20833333333333334,
+        "multiskill_fraction": 0.0,
+        "unservable_fraction": 0.0,
+        "task_mean": 1.4945,
+        "task_cv": 0.7487480158809032,
+        "reward_cv": 0.0,
+        "capacity_ratio": 0.931,
+        "capacity_cv": 0.23749092148770468,
+        "count_slack": 0.24,
+        "balance_pressure": 0.014945,
+        "cost_ratio": 0.05482149982410614,
+        "geo_distance_corr": 1.0,
+        "nearest_agreement": 1.0,
+        "profitable_fraction": 1.0,
+        "positive_pair_fraction": 0.8144333333333333,
+        "positive_offices_per_site": 19.5464,
+        "best_profit_ratio": 0.8730472844775999,
+        "profit_gap_ratio": 0.07183356703559177,
+        "anisotropy": 0.9958427984893298
+      },
+      "y": 7.7016033011503415,
+      "raw": [
+        3.169994191581854,
+        12.416239007088604,
+        7.518576704780567
+      ],
+      "name": "huge10000"
+    },
+    {
+      "h": "d01c153d1d352e62344f0ddaf2b968f1ec6619c8ac57b661e5357d7d4669542b",
+      "f": {
+        "ns": 400,
+        "no": 12,
+        "nw": 32,
+        "nsk": 5,
+        "log_ns": 5.993961427306569,
+        "sites_per_office": 33.333333333333336,
+        "workers_per_office": 2.6666666666666665,
+        "workers_per_skill_office": 0.5333333333333333,
+        "min_skill_offices": 0.5,
+        "multiskill_fraction": 0.0,
+        "unservable_fraction": 0.0,
+        "task_mean": 1.5375,
+        "task_cv": 0.7209232408893557,
+        "reward_cv": 0.0,
+        "capacity_ratio": 0.98,
+        "capacity_cv": 0.20125594819710227,
+        "count_slack": 0.3,
+        "balance_pressure": 0.0,
+        "cost_ratio": 0.0578974836794883,
+        "geo_distance_corr": 1.0,
+        "nearest_agreement": 1.0,
+        "profitable_fraction": 1.0,
+        "positive_pair_fraction": 0.7991666666666667,
+        "positive_offices_per_site": 9.59,
+        "best_profit_ratio": 0.7388221627255358,
+        "profit_gap_ratio": 0.06674455526128381,
+        "anisotropy": 0.5868263498769575
+      },
+      "y": 1.1990540528852163,
+      "raw": [
+        0.8856030682863709,
+        0.6305982310480786,
+        2.0809608593211992
+      ],
+      "name": "cluster400"
+    },
+    {
+      "h": "d8f07f8f500427ff4b22fdf17c8dff508f86fd14cfd83914ee6c979a70045434",
+      "f": {
+        "ns": 150,
+        "no": 8,
+        "nw": 18,
+        "nsk": 3,
+        "log_ns": 5.017279836814924,
+        "sites_per_office": 18.75,
+        "workers_per_office": 2.25,
+        "workers_per_skill_office": 0.75,
+        "min_skill_offices": 0.5,
+        "multiskill_fraction": 0.2222222222222222,
+        "unservable_fraction": 0.0,
+        "task_mean": 3.54,
+        "task_cv": 0.6609847562460238,
+        "reward_cv": 0.0,
+        "capacity_ratio": 1.1466666666666667,
+        "capacity_cv": 0.16444343748524362,
+        "count_slack": 0.0,
+        "balance_pressure": 2.1239999999999997,
+        "cost_ratio": 0.05622371310465132,
+        "geo_distance_corr": 1.0,
+        "nearest_agreement": 1.0,
+        "profitable_fraction": 1.0,
+        "positive_pair_fraction": 0.9275,
+        "positive_offices_per_site": 7.42,
+        "best_profit_ratio": 0.813365161113383,
+        "profit_gap_ratio": 0.13533143341283824,
+        "anisotropy": 0.9108855635251506
+      },
+      "y": -0.32961098295906227,
+      "raw": [
+        0.3007437130725537,
+        0.23196625489272696,
+        -1.5215429168424675
+      ],
+      "name": "equal_count150"
+    },
+    {
+      "h": "dd3f95826ed3b9fd6fca9b1be1b98fb1326419feb630bc2cabf37e56bef5dcc1",
+      "f": {
+        "ns": 331,
+        "no": 10,
+        "nw": 20,
+        "nsk": 3,
+        "log_ns": 5.805134968916488,
+        "sites_per_office": 33.1,
+        "workers_per_office": 2.0,
+        "workers_per_skill_office": 0.6666666666666666,
+        "min_skill_offices": 0.5,
+        "multiskill_fraction": 0.0,
+        "unservable_fraction": 0.0,
+        "task_mean": 6.794561933534744,
+        "task_cv": 0.4181626348130807,
+        "reward_cv": 0.0,
+        "capacity_ratio": 3.175226586102719,
+        "capacity_cv": 0.18289365053803017,
+        "count_slack": 1.9939577039274923,
+        "balance_pressure": 1.236076197641122,
+        "cost_ratio": 0.015327090618590914,
+        "geo_distance_corr": -0.8795076326712831,
+        "nearest_agreement": 0.0,
+        "profitable_fraction": 1.0,
+        "positive_pair_fraction": 0.9879154078549849,
+        "positive_offices_per_site": 9.879154078549849,
+        "best_profit_ratio": 0.7837794475925928,
+        "profit_gap_ratio": 0.07224299929068789,
+        "anisotropy": 0.9130432268182275
+      },
+      "y": 0.9143873035242605,
+      "raw": [
+        0.5669094765349065,
+        1.2618651305136144
+      ],
+      "name": "official_3"
+    }
+  ],
+  "policies": [
+    {
+      "depth": 0,
+      "minleaf": 3,
+      "margin": 0,
+      "mean": 4.6967678238833015,
+      "worst": -8.577609578400004,
+      "rows": [
+        {
+          "case": "grid_boundary",
+          "action": "geometry",
+          "mean": 4.112070765125251,
+          "worst": 1.7476084648900787
+        },
+        {
+          "case": "medium_anti",
+          "action": "geometry",
+          "mean": 30.518622635955392,
+          "worst": 12.905993792670447
+        },
+        {
+          "case": "grid160",
+          "action": "geometry",
+          "mean": 14.616605501041443,
+          "worst": 12.7082135729249
+        },
+        {
+          "case": "multi220",
+          "action": "geometry",
+          "mean": 0.15230915200437814,
+          "worst": 0.0
+        },
+        {
+          "case": "road120",
+          "action": "geometry",
+          "mean": 8.562494224903823,
+          "worst": 4.878836572910571
+        },
+        {
+          "case": "huge",
+          "action": "geometry",
+          "mean": -3.5094150926135375,
+          "worst": -8.577609578400004
+        },
+        {
+          "case": "anti180",
+          "action": "geometry",
+          "mean": 0.012616197428215811,
+          "worst": -3.680016803647997
+        },
+        {
+          "case": "regression_large",
+          "action": "geometry",
+          "mean": 0.18081279087749613,
+          "worst": -0.13345144649635102
+        },
+        {
+          "case": "medium_A0",
+          "action": "geometry",
+          "mean": 1.5737158902471098,
+          "worst": -0.08198678853804654
+        },
+        {
+          "case": "road1500",
+          "action": "geometry",
+          "mean": 0.04948379479589748,
+          "worst": -0.008527823338040036
+        },
+        {
+          "case": "huge10000",
+          "action": "geometry",
+          "mean": 7.7016033011503415,
+          "worst": 3.169994191581854
+        },
+        {
+          "case": "cluster400",
+          "action": "geometry",
+          "mean": 1.1990540528852163,
+          "worst": 0.6305982310480786
+        },
+        {
+          "case": "equal_count150",
+          "action": "geometry",
+          "mean": -0.32961098295906227,
+          "worst": -1.5215429168424675
+        },
+        {
+          "case": "official_3",
+          "action": "geometry",
+          "mean": 0.9143873035242605,
+          "worst": 0.5669094765349065
+        }
+      ],
+      "tree": {
+        "action": "geometry",
+        "n": 14,
+        "mean": 4.6967678238833015
+      }
+    },
+    {
+      "depth": 0,
+      "minleaf": 3,
+      "margin": 1,
+      "mean": 4.6967678238833015,
+      "worst": -8.577609578400004,
+      "rows": [
+        {
+          "case": "grid_boundary",
+          "action": "geometry",
+          "mean": 4.112070765125251,
+          "worst": 1.7476084648900787
+        },
+        {
+          "case": "medium_anti",
+          "action": "geometry",
+          "mean": 30.518622635955392,
+          "worst": 12.905993792670447
+        },
+        {
+          "case": "grid160",
+          "action": "geometry",
+          "mean": 14.616605501041443,
+          "worst": 12.7082135729249
+        },
+        {
+          "case": "multi220",
+          "action": "geometry",
+          "mean": 0.15230915200437814,
+          "worst": 0.0
+        },
+        {
+          "case": "road120",
+          "action": "geometry",
+          "mean": 8.562494224903823,
+          "worst": 4.878836572910571
+        },
+        {
+          "case": "huge",
+          "action": "geometry",
+          "mean": -3.5094150926135375,
+          "worst": -8.577609578400004
+        },
+        {
+          "case": "anti180",
+          "action": "geometry",
+          "mean": 0.012616197428215811,
+          "worst": -3.680016803647997
+        },
+        {
+          "case": "regression_large",
+          "action": "geometry",
+          "mean": 0.18081279087749613,
+          "worst": -0.13345144649635102
+        },
+        {
+          "case": "medium_A0",
+          "action": "geometry",
+          "mean": 1.5737158902471098,
+          "worst": -0.08198678853804654
+        },
+        {
+          "case": "road1500",
+          "action": "geometry",
+          "mean": 0.04948379479589748,
+          "worst": -0.008527823338040036
+        },
+        {
+          "case": "huge10000",
+          "action": "geometry",
+          "mean": 7.7016033011503415,
+          "worst": 3.169994191581854
+        },
+        {
+          "case": "cluster400",
+          "action": "geometry",
+          "mean": 1.1990540528852163,
+          "worst": 0.6305982310480786
+        },
+        {
+          "case": "equal_count150",
+          "action": "geometry",
+          "mean": -0.32961098295906227,
+          "worst": -1.5215429168424675
+        },
+        {
+          "case": "official_3",
+          "action": "geometry",
+          "mean": 0.9143873035242605,
+          "worst": 0.5669094765349065
+        }
+      ],
+      "tree": {
+        "action": "geometry",
+        "n": 14,
+        "mean": 4.6967678238833015
+      }
+    },
+    {
+      "depth": 0,
+      "minleaf": 4,
+      "margin": 0,
+      "mean": 4.6967678238833015,
+      "worst": -8.577609578400004,
+      "rows": [
+        {
+          "case": "grid_boundary",
+          "action": "geometry",
+          "mean": 4.112070765125251,
+          "worst": 1.7476084648900787
+        },
+        {
+          "case": "medium_anti",
+          "action": "geometry",
+          "mean": 30.518622635955392,
+          "worst": 12.905993792670447
+        },
+        {
+          "case": "grid160",
+          "action": "geometry",
+          "mean": 14.616605501041443,
+          "worst": 12.7082135729249
+        },
+        {
+          "case": "multi220",
+          "action": "geometry",
+          "mean": 0.15230915200437814,
+          "worst": 0.0
+        },
+        {
+          "case": "road120",
+          "action": "geometry",
+          "mean": 8.562494224903823,
+          "worst": 4.878836572910571
+        },
+        {
+          "case": "huge",
+          "action": "geometry",
+          "mean": -3.5094150926135375,
+          "worst": -8.577609578400004
+        },
+        {
+          "case": "anti180",
+          "action": "geometry",
+          "mean": 0.012616197428215811,
+          "worst": -3.680016803647997
+        },
+        {
+          "case": "regression_large",
+          "action": "geometry",
+          "mean": 0.18081279087749613,
+          "worst": -0.13345144649635102
+        },
+        {
+          "case": "medium_A0",
+          "action": "geometry",
+          "mean": 1.5737158902471098,
+          "worst": -0.08198678853804654
+        },
+        {
+          "case": "road1500",
+          "action": "geometry",
+          "mean": 0.04948379479589748,
+          "worst": -0.008527823338040036
+        },
+        {
+          "case": "huge10000",
+          "action": "geometry",
+          "mean": 7.7016033011503415,
+          "worst": 3.169994191581854
+        },
+        {
+          "case": "cluster400",
+          "action": "geometry",
+          "mean": 1.1990540528852163,
+          "worst": 0.6305982310480786
+        },
+        {
+          "case": "equal_count150",
+          "action": "geometry",
+          "mean": -0.32961098295906227,
+          "worst": -1.5215429168424675
+        },
+        {
+          "case": "official_3",
+          "action": "geometry",
+          "mean": 0.9143873035242605,
+          "worst": 0.5669094765349065
+        }
+      ],
+      "tree": {
+        "action": "geometry",
+        "n": 14,
+        "mean": 4.6967678238833015
+      }
+    },
+    {
+      "depth": 0,
+      "minleaf": 4,
+      "margin": 1,
+      "mean": 4.6967678238833015,
+      "worst": -8.577609578400004,
+      "rows": [
+        {
+          "case": "grid_boundary",
+          "action": "geometry",
+          "mean": 4.112070765125251,
+          "worst": 1.7476084648900787
+        },
+        {
+          "case": "medium_anti",
+          "action": "geometry",
+          "mean": 30.518622635955392,
+          "worst": 12.905993792670447
+        },
+        {
+          "case": "grid160",
+          "action": "geometry",
+          "mean": 14.616605501041443,
+          "worst": 12.7082135729249
+        },
+        {
+          "case": "multi220",
+          "action": "geometry",
+          "mean": 0.15230915200437814,
+          "worst": 0.0
+        },
+        {
+          "case": "road120",
+          "action": "geometry",
+          "mean": 8.562494224903823,
+          "worst": 4.878836572910571
+        },
+        {
+          "case": "huge",
+          "action": "geometry",
+          "mean": -3.5094150926135375,
+          "worst": -8.577609578400004
+        },
+        {
+          "case": "anti180",
+          "action": "geometry",
+          "mean": 0.012616197428215811,
+          "worst": -3.680016803647997
+        },
+        {
+          "case": "regression_large",
+          "action": "geometry",
+          "mean": 0.18081279087749613,
+          "worst": -0.13345144649635102
+        },
+        {
+          "case": "medium_A0",
+          "action": "geometry",
+          "mean": 1.5737158902471098,
+          "worst": -0.08198678853804654
+        },
+        {
+          "case": "road1500",
+          "action": "geometry",
+          "mean": 0.04948379479589748,
+          "worst": -0.008527823338040036
+        },
+        {
+          "case": "huge10000",
+          "action": "geometry",
+          "mean": 7.7016033011503415,
+          "worst": 3.169994191581854
+        },
+        {
+          "case": "cluster400",
+          "action": "geometry",
+          "mean": 1.1990540528852163,
+          "worst": 0.6305982310480786
+        },
+        {
+          "case": "equal_count150",
+          "action": "geometry",
+          "mean": -0.32961098295906227,
+          "worst": -1.5215429168424675
+        },
+        {
+          "case": "official_3",
+          "action": "geometry",
+          "mean": 0.9143873035242605,
+          "worst": 0.5669094765349065
+        }
+      ],
+      "tree": {
+        "action": "geometry",
+        "n": 14,
+        "mean": 4.6967678238833015
+      }
+    },
+    {
+      "depth": 0,
+      "minleaf": 5,
+      "margin": 0,
+      "mean": 4.6967678238833015,
+      "worst": -8.577609578400004,
+      "rows": [
+        {
+          "case": "grid_boundary",
+          "action": "geometry",
+          "mean": 4.112070765125251,
+          "worst": 1.7476084648900787
+        },
+        {
+          "case": "medium_anti",
+          "action": "geometry",
+          "mean": 30.518622635955392,
+          "worst": 12.905993792670447
+        },
+        {
+          "case": "grid160",
+          "action": "geometry",
+          "mean": 14.616605501041443,
+          "worst": 12.7082135729249
+        },
+        {
+          "case": "multi220",
+          "action": "geometry",
+          "mean": 0.15230915200437814,
+          "worst": 0.0
+        },
+        {
+          "case": "road120",
+          "action": "geometry",
+          "mean": 8.562494224903823,
+          "worst": 4.878836572910571
+        },
+        {
+          "case": "huge",
+          "action": "geometry",
+          "mean": -3.5094150926135375,
+          "worst": -8.577609578400004
+        },
+        {
+          "case": "anti180",
+          "action": "geometry",
+          "mean": 0.012616197428215811,
+          "worst": -3.680016803647997
+        },
+        {
+          "case": "regression_large",
+          "action": "geometry",
+          "mean": 0.18081279087749613,
+          "worst": -0.13345144649635102
+        },
+        {
+          "case": "medium_A0",
+          "action": "geometry",
+          "mean": 1.5737158902471098,
+          "worst": -0.08198678853804654
+        },
+        {
+          "case": "road1500",
+          "action": "geometry",
+          "mean": 0.04948379479589748,
+          "worst": -0.008527823338040036
+        },
+        {
+          "case": "huge10000",
+          "action": "geometry",
+          "mean": 7.7016033011503415,
+          "worst": 3.169994191581854
+        },
+        {
+          "case": "cluster400",
+          "action": "geometry",
+          "mean": 1.1990540528852163,
+          "worst": 0.6305982310480786
+        },
+        {
+          "case": "equal_count150",
+          "action": "geometry",
+          "mean": -0.32961098295906227,
+          "worst": -1.5215429168424675
+        },
+        {
+          "case": "official_3",
+          "action": "geometry",
+          "mean": 0.9143873035242605,
+          "worst": 0.5669094765349065
+        }
+      ],
+      "tree": {
+        "action": "geometry",
+        "n": 14,
+        "mean": 4.6967678238833015
+      }
+    },
+    {
+      "depth": 0,
+      "minleaf": 5,
+      "margin": 1,
+      "mean": 4.6967678238833015,
+      "worst": -8.577609578400004,
+      "rows": [
+        {
+          "case": "grid_boundary",
+          "action": "geometry",
+          "mean": 4.112070765125251,
+          "worst": 1.7476084648900787
+        },
+        {
+          "case": "medium_anti",
+          "action": "geometry",
+          "mean": 30.518622635955392,
+          "worst": 12.905993792670447
+        },
+        {
+          "case": "grid160",
+          "action": "geometry",
+          "mean": 14.616605501041443,
+          "worst": 12.7082135729249
+        },
+        {
+          "case": "multi220",
+          "action": "geometry",
+          "mean": 0.15230915200437814,
+          "worst": 0.0
+        },
+        {
+          "case": "road120",
+          "action": "geometry",
+          "mean": 8.562494224903823,
+          "worst": 4.878836572910571
+        },
+        {
+          "case": "huge",
+          "action": "geometry",
+          "mean": -3.5094150926135375,
+          "worst": -8.577609578400004
+        },
+        {
+          "case": "anti180",
+          "action": "geometry",
+          "mean": 0.012616197428215811,
+          "worst": -3.680016803647997
+        },
+        {
+          "case": "regression_large",
+          "action": "geometry",
+          "mean": 0.18081279087749613,
+          "worst": -0.13345144649635102
+        },
+        {
+          "case": "medium_A0",
+          "action": "geometry",
+          "mean": 1.5737158902471098,
+          "worst": -0.08198678853804654
+        },
+        {
+          "case": "road1500",
+          "action": "geometry",
+          "mean": 0.04948379479589748,
+          "worst": -0.008527823338040036
+        },
+        {
+          "case": "huge10000",
+          "action": "geometry",
+          "mean": 7.7016033011503415,
+          "worst": 3.169994191581854
+        },
+        {
+          "case": "cluster400",
+          "action": "geometry",
+          "mean": 1.1990540528852163,
+          "worst": 0.6305982310480786
+        },
+        {
+          "case": "equal_count150",
+          "action": "geometry",
+          "mean": -0.32961098295906227,
+          "worst": -1.5215429168424675
+        },
+        {
+          "case": "official_3",
+          "action": "geometry",
+          "mean": 0.9143873035242605,
+          "worst": 0.5669094765349065
+        }
+      ],
+      "tree": {
+        "action": "geometry",
+        "n": 14,
+        "mean": 4.6967678238833015
+      }
+    },
+    {
+      "depth": 1,
+      "minleaf": 3,
+      "margin": 0,
+      "mean": 4.146653302372563,
+      "worst": -8.577609578400004,
+      "rows": [
+        {
+          "case": "grid_boundary",
+          "action": "geometry",
+          "mean": 4.112070765125251,
+          "worst": 1.7476084648900787
+        },
+        {
+          "case": "medium_anti",
+          "action": "geometry",
+          "mean": 30.518622635955392,
+          "worst": 12.905993792670447
+        },
+        {
+          "case": "grid160",
+          "action": "geometry",
+          "mean": 14.616605501041443,
+          "worst": 12.7082135729249
+        },
+        {
+          "case": "multi220",
+          "action": "geometry",
+          "mean": 0.15230915200437814,
+          "worst": 0.0
+        },
+        {
+          "case": "road120",
+          "action": "geometry",
+          "mean": 8.562494224903823,
+          "worst": 4.878836572910571
+        },
+        {
+          "case": "huge",
+          "action": "geometry",
+          "mean": -3.5094150926135375,
+          "worst": -8.577609578400004
+        },
+        {
+          "case": "anti180",
+          "action": "geometry",
+          "mean": 0.012616197428215811,
+          "worst": -3.680016803647997
+        },
+        {
+          "case": "regression_large",
+          "action": "geometry",
+          "mean": 0.18081279087749613,
+          "worst": -0.13345144649635102
+        },
+        {
+          "case": "medium_A0",
+          "action": "geometry",
+          "mean": 1.5737158902471098,
+          "worst": -0.08198678853804654
+        },
+        {
+          "case": "road1500",
+          "action": "geometry",
+          "mean": 0.04948379479589748,
+          "worst": -0.008527823338040036
+        },
+        {
+          "case": "huge10000",
+          "action": "v4",
+          "mean": 0,
+          "worst": 0
+        },
+        {
+          "case": "cluster400",
+          "action": "geometry",
+          "mean": 1.1990540528852163,
+          "worst": 0.6305982310480786
+        },
+        {
+          "case": "equal_count150",
+          "action": "geometry",
+          "mean": -0.32961098295906227,
+          "worst": -1.5215429168424675
+        },
+        {
+          "case": "official_3",
+          "action": "geometry",
+          "mean": 0.9143873035242605,
+          "worst": 0.5669094765349065
+        }
+      ],
+      "tree": {
+        "action": "geometry",
+        "n": 14,
+        "mean": 4.6967678238833015
+      }
+    },
+    {
+      "depth": 1,
+      "minleaf": 3,
+      "margin": 1,
+      "mean": 4.146653302372563,
+      "worst": -8.577609578400004,
+      "rows": [
+        {
+          "case": "grid_boundary",
+          "action": "geometry",
+          "mean": 4.112070765125251,
+          "worst": 1.7476084648900787
+        },
+        {
+          "case": "medium_anti",
+          "action": "geometry",
+          "mean": 30.518622635955392,
+          "worst": 12.905993792670447
+        },
+        {
+          "case": "grid160",
+          "action": "geometry",
+          "mean": 14.616605501041443,
+          "worst": 12.7082135729249
+        },
+        {
+          "case": "multi220",
+          "action": "geometry",
+          "mean": 0.15230915200437814,
+          "worst": 0.0
+        },
+        {
+          "case": "road120",
+          "action": "geometry",
+          "mean": 8.562494224903823,
+          "worst": 4.878836572910571
+        },
+        {
+          "case": "huge",
+          "action": "geometry",
+          "mean": -3.5094150926135375,
+          "worst": -8.577609578400004
+        },
+        {
+          "case": "anti180",
+          "action": "geometry",
+          "mean": 0.012616197428215811,
+          "worst": -3.680016803647997
+        },
+        {
+          "case": "regression_large",
+          "action": "geometry",
+          "mean": 0.18081279087749613,
+          "worst": -0.13345144649635102
+        },
+        {
+          "case": "medium_A0",
+          "action": "geometry",
+          "mean": 1.5737158902471098,
+          "worst": -0.08198678853804654
+        },
+        {
+          "case": "road1500",
+          "action": "geometry",
+          "mean": 0.04948379479589748,
+          "worst": -0.008527823338040036
+        },
+        {
+          "case": "huge10000",
+          "action": "v4",
+          "mean": 0,
+          "worst": 0
+        },
+        {
+          "case": "cluster400",
+          "action": "geometry",
+          "mean": 1.1990540528852163,
+          "worst": 0.6305982310480786
+        },
+        {
+          "case": "equal_count150",
+          "action": "geometry",
+          "mean": -0.32961098295906227,
+          "worst": -1.5215429168424675
+        },
+        {
+          "case": "official_3",
+          "action": "geometry",
+          "mean": 0.9143873035242605,
+          "worst": 0.5669094765349065
+        }
+      ],
+      "tree": {
+        "action": "geometry",
+        "n": 14,
+        "mean": 4.6967678238833015
+      }
+    },
+    {
+      "depth": 1,
+      "minleaf": 3,
+      "margin": 3,
+      "mean": 4.146653302372563,
+      "worst": -8.577609578400004,
+      "rows": [
+        {
+          "case": "grid_boundary",
+          "action": "geometry",
+          "mean": 4.112070765125251,
+          "worst": 1.7476084648900787
+        },
+        {
+          "case": "medium_anti",
+          "action": "geometry",
+          "mean": 30.518622635955392,
+          "worst": 12.905993792670447
+        },
+        {
+          "case": "grid160",
+          "action": "geometry",
+          "mean": 14.616605501041443,
+          "worst": 12.7082135729249
+        },
+        {
+          "case": "multi220",
+          "action": "geometry",
+          "mean": 0.15230915200437814,
+          "worst": 0.0
+        },
+        {
+          "case": "road120",
+          "action": "geometry",
+          "mean": 8.562494224903823,
+          "worst": 4.878836572910571
+        },
+        {
+          "case": "huge",
+          "action": "geometry",
+          "mean": -3.5094150926135375,
+          "worst": -8.577609578400004
+        },
+        {
+          "case": "anti180",
+          "action": "geometry",
+          "mean": 0.012616197428215811,
+          "worst": -3.680016803647997
+        },
+        {
+          "case": "regression_large",
+          "action": "geometry",
+          "mean": 0.18081279087749613,
+          "worst": -0.13345144649635102
+        },
+        {
+          "case": "medium_A0",
+          "action": "geometry",
+          "mean": 1.5737158902471098,
+          "worst": -0.08198678853804654
+        },
+        {
+          "case": "road1500",
+          "action": "geometry",
+          "mean": 0.04948379479589748,
+          "worst": -0.008527823338040036
+        },
+        {
+          "case": "huge10000",
+          "action": "v4",
+          "mean": 0,
+          "worst": 0
+        },
+        {
+          "case": "cluster400",
+          "action": "geometry",
+          "mean": 1.1990540528852163,
+          "worst": 0.6305982310480786
+        },
+        {
+          "case": "equal_count150",
+          "action": "geometry",
+          "mean": -0.32961098295906227,
+          "worst": -1.5215429168424675
+        },
+        {
+          "case": "official_3",
+          "action": "geometry",
+          "mean": 0.9143873035242605,
+          "worst": 0.5669094765349065
+        }
+      ],
+      "tree": {
+        "action": "geometry",
+        "n": 14,
+        "mean": 4.6967678238833015
+      }
+    },
+    {
+      "depth": 1,
+      "minleaf": 4,
+      "margin": 0,
+      "mean": 4.146653302372563,
+      "worst": -8.577609578400004,
+      "rows": [
+        {
+          "case": "grid_boundary",
+          "action": "geometry",
+          "mean": 4.112070765125251,
+          "worst": 1.7476084648900787
+        },
+        {
+          "case": "medium_anti",
+          "action": "geometry",
+          "mean": 30.518622635955392,
+          "worst": 12.905993792670447
+        },
+        {
+          "case": "grid160",
+          "action": "geometry",
+          "mean": 14.616605501041443,
+          "worst": 12.7082135729249
+        },
+        {
+          "case": "multi220",
+          "action": "geometry",
+          "mean": 0.15230915200437814,
+          "worst": 0.0
+        },
+        {
+          "case": "road120",
+          "action": "geometry",
+          "mean": 8.562494224903823,
+          "worst": 4.878836572910571
+        },
+        {
+          "case": "huge",
+          "action": "geometry",
+          "mean": -3.5094150926135375,
+          "worst": -8.577609578400004
+        },
+        {
+          "case": "anti180",
+          "action": "geometry",
+          "mean": 0.012616197428215811,
+          "worst": -3.680016803647997
+        },
+        {
+          "case": "regression_large",
+          "action": "geometry",
+          "mean": 0.18081279087749613,
+          "worst": -0.13345144649635102
+        },
+        {
+          "case": "medium_A0",
+          "action": "geometry",
+          "mean": 1.5737158902471098,
+          "worst": -0.08198678853804654
+        },
+        {
+          "case": "road1500",
+          "action": "geometry",
+          "mean": 0.04948379479589748,
+          "worst": -0.008527823338040036
+        },
+        {
+          "case": "huge10000",
+          "action": "v4",
+          "mean": 0,
+          "worst": 0
+        },
+        {
+          "case": "cluster400",
+          "action": "geometry",
+          "mean": 1.1990540528852163,
+          "worst": 0.6305982310480786
+        },
+        {
+          "case": "equal_count150",
+          "action": "geometry",
+          "mean": -0.32961098295906227,
+          "worst": -1.5215429168424675
+        },
+        {
+          "case": "official_3",
+          "action": "geometry",
+          "mean": 0.9143873035242605,
+          "worst": 0.5669094765349065
+        }
+      ],
+      "tree": {
+        "action": "geometry",
+        "n": 14,
+        "mean": 4.6967678238833015
+      }
+    },
+    {
+      "depth": 1,
+      "minleaf": 4,
+      "margin": 1,
+      "mean": 4.146653302372563,
+      "worst": -8.577609578400004,
+      "rows": [
+        {
+          "case": "grid_boundary",
+          "action": "geometry",
+          "mean": 4.112070765125251,
+          "worst": 1.7476084648900787
+        },
+        {
+          "case": "medium_anti",
+          "action": "geometry",
+          "mean": 30.518622635955392,
+          "worst": 12.905993792670447
+        },
+        {
+          "case": "grid160",
+          "action": "geometry",
+          "mean": 14.616605501041443,
+          "worst": 12.7082135729249
+        },
+        {
+          "case": "multi220",
+          "action": "geometry",
+          "mean": 0.15230915200437814,
+          "worst": 0.0
+        },
+        {
+          "case": "road120",
+          "action": "geometry",
+          "mean": 8.562494224903823,
+          "worst": 4.878836572910571
+        },
+        {
+          "case": "huge",
+          "action": "geometry",
+          "mean": -3.5094150926135375,
+          "worst": -8.577609578400004
+        },
+        {
+          "case": "anti180",
+          "action": "geometry",
+          "mean": 0.012616197428215811,
+          "worst": -3.680016803647997
+        },
+        {
+          "case": "regression_large",
+          "action": "geometry",
+          "mean": 0.18081279087749613,
+          "worst": -0.13345144649635102
+        },
+        {
+          "case": "medium_A0",
+          "action": "geometry",
+          "mean": 1.5737158902471098,
+          "worst": -0.08198678853804654
+        },
+        {
+          "case": "road1500",
+          "action": "geometry",
+          "mean": 0.04948379479589748,
+          "worst": -0.008527823338040036
+        },
+        {
+          "case": "huge10000",
+          "action": "v4",
+          "mean": 0,
+          "worst": 0
+        },
+        {
+          "case": "cluster400",
+          "action": "geometry",
+          "mean": 1.1990540528852163,
+          "worst": 0.6305982310480786
+        },
+        {
+          "case": "equal_count150",
+          "action": "geometry",
+          "mean": -0.32961098295906227,
+          "worst": -1.5215429168424675
+        },
+        {
+          "case": "official_3",
+          "action": "geometry",
+          "mean": 0.9143873035242605,
+          "worst": 0.5669094765349065
+        }
+      ],
+      "tree": {
+        "action": "geometry",
+        "n": 14,
+        "mean": 4.6967678238833015
+      }
+    },
+    {
+      "depth": 1,
+      "minleaf": 4,
+      "margin": 3,
+      "mean": 4.146653302372563,
+      "worst": -8.577609578400004,
+      "rows": [
+        {
+          "case": "grid_boundary",
+          "action": "geometry",
+          "mean": 4.112070765125251,
+          "worst": 1.7476084648900787
+        },
+        {
+          "case": "medium_anti",
+          "action": "geometry",
+          "mean": 30.518622635955392,
+          "worst": 12.905993792670447
+        },
+        {
+          "case": "grid160",
+          "action": "geometry",
+          "mean": 14.616605501041443,
+          "worst": 12.7082135729249
+        },
+        {
+          "case": "multi220",
+          "action": "geometry",
+          "mean": 0.15230915200437814,
+          "worst": 0.0
+        },
+        {
+          "case": "road120",
+          "action": "geometry",
+          "mean": 8.562494224903823,
+          "worst": 4.878836572910571
+        },
+        {
+          "case": "huge",
+          "action": "geometry",
+          "mean": -3.5094150926135375,
+          "worst": -8.577609578400004
+        },
+        {
+          "case": "anti180",
+          "action": "geometry",
+          "mean": 0.012616197428215811,
+          "worst": -3.680016803647997
+        },
+        {
+          "case": "regression_large",
+          "action": "geometry",
+          "mean": 0.18081279087749613,
+          "worst": -0.13345144649635102
+        },
+        {
+          "case": "medium_A0",
+          "action": "geometry",
+          "mean": 1.5737158902471098,
+          "worst": -0.08198678853804654
+        },
+        {
+          "case": "road1500",
+          "action": "geometry",
+          "mean": 0.04948379479589748,
+          "worst": -0.008527823338040036
+        },
+        {
+          "case": "huge10000",
+          "action": "v4",
+          "mean": 0,
+          "worst": 0
+        },
+        {
+          "case": "cluster400",
+          "action": "geometry",
+          "mean": 1.1990540528852163,
+          "worst": 0.6305982310480786
+        },
+        {
+          "case": "equal_count150",
+          "action": "geometry",
+          "mean": -0.32961098295906227,
+          "worst": -1.5215429168424675
+        },
+        {
+          "case": "official_3",
+          "action": "geometry",
+          "mean": 0.9143873035242605,
+          "worst": 0.5669094765349065
+        }
+      ],
+      "tree": {
+        "action": "geometry",
+        "n": 14,
+        "mean": 4.6967678238833015
+      }
+    },
+    {
+      "depth": 1,
+      "minleaf": 5,
+      "margin": 0,
+      "mean": 4.146653302372563,
+      "worst": -8.577609578400004,
+      "rows": [
+        {
+          "case": "grid_boundary",
+          "action": "geometry",
+          "mean": 4.112070765125251,
+          "worst": 1.7476084648900787
+        },
+        {
+          "case": "medium_anti",
+          "action": "geometry",
+          "mean": 30.518622635955392,
+          "worst": 12.905993792670447
+        },
+        {
+          "case": "grid160",
+          "action": "geometry",
+          "mean": 14.616605501041443,
+          "worst": 12.7082135729249
+        },
+        {
+          "case": "multi220",
+          "action": "geometry",
+          "mean": 0.15230915200437814,
+          "worst": 0.0
+        },
+        {
+          "case": "road120",
+          "action": "geometry",
+          "mean": 8.562494224903823,
+          "worst": 4.878836572910571
+        },
+        {
+          "case": "huge",
+          "action": "geometry",
+          "mean": -3.5094150926135375,
+          "worst": -8.577609578400004
+        },
+        {
+          "case": "anti180",
+          "action": "geometry",
+          "mean": 0.012616197428215811,
+          "worst": -3.680016803647997
+        },
+        {
+          "case": "regression_large",
+          "action": "geometry",
+          "mean": 0.18081279087749613,
+          "worst": -0.13345144649635102
+        },
+        {
+          "case": "medium_A0",
+          "action": "geometry",
+          "mean": 1.5737158902471098,
+          "worst": -0.08198678853804654
+        },
+        {
+          "case": "road1500",
+          "action": "geometry",
+          "mean": 0.04948379479589748,
+          "worst": -0.008527823338040036
+        },
+        {
+          "case": "huge10000",
+          "action": "v4",
+          "mean": 0,
+          "worst": 0
+        },
+        {
+          "case": "cluster400",
+          "action": "geometry",
+          "mean": 1.1990540528852163,
+          "worst": 0.6305982310480786
+        },
+        {
+          "case": "equal_count150",
+          "action": "geometry",
+          "mean": -0.32961098295906227,
+          "worst": -1.5215429168424675
+        },
+        {
+          "case": "official_3",
+          "action": "geometry",
+          "mean": 0.9143873035242605,
+          "worst": 0.5669094765349065
+        }
+      ],
+      "tree": {
+        "action": "geometry",
+        "n": 14,
+        "mean": 4.6967678238833015
+      }
+    },
+    {
+      "depth": 1,
+      "minleaf": 5,
+      "margin": 1,
+      "mean": 4.146653302372563,
+      "worst": -8.577609578400004,
+      "rows": [
+        {
+          "case": "grid_boundary",
+          "action": "geometry",
+          "mean": 4.112070765125251,
+          "worst": 1.7476084648900787
+        },
+        {
+          "case": "medium_anti",
+          "action": "geometry",
+          "mean": 30.518622635955392,
+          "worst": 12.905993792670447
+        },
+        {
+          "case": "grid160",
+          "action": "geometry",
+          "mean": 14.616605501041443,
+          "worst": 12.7082135729249
+        },
+        {
+          "case": "multi220",
+          "action": "geometry",
+          "mean": 0.15230915200437814,
+          "worst": 0.0
+        },
+        {
+          "case": "road120",
+          "action": "geometry",
+          "mean": 8.562494224903823,
+          "worst": 4.878836572910571
+        },
+        {
+          "case": "huge",
+          "action": "geometry",
+          "mean": -3.5094150926135375,
+          "worst": -8.577609578400004
+        },
+        {
+          "case": "anti180",
+          "action": "geometry",
+          "mean": 0.012616197428215811,
+          "worst": -3.680016803647997
+        },
+        {
+          "case": "regression_large",
+          "action": "geometry",
+          "mean": 0.18081279087749613,
+          "worst": -0.13345144649635102
+        },
+        {
+          "case": "medium_A0",
+          "action": "geometry",
+          "mean": 1.5737158902471098,
+          "worst": -0.08198678853804654
+        },
+        {
+          "case": "road1500",
+          "action": "geometry",
+          "mean": 0.04948379479589748,
+          "worst": -0.008527823338040036
+        },
+        {
+          "case": "huge10000",
+          "action": "v4",
+          "mean": 0,
+          "worst": 0
+        },
+        {
+          "case": "cluster400",
+          "action": "geometry",
+          "mean": 1.1990540528852163,
+          "worst": 0.6305982310480786
+        },
+        {
+          "case": "equal_count150",
+          "action": "geometry",
+          "mean": -0.32961098295906227,
+          "worst": -1.5215429168424675
+        },
+        {
+          "case": "official_3",
+          "action": "geometry",
+          "mean": 0.9143873035242605,
+          "worst": 0.5669094765349065
+        }
+      ],
+      "tree": {
+        "action": "geometry",
+        "n": 14,
+        "mean": 4.6967678238833015
+      }
+    },
+    {
+      "depth": 1,
+      "minleaf": 5,
+      "margin": 3,
+      "mean": 4.146653302372563,
+      "worst": -8.577609578400004,
+      "rows": [
+        {
+          "case": "grid_boundary",
+          "action": "geometry",
+          "mean": 4.112070765125251,
+          "worst": 1.7476084648900787
+        },
+        {
+          "case": "medium_anti",
+          "action": "geometry",
+          "mean": 30.518622635955392,
+          "worst": 12.905993792670447
+        },
+        {
+          "case": "grid160",
+          "action": "geometry",
+          "mean": 14.616605501041443,
+          "worst": 12.7082135729249
+        },
+        {
+          "case": "multi220",
+          "action": "geometry",
+          "mean": 0.15230915200437814,
+          "worst": 0.0
+        },
+        {
+          "case": "road120",
+          "action": "geometry",
+          "mean": 8.562494224903823,
+          "worst": 4.878836572910571
+        },
+        {
+          "case": "huge",
+          "action": "geometry",
+          "mean": -3.5094150926135375,
+          "worst": -8.577609578400004
+        },
+        {
+          "case": "anti180",
+          "action": "geometry",
+          "mean": 0.012616197428215811,
+          "worst": -3.680016803647997
+        },
+        {
+          "case": "regression_large",
+          "action": "geometry",
+          "mean": 0.18081279087749613,
+          "worst": -0.13345144649635102
+        },
+        {
+          "case": "medium_A0",
+          "action": "geometry",
+          "mean": 1.5737158902471098,
+          "worst": -0.08198678853804654
+        },
+        {
+          "case": "road1500",
+          "action": "geometry",
+          "mean": 0.04948379479589748,
+          "worst": -0.008527823338040036
+        },
+        {
+          "case": "huge10000",
+          "action": "v4",
+          "mean": 0,
+          "worst": 0
+        },
+        {
+          "case": "cluster400",
+          "action": "geometry",
+          "mean": 1.1990540528852163,
+          "worst": 0.6305982310480786
+        },
+        {
+          "case": "equal_count150",
+          "action": "geometry",
+          "mean": -0.32961098295906227,
+          "worst": -1.5215429168424675
+        },
+        {
+          "case": "official_3",
+          "action": "geometry",
+          "mean": 0.9143873035242605,
+          "worst": 0.5669094765349065
+        }
+      ],
+      "tree": {
+        "action": "geometry",
+        "n": 14,
+        "mean": 4.6967678238833015
+      }
+    },
+    {
+      "depth": 2,
+      "minleaf": 3,
+      "margin": 0,
+      "mean": 4.146653302372563,
+      "worst": -8.577609578400004,
+      "rows": [
+        {
+          "case": "grid_boundary",
+          "action": "geometry",
+          "mean": 4.112070765125251,
+          "worst": 1.7476084648900787
+        },
+        {
+          "case": "medium_anti",
+          "action": "geometry",
+          "mean": 30.518622635955392,
+          "worst": 12.905993792670447
+        },
+        {
+          "case": "grid160",
+          "action": "geometry",
+          "mean": 14.616605501041443,
+          "worst": 12.7082135729249
+        },
+        {
+          "case": "multi220",
+          "action": "geometry",
+          "mean": 0.15230915200437814,
+          "worst": 0.0
+        },
+        {
+          "case": "road120",
+          "action": "geometry",
+          "mean": 8.562494224903823,
+          "worst": 4.878836572910571
+        },
+        {
+          "case": "huge",
+          "action": "geometry",
+          "mean": -3.5094150926135375,
+          "worst": -8.577609578400004
+        },
+        {
+          "case": "anti180",
+          "action": "geometry",
+          "mean": 0.012616197428215811,
+          "worst": -3.680016803647997
+        },
+        {
+          "case": "regression_large",
+          "action": "geometry",
+          "mean": 0.18081279087749613,
+          "worst": -0.13345144649635102
+        },
+        {
+          "case": "medium_A0",
+          "action": "geometry",
+          "mean": 1.5737158902471098,
+          "worst": -0.08198678853804654
+        },
+        {
+          "case": "road1500",
+          "action": "geometry",
+          "mean": 0.04948379479589748,
+          "worst": -0.008527823338040036
+        },
+        {
+          "case": "huge10000",
+          "action": "v4",
+          "mean": 0,
+          "worst": 0
+        },
+        {
+          "case": "cluster400",
+          "action": "geometry",
+          "mean": 1.1990540528852163,
+          "worst": 0.6305982310480786
+        },
+        {
+          "case": "equal_count150",
+          "action": "geometry",
+          "mean": -0.32961098295906227,
+          "worst": -1.5215429168424675
+        },
+        {
+          "case": "official_3",
+          "action": "geometry",
+          "mean": 0.9143873035242605,
+          "worst": 0.5669094765349065
+        }
+      ],
+      "tree": {
+        "action": "geometry",
+        "n": 14,
+        "mean": 4.6967678238833015
+      }
+    },
+    {
+      "depth": 2,
+      "minleaf": 3,
+      "margin": 1,
+      "mean": 4.146653302372563,
+      "worst": -8.577609578400004,
+      "rows": [
+        {
+          "case": "grid_boundary",
+          "action": "geometry",
+          "mean": 4.112070765125251,
+          "worst": 1.7476084648900787
+        },
+        {
+          "case": "medium_anti",
+          "action": "geometry",
+          "mean": 30.518622635955392,
+          "worst": 12.905993792670447
+        },
+        {
+          "case": "grid160",
+          "action": "geometry",
+          "mean": 14.616605501041443,
+          "worst": 12.7082135729249
+        },
+        {
+          "case": "multi220",
+          "action": "geometry",
+          "mean": 0.15230915200437814,
+          "worst": 0.0
+        },
+        {
+          "case": "road120",
+          "action": "geometry",
+          "mean": 8.562494224903823,
+          "worst": 4.878836572910571
+        },
+        {
+          "case": "huge",
+          "action": "geometry",
+          "mean": -3.5094150926135375,
+          "worst": -8.577609578400004
+        },
+        {
+          "case": "anti180",
+          "action": "geometry",
+          "mean": 0.012616197428215811,
+          "worst": -3.680016803647997
+        },
+        {
+          "case": "regression_large",
+          "action": "geometry",
+          "mean": 0.18081279087749613,
+          "worst": -0.13345144649635102
+        },
+        {
+          "case": "medium_A0",
+          "action": "geometry",
+          "mean": 1.5737158902471098,
+          "worst": -0.08198678853804654
+        },
+        {
+          "case": "road1500",
+          "action": "geometry",
+          "mean": 0.04948379479589748,
+          "worst": -0.008527823338040036
+        },
+        {
+          "case": "huge10000",
+          "action": "v4",
+          "mean": 0,
+          "worst": 0
+        },
+        {
+          "case": "cluster400",
+          "action": "geometry",
+          "mean": 1.1990540528852163,
+          "worst": 0.6305982310480786
+        },
+        {
+          "case": "equal_count150",
+          "action": "geometry",
+          "mean": -0.32961098295906227,
+          "worst": -1.5215429168424675
+        },
+        {
+          "case": "official_3",
+          "action": "geometry",
+          "mean": 0.9143873035242605,
+          "worst": 0.5669094765349065
+        }
+      ],
+      "tree": {
+        "action": "geometry",
+        "n": 14,
+        "mean": 4.6967678238833015
+      }
+    },
+    {
+      "depth": 2,
+      "minleaf": 3,
+      "margin": 3,
+      "mean": 4.146653302372563,
+      "worst": -8.577609578400004,
+      "rows": [
+        {
+          "case": "grid_boundary",
+          "action": "geometry",
+          "mean": 4.112070765125251,
+          "worst": 1.7476084648900787
+        },
+        {
+          "case": "medium_anti",
+          "action": "geometry",
+          "mean": 30.518622635955392,
+          "worst": 12.905993792670447
+        },
+        {
+          "case": "grid160",
+          "action": "geometry",
+          "mean": 14.616605501041443,
+          "worst": 12.7082135729249
+        },
+        {
+          "case": "multi220",
+          "action": "geometry",
+          "mean": 0.15230915200437814,
+          "worst": 0.0
+        },
+        {
+          "case": "road120",
+          "action": "geometry",
+          "mean": 8.562494224903823,
+          "worst": 4.878836572910571
+        },
+        {
+          "case": "huge",
+          "action": "geometry",
+          "mean": -3.5094150926135375,
+          "worst": -8.577609578400004
+        },
+        {
+          "case": "anti180",
+          "action": "geometry",
+          "mean": 0.012616197428215811,
+          "worst": -3.680016803647997
+        },
+        {
+          "case": "regression_large",
+          "action": "geometry",
+          "mean": 0.18081279087749613,
+          "worst": -0.13345144649635102
+        },
+        {
+          "case": "medium_A0",
+          "action": "geometry",
+          "mean": 1.5737158902471098,
+          "worst": -0.08198678853804654
+        },
+        {
+          "case": "road1500",
+          "action": "geometry",
+          "mean": 0.04948379479589748,
+          "worst": -0.008527823338040036
+        },
+        {
+          "case": "huge10000",
+          "action": "v4",
+          "mean": 0,
+          "worst": 0
+        },
+        {
+          "case": "cluster400",
+          "action": "geometry",
+          "mean": 1.1990540528852163,
+          "worst": 0.6305982310480786
+        },
+        {
+          "case": "equal_count150",
+          "action": "geometry",
+          "mean": -0.32961098295906227,
+          "worst": -1.5215429168424675
+        },
+        {
+          "case": "official_3",
+          "action": "geometry",
+          "mean": 0.9143873035242605,
+          "worst": 0.5669094765349065
+        }
+      ],
+      "tree": {
+        "action": "geometry",
+        "n": 14,
+        "mean": 4.6967678238833015
+      }
+    },
+    {
+      "depth": 2,
+      "minleaf": 4,
+      "margin": 0,
+      "mean": 4.146653302372563,
+      "worst": -8.577609578400004,
+      "rows": [
+        {
+          "case": "grid_boundary",
+          "action": "geometry",
+          "mean": 4.112070765125251,
+          "worst": 1.7476084648900787
+        },
+        {
+          "case": "medium_anti",
+          "action": "geometry",
+          "mean": 30.518622635955392,
+          "worst": 12.905993792670447
+        },
+        {
+          "case": "grid160",
+          "action": "geometry",
+          "mean": 14.616605501041443,
+          "worst": 12.7082135729249
+        },
+        {
+          "case": "multi220",
+          "action": "geometry",
+          "mean": 0.15230915200437814,
+          "worst": 0.0
+        },
+        {
+          "case": "road120",
+          "action": "geometry",
+          "mean": 8.562494224903823,
+          "worst": 4.878836572910571
+        },
+        {
+          "case": "huge",
+          "action": "geometry",
+          "mean": -3.5094150926135375,
+          "worst": -8.577609578400004
+        },
+        {
+          "case": "anti180",
+          "action": "geometry",
+          "mean": 0.012616197428215811,
+          "worst": -3.680016803647997
+        },
+        {
+          "case": "regression_large",
+          "action": "geometry",
+          "mean": 0.18081279087749613,
+          "worst": -0.13345144649635102
+        },
+        {
+          "case": "medium_A0",
+          "action": "geometry",
+          "mean": 1.5737158902471098,
+          "worst": -0.08198678853804654
+        },
+        {
+          "case": "road1500",
+          "action": "geometry",
+          "mean": 0.04948379479589748,
+          "worst": -0.008527823338040036
+        },
+        {
+          "case": "huge10000",
+          "action": "v4",
+          "mean": 0,
+          "worst": 0
+        },
+        {
+          "case": "cluster400",
+          "action": "geometry",
+          "mean": 1.1990540528852163,
+          "worst": 0.6305982310480786
+        },
+        {
+          "case": "equal_count150",
+          "action": "geometry",
+          "mean": -0.32961098295906227,
+          "worst": -1.5215429168424675
+        },
+        {
+          "case": "official_3",
+          "action": "geometry",
+          "mean": 0.9143873035242605,
+          "worst": 0.5669094765349065
+        }
+      ],
+      "tree": {
+        "action": "geometry",
+        "n": 14,
+        "mean": 4.6967678238833015
+      }
+    },
+    {
+      "depth": 2,
+      "minleaf": 4,
+      "margin": 1,
+      "mean": 4.146653302372563,
+      "worst": -8.577609578400004,
+      "rows": [
+        {
+          "case": "grid_boundary",
+          "action": "geometry",
+          "mean": 4.112070765125251,
+          "worst": 1.7476084648900787
+        },
+        {
+          "case": "medium_anti",
+          "action": "geometry",
+          "mean": 30.518622635955392,
+          "worst": 12.905993792670447
+        },
+        {
+          "case": "grid160",
+          "action": "geometry",
+          "mean": 14.616605501041443,
+          "worst": 12.7082135729249
+        },
+        {
+          "case": "multi220",
+          "action": "geometry",
+          "mean": 0.15230915200437814,
+          "worst": 0.0
+        },
+        {
+          "case": "road120",
+          "action": "geometry",
+          "mean": 8.562494224903823,
+          "worst": 4.878836572910571
+        },
+        {
+          "case": "huge",
+          "action": "geometry",
+          "mean": -3.5094150926135375,
+          "worst": -8.577609578400004
+        },
+        {
+          "case": "anti180",
+          "action": "geometry",
+          "mean": 0.012616197428215811,
+          "worst": -3.680016803647997
+        },
+        {
+          "case": "regression_large",
+          "action": "geometry",
+          "mean": 0.18081279087749613,
+          "worst": -0.13345144649635102
+        },
+        {
+          "case": "medium_A0",
+          "action": "geometry",
+          "mean": 1.5737158902471098,
+          "worst": -0.08198678853804654
+        },
+        {
+          "case": "road1500",
+          "action": "geometry",
+          "mean": 0.04948379479589748,
+          "worst": -0.008527823338040036
+        },
+        {
+          "case": "huge10000",
+          "action": "v4",
+          "mean": 0,
+          "worst": 0
+        },
+        {
+          "case": "cluster400",
+          "action": "geometry",
+          "mean": 1.1990540528852163,
+          "worst": 0.6305982310480786
+        },
+        {
+          "case": "equal_count150",
+          "action": "geometry",
+          "mean": -0.32961098295906227,
+          "worst": -1.5215429168424675
+        },
+        {
+          "case": "official_3",
+          "action": "geometry",
+          "mean": 0.9143873035242605,
+          "worst": 0.5669094765349065
+        }
+      ],
+      "tree": {
+        "action": "geometry",
+        "n": 14,
+        "mean": 4.6967678238833015
+      }
+    },
+    {
+      "depth": 2,
+      "minleaf": 5,
+      "margin": 0,
+      "mean": 4.146653302372563,
+      "worst": -8.577609578400004,
+      "rows": [
+        {
+          "case": "grid_boundary",
+          "action": "geometry",
+          "mean": 4.112070765125251,
+          "worst": 1.7476084648900787
+        },
+        {
+          "case": "medium_anti",
+          "action": "geometry",
+          "mean": 30.518622635955392,
+          "worst": 12.905993792670447
+        },
+        {
+          "case": "grid160",
+          "action": "geometry",
+          "mean": 14.616605501041443,
+          "worst": 12.7082135729249
+        },
+        {
+          "case": "multi220",
+          "action": "geometry",
+          "mean": 0.15230915200437814,
+          "worst": 0.0
+        },
+        {
+          "case": "road120",
+          "action": "geometry",
+          "mean": 8.562494224903823,
+          "worst": 4.878836572910571
+        },
+        {
+          "case": "huge",
+          "action": "geometry",
+          "mean": -3.5094150926135375,
+          "worst": -8.577609578400004
+        },
+        {
+          "case": "anti180",
+          "action": "geometry",
+          "mean": 0.012616197428215811,
+          "worst": -3.680016803647997
+        },
+        {
+          "case": "regression_large",
+          "action": "geometry",
+          "mean": 0.18081279087749613,
+          "worst": -0.13345144649635102
+        },
+        {
+          "case": "medium_A0",
+          "action": "geometry",
+          "mean": 1.5737158902471098,
+          "worst": -0.08198678853804654
+        },
+        {
+          "case": "road1500",
+          "action": "geometry",
+          "mean": 0.04948379479589748,
+          "worst": -0.008527823338040036
+        },
+        {
+          "case": "huge10000",
+          "action": "v4",
+          "mean": 0,
+          "worst": 0
+        },
+        {
+          "case": "cluster400",
+          "action": "geometry",
+          "mean": 1.1990540528852163,
+          "worst": 0.6305982310480786
+        },
+        {
+          "case": "equal_count150",
+          "action": "geometry",
+          "mean": -0.32961098295906227,
+          "worst": -1.5215429168424675
+        },
+        {
+          "case": "official_3",
+          "action": "geometry",
+          "mean": 0.9143873035242605,
+          "worst": 0.5669094765349065
+        }
+      ],
+      "tree": {
+        "action": "geometry",
+        "n": 14,
+        "mean": 4.6967678238833015
+      }
+    },
+    {
+      "depth": 2,
+      "minleaf": 5,
+      "margin": 1,
+      "mean": 4.146653302372563,
+      "worst": -8.577609578400004,
+      "rows": [
+        {
+          "case": "grid_boundary",
+          "action": "geometry",
+          "mean": 4.112070765125251,
+          "worst": 1.7476084648900787
+        },
+        {
+          "case": "medium_anti",
+          "action": "geometry",
+          "mean": 30.518622635955392,
+          "worst": 12.905993792670447
+        },
+        {
+          "case": "grid160",
+          "action": "geometry",
+          "mean": 14.616605501041443,
+          "worst": 12.7082135729249
+        },
+        {
+          "case": "multi220",
+          "action": "geometry",
+          "mean": 0.15230915200437814,
+          "worst": 0.0
+        },
+        {
+          "case": "road120",
+          "action": "geometry",
+          "mean": 8.562494224903823,
+          "worst": 4.878836572910571
+        },
+        {
+          "case": "huge",
+          "action": "geometry",
+          "mean": -3.5094150926135375,
+          "worst": -8.577609578400004
+        },
+        {
+          "case": "anti180",
+          "action": "geometry",
+          "mean": 0.012616197428215811,
+          "worst": -3.680016803647997
+        },
+        {
+          "case": "regression_large",
+          "action": "geometry",
+          "mean": 0.18081279087749613,
+          "worst": -0.13345144649635102
+        },
+        {
+          "case": "medium_A0",
+          "action": "geometry",
+          "mean": 1.5737158902471098,
+          "worst": -0.08198678853804654
+        },
+        {
+          "case": "road1500",
+          "action": "geometry",
+          "mean": 0.04948379479589748,
+          "worst": -0.008527823338040036
+        },
+        {
+          "case": "huge10000",
+          "action": "v4",
+          "mean": 0,
+          "worst": 0
+        },
+        {
+          "case": "cluster400",
+          "action": "geometry",
+          "mean": 1.1990540528852163,
+          "worst": 0.6305982310480786
+        },
+        {
+          "case": "equal_count150",
+          "action": "geometry",
+          "mean": -0.32961098295906227,
+          "worst": -1.5215429168424675
+        },
+        {
+          "case": "official_3",
+          "action": "geometry",
+          "mean": 0.9143873035242605,
+          "worst": 0.5669094765349065
+        }
+      ],
+      "tree": {
+        "action": "geometry",
+        "n": 14,
+        "mean": 4.6967678238833015
+      }
+    },
+    {
+      "depth": 2,
+      "minleaf": 5,
+      "margin": 3,
+      "mean": 4.146653302372563,
+      "worst": -8.577609578400004,
+      "rows": [
+        {
+          "case": "grid_boundary",
+          "action": "geometry",
+          "mean": 4.112070765125251,
+          "worst": 1.7476084648900787
+        },
+        {
+          "case": "medium_anti",
+          "action": "geometry",
+          "mean": 30.518622635955392,
+          "worst": 12.905993792670447
+        },
+        {
+          "case": "grid160",
+          "action": "geometry",
+          "mean": 14.616605501041443,
+          "worst": 12.7082135729249
+        },
+        {
+          "case": "multi220",
+          "action": "geometry",
+          "mean": 0.15230915200437814,
+          "worst": 0.0
+        },
+        {
+          "case": "road120",
+          "action": "geometry",
+          "mean": 8.562494224903823,
+          "worst": 4.878836572910571
+        },
+        {
+          "case": "huge",
+          "action": "geometry",
+          "mean": -3.5094150926135375,
+          "worst": -8.577609578400004
+        },
+        {
+          "case": "anti180",
+          "action": "geometry",
+          "mean": 0.012616197428215811,
+          "worst": -3.680016803647997
+        },
+        {
+          "case": "regression_large",
+          "action": "geometry",
+          "mean": 0.18081279087749613,
+          "worst": -0.13345144649635102
+        },
+        {
+          "case": "medium_A0",
+          "action": "geometry",
+          "mean": 1.5737158902471098,
+          "worst": -0.08198678853804654
+        },
+        {
+          "case": "road1500",
+          "action": "geometry",
+          "mean": 0.04948379479589748,
+          "worst": -0.008527823338040036
+        },
+        {
+          "case": "huge10000",
+          "action": "v4",
+          "mean": 0,
+          "worst": 0
+        },
+        {
+          "case": "cluster400",
+          "action": "geometry",
+          "mean": 1.1990540528852163,
+          "worst": 0.6305982310480786
+        },
+        {
+          "case": "equal_count150",
+          "action": "geometry",
+          "mean": -0.32961098295906227,
+          "worst": -1.5215429168424675
+        },
+        {
+          "case": "official_3",
+          "action": "geometry",
+          "mean": 0.9143873035242605,
+          "worst": 0.5669094765349065
+        }
+      ],
+      "tree": {
+        "action": "geometry",
+        "n": 14,
+        "mean": 4.6967678238833015
+      }
+    },
+    {
+      "depth": 0,
+      "minleaf": 3,
+      "margin": 3,
+      "mean": 2.516866207029345,
+      "worst": -8.577609578400004,
+      "rows": [
+        {
+          "case": "grid_boundary",
+          "action": "geometry",
+          "mean": 4.112070765125251,
+          "worst": 1.7476084648900787
+        },
+        {
+          "case": "medium_anti",
+          "action": "v4",
+          "mean": 0,
+          "worst": 0
+        },
+        {
+          "case": "grid160",
+          "action": "geometry",
+          "mean": 14.616605501041443,
+          "worst": 12.7082135729249
+        },
+        {
+          "case": "multi220",
+          "action": "geometry",
+          "mean": 0.15230915200437814,
+          "worst": 0.0
+        },
+        {
+          "case": "road120",
+          "action": "geometry",
+          "mean": 8.562494224903823,
+          "worst": 4.878836572910571
+        },
+        {
+          "case": "huge",
+          "action": "geometry",
+          "mean": -3.5094150926135375,
+          "worst": -8.577609578400004
+        },
+        {
+          "case": "anti180",
+          "action": "geometry",
+          "mean": 0.012616197428215811,
+          "worst": -3.680016803647997
+        },
+        {
+          "case": "regression_large",
+          "action": "geometry",
+          "mean": 0.18081279087749613,
+          "worst": -0.13345144649635102
+        },
+        {
+          "case": "medium_A0",
+          "action": "geometry",
+          "mean": 1.5737158902471098,
+          "worst": -0.08198678853804654
+        },
+        {
+          "case": "road1500",
+          "action": "geometry",
+          "mean": 0.04948379479589748,
+          "worst": -0.008527823338040036
+        },
+        {
+          "case": "huge10000",
+          "action": "geometry",
+          "mean": 7.7016033011503415,
+          "worst": 3.169994191581854
+        },
+        {
+          "case": "cluster400",
+          "action": "geometry",
+          "mean": 1.1990540528852163,
+          "worst": 0.6305982310480786
+        },
+        {
+          "case": "equal_count150",
+          "action": "geometry",
+          "mean": -0.32961098295906227,
+          "worst": -1.5215429168424675
+        },
+        {
+          "case": "official_3",
+          "action": "geometry",
+          "mean": 0.9143873035242605,
+          "worst": 0.5669094765349065
+        }
+      ],
+      "tree": {
+        "action": "geometry",
+        "n": 14,
+        "mean": 4.6967678238833015
+      }
+    },
+    {
+      "depth": 0,
+      "minleaf": 4,
+      "margin": 3,
+      "mean": 2.516866207029345,
+      "worst": -8.577609578400004,
+      "rows": [
+        {
+          "case": "grid_boundary",
+          "action": "geometry",
+          "mean": 4.112070765125251,
+          "worst": 1.7476084648900787
+        },
+        {
+          "case": "medium_anti",
+          "action": "v4",
+          "mean": 0,
+          "worst": 0
+        },
+        {
+          "case": "grid160",
+          "action": "geometry",
+          "mean": 14.616605501041443,
+          "worst": 12.7082135729249
+        },
+        {
+          "case": "multi220",
+          "action": "geometry",
+          "mean": 0.15230915200437814,
+          "worst": 0.0
+        },
+        {
+          "case": "road120",
+          "action": "geometry",
+          "mean": 8.562494224903823,
+          "worst": 4.878836572910571
+        },
+        {
+          "case": "huge",
+          "action": "geometry",
+          "mean": -3.5094150926135375,
+          "worst": -8.577609578400004
+        },
+        {
+          "case": "anti180",
+          "action": "geometry",
+          "mean": 0.012616197428215811,
+          "worst": -3.680016803647997
+        },
+        {
+          "case": "regression_large",
+          "action": "geometry",
+          "mean": 0.18081279087749613,
+          "worst": -0.13345144649635102
+        },
+        {
+          "case": "medium_A0",
+          "action": "geometry",
+          "mean": 1.5737158902471098,
+          "worst": -0.08198678853804654
+        },
+        {
+          "case": "road1500",
+          "action": "geometry",
+          "mean": 0.04948379479589748,
+          "worst": -0.008527823338040036
+        },
+        {
+          "case": "huge10000",
+          "action": "geometry",
+          "mean": 7.7016033011503415,
+          "worst": 3.169994191581854
+        },
+        {
+          "case": "cluster400",
+          "action": "geometry",
+          "mean": 1.1990540528852163,
+          "worst": 0.6305982310480786
+        },
+        {
+          "case": "equal_count150",
+          "action": "geometry",
+          "mean": -0.32961098295906227,
+          "worst": -1.5215429168424675
+        },
+        {
+          "case": "official_3",
+          "action": "geometry",
+          "mean": 0.9143873035242605,
+          "worst": 0.5669094765349065
+        }
+      ],
+      "tree": {
+        "action": "geometry",
+        "n": 14,
+        "mean": 4.6967678238833015
+      }
+    },
+    {
+      "depth": 0,
+      "minleaf": 5,
+      "margin": 3,
+      "mean": 2.516866207029345,
+      "worst": -8.577609578400004,
+      "rows": [
+        {
+          "case": "grid_boundary",
+          "action": "geometry",
+          "mean": 4.112070765125251,
+          "worst": 1.7476084648900787
+        },
+        {
+          "case": "medium_anti",
+          "action": "v4",
+          "mean": 0,
+          "worst": 0
+        },
+        {
+          "case": "grid160",
+          "action": "geometry",
+          "mean": 14.616605501041443,
+          "worst": 12.7082135729249
+        },
+        {
+          "case": "multi220",
+          "action": "geometry",
+          "mean": 0.15230915200437814,
+          "worst": 0.0
+        },
+        {
+          "case": "road120",
+          "action": "geometry",
+          "mean": 8.562494224903823,
+          "worst": 4.878836572910571
+        },
+        {
+          "case": "huge",
+          "action": "geometry",
+          "mean": -3.5094150926135375,
+          "worst": -8.577609578400004
+        },
+        {
+          "case": "anti180",
+          "action": "geometry",
+          "mean": 0.012616197428215811,
+          "worst": -3.680016803647997
+        },
+        {
+          "case": "regression_large",
+          "action": "geometry",
+          "mean": 0.18081279087749613,
+          "worst": -0.13345144649635102
+        },
+        {
+          "case": "medium_A0",
+          "action": "geometry",
+          "mean": 1.5737158902471098,
+          "worst": -0.08198678853804654
+        },
+        {
+          "case": "road1500",
+          "action": "geometry",
+          "mean": 0.04948379479589748,
+          "worst": -0.008527823338040036
+        },
+        {
+          "case": "huge10000",
+          "action": "geometry",
+          "mean": 7.7016033011503415,
+          "worst": 3.169994191581854
+        },
+        {
+          "case": "cluster400",
+          "action": "geometry",
+          "mean": 1.1990540528852163,
+          "worst": 0.6305982310480786
+        },
+        {
+          "case": "equal_count150",
+          "action": "geometry",
+          "mean": -0.32961098295906227,
+          "worst": -1.5215429168424675
+        },
+        {
+          "case": "official_3",
+          "action": "geometry",
+          "mean": 0.9143873035242605,
+          "worst": 0.5669094765349065
+        }
+      ],
+      "tree": {
+        "action": "geometry",
+        "n": 14,
+        "mean": 4.6967678238833015
+      }
+    },
+    {
+      "depth": 2,
+      "minleaf": 4,
+      "margin": 3,
+      "mean": 1.9667516855186065,
+      "worst": -8.577609578400004,
+      "rows": [
+        {
+          "case": "grid_boundary",
+          "action": "geometry",
+          "mean": 4.112070765125251,
+          "worst": 1.7476084648900787
+        },
+        {
+          "case": "medium_anti",
+          "action": "v4",
+          "mean": 0,
+          "worst": 0
+        },
+        {
+          "case": "grid160",
+          "action": "geometry",
+          "mean": 14.616605501041443,
+          "worst": 12.7082135729249
+        },
+        {
+          "case": "multi220",
+          "action": "geometry",
+          "mean": 0.15230915200437814,
+          "worst": 0.0
+        },
+        {
+          "case": "road120",
+          "action": "geometry",
+          "mean": 8.562494224903823,
+          "worst": 4.878836572910571
+        },
+        {
+          "case": "huge",
+          "action": "geometry",
+          "mean": -3.5094150926135375,
+          "worst": -8.577609578400004
+        },
+        {
+          "case": "anti180",
+          "action": "geometry",
+          "mean": 0.012616197428215811,
+          "worst": -3.680016803647997
+        },
+        {
+          "case": "regression_large",
+          "action": "geometry",
+          "mean": 0.18081279087749613,
+          "worst": -0.13345144649635102
+        },
+        {
+          "case": "medium_A0",
+          "action": "geometry",
+          "mean": 1.5737158902471098,
+          "worst": -0.08198678853804654
+        },
+        {
+          "case": "road1500",
+          "action": "geometry",
+          "mean": 0.04948379479589748,
+          "worst": -0.008527823338040036
+        },
+        {
+          "case": "huge10000",
+          "action": "v4",
+          "mean": 0,
+          "worst": 0
+        },
+        {
+          "case": "cluster400",
+          "action": "geometry",
+          "mean": 1.1990540528852163,
+          "worst": 0.6305982310480786
+        },
+        {
+          "case": "equal_count150",
+          "action": "geometry",
+          "mean": -0.32961098295906227,
+          "worst": -1.5215429168424675
+        },
+        {
+          "case": "official_3",
+          "action": "geometry",
+          "mean": 0.9143873035242605,
+          "worst": 0.5669094765349065
+        }
+      ],
+      "tree": {
+        "action": "geometry",
+        "n": 14,
+        "mean": 4.6967678238833015
+      }
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "case": "official_4",
+  "seed": 9302,
+  "variant": "tail",
+  "command": [
+    "/usr/bin/time",
+    "-f",
+    "rss_kb=%M user=%U sys=%S",
+    "-o",
+    "./experiments/structural_v9/logs/development280/official_4_9302_tail.resource",
+    "taskset",
+    "-c",
+    "12,13",
+    "./experiments/structural_v9/artifacts/final_research/candidate",
+    "./task/instance4/instance.json",
+    "./experiments/structural_v9/logs/development280/official_4_9302_tail.solution.json",
+    "280"
+  ],
+  "env": {
+    "HOME": "/home/user",
+    "LANG": "C.UTF-8",
+    "PATH": "/usr/local/bin:/usr/bin:/bin",
+    "NT": "2",
+    "SEED": "9302",
+    "ZM_POOL": "0",
+    "ZM_RESERVE": "0"
+  },
+  "affinity": [
+    12,
+    13
+  ],
+  "rc": 0,
+  "timeout": false,
+  "wall": 279.4747615790002,
+  "started_unix": 1792639725.5907812,
+  "ended_unix": 1792640005.2407699,
+  "official": 18889.64693072087,
+  "valid": true,
+  "snapshots": [
+    {
+      "at": 70.04483271400022,
+      "path": "experiments/structural_v9/logs/development280/official_4_9302_tail.t70.00.solution.json",
+      "official": 18019.089861853645
+    },
+    {
+      "at": 140.0180432850002,
+      "path": "experiments/structural_v9/logs/development280/official_4_9302_tail.t140.00.solution.json",
+      "official": 18226.332950462875
+    },
+    {
+      "at": 238.0199217280001,
+      "path": "experiments/structural_v9/logs/development280/official_4_9302_tail.t238.00.solution.json",
+      "official": 18855.896152264904
+    }
+  ],
+  "solution_sha256": "b8c00838e3510f9facd0718a131dc57cb85bc14f38490d52bb5303a3244b267f",
+  "resource": "rss_kb=5400 user=554.23 sys=0.00\n",
+  "error": false,
+  "internal_deadline_stop": false,
+  "logged_threads": 2,
+  "resource_fields": {
+    "rss_kb": 5400.0,
+    "user": 554.23,
+    "sys": 0.0
+  },
+  "success": true,
+  "components": {
+    "reward": 27890.103008540675,
+    "distance": 8456.762921165733,
+    "cost": 538.6931566540736,
+    "penalty": 5.0,
+    "objective": 18889.646930720868
+  }
+}

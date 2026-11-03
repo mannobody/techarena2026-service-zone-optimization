@@ -1,0 +1,58 @@
+{
+  "case": "boundary_witness",
+  "kind": "structure",
+  "backend": "scip",
+  "ok": true,
+  "expected": 9,
+  "result": {
+    "solution": [
+      {
+        "officeId": 0,
+        "sites": [
+          0
+        ],
+        "workers": [
+          0
+        ]
+      }
+    ],
+    "before": 0.0,
+    "value": 9.0,
+    "gain": 9.0,
+    "kind": "structure",
+    "backend": "scip",
+    "conditional_optimal": true,
+    "status": "optimal",
+    "bound": 9.0,
+    "gap": 0.0,
+    "build": 0.00722893700003624,
+    "solve": 0.0029646529998217375,
+    "check": 0.0015363429999979417,
+    "restore": 0.00045128299996122223,
+    "seconds": 0.014084996999940813,
+    "gain_per_second": 638.9777718829347,
+    "iterations": 2,
+    "nodes": 1,
+    "cuts": 1,
+    "variables": 14,
+    "rows": 27,
+    "selected": [
+      0,
+      1,
+      2
+    ],
+    "offices": [
+      0,
+      1
+    ],
+    "events": [
+      {
+        "iteration": 1,
+        "conflicts": 1,
+        "cuts": 1,
+        "bound": 18.0,
+        "seconds": 0.01189500999998927
+      }
+    ]
+  }
+}

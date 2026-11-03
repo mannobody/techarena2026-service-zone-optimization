@@ -1,0 +1,786 @@
+[
+  {
+    "case": "cross_segments",
+    "fixture_validation": 18.0,
+    "oracle": {
+      "value": 18,
+      "solution": [
+        {
+          "officeId": 0,
+          "sites": [
+            0
+          ],
+          "workers": [
+            0
+          ]
+        },
+        {
+          "officeId": 1,
+          "sites": [
+            1
+          ],
+          "workers": [
+            1
+          ]
+        }
+      ],
+      "valid_assignments": 9,
+      "tested": 9,
+      "valid_crossings": 1
+    }
+  },
+  {
+    "case": "cross_triangles",
+    "fixture_validation": 38.0,
+    "oracle": {
+      "value": 38,
+      "solution": [
+        {
+          "officeId": 0,
+          "sites": [
+            0,
+            1
+          ],
+          "workers": [
+            0
+          ]
+        },
+        {
+          "officeId": 1,
+          "sites": [
+            2,
+            3
+          ],
+          "workers": [
+            1
+          ]
+        }
+      ],
+      "valid_assignments": 49,
+      "tested": 49,
+      "valid_crossings": 11
+    }
+  },
+  {
+    "case": "unassigned_witness",
+    "fixture_validation": "Hull conflict",
+    "oracle": {
+      "value": 9,
+      "solution": [
+        {
+          "officeId": 1,
+          "sites": [
+            1
+          ],
+          "workers": [
+            1
+          ]
+        }
+      ],
+      "valid_assignments": 20,
+      "tested": 27,
+      "valid_crossings": 0
+    }
+  },
+  {
+    "case": "boundary_witness",
+    "fixture_validation": "Hull conflict",
+    "oracle": {
+      "value": 9,
+      "solution": [
+        {
+          "officeId": 1,
+          "sites": [
+            1
+          ],
+          "workers": [
+            1
+          ]
+        }
+      ],
+      "valid_assignments": 20,
+      "tested": 27,
+      "valid_crossings": 0
+    }
+  },
+  {
+    "case": "closed_office_witness",
+    "fixture_validation": "Hull conflict",
+    "oracle": {
+      "value": 9,
+      "solution": [
+        {
+          "officeId": 1,
+          "sites": [
+            1
+          ],
+          "workers": [
+            2
+          ]
+        }
+      ],
+      "valid_assignments": 13,
+      "tested": 16,
+      "valid_crossings": 0
+    }
+  },
+  {
+    "case": "disjoint_collinear",
+    "fixture_validation": 18.0,
+    "oracle": {
+      "value": 18,
+      "solution": [
+        {
+          "officeId": 0,
+          "sites": [
+            0
+          ],
+          "workers": [
+            0
+          ]
+        },
+        {
+          "officeId": 1,
+          "sites": [
+            1
+          ],
+          "workers": [
+            1
+          ]
+        }
+      ],
+      "valid_assignments": 8,
+      "tested": 9,
+      "valid_crossings": 0
+    }
+  },
+  {
+    "case": "overlap_collinear",
+    "fixture_validation": "Hull conflict",
+    "oracle": {
+      "value": 9,
+      "solution": [
+        {
+          "officeId": 1,
+          "sites": [
+            1
+          ],
+          "workers": [
+            1
+          ]
+        }
+      ],
+      "valid_assignments": 8,
+      "tested": 9,
+      "valid_crossings": 0
+    }
+  },
+  {
+    "case": "coincident_boundary",
+    "fixture_validation": "Hull conflict",
+    "oracle": {
+      "value": 19,
+      "solution": [
+        {
+          "officeId": 0,
+          "sites": [
+            0,
+            1
+          ],
+          "workers": [
+            1
+          ]
+        }
+      ],
+      "valid_assignments": 7,
+      "tested": 9,
+      "valid_crossings": 0
+    }
+  },
+  {
+    "case": "joint_open_workers",
+    "fixture_validation": 19.0,
+    "oracle": {
+      "value": 34,
+      "solution": [
+        {
+          "officeId": 0,
+          "sites": [
+            0,
+            1
+          ],
+          "workers": [
+            0
+          ]
+        },
+        {
+          "officeId": 1,
+          "sites": [
+            2,
+            3
+          ],
+          "workers": [
+            1
+          ]
+        }
+      ],
+      "valid_assignments": 41,
+      "tested": 49,
+      "valid_crossings": 1
+    }
+  },
+  {
+    "case": "joint_exchange",
+    "fixture_validation": 0.0,
+    "oracle": {
+      "value": 18,
+      "solution": [
+        {
+          "officeId": 0,
+          "sites": [
+            1
+          ],
+          "workers": [
+            1
+          ]
+        },
+        {
+          "officeId": 1,
+          "sites": [
+            0
+          ],
+          "workers": [
+            0
+          ]
+        }
+      ],
+      "valid_assignments": 9,
+      "tested": 9,
+      "valid_crossings": 1
+    }
+  },
+  {
+    "case": "skill_counts_insufficient",
+    "fixture_validation": 0.0,
+    "oracle": {
+      "value": 29,
+      "solution": [
+        {
+          "officeId": 0,
+          "sites": [
+            0,
+            1,
+            2
+          ],
+          "workers": [
+            1,
+            2
+          ]
+        }
+      ],
+      "valid_assignments": 46,
+      "tested": 46,
+      "valid_crossings": 14
+    }
+  },
+  {
+    "case": "random00",
+    "fixture_validation": null,
+    "oracle": {
+      "value": 0.0,
+      "solution": [],
+      "valid_assignments": 1,
+      "tested": 1,
+      "valid_crossings": 0
+    }
+  },
+  {
+    "case": "random01",
+    "fixture_validation": null,
+    "oracle": {
+      "value": 0.0,
+      "solution": [],
+      "valid_assignments": 1,
+      "tested": 7,
+      "valid_crossings": 0
+    }
+  },
+  {
+    "case": "random02",
+    "fixture_validation": null,
+    "oracle": {
+      "value": 24,
+      "solution": [
+        {
+          "officeId": 1,
+          "sites": [
+            1,
+            2,
+            3
+          ],
+          "workers": [
+            2
+          ]
+        }
+      ],
+      "valid_assignments": 91,
+      "tested": 101,
+      "valid_crossings": 4
+    }
+  },
+  {
+    "case": "random03",
+    "fixture_validation": null,
+    "oracle": {
+      "value": 29,
+      "solution": [
+        {
+          "officeId": 0,
+          "sites": [
+            1,
+            2
+          ],
+          "workers": [
+            0,
+            2
+          ]
+        },
+        {
+          "officeId": 2,
+          "sites": [
+            3,
+            4
+          ],
+          "workers": [
+            1
+          ]
+        }
+      ],
+      "valid_assignments": 498,
+      "tested": 994,
+      "valid_crossings": 188
+    }
+  },
+  {
+    "case": "random04",
+    "fixture_validation": null,
+    "oracle": {
+      "value": 0,
+      "solution": [],
+      "valid_assignments": 1,
+      "tested": 1,
+      "valid_crossings": 0
+    }
+  },
+  {
+    "case": "random05",
+    "fixture_validation": null,
+    "oracle": {
+      "value": 0,
+      "solution": [],
+      "valid_assignments": 1,
+      "tested": 1,
+      "valid_crossings": 0
+    }
+  },
+  {
+    "case": "random06",
+    "fixture_validation": null,
+    "oracle": {
+      "value": 0,
+      "solution": [],
+      "valid_assignments": 7,
+      "tested": 31,
+      "valid_crossings": 0
+    }
+  },
+  {
+    "case": "random07",
+    "fixture_validation": null,
+    "oracle": {
+      "value": 0.0,
+      "solution": [],
+      "valid_assignments": 1,
+      "tested": 7,
+      "valid_crossings": 0
+    }
+  },
+  {
+    "case": "random08",
+    "fixture_validation": null,
+    "oracle": {
+      "value": 22,
+      "solution": [
+        {
+          "officeId": 1,
+          "sites": [
+            0,
+            1,
+            3
+          ],
+          "workers": [
+            1
+          ]
+        },
+        {
+          "officeId": 2,
+          "sites": [
+            2
+          ],
+          "workers": [
+            2
+          ]
+        }
+      ],
+      "valid_assignments": 160,
+      "tested": 256,
+      "valid_crossings": 49
+    }
+  },
+  {
+    "case": "random09",
+    "fixture_validation": null,
+    "oracle": {
+      "value": 5.0,
+      "solution": [
+        {
+          "officeId": 2,
+          "sites": [
+            0
+          ],
+          "workers": [
+            0,
+            1
+          ]
+        }
+      ],
+      "valid_assignments": 7,
+      "tested": 13,
+      "valid_crossings": 0
+    }
+  },
+  {
+    "case": "random10",
+    "fixture_validation": null,
+    "oracle": {
+      "value": 0,
+      "solution": [],
+      "valid_assignments": 3,
+      "tested": 13,
+      "valid_crossings": 0
+    }
+  },
+  {
+    "case": "random11",
+    "fixture_validation": null,
+    "oracle": {
+      "value": 0.0,
+      "solution": [],
+      "valid_assignments": 1,
+      "tested": 1,
+      "valid_crossings": 0
+    }
+  },
+  {
+    "case": "random12",
+    "fixture_validation": null,
+    "oracle": {
+      "value": 2.0,
+      "solution": [
+        {
+          "officeId": 1,
+          "sites": [
+            0
+          ],
+          "workers": []
+        }
+      ],
+      "valid_assignments": 8,
+      "tested": 19,
+      "valid_crossings": 0
+    }
+  },
+  {
+    "case": "random13",
+    "fixture_validation": null,
+    "oracle": {
+      "value": 0.0,
+      "solution": [],
+      "valid_assignments": 1,
+      "tested": 1,
+      "valid_crossings": 0
+    }
+  },
+  {
+    "case": "random14",
+    "fixture_validation": null,
+    "oracle": {
+      "value": 0,
+      "solution": [],
+      "valid_assignments": 1,
+      "tested": 5,
+      "valid_crossings": 0
+    }
+  },
+  {
+    "case": "random15",
+    "fixture_validation": null,
+    "oracle": {
+      "value": 0,
+      "solution": [],
+      "valid_assignments": 1,
+      "tested": 1,
+      "valid_crossings": 0
+    }
+  },
+  {
+    "case": "random16",
+    "fixture_validation": null,
+    "oracle": {
+      "value": 9.0,
+      "solution": [
+        {
+          "officeId": 0,
+          "sites": [
+            1
+          ],
+          "workers": []
+        }
+      ],
+      "valid_assignments": 3,
+      "tested": 4,
+      "valid_crossings": 0
+    }
+  },
+  {
+    "case": "random17",
+    "fixture_validation": null,
+    "oracle": {
+      "value": 4,
+      "solution": [
+        {
+          "officeId": 0,
+          "sites": [
+            1
+          ],
+          "workers": [
+            0
+          ]
+        }
+      ],
+      "valid_assignments": 3,
+      "tested": 9,
+      "valid_crossings": 0
+    }
+  },
+  {
+    "case": "random18",
+    "fixture_validation": null,
+    "oracle": {
+      "value": 24,
+      "solution": [
+        {
+          "officeId": 1,
+          "sites": [
+            0,
+            1,
+            3
+          ],
+          "workers": [
+            1
+          ]
+        }
+      ],
+      "valid_assignments": 253,
+      "tested": 253,
+      "valid_crossings": 122
+    }
+  },
+  {
+    "case": "random19",
+    "fixture_validation": null,
+    "oracle": {
+      "value": 0,
+      "solution": [],
+      "valid_assignments": 1,
+      "tested": 1,
+      "valid_crossings": 0
+    }
+  },
+  {
+    "case": "random20",
+    "fixture_validation": null,
+    "oracle": {
+      "value": 0.0,
+      "solution": [],
+      "valid_assignments": 1,
+      "tested": 16,
+      "valid_crossings": 0
+    }
+  },
+  {
+    "case": "random21",
+    "fixture_validation": null,
+    "oracle": {
+      "value": 0,
+      "solution": [],
+      "valid_assignments": 1,
+      "tested": 32,
+      "valid_crossings": 0
+    }
+  },
+  {
+    "case": "random22",
+    "fixture_validation": null,
+    "oracle": {
+      "value": 2,
+      "solution": [
+        {
+          "officeId": 0,
+          "sites": [
+            2
+          ],
+          "workers": [
+            1
+          ]
+        }
+      ],
+      "valid_assignments": 4,
+      "tested": 4,
+      "valid_crossings": 0
+    }
+  },
+  {
+    "case": "random23",
+    "fixture_validation": null,
+    "oracle": {
+      "value": 15,
+      "solution": [
+        {
+          "officeId": 0,
+          "sites": [
+            1,
+            3
+          ],
+          "workers": [
+            1
+          ]
+        }
+      ],
+      "valid_assignments": 4,
+      "tested": 16,
+      "valid_crossings": 0
+    }
+  },
+  {
+    "case": "random24",
+    "fixture_validation": null,
+    "oracle": {
+      "value": 0,
+      "solution": [],
+      "valid_assignments": 1,
+      "tested": 1,
+      "valid_crossings": 0
+    }
+  },
+  {
+    "case": "random25",
+    "fixture_validation": null,
+    "oracle": {
+      "value": 6,
+      "solution": [
+        {
+          "officeId": 1,
+          "sites": [
+            0
+          ],
+          "workers": []
+        }
+      ],
+      "valid_assignments": 3,
+      "tested": 231,
+      "valid_crossings": 0
+    }
+  },
+  {
+    "case": "random26",
+    "fixture_validation": null,
+    "oracle": {
+      "value": 7,
+      "solution": [
+        {
+          "officeId": 0,
+          "sites": [
+            0
+          ],
+          "workers": [
+            1
+          ]
+        }
+      ],
+      "valid_assignments": 7,
+      "tested": 7,
+      "valid_crossings": 0
+    }
+  },
+  {
+    "case": "random27",
+    "fixture_validation": null,
+    "oracle": {
+      "value": 16,
+      "solution": [
+        {
+          "officeId": 0,
+          "sites": [
+            1,
+            3
+          ],
+          "workers": []
+        }
+      ],
+      "valid_assignments": 4,
+      "tested": 15,
+      "valid_crossings": 0
+    }
+  },
+  {
+    "case": "random28",
+    "fixture_validation": null,
+    "oracle": {
+      "value": 4,
+      "solution": [
+        {
+          "officeId": 0,
+          "sites": [
+            2
+          ],
+          "workers": [
+            1
+          ]
+        }
+      ],
+      "valid_assignments": 7,
+      "tested": 13,
+      "valid_crossings": 0
+    }
+  },
+  {
+    "case": "random29",
+    "fixture_validation": null,
+    "oracle": {
+      "value": 9.0,
+      "solution": [
+        {
+          "officeId": 2,
+          "sites": [
+            1
+          ],
+          "workers": []
+        }
+      ],
+      "valid_assignments": 4,
+      "tested": 61,
+      "valid_crossings": 0
+    }
+  }
+]

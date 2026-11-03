@@ -1,0 +1,143 @@
+{
+  "case": "anti220",
+  "seed": 0,
+  "variant": "adaptive",
+  "command": [
+    "/usr/bin/time",
+    "-f",
+    "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+    "-o",
+    "./experiments/adaptive_v11/logs/development280_v3/anti220_0_adaptive.resource",
+    "taskset",
+    "-c",
+    "18,19",
+    "./experiments/adaptive_v11/artifacts/v3/candidate",
+    "./experiments/adaptive_v11/inputs/dev/anti220.json",
+    "./experiments/adaptive_v11/logs/development280_v3/anti220_0_adaptive.solution.json",
+    "280"
+  ],
+  "env": {
+    "HOME": "/home/user",
+    "LANG": "C.UTF-8",
+    "PATH": "/usr/local/bin:/usr/bin:/bin",
+    "NT": "2",
+    "SEED": "0",
+    "AP_POLICY": "1",
+    "AP_SHARE": "0"
+  },
+  "affinity": [
+    18,
+    19
+  ],
+  "rc": 0,
+  "timeout": false,
+  "wall": 279.466928394002,
+  "started_unix": 1792658622.7217898,
+  "ended_unix": 1792658902.215295,
+  "official": 53.72535761021904,
+  "valid": true,
+  "snapshots": [
+    {
+      "at": 28.041868849999446,
+      "path": "experiments/adaptive_v11/logs/development280_v3/anti220_0_adaptive.t28.00.solution.json",
+      "official": 51.92307271004952
+    },
+    {
+      "at": 61.64899898099975,
+      "path": "experiments/adaptive_v11/logs/development280_v3/anti220_0_adaptive.t61.60.solution.json",
+      "official": 53.208265423605
+    },
+    {
+      "at": 70.0441598130019,
+      "path": "experiments/adaptive_v11/logs/development280_v3/anti220_0_adaptive.t70.00.solution.json",
+      "official": 53.68840323965724
+    },
+    {
+      "at": 140.04732680100278,
+      "path": "experiments/adaptive_v11/logs/development280_v3/anti220_0_adaptive.t140.00.solution.json",
+      "official": 53.68840323965724
+    },
+    {
+      "at": 238.0440056610023,
+      "path": "experiments/adaptive_v11/logs/development280_v3/anti220_0_adaptive.t238.00.solution.json",
+      "official": 53.72535761021904
+    }
+  ],
+  "solution_sha256": "6a836d7b59359368c5e8b26ac85641926b3d7eb4a437a4a458557f095a0ac3a8",
+  "resource": "rss_kb=7528 user=549.16 sys=0.37 majorfaults=0 minorfaults=853 voluntary=20139 involuntary=19957 inputs=0 outputs=280\n",
+  "error": false,
+  "process_sampling": {
+    "last": {
+      "83": {
+        "runtime_ns": 118767126,
+        "runqueue_ns": 219610009,
+        "slices": 20122
+      },
+      "84": {
+        "runtime_ns": 152574344393,
+        "runqueue_ns": 32117445,
+        "slices": 3856
+      },
+      "85": {
+        "runtime_ns": 277145579120,
+        "runqueue_ns": 46521274,
+        "slices": 5689
+      },
+      "96": {
+        "runtime_ns": 35233,
+        "runqueue_ns": 311134,
+        "slices": 1
+      },
+      "100": {
+        "runtime_ns": 119176037544,
+        "runqueue_ns": 77410669,
+        "slices": 10396
+      }
+    },
+    "states": {
+      "R": 552,
+      "S": 524
+    },
+    "wchan": {
+      "0": 553,
+      "hrtimer_nanosleep": 277,
+      "futex_do_wait": 246
+    },
+    "max_sampled_threads": 5,
+    "samples": 279,
+    "last_io": {
+      "rchar": 213239,
+      "wchar": 8484,
+      "syscr": 51,
+      "syscw": 26,
+      "read_bytes": 0,
+      "write_bytes": 143360,
+      "cancelled_write_bytes": 0
+    }
+  },
+  "resource_extra_fields": {
+    "majorfaults": 0.0,
+    "minorfaults": 853.0,
+    "voluntary": 20139.0,
+    "involuntary": 19957.0,
+    "inputs": 0.0,
+    "outputs": 280.0
+  },
+  "internal_deadline_stop": false,
+  "cpu_pressure_before": "some avg10=0.04 avg60=0.08 avg300=0.32 total=6218169796\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+  "cpu_pressure_after": "some avg10=0.36 avg60=0.20 avg300=0.20 total=6219817526\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+  "logged_threads": 1,
+  "resource_fields": {
+    "rss_kb": 7528.0,
+    "user": 549.16,
+    "sys": 0.37
+  },
+  "success": true,
+  "components": {
+    "reward": 119.51494157251729,
+    "distance": 59.197336439099274,
+    "cost": 6.4482536176899234,
+    "penalty": 0.14399390550905697,
+    "objective": 53.725357610219035
+  }
+}

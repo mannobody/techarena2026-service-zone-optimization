@@ -1,0 +1,124 @@
+{
+  "spec": {
+    "destination": "experiments/v8_exact_neighborhoods/logs/barriers",
+    "seconds": 1,
+    "seeds": [
+      3111
+    ],
+    "cpu_pairs": [
+      [
+        18,
+        19
+      ]
+    ],
+    "cases": {
+      "fill_geo_fallback": "experiments/v8_exact_neighborhoods/inputs/fill_geo_fallback.json",
+      "negative_profit_balance": "experiments/v8_exact_neighborhoods/inputs/negative_profit_balance.json",
+      "large_A0_open": "experiments/v8_exact_neighborhoods/inputs/large_A0_open.json",
+      "joint_open_workers": "experiments/v8_exact_neighborhoods/inputs/joint_open_workers.json",
+      "joint_exchange": "experiments/v8_exact_neighborhoods/inputs/joint_exchange.json"
+    },
+    "checkpoints": {
+      "fill_geo_fallback": "experiments/v8_exact_neighborhoods/solutions/fill_geo_fallback.json",
+      "negative_profit_balance": "experiments/v8_exact_neighborhoods/solutions/negative_profit_balance.json",
+      "large_A0_open": "experiments/v8_exact_neighborhoods/solutions/large_A0_open.json",
+      "joint_open_workers": "experiments/v8_exact_neighborhoods/solutions/joint_open_workers.json",
+      "joint_exchange": "experiments/v8_exact_neighborhoods/solutions/joint_exchange.json"
+    },
+    "variants": {
+      "native_fill": {
+        "binary": "experiments/v8_exact_neighborhoods/artifacts/candidate_v2/checkpoint",
+        "source": "experiments/v8_exact_neighborhoods/artifacts/candidate_v2/main.cpp",
+        "mode": 5,
+        "env": {
+          "DBG": "1",
+          "XN_FILL": "0",
+          "XN_MODE": "0",
+          "ESCAPE_MODE": "0",
+          "XN_SIG_FIX": "0"
+        }
+      },
+      "full_fill": {
+        "binary": "experiments/v8_exact_neighborhoods/artifacts/candidate_v2/checkpoint",
+        "source": "experiments/v8_exact_neighborhoods/artifacts/candidate_v2/main.cpp",
+        "mode": 5,
+        "env": {
+          "DBG": "1",
+          "XN_FILL": "1",
+          "XN_MODE": "0",
+          "ESCAPE_MODE": "0",
+          "XN_SIG_FIX": "0"
+        }
+      },
+      "native_open": {
+        "binary": "experiments/v8_exact_neighborhoods/artifacts/candidate_v2/checkpoint",
+        "source": "experiments/v8_exact_neighborhoods/artifacts/candidate_v2/main.cpp",
+        "mode": 6,
+        "env": {
+          "DBG": "1",
+          "XN_FILL": "0",
+          "XN_MODE": "0",
+          "ESCAPE_MODE": "0",
+          "XN_SIG_FIX": "0"
+        }
+      },
+      "packets": {
+        "binary": "experiments/v8_exact_neighborhoods/artifacts/candidate_v2/checkpoint",
+        "source": "experiments/v8_exact_neighborhoods/artifacts/candidate_v2/main.cpp",
+        "mode": 4,
+        "env": {
+          "DBG": "1",
+          "XN_FILL": "0",
+          "XN_MODE": "0",
+          "ESCAPE_MODE": "0",
+          "XN_SIG_FIX": "0"
+        }
+      },
+      "exact": {
+        "binary": "experiments/v8_exact_neighborhoods/artifacts/candidate_v2/checkpoint",
+        "source": "experiments/v8_exact_neighborhoods/artifacts/candidate_v2/main.cpp",
+        "mode": 2,
+        "env": {
+          "DBG": "1",
+          "XN_FILL": "0",
+          "XN_MODE": "0",
+          "ESCAPE_MODE": "0",
+          "XN_SIG_FIX": "0"
+        }
+      }
+    },
+    "order_seed": 791
+  },
+  "spec_sha256": "5b968fb5f85604841d08b7f367aa0b1c5015eb9c6208709bb70909afe0e1b6b7",
+  "runner_sha256": "edfa3a8b628cd9ecab65e5d5f28f7d8af9b84c36ed82b57c9a348d515613edd1",
+  "sources": {
+    "native_fill": "ea5c860e006e93d6b2287b05a1b65f2f96789bc429fd5a154d4013f25f1c7df8",
+    "full_fill": "ea5c860e006e93d6b2287b05a1b65f2f96789bc429fd5a154d4013f25f1c7df8",
+    "native_open": "ea5c860e006e93d6b2287b05a1b65f2f96789bc429fd5a154d4013f25f1c7df8",
+    "packets": "ea5c860e006e93d6b2287b05a1b65f2f96789bc429fd5a154d4013f25f1c7df8",
+    "exact": "ea5c860e006e93d6b2287b05a1b65f2f96789bc429fd5a154d4013f25f1c7df8"
+  },
+  "validator_sha256": "6dd5948ebe72977976acf1b8dcaf7c819274c79addfb82328c0ec9a012ed56e0",
+  "checkpoints": {
+    "fill_geo_fallback": "c762b423b5887d12bb49111d113094feba081aea2cada6748f493fee7b075934",
+    "negative_profit_balance": "c762b423b5887d12bb49111d113094feba081aea2cada6748f493fee7b075934",
+    "large_A0_open": "87c43888e1cf0b38178e488aae220c3b5c3127c279ee3d8eb488c358f5c20133",
+    "joint_open_workers": "1bbdfd5217735bd20d1ea2615cbc8f51b7af9eed9803981353e310eda6be0742",
+    "joint_exchange": "c762b423b5887d12bb49111d113094feba081aea2cada6748f493fee7b075934"
+  },
+  "binaries": {
+    "native_fill": "4c8e9dee110b66c7c4160f57bcbf653a1f73190713ff3bf9e5d6ffd92b55f1b6",
+    "full_fill": "4c8e9dee110b66c7c4160f57bcbf653a1f73190713ff3bf9e5d6ffd92b55f1b6",
+    "native_open": "4c8e9dee110b66c7c4160f57bcbf653a1f73190713ff3bf9e5d6ffd92b55f1b6",
+    "packets": "4c8e9dee110b66c7c4160f57bcbf653a1f73190713ff3bf9e5d6ffd92b55f1b6",
+    "exact": "4c8e9dee110b66c7c4160f57bcbf653a1f73190713ff3bf9e5d6ffd92b55f1b6"
+  },
+  "inputs": {
+    "fill_geo_fallback": "c6b67a4b6e364e7d31c45d667d4a3fccfb00b49427c9c103df5900818999af1e",
+    "negative_profit_balance": "ac0480dc0d22c00033bb6ae4398e026337c5e44bdb66999893419a5e827eb09e",
+    "large_A0_open": "c3d7c963e382b7790956ffd376164a6dd9a5fd1d36947942c87de09b8c722ef0",
+    "joint_open_workers": "e955e27864c1338f5225d51e90defeecc3075a05cc9568043be74159f9f714ce",
+    "joint_exchange": "b4faac09b34ec94b416e088a420fd79970be9d9cafa645f18904916e976f99df"
+  },
+  "topology": "<local-host-omitted>"
+}

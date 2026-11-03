@@ -1,0 +1,143 @@
+{
+  "case": "grid180",
+  "seed": 11602,
+  "variant": "adaptive",
+  "command": [
+    "/usr/bin/time",
+    "-f",
+    "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+    "-o",
+    "./experiments/adaptive_v11/logs/development280_v3/grid180_11602_adaptive.resource",
+    "taskset",
+    "-c",
+    "16,17",
+    "./experiments/adaptive_v11/artifacts/v3/candidate",
+    "./experiments/adaptive_v11/inputs/dev/grid180.json",
+    "./experiments/adaptive_v11/logs/development280_v3/grid180_11602_adaptive.solution.json",
+    "280"
+  ],
+  "env": {
+    "HOME": "/home/user",
+    "LANG": "C.UTF-8",
+    "PATH": "/usr/local/bin:/usr/bin:/bin",
+    "NT": "2",
+    "SEED": "11602",
+    "AP_POLICY": "1",
+    "AP_SHARE": "0"
+  },
+  "affinity": [
+    16,
+    17
+  ],
+  "rc": 0,
+  "timeout": false,
+  "wall": 279.49825236000106,
+  "started_unix": 1792660109.8399246,
+  "ended_unix": 1792660389.387326,
+  "official": 8168.79149756629,
+  "valid": true,
+  "snapshots": [
+    {
+      "at": 28.04080519099807,
+      "path": "experiments/adaptive_v11/logs/development280_v3/grid180_11602_adaptive.t28.00.solution.json",
+      "official": 7763.3039947846755
+    },
+    {
+      "at": 61.64545149300102,
+      "path": "experiments/adaptive_v11/logs/development280_v3/grid180_11602_adaptive.t61.60.solution.json",
+      "official": 8062.680198631325
+    },
+    {
+      "at": 70.03212906399858,
+      "path": "experiments/adaptive_v11/logs/development280_v3/grid180_11602_adaptive.t70.00.solution.json",
+      "official": 8062.680198631325
+    },
+    {
+      "at": 140.00990665100107,
+      "path": "experiments/adaptive_v11/logs/development280_v3/grid180_11602_adaptive.t140.00.solution.json",
+      "official": 8067.1795977086085
+    },
+    {
+      "at": 238.01844443799928,
+      "path": "experiments/adaptive_v11/logs/development280_v3/grid180_11602_adaptive.t238.00.solution.json",
+      "official": 8120.8126218496045
+    }
+  ],
+  "solution_sha256": "e3ef3a0cf76504bf5e94621f18fb269366aa00f16058a25816a494a95da5a10d",
+  "resource": "rss_kb=7448 user=548.10 sys=0.51 majorfaults=0 minorfaults=830 voluntary=22212 involuntary=39770 inputs=0 outputs=312\n",
+  "error": false,
+  "process_sampling": {
+    "last": {
+      "213": {
+        "runtime_ns": 149324349,
+        "runqueue_ns": 289064800,
+        "slices": 22208
+      },
+      "214": {
+        "runtime_ns": 110434839628,
+        "runqueue_ns": 280949854,
+        "slices": 6495
+      },
+      "215": {
+        "runtime_ns": 277167334118,
+        "runqueue_ns": 76007013,
+        "slices": 6912
+      },
+      "216": {
+        "runtime_ns": 38210,
+        "runqueue_ns": 590407,
+        "slices": 1
+      },
+      "221": {
+        "runtime_ns": 159451979835,
+        "runqueue_ns": 602826171,
+        "slices": 26195
+      }
+    },
+    "states": {
+      "S": 440,
+      "R": 550
+    },
+    "wchan": {
+      "hrtimer_nanosleep": 278,
+      "0": 550,
+      "futex_do_wait": 162
+    },
+    "max_sampled_threads": 5,
+    "samples": 278,
+    "last_io": {
+      "rchar": 169871,
+      "wchar": 36589,
+      "syscr": 45,
+      "syscw": 56,
+      "read_bytes": 0,
+      "write_bytes": 159744,
+      "cancelled_write_bytes": 0
+    }
+  },
+  "resource_extra_fields": {
+    "majorfaults": 0.0,
+    "minorfaults": 830.0,
+    "voluntary": 22212.0,
+    "involuntary": 39770.0,
+    "inputs": 0.0,
+    "outputs": 312.0
+  },
+  "internal_deadline_stop": false,
+  "cpu_pressure_before": "some avg10=0.96 avg60=1.02 avg300=0.71 total=6230927630\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+  "cpu_pressure_after": "some avg10=1.23 avg60=1.11 avg300=0.77 total=6234603006\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+  "logged_threads": 1,
+  "resource_fields": {
+    "rss_kb": 7448.0,
+    "user": 548.1,
+    "sys": 0.51
+  },
+  "success": true,
+  "components": {
+    "reward": 10908.68245982669,
+    "distance": 2050.8493551598995,
+    "cost": 664.8000905231102,
+    "penalty": 24.241516577392648,
+    "objective": 8168.79149756629
+  }
+}

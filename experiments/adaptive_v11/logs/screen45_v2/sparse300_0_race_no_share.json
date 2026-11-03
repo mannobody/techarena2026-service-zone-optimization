@@ -1,0 +1,143 @@
+{
+  "case": "sparse300",
+  "seed": 0,
+  "variant": "race_no_share",
+  "command": [
+    "/usr/bin/time",
+    "-f",
+    "rss_kb=%M user=%U sys=%S majorfaults=%F minorfaults=%R voluntary=%w involuntary=%c inputs=%I outputs=%O",
+    "-o",
+    "./experiments/adaptive_v11/logs/screen45_v2/sparse300_0_race_no_share.resource",
+    "taskset",
+    "-c",
+    "16,17",
+    "./experiments/adaptive_v11/artifacts/v2/candidate",
+    "./experiments/adaptive_v11/inputs/dev/sparse300.json",
+    "./experiments/adaptive_v11/logs/screen45_v2/sparse300_0_race_no_share.solution.json",
+    "45"
+  ],
+  "env": {
+    "HOME": "/home/user",
+    "LANG": "C.UTF-8",
+    "PATH": "/usr/local/bin:/usr/bin:/bin",
+    "NT": "2",
+    "SEED": "0",
+    "AP_POLICY": "1",
+    "AP_SHARE": "0"
+  },
+  "affinity": [
+    16,
+    17
+  ],
+  "rc": 0,
+  "timeout": false,
+  "wall": 44.80966895700112,
+  "started_unix": 1792657384.858731,
+  "ended_unix": 1792657429.7150693,
+  "official": 21.143149023572537,
+  "valid": true,
+  "snapshots": [
+    {
+      "at": 4.520734974001243,
+      "path": "experiments/adaptive_v11/logs/screen45_v2/sparse300_0_race_no_share.t4.50.solution.json",
+      "official": 20.58785561880064
+    },
+    {
+      "at": 9.940319008001097,
+      "path": "experiments/adaptive_v11/logs/screen45_v2/sparse300_0_race_no_share.t9.90.solution.json",
+      "official": 20.58785561880064
+    },
+    {
+      "at": 11.278224974001205,
+      "path": "experiments/adaptive_v11/logs/screen45_v2/sparse300_0_race_no_share.t11.25.solution.json",
+      "official": 20.58785561880064
+    },
+    {
+      "at": 22.541448455001955,
+      "path": "experiments/adaptive_v11/logs/screen45_v2/sparse300_0_race_no_share.t22.50.solution.json",
+      "official": 21.091625320114087
+    },
+    {
+      "at": 38.26712487000259,
+      "path": "experiments/adaptive_v11/logs/screen45_v2/sparse300_0_race_no_share.t38.25.solution.json",
+      "official": 21.091625320114087
+    }
+  ],
+  "solution_sha256": "c5b4f3e43ac498ea545496ce480ad9908f12194f085b6964d623cc7986e61ea3",
+  "resource": "rss_kb=12504 user=88.75 sys=0.05 majorfaults=0 minorfaults=2244 voluntary=3558 involuntary=3748 inputs=0 outputs=16\n",
+  "error": false,
+  "process_sampling": {
+    "last": {
+      "223": {
+        "runtime_ns": 31224226,
+        "runqueue_ns": 44646203,
+        "slices": 3539
+      },
+      "224": {
+        "runtime_ns": 44266515016,
+        "runqueue_ns": 1063409,
+        "slices": 55
+      },
+      "225": {
+        "runtime_ns": 44203576409,
+        "runqueue_ns": 32628258,
+        "slices": 3676
+      },
+      "228": {
+        "runtime_ns": 32215,
+        "runqueue_ns": 193455,
+        "slices": 1
+      },
+      "230": {
+        "runtime_ns": 27525,
+        "runqueue_ns": 768514,
+        "slices": 1
+      }
+    },
+    "states": {
+      "S": 119,
+      "R": 88
+    },
+    "wchan": {
+      "hrtimer_nanosleep": 44,
+      "0": 88,
+      "futex_do_wait": 75
+    },
+    "max_sampled_threads": 5,
+    "samples": 44,
+    "last_io": {
+      "rchar": 327764,
+      "wchar": 4440,
+      "syscr": 63,
+      "syscw": 16,
+      "read_bytes": 0,
+      "write_bytes": 8192,
+      "cancelled_write_bytes": 0
+    }
+  },
+  "resource_extra_fields": {
+    "majorfaults": 0.0,
+    "minorfaults": 2244.0,
+    "voluntary": 3558.0,
+    "involuntary": 3748.0,
+    "inputs": 0.0,
+    "outputs": 16.0
+  },
+  "internal_deadline_stop": false,
+  "cpu_pressure_before": "some avg10=0.14 avg60=0.47 avg300=0.31 total=6201989101\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+  "cpu_pressure_after": "some avg10=0.22 avg60=0.46 avg300=0.34 total=6202343142\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+  "logged_threads": 1,
+  "resource_fields": {
+    "rss_kb": 12504.0,
+    "user": 88.75,
+    "sys": 0.05
+  },
+  "success": true,
+  "components": {
+    "reward": 43.50279508725931,
+    "distance": 19.073938546301015,
+    "cost": 2.643724521923283,
+    "penalty": 0.6419829954624675,
+    "objective": 21.143149023572544
+  }
+}
