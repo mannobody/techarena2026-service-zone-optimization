@@ -180,6 +180,98 @@ static vector<int> ctor_road(const Inst& I, const vector<int>& ops) {
     }
     return c;
 }
+// STRIPES=1: параллельные полосы. Офисы упорядочены по проекции на направление θ, граница полос — середина
+// между соседними проекциями. Полосы выпуклы и не пересекаются, офис внутри своей — геометрия допустима
+// по построению. При «обратных» расстояниях (inst3: выгодно далеко от офиса) оптимум устроен именно так,
+// а power diagram из офисов его не находит (Fast занижает набор {1,5,7} на inst3 вдвое).
+// средняя по офисам корреляция d[o][s] с евклидовым |o−s|: ≈ +1 при обычных расстояниях, < 0 при «обратных»
+static double dist_geo_corr(const Inst& I) {
+    double sum = 0;
+    int cnt = 0;
+    for (int o = 0; o < I.no; o++) {
+        double sd = 0, se = 0, sdd = 0, see = 0, sde = 0;
+        for (int s = 0; s < I.ns; s++) {
+            double d = I.D[(size_t)o * I.ns + s];
+            double e = hypot(I.P[s].x - I.P[I.ns + o].x, I.P[s].y - I.P[I.ns + o].y);
+            sd += d; se += e; sdd += d * d; see += e * e; sde += d * e;
+        }
+        double n = I.ns, vd = sdd - sd * sd / n, ve = see - se * se / n;
+        if (vd <= 1e-12 * (sdd + 1) || ve <= 1e-12 * (see + 1)) continue;
+        sum += (sde - sd * se / n) / sqrt(vd * ve);
+        cnt++;
+    }
+    return cnt ? sum / cnt : 1.0;
+}
+
+static void stripe_cells(const Inst& I, const vector<int>& ops, double th, vector<int>& c) {
+    int K = ops.size();
+    double dx = cos(th), dy = sin(th);
+    vector<pair<double, int>> pr;
+    for (int o : ops) pr.push_back({I.P[I.ns + o].x * dx + I.P[I.ns + o].y * dy, o});
+    sort(pr.begin(), pr.end());
+    vector<double> bnd(max(0, K - 1));
+    for (int i = 0; i + 1 < K; i++) bnd[i] = 0.5 * (pr[i].first + pr[i + 1].first);
+    c.assign(I.ns, -1);
+    if (!K) return;
+    for (int s = 0; s < I.ns; s++) {
+        double p = I.P[s].x * dx + I.P[s].y * dy;
+        c[s] = pr[upper_bound(bnd.begin(), bnd.end(), p) - bnd.begin()].second;
+    }
+}
+
+// Оценка набора полосами: лучшее по направлениям значение «в полосе — лучшие прибыльные обслуживаемые сайты,
+// не больше min(maxSize, s_min + A); при α > 0 задачи выравниваются до минимальной нагрузки» минус стоимость.
+// Навыки не учитываются. th — лучшее направление.
+static double stripe_estimate(const Inst& I, const vector<int>& ops, double* th_out = nullptr, int ndir = 32) {
+    int K = ops.size();
+    if (!K) return NEG;
+    vector<int> c, idx(I.no, -1);
+    for (int b = 0; b < K; b++) idx[ops[b]] = b;
+    vector<vector<pair<double, int>>> mem(K);
+    double best = NEG, bth = 0, cost = 0;
+    for (int o : ops) cost += I.cost[o];
+    for (int d = 0; d < ndir; d++) {
+        double th = M_PI * d / ndir;
+        stripe_cells(I, ops, th, c);
+        for (auto& m : mem) m.clear();
+        for (int s = 0; s < I.ns; s++) {
+            if (!I.servable[s]) continue;
+            double p = I.pr(c[s], s);
+            if (p > 0) mem[idx[c[s]]].push_back({p, s});
+        }
+        int smin = INT_MAX;
+        for (int b = 0; b < K; b++) {
+            sort(mem[b].rbegin(), mem[b].rend());
+            if ((int)mem[b].size() > I.maxsize[ops[b]]) mem[b].resize(I.maxsize[ops[b]]);
+            if (!mem[b].empty()) smin = min(smin, (int)mem[b].size());
+        }
+        if (smin == INT_MAX) continue;
+        long long hi = (long long)smin + I.A;
+        long long tmin = LLONG_MAX, tmax = 0;
+        vector<long long> T(K, 0);
+        for (int b = 0; b < K; b++) {
+            if ((long long)mem[b].size() > hi) mem[b].resize(hi);
+            for (auto& e : mem[b]) T[b] += I.ntask[e.second];
+            if (!mem[b].empty()) { tmin = min(tmin, T[b]); tmax = max(tmax, T[b]); }
+        }
+        double v = 0;
+        if (I.alpha > 0 && tmax > tmin) {
+            // выровнять: в каждой полосе — сайты по убыванию прибыли, пока нагрузка не превысит tmin
+            double v1 = 0, v2 = 0;
+            for (int b = 0; b < K; b++) {
+                long long t = 0;
+                for (auto& e : mem[b]) { v1 += e.first; if (t + I.ntask[e.second] <= tmin) { t += I.ntask[e.second]; v2 += e.first; } }
+            }
+            v = max(v1 - I.alpha * (double)(tmax - tmin), v2);
+        } else
+            for (int b = 0; b < K; b++) for (auto& e : mem[b]) v += e.first;
+        v -= cost;
+        if (v > best) { best = v; bth = th; }
+    }
+    if (th_out) *th_out = bth;
+    return best;
+}
+
 // конструктор: угловые секторы вокруг центра (выпуклые клинья)
 static vector<int> ctor_sector(const Inst& I, const vector<int>& ops, Pt cen) {
     int K = ops.size();

@@ -116,8 +116,10 @@ def edge(outdir):
 
 
 def gen2(seed, out, ns, no, nw, nsk, layout='uniform', offices='random', dist='euclid', span=None,
-         dscale=1.0, tmax=3, wsk=1, deficit=0, af=0.01, A=None, capf=1.0):
-    """Гибкий генератор для --suite. af — α в долях reward; A=None — ns/(2·no)."""
+         dscale=1.0, tmax=3, wsk=1, deficit=0, af=0.01, A=None, capf=1.0, rnear=None, cf=(0.01, 0.1)):
+    """Гибкий генератор для --suite. af — α в долях reward; A=None — ns/(2·no).
+    rnear=(a, b) — reward = среднее расстояние до ближайшего офиса × U(a, b) (тонкая маржа);
+    cf — стоимость офиса в долях reward·ns/no."""
     rnd = random.Random(seed)
     span = span or rnd.choice([1.0, 100.0, 1000.0])
     if layout == 'cluster':
@@ -169,8 +171,12 @@ def gen2(seed, out, ns, no, nw, nsk, layout='uniform', offices='random', dist='e
             row.append(max(0.0, d) * dscale)
         D.append(row)
     mean_d = sum(map(sum, D)) / max(1, no * ns)
-    reward = mean_d * rnd.uniform(0.8, 2.0)
-    cost = [reward * ns / no * rnd.uniform(0.01, 0.1) for _ in range(no)]
+    if rnear:   # награда ≈ расстояние до ближайшего офиса: прибыль сайтов около нуля
+        near = sum(min(D[o][x] for o in range(no)) for x in range(ns)) / max(1, ns)
+        reward = near * rnd.uniform(*rnear)
+    else:
+        reward = mean_d * rnd.uniform(0.8, 2.0)
+    cost = [reward * ns / no * rnd.uniform(*cf) for _ in range(no)]
     cap = [max(1, int(ns / no * capf * rnd.uniform(0.6, 1.4))) for _ in range(no)]
     json.dump({'sites': [{'x': p[0], 'y': p[1], 'reward': reward, 'tasks': t} for p, t in zip(pts, tasks)],
                'offices': [{'x': o[0], 'y': o[1], 'cost': c, 'maxSize': m} for o, c, m in zip(offs, cost, cap)],
@@ -203,6 +209,11 @@ SUITE = {
                                dist='anti', offices=r.choice(['random', 'perimeter']))),
     'grid': (4, lambda r: dict(ns=r.choice([100, 300]), no=r.choice([3, 6]), nw=12, nsk=3,
                                layout='grid', offices='onsite')),
+    # тонкая маржа (как открытый instance2: obj/Σreward ≈ 0.02): reward ≈ расстояние до ближайшего офиса,
+    # офис стоит сопоставимо с целевой — малые ошибки в наборе офисов и сайтах дают десятки процентов
+    'thin': (6, lambda r: dict(ns=r.choice([100, 400, 1500, 5000]), no=r.choice([3, 5, 10, 20]), nw=20, nsk=4,
+                               dist=r.choice(['euclid', 'road']), rnear=(1.0, 1.3), cf=(0.03, 0.12),
+                               af=r.choice([0.0, 0.01, 0.5]))),
 }
 
 
