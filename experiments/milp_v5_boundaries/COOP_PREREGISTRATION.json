@@ -1,0 +1,17 @@
+{
+  "candidate": "./experiments/milp_v5_boundaries/artifacts/native_coop.cpp",
+  "sha256": "fe72afaa0710008075a6abe1353d1bb38dfce5c21b30ca2c21e7073e76747a0a",
+  "baseline": "milp_v5/artifacts/native_v5",
+  "seconds": 60,
+  "threads": 2,
+  "jobs": 6,
+  "seeds": [
+    181,
+    182,
+    183
+  ],
+  "generator_seeds": "321000+100*j, latent322000/322001",
+  "placement": "once on worker0 after 70% time; max2s; no extra threads; warmup and original v5 tail preserved",
+  "joint": false,
+  "selection": "chosen from postprocessing and the diagnosed skipped phase-A of early placement; frozen before new holdout"
+}

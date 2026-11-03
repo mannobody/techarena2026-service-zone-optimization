@@ -1,0 +1,39 @@
+./experiments/milp_v5_boundaries/artifacts/native.cpp: In function ‘std::vector<V52Region> v52_regions(const Inst&, const std::vector<int>&, const std::vector<char>&, std::vector<int>&, double, int)’:
+./experiments/milp_v5_boundaries/artifacts/native.cpp:3460:148: error: template argument 1 is invalid
+ 3460 |   vector<int>pool=regions[base[o]].sites;pool.insert(pool.end(),regions[base[p]].sites.begin(),regions[base[p]].sites.end());vector<pair<double,int>>free;
+      |                                                                                                                                                    ^~
+./experiments/milp_v5_boundaries/artifacts/native.cpp:3460:148: error: template argument 2 is invalid
+./experiments/milp_v5_boundaries/artifacts/native.cpp:3461:59: error: request for member ‘push_back’ in ‘free’, which is of non-class type ‘int’
+ 3461 |   for(int s=0;s<I.ns;s++)if(I.servable[s]&&!E.cov[s])free.push_back({max(I.pr(o,s),I.pr(p,s)),s});sort(free.rbegin(),free.rend());for(int j=0;j<min(256,(int)free.size());j++)pool.push_back(free[j].second);sort(pool.begin(),pool.end());pool.erase(unique(pool.begin(),pool.end()),pool.end());
+      |                                                           ^~~~~~~~~
+./experiments/milp_v5_boundaries/artifacts/native.cpp:3461:109: error: request for member ‘rbegin’ in ‘free’, which is of non-class type ‘int’
+ 3461 |   for(int s=0;s<I.ns;s++)if(I.servable[s]&&!E.cov[s])free.push_back({max(I.pr(o,s),I.pr(p,s)),s});sort(free.rbegin(),free.rend());for(int j=0;j<min(256,(int)free.size());j++)pool.push_back(free[j].second);sort(pool.begin(),pool.end());pool.erase(unique(pool.begin(),pool.end()),pool.end());
+      |                                                                                                             ^~~~~~
+./experiments/milp_v5_boundaries/artifacts/native.cpp:3461:123: error: request for member ‘rend’ in ‘free’, which is of non-class type ‘int’
+ 3461 |   for(int s=0;s<I.ns;s++)if(I.servable[s]&&!E.cov[s])free.push_back({max(I.pr(o,s),I.pr(p,s)),s});sort(free.rbegin(),free.rend());for(int j=0;j<min(256,(int)free.size());j++)pool.push_back(free[j].second);sort(pool.begin(),pool.end());pool.erase(unique(pool.begin(),pool.end()),pool.end());
+      |                                                                                                                           ^~~~
+./experiments/milp_v5_boundaries/artifacts/native.cpp:3461:163: error: request for member ‘size’ in ‘free’, which is of non-class type ‘int’
+ 3461 |   for(int s=0;s<I.ns;s++)if(I.servable[s]&&!E.cov[s])free.push_back({max(I.pr(o,s),I.pr(p,s)),s});sort(free.rbegin(),free.rend());for(int j=0;j<min(256,(int)free.size());j++)pool.push_back(free[j].second);sort(pool.begin(),pool.end());pool.erase(unique(pool.begin(),pool.end()),pool.end());
+      |                                                                                                                                                                   ^~~~
+./experiments/milp_v5_boundaries/artifacts/native.cpp:3461:194: error: invalid types ‘int[int]’ for array subscript
+ 3461 |   for(int s=0;s<I.ns;s++)if(I.servable[s]&&!E.cov[s])free.push_back({max(I.pr(o,s),I.pr(p,s)),s});sort(free.rbegin(),free.rend());for(int j=0;j<min(256,(int)free.size());j++)pool.push_back(free[j].second);sort(pool.begin(),pool.end());pool.erase(unique(pool.begin(),pool.end()),pool.end());
+      |                                                                                                                                                                                                  ^
+./experiments/milp_v5_boundaries/artifacts/native.cpp:3463:40: error: template argument 1 is invalid
+ 3463 |   for(auto rt:vector<pair<double,double>>{{0,.25},{0,.5},{0,.75},{.5,.5},{-.5,.5}}){if(elapsed()>=end)break;double nx=dx-rt.first*dy,ny=dy+rt.first*dx,cut=(1-rt.second)*(a.x*nx+a.y*ny)+rt.second*(b.x*nx+b.y*ny);
+      |                                        ^~
+./experiments/milp_v5_boundaries/artifacts/native.cpp:3463:40: error: template argument 2 is invalid
+./experiments/milp_v5_boundaries/artifacts/native.cpp:3464:114: error: ‘ny’ was not declared in this scope; did you mean ‘nx’?
+ 3464 |    for(int side=0;side<2;side++){int office=side?p:o;vector<int>ss;for(int s:pool){double v=I.P[s].x*nx+I.P[s].y*ny;if(side?v>cut:v<cut)ss.push_back(s);}
+      |                                                                                                                  ^~
+      |                                                                                                                  nx
+./experiments/milp_v5_boundaries/artifacts/native.cpp:3464:127: error: ‘cut’ was not declared in this scope
+ 3464 |    for(int side=0;side<2;side++){int office=side?p:o;vector<int>ss;for(int s:pool){double v=I.P[s].x*nx+I.P[s].y*ny;if(side?v>cut:v<cut)ss.push_back(s);}
+      |                                                                                                                               ^~~
+Traceback (most recent call last):
+  File "./experiments/milp_v5_boundaries/build.py", line 6, in <module>
+    p=H/'artifacts/native.cpp';p.write_text(s);subprocess.run(['g++','-O3','-std=c++17',str(p),'-o',str(p.with_suffix('')),'-ldl'],check=True)
+                                               ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib64/python3.14/subprocess.py", line 578, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['g++', '-O3', '-std=c++17', './experiments/milp_v5_boundaries/artifacts/native.cpp', '-o', './experiments/milp_v5_boundaries/artifacts/native', '-ldl']' returned non-zero exit status 1.

@@ -1,0 +1,25 @@
+{
+  "candidate": "./experiments/milp_v5/artifacts/native_v3.cpp",
+  "sha256": "4031d6037f1fcc8bf100b00ce9739d2d0592e5935c2a106e139440fc84bd3904",
+  "baseline": "server_v4/artifacts/package/solution",
+  "split": "full_holdout",
+  "generator_seeds": "271000+100*j; latent272000/272001",
+  "seconds": 60,
+  "threads": 2,
+  "jobs": 6,
+  "seeds": [
+    131,
+    132,
+    133
+  ],
+  "MIP_MODE": 2,
+  "MIP_RESERVE": 0.5,
+  "changes": [
+    "safe envelope growth ignoring capacities and staff during geometry construction",
+    "grouped integer counts and continuous profit variables",
+    "fixed staff phase <=0.45s then joint worker profile assignment",
+    "reuse validated incumbent staff assignment",
+    "MIP tail before final boundary B&B"
+  ],
+  "note": "Frozen before independent full holdout"
+}

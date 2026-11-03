@@ -1,0 +1,45 @@
+251000 219.0
+251001 483.0
+251002 211.0
+251003 513.0
+251004 411.0
+251005 498.5
+251006 381.0
+251007 575.5
+251008 294.0
+251009 250.0
+251010 235.0
+251011 409.0
+251012 313.0
+251013 467.0
+251014 358.0
+251015 307.0
+251016 406.0
+251017 372.0
+251018 287.0
+251019 150.0
+251020 389.0
+251021 351.0
+251022 335.0
+251023 657.0
+251024 297.0
+251025 318.0
+251026 643.5
+251027 395.0
+251028 182.0
+251029 376.0
+251030 326.0
+251031 305.5
+251032 340.0
+251033 460.0
+251034 423.0
+251035 370.0
+251036 425.0
+251037 380.0
+251038 355.0
+251039 384.0
+Traceback (most recent call last):
+  File "./experiments/milp_v5/native_oracle.py", line 43, in <module>
+    ap.write_text(' '.join(map(str,a)));out=D/f'{seed}.solution.json';q=subprocess.run([str(p.with_suffix('')),str(inp),str(out),str(ap),str(int(joint))],env=dict(os.environ,LD_LIBRARY_PATH='/tmp/ta-boundary-venv/lib64/python3.14/site-packages/highspy'),capture_output=True,text=True,timeout=60);assert q.returncode==0,(seed,q.stderr);score=value(I,json.loads(out.read_text()));assert not isinstance(score,str),(seed,score);assert abs(score-best)<1e-6,(seed,score,best);rows.append(dict(seed=seed,joint=joint,expected=best,value=score));print(seed,score,flush=True)
+                                                                                                                                                                                                                                                                                                                                                                                                                                               ^^^^^^^^^^^^^^^^^^^^
+AssertionError: (261000, 142.0, np.float64(220.0))

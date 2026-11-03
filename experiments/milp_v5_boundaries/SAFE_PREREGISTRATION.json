@@ -1,0 +1,16 @@
+{
+  "candidate": "./experiments/milp_v5_boundaries/artifacts/native_safe.cpp",
+  "sha256": "4144e63be49b938ca4885562dfd87bfdec78e46c8b3bd2ee9d32907997ff7bee",
+  "baseline": "milp_v5/artifacts/native_v5",
+  "seconds": 60,
+  "threads": 2,
+  "jobs": 6,
+  "seeds": [
+    201,
+    202,
+    203
+  ],
+  "generator_seeds": "341000+100*j, latent342000/342001",
+  "change": "Only empty-office normalization and defensive base-region index checking; same model and scheduling as rejected coop candidate",
+  "note": "Frozen before new data generation and fresh holdout"
+}

@@ -1,0 +1,247 @@
+{
+  "data": {
+    "sites": [
+      {
+        "x": 3,
+        "y": 4,
+        "reward": 34,
+        "tasks": [
+          1
+        ]
+      },
+      {
+        "x": 4,
+        "y": 0,
+        "reward": 31,
+        "tasks": [
+          0
+        ]
+      },
+      {
+        "x": 1,
+        "y": 2,
+        "reward": 11,
+        "tasks": [
+          1
+        ]
+      },
+      {
+        "x": 1,
+        "y": 0,
+        "reward": 8,
+        "tasks": []
+      },
+      {
+        "x": 2,
+        "y": 3,
+        "reward": 23,
+        "tasks": []
+      },
+      {
+        "x": 0,
+        "y": 4,
+        "reward": 26,
+        "tasks": []
+      }
+    ],
+    "offices": [
+      {
+        "x": 4,
+        "y": 3,
+        "cost": 11,
+        "maxSize": 2
+      },
+      {
+        "x": 1,
+        "y": 4,
+        "cost": 12,
+        "maxSize": 1
+      }
+    ],
+    "workers": [
+      [
+        0
+      ],
+      [
+        1
+      ],
+      [
+        0,
+        1
+      ]
+    ],
+    "distances": [
+      [
+        7,
+        25,
+        9,
+        21,
+        4,
+        0
+      ],
+      [
+        30,
+        18,
+        19,
+        2,
+        15,
+        24
+      ]
+    ],
+    "maxDifference": 1,
+    "balanceCoefficient": 30
+  },
+  "regions": [
+    {
+      "o": 0,
+      "sites": [
+        2,
+        4,
+        5
+      ],
+      "footprint": [
+        2,
+        4,
+        5,
+        6
+      ],
+      "tag": "oracle"
+    },
+    {
+      "o": 0,
+      "sites": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "footprint": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "tag": "oracle"
+    },
+    {
+      "o": 0,
+      "sites": [
+        4
+      ],
+      "footprint": [
+        4,
+        6
+      ],
+      "tag": "oracle"
+    },
+    {
+      "o": 1,
+      "sites": [
+        0,
+        1,
+        2,
+        4,
+        5
+      ],
+      "footprint": [
+        0,
+        1,
+        2,
+        4,
+        5,
+        7
+      ],
+      "tag": "oracle"
+    },
+    {
+      "o": 1,
+      "sites": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "footprint": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        7
+      ],
+      "tag": "oracle"
+    },
+    {
+      "o": 1,
+      "sites": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "footprint": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        7
+      ],
+      "tag": "oracle"
+    }
+  ],
+  "expected": 42.0,
+  "result": {
+    "solution": [
+      {
+        "officeId": 0,
+        "sites": [
+          0,
+          5
+        ],
+        "workers": [
+          1
+        ]
+      }
+    ],
+    "value": 42.0,
+    "before": 0.0,
+    "status": "HighsModelStatus.kOptimal",
+    "seconds": 0.01229742699979397,
+    "prep_seconds": 0.000917749999644002,
+    "groups": 15,
+    "regions": 6,
+    "variables": 60,
+    "rows": 69,
+    "packing_rows": 4,
+    "nodes": 1,
+    "bound": 42.0,
+    "gap": 0.0,
+    "invalid": [],
+    "timeline": [
+      {
+        "seconds": 0.011781174000134342,
+        "value": 42.0
+      }
+    ],
+    "selected": [
+      {
+        "index": 1,
+        "o": 0,
+        "tag": "oracle"
+      }
+    ]
+  }
+}

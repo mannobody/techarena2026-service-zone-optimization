@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "./experiments/milp_v5/oracle.py", line 6, in <module>
+    ans=improve(I,inc,60,mode,pools={o:list(range(o*4,o*4+4)) for o in range(3)});assert abs(ans['value']-r['expected'])<1e-6,(r['seed'],mode,ans);assert ans['status']=='HighsModelStatus.kOptimal' and not ans['invalid'];rows.append(dict(seed=r['seed'],mode=mode,expected=r['expected'],**{k:v for k,v in ans.items() if k!='solution'}))
+                                                                                                                                                                                                                                        ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: dict() got multiple values for keyword argument 'mode'

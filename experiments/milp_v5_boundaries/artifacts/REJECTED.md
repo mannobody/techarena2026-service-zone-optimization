@@ -1,0 +1,1 @@
+native_coop.cpp and case03_cpp_server_v5_2_regions_experimental_O3.zip are rejected: one SIGSEGV in coop_holdout60/tightA0 seed181. A valid checkpoint does not make the run successful. See REPORT.md; corrected source is native_safe.cpp.
