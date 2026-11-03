@@ -1,0 +1,38 @@
+{
+  "branch": "research/service-zone-v4",
+  "base_ref": "origin/main",
+  "base_sha": "1496e64270a671e54b05d4fd9eb70917c369b658",
+  "base_ref_note": "Existing local tracking ref; not refreshed from network",
+  "source_sha256": "5b3914fa9791cb879f3232fb2876a915de83b848ad4b353b0dbf25b574998c25",
+  "cpu_count": 22,
+  "affinity": 22,
+  "tests": [
+    {
+      "tag": "synth10",
+      "command": [
+        ".venv/bin/python",
+        "bench.py",
+        "10",
+        "--synth",
+        "--par",
+        "6"
+      ],
+      "rc": 0
+    },
+    {
+      "tag": "ab60",
+      "command": [
+        ".venv/bin/python",
+        "bench.py",
+        "60",
+        "--runs",
+        "3",
+        "--base",
+        "origin/main",
+        "--par",
+        "6"
+      ],
+      "rc": 0
+    }
+  ]
+}

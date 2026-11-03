@@ -1,0 +1,373 @@
+--- a/main.cpp
++++ b/main.cpp
+@@ -1004,6 +1004,63 @@
+     push_elite(obj, s.asg, s.isopen);
+ }
+ 
++// Exact optimization of the SAME grid-window objective as legacy resize_dp.
++// Monotone maxima stacks + range-add segment tree: O(K G log G).
++struct DPWindowResult {int lo=-1,hi=-1;long double score=0;bool complete=true;};
++struct DPWindowTree {
++ struct Node{int bad=100000000,where=0,lazy_bad=0;long double value=0,lazy_value=0;};
++ int n;vector<Node>t;
++ DPWindowTree(int n_):n(n_),t(4*n_+4){}
++ void apply(int p,int b,long double v){t[p].bad+=b;t[p].value+=v;t[p].lazy_bad+=b;t[p].lazy_value+=v;}
++ void down(int p){if(t[p].lazy_bad||t[p].lazy_value){apply(p*2,t[p].lazy_bad,t[p].lazy_value);apply(p*2+1,t[p].lazy_bad,t[p].lazy_value);t[p].lazy_bad=0;t[p].lazy_value=0;}}
++ void pull(int p){const auto&a=t[p*2];const auto&b=t[p*2+1];const auto&v=(a.bad<b.bad||(a.bad==b.bad&&(a.value>b.value||(a.value==b.value&&a.where<b.where))))?a:b;t[p].bad=v.bad;t[p].value=v.value;t[p].where=v.where;}
++ void set(int p,int l,int r,int x,int bad,long double value){if(l==r){t[p]={bad,x,0,value,0};return;}down(p);int m=(l+r)/2;if(x<=m)set(p*2,l,m,x,bad,value);else set(p*2+1,m+1,r,x,bad,value);pull(p);}
++ void add(int p,int l,int r,int a,int b,int bad,long double value){if(a>r||b<l)return;if(a<=l&&r<=b){apply(p,bad,value);return;}down(p);int m=(l+r)/2;add(p*2,l,m,a,b,bad,value);add(p*2+1,m+1,r,a,b,bad,value);pull(p);}
++};
++static DPWindowResult dp_fast_window(const vector<vector<double>>&at,const vector<vector<double>>&blk,const vector<int>&grid,const vector<double>&cost,double alpha,bool allow_close,double deadline){
++ DPWindowResult result;int K=at.size(),G=grid.size();if(!G||!K)return result;
++ // Small grids have too little work to amortize segment-tree overhead.
++ if(G<=128){
++  vector<double>run(K);
++  for(int l=0;l<G;l++){
++   if((l&31)==0&&elapsed()>=deadline){result.complete=false;break;}
++   for(int k=0;k<K;k++)run[k]=at[k][l];
++   for(int r=l;r<G;r++){
++    long double score=-(long double)alpha*(grid[r]-grid[l]);bool valid=true;
++    for(int k=0;k<K;k++){
++     if(r>l)run[k]=max(run[k],blk[k][r]);
++     if(run[k]<=NEG/2){if(!allow_close)valid=false;}
++     else score+=allow_close?max((long double)0,(long double)run[k]-cost[k]):(long double)run[k]-cost[k];
++    }
++    if(valid&&score>result.score+1e-9L){result.score=score;result.lo=l;result.hi=r;}
++   }
++  }return result;
++ }
++ DPWindowTree tree(G);
++ struct Item{int left;long double value;bool feasible;};vector<vector<Item>>st(K);
++ auto item=[&](int o,double f,int left){bool ok=f>NEG/2;long double v=ok?(long double)f-cost[o]:0;if(allow_close){ok=true;v=max((long double)0,v);}return Item{left,v,ok};};
++ auto le=[](const Item&a,const Item&b){return !a.feasible || (b.feasible&&a.value<=b.value);};
++ for(int r=0;r<G;r++){
++  if((r&31)==0&&elapsed()>=deadline){result.complete=false;break;}
++  if(r)tree.add(1,0,G-1,0,r-1,0,-(long double)alpha*(grid[r]-grid[r-1]));
++  int bad=0;long double val=0;for(int o=0;o<K;o++){auto a=item(o,at[o][r],r);bad+=!a.feasible;val+=a.value;}
++  tree.set(1,0,G-1,r,bad,val);
++  for(int o=0;o<K;o++){
++   auto b=item(o,blk[o][r],r);int left=r;
++   while(!st[o].empty()&&le(st[o].back(),b)){
++    auto old=st[o].back();st[o].pop_back();tree.add(1,0,G-1,old.left,left-1,(int)!b.feasible-(int)!old.feasible,b.value-old.value);left=old.left;
++   }
++   if(left<r){b.left=left;st[o].push_back(b);}
++   auto a=item(o,at[o][r],r);
++   if(st[o].empty()||st[o].back().feasible!=a.feasible||st[o].back().value!=a.value)st[o].push_back(a);
++  }
++  if(tree.t[1].bad==0){long double value=tree.t[1].value;if(value>result.score+1e-9L){result.score=value;result.lo=tree.t[1].where;result.hi=r;}}
++ }
++ return result;
++}
++
++static thread_local long dp_calls=0;
++static thread_local double dp_knap_time=0,dp_window_time=0;
+ // dp.h: точный выбор подмножества сайтов при фиксированных зонах (DP).
+ // Часть solve.cpp (одна единица трансляции): включается только из него, порядок важен.
+ 
+@@ -1013,7 +1070,8 @@
+ // 0/1-рюкзак по числу задач внутри офиса + перебор окна нагрузки [lo,hi].
+ struct DPResult { bool ok = false; };
+ 
+-static bool resize_dp(Sol& s, double deadline, bool allow_close = true) {
++static bool resize_dp_reference(Sol& s, double deadline, bool allow_close = true) {
++    dp_calls++;double dp_begin=elapsed();
+     const Inst& I = *s.I;
+     if (I.alpha <= 0) {
+         // без штрафа за баланс: просто снять все убыточные сайты
+@@ -1079,6 +1137,7 @@
+         for (int l = 0; l <= W; l++) if (fo[l] > NEG / 2) fo[l] += const0[b];
+         if (elapsed() > deadline) return false;
+     }
++    dp_knap_time+=elapsed()-dp_begin;
+     // сетка значений окна
+     vector<int> grid;
+     if (Wmax <= 2500) { grid.resize(Wmax + 1); iota(grid.begin(), grid.end(), 0); }
+@@ -1103,6 +1162,7 @@
+             at[b][j] = grid[j] <= W ? f[b][grid[j]] : NEG;
+         }
+     }
++    double window_begin=elapsed();
+     double bestScore = 0.0;  // вариант «все закрыты»
+     int bi = -1, bj = -1;
+     vector<double> run(K);
+@@ -1125,6 +1185,7 @@
+             if (sc > bestScore + 1e-9) { bestScore = sc; bi = i; bj = j; }
+         }
+     }
++    dp_window_time+=elapsed()-window_begin;
+     if (bi < 0) return false;
+     int lo = grid[bi], hi = grid[bj];
+     bool changed = false;
+@@ -1156,6 +1217,272 @@
+         for (int x : mem) if (!keep[x]) { s.remove_site(x); changed = true; }
+     }
+     return changed;
++}
++
++static bool resize_dp_window(Sol& s, double deadline, bool allow_close = true) {
++    dp_calls++;double dp_begin=elapsed();
++    const Inst& I = *s.I;
++    if (I.alpha <= 0) {
++        // без штрафа за баланс: просто снять все убыточные сайты
++        bool ch = false;
++        for (int o = 0; o < I.no; o++) {
++            if (!s.isopen[o]) continue;
++            vector<int> mem = s.members[o];
++            for (int x : mem) if (I.pr(o, x) < 0) { s.remove_site(x); ch = true; }
++        }
++        return ch;
++    }
++    vector<int> ops;
++    for (int o = 0; o < I.no; o++) if (s.isopen[o] && s.size_[o] > 0) ops.push_back(o);
++    if (ops.size() <= 1) {
++        bool ch = false;
++        for (int o : ops) {
++            vector<int> mem = s.members[o];
++            for (int x : mem) if (I.pr(o, x) < 0) { s.remove_site(x); ch = true; }
++        }
++        return ch;
++    }
++    int K = ops.size();
++    // бюджет на DP
++    long long budget = 0;
++    vector<int> Wo(K, 0);
++    for (int b = 0; b < K; b++) {
++        int o = ops[b];
++        for (int x : s.members[o]) Wo[b] += I.ntask[x];
++        budget += (long long)s.members[o].size() * (Wo[b] + 1);
++    }
++    if (budget > 200000000LL) return false;
++    int Wmax = *max_element(Wo.begin(), Wo.end());
++    if (Wmax <= 0) return false;
++
++    vector<vector<double>> f(K);
++    vector<vector<uint64_t>> choice(K);
++    vector<vector<int>> items(K);
++    vector<double> const0(K, 0.0);
++    for (int b = 0; b < K; b++) {
++        int o = ops[b];
++        int W = Wo[b];
++        auto& fo = f[b];
++        fo.assign(W + 1, NEG);
++        fo[0] = 0;
++        vector<int>& it = items[b];
++        for (int x : s.members[o]) {
++            if (I.ntask[x] == 0) { if (I.pr(o, x) > 0) const0[b] += I.pr(o, x); }
++            else it.push_back(x);
++        }
++        size_t words = (size_t)(W + 1 + 63) / 64;
++        choice[b].assign(it.size() * words, 0ULL);
++        for (size_t i = 0; i < it.size(); i++) {
++            int x = it[i];
++            int w = I.ntask[x];
++            double p = I.pr(o, x);
++            uint64_t* row = &choice[b][i * words];
++            for (int l = W; l >= w; l--) {
++                double v = fo[l - w];
++                if (v <= NEG / 2) continue;
++                if (v + p > fo[l] + 1e-12) { fo[l] = v + p; row[l >> 6] |= 1ULL << (l & 63); }
++            }
++        }
++        for (int l = 0; l <= W; l++) if (fo[l] > NEG / 2) fo[l] += const0[b];
++        if (elapsed() > deadline) return false;
++    }
++    dp_knap_time+=elapsed()-dp_begin;
++    // сетка значений окна
++    vector<int> grid;
++    if (Wmax <= 2500) { grid.resize(Wmax + 1); iota(grid.begin(), grid.end(), 0); }
++    else {
++        set<int> g;
++        for (int i = 0; i <= 600; i++) g.insert((int)((long long)Wmax * i / 600));
++        for (int b = 0; b < K; b++) g.insert((int)s.load[ops[b]]);
++        grid.assign(g.begin(), g.end());
++    }
++    int G = grid.size();
++    // blk[b][j] = max f_b[l] для l из (grid[j-1], grid[j]]
++    vector<vector<double>> blk(K, vector<double>(G, NEG));
++    vector<vector<double>> at(K, vector<double>(G, NEG));
++    for (int b = 0; b < K; b++) {
++        int W = Wo[b];
++        for (int j = 0; j < G; j++) {
++            int hi = min(grid[j], W);
++            int lo = j == 0 ? 0 : min(grid[j - 1] + 1, W + 1);
++            double m = NEG;
++            for (int l = lo; l <= hi; l++) m = max(m, f[b][l]);
++            blk[b][j] = m;
++            at[b][j] = grid[j] <= W ? f[b][grid[j]] : NEG;
++        }
++    }
++    double window_begin=elapsed();
++    vector<double> costs(K);for(int b=0;b<K;b++)costs[b]=I.cost[ops[b]];
++    auto win=dp_fast_window(at,blk,grid,costs,I.alpha,allow_close,deadline);
++    int bi=win.lo,bj=win.hi;
++    dp_window_time+=elapsed()-window_begin;
++    if (bi < 0) return false;
++    int lo = grid[bi], hi = grid[bj];
++    bool changed = false;
++    for (int b = 0; b < K; b++) {
++        int o = ops[b], W = Wo[b];
++        int lstar = -1;
++        double bv = NEG;
++        for (int l = max(0, lo); l <= min(hi, W); l++) if (f[b][l] > bv) { bv = f[b][l]; lstar = l; }
++        if (lstar < 0 || bv <= NEG / 2 || (allow_close && bv - I.cost[o] <= 0)) {
++            if (allow_close) {
++                if (!s.members[o].empty()) { s.close_office(o); changed = true; }
++                continue;
++            }
++            if (lstar < 0 || bv <= NEG / 2) continue;
++        }
++        // восстановление выбора
++        vector<char> keep(I.ns, 0);
++        for (int x : s.members[o]) if (I.ntask[x] == 0 && I.pr(o, x) > 0) keep[x] = 1;
++        size_t words = (size_t)(W + 1 + 63) / 64;
++        int l = lstar;
++        for (int i = (int)items[b].size() - 1; i >= 0; i--) {
++            int x = items[b][i];
++            int w = I.ntask[x];
++            if (l - w < 0) continue;
++            const uint64_t* row = &choice[b][(size_t)i * words];
++            if (row[l >> 6] >> (l & 63) & 1ULL) { keep[x] = 1; l -= w; }
++        }
++        vector<int> mem = s.members[o];
++        for (int x : mem) if (!keep[x]) { s.remove_site(x); changed = true; }
++    }
++    return changed;
++}
++
++static bool resize_dp_scaled(Sol& s, double deadline, bool allow_close = true) {
++    dp_calls++;double dp_begin=elapsed();
++    const Inst& I = *s.I;
++    if (I.alpha <= 0) {
++        // без штрафа за баланс: просто снять все убыточные сайты
++        bool ch = false;
++        for (int o = 0; o < I.no; o++) {
++            if (!s.isopen[o]) continue;
++            vector<int> mem = s.members[o];
++            for (int x : mem) if (I.pr(o, x) < 0) { s.remove_site(x); ch = true; }
++        }
++        return ch;
++    }
++    vector<int> ops;
++    for (int o = 0; o < I.no; o++) if (s.isopen[o] && s.size_[o] > 0) ops.push_back(o);
++    if (ops.size() <= 1) {
++        bool ch = false;
++        for (int o : ops) {
++            vector<int> mem = s.members[o];
++            for (int x : mem) if (I.pr(o, x) < 0) { s.remove_site(x); ch = true; }
++        }
++        return ch;
++    }
++    int scale=0;for(int o:ops)for(int x:s.members[o])scale=std::gcd(scale,I.ntask[x]);scale=max(1,scale);
++    int K = ops.size();
++    // бюджет на DP
++    long long budget = 0;
++    vector<int> Wo(K, 0);
++    for (int b = 0; b < K; b++) {
++        int o = ops[b];
++        for (int x : s.members[o]) Wo[b] += (I.ntask[x]/scale);
++        budget += (long long)s.members[o].size() * (Wo[b] + 1);
++    }
++    if (budget > 200000000LL) return false;
++    int Wmax = *max_element(Wo.begin(), Wo.end());
++    if (Wmax <= 0) return false;
++
++    vector<vector<double>> f(K);
++    vector<vector<uint64_t>> choice(K);
++    vector<vector<int>> items(K);
++    vector<double> const0(K, 0.0);
++    for (int b = 0; b < K; b++) {
++        int o = ops[b];
++        int W = Wo[b];
++        auto& fo = f[b];
++        fo.assign(W + 1, NEG);
++        fo[0] = 0;
++        vector<int>& it = items[b];
++        for (int x : s.members[o]) {
++            if ((I.ntask[x]/scale) == 0) { if (I.pr(o, x) > 0) const0[b] += I.pr(o, x); }
++            else it.push_back(x);
++        }
++        size_t words = (size_t)(W + 1 + 63) / 64;
++        choice[b].assign(it.size() * words, 0ULL);
++        for (size_t i = 0; i < it.size(); i++) {
++            int x = it[i];
++            int w = (I.ntask[x]/scale);
++            double p = I.pr(o, x);
++            uint64_t* row = &choice[b][i * words];
++            for (int l = W; l >= w; l--) {
++                double v = fo[l - w];
++                if (v <= NEG / 2) continue;
++                if (v + p > fo[l] + 1e-12) { fo[l] = v + p; row[l >> 6] |= 1ULL << (l & 63); }
++            }
++        }
++        for (int l = 0; l <= W; l++) if (fo[l] > NEG / 2) fo[l] += const0[b];
++        if (elapsed() > deadline) return false;
++    }
++    dp_knap_time+=elapsed()-dp_begin;
++    // сетка значений окна
++    vector<int> grid;
++    if (Wmax <= 2500) { grid.resize(Wmax + 1); iota(grid.begin(), grid.end(), 0); }
++    else {
++        set<int> g;
++        for (int i = 0; i <= 600; i++) g.insert((int)((long long)Wmax * i / 600));
++        for (int b = 0; b < K; b++) g.insert((int)(s.load[ops[b]]/scale));
++        grid.assign(g.begin(), g.end());
++    }
++    int G = grid.size();
++    // blk[b][j] = max f_b[l] для l из (grid[j-1], grid[j]]
++    vector<vector<double>> blk(K, vector<double>(G, NEG));
++    vector<vector<double>> at(K, vector<double>(G, NEG));
++    for (int b = 0; b < K; b++) {
++        int W = Wo[b];
++        for (int j = 0; j < G; j++) {
++            int hi = min(grid[j], W);
++            int lo = j == 0 ? 0 : min(grid[j - 1] + 1, W + 1);
++            double m = NEG;
++            for (int l = lo; l <= hi; l++) m = max(m, f[b][l]);
++            blk[b][j] = m;
++            at[b][j] = grid[j] <= W ? f[b][grid[j]] : NEG;
++        }
++    }
++    double window_begin=elapsed();
++    vector<double> costs(K);for(int b=0;b<K;b++)costs[b]=I.cost[ops[b]];
++    auto win=dp_fast_window(at,blk,grid,costs,I.alpha*scale,allow_close,deadline);
++    int bi=win.lo,bj=win.hi;
++    dp_window_time+=elapsed()-window_begin;
++    if (bi < 0) return false;
++    int lo = grid[bi], hi = grid[bj];
++    bool changed = false;
++    for (int b = 0; b < K; b++) {
++        int o = ops[b], W = Wo[b];
++        int lstar = -1;
++        double bv = NEG;
++        for (int l = max(0, lo); l <= min(hi, W); l++) if (f[b][l] > bv) { bv = f[b][l]; lstar = l; }
++        if (lstar < 0 || bv <= NEG / 2 || (allow_close && bv - I.cost[o] <= 0)) {
++            if (allow_close) {
++                if (!s.members[o].empty()) { s.close_office(o); changed = true; }
++                continue;
++            }
++            if (lstar < 0 || bv <= NEG / 2) continue;
++        }
++        // восстановление выбора
++        vector<char> keep(I.ns, 0);
++        for (int x : s.members[o]) if ((I.ntask[x]/scale) == 0 && I.pr(o, x) > 0) keep[x] = 1;
++        size_t words = (size_t)(W + 1 + 63) / 64;
++        int l = lstar;
++        for (int i = (int)items[b].size() - 1; i >= 0; i--) {
++            int x = items[b][i];
++            int w = (I.ntask[x]/scale);
++            if (l - w < 0) continue;
++            const uint64_t* row = &choice[b][(size_t)i * words];
++            if (row[l >> 6] >> (l & 63) & 1ULL) { keep[x] = 1; l -= w; }
++        }
++        vector<int> mem = s.members[o];
++        for (int x : mem) if (!keep[x]) { s.remove_site(x); changed = true; }
++    }
++    return changed;
++}
++
++static bool resize_dp(Sol&s,double deadline,bool allow_close=true){
++    static int mode=getenv("DP_MODE")?atoi(getenv("DP_MODE")):2;
++    return mode==2?resize_dp_scaled(s,deadline,allow_close):mode?resize_dp_window(s,deadline,allow_close):resize_dp_reference(s,deadline,allow_close);
+ }
+ 
+ // снимаем наименее выгодные сайты, пока не выполнены maxSize и баланс A

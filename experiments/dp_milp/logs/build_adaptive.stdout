@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "./experiments/dp_milp/build_adaptive.py", line 29, in <module>
+    p=H/'artifacts/window_oracle_v2.cpp';p.write_text(s);subprocess.run(['g++','-O3','-std=c++17',str(p),'-o',str(p.with_suffix(''))],check=True);pr=subprocess.run([str(p.with_suffix(''))],capture_output=True,text=True);(H/'logs/window_oracle_v2.stderr').write_text(pr.stderr);assert pr.returncode==0,pr.stderr;(H/'logs/window_oracle_v2.json').write_text(pr.stdout)
+                                                                                                                                                                                                                                                                                            ^^^^^^^^^^^^^^^^
+AssertionError: FAIL test=182 K=7 G=304 expected=618.099999999999991 got=618.099998474121094
+

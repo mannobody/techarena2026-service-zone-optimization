@@ -1,0 +1,190 @@
+--- a/solver/check.h
++++ b/solver/check.h
+@@ -42,7 +42,8 @@
+         size_t m = h.size();
+         for (int i = 0; i < np; i++) {
+             bool in;
+-            if (m == 1) in = fabs(I.P[i].x - h[0].x) <= I.eps_len && fabs(I.P[i].y - h[0].y) <= I.eps_len;
++            if(g_geo_exact)in=geo_exact_covers(h,I.P[i]);
++            else if (m == 1) in = fabs(I.P[i].x - h[0].x) <= I.eps_len && fabs(I.P[i].y - h[0].y) <= I.eps_len;
+             else if (m == 2) {
+                 double ax = h[0].x, ay = h[0].y, dx = h[1].x - ax, dy = h[1].y - ay;
+                 double L2 = dx * dx + dy * dy, L = sqrt(L2);
+--- a/solver/geom.h
++++ b/solver/geom.h
+@@ -7,6 +7,38 @@
+ static inline bool pteq(const Pt& a, const Pt& b) { return a.x == b.x && a.y == b.y; }
+ static inline double cr(const Pt& o, const Pt& a, const Pt& b) {
+     return (a.x - o.x) * (b.y - o.y) - (a.y - o.y) * (b.x - o.x);
++}
++
++// Original exact dyadic fallback for finite binary64 inputs; no external library.
++// Filter principle follows robust orientation literature; fallback sums six exact products.
++static bool g_geo_exact=!getenv("GEO_EXACT")||atoi(getenv("GEO_EXACT"));
++struct GeoDyadic{uint64_t m;int e;bool neg;};
++static GeoDyadic geo_decode(double x){uint64_t u;memcpy(&u,&x,8);int e=(u>>52)&2047;return{(u&((1ULL<<52)-1))|(e?(1ULL<<52):0),e?e-1023-52:-1074,(bool)(u>>63)};}
++static int geo_exact_orientation(Pt a,Pt b,Pt c){
++ GeoDyadic v[6]={geo_decode(a.x),geo_decode(a.y),geo_decode(b.x),geo_decode(b.y),geo_decode(c.x),geo_decode(c.y)};
++ const int ij[6][3]={{0,3,0},{2,5,0},{4,1,0},{1,2,1},{3,4,1},{5,0,1}};int emin=10000;
++ for(auto&t:ij)if(v[t[0]].m&&v[t[1]].m)emin=min(emin,v[t[0]].e+v[t[1]].e);if(emin==10000)return 0;
++ array<uint64_t,70>pos{},neg{};
++ auto addword=[](array<uint64_t,70>&arr,int i,uint64_t z){while(z&&i<70){uint64_t old=arr[i];arr[i]+=z;z=arr[i]<old;i++;}};
++ for(auto&t:ij){auto u=v[t[0]],w=v[t[1]];if(!u.m||!w.m)continue;unsigned __int128 product=(unsigned __int128)u.m*w.m;int shift=u.e+w.e-emin,word=shift/64,bit=shift%64;auto&arr=(u.neg^w.neg^(bool)t[2])?neg:pos;
++  uint64_t lo=(uint64_t)product,hi=(uint64_t)(product>>64);addword(arr,word,lo<<bit);addword(arr,word+1,hi<<bit);
++  if(bit){addword(arr,word+1,lo>>(64-bit));addword(arr,word+2,hi>>(64-bit));}}
++ for(int i=69;i>=0;i--)if(pos[i]!=neg[i])return pos[i]>neg[i]?1:-1;return 0;
++}
++static int geo_orientation(Pt a,Pt b,Pt c){
++ double ax=a.x-c.x,bx=b.x-c.x,ay=a.y-c.y,by=b.y-c.y;
++ double left=ax*by,right=ay*bx,det=left-right,sum=fabs(left)+fabs(right);
++ if(isfinite(sum)&&sum>1e-280&&fabs(det)>1.7763568394002505e-15*sum)return det>0?1:-1;
++ return geo_exact_orientation(a,b,c);
++}
++static double geo_turn(Pt a,Pt b,Pt c){return g_geo_exact?(double)geo_orientation(a,b,c):cr(a,b,c);}
++static bool geo_on_segment(Pt a,Pt b,Pt p){return geo_orientation(a,b,p)==0&&p.x>=min(a.x,b.x)&&p.x<=max(a.x,b.x)&&p.y>=min(a.y,b.y)&&p.y<=max(a.y,b.y);}
++static bool geo_exact_covers(const vector<Pt>&h,Pt p){
++ int m=h.size();if(!m)return false;if(m==1)return pteq(h[0],p);if(m==2)return geo_on_segment(h[0],h[1],p);
++ if(m<=8){for(int i=0;i<m;i++)if(geo_orientation(h[i],h[(i+1)%m],p)<0)return false;return true;}
++ int a=geo_orientation(h[0],h[1],p),b=geo_orientation(h[0],h[m-1],p);if(a<0||b>0)return false;
++ if(a==0)return geo_on_segment(h[0],h[1],p);if(b==0)return geo_on_segment(h[0],h[m-1],p);
++ int lo=1,hi=m-1;while(hi-lo>1){int mid=(lo+hi)/2;if(geo_orientation(h[0],h[mid],p)>=0)lo=mid;else hi=mid;}return geo_orientation(h[lo],h[hi],p)>=0;
+ }
+ 
+ // Выпуклая оболочка (монотонная цепь), CCW, без коллинеарных. 1, 2 или >=3 точки.
+@@ -19,11 +51,11 @@
+     h.resize(2 * n);
+     size_t k = 0;
+     for (size_t i = 0; i < n; i++) {
+-        while (k >= 2 && cr(h[k - 2], h[k - 1], p[i]) <= 0) k--;
++        while (k >= 2 && geo_turn(h[k - 2], h[k - 1], p[i]) <= 0) k--;
+         h[k++] = p[i];
+     }
+     for (size_t i = n - 1, t = k + 1; i-- > 0;) {
+-        while (k >= t && cr(h[k - 2], h[k - 1], p[i]) <= 0) k--;
++        while (k >= t && geo_turn(h[k - 2], h[k - 1], p[i]) <= 0) k--;
+         h[k++] = p[i];
+     }
+     p.assign(h.begin(), h.begin() + k - 1);
+--- a/solver/sol.h
++++ b/solver/sol.h
+@@ -55,13 +55,13 @@
+         for (int i : covlist[o]) { row[i] = 0; cov[i]--; }
+         covlist[o].clear();
+     }
+-    void apply_cov(int o, const vector<Pt>& h) {
++    void legacy_apply_cov(int o, const vector<Pt>& h) {
+         char* row = &incov[(size_t)o * np];
+         const auto& P = I->P;
+         int n = np;
+         if (h.empty()) return;
+         if (h.size() == 1) {
+-            for (int i = 0; i < n; i++)
++            for (int i : g_geo_grid.query(*I,h[0].x-I->eps_len,h[0].x+I->eps_len,h[0].y-I->eps_len,h[0].y+I->eps_len))
+                 if (fabs(P[i].x - h[0].x) <= I->eps_len && fabs(P[i].y - h[0].y) <= I->eps_len) {
+                     row[i] = 1; cov[i]++; covlist[o].push_back(i);
+                 }
+@@ -70,7 +70,8 @@
+         if (h.size() == 2) {
+             double ax = h[0].x, ay = h[0].y, dx = h[1].x - ax, dy = h[1].y - ay;
+             double L2 = dx * dx + dy * dy, L = sqrt(L2);
+-            for (int i = 0; i < n; i++) {
++            double pad=2*I->eps_len+I->eps_cr/max(L,1e-300);
++            for (int i : g_geo_grid.query(*I,min(ax,ax+dx)-pad,max(ax,ax+dx)+pad,min(ay,ay+dy)-pad,max(ay,ay+dy)+pad)) {
+                 double X = P[i].x - ax, Y = P[i].y - ay;
+                 double c = dx * Y - dy * X, t = dx * X + dy * Y;
+                 if (fabs(c) <= I->eps_cr + I->eps_len * L && t >= -I->eps_len * L && t <= L2 + I->eps_len * L) {
+@@ -83,7 +84,7 @@
+         double mnx = 1e300, mxx = -1e300, mny = 1e300, mxy = -1e300;
+         for (auto& q : h) { mnx = min(mnx, q.x); mxx = max(mxx, q.x); mny = min(mny, q.y); mxy = max(mxy, q.y); }
+         mnx -= I->eps_len; mxx += I->eps_len; mny -= I->eps_len; mxy += I->eps_len;
+-        for (int i = 0; i < n; i++) {
++        for (int i : g_geo_grid.query(*I,mnx,mxx,mny,mxy)) {
+             double X = P[i].x, Y = P[i].y;
+             if (X < mnx || X > mxx || Y < mny || Y > mxy) continue;
+             bool in = true;
+@@ -111,7 +112,7 @@
+         set_hull(o, move(pts));
+     }
+     // можно ли добавить сайт s в офис o по геометрии; newh — новая оболочка (пусто = без изменений)
+-    bool geo_ok(int s, int o, vector<Pt>& newh) const {
++    bool legacy_geo_ok(int s, int o, vector<Pt>& newh) const {
+         newh.clear();
+         if (incov[(size_t)o * np + s]) return true;
+         auto& pts = newh;
+@@ -126,7 +127,7 @@
+             double mnx = 1e300, mxx = -1e300, mny = 1e300, mxy = -1e300;
+             for (auto& q : pts) { mnx = min(mnx, q.x); mxx = max(mxx, q.x); mny = min(mny, q.y); mxy = max(mxy, q.y); }
+             mnx -= I->eps_len; mxx += I->eps_len; mny -= I->eps_len; mxy += I->eps_len;
+-            for (int i = 0; i < np; i++) {
++            for (int i : g_geo_grid.query(*I,mnx,mxx,mny,mxy)) {
+                 if (row[i] || cov[i] == 0) continue;
+                 double X = P[i].x, Y = P[i].y;
+                 if (X < mnx || X > mxx || Y < mny || Y > mxy) continue;
+@@ -143,7 +144,8 @@
+         } else if (m == 2) {
+             double ax = pts[0].x, ay = pts[0].y, dx = pts[1].x - ax, dy = pts[1].y - ay;
+             double L2 = dx * dx + dy * dy, L = sqrt(L2);
+-            for (int i = 0; i < np; i++) {
++            double pad=2*I->eps_len+I->eps_cr/max(L,1e-300);
++            for (int i : g_geo_grid.query(*I,min(ax,ax+dx)-pad,max(ax,ax+dx)+pad,min(ay,ay+dy)-pad,max(ay,ay+dy)+pad)) {
+                 if (row[i] || cov[i] == 0) continue;
+                 double X = P[i].x - ax, Y = P[i].y - ay;
+                 double c = dx * Y - dy * X, t = dx * X + dy * Y;
+@@ -151,6 +153,18 @@
+             }
+         }
+         return true;
++    }
++
++    void apply_cov(int o,const vector<Pt>&h){
++        if(!g_geo_exact){legacy_apply_cov(o,h);return;}if(h.empty())return;
++        double x0=1e300,x1=-1e300,y0=1e300,y1=-1e300;for(Pt p:h){x0=min(x0,p.x);x1=max(x1,p.x);y0=min(y0,p.y);y1=max(y1,p.y);}
++        char*row=&incov[(size_t)o*np];for(int i:g_geo_grid.query(*I,x0,x1,y0,y1))if(geo_exact_covers(h,I->P[i])){row[i]=1;cov[i]++;covlist[o].push_back(i);}
++    }
++    bool geo_ok(int x,int o,vector<Pt>&newh)const{
++        if(!g_geo_exact)return legacy_geo_ok(x,o,newh);newh.clear();const char*row=&incov[(size_t)o*np];if(row[x])return true;
++        newh=hull[o];newh.push_back(I->P[x]);hull_of(newh);
++        double x0=1e300,x1=-1e300,y0=1e300,y1=-1e300;for(Pt p:newh){x0=min(x0,p.x);x1=max(x1,p.x);y0=min(y0,p.y);y1=max(y1,p.y);}
++        for(int i:g_geo_grid.query(*I,x0,x1,y0,y1))if(!row[i]&&cov[i]&&geo_exact_covers(newh,I->P[i]))return false;return true;
+     }
+ 
+     // --- навыки
+--- a/solver/solve.cpp
++++ b/solver/solve.cpp
+@@ -20,6 +20,7 @@
+ #include "json.h"
+ #include "geom.h"
+ #include "inst.h"
++#include "spatial_geometry.h"
+ #include "sol.h"
+ #include "check.h"
+ #include "output.h"
+@@ -181,6 +182,7 @@
+ 
+     try {
+         Inst I = load_instance(inp);
++        g_geo_grid.init(I);
+         if (I.ns == 0 || I.no == 0) return 0;
+         Fast F(I);
+         const uint64_t seed0 = getenv("SEED") ? strtoull(getenv("SEED"), nullptr, 10) * 0x9E3779B97F4A7C15ULL : 0;
+--- /dev/null
++++ b/solver/spatial_geometry.h
+@@ -0,0 +1,18 @@
++// Immutable uniform-grid index of ALL input points, including closed offices/unassigned sites.
++// Query is only a broad phase; original predicates remain unchanged.
++struct GeoGrid{
++ const Inst* inst=nullptr;int side=1;double minx=0,miny=0,sx=1,sy=1;bool enabled=true;
++ vector<vector<int>>bucket;vector<int>all;
++ int bx(double x)const{double v=(x-minx)*sx;if(v<=0)return 0;if(v>=side)return side-1;return (int)v;}
++ int by(double y)const{double v=(y-miny)*sy;if(v<=0)return 0;if(v>=side)return side-1;return (int)v;}
++ void init(const Inst&I){inst=&I;enabled=!getenv("GEO_INDEX")||atoi(getenv("GEO_INDEX"));int n=I.P.size();all.resize(n);iota(all.begin(),all.end(),0);side=max(1,min(128,(int)sqrt(max(1,n)/12.)));bucket.assign(side*side,{});if(!n)return;
++  minx=miny=1e300;double maxx=-1e300,maxy=-1e300;for(Pt p:I.P){minx=min(minx,p.x);miny=min(miny,p.y);maxx=max(maxx,p.x);maxy=max(maxy,p.y);}sx=side/max(1e-100,maxx-minx);sy=side/max(1e-100,maxy-miny);
++  for(int i=0;i<n;i++)bucket[by(I.P[i].y)*side+bx(I.P[i].x)].push_back(i);
++ }
++ const vector<int>& query(const Inst&I,double x0,double x1,double y0,double y1)const{
++  if(!enabled||inst!=&I||side==1)return all;int a=bx(x0),b=bx(x1),c=by(y0),d=by(y1);
++  if((b-a+1)*(d-c+1)*2>side*side)return all;
++  static thread_local vector<int>v;v.clear();for(int y=c;y<=d;y++)for(int x=a;x<=b;x++)v.insert(v.end(),bucket[y*side+x].begin(),bucket[y*side+x].end());return v;
++ }
++};
++static GeoGrid g_geo_grid;

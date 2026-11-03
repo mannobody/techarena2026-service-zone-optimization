@@ -1,0 +1,58 @@
+{
+  "name": "v4",
+  "status": "Validated server candidate v4; not submitted; general score superiority unproven",
+  "zip": "./experiments/server_v4/artifacts/case03_cpp_server_v4_O3.zip",
+  "sha256": "b4e9ace4ed6cffe53b932bb1d10f7ecdfdcc4170458afaf05e16b3068ebae953",
+  "source_sha256": "5b3914fa9791cb879f3232fb2876a915de83b848ad4b353b0dbf25b574998c25",
+  "flags": "-O3 -std=c++17",
+  "default_seconds": 280,
+  "tests_seconds": 60,
+  "components": [
+    "v3 allocation reuse",
+    "genetic office warm start",
+    "bounded worker DFS",
+    "exact binary64 orientation and coverage",
+    "immutable spatial point grid",
+    "monotone final B&B24 for N<=1500",
+    "reused B&B capacity-bound scratch vector"
+  ],
+  "not_included": [
+    "offline SCIP/HiGHS/CP-SAT libraries",
+    "negative island/ejection experiments",
+    "unresearched DP replacement"
+  ],
+  "parents": {
+    "./experiments/geometry_islands/artifacts/robust_v1.cpp": "78764b6f421149f079601444a2eacda396d7465b3c2e1a2001ad76d3598de002",
+    "./experiments/boundary_beam/src/boundary.h": "4517a3233880aa12c82b524cfc4d89520e73a43d8f52a449ab57e466acb2f65a",
+    "./experiments/boundary_beam/src/tail.h": "27cb7400f7d87620c8169c25bd5d1b5b0a12b40e01bd04b2f5699f6ab6339b27"
+  },
+  "primary_snapshot": {
+    "./solver/base.h": "c7de7cfe08dddba5bf10113551938055ac38a27ea643c4c44f0aeb707f904911",
+    "./solver/build.h": "63f97a3e5b276887fc4843a3f8690caf0bb3d15181e18303900acaaf2ea3bc79",
+    "./solver/check.h": "75928bbda5f21b17b84c3be8e1aa85d1edc0fd460c2be6b4ae0c3b90f8398140",
+    "./solver/dp.h": "9890056844b9296e2a4da848b0ab67bb9378f810ae80e5b0b870b3986bbefd11",
+    "./solver/engine.h": "83b6759a75795b80675763cbfcbf6235e6f3c9ebb5cfabb41daab1442f79ba7c",
+    "./solver/exact2.h": "2a0c8a7c895778c024534a8224fd8048b68a27109e2d48fa372d2c7c9d38447c",
+    "./solver/fast.h": "b1f405b4bf68dd10b1eb4404431bcd8a5eb05fa505903bb54e49d589da919e6e",
+    "./solver/geom.h": "e63c12c4137dc1029d075eef85ff31b4fee4725533038549d9c3aa7330d9eb38",
+    "./solver/improve.h": "e3b1c2b853741b9c54a00cb5fc51f44b5c7d1b67fb5e6d91876656f210d47351",
+    "./solver/inst.h": "915870ac24d60826073ff8d531f34f1b8f03ded5196dca866e23c3f3f3415dc0",
+    "./solver/json.h": "e48eb06f886715a899a4f52dc62b1edd03bbaf1fd0a82d8608796f8b2afbcd16",
+    "./solver/lns.h": "a15a75f72ae122f80ccd0c6bed653d06e90ef43dc2867e7bb187ca6b8da4a7c9",
+    "./solver/moves.h": "836b688da9322d70d0222a10c469ab4b2d2540b42b3499d8985123f95841aa08",
+    "./solver/output.h": "82dea37e4aa1036e44fe5f492260bc2d851c00c755e5c42ca15c3270d1337e81",
+    "./solver/sol.h": "7c73d46dd8b108c58ff959782fb103124e449a9f69bb5910336bad4def8e61be",
+    "./solver/solve.cpp": "094b44a11f3a2a0ba29c0771d0af66dceeef1291ae2f202bbcfd639ffaeafd01",
+    "./solver/evolution_warm.h": "6e1946eb865ead6746a4f2571f8ab8882d5c1b5bb267e3612b111501cc8e9da7",
+    "./solver/finish.h": "265c14e156f3c7128d5de95590f7b2092f02ab9de84ce79c84fb9bd4bb33f225"
+  },
+  "package_checks": {
+    "total": 36,
+    "valid": 36,
+    "seconds": 60,
+    "threads": 2,
+    "jobs": 6,
+    "seed": 101,
+    "max_wall": 59.80266168400067
+  }
+}

@@ -1,0 +1,50 @@
+--- a/experiments/colgen/pricing.py
++++ b/experiments/colgen/pricing.py
+@@ -12,29 +12,24 @@
+ from model import cg_enumerated
+ 
+ 
+-def support(I, o, sites, p):
+-    """Return <=3 selected sites/office whose closed convex hull covers p."""
+-    ids = [*sites, I.n+o]
+-    bycoord = {tuple(I.xy[i]): i for i in ids}
+-    hull = MultiPoint(I.xy[ids]).convex_hull
+-    target = Point(I.xy[p])
+-    if hull.geom_type == 'Point':
+-        witness = [bycoord[tuple(hull.coords[0])]]
+-    elif hull.geom_type == 'LineString':
+-        witness = [bycoord[tuple(q)] for q in hull.coords]
+-    else:
+-        xy = list(hull.exterior.coords)[:-1]
+-        witness = None
+-        for i in range(1, len(xy)-1):
+-            tri = [xy[0], xy[i], xy[i+1]]
+-            if Polygon(tri).covers(target):
+-                witness = [bycoord[tuple(q)] for q in tri]
+-                break
+-        if witness is None:
+-            # Numerical fallback: all selected points also give a valid cut.
+-            witness = ids
+-    return tuple(sorted(i for i in witness if i < I.n))
+-
++def support(I,o,sites,p):
++ from shapely.geometry import MultiPoint,Point
++ anchor=I.n+o;target=Point(I.xy[p]);origin=tuple(I.xy[anchor]);ids=[*sites,anchor]
++ if target.equals(Point(origin)):return ()
++ bycoord={tuple(I.xy[i]):i for i in ids};h=MultiPoint(I.xy[ids]).convex_hull
++ assert h.covers(target)
++ if h.geom_type=='Point':return ()
++ if h.geom_type=='LineString':edges=[list(h.coords)]
++ else:
++  xy=list(h.exterior.coords);edges=[xy[i:i+2] for i in range(len(xy)-1)]
++ for edge in edges:
++  if MultiPoint([origin,*edge]).convex_hull.covers(target):
++   w=sorted(set(bycoord[tuple(q)] for q in edge)-{anchor})
++   for i in w:
++    if MultiPoint([origin,tuple(I.xy[i])]).convex_hull.covers(target):return (i,)
++   assert len(w)<=2
++   return tuple(w)
++ raise AssertionError('No anchored witness: numerical inconsistency')
+ 
+ def price_scip(master, o, dual, seconds=1.):
+     start = time.perf_counter()

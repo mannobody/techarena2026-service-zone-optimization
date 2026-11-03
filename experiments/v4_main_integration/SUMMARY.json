@@ -1,0 +1,86 @@
+{
+  "checks": {
+    "branch": "research/service-zone-v4",
+    "base_ref": "origin/main",
+    "base_sha": "1496e64270a671e54b05d4fd9eb70917c369b658",
+    "base_ref_note": "Existing local tracking ref; not refreshed from network",
+    "source_sha256": "5b3914fa9791cb879f3232fb2876a915de83b848ad4b353b0dbf25b574998c25",
+    "cpu_count": 22,
+    "affinity": 22,
+    "tests": [
+      {
+        "tag": "synth10",
+        "command": [
+          ".venv/bin/python",
+          "bench.py",
+          "10",
+          "--synth",
+          "--par",
+          "6"
+        ],
+        "rc": 0
+      },
+      {
+        "tag": "ab60",
+        "command": [
+          ".venv/bin/python",
+          "bench.py",
+          "60",
+          "--runs",
+          "3",
+          "--base",
+          "origin/main",
+          "--par",
+          "6"
+        ],
+        "rc": 0
+      }
+    ]
+  },
+  "rows": [
+    {
+      "instance": "0",
+      "median": 5164995.267,
+      "maximum": 5164995.267,
+      "wall": 59.8,
+      "baseline": 5164995.267,
+      "delta": "+0.00%"
+    },
+    {
+      "instance": "1",
+      "median": 32.23,
+      "maximum": 32.23,
+      "wall": 59.8,
+      "baseline": 32.23,
+      "delta": "+0.00%"
+    },
+    {
+      "instance": "2",
+      "median": 5.626,
+      "maximum": 5.626,
+      "wall": 59.5,
+      "baseline": 5.626,
+      "delta": "+0.00%"
+    },
+    {
+      "instance": "3",
+      "median": 136551.088,
+      "maximum": 136558.09,
+      "wall": 59.8,
+      "baseline": 136319.462,
+      "delta": "+0.17%"
+    },
+    {
+      "instance": "4",
+      "median": 18226.333,
+      "maximum": 18892.096,
+      "wall": 59.8,
+      "baseline": 18163.855,
+      "delta": "+0.34%"
+    }
+  ],
+  "index_empty": true,
+  "head_unchanged": true,
+  "zip_payload_unchanged": true,
+  "note": "bench reports head validity; A/B compares per-instance medians"
+}
