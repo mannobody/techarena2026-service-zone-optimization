@@ -198,7 +198,7 @@ Primary holdout —12 новых экземпляров ×3 solver seed, а не
 экземпляров. Подтверждение TL280 повторяет 6 из этих новых входов с новым seed.
 Кандидат зафиксирован до генерации данных и после анализа не менялся.
 Полные абсолютные значения, разброс, лучшие/худшие пары, времена/RSS:
-[таблица](../experiments/v4_deep_parallel/integration/RESULTS_TABLE.md).
+[таблица](https://github.com/mannobody/techarena2026-service-zone-optimization/blob/ffe5018957b1e3405a7448c8d27057272429cd67/experiments/v4_deep_parallel/integration/RESULTS_TABLE.md).
 
 Сохраняются две полезные независимые находки: быстрый joint count/load DP и
 геометрическая перестройка, которая совместно с прежним boundary даёт новый
@@ -213,8 +213,8 @@ SD3,1888%, диапазон−4,5190%..+4,4096%. Разброс остаётся
 доказанное исправление исторической регрессии относительно e600dde.
 
 Сохранённые файлы и необязательные воспроизводимые копии перечислены в
-[инвентаризации](../experiments/v4_deep_parallel/INVENTORY.json) и
-[списке кандидатов на очистку](../experiments/v4_deep_parallel/CLEANUP_CANDIDATES.md).
+[инвентаризации](https://github.com/mannobody/techarena2026-service-zone-optimization/blob/ffe5018957b1e3405a7448c8d27057272429cd67/experiments/v4_deep_parallel/INVENTORY.json) и
+[списке кандидатов на очистку](https://github.com/mannobody/techarena2026-service-zone-optimization/blob/ffe5018957b1e3405a7448c8d27057272429cd67/experiments/v4_deep_parallel/CLEANUP_CANDIDATES.md).
 Ничего не удалено.
 
 Разброс pooled inst4 включает различия seed, CPU-пар и тайминга; это не чистая

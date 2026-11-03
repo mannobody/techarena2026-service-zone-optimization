@@ -6,7 +6,7 @@
 ## equal12_v1
 
 Допустимых: 120/120. Параметры: `{"cases": "alphabig0,alphabig1,anti1,latent0,latent1,tightA0,tightA1,multiskill0,large0,huge0", "jobs": 3, "mode": "equal", "post": 1, "seconds": 12.0, "seeds": "1,2,3", "split": "train", "tag": "equal12_v1", "threads": 2, "variants": "base,bb,support,beam"}`.
-Полные наблюдения и пути входов/ответов: [equal12_v1/results.json](./experiments/boundary_beam/logs/equal12_v1/results.json).
+Полные наблюдения и пути входов/ответов: [equal12_v1/results.json](logs/equal12_v1/results.json).
 
 | Вход | Вариант | n | Медиана | min | max | Δ медиан, % | max wall, с |
 |---|---|---:|---:|---:|---:|---:|---:|
@@ -54,7 +54,7 @@
 ## equal30_tail_train
 
 Допустимых: 72/72. Параметры: `{"cases": "alphabig0,alphabig1,anti1,latent0,latent1,tightA0,tightA1,multiskill0", "jobs": 3, "mode": "equal", "post": 1, "seconds": 30.0, "seeds": "11,12,13", "split": "train", "tag": "equal30_tail_train", "threads": 2, "variants": "base,tail,reserve"}`.
-Полные наблюдения и пути входов/ответов: [equal30_tail_train/results.json](./experiments/boundary_beam/logs/equal30_tail_train/results.json).
+Полные наблюдения и пути входов/ответов: [equal30_tail_train/results.json](logs/equal30_tail_train/results.json).
 
 | Вход | Вариант | n | Медиана | min | max | Δ медиан, % | max wall, с |
 |---|---|---:|---:|---:|---:|---:|---:|
@@ -86,7 +86,7 @@
 ## equal30_train
 
 Допустимых: 81/81. Параметры: `{"cases": "alphabig0,alphabig1,anti1,latent0,latent1,tightA0,tightA1,multiskill0,large0", "jobs": 4, "mode": "equal", "post": 1, "seconds": 30.0, "seeds": "11,12,13", "split": "train", "tag": "equal30_train", "threads": 2, "variants": "base,support,wide"}`.
-Полные наблюдения и пути входов/ответов: [equal30_train/results.json](./experiments/boundary_beam/logs/equal30_train/results.json).
+Полные наблюдения и пути входов/ответов: [equal30_train/results.json](logs/equal30_train/results.json).
 
 | Вход | Вариант | n | Медиана | min | max | Δ медиан, % | max wall, с |
 |---|---|---:|---:|---:|---:|---:|---:|
@@ -121,7 +121,7 @@
 ## holdout30
 
 Допустимых: 96/96. Параметры: `{"cases": "", "jobs": 3, "mode": "equal", "post": 1, "seconds": 30.0, "seeds": "21,22,23", "split": "holdout", "tag": "holdout30", "threads": 2, "variants": "base,tail"}`.
-Полные наблюдения и пути входов/ответов: [holdout30/results.json](./experiments/boundary_beam/logs/holdout30/results.json).
+Полные наблюдения и пути входов/ответов: [holdout30/results.json](logs/holdout30/results.json).
 
 | Вход | Вариант | n | Медиана | min | max | Δ медиан, % | max wall, с |
 |---|---|---:|---:|---:|---:|---:|---:|
@@ -161,7 +161,7 @@
 ## holdout60
 
 Допустимых: 8/8. Параметры: `{"bin_dir": null, "cases": "alphabig0,latent0", "jobs": 2, "mode": "equal", "post": 1, "seconds": 60, "seeds": "31,32", "split": "holdout", "tag": "holdout60", "threads": 4, "variants": "base,tail"}`.
-Полные наблюдения и пути входов/ответов: [holdout60/results.json](./experiments/boundary_beam/logs/holdout60/results.json).
+Полные наблюдения и пути входов/ответов: [holdout60/results.json](logs/holdout60/results.json).
 
 | Вход | Вариант | n | Медиана | min | max | Δ медиан, % | max wall, с |
 |---|---|---:|---:|---:|---:|---:|---:|
@@ -173,7 +173,7 @@
 ## holdout60_broad
 
 Допустимых: 72/72. Параметры: `{"cases": "alphabig0,alphazero0,anti0,huge0,large0,latent0,latent1,latent2,latent3,medium0,multiskill0,tightA0", "jobs": 4, "mode": "equal", "post": 1, "seconds": 60.0, "seeds": "31,32,33", "split": "holdout", "tag": "holdout60_broad", "threads": 2, "variants": "base,tail"}`.
-Полные наблюдения и пути входов/ответов: [holdout60_broad/results.json](./experiments/boundary_beam/logs/holdout60_broad/results.json).
+Полные наблюдения и пути входов/ответов: [holdout60_broad/results.json](logs/holdout60_broad/results.json).
 
 | Вход | Вариант | n | Медиана | min | max | Δ медиан, % | max wall, с |
 |---|---|---:|---:|---:|---:|---:|---:|
@@ -205,7 +205,7 @@
 ## screen_v1
 
 Допустимых: 168/168. Параметры: `{"cases": "", "jobs": 3, "mode": "screen", "post": 1.0, "seconds": 6.0, "seeds": "1", "split": "train", "tag": "screen_v1", "threads": 1, "variants": "base,bb,support,beam,diverse,weak"}`.
-Полные наблюдения и пути входов/ответов: [screen_v1/results.json](./experiments/boundary_beam/logs/screen_v1/results.json).
+Полные наблюдения и пути входов/ответов: [screen_v1/results.json](logs/screen_v1/results.json).
 
 | Вход | Вариант | n | Медиана | min | max | Δ медиан, % | max wall, с |
 |---|---|---:|---:|---:|---:|---:|---:|
@@ -381,7 +381,7 @@
 ## validation2_wide60
 
 Допустимых: 48/48. Параметры: `{"bin_dir": null, "cases": "", "jobs": 4, "mode": "equal", "post": 1, "seconds": 60.0, "seeds": "61,62,63", "split": "validation2", "tag": "validation2_wide60", "threads": 2, "variants": "base,wide"}`.
-Полные наблюдения и пути входов/ответов: [validation2_wide60/results.json](./experiments/boundary_beam/logs/validation2_wide60/results.json).
+Полные наблюдения и пути входов/ответов: [validation2_wide60/results.json](logs/validation2_wide60/results.json).
 
 | Вход | Вариант | n | Медиана | min | max | Δ медиан, % | max wall, с |
 |---|---|---:|---:|---:|---:|---:|---:|

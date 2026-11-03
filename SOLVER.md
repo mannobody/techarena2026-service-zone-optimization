@@ -143,7 +143,7 @@ SCIP/HiGHS находятся только в офлайн `experiments/v4_local
 посылка не зависит от них и читает только instance.json. Отдельный экспериментальный
 ZIP с циклом сохраняет TL280, O3 C++17. Методы, первичные статьи, ограничения модели
 и воспроизводимые результаты: [исследование](docs/v4-local-search.md),
-[отчёт](experiments/v4_local_search/REPORT.md). Полезный ход на фиксированном решении
+[отчёт](https://github.com/mannobody/techarena2026-service-zone-optimization/blob/ffe5018957b1e3405a7448c8d27057272429cd67/experiments/v4_local_search/REPORT.md). Полезный ход на фиксированном решении
 не доказывает выигрыша полного алгоритма при одинаковом времени.
 
 ## Геометрический проход и совместный DP (второй цикл, 19 октября 2026)
@@ -172,4 +172,4 @@ v4**, отдельно от модульного solver. Добавлены `geo
 solver: два новых прохода включены. Результаты полного лимита, независимого
 holdout, отрицательные результаты и статус принятия:
 [обзор](docs/v4-deep-parallel.md),
-[интеграционный отчёт](experiments/v4_deep_parallel/integration/REPORT.md).
+[интеграционный отчёт](https://github.com/mannobody/techarena2026-service-zone-optimization/blob/ffe5018957b1e3405a7448c8d27057272429cd67/experiments/v4_deep_parallel/integration/REPORT.md).
