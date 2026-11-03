@@ -143,7 +143,7 @@ Batch-удаления откладывают перестройку оболо�
 Прирост прибыли сайтов 11598,410 и уменьшение штрафа 458,883 вместе дают 12057,293.
 Большая часть выигрыша связана с выбором сайтов и границей, а не только с балансом.
 
-![Геометрия v4 и гибрида на anti](../experiments/v4_deep_parallel/integration/figures/anti_hybrid_280.png)
+![Геометрия v4 и гибрида на anti](https://github.com/mannobody/techarena2026-service-zone-optimization/blob/ffe5018957b1e3405a7448c8d27057272429cd67/experiments/v4_deep_parallel/integration/figures/anti_hybrid_280.png?raw=true)
 
 Полный development TL280 на 6 входах ×2 новых seed:24/24 успешных процесса,
 mean+0,8896%, median+0,0297%, W/T/L6/4/2, худший−0,9610%. Обе anti-пары
@@ -174,7 +174,7 @@ tightA−0,0156%. Положительный development не заменяет �
 проблему раньше нового хвоста, но не позволяет единолично обвинить batch,
 кодогенерацию, сигнатуру, тайминги или взаимодействие потоков.
 
-![Проигрыш на новом multiskill](../experiments/v4_deep_parallel/integration/figures/multiskill_holdout_loss_280.png)
+![Проигрыш на новом multiskill](https://github.com/mannobody/techarena2026-service-zone-optimization/blob/ffe5018957b1e3405a7448c8d27057272429cd67/experiments/v4_deep_parallel/integration/figures/multiskill_holdout_loss_280.png?raw=true)
 
 Кандидат остаётся отдельным экспериментальным ZIP; базовый архив v4 не изменён.
 Новые операторы доступны в модульном solver под флагами. Никакой подстройки по
@@ -198,7 +198,7 @@ Primary holdout —12 новых экземпляров ×3 solver seed, а не
 экземпляров. Подтверждение TL280 повторяет 6 из этих новых входов с новым seed.
 Кандидат зафиксирован до генерации данных и после анализа не менялся.
 Полные абсолютные значения, разброс, лучшие/худшие пары, времена/RSS:
-[таблица](../experiments/v4_deep_parallel/integration/RESULTS_TABLE.md).
+[таблица](https://github.com/mannobody/techarena2026-service-zone-optimization/blob/ffe5018957b1e3405a7448c8d27057272429cd67/experiments/v4_deep_parallel/integration/RESULTS_TABLE.md).
 
 Сохраняются две полезные независимые находки: быстрый joint count/load DP и
 геометрическая перестройка, которая совместно с прежним boundary даёт новый
@@ -213,8 +213,8 @@ SD3,1888%, диапазон−4,5190%..+4,4096%. Разброс остаётся
 доказанное исправление исторической регрессии относительно e600dde.
 
 Сохранённые файлы и необязательные воспроизводимые копии перечислены в
-[инвентаризации](../experiments/v4_deep_parallel/INVENTORY.json) и
-[списке кандидатов на очистку](../experiments/v4_deep_parallel/CLEANUP_CANDIDATES.md).
+[инвентаризации](https://github.com/mannobody/techarena2026-service-zone-optimization/blob/ffe5018957b1e3405a7448c8d27057272429cd67/experiments/v4_deep_parallel/INVENTORY.json) и
+[списке кандидатов на очистку](https://github.com/mannobody/techarena2026-service-zone-optimization/blob/ffe5018957b1e3405a7448c8d27057272429cd67/experiments/v4_deep_parallel/CLEANUP_CANDIDATES.md).
 Ничего не удалено.
 
 Разброс pooled inst4 включает различия seed, CPU-пар и тайминга; это не чистая
