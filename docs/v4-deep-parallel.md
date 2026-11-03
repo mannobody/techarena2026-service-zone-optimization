@@ -143,7 +143,7 @@ Batch-удаления откладывают перестройку оболо�
 Прирост прибыли сайтов 11598,410 и уменьшение штрафа 458,883 вместе дают 12057,293.
 Большая часть выигрыша связана с выбором сайтов и границей, а не только с балансом.
 
-![Геометрия v4 и гибрида на anti](../experiments/v4_deep_parallel/integration/figures/anti_hybrid_280.png)
+![Геометрия v4 и гибрида на anti](https://github.com/mannobody/techarena2026-service-zone-optimization/blob/ffe5018957b1e3405a7448c8d27057272429cd67/experiments/v4_deep_parallel/integration/figures/anti_hybrid_280.png?raw=true)
 
 Полный development TL280 на 6 входах ×2 новых seed:24/24 успешных процесса,
 mean+0,8896%, median+0,0297%, W/T/L6/4/2, худший−0,9610%. Обе anti-пары
@@ -174,7 +174,7 @@ tightA−0,0156%. Положительный development не заменяет �
 проблему раньше нового хвоста, но не позволяет единолично обвинить batch,
 кодогенерацию, сигнатуру, тайминги или взаимодействие потоков.
 
-![Проигрыш на новом multiskill](../experiments/v4_deep_parallel/integration/figures/multiskill_holdout_loss_280.png)
+![Проигрыш на новом multiskill](https://github.com/mannobody/techarena2026-service-zone-optimization/blob/ffe5018957b1e3405a7448c8d27057272429cd67/experiments/v4_deep_parallel/integration/figures/multiskill_holdout_loss_280.png?raw=true)
 
 Кандидат остаётся отдельным экспериментальным ZIP; базовый архив v4 не изменён.
 Новые операторы доступны в модульном solver под флагами. Никакой подстройки по
