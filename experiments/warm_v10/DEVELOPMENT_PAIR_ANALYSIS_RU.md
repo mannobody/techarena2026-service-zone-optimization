@@ -20,7 +20,7 @@
 | task_min | 451 | 608 | +157 |
 | task_max | 783 | 849 | +66 |
 
-Изменены назначения 3002 сайтов (52.21% объединения занятых сайтов). Офисы: [0, 3, 5, 9, 11, 13, 16, 17, 21, 23] → [0, 2, 11, 13, 14, 16, 17, 21, 23]. [Контроль: состав/работники/оболочки](./experiments/warm_v10/logs/development280_v5_both/huge_10302_v4.analysis.json), [кандидат](./experiments/warm_v10/logs/development280_v5_both/huge_10302_geometry.analysis.json).
+Изменены назначения 3002 сайтов (52.21% объединения занятых сайтов). Офисы: [0, 3, 5, 9, 11, 13, 16, 17, 21, 23] → [0, 2, 11, 13, 14, 16, 17, 21, 23]. [Контроль: состав/работники/оболочки](logs/development280_v5_both/huge_10302_v4.analysis.json), [кандидат](logs/development280_v5_both/huge_10302_geometry.analysis.json).
 
 ### huge, seed 9403: -2.3061%
 
@@ -37,7 +37,7 @@
 | task_min | 442 | 246 | -196 |
 | task_max | 764 | 698 | -66 |
 
-Изменены назначения 2942 сайтов (48.48% объединения занятых сайтов). Офисы: [1, 3, 9, 11, 13, 14, 16, 17, 20, 21, 23] → [1, 3, 5, 6, 9, 13, 14, 15, 16, 17, 20, 23]. [Контроль: состав/работники/оболочки](./experiments/warm_v10/logs/development280_v5_both/huge_9403_v4.analysis.json), [кандидат](./experiments/warm_v10/logs/development280_v5_both/huge_9403_geometry.analysis.json).
+Изменены назначения 2942 сайтов (48.48% объединения занятых сайтов). Офисы: [1, 3, 9, 11, 13, 14, 16, 17, 20, 21, 23] → [1, 3, 5, 6, 9, 13, 14, 15, 16, 17, 20, 23]. [Контроль: состав/работники/оболочки](logs/development280_v5_both/huge_9403_v4.analysis.json), [кандидат](logs/development280_v5_both/huge_9403_geometry.analysis.json).
 
 ### regression_large, seed 9403: -0.1335%
 
@@ -54,7 +54,7 @@
 | task_min | 125 | 123 | -2 |
 | task_max | 212 | 212 | +0 |
 
-Изменены назначения 11 сайтов (1.85% объединения занятых сайтов). Офисы: [0, 4, 6, 10, 12, 13] → [0, 4, 6, 10, 12, 13]. [Контроль: состав/работники/оболочки](./experiments/warm_v10/logs/development280_v5_both/regression_large_9403_v4.analysis.json), [кандидат](./experiments/warm_v10/logs/development280_v5_both/regression_large_9403_geometry.analysis.json).
+Изменены назначения 11 сайтов (1.85% объединения занятых сайтов). Офисы: [0, 4, 6, 10, 12, 13] → [0, 4, 6, 10, 12, 13]. [Контроль: состав/работники/оболочки](logs/development280_v5_both/regression_large_9403_v4.analysis.json), [кандидат](logs/development280_v5_both/regression_large_9403_geometry.analysis.json).
 
 ### medium_anti, seed 10302: +35.4786%
 
@@ -71,7 +71,7 @@
 | task_min | 31 | 32 | +1 |
 | task_max | 35 | 35 | +0 |
 
-Изменены назначения 57 сайтов (59.38% объединения занятых сайтов). Офисы: [0, 2, 3] → [2, 3, 6, 8]. [Контроль: состав/работники/оболочки](./experiments/warm_v10/logs/development280_v5_both/medium_anti_10302_v4.analysis.json), [кандидат](./experiments/warm_v10/logs/development280_v5_both/medium_anti_10302_geometry.analysis.json).
+Изменены назначения 57 сайтов (59.38% объединения занятых сайтов). Офисы: [0, 2, 3] → [2, 3, 6, 8]. [Контроль: состав/работники/оболочки](logs/development280_v5_both/medium_anti_10302_v4.analysis.json), [кандидат](logs/development280_v5_both/medium_anti_10302_geometry.analysis.json).
 
 ### medium_anti, seed 9403: +29.5831%
 
@@ -88,7 +88,7 @@
 | task_min | 31 | 25 | -6 |
 | task_max | 35 | 37 | +2 |
 
-Изменены назначения 53 сайтов (58.89% объединения занятых сайтов). Офисы: [0, 2, 3] → [2, 3, 4, 8]. [Контроль: состав/работники/оболочки](./experiments/warm_v10/logs/development280_v5_both/medium_anti_9403_v4.analysis.json), [кандидат](./experiments/warm_v10/logs/development280_v5_both/medium_anti_9403_geometry.analysis.json).
+Изменены назначения 53 сайтов (58.89% объединения занятых сайтов). Офисы: [0, 2, 3] → [2, 3, 4, 8]. [Контроль: состав/работники/оболочки](logs/development280_v5_both/medium_anti_9403_v4.analysis.json), [кандидат](logs/development280_v5_both/medium_anti_9403_geometry.analysis.json).
 
 ### grid_boundary, seed 10302: +6.4765%
 
@@ -105,7 +105,7 @@
 | task_min | 19 | 12 | -7 |
 | task_max | 22 | 25 | +3 |
 
-Изменены назначения 39 сайтов (41.94% объединения занятых сайтов). Офисы: [0, 1, 2, 3, 5, 6, 7] → [0, 1, 2, 3, 4, 5, 6, 7]. [Контроль: состав/работники/оболочки](./experiments/warm_v10/logs/development280_v5_both/grid_boundary_10302_v4.analysis.json), [кандидат](./experiments/warm_v10/logs/development280_v5_both/grid_boundary_10302_geometry.analysis.json).
+Изменены назначения 39 сайтов (41.94% объединения занятых сайтов). Офисы: [0, 1, 2, 3, 5, 6, 7] → [0, 1, 2, 3, 4, 5, 6, 7]. [Контроль: состав/работники/оболочки](logs/development280_v5_both/grid_boundary_10302_v4.analysis.json), [кандидат](logs/development280_v5_both/grid_boundary_10302_geometry.analysis.json).
 
 ## Сравнение с v9
 
@@ -125,7 +125,7 @@
 | task_min | 82 | 123 | +41 |
 | task_max | 145 | 212 | +67 |
 
-Изменены назначения 252 сайтов (36.68% объединения занятых сайтов). Офисы: [0, 4, 6, 8, 10, 12, 13] → [0, 4, 6, 10, 12, 13]. [Контроль: состав/работники/оболочки](./experiments/warm_v10/logs/development280_v5_both/regression_large_9403_v9.analysis.json), [кандидат](./experiments/warm_v10/logs/development280_v5_both/regression_large_9403_geometry.analysis.json).
+Изменены назначения 252 сайтов (36.68% объединения занятых сайтов). Офисы: [0, 4, 6, 8, 10, 12, 13] → [0, 4, 6, 10, 12, 13]. [Контроль: состав/работники/оболочки](logs/development280_v5_both/regression_large_9403_v9.analysis.json), [кандидат](logs/development280_v5_both/regression_large_9403_geometry.analysis.json).
 
 ### huge, seed 9403: -2.3061%
 
@@ -142,7 +142,7 @@
 | task_min | 442 | 246 | -196 |
 | task_max | 764 | 698 | -66 |
 
-Изменены назначения 2942 сайтов (48.48% объединения занятых сайтов). Офисы: [1, 3, 9, 11, 13, 14, 16, 17, 20, 21, 23] → [1, 3, 5, 6, 9, 13, 14, 15, 16, 17, 20, 23]. [Контроль: состав/работники/оболочки](./experiments/warm_v10/logs/development280_v5_both/huge_9403_v9.analysis.json), [кандидат](./experiments/warm_v10/logs/development280_v5_both/huge_9403_geometry.analysis.json).
+Изменены назначения 2942 сайтов (48.48% объединения занятых сайтов). Офисы: [1, 3, 9, 11, 13, 14, 16, 17, 20, 21, 23] → [1, 3, 5, 6, 9, 13, 14, 15, 16, 17, 20, 23]. [Контроль: состав/работники/оболочки](logs/development280_v5_both/huge_9403_v9.analysis.json), [кандидат](logs/development280_v5_both/huge_9403_geometry.analysis.json).
 
 ### huge, seed 10302: -1.4301%
 
@@ -159,7 +159,7 @@
 | task_min | 272 | 608 | +336 |
 | task_max | 690 | 849 | +159 |
 
-Изменены назначения 2941 сайтов (52.31% объединения занятых сайтов). Офисы: [0, 2, 5, 6, 13, 16, 17, 19, 20, 21, 23] → [0, 2, 11, 13, 14, 16, 17, 21, 23]. [Контроль: состав/работники/оболочки](./experiments/warm_v10/logs/development280_v5_both/huge_10302_v9.analysis.json), [кандидат](./experiments/warm_v10/logs/development280_v5_both/huge_10302_geometry.analysis.json).
+Изменены назначения 2941 сайтов (52.31% объединения занятых сайтов). Офисы: [0, 2, 5, 6, 13, 16, 17, 19, 20, 21, 23] → [0, 2, 11, 13, 14, 16, 17, 21, 23]. [Контроль: состав/работники/оболочки](logs/development280_v5_both/huge_10302_v9.analysis.json), [кандидат](logs/development280_v5_both/huge_10302_geometry.analysis.json).
 
 ### medium_anti, seed 10302: +35.4786%
 
@@ -176,7 +176,7 @@
 | task_min | 31 | 32 | +1 |
 | task_max | 35 | 35 | +0 |
 
-Изменены назначения 57 сайтов (59.38% объединения занятых сайтов). Офисы: [0, 2, 3] → [2, 3, 6, 8]. [Контроль: состав/работники/оболочки](./experiments/warm_v10/logs/development280_v5_both/medium_anti_10302_v9.analysis.json), [кандидат](./experiments/warm_v10/logs/development280_v5_both/medium_anti_10302_geometry.analysis.json).
+Изменены назначения 57 сайтов (59.38% объединения занятых сайтов). Офисы: [0, 2, 3] → [2, 3, 6, 8]. [Контроль: состав/работники/оболочки](logs/development280_v5_both/medium_anti_10302_v9.analysis.json), [кандидат](logs/development280_v5_both/medium_anti_10302_geometry.analysis.json).
 
 ### medium_anti, seed 9403: +29.5831%
 
@@ -193,7 +193,7 @@
 | task_min | 31 | 25 | -6 |
 | task_max | 35 | 37 | +2 |
 
-Изменены назначения 53 сайтов (58.89% объединения занятых сайтов). Офисы: [0, 2, 3] → [2, 3, 4, 8]. [Контроль: состав/работники/оболочки](./experiments/warm_v10/logs/development280_v5_both/medium_anti_9403_v9.analysis.json), [кандидат](./experiments/warm_v10/logs/development280_v5_both/medium_anti_9403_geometry.analysis.json).
+Изменены назначения 53 сайтов (58.89% объединения занятых сайтов). Офисы: [0, 2, 3] → [2, 3, 4, 8]. [Контроль: состав/работники/оболочки](logs/development280_v5_both/medium_anti_9403_v9.analysis.json), [кандидат](logs/development280_v5_both/medium_anti_9403_geometry.analysis.json).
 
 ### grid_boundary, seed 10302: +5.0018%
 
@@ -210,4 +210,4 @@
 | task_min | 18 | 12 | -6 |
 | task_max | 20 | 25 | +5 |
 
-Изменены назначения 46 сайтов (47.92% объединения занятых сайтов). Офисы: [0, 1, 2, 4, 5, 6, 7] → [0, 1, 2, 3, 4, 5, 6, 7]. [Контроль: состав/работники/оболочки](./experiments/warm_v10/logs/development280_v5_both/grid_boundary_10302_v9.analysis.json), [кандидат](./experiments/warm_v10/logs/development280_v5_both/grid_boundary_10302_geometry.analysis.json).
+Изменены назначения 46 сайтов (47.92% объединения занятых сайтов). Офисы: [0, 1, 2, 4, 5, 6, 7] → [0, 1, 2, 3, 4, 5, 6, 7]. [Контроль: состав/работники/оболочки](logs/development280_v5_both/grid_boundary_10302_v9.analysis.json), [кандидат](logs/development280_v5_both/grid_boundary_10302_geometry.analysis.json).

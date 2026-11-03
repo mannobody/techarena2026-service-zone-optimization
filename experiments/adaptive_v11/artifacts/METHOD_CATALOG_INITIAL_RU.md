@@ -4,27 +4,27 @@
 
 | Семейство | Представление/метод | Роль в адаптивной версии |
 |---|---|---|
-| [Server v4](./experiments/server_v4/MANIFEST.json) | Неизменный контроль: GA наборов офисов, геометрические/дорожные старты, LNS, финальный B&B. | Контрольный эксперт, точный source SHA5b3914…. |
-| [v2/v3 и память](./experiments/server_candidate/REPORT.md) | Повторное использование буферов/геометрии, worker DFS, finish-fill. | Предки v4; экономию allocations нельзя автоматически считать приростом качества. |
-| [Evolution](./experiments/evolution/REPORT.md) | Генетический поиск наборов офисов, worker certificates и SCIP-прототипы. | Нативные полезные части уже в v4. Не отдельный независимый современный эксперт. |
-| [Geometry islands](./experiments/geometry_islands/REPORT.md) | Точная геометрия по всем входным точкам, spatial grid, острова/anchor. | Геометрическая проверка и индекс уже в v4; отдельные kernel/локальные улучшения не метки победителя полного solver. |
-| [Boundary/beam](./experiments/boundary_beam/REPORT.md) | Граничный B&B, support/beam и финальный хвост. | Финальный B&B включён в v4; ранние/support версии требуют собственных полных сравнений. |
-| [Column generation](./experiments/colgen/REPORT.md) | SCIP pricing, restricted LP/IP master по зонам. | Исследовательский solver/подзадачи; restricted bound не глобальный и checkpoint gain не full-run label. |
-| [Clustering](./experiments/clustering/REPORT.md) | Road profiles/PCA/MDS/UMAP, balanced LP, кластер→геометрическая проекция. | Дорогие offline embeddings и restricted master; нет основания включать как быстрый старт по одной метке «road». |
-| [MILP v5](./experiments/milp_v5/REPORT.md) | Выбор/назначения/работники в ограниченной окрестности. | Сохраняет истинную цель, но полные серии содержат регрессии; выигрыши отдельных checkpoint не классификатор. |
-| [MILP boundaries](./experiments/milp_v5_boundaries/REPORT.md) | Более сильная boundary-модель, переменные группы и геометрические cuts. | Известны ранние RE и исправленные варианты; стоимость интеграции существенна. Старые результаты не удаляются. |
-| [DP/MILP](./experiments/dp_milp/REPORT.md) | Оптимизация фиксированного размещения: count/task-load и профили работников. | Условная точность требует фиксированных параметров; не глобальное решение. |
-| [V4 local search](./experiments/v4_local_search/REPORT.md) | Циклы, repair, exchange, fair/ILS и tail. | Небольшой независимый mean при существенных регрессиях; локальные механизмы не дают надёжного широкого routing. |
-| [Декомпозиция/поиск → server v6](./experiments/v4_deep_parallel/integration/REPORT.md) | Batch/ALNS/archive/niches/memo/wide; geometry→joint→boundary. | Две длинные лаборатории; TL280 hybrid не подтвердил общую замену. Флагам нужен свой evidence, не объединять все улучшения. |
-| [Server v6](./experiments/server_v6/MANIFEST.json) | Упаковка проверенного hybrid из предыдущей строки. | Не считать тем же алгоритмом, что v4; не добавлять повторно как независимые наблюдения. |
-| [Server v7](./experiments/server_v7) | Историческая серверная упаковка; нет стандартного matched-manifest в каталоге. | Неполные метки: нельзя придумывать среднее или предпочтительный класс. |
-| [Plateau/support → server v8](./experiments/v4_perturbation/integration/REPORT.md) | Support-kick, boundary-only, late acceptance/tabu и их абляции. | Есть полные TL280, но лишь шесть независимых входов для конфигурации; недостаточно для сложного классификатора. |
-| [Server v8](./experiments/server_v8/RESULTS_RU.md) | Упаковка support-kick/boundary на exactv4. | Те же данные integration; не дублировать их как новую выборку. |
-| [Exact neighborhoods](./experiments/v8_exact_neighborhoods/REPORT_RU.md) | Полный домен локального выбора, геометрические cuts, worker deadline вместо node cap, whole-zone packets. | Доказан worker false negative, но общие серии только TL10/60. Tiny exact v9 закрывает часть этих случаев. |
-| [Structural v9](./experiments/structural_v9/REPORT_RU.md) | Полные зоны на малых, restricted master, signed atomic exchanges. | Tiny exact нужен как математически проверяемая ветка; tail наследуется геометрическим экспертом. Resource repeat не поддержал общую замену. |
-| [Warm v10](./experiments/warm_v10/REPORT_RU.md) | Геометрические геномы/реальные назначения/feasible fitness. | Основной второй эксперт: средний выигрыш, но существенные регрессии. Mode2, singleton shortcut и mass balancing не путать с выбранной v5 geometry. |
-| [Текущий solver/](./solver/solve.cpp) | Накопленные модульные изменения, snapshot собран в adaptive_v11/artifacts/current_modular. | Не является exactv4. Отдельное текущее matched-screen; пользовательские файлы не изменяются. |
-| [Интеграции](./experiments/v4_main_integration/MANIFEST.json) | Исторические переносы изменений в модульный solver. | Не отдельные независимые наборы результатов: происхождение/snapshot сверять по хешам. |
+| [Server v4](../../server_v4/MANIFEST.json) | Неизменный контроль: GA наборов офисов, геометрические/дорожные старты, LNS, финальный B&B. | Контрольный эксперт, точный source SHA5b3914…. |
+| [v2/v3 и память](../../server_candidate/REPORT.md) | Повторное использование буферов/геометрии, worker DFS, finish-fill. | Предки v4; экономию allocations нельзя автоматически считать приростом качества. |
+| [Evolution](../../evolution/REPORT.md) | Генетический поиск наборов офисов, worker certificates и SCIP-прототипы. | Нативные полезные части уже в v4. Не отдельный независимый современный эксперт. |
+| [Geometry islands](../../geometry_islands/REPORT.md) | Точная геометрия по всем входным точкам, spatial grid, острова/anchor. | Геометрическая проверка и индекс уже в v4; отдельные kernel/локальные улучшения не метки победителя полного solver. |
+| [Boundary/beam](../../boundary_beam/REPORT.md) | Граничный B&B, support/beam и финальный хвост. | Финальный B&B включён в v4; ранние/support версии требуют собственных полных сравнений. |
+| [Column generation](../../colgen/REPORT.md) | SCIP pricing, restricted LP/IP master по зонам. | Исследовательский solver/подзадачи; restricted bound не глобальный и checkpoint gain не full-run label. |
+| [Clustering](../../clustering/REPORT.md) | Road profiles/PCA/MDS/UMAP, balanced LP, кластер→геометрическая проекция. | Дорогие offline embeddings и restricted master; нет основания включать как быстрый старт по одной метке «road». |
+| [MILP v5](../../milp_v5/REPORT.md) | Выбор/назначения/работники в ограниченной окрестности. | Сохраняет истинную цель, но полные серии содержат регрессии; выигрыши отдельных checkpoint не классификатор. |
+| [MILP boundaries](../../milp_v5_boundaries/REPORT.md) | Более сильная boundary-модель, переменные группы и геометрические cuts. | Известны ранние RE и исправленные варианты; стоимость интеграции существенна. Старые результаты не удаляются. |
+| [DP/MILP](../../dp_milp/REPORT.md) | Оптимизация фиксированного размещения: count/task-load и профили работников. | Условная точность требует фиксированных параметров; не глобальное решение. |
+| [V4 local search](../../v4_local_search/REPORT.md) | Циклы, repair, exchange, fair/ILS и tail. | Небольшой независимый mean при существенных регрессиях; локальные механизмы не дают надёжного широкого routing. |
+| [Декомпозиция/поиск → server v6](../../v4_deep_parallel/integration/REPORT.md) | Batch/ALNS/archive/niches/memo/wide; geometry→joint→boundary. | Две длинные лаборатории; TL280 hybrid не подтвердил общую замену. Флагам нужен свой evidence, не объединять все улучшения. |
+| [Server v6](../../server_v6/MANIFEST.json) | Упаковка проверенного hybrid из предыдущей строки. | Не считать тем же алгоритмом, что v4; не добавлять повторно как независимые наблюдения. |
+| [Server v7](../../server_v7) | Историческая серверная упаковка; нет стандартного matched-manifest в каталоге. | Неполные метки: нельзя придумывать среднее или предпочтительный класс. |
+| [Plateau/support → server v8](../../v4_perturbation/integration/REPORT.md) | Support-kick, boundary-only, late acceptance/tabu и их абляции. | Есть полные TL280, но лишь шесть независимых входов для конфигурации; недостаточно для сложного классификатора. |
+| [Server v8](../../server_v8/RESULTS_RU.md) | Упаковка support-kick/boundary на exactv4. | Те же данные integration; не дублировать их как новую выборку. |
+| [Exact neighborhoods](../../v8_exact_neighborhoods/REPORT_RU.md) | Полный домен локального выбора, геометрические cuts, worker deadline вместо node cap, whole-zone packets. | Доказан worker false negative, но общие серии только TL10/60. Tiny exact v9 закрывает часть этих случаев. |
+| [Structural v9](../../structural_v9/REPORT_RU.md) | Полные зоны на малых, restricted master, signed atomic exchanges. | Tiny exact нужен как математически проверяемая ветка; tail наследуется геометрическим экспертом. Resource repeat не поддержал общую замену. |
+| [Warm v10](../../warm_v10/REPORT_RU.md) | Геометрические геномы/реальные назначения/feasible fitness. | Основной второй эксперт: средний выигрыш, но существенные регрессии. Mode2, singleton shortcut и mass balancing не путать с выбранной v5 geometry. |
+| [Текущий solver/](../../../solver/solve.cpp) | Накопленные модульные изменения, snapshot собран в adaptive_v11/artifacts/current_modular. | Не является exactv4. Отдельное текущее matched-screen; пользовательские файлы не изменяются. |
+| [Интеграции](../../v4_main_integration/MANIFEST.json) | Исторические переносы изменений в модульный solver. | Не отдельные независимые наборы результатов: происхождение/snapshot сверять по хешам. |
 
 ## Проверяемые признаки
 

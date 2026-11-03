@@ -9,7 +9,7 @@
 | точная v4 | +3.9956% | +0.7581% | 5.7916 п.п. | -3.6800% | 19/1/4 | [+0.9277%; +7.8716%] |
 | прежний v9 tail | +4.7753% | +1.7997% | 7.0641 п.п. | -3.3201% | 18/0/6 | [+1.0621%; +9.5930%] |
 
-Официально валидны 72/72 ответов; рабочих успехов 72/72. Подробности каждого перелёта/ошибки: [logs/independent280/ANALYSIS.json](./experiments/warm_v10/logs/independent280/ANALYSIS.json). Средние равновзвешены по входам; seed не считаются независимыми задачами. Bootstrap: 5000 повторов по входам, фиксированный RNG717. Отдельно сохранена статистика только успешных пар; первичные выводы не скрывают остальные строки.
+Официально валидны 72/72 ответов; рабочих успехов 72/72. Подробности каждого перелёта/ошибки: [logs/independent280/ANALYSIS.json](logs/independent280/ANALYSIS.json). Средние равновзвешены по входам; seed не считаются независимыми задачами. Bootstrap: 5000 повторов по входам, фиксированный RNG717. Отдельно сохранена статистика только успешных пар; первичные выводы не скрывают остальные строки.
 
 ## Новые входы
 
@@ -33,13 +33,13 @@
 
 Выбран GW_MODE1: разнообразие сохраняется в геометрической популяции и готовых стартах. Включение пространственного crossover и новой глобальной элиты (GW_MODE2) проверено в development, но не выбрано. Нативная глобальная элита выбранной конфигурации остаётся прежней.
 
-Сохранены все прототипы. Минимальные проверки: равные по баллу разные зоны 20/20 сохраняются и дают совместимого ребёнка40; балансировка геометрии исправляет старт3/1 →2/2 и20→40. Это проверки механизмов, а не доказательство, что полный v4 не решает эти маленькие входы. Ссылки: [BALANCED_MECHANISM.json](./experiments/warm_v10/BALANCED_MECHANISM.json), [logs/mechanism.json](./experiments/warm_v10/logs/mechanism.json).
+Сохранены все прототипы. Минимальные проверки: равные по баллу разные зоны 20/20 сохраняются и дают совместимого ребёнка40; балансировка геометрии исправляет старт3/1 →2/2 и20→40. Это проверки механизмов, а не доказательство, что полный v4 не решает эти маленькие входы. Ссылки: [BALANCED_MECHANISM.json](BALANCED_MECHANISM.json), [logs/mechanism.json](logs/mechanism.json).
 
 ## Выбор и отрицательные результаты
 
 Первоначальная замена office-subset GA дорогими phenotype-стартами привела к провалам до −60.99% на 10k: перед ней не успевал возникнуть широкий набор офисов. Затем выяснилось, что предварительный legacy GA всё ещё тратил время на первые декодирования. Все эти результаты оставлены в screen30_v2/v4/v5. Исправленный предварительный этап строго proxy-only.
 
-Полное development: 6 просмотренных входов ×2seed ×4версии ×TL280. Затем отдельное сопоставление v5/v6/v8 с обоими неизменными контролями: 3 входа ×2seed ×5версий ×TL280. Выбор сделан до генерации независимых данных по [ACCELERATION_SELECTION_RULE.json](./experiments/warm_v10/ACCELERATION_SELECTION_RULE.json); исходные данные: [ACCELERATION_DECISION.json](./experiments/warm_v10/ACCELERATION_DECISION.json). Режимы geometry/memetic различаются одновременно crossover и глобальной элитой; это не отдельная причинная оценка каждого оператора.
+Полное development: 6 просмотренных входов ×2seed ×4версии ×TL280. Затем отдельное сопоставление v5/v6/v8 с обоими неизменными контролями: 3 входа ×2seed ×5версий ×TL280. Выбор сделан до генерации независимых данных по [ACCELERATION_SELECTION_RULE.json](ACCELERATION_SELECTION_RULE.json); исходные данные: [ACCELERATION_DECISION.json](ACCELERATION_DECISION.json). Режимы geometry/memetic различаются одновременно crossover и глобальной элитой; это не отдельная причинная оценка каждого оператора.
 
 | Серия | Запуски | VALID | Рабочий успех | Аварийный TL+2 |
 |---|---:|---:|---:|---:|
@@ -56,14 +56,14 @@
 
 Ресурсный повтор не потребовался: Primary already fails the declared promotion gate.
 
-Фактические user/sys/RSS, wall, CPU pressure, назначения, работники, оболочки и промежуточные решения сохранены. В post-development/независимой серии runner дополнительно наблюдает runtime/runqueue/state потоков и I/O через /proc. Исследовательские процессы исполняются на ядрах контроллера; конкурсный C++ читает только свой instance и пишет solution. Исключительность всей машины и равенство реально полученного CPU-времени не заявляются. Подробности: [RESOURCE_REPORT_RU.md](./experiments/warm_v10/RESOURCE_REPORT_RU.md).
+Фактические user/sys/RSS, wall, CPU pressure, назначения, работники, оболочки и промежуточные решения сохранены. В post-development/независимой серии runner дополнительно наблюдает runtime/runqueue/state потоков и I/O через /proc. Исследовательские процессы исполняются на ядрах контроллера; конкурсный C++ читает только свой instance и пишет solution. Исключительность всей машины и равенство реально полученного CPU-времени не заявляются. Подробности: [RESOURCE_REPORT_RU.md](RESOURCE_REPORT_RU.md).
 
 Геометрический phenotype остаётся эвристическим. Fast proxy и планы по отдельным навыкам могут ошибаться; окончательный fitness проверяется по реальным работникам и истинной цели. Мягкие внутренние дедлайны могут удлинять фазу старта; это время включено в общий бюджет. Два потока и wall-дедлайны не дают побитового воспроизведения траектории по одному seed. За пределами проверенных классов оптимальность и отсутствие любых регрессий не доказаны.
 
 ## Код и воспроизведение
 
-Выбранный пакет: [candidate_selected.zip](./experiments/warm_v10/candidate_selected.zip). Исходник: [package_geometry/main.cpp](./experiments/warm_v10/package_geometry/main.cpp); настройки: [package_geometry/Makefile](./experiments/warm_v10/package_geometry/Makefile). `make build`, затем `make run` задают проверенную конфигурацию NT2/ZM_POOL0/ZM_RESERVE0/GW_MODE1; обычный бюджет280. Пакет содержит только main.cpp и Makefile, не требует Python/MIP или внешних ответов.
+Выбранный пакет: [candidate_selected.zip](candidate_selected.zip). Исходник: [package_geometry/main.cpp](package_geometry/main.cpp); настройки: [package_geometry/Makefile](package_geometry/Makefile). `make build`, затем `make run` задают проверенную конфигурацию NT2/ZM_POOL0/ZM_RESERVE0/GW_MODE1; обычный бюджет280. Пакет содержит только main.cpp и Makefile, не требует Python/MIP или внешних ответов.
 
-Фиксация до новых данных: [FREEZE.json](./experiments/warm_v10/FREEZE.json). Полная рекомендация: [FINAL_RECOMMENDATION.json](./experiments/warm_v10/FINAL_RECOMMENDATION.json). Аудит: [FINAL_AUDIT.json](./experiments/warm_v10/FINAL_AUDIT.json). Разбор худших/лучших пар: [PAIR_ANALYSIS_RU.md](./experiments/warm_v10/PAIR_ANALYSIS_RU.md). Ограничения и история методов: [AUDIT_RU.md](./experiments/warm_v10/AUDIT_RU.md).
+Фиксация до новых данных: [FREEZE.json](FREEZE.json). Полная рекомендация: [FINAL_RECOMMENDATION.json](FINAL_RECOMMENDATION.json). Аудит: [FINAL_AUDIT.json](FINAL_AUDIT.json). Разбор худших/лучших пар: [PAIR_ANALYSIS_RU.md](PAIR_ANALYSIS_RU.md). Ограничения и история методов: [AUDIT_RU.md](AUDIT_RU.md).
 
 Контрольная v4 не менялась: SHA256 `5b3914fa9791cb879f3232fb2876a915de83b848ad4b353b0dbf25b574998c25`. Прежний v9 tail сохранён отдельно. Пользовательские solver/, README, SOLVER и прежние результаты не переписывались; без staging/commit/push/submit.

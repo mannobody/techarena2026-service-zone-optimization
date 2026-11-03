@@ -20,7 +20,7 @@
 | task_min | 20 | 20 | +0 |
 | task_max | 25 | 25 | +0 |
 
-Изменены назначения 25 сайтов (32.47% объединения занятых сайтов). Офисы: [0, 1, 3, 4] → [0, 3, 4, 6]. [Контроль: состав/работники/оболочки](./experiments/warm_v10/logs/independent280/anti180_0_v4.analysis.json), [кандидат](./experiments/warm_v10/logs/independent280/anti180_0_prior.analysis.json).
+Изменены назначения 25 сайтов (32.47% объединения занятых сайтов). Офисы: [0, 1, 3, 4] → [0, 3, 4, 6]. [Контроль: состав/работники/оболочки](logs/independent280/anti180_0_v4.analysis.json), [кандидат](logs/independent280/anti180_0_prior.analysis.json).
 
 ### equal_count150, seed 10503: -1.5215%
 
@@ -37,7 +37,7 @@
 | task_min | 77 | 77 | +0 |
 | task_max | 77 | 77 | +0 |
 
-Изменены назначения 59 сайтов (53.64% объединения занятых сайтов). Офисы: [2, 3, 6, 7] → [3, 5, 6, 7]. [Контроль: состав/работники/оболочки](./experiments/warm_v10/logs/independent280/equal_count150_10503_v4.analysis.json), [кандидат](./experiments/warm_v10/logs/independent280/equal_count150_10503_prior.analysis.json).
+Изменены назначения 59 сайтов (53.64% объединения занятых сайтов). Офисы: [2, 3, 6, 7] → [3, 5, 6, 7]. [Контроль: состав/работники/оболочки](logs/independent280/equal_count150_10503_v4.analysis.json), [кандидат](logs/independent280/equal_count150_10503_prior.analysis.json).
 
 ### anti180, seed 10502: -0.6358%
 
@@ -54,7 +54,7 @@
 | task_min | 20 | 13 | -7 |
 | task_max | 25 | 23 | -2 |
 
-Изменены назначения 39 сайтов (43.82% объединения занятых сайтов). Офисы: [0, 1, 3, 4] → [0, 1, 3, 4, 6]. [Контроль: состав/работники/оболочки](./experiments/warm_v10/logs/independent280/anti180_10502_v4.analysis.json), [кандидат](./experiments/warm_v10/logs/independent280/anti180_10502_prior.analysis.json).
+Изменены назначения 39 сайтов (43.82% объединения занятых сайтов). Офисы: [0, 1, 3, 4] → [0, 1, 3, 4, 6]. [Контроль: состав/работники/оболочки](logs/independent280/anti180_10502_v4.analysis.json), [кандидат](logs/independent280/anti180_10502_prior.analysis.json).
 
 ### grid160, seed 10503: +15.8986%
 
@@ -71,7 +71,7 @@
 | task_min | 32 | 41 | +9 |
 | task_max | 37 | 45 | +8 |
 
-Изменены назначения 59 сайтов (44.70% объединения занятых сайтов). Офисы: [2, 4, 5, 6, 7, 8] → [2, 3, 4, 5, 6, 8]. [Контроль: состав/работники/оболочки](./experiments/warm_v10/logs/independent280/grid160_10503_v4.analysis.json), [кандидат](./experiments/warm_v10/logs/independent280/grid160_10503_prior.analysis.json).
+Изменены назначения 59 сайтов (44.70% объединения занятых сайтов). Офисы: [2, 4, 5, 6, 7, 8] → [2, 3, 4, 5, 6, 8]. [Контроль: состав/работники/оболочки](logs/independent280/grid160_10503_v4.analysis.json), [кандидат](logs/independent280/grid160_10503_prior.analysis.json).
 
 ### grid160, seed 10502: +15.2430%
 
@@ -88,7 +88,7 @@
 | task_min | 35 | 39 | +4 |
 | task_max | 37 | 45 | +8 |
 
-Изменены назначения 57 сайтов (43.51% объединения занятых сайтов). Офисы: [2, 4, 5, 6, 7, 8] → [2, 3, 4, 5, 6, 8]. [Контроль: состав/работники/оболочки](./experiments/warm_v10/logs/independent280/grid160_10502_v4.analysis.json), [кандидат](./experiments/warm_v10/logs/independent280/grid160_10502_prior.analysis.json).
+Изменены назначения 57 сайтов (43.51% объединения занятых сайтов). Офисы: [2, 4, 5, 6, 7, 8] → [2, 3, 4, 5, 6, 8]. [Контроль: состав/работники/оболочки](logs/independent280/grid160_10502_v4.analysis.json), [кандидат](logs/independent280/grid160_10502_prior.analysis.json).
 
 ### grid160, seed 0: +12.7082%
 
@@ -105,7 +105,7 @@
 | task_min | 23 | 28 | +5 |
 | task_max | 38 | 48 | +10 |
 
-Изменены назначения 74 сайтов (50.00% объединения занятых сайтов). Офисы: [1, 2, 3, 4, 6, 7, 8] → [1, 2, 3, 4, 5, 6, 8]. [Контроль: состав/работники/оболочки](./experiments/warm_v10/logs/independent280/grid160_0_v4.analysis.json), [кандидат](./experiments/warm_v10/logs/independent280/grid160_0_prior.analysis.json).
+Изменены назначения 74 сайтов (50.00% объединения занятых сайтов). Офисы: [1, 2, 3, 4, 6, 7, 8] → [1, 2, 3, 4, 5, 6, 8]. [Контроль: состав/работники/оболочки](logs/independent280/grid160_0_v4.analysis.json), [кандидат](logs/independent280/grid160_0_prior.analysis.json).
 
 ## Сравнение с v9
 
@@ -125,7 +125,7 @@
 | task_min | 20 | 20 | +0 |
 | task_max | 26 | 25 | -1 |
 
-Изменены назначения 23 сайтов (30.26% объединения занятых сайтов). Офисы: [0, 1, 3, 4] → [0, 3, 4, 6]. [Контроль: состав/работники/оболочки](./experiments/warm_v10/logs/independent280/anti180_0_v9.analysis.json), [кандидат](./experiments/warm_v10/logs/independent280/anti180_0_prior.analysis.json).
+Изменены назначения 23 сайтов (30.26% объединения занятых сайтов). Офисы: [0, 1, 3, 4] → [0, 3, 4, 6]. [Контроль: состав/работники/оболочки](logs/independent280/anti180_0_v9.analysis.json), [кандидат](logs/independent280/anti180_0_prior.analysis.json).
 
 ### equal_count150, seed 10503: -1.5215%
 
@@ -142,7 +142,7 @@
 | task_min | 77 | 77 | +0 |
 | task_max | 77 | 77 | +0 |
 
-Изменены назначения 59 сайтов (53.64% объединения занятых сайтов). Офисы: [2, 3, 6, 7] → [3, 5, 6, 7]. [Контроль: состав/работники/оболочки](./experiments/warm_v10/logs/independent280/equal_count150_10503_v9.analysis.json), [кандидат](./experiments/warm_v10/logs/independent280/equal_count150_10503_prior.analysis.json).
+Изменены назначения 59 сайтов (53.64% объединения занятых сайтов). Офисы: [2, 3, 6, 7] → [3, 5, 6, 7]. [Контроль: состав/работники/оболочки](logs/independent280/equal_count150_10503_v9.analysis.json), [кандидат](logs/independent280/equal_count150_10503_prior.analysis.json).
 
 ### equal_count150, seed 10502: -1.2508%
 
@@ -159,7 +159,7 @@
 | task_min | 86 | 77 | -9 |
 | task_max | 86 | 77 | -9 |
 
-Изменены назначения 66 сайтов (61.11% объединения занятых сайтов). Офисы: [2, 3, 5, 7] → [2, 3, 6, 7]. [Контроль: состав/работники/оболочки](./experiments/warm_v10/logs/independent280/equal_count150_10502_v9.analysis.json), [кандидат](./experiments/warm_v10/logs/independent280/equal_count150_10502_prior.analysis.json).
+Изменены назначения 66 сайтов (61.11% объединения занятых сайтов). Офисы: [2, 3, 5, 7] → [2, 3, 6, 7]. [Контроль: состав/работники/оболочки](logs/independent280/equal_count150_10502_v9.analysis.json), [кандидат](logs/independent280/equal_count150_10502_prior.analysis.json).
 
 ### grid160, seed 0: +25.2834%
 
@@ -176,7 +176,7 @@
 | task_min | 35 | 28 | -7 |
 | task_max | 37 | 48 | +11 |
 
-Изменены назначения 86 сайтов (60.14% объединения занятых сайтов). Офисы: [2, 4, 5, 6, 7, 8] → [1, 2, 3, 4, 5, 6, 8]. [Контроль: состав/работники/оболочки](./experiments/warm_v10/logs/independent280/grid160_0_v9.analysis.json), [кандидат](./experiments/warm_v10/logs/independent280/grid160_0_prior.analysis.json).
+Изменены назначения 86 сайтов (60.14% объединения занятых сайтов). Офисы: [2, 4, 5, 6, 7, 8] → [1, 2, 3, 4, 5, 6, 8]. [Контроль: состав/работники/оболочки](logs/independent280/grid160_0_v9.analysis.json), [кандидат](logs/independent280/grid160_0_prior.analysis.json).
 
 ### grid160, seed 10503: +15.4539%
 
@@ -193,7 +193,7 @@
 | task_min | 35 | 41 | +6 |
 | task_max | 37 | 45 | +8 |
 
-Изменены назначения 60 сайтов (45.11% объединения занятых сайтов). Офисы: [2, 4, 5, 6, 7, 8] → [2, 3, 4, 5, 6, 8]. [Контроль: состав/работники/оболочки](./experiments/warm_v10/logs/independent280/grid160_10503_v9.analysis.json), [кандидат](./experiments/warm_v10/logs/independent280/grid160_10503_prior.analysis.json).
+Изменены назначения 60 сайтов (45.11% объединения занятых сайтов). Офисы: [2, 4, 5, 6, 7, 8] → [2, 3, 4, 5, 6, 8]. [Контроль: состав/работники/оболочки](logs/independent280/grid160_10503_v9.analysis.json), [кандидат](logs/independent280/grid160_10503_prior.analysis.json).
 
 ### grid160, seed 10502: +15.2430%
 
@@ -210,4 +210,4 @@
 | task_min | 35 | 39 | +4 |
 | task_max | 37 | 45 | +8 |
 
-Изменены назначения 57 сайтов (43.51% объединения занятых сайтов). Офисы: [2, 4, 5, 6, 7, 8] → [2, 3, 4, 5, 6, 8]. [Контроль: состав/работники/оболочки](./experiments/warm_v10/logs/independent280/grid160_10502_v9.analysis.json), [кандидат](./experiments/warm_v10/logs/independent280/grid160_10502_prior.analysis.json).
+Изменены назначения 57 сайтов (43.51% объединения занятых сайтов). Офисы: [2, 4, 5, 6, 7, 8] → [2, 3, 4, 5, 6, 8]. [Контроль: состав/работники/оболочки](logs/independent280/grid160_10502_v9.analysis.json), [кандидат](logs/independent280/grid160_10502_prior.analysis.json).
