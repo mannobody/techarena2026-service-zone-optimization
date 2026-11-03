@@ -81,8 +81,8 @@
 | Повтор inst4 противe600dde | 6 новых seed, 12/12 успехов | Отношение медиан−0.06734%, среднее парных Δ−1.10273%, W/T/L2/0/4. Хороший старый бассейн18869.55 дважды достижим и валиден в новом Engine; исправление регрессии не доказано |
 
 Полные распределения, времена/RSS, причинный разбор и неуспешные серии:
-[REPORT](experiments/v4_local_search/REPORT.md),
-[таблица](experiments/v4_local_search/RESULTS_TABLE.md),
+[REPORT](https://github.com/mannobody/techarena2026-service-zone-optimization/blob/ffe5018957b1e3405a7448c8d27057272429cd67/experiments/v4_local_search/REPORT.md),
+[таблица](https://github.com/mannobody/techarena2026-service-zone-optimization/blob/ffe5018957b1e3405a7448c8d27057272429cd67/experiments/v4_local_search/RESULTS_TABLE.md),
 [методы и первичные источники](docs/v4-local-search.md).
 Координаторы двух неполных серий завершились143; журналы сохранены, серии повторены
 целиком. Ошибка прежнего офлайн worker-certificate harness (12 rc6) также сохранена;
@@ -119,9 +119,9 @@ runtime после удаления ELF symbol-table/build-id; source совпа
 Синтетика28/28 и файловый протокол6/6 пройдены. Старые архивы не изменены.
 
 Окончательные распределения и решение о принятии опубликованы в
-[отчёте интеграции](experiments/v4_deep_parallel/integration/REPORT.md).
-Подробности лабораторий: [геометрия](experiments/v4_deep_parallel/geometry/REPORT.md),
-[поиск](experiments/v4_deep_parallel/search/REPORT.md).
+[отчёте интеграции](https://github.com/mannobody/techarena2026-service-zone-optimization/blob/ffe5018957b1e3405a7448c8d27057272429cd67/experiments/v4_deep_parallel/integration/REPORT.md).
+Подробности лабораторий: [геометрия](https://github.com/mannobody/techarena2026-service-zone-optimization/blob/ffe5018957b1e3405a7448c8d27057272429cd67/experiments/v4_deep_parallel/geometry/REPORT.md),
+[поиск](https://github.com/mannobody/techarena2026-service-zone-optimization/blob/ffe5018957b1e3405a7448c8d27057272429cd67/experiments/v4_deep_parallel/search/REPORT.md).
 Все изменения локальные; коммит, staging, push, merge и отправка не выполнялись.
 
 Итог frozen-кандидата: independent holdout60 —72/72 успешных, mean+0,1332%,

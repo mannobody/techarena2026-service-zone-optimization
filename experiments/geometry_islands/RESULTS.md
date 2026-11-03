@@ -5,7 +5,7 @@
 ## index_holdout60
 
 VALID 60/60. Config: `{"tag": "index_holdout60", "split": "holdout", "variants": "base,grid", "seeds": "61,62,63", "seconds": 60.0, "threads": 2, "jobs": 4, "cases": "", "post_from": null, "exe": "index_v1"}`.
-[Исходные результаты](./experiments/geometry_islands/logs/index_holdout60/results.json).
+[Исходные результаты](logs/index_holdout60/results.json).
 
 | Вход | Вариант | n | Медиана | min | max | Δ, % | max wall |
 |---|---|---:|---:|---:|---:|---:|---:|
@@ -33,7 +33,7 @@ VALID 60/60. Config: `{"tag": "index_holdout60", "split": "holdout", "variants":
 ## index_train60
 
 VALID 32/32. Config: `{"tag": "index_train60", "split": "train", "variants": "scan,grid", "seeds": "21,22", "seconds": 60.0, "threads": 2, "jobs": 4, "cases": "alphabig0,anti0,huge0,large0,latent1,multiskill0,tightA0,cluster0", "post_from": null, "exe": "index_v1"}`.
-[Исходные результаты](./experiments/geometry_islands/logs/index_train60/results.json).
+[Исходные результаты](logs/index_train60/results.json).
 
 | Вход | Вариант | n | Медиана | min | max | Δ, % | max wall |
 |---|---|---:|---:|---:|---:|---:|---:|
@@ -57,7 +57,7 @@ VALID 32/32. Config: `{"tag": "index_train60", "split": "train", "variants": "sc
 ## post60_global_v4
 
 VALID 9/10. Config: `{"tag": "post60_global_v4", "split": "train", "variants": "7", "seeds": "11", "seconds": 60.0, "threads": 1, "jobs": 2, "cases": "", "post_from": "train_base60", "exe": "post_v4"}`.
-[Исходные результаты](./experiments/geometry_islands/logs/post60_global_v4/results.json).
+[Исходные результаты](logs/post60_global_v4/results.json).
 
 | Вход | Вариант | n | Медиана | min | max | Δ, % | max wall |
 |---|---|---:|---:|---:|---:|---:|---:|
@@ -74,7 +74,7 @@ VALID 9/10. Config: `{"tag": "post60_global_v4", "split": "train", "variants": "
 ## post60_multiskill_v1_fixed
 
 VALID 4/4. Config: `{"tag": "post60_multiskill_v1_fixed", "split": "train", "variants": "1,2,3,4", "seeds": "11", "seconds": 60.0, "threads": 1, "jobs": 1, "cases": "multiskill0", "post_from": "train_base60", "exe": "post_v1_finalize"}`.
-[Исходные результаты](./experiments/geometry_islands/logs/post60_multiskill_v1_fixed/results.json).
+[Исходные результаты](logs/post60_multiskill_v1_fixed/results.json).
 
 | Вход | Вариант | n | Медиана | min | max | Δ, % | max wall |
 |---|---|---:|---:|---:|---:|---:|---:|
@@ -86,7 +86,7 @@ VALID 4/4. Config: `{"tag": "post60_multiskill_v1_fixed", "split": "train", "var
 ## post60_multiskill_v2_fixed
 
 VALID 1/1. Config: `{"tag": "post60_multiskill_v2_fixed", "split": "train", "variants": "6", "seeds": "11", "seconds": 60.0, "threads": 1, "jobs": 1, "cases": "multiskill0", "post_from": "train_base60", "exe": "post_v2_finalize"}`.
-[Исходные результаты](./experiments/geometry_islands/logs/post60_multiskill_v2_fixed/results.json).
+[Исходные результаты](logs/post60_multiskill_v2_fixed/results.json).
 
 | Вход | Вариант | n | Медиана | min | max | Δ, % | max wall |
 |---|---|---:|---:|---:|---:|---:|---:|
@@ -95,7 +95,7 @@ VALID 1/1. Config: `{"tag": "post60_multiskill_v2_fixed", "split": "train", "var
 ## post60_multiskill_v3_fixed
 
 VALID 1/1. Config: `{"tag": "post60_multiskill_v3_fixed", "split": "train", "variants": "8", "seeds": "11", "seconds": 60.0, "threads": 1, "jobs": 1, "cases": "multiskill0", "post_from": "train_base60", "exe": "post_v3_finalize"}`.
-[Исходные результаты](./experiments/geometry_islands/logs/post60_multiskill_v3_fixed/results.json).
+[Исходные результаты](logs/post60_multiskill_v3_fixed/results.json).
 
 | Вход | Вариант | n | Медиана | min | max | Δ, % | max wall |
 |---|---|---:|---:|---:|---:|---:|---:|
@@ -104,7 +104,7 @@ VALID 1/1. Config: `{"tag": "post60_multiskill_v3_fixed", "split": "train", "var
 ## post60_multiskill_v4_fixed
 
 VALID 1/1. Config: `{"tag": "post60_multiskill_v4_fixed", "split": "train", "variants": "7", "seeds": "11", "seconds": 60.0, "threads": 1, "jobs": 1, "cases": "multiskill0", "post_from": "train_base60", "exe": "post_v4_finalize"}`.
-[Исходные результаты](./experiments/geometry_islands/logs/post60_multiskill_v4_fixed/results.json).
+[Исходные результаты](logs/post60_multiskill_v4_fixed/results.json).
 
 | Вход | Вариант | n | Медиана | min | max | Δ, % | max wall |
 |---|---|---:|---:|---:|---:|---:|---:|
@@ -113,7 +113,7 @@ VALID 1/1. Config: `{"tag": "post60_multiskill_v4_fixed", "split": "train", "var
 ## post60_open_v2
 
 VALID 9/10. Config: `{"tag": "post60_open_v2", "split": "train", "variants": "6", "seeds": "11", "seconds": 60.0, "threads": 1, "jobs": 2, "cases": "", "post_from": "train_base60", "exe": "post_v2"}`.
-[Исходные результаты](./experiments/geometry_islands/logs/post60_open_v2/results.json).
+[Исходные результаты](logs/post60_open_v2/results.json).
 
 | Вход | Вариант | n | Медиана | min | max | Δ, % | max wall |
 |---|---|---:|---:|---:|---:|---:|---:|
@@ -130,7 +130,7 @@ VALID 9/10. Config: `{"tag": "post60_open_v2", "split": "train", "variants": "6"
 ## post60_target_repeat
 
 VALID 20/20. Config: `{"tag": "post60_target_repeat", "split": "train", "variants": "4,8", "seeds": "12", "seconds": 60.0, "threads": 1, "jobs": 4, "cases": "", "post_from": "train_base60", "exe": "post_v3_finalize"}`.
-[Исходные результаты](./experiments/geometry_islands/logs/post60_target_repeat/results.json).
+[Исходные результаты](logs/post60_target_repeat/results.json).
 
 | Вход | Вариант | n | Медиана | min | max | Δ, % | max wall |
 |---|---|---:|---:|---:|---:|---:|---:|
@@ -158,7 +158,7 @@ VALID 20/20. Config: `{"tag": "post60_target_repeat", "split": "train", "variant
 ## post60_target_v3
 
 VALID 9/10. Config: `{"tag": "post60_target_v3", "split": "train", "variants": "8", "seeds": "11", "seconds": 60.0, "threads": 1, "jobs": 2, "cases": "", "post_from": "train_base60", "exe": "post_v3"}`.
-[Исходные результаты](./experiments/geometry_islands/logs/post60_target_v3/results.json).
+[Исходные результаты](logs/post60_target_v3/results.json).
 
 | Вход | Вариант | n | Медиана | min | max | Δ, % | max wall |
 |---|---|---:|---:|---:|---:|---:|---:|
@@ -175,7 +175,7 @@ VALID 9/10. Config: `{"tag": "post60_target_v3", "split": "train", "variants": "
 ## post60_v1
 
 VALID 36/40. Config: `{"tag": "post60_v1", "split": "train", "variants": "1,2,3,4", "seeds": "11", "seconds": 60.0, "threads": 1, "jobs": 4, "cases": "", "post_from": "train_base60", "exe": "post_v1"}`.
-[Исходные результаты](./experiments/geometry_islands/logs/post60_v1/results.json).
+[Исходные результаты](logs/post60_v1/results.json).
 
 | Вход | Вариант | n | Медиана | min | max | Δ, % | max wall |
 |---|---|---:|---:|---:|---:|---:|---:|
@@ -219,7 +219,7 @@ VALID 36/40. Config: `{"tag": "post60_v1", "split": "train", "variants": "1,2,3,
 ## precision60
 
 VALID 10/10. Config: `{"tag": "precision60", "split": "precision", "variants": "base,exact", "seeds": "51", "seconds": 60.0, "threads": 1, "jobs": 4, "cases": "", "post_from": null, "exe": "robust_v1"}`.
-[Исходные результаты](./experiments/geometry_islands/logs/precision60/results.json).
+[Исходные результаты](logs/precision60/results.json).
 
 | Вход | Вариант | n | Медиана | min | max | Δ, % | max wall |
 |---|---|---:|---:|---:|---:|---:|---:|
@@ -237,7 +237,7 @@ VALID 10/10. Config: `{"tag": "precision60", "split": "precision", "variants": "
 ## robust_edges60
 
 VALID 16/16. Config: `{"tag": "robust_edges60", "split": "edge", "variants": "exact", "seeds": "51", "seconds": 60.0, "threads": 1, "jobs": 4, "cases": "", "post_from": null, "exe": "robust_v1"}`.
-[Исходные результаты](./experiments/geometry_islands/logs/robust_edges60/results.json).
+[Исходные результаты](logs/robust_edges60/results.json).
 
 | Вход | Вариант | n | Медиана | min | max | Δ, % | max wall |
 |---|---|---:|---:|---:|---:|---:|---:|
@@ -261,7 +261,7 @@ VALID 16/16. Config: `{"tag": "robust_edges60", "split": "edge", "variants": "ex
 ## robust_holdout60
 
 VALID 60/60. Config: `{"tag": "robust_holdout60", "split": "validation2", "variants": "base,exact", "seeds": "71,72,73", "seconds": 60.0, "threads": 2, "jobs": 4, "cases": "", "post_from": null, "exe": "robust_v1"}`.
-[Исходные результаты](./experiments/geometry_islands/logs/robust_holdout60/results.json).
+[Исходные результаты](logs/robust_holdout60/results.json).
 
 | Вход | Вариант | n | Медиана | min | max | Δ, % | max wall |
 |---|---|---:|---:|---:|---:|---:|---:|
@@ -289,7 +289,7 @@ VALID 60/60. Config: `{"tag": "robust_holdout60", "split": "validation2", "varia
 ## train_base60
 
 VALID 10/10. Config: `{"tag": "train_base60", "split": "train", "variants": "base", "seeds": "1", "seconds": 60.0, "threads": 2, "jobs": 4, "cases": "", "post_from": null, "exe": "post"}`.
-[Исходные результаты](./experiments/geometry_islands/logs/train_base60/results.json).
+[Исходные результаты](logs/train_base60/results.json).
 
 | Вход | Вариант | n | Медиана | min | max | Δ, % | max wall |
 |---|---|---:|---:|---:|---:|---:|---:|
