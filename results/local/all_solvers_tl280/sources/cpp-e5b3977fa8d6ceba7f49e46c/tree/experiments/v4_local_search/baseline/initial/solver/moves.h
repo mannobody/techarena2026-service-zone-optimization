@@ -1,0 +1,379 @@
+// moves.h: LNS-ходы: Guide (сглаженная цель), TopSum, переразрез прямой, recreate, сдвиг навыка.
+// Часть solve.cpp (одна единица трансляции): включается только из него, порядок важен.
+
+// ============================================================ LNS + отжиг
+// Штраф alpha*(max-min) близорук: одиночная вставка почти всегда выглядит
+// убыточной, даже когда набор в целом хорош. Поэтому поиск ведётся по
+// сглаженной цели: alpha*(max-min) + lam*sum|L_o - mean|.
+
+// Двойственность по балансу нагрузки:
+//   alpha*(max L - min L) = max_{pi in Pi} sum_o pi_o * L_o,
+//   Pi = { pi : sum_o pi_o = 0, sum_o max(pi_o,0) <= alpha }.
+// Значит при фиксированных ценах pi задача распадается по сайтам: сайт стоит
+// брать в офис o, если pr(o,s) - pi_o * tasks(s) > 0. Цены подтягиваются
+// субградиентным шагом по текущим нагрузкам. Это убирает «обрыв» штрафа
+// max-min: вместо цены alpha ровно на двух офисах получаем гладкие цены на всех.
+struct Guide {
+    Sol& s;
+    const Inst& I;
+    double lam;
+    vector<double> pi;
+    Guide(Sol& so, double l) : s(so), I(*so.I), lam(l) { pi.assign(I.no, 0.0); }
+
+    inline double eff(int o, int x) const { return I.pr(o, x) - pi[o] * I.ntask[x]; }
+
+    void dual_step(double rate) {
+        if (I.alpha <= 0) return;
+        double sum = 0;
+        int n = 0;
+        for (int o = 0; o < I.no; o++)
+            if (s.isopen[o] && s.size_[o] > 0) { sum += (double)s.load[o]; n++; }
+        if (n < 2) { fill(pi.begin(), pi.end(), 0.0); return; }
+        double mean = sum / n;
+        double scale = max(1.0, mean);
+        for (int o = 0; o < I.no; o++) {
+            if (!s.isopen[o] || s.size_[o] == 0) { pi[o] = 0; continue; }
+            pi[o] += rate * I.alpha * ((double)s.load[o] - mean) / scale;
+        }
+        double m = 0;
+        for (int o = 0; o < I.no; o++) if (s.isopen[o] && s.size_[o] > 0) m += pi[o];
+        m /= n;
+        double pos = 0;
+        for (int o = 0; o < I.no; o++)
+            if (s.isopen[o] && s.size_[o] > 0) { pi[o] -= m; if (pi[o] > 0) pos += pi[o]; }
+        if (pos > I.alpha && pos > 0)
+            for (int o = 0; o < I.no; o++) pi[o] *= I.alpha / pos;
+    }
+
+    // -cost - alpha*(max-min) - lam*spread при гипотетических сдвигах двух офисов
+    double tail2(int o1, int d1sz, long long d1ld, int o2, int d2sz, long long d2ld) const {
+        double c = 0, sum = 0;
+        long long mx = LLONG_MIN, mn = LLONG_MAX;
+        int n = 0;
+        for (int o = 0; o < I.no; o++) {
+            if (!s.isopen[o]) continue;
+            int sz = s.size_[o] + (o == o1 ? d1sz : 0) + (o == o2 ? d2sz : 0);
+            if (sz <= 0) continue;
+            long long ld = s.load[o] + (o == o1 ? d1ld : 0) + (o == o2 ? d2ld : 0);
+            c += I.cost[o];
+            sum += (double)ld;
+            n++;
+            mx = max(mx, ld); mn = min(mn, ld);
+        }
+        if (!n) return 0.0;
+        double r = -c - I.alpha * (double)(mx - mn);
+        if (lam > 0 && n > 1) {
+            double mean = sum / n, sp = 0;
+            for (int o = 0; o < I.no; o++) {
+                if (!s.isopen[o]) continue;
+                int sz = s.size_[o] + (o == o1 ? d1sz : 0) + (o == o2 ? d2sz : 0);
+                if (sz <= 0) continue;
+                long long ld = s.load[o] + (o == o1 ? d1ld : 0) + (o == o2 ? d2ld : 0);
+                sp += fabs((double)ld - mean);
+            }
+            r -= lam * sp;
+        }
+        return r;
+    }
+    double val() const { return s.psum + tail2(-1, 0, 0, -1, 0, 0); }
+
+    // то же, но для o1,o2 размер/нагрузка заданы абсолютно
+    double tail_abs(int o1, int sz1, long long ld1, int o2, int sz2, long long ld2) const {
+        double c = 0, sum = 0;
+        long long mx = LLONG_MIN, mn = LLONG_MAX;
+        int n = 0;
+        for (int o = 0; o < I.no; o++) {
+            if (!s.isopen[o]) continue;
+            int sz = o == o1 ? sz1 : (o == o2 ? sz2 : s.size_[o]);
+            if (sz <= 0) continue;
+            long long ld = o == o1 ? ld1 : (o == o2 ? ld2 : s.load[o]);
+            c += I.cost[o]; sum += (double)ld; n++;
+            mx = max(mx, ld); mn = min(mn, ld);
+        }
+        if (!n) return 0.0;
+        double r = -c - I.alpha * (double)(mx - mn);
+        if (lam > 0 && n > 1) {
+            double mean = sum / n, sp = 0;
+            for (int o = 0; o < I.no; o++) {
+                if (!s.isopen[o]) continue;
+                int sz = o == o1 ? sz1 : (o == o2 ? sz2 : s.size_[o]);
+                if (sz <= 0) continue;
+                long long ld = o == o1 ? ld1 : (o == o2 ? ld2 : s.load[o]);
+                sp += fabs((double)ld - mean);
+            }
+            r -= lam * sp;
+        }
+        return r;
+    }
+    // вклад всех офисов, кроме o1 и o2
+    double psum_other(int o1, int o2) const {
+        double p = 0;
+        for (int o = 0; o < I.no; o++) {
+            if (!s.isopen[o] || o == o1 || o == o2) continue;
+            for (int x : s.members[o]) p += I.pr(o, x);
+        }
+        return p;
+    }
+};
+
+// Сумма прибыли и нагрузки по m лучшим (по прибыли) элементам множества,
+// меняющегося по одному элементу. Нужна для развёртки разреза при жёстком maxSize.
+struct TopSum {
+    int m = 0;
+    const vector<int>* nt = nullptr;
+    set<pair<double, int>> top, rest;   // (профит, сайт); top — m лучших
+    double psum = 0;
+    long long lsum = 0;
+    void init(int mm, const vector<int>& ntask) { m = mm; nt = &ntask; top.clear(); rest.clear(); psum = 0; lsum = 0; }
+    void push_top(const pair<double, int>& e) { top.insert(e); psum += e.first; lsum += (*nt)[e.second]; }
+    void pop_top(const pair<double, int>& e) { top.erase(e); psum -= e.first; lsum -= (*nt)[e.second]; }
+    void balance() {
+        while ((int)top.size() > m) { auto e = *top.begin(); pop_top(e); rest.insert(e); }
+        while ((int)top.size() < m && !rest.empty()) { auto e = *prev(rest.end()); rest.erase(e); push_top(e); }
+    }
+    void insert(double p, int x) {
+        pair<double, int> e{p, x};
+        if ((int)top.size() < m || (!top.empty() && p > top.begin()->first)) push_top(e);
+        else rest.insert(e);
+        balance();
+    }
+    void erase(double p, int x) {
+        pair<double, int> e{p, x};
+        auto it = top.find(e);
+        if (it != top.end()) pop_top(e);
+        else rest.erase(e);
+        balance();
+    }
+    int size() const { return (int)top.size(); }
+};
+
+// Переразрезать две зоны новой прямой. Главный ход: при выпуклых зонах
+// одиночный перенос сайта почти всегда ломает геометрию, двигать нужно
+// границу целиком. Перебираем все положения разреза вдоль направления.
+static bool move_resplit(Engine& E, Guide& Gd, mt19937_64& rng, bool force,
+                         int fo1 = -1, int fo2 = -1, int ndir = 9, double hard = 1e18) {
+    Sol& s = E.s;
+    const Inst& I = E.I;
+    vector<int> op;
+    for (int o = 0; o < I.no; o++) if (s.isopen[o]) op.push_back(o);
+    if (op.size() < 2) return false;
+    int o1, o2;
+    if (fo1 >= 0 && fo2 >= 0) { o1 = fo1; o2 = fo2; }
+    else {
+        int a = rng() % op.size(), b = rng() % op.size();
+        if (a == b) b = (b + 1) % op.size();
+        o1 = op[a]; o2 = op[b];
+    }
+    if (o1 == o2 || !s.isopen[o1] || !s.isopen[o2]) return false;
+    const Pt& q1 = I.P[I.ns + o1];
+    const Pt& q2 = I.P[I.ns + o2];
+
+    // кандидаты: сайты обеих зон плюс свободные, чей ближайший открытый офис — один из двух
+    vector<int> U = s.members[o1];
+    U.insert(U.end(), s.members[o2].begin(), s.members[o2].end());
+    for (int x = 0; x < I.ns; x++) {
+        if (s.asg[x] >= 0 || !I.servable[x]) continue;
+        for (int o : I.cand[x]) if (s.isopen[o]) { if (o == o1 || o == o2) U.push_back(x); break; }
+    }
+    if (U.size() < 2) return false;
+
+    double pother = Gd.psum_other(o1, o2);
+    // текущее значение пары зон — базовая планка
+    double pcur = 0;
+    for (int x : s.members[o1]) pcur += I.pr(o1, x);
+    for (int x : s.members[o2]) pcur += I.pr(o2, x);
+    double curv = pother + pcur + Gd.tail_abs(o1, s.size_[o1], s.load[o1], o2, s.size_[o2], s.load[o2]);
+
+    // какие навыки доступны каждой из двух зон после снятия всех их сайтов
+    vector<char> alw1(I.nsk, 0), alw2(I.nsk, 0);
+    for (int k = 0; k < I.nsk; k++) {
+        int used = s.cntSkill[k] - (s.need[o1][k] > 0 ? 1 : 0) - (s.need[o2][k] > 0 ? 1 : 0);
+        int avail = I.Nk[k] - used;
+        if (avail >= 2) { alw1[k] = alw2[k] = 1; }
+        else if (avail == 1) {
+            double w1 = 0, w2 = 0;
+            for (int x : s.members[o1]) if (binary_search(I.skillset[x].begin(), I.skillset[x].end(), k)) w1 += max(0.0, I.pr(o1, x));
+            for (int x : s.members[o2]) if (binary_search(I.skillset[x].begin(), I.skillset[x].end(), k)) w2 += max(0.0, I.pr(o2, x));
+            if (w1 == w2 ? (rng() & 1) : (w1 > w2)) alw1[k] = 1; else alw2[k] = 1;
+        }
+    }
+    auto fits = [&](int x, int o) {
+        const vector<char>& A = (o == o1) ? alw1 : alw2;
+        for (int k : I.skillset[x]) if (!A[k]) return false;
+        return true;
+    };
+
+    double vx = q2.x - q1.x, vy = q2.y - q1.y;
+    double base = sqrt(vx * vx + vy * vy) < 1e-15 ? 0.0 : atan2(vy, vx);
+    double bestAll = NEG, bDx = 1, bDy = 0, bTh = base;
+    size_t bestkAll = 0;
+    int bLo = o1, bHi = o2;
+    vector<pair<double, int>> pr;
+    pr.reserve(U.size());
+    TopSum L, H;
+    auto sweep = [&](double th) {
+        double dx = cos(th), dy = sin(th);
+        double p1 = q1.x * dx + q1.y * dy, p2 = q2.x * dx + q2.y * dy;
+        int lo_off = o1, hi_off = o2;
+        if (p1 > p2) { swap(p1, p2); lo_off = o2; hi_off = o1; }
+        if (p2 - p1 < 1e-12 * max(1.0, I.ext)) return;
+        pr.clear();
+        for (int x : U) pr.push_back({I.P[x].x * dx + I.P[x].y * dy, x});
+        sort(pr.begin(), pr.end());
+        L.init(I.maxsize[lo_off], I.ntask);
+        H.init(I.maxsize[hi_off], I.ntask);
+        size_t start = 0;
+        while (start < pr.size() && pr[start].first <= p1) {
+            int x = pr[start].second;
+            double v = Gd.eff(lo_off, x);
+            if (v > 0 && fits(x, lo_off)) L.insert(v, x);
+            start++;
+        }
+        for (size_t i = start; i < pr.size(); i++) {
+            int x = pr[i].second;
+            double v = Gd.eff(hi_off, x);
+            if (v > 0 && fits(x, hi_off)) H.insert(v, x);
+        }
+        for (size_t k = start;; k++) {
+            int szL = L.size(), szH = H.size();
+            // истинная прибыль = сумма эффективных + pi_o * нагрузка
+            double trueL = L.psum + Gd.pi[lo_off] * (double)L.lsum;
+            double trueH = H.psum + Gd.pi[hi_off] * (double)H.lsum;
+            double v = pother + trueL + trueH + Gd.tail_abs(lo_off, szL, L.lsum, hi_off, szH, H.lsum);
+            if (v > bestAll) {
+                int mx = INT_MIN, mn = INT_MAX;
+                for (int o = 0; o < I.no; o++) {
+                    if (!s.isopen[o]) continue;
+                    int sz = o == lo_off ? szL : (o == hi_off ? szH : s.size_[o]);
+                    if (sz <= 0) continue;
+                    mx = max(mx, sz); mn = min(mn, sz);
+                }
+                if (mx == INT_MIN || (long long)(mx - mn) <= I.A) {
+                    bestAll = v; bestkAll = k; bDx = dx; bDy = dy; bTh = th;
+                    bLo = lo_off; bHi = hi_off;
+                }
+            }
+            if (k >= pr.size() || pr[k].first > p2) break;
+            int x = pr[k].second;
+            double vh = Gd.eff(hi_off, x), vl = Gd.eff(lo_off, x);
+            if (vh > 0 && fits(x, hi_off)) H.erase(vh, x);
+            if (vl > 0 && fits(x, lo_off)) L.insert(vl, x);
+        }
+    };
+    int ND = ndir;
+    for (int di = 0; di < ND; di++)
+        sweep(di == 0 ? base
+                      : base + ((double)(rng() % 20001) / 10000.0 - 1.0) * (di < 5 ? 0.8 : M_PI));
+    // уточнение направления вокруг лучшего
+    for (double del = 0.4; del > 0.012; del *= 0.5) {
+        double th0 = bTh, before = bestAll;
+        sweep(th0 + del);
+        sweep(th0 - del);
+        if (bestAll <= before + 1e-12) continue;
+    }
+    if (bestAll <= NEG / 2) return false;
+    if (!force && bestAll <= curv + 1e-9) return false;
+
+    pr.clear();
+    for (int x : U) pr.push_back({I.P[x].x * bDx + I.P[x].y * bDy, x});
+    sort(pr.begin(), pr.end());
+    for (int x : U) if (s.asg[x] >= 0) E.doRemove(x);
+    vector<pair<double, int>> sl, sh;
+    for (size_t i = 0; i < pr.size(); i++) {
+        int x = pr[i].second;
+        int o = i < bestkAll ? bLo : bHi;
+        double v = Gd.eff(o, x);
+        if (v <= 0 || !fits(x, o)) continue;
+        (o == bLo ? sl : sh).push_back({v, x});
+    }
+    sort(sl.rbegin(), sl.rend());
+    sort(sh.rbegin(), sh.rend());
+    if ((int)sl.size() > I.maxsize[bLo]) sl.resize(I.maxsize[bLo]);
+    if ((int)sh.size() > I.maxsize[bHi]) sh.resize(I.maxsize[bHi]);
+    vector<pair<double, pair<int, int>>> ord;
+    for (auto& e : sl) ord.push_back({e.first, {e.second, bLo}});
+    for (auto& e : sh) ord.push_back({e.first, {e.second, bHi}});
+    sort(ord.rbegin(), ord.rend());
+    int nadd = 0;
+    for (auto& e : ord) {
+        if ((++nadd & 127) == 0 && elapsed() > hard) break;
+        E.doAdd(e.second.first, e.second.second);
+    }
+    return true;
+}
+
+static void recreate(Engine& E, Guide& Gd, mt19937_64& rng, bool aggressive, int topk,
+                     double deadline = 1e18) {
+    Sol& s = E.s;
+    const Inst& I = E.I;
+    vector<int> un;
+    for (int x = 0; x < I.ns; x++) if (s.asg[x] < 0 && I.servable[x]) un.push_back(x);
+    if (un.empty()) return;
+    shuffle(un.begin(), un.end(), rng);
+    long long v0 = E.size_viol(-1, -1);
+    int nn = 0;
+    for (int x : un) {
+        if ((++nn & 63) == 0 && elapsed() > deadline) return;
+        int bo = -1;
+        double bs = NEG;
+        int tried = 0;
+        for (int o : I.cand[x]) {
+            if (!s.isopen[o]) continue;
+            if (++tried > topk) break;
+            if (s.size_[o] >= I.maxsize[o]) continue;
+            if (E.size_viol(o, -1) > max(v0, 0LL)) continue;
+            if (!E.can_add_skills(x, o)) continue;
+            double sc = Gd.eff(o, x);
+            if (sc > bs) { bs = sc; bo = o; }
+        }
+        if (bo < 0) continue;
+        if (!aggressive && bs <= 0) continue;
+        E.doAdd(x, bo);
+    }
+}
+
+// Перераспределить дефицитный навык: отобрать его у офиса-донора и отдать
+// другому (возможно, закрытому — тогда он открывается). Без этого хода поиск
+// намертво застревает: все рабочие разобраны, новые офисы открыть нечем.
+static bool move_skill_shift(Engine& E, Guide& Gd, mt19937_64& rng) {
+    Sol& s = E.s;
+    const Inst& I = E.I;
+    vector<int> ks;
+    for (int k = 0; k < I.nsk; k++) if (I.Nk[k] > 0) ks.push_back(k);
+    if (ks.empty()) return false;
+    int k = ks[rng() % ks.size()];
+    vector<int> users, others;
+    for (int o = 0; o < I.no; o++) {
+        if (s.isopen[o] && s.need[o][k] > 0) users.push_back(o);
+        else others.push_back(o);
+    }
+    if (others.empty()) return false;
+    int target = others[rng() % others.size()];
+    int donor = -1;
+    if ((int)users.size() >= I.Nk[k]) {
+        if (users.empty()) return false;
+        donor = users[rng() % users.size()];
+    }
+    if (donor == target) return false;
+    if (donor >= 0) {
+        E.set_ban(donor, k, true);
+        vector<int> mem = s.members[donor];
+        for (int x : mem)
+            if (binary_search(I.skillset[x].begin(), I.skillset[x].end(), k)) E.doRemove(x);
+    }
+    if (!s.isopen[target]) E.doOpen(target);
+    if (!s.isopen[target]) { E.clear_ban(); return false; }
+    // сначала сознательно заселяем получателя сайтами, которым нужен этот навык
+    vector<pair<double, int>> want;
+    for (int x = 0; x < I.ns; x++) {
+        if (s.asg[x] >= 0 || !I.servable[x]) continue;
+        if (!binary_search(I.skillset[x].begin(), I.skillset[x].end(), k)) continue;
+        double v = I.pr(target, x);
+        if (v > 0) want.push_back({v, x});
+    }
+    sort(want.rbegin(), want.rend());
+    for (auto& e : want) E.doAdd(e.second, target);
+    recreate(E, Gd, rng, false, 6);
+    E.clear_ban();
+    return true;
+}

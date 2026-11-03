@@ -1,0 +1,95 @@
+// evolution_warm.h: broad office-subset search, included after worker().
+// All state is per invocation, with the existing instance/solution I/O only.
+struct WarmGenome { Cand c; double fitness = NEG; };
+static vector<Cand> wide_start(const Inst& I, const Fast& F, map<vector<int>,Cand>& cache,
+                            mt19937_64& rng, double end, double limit, int mode) {
+    vector<WarmGenome> pop;
+    vector<Cand> realized;
+    vector<double> real_by_k(I.no+1,NEG);
+    const int maxpop = max(12, (int)(4*sqrt((double)max(1,I.no))));
+    const int ndecode = max(3,(int)sqrt((double)max(1,I.no)));
+    vector<Pt> original(I.P.begin()+I.ns,I.P.end());
+    uniform_real_distribution<double> U(0.,1.);
+    for (const auto& kv:cache) if(kv.second.f>NEG/2) pop.push_back({kv.second,kv.second.f});
+    auto trim = [&]() {
+        sort(pop.begin(),pop.end(),[](const WarmGenome&a,const WarmGenome&b){return a.fitness>b.fitness;});
+        if((int)pop.size()<=maxpop)return;
+        vector<WarmGenome> keep;
+        set<int> sizes;
+        for(const auto& e:pop) if(sizes.insert((int)e.c.op.size()).second)keep.push_back(e);
+        for(const auto& e:pop) {
+            if((int)keep.size()>=maxpop)break;
+            bool have=false;for(const auto& k:keep)if(k.c.op==e.c.op){have=true;break;}
+            if(!have)keep.push_back(e);
+        }
+        pop.swap(keep);
+    };
+    trim();
+    vector<double> proxy_by_k(I.no+1,NEG);
+    for(const auto&e:pop)proxy_by_k[e.c.op.size()]=max(proxy_by_k[e.c.op.size()],e.c.f);
+    long attempts=0,evaluated=0,decoded=0;
+    double decode_cost=0.;
+    auto parent = [&]()->const WarmGenome& {
+        int a=rng()%pop.size(),b=rng()%pop.size();
+        // Half the selections preserve a random cardinality niche.
+        if(rng()&1)return pop[a];
+        return pop[a].fitness>=pop[b].fitness?pop[a]:pop[b];
+    };
+    vector<char> chosen(I.no), aa(I.no), bb(I.no);
+    vector<int> order(I.no);
+    while(elapsed()<end) {
+        if(I.no<20 && cache.size()>=(1ULL<<I.no)-1)break;
+        attempts++;
+        Cand c;c.h.assign(I.no,0.);c.G=original;
+        fill(chosen.begin(),chosen.end(),0);
+        bool immigrant=mode==1 || pop.size()<2 || U(rng)<.25;
+        if(immigrant) {
+            int k=1+(int)((attempts-1)%max(1,I.no));
+            iota(order.begin(),order.end(),0);shuffle(order.begin(),order.end(),rng);
+            for(int i=0;i<k;i++)chosen[order[i]]=1;
+        } else {
+            const auto& a=parent().c;const auto& b=parent().c;
+            fill(aa.begin(),aa.end(),0);fill(bb.begin(),bb.end(),0);
+            for(int o:a.op)aa[o]=1;for(int o:b.op)bb[o]=1;
+            for(int o=0;o<I.no;o++)chosen[o]=(U(rng)<.7?aa[o]:bb[o]);
+            int changes=1+(rng()%max(1,(int)sqrt((double)I.no)));
+            while(changes--){int o=rng()%I.no;chosen[o]=!chosen[o];}
+        }
+        // Coincident offices cannot both occur in any valid solution.
+        for(int o=0;o<I.no;o++)if(chosen[o]) {
+            bool duplicate=false;for(int p:c.op)if(pteq(original[o],original[p])){duplicate=true;break;}
+            if(!duplicate)c.op.push_back(o);
+        }
+        if(c.op.empty())continue;
+        if(cache.count(c.op))continue;
+        c.f=F.evaluate(c.op,c.h,c.G);
+        evaluated++;
+        bool niche=c.f>proxy_by_k[c.op.size()]+1e-9;
+        proxy_by_k[c.op.size()]=max(proxy_by_k[c.op.size()],c.f);
+        cache.emplace(c.op,c);
+        if(c.f<=NEG/2)continue;
+        pop.push_back({c,c.f});trim();
+        if(niche && decoded<ndecode && elapsed()+1.5*decode_cost<end &&
+           (!getenv("WARM_DECODE") || atoi(getenv("WARM_DECODE")))) {
+            double before=elapsed();
+            vector<int> cells,assignment(I.ns,-1);F.cells(c.op,c.h,c.G,cells);
+            for(int x=0;x<I.ns;x++)assignment[x]=c.op[cells[x]];
+            Sol s;realize(s,I,c.op,assignment,end,&rng,decoded%3==2?.25:0.);
+            repair_sizes(s);
+            if(elapsed()<end){resize_dp(s,end);repair_sizes(s);}
+            Engine E(s);s.recompute_psum();greedy_fill(s,E,end);s.recompute_psum();
+            offer(I,s);
+            double f=s.objective();
+            if(f>real_by_k[c.op.size()]){real_by_k[c.op.size()]=f;Cand d=c;d.f=f;realized.push_back(move(d));}
+            decoded++;decode_cost=max(decode_cost,elapsed()-before);
+            if(getenv("SEARCH_TRACE")) fprintf(stderr,"trace_decode k=%zu cost=%.6f end=%.6f deadline=%.6f f=%.9f\n",c.op.size(),elapsed()-before,elapsed(),end,f);
+        }
+        // A finite genotype space on small M should not burn the whole budget.
+        if(I.no<20 && cache.size()>=(1ULL<<I.no)-1)break;
+    }
+    sort(realized.begin(),realized.end(),[](const Cand&a,const Cand&b){return a.f>b.f;});
+    if(realized.size()>6)realized.resize(6);
+    fprintf(stderr,"wide_start mode=%d attempts=%ld evaluated=%ld decoded=%ld best=%.6f t=%.3f\n",
+            mode,attempts,evaluated,decoded,g_best.load(),elapsed());
+    return realized;
+}
