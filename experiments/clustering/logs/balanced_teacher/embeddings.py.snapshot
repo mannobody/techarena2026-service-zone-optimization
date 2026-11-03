@@ -1,0 +1,174 @@
+"""Road-profile embeddings are suggestions; geometry is always original x/y.
+
+Offline research only. No embedding library is a contest runtime dependency.
+"""
+import os
+for key in ('OMP_NUM_THREADS','OPENBLAS_NUM_THREADS','MKL_NUM_THREADS','NUMBA_NUM_THREADS'):
+    os.environ[key]='1'
+from pathlib import Path
+import sys
+import time
+
+import numpy as np
+from scipy.optimize import linear_sum_assignment,linprog
+from scipy.sparse import coo_matrix
+from shapely import MultiPoint,covers
+from sklearn.cluster import KMeans
+from sklearn.decomposition import PCA
+from sklearn.manifold import TSNE,trustworthiness
+from threadpoolctl import threadpool_limits
+
+threadpool_limits(limits=1)
+HERE=Path(__file__).resolve().parent;ROOT=HERE.parents[1]
+sys.path.insert(0,str(ROOT/'experiments/colgen'))
+from model import Instance,Master
+from test_models import validator
+
+
+def road_profiles(I):
+    d=np.asarray(I.data['distances'],dtype=float).T
+    # Adding any site-specific constant to all office costs cannot change
+    # which office that site prefers. Remove it before measuring similarity.
+    regrets=d-d.min(axis=1,keepdims=True)
+    positive=regrets[regrets>0]
+    scale=float(np.median(positive)) if len(positive) else 1.
+    return regrets/max(scale,1e-12)
+
+
+def embed(I,method,seed=1):
+    x=road_profiles(I);start=time.perf_counter()
+    if method=='geo':z=I.xy[:I.n].copy()
+    elif method=='raw':z=x
+    elif method=='rank':
+        from scipy.stats import rankdata
+        z=rankdata(x,axis=1)/max(1,I.m)
+    elif method=='unit':z=x/np.maximum(np.linalg.norm(x,axis=1,keepdims=True),1e-12)
+    elif method=='positive':
+        z=np.maximum(I.profit.T,0.);z/=np.maximum(z.sum(axis=1,keepdims=True),1e-12)
+    elif method=='pca2':
+        z=PCA(n_components=min(2,*x.shape),svd_solver='full').fit_transform(x)
+    elif method=='spectral2':
+        a=np.exp(-np.minimum(x,700.));degree_s=a.sum(axis=1);degree_o=a.sum(axis=0)
+        b=a/np.sqrt(np.maximum(degree_s[:,None]*degree_o[None,:],1e-300))
+        values,vectors=np.linalg.eigh(b.T@b);order=np.argsort(values)[::-1][1:3]
+        z=b@vectors[:,order]/np.sqrt(np.maximum(values[order],1e-12))
+        z/=np.maximum(np.linalg.norm(z,axis=1,keepdims=True),1e-12)
+    elif method in ('umap2','umap_high','umap_cosine','umap_manhattan'):
+        from umap import UMAP
+        dim=2 if method=='umap2' else min(8,max(2,I.m-1))
+        metric='cosine' if method=='umap_cosine' else 'manhattan' if method=='umap_manhattan' else 'euclidean'
+        z=UMAP(n_components=dim,n_neighbors=min(I.n-1,max(5,int(np.sqrt(I.n)))),
+               metric=metric,min_dist=0.,random_state=seed,n_jobs=1,n_epochs=250).fit_transform(x)
+    elif method=='tsne2':
+        z=TSNE(n_components=2,perplexity=min(30.,max(2.,(I.n-1)/3)),
+               max_iter=500,init='pca',learning_rate='auto',random_state=seed,n_jobs=1).fit_transform(x)
+    else:raise ValueError(method)
+    if z.shape[1]==0:z=np.zeros((I.n,1))
+    elapsed=time.perf_counter()-start
+    return np.asarray(z,dtype=float),elapsed
+
+
+def cluster_labels(I,z,seed=1):
+    labels=KMeans(n_clusters=min(I.m,I.n),n_init=5,random_state=seed).fit_predict(z)
+    costs=np.zeros((I.m,I.m))
+    d=np.asarray(I.data['distances'],dtype=float)
+    for j in range(I.m):costs[j]=d[:,labels==j].sum(axis=1)
+    rows,offices=linear_sum_assignment(costs)
+    mapping=np.zeros(I.m,dtype=int);mapping[rows]=offices
+    return mapping[labels]
+
+
+def geometric_conflicts(I,labels):
+    multiplicity=np.zeros(I.n+I.m,dtype=int)
+    for o in range(I.m):
+        ss=np.flatnonzero(labels==o)
+        if not len(ss):continue
+        hull=MultiPoint(I.xy[[*ss,I.n+o]]).convex_hull
+        multiplicity+=np.asarray(covers(hull,I.points),dtype=int)
+    return dict(conflict_points=int((multiplicity>1).sum()),
+                conflict_fraction=float((multiplicity>1).mean()),max_coverage=int(multiplicity.max()))
+
+
+def affine_separable(I,labels,seconds=2.):
+    """Sufficient partition model; failure is not a universal geometry theorem."""
+    xy=I.xy.copy();xy-=xy.mean(axis=0);xy/=max(float(np.ptp(xy,axis=0).max()),1e-12)
+    phi=np.column_stack((xy,np.ones(len(xy))));targets=np.r_[labels,np.arange(I.m)]
+    rr=[];cc=[];vv=[];row=0
+    for p,o in enumerate(targets):
+        if o<0:continue
+        for j in range(I.m):
+            if j==o:continue
+            for k in range(3):
+                rr.extend([row,row]);cc.extend([3*j+k,3*o+k]);vv.extend([phi[p,k],-phi[p,k]])
+            row+=1
+    a=coo_matrix((vv,(rr,cc)),shape=(row,3*I.m)).tocsr()
+    r=linprog(np.zeros(3*I.m),A_ub=a,b_ub=-np.ones(row),bounds=[(None,None)]*(3*I.m),
+              method='highs',options={'time_limit':seconds})
+    return dict(affine_feasible=True if r.status==0 else False if r.status==2 else None,
+                affine_status=int(r.status))
+
+
+def balanced_teacher(I,incumbent,geometric=False):
+    """Capacitated assignment with fixed offices/teams, original count/task rows.
+
+    A relaxation of this FIXED-office problem, never a global instance bound.
+    The parent is feasible, so fixed cardinality window does not exclude it.
+    """
+    start=time.perf_counter();ops=[r['officeId'] for r in incumbent]
+    if not ops:return np.full(I.n,-1,dtype=int),dict(teacher_seconds=0.,teacher_status='empty')
+    need={o:set(k for w in row['workers'] for k in I.workers[w]) for o,row in zip(ops,incumbent)}
+    edges=[(o,s) for o in ops for s in range(I.n) if set(I.sites[s]['tasks'])<=need[o]]
+    J=len(edges);H,L=J,J+1;count=J+2;rr=[];cc=[];vv=[];rhs=[]
+    def add(terms,b):
+        row=len(rhs);rhs.append(b)
+        for j,v in terms:rr.append(row);cc.append(j);vv.append(v)
+    for s in range(I.n):add(((j,1.) for j,(o,x) in enumerate(edges) if x==s),1.)
+    b=min(len(r['sites']) for r in incumbent)
+    T=max(1,int(I.tasks.sum()))
+    for o in ops:
+        own=[(j,s) for j,(p,s) in enumerate(edges) if p==o]
+        add(((j,1.) for j,s in own),min(I.cap[o],b+I.a))
+        add(((j,-1.) for j,s in own),-b)
+        add([*( (j,int(I.tasks[s])) for j,s in own),(H,-1.)],0.)
+        add([*( (j,-int(I.tasks[s])) for j,s in own),(L,1.)],0.)
+    add([(L,1.),(H,-1.)],0.)
+    obj=np.zeros(count);obj[H]=I.alpha;obj[L]=-I.alpha
+    for j,(o,s) in enumerate(edges):
+        obj[j]=float(np.sum((I.xy[s]-I.xy[I.n+o])**2)) if geometric else -I.profit[o,s]
+    if geometric:
+        scale=max(1e-12,float(np.median(np.abs(obj[:J]))));obj[:J]/=scale
+    a=coo_matrix((vv,(rr,cc)),shape=(len(rhs),count)).tocsr()
+    result=linprog(obj,A_ub=a,b_ub=np.asarray(rhs),bounds=[(0.,1.)]*J+[(0.,T),(0.,T)],
+                   method='highs',options={'time_limit':3.})
+    labels=np.full(I.n,-1,dtype=int);best=np.zeros(I.n)
+    if result.x is not None:
+        for j,(o,s) in enumerate(edges):
+            if result.x[j]>best[s]+1e-8:best[s]=result.x[j];labels[s]=o
+    actual=None
+    if result.x is not None:
+        actual=float(sum(I.profit[o,s]*result.x[j] for j,(o,s) in enumerate(edges))-I.cost[ops].sum()
+                     -I.alpha*(result.x[H]-result.x[L]))
+    return labels,dict(teacher_seconds=time.perf_counter()-start,teacher_status=int(result.status),teacher_road_value=actual)
+
+
+def prefix_columns(I,labels):
+    cols=[]
+    for o in range(I.m):
+        ss=[int(s) for s in np.flatnonzero(labels==o) if I.servable[s]]
+        ss.sort(key=lambda s:I.profit[o,s],reverse=True)
+        for count in range(1,min(len(ss),int(I.cap[o]))+1):
+            col=I.column(o,ss[:count])
+            if col is not None:cols.append(col)
+    return cols
+
+
+def decode(I,labels,incumbent=(),seconds=1.):
+    start=time.perf_counter();pool={c.key:c for c in prefix_columns(I,labels)}
+    for row in incumbent:
+        c=I.column(row['officeId'],row['sites']);pool[c.key]=c
+    r=Master(I).solve(list(pool.values()),integer=True,seconds=seconds,engine='scip',incumbent=incumbent)
+    value=validator.validate_solution(validator.Instance.model_validate(I.data),
+                                     [validator.OpenedOffice.model_validate(s) for s in r['solution']])
+    assert not isinstance(value,str),(value,r['status'])
+    return dict(value=value,status=r['status'],columns=len(pool),solution=r['solution'],
+                seconds=time.perf_counter()-start)

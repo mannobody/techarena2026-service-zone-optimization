@@ -1,0 +1,63 @@
+{
+  "huge0": {
+    "seed": 42000,
+    "parameters": {
+      "ns": 10000,
+      "no": 25,
+      "nw": 50,
+      "nsk": 5,
+      "dist": "road",
+      "span": 1.0,
+      "dscale": 100000.0
+    },
+    "reward_factor": "U[0.25,2.5]",
+    "reward_seed": 142000
+  },
+  "huge1": {
+    "seed": 42001,
+    "parameters": {
+      "ns": 10000,
+      "no": 30,
+      "nw": 60,
+      "nsk": 7,
+      "dist": "road",
+      "wsk": 3,
+      "tmax": 4,
+      "capf": 1.5,
+      "A": 10000,
+      "af": 0.0
+    },
+    "reward_factor": "U[0.25,2.5]",
+    "reward_seed": 142001
+  },
+  "anti0": {
+    "seed": 42002,
+    "parameters": {
+      "ns": 700,
+      "no": 12,
+      "nw": 30,
+      "nsk": 5,
+      "dist": "anti",
+      "span": 1.0,
+      "dscale": 10000.0,
+      "af": 0.02
+    },
+    "reward_factor": "U[0.25,2.5]",
+    "reward_seed": 142002
+  },
+  "balance0": {
+    "seed": 42003,
+    "parameters": {
+      "ns": 800,
+      "no": 12,
+      "nw": 24,
+      "nsk": 4,
+      "A": 0,
+      "af": 5.0,
+      "tmax": 6,
+      "capf": 1.2
+    },
+    "reward_factor": "U[0.25,2.5]",
+    "reward_seed": 142003
+  }
+}

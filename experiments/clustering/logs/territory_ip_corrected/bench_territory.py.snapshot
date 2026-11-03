@@ -1,0 +1,37 @@
+"""Frozen integrated incumbent -> static-territory IP, with equal-wall control."""
+import argparse
+import json
+import os
+from pathlib import Path
+import shutil
+import subprocess
+import time
+from bench_embeddings import HERE,ROOT,data,Instance,validator
+from territory_mip import improve
+
+
+if __name__=='__main__':
+    ap=argparse.ArgumentParser();ap.add_argument('--only',default='anti0,anti1,tightA0,multiskill0,alphabig0,medium0,huge0,large0')
+    ap.add_argument('--seconds',type=float,default=2.);ap.add_argument('--tag',default='territory_ip')
+    args=ap.parse_args();folder=data();logs=HERE/'logs'/args.tag;logs.mkdir(parents=True,exist_ok=True)
+    (logs/'bin').mkdir(exist_ok=True);exe=logs/'bin/integrated';shutil.copy2(ROOT/'experiments/evolution/artifacts/integrated',exe)
+    for name in ('territory_mip.py','bench_territory.py'):shutil.copy2(HERE/name,logs/(name+'.snapshot'))
+    rows=[];env=dict(os.environ,NT='1',SEED='1')
+    for name in args.only.split(','):
+        path=folder/(name+'.json');I=Instance.read(path)
+        source=HERE/'logs/embedding_v2'/(name+'_base.solution.json')
+        if not source.exists():source=HERE/'logs/native_screen'/(name+'_base_s1.solution.json')
+        incumbent=json.loads(source.read_text());base=validator.validate(path,source)
+        assert not isinstance(base,str)
+        native_limit=5. if 'embedding_v2' in str(source) else 6.
+        source_threads=1 if 'embedding_v2' in str(source) else 4
+        env['NT']=str(source_threads)
+        r=improve(I,incumbent,seconds=args.seconds);out=logs/(name+'.solution.json');out.write_text(json.dumps(r.pop('solution')))
+        matched=logs/(name+'_matched.solution.json');start=time.perf_counter()
+        p=subprocess.run([str(exe),str(path),str(matched),str(native_limit+r['seconds'])],env=env,capture_output=True,text=True)
+        matched_wall=time.perf_counter()-start;score=validator.validate(path,matched)
+        assert p.returncode==0 and not isinstance(score,str)
+        row=dict(case=name,n=I.n,m=I.m,base=base,base_limit=native_limit,threads=source_threads,source=str(source),matched=score,
+                 matched_wall=matched_wall,matched_limit=native_limit+r['seconds'],**r,solution=str(out))
+        rows.append(row);print(json.dumps(row),flush=True)
+        (logs/'results.json').write_text(json.dumps(dict(config=vars(args),results=rows),indent=2))

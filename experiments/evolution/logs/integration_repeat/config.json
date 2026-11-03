@@ -1,0 +1,20 @@
+{
+  "seconds": 30.0,
+  "runs": 3,
+  "threads": 4,
+  "jobs": 2,
+  "variants": "base,integrated",
+  "suite": "all",
+  "only": "huge0,huge1,multiskill0,multiskill1,multiskill2,multiskill3,anti3,large2",
+  "tag": "integration_repeat",
+  "inputs": [
+    "./experiments/evolution/data/suite_anti3.json",
+    "./experiments/evolution/data/suite_huge0.json",
+    "./experiments/evolution/data/suite_huge1.json",
+    "./experiments/evolution/data/suite_large2.json",
+    "./experiments/evolution/data/suite_multiskill0.json",
+    "./experiments/evolution/data/suite_multiskill1.json",
+    "./experiments/evolution/data/suite_multiskill2.json",
+    "./experiments/evolution/data/suite_multiskill3.json"
+  ]
+}

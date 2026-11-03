@@ -1,0 +1,266 @@
+{
+  "config": {
+    "source": "workers_v2",
+    "source_variant": "workers",
+    "seed": 1,
+    "limit": 1.0,
+    "attempts": 3,
+    "radius": 12,
+    "only": "multiskill0,multiskill1,multiskill2,multiskill3",
+    "tag": "local_workers_v2"
+  },
+  "results": [
+    {
+      "case": "multiskill0",
+      "seed": 1,
+      "source_variant": "workers",
+      "n": 150,
+      "offices": 4,
+      "base": 52.48200080068773,
+      "base_wall": 11.637112663000153,
+      "local": 52.48200080068773,
+      "extra_wall": 3.069546053000522,
+      "matched": 52.67016647794001,
+      "matched_limit": 14.706658716000675,
+      "matched_wall": 14.562594082000942,
+      "history": [
+        {
+          "value": 52.48200080068773,
+          "seconds": 1.0253264929997385,
+          "status": "timelimit",
+          "cuts": 32,
+          "checks": 83,
+          "geometry_seconds": 0.3296973029955552,
+          "candidates": 76,
+          "offices": [
+            0,
+            2
+          ],
+          "variables": 181,
+          "nodes": 1
+        },
+        {
+          "value": 52.48200080068773,
+          "seconds": 1.0171159220008121,
+          "status": "timelimit",
+          "cuts": 95,
+          "checks": 149,
+          "geometry_seconds": 0.5300501369965787,
+          "candidates": 74,
+          "offices": [
+            1,
+            2
+          ],
+          "variables": 184,
+          "nodes": 35
+        },
+        {
+          "value": 52.48200080068773,
+          "seconds": 1.0265805769995495,
+          "status": "timelimit",
+          "cuts": 90,
+          "checks": 85,
+          "geometry_seconds": 0.4053358550027042,
+          "candidates": 119,
+          "offices": [
+            0,
+            1,
+            3
+          ],
+          "variables": 394,
+          "nodes": 5
+        }
+      ],
+      "solution": "./experiments/evolution/logs/local_workers_v2/multiskill0.solution.json"
+    },
+    {
+      "case": "multiskill1",
+      "seed": 1,
+      "source_variant": "workers",
+      "n": 400,
+      "offices": 6,
+      "base": 10582.856976349,
+      "base_wall": 11.63428867499897,
+      "local": 10609.342688321787,
+      "extra_wall": 2.8394161599990184,
+      "matched": 10617.368979566725,
+      "matched_limit": 14.473704834997989,
+      "matched_wall": 14.361901771000703,
+      "history": [
+        {
+          "value": 10582.856976349,
+          "seconds": 1.0348593700000492,
+          "status": "timelimit",
+          "cuts": 61,
+          "checks": 157,
+          "geometry_seconds": 0.5799543690100109,
+          "candidates": 164,
+          "offices": [
+            1,
+            3
+          ],
+          "variables": 276,
+          "nodes": 22
+        },
+        {
+          "value": 10582.856976349,
+          "seconds": 1.065354854999896,
+          "status": "timelimit",
+          "cuts": 62,
+          "checks": 147,
+          "geometry_seconds": 0.6077047719991242,
+          "candidates": 185,
+          "offices": [
+            0,
+            3
+          ],
+          "variables": 326,
+          "nodes": 9
+        },
+        {
+          "value": 10609.342688321787,
+          "seconds": 0.7388448879992211,
+          "status": "optimal",
+          "cuts": 11,
+          "checks": 30,
+          "geometry_seconds": 0.03429630000027828,
+          "candidates": 149,
+          "offices": [
+            0,
+            1,
+            5
+          ],
+          "variables": 388,
+          "nodes": 1
+        }
+      ],
+      "solution": "./experiments/evolution/logs/local_workers_v2/multiskill1.solution.json"
+    },
+    {
+      "case": "multiskill2",
+      "seed": 1,
+      "source_variant": "workers",
+      "n": 150,
+      "offices": 4,
+      "base": 26445.943522917547,
+      "base_wall": 11.591223650999382,
+      "local": 26445.943522917547,
+      "extra_wall": 2.642979831998673,
+      "matched": 26445.943522917547,
+      "matched_limit": 14.234203482998055,
+      "matched_wall": 13.924000922999767,
+      "history": [
+        {
+          "value": 26445.943522917547,
+          "seconds": 1.026859796998906,
+          "status": "timelimit",
+          "cuts": 43,
+          "checks": 83,
+          "geometry_seconds": 0.28925100199558074,
+          "candidates": 67,
+          "offices": [
+            2,
+            3
+          ],
+          "variables": 101,
+          "nodes": 1
+        },
+        {
+          "value": 26445.943522917547,
+          "seconds": 0.5928273259996786,
+          "status": "optimal",
+          "cuts": 23,
+          "checks": 86,
+          "geometry_seconds": 0.17847788700237288,
+          "candidates": 87,
+          "offices": [
+            1,
+            3
+          ],
+          "variables": 121,
+          "nodes": 7
+        },
+        {
+          "value": 26445.943522917547,
+          "seconds": 1.0228664099995513,
+          "status": "timelimit",
+          "cuts": 15,
+          "checks": 53,
+          "geometry_seconds": 0.2527646320013446,
+          "candidates": 107,
+          "offices": [
+            1,
+            2,
+            3
+          ],
+          "variables": 290,
+          "nodes": 1
+        }
+      ],
+      "solution": "./experiments/evolution/logs/local_workers_v2/multiskill2.solution.json"
+    },
+    {
+      "case": "multiskill3",
+      "seed": 1,
+      "source_variant": "workers",
+      "n": 400,
+      "offices": 6,
+      "base": 15240.90990472338,
+      "base_wall": 11.785046425999099,
+      "local": 15240.90990472338,
+      "extra_wall": 0.37743124200096645,
+      "matched": 15240.90990472338,
+      "matched_limit": 12.162477668000065,
+      "matched_wall": 11.919142654000098,
+      "history": [
+        {
+          "value": 15240.90990472338,
+          "seconds": 0.10757636000016646,
+          "status": "optimal",
+          "cuts": 0,
+          "checks": 9,
+          "geometry_seconds": 0.004221868000968243,
+          "candidates": 151,
+          "offices": [
+            1,
+            4
+          ],
+          "variables": 245,
+          "nodes": 1
+        },
+        {
+          "value": 15240.90990472338,
+          "seconds": 0.09564016799959063,
+          "status": "optimal",
+          "cuts": 0,
+          "checks": 9,
+          "geometry_seconds": 0.0014592829993489431,
+          "candidates": 151,
+          "offices": [
+            3,
+            4
+          ],
+          "variables": 238,
+          "nodes": 1
+        },
+        {
+          "value": 15240.90990472338,
+          "seconds": 0.17393138300030841,
+          "status": "optimal",
+          "cuts": 0,
+          "checks": 11,
+          "geometry_seconds": 0.014648795000539394,
+          "candidates": 187,
+          "offices": [
+            1,
+            3,
+            5
+          ],
+          "variables": 380,
+          "nodes": 1
+        }
+      ],
+      "solution": "./experiments/evolution/logs/local_workers_v2/multiskill3.solution.json"
+    }
+  ]
+}
