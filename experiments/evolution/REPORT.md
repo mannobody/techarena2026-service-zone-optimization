@@ -1,7 +1,7 @@
 # Широкий старт, генетический поиск, распределение рабочих и локальный SCIP
 
 Исследование от 18 октября 2026 года. Продолжение исследования column generation:
-[./experiments/colgen/REPORT.md](./experiments/colgen/REPORT.md).
+[./experiments/colgen/REPORT.md](../colgen/REPORT.md).
 
 Ветка `research/colgen-research`; исходная база `1496e64270a671e54b05d4fd9eb70917c369b658`.
 Разделы 1–8 описывают исследовательский этап до интеграции. После него два изменения
@@ -36,7 +36,7 @@
 
 Итоговые результаты последних серий и ограничения длинных проверок приведены ниже.
 Все отдельные числа, включая проигрыши, доступны в автоматически собираемой таблице:
-[./experiments/evolution/logs/SUMMARY.md](./experiments/evolution/logs/SUMMARY.md).
+[./experiments/evolution/logs/SUMMARY.md](logs/SUMMARY.md).
 
 ## Данные, сравнение и ограничения интерпретации
 
@@ -54,7 +54,7 @@ maxSize=0, отсутствующий навык, A=0/A>=N, alpha=0/огромн
 Ещё четыре holdout-задачи создавались **до получения их результатов**. В отличие
 от SUITE с постоянной наградой, награда каждого сайта умножена на независимый
 `U[0.25,2.5]`. Зёрна 42000–42003; полные параметры и отдельные зёрна наград сохранены:
-[./experiments/evolution/data/holdout/manifest.txt](./experiments/evolution/data/holdout/manifest.txt).
+[./experiments/evolution/data/holdout/manifest.txt](data/holdout/manifest.txt).
 
 | Holdout | N | Офисы | Рабочие/навыки | Особенности |
 |---|---:|---:|---|---|
@@ -130,7 +130,7 @@ maxSize=0, отсутствующий навык, A=0/A>=N, alpha=0/огромн
 **34 681 проверка; 223 ложных отказа старого алгоритма; 0 у нового; 0 ложных успехов.**
 Это результат указанного конечного набора, не доказательство, что лимита DFS хватит
 на любой размер. Лог:
-[./experiments/evolution/logs/worker_correctness_v4.json](./experiments/evolution/logs/worker_correctness_v4.json).
+[./experiments/evolution/logs/worker_correctness_v4.json](logs/worker_correctness_v4.json).
 
 ### Score, 12 секунд, один поток, три зерна
 
@@ -431,7 +431,7 @@ collinear, anti. По 0.03–0.25 секунды в серии; 0..8 геоме�
 умолчанию**: EVO=0, SCOUT=0, fallback рабочих включён. Другие исследовательские
 операторы присутствуют как неактивные функции; HiGHS/SCIP/Python при запуске не нужны.
 Архив содержит только Makefile и main.cpp в корне:
-[./experiments/evolution/artifacts/candidate_workers_v4.zip](./experiments/evolution/artifacts/candidate_workers_v4.zip).
+[./experiments/evolution/artifacts/candidate_workers_v4.zip](artifacts/candidate_workers_v4.zip).
 
 Проверено именно его собранное приложение, без EVO/SCOUT/WORKER_DFS в окружении:
 16 edge + 4 multiskill + holdout huge1, NT=2, TL=2, **21/21 VALID**.
@@ -443,7 +443,7 @@ collinear, anti. По 0.03–0.25 секунды в серии; 0..8 геоме�
 
 Второй автономный кандидат включает **genetic warm + worker fallback**,
 SCOUT по умолчанию выключен:
-[./experiments/evolution/artifacts/candidate_genetic_v5.zip](./experiments/evolution/artifacts/candidate_genetic_v5.zip).
+[./experiments/evolution/artifacts/candidate_genetic_v5.zip](artifacts/candidate_genetic_v5.zip).
 Также проверен без флагов на тех же 21 задаче, NT=2/TL=2: **21/21 VALID**,
 максимальный wall 3.059 с. Это более агрессивный кандидат для серверного сравнения;
 синтетические регрессии warm start выше сохраняют значение. Его native-стратегия
@@ -634,7 +634,7 @@ Repeat — отношение медиан нового решения и frozen
 финальный код** полной серией 280 с × три зерна ещё не измерен. Сервер не запускался.
 
 Готовый архив из актуальных исходников:
-[./experiments/evolution/artifacts/integrated_v1.zip](./experiments/evolution/artifacts/integrated_v1.zip).
+[./experiments/evolution/artifacts/integrated_v1.zip](artifacts/integrated_v1.zip).
 В корне ZIP только `Makefile` и `main.cpp`. SHA256:
 `246460230c5dea7b580a26ac36d9e8cf7c9f30319afeae06e14c3044da8bff42`.
 
@@ -663,11 +663,11 @@ Repeat — отношение медиан нового решения и frozen
   `./experiments/evolution/logs/integrated_package/results.json`.
 
 Продолжение по кластеризации, OT, UMAP и road profiles:
-[./experiments/clustering/REPORT.md](./experiments/clustering/REPORT.md).
+[./experiments/clustering/REPORT.md](../clustering/REPORT.md).
 
 ## 10. Последующий кандидат для сервера
 
 После интеграции выполнена оптимизация повторных аллокаций и добавлена ограниченная
 финальная доводка. Архив integrated_v1 остаётся историческим кандидатом этого этапа.
 Актуальный кандидат, сравнения и ограничения:
-[./experiments/server_candidate/REPORT.md](./experiments/server_candidate/REPORT.md).
+[./experiments/server_candidate/REPORT.md](../server_candidate/REPORT.md).
