@@ -50,6 +50,8 @@
 
 #include "exact2.h"
 
+#include "search_research.h"
+
 
 // ================================================================== main
 struct Cand { double f; vector<int> op; vector<double> h; vector<Pt> G; };
@@ -119,6 +121,11 @@ static void worker(const Inst& I, const Fast& F, const vector<Cand>& cands,
     static const double LAMS[4] = {0.25, 0.10, 0.50, 0.0};
     static const double RUINS[3] = {1.0, 0.4, 2.5};
     const double PA = 0.25 * tend, P3 = 0.85 * tend;
+    const bool trace = getenv("SEARCH_TRACE") && atoi(getenv("SEARCH_TRACE"));
+    const bool local_budget = getenv("LOCAL_BUDGET") && atoi(getenv("LOCAL_BUDGET"));
+    const bool fair = getenv("RANK_FAIR") && atoi(getenv("RANK_FAIR"));
+    const bool cover = getenv("RANK_COVER") && atoi(getenv("RANK_COVER"));
+    const double worker_start = elapsed();
     mt19937_64 rng(seed);
     Sol s;
     uniform_real_distribution<double> U(0, 1);
@@ -130,6 +137,7 @@ static void worker(const Inst& I, const Fast& F, const vector<Cand>& cands,
 
     // строит стартовое решение по связке (набор офисов, конструктор)
     auto build = [&](int ci, int ctor, double deadline, bool refine, double skt = 0.0) {
+        double bt = elapsed();
         const Cand& c = cands[ci];
         vector<double> h = c.h;
         vector<Pt> G = c.G;
@@ -156,11 +164,14 @@ static void worker(const Inst& I, const Fast& F, const vector<Cand>& cands,
         realize(s, I, c.op, cellOf, deadline, &rng, skt);
         repair_sizes(s);
         Engine E(s);
-        if (elapsed() < dp_deadline) { resize_dp(s, dp_deadline); repair_sizes(s); }
+        double bd = local_budget ? min(deadline, dp_deadline) : dp_deadline;
+        if (elapsed() < bd) { resize_dp(s, bd); repair_sizes(s); }
         s.recompute_psum();
         greedy_fill(s, E, min(deadline, dp_deadline));
         s.recompute_psum();
         offer(I, s);
+        if (trace) fprintf(stderr, "trace_build tid=%d ci=%d ctor=%d start=%.6f end=%.6f deadline=%.6f refine=%d f=%.9f\n",
+                           tid, ci, ctor, bt, elapsed(), deadline, (int)refine, s.objective());
     };
 
     // --- фаза A: дешёвый отбор всех связок
@@ -168,6 +179,12 @@ static void worker(const Inst& I, const Fast& F, const vector<Cand>& cands,
     vector<pair<double, int>> rank;
     for (int t = 0; t < NCOMBO && elapsed() < PA; t++) {
         int combo = (t + tid * 7) % NCOMBO;
+        if (fair) {
+            // Cover every office set, rotating constructors across sets and threads.
+            int ci = t % cands.size();
+            int ctor = (t / cands.size() + ci + tid) % NC;
+            combo = ctor * cands.size() + ci;
+        }
         build(combo % cands.size(), combo / cands.size(), min(PA, dp_deadline), false);
         rank.push_back({s.objective(), combo});
     }
@@ -186,6 +203,8 @@ static void worker(const Inst& I, const Fast& F, const vector<Cand>& cands,
         sort(rank.rbegin(), rank.rend());
     }
     if (rank.empty()) rank.push_back({0.0, tid % NCOMBO});
+    if (trace) fprintf(stderr, "trace_rank tid=%d start=%.6f end=%.6f deadline=%.6f sets=%zu ranked=%zu combos=%d\n",
+                       tid, worker_start, elapsed(), PA, cands.size(), rank.size(), NCOMBO);
     if (DBG && tid == 0) {
         for (size_t i = 0; i < cands.size(); i++) {
             fprintf(stderr, "cand%zu f=%.2f ops=", i, cands[i].f);
@@ -198,13 +217,14 @@ static void worker(const Inst& I, const Fast& F, const vector<Cand>& cands,
     }
 
     // --- фаза B и C: глубокие прогоны по лучшим связкам и по общему лучшему
-    int round = 0, iter = 0;  // round — только обычные раунды: по нему идёт перебор rank
+    int round = 0, iter = 0, built = 0;  // built counts actual constructor starts.
     while (elapsed() < tend - max(0.5, 0.02 * tend)) {
         double now0 = elapsed();
         double left = tend - now0;
         bool last = now0 >= P3;
         static const double CH = getenv("CHUNK") ? atof(getenv("CHUNK")) : 0.12;  // доля лимита на глубокий прогон
         double chunk = last ? left : max(1.5, min(left, min(CH * tend, left / 2.0)));
+        if(cover && !last)chunk=min(chunk,max(1.5,left/(rank.size()+1)));
         double ce = now0 + chunk;
         bool fromBest = false, forced = false;
         static const bool ovns = getenv("OVNS") && atoi(getenv("OVNS")) > 0;
@@ -231,12 +251,17 @@ static void worker(const Inst& I, const Fast& F, const vector<Cand>& cands,
         }
         if (!fromBest) {
             int r = round % max<size_t>(1, min<size_t>(rank.size(), 6));
+            if(cover)r=(built++ + tid)%rank.size();
             int combo = rank[r].second;
             // каждый третий глубокий прогон стартует со случайного плана навыков
             double skt = (round % 3 == 2) ? 0.15 + 0.5 * U(rng) : 0.0;
             build(combo % cands.size(), combo / cands.size(), min(ce, dp_deadline), true, skt);
+            if (trace) fprintf(stderr, "trace_round tid=%d round=%d rank=%d ci=%d ctor=%d t=%.6f\n",
+                               tid, round, r, combo % (int)cands.size(), combo / (int)cands.size(), elapsed());
         }
         round++;
+        int search_mode=getenv("SEARCH_MODE")?atoi(getenv("SEARCH_MODE")):0;
+        if(search_mode>=1 && search_mode<=4){research_search(s,rng,ce,search_mode);continue;}
         if (!fromBest && !last) {
             // сначала заставляем выбранный набор офисов заработать, потом отпускаем
             lns(s, rng, now0 + 0.55 * chunk, dp_deadline, false, LAMS[tid % 4], RUINS[tid % 3], true);
@@ -251,6 +276,8 @@ static void worker(const Inst& I, const Fast& F, const vector<Cand>& cands,
 
 
 #include "boundary_tail.h"
+#include "geometry_refine.h"
+#include "joint_territory.h"
 
 int main(int argc, char** argv) {
     string inp = argc > 1 ? argv[1] : "instance.json";
@@ -409,6 +436,7 @@ int main(int argc, char** argv) {
         }
 
         vector<Cand> warm_real;
+        if (getenv("SEARCH_TRACE")) fprintf(stderr, "trace_outer end=%.6f deadline=%.6f sets=%zu threads=%d\n", elapsed(), t_outer, cache.size(), nth);
         if (warm_mode) warm_real = wide_start(I, F, cache, rng, min(0.22 * limit, 60.0), limit, warm_mode);
         if (DBG) fprintf(stderr, "phase1 t=%.2f sets=%zu ops=%zu f=%.2f\n", elapsed(), cache.size(), cur.size(), cur_f);
         vector<Cand> cands;
@@ -464,7 +492,13 @@ int main(int argc, char** argv) {
         for (auto& t : th) t.join();
         exact2_publish(I);
         finish_solution(I, limit);
-        boundary_finish(I, limit);
+        exchange_finish(I, limit);
+        int finish_order = getenv("HYBRID_ORDER") ? atoi(getenv("HYBRID_ORDER")) : 0;
+        if (finish_order == 2) boundary_finish(I, limit);
+        if (finish_order == 1) joint_territory_finish(I, limit);
+        geom_finish(I, limit);
+        joint_territory_finish(I, limit);
+        if (finish_order != 2) boundary_finish(I, limit);
 
         if (DBG) fprintf(stderr, "worker_dfs calls=%ld solved=%ld nodes=%ld\n",
                          g_wdfs_calls.load(), g_wdfs_success.load(), g_wdfs_nodes.load());

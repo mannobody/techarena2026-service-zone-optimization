@@ -69,7 +69,8 @@ static vector<Cand> wide_start(const Inst& I, const Fast& F, map<vector<int>,Can
         cache.emplace(c.op,c);
         if(c.f<=NEG/2)continue;
         pop.push_back({c,c.f});trim();
-        if(niche && decoded<ndecode && elapsed()+1.5*decode_cost<end) {
+        if(niche && decoded<ndecode && elapsed()+1.5*decode_cost<end &&
+           (!getenv("WARM_DECODE") || atoi(getenv("WARM_DECODE")))) {
             double before=elapsed();
             vector<int> cells,assignment(I.ns,-1);F.cells(c.op,c.h,c.G,cells);
             for(int x=0;x<I.ns;x++)assignment[x]=c.op[cells[x]];
@@ -81,6 +82,7 @@ static vector<Cand> wide_start(const Inst& I, const Fast& F, map<vector<int>,Can
             double f=s.objective();
             if(f>real_by_k[c.op.size()]){real_by_k[c.op.size()]=f;Cand d=c;d.f=f;realized.push_back(move(d));}
             decoded++;decode_cost=max(decode_cost,elapsed()-before);
+            if(getenv("SEARCH_TRACE")) fprintf(stderr,"trace_decode k=%zu cost=%.6f end=%.6f deadline=%.6f f=%.9f\n",c.op.size(),elapsed()-before,elapsed(),end,f);
         }
         // A finite genotype space on small M should not burn the whole budget.
         if(I.no<20 && cache.size()>=(1ULL<<I.no)-1)break;

@@ -1,0 +1,86 @@
+{
+  "date": "2026-11-03",
+  "strategy": "Пять исследовательских направлений и полный архив; общие зависимости наследуются из предыдущих групп.",
+  "base_commit": "8f75009ee4a822f4f8b4686d075317fc9b8a1e62",
+  "branches": [
+    {
+      "branch": "research/colgen-research",
+      "title": "Генерация колонок, эволюция и кластеризация",
+      "directories": [
+        "colgen",
+        "evolution",
+        "clustering",
+        "server_candidate"
+      ]
+    },
+    {
+      "branch": "research/boundary-beam-research",
+      "title": "Геометрия, стабильная v4 и динамическое программирование",
+      "directories": [
+        "boundary_beam",
+        "geometry_islands",
+        "server_v4",
+        "dp_milp",
+        "v4_main_integration",
+        "v4_merge_main"
+      ]
+    },
+    {
+      "branch": "experiments/v5.2",
+      "title": "MILP v5 и безопасные области v5.2",
+      "directories": [
+        "milp_v5",
+        "milp_v5_boundaries"
+      ]
+    },
+    {
+      "branch": "research/v4-local-search",
+      "title": "Локальный поиск и параллельные эксперименты v4–v8",
+      "directories": [
+        "v4_local_search",
+        "v4_deep_parallel",
+        "server_v6",
+        "v4_perturbation",
+        "server_v7",
+        "server_v8"
+      ]
+    },
+    {
+      "branch": "experiments/v8-v12",
+      "title": "Точные и адаптивные методы v8–v12",
+      "directories": [
+        "v8_exact_neighborhoods",
+        "structural_v9",
+        "warm_v10",
+        "adaptive_v11",
+        "submission_1668601_v12"
+      ]
+    },
+    {
+      "branch": "archive/all-experiments",
+      "title": "Полный архив экспериментов",
+      "directories": [
+        "final_testing_20261023",
+        "v52_historical_audit"
+      ],
+      "extra_prefixes": [
+        "results/local/",
+        "dist/",
+        "outputs/",
+        "to_delet/"
+      ]
+    }
+  ],
+  "notes": [
+    "Каждое направление наследует предыдущие группы, необходимые для сборки, исходников и данных.",
+    "Архив включает исходники, результаты, пакеты и завершённые серии запусков.",
+    "Ветки экспериментов хранят исследовательские версии; включение изменений в main выполняется отдельным PR.",
+    "experiments/v5.2 хранит зафиксированный исходник safe regions и пакет; перенос в основной решатель выполняется отдельно."
+  ],
+  "v52": {
+    "source": "experiments/milp_v5_boundaries/artifacts/native_safe.cpp",
+    "source_sha256": "4144e63be49b938ca4885562dfd87bfdec78e46c8b3bd2ee9d32907997ff7bee",
+    "package": "experiments/milp_v5_boundaries/artifacts/case03_cpp_server_v5_2_regions_safe_experimental_O3.zip"
+  },
+  "directory_base": "experiments/"
+}

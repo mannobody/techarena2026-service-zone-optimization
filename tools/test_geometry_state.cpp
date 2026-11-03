@@ -33,6 +33,13 @@ static bool reference_covers(const Inst& I, const vector<Pt>& h, Pt p) {
 static void check_state(const Sol& s) {
     const Inst& I = *s.I;
     assert(!s.defer);
+    uint64_t expected_sig = 0;
+    for (int o = 0; o < I.no; ++o) {
+        if (s.isopen[o]) expected_sig ^= s.sigkey[(size_t)I.no * I.nsk + o];
+        for (int k = 0; k < I.nsk; ++k)
+            if (s.need[o][k] > 0) expected_sig ^= s.sigkey[(size_t)o * I.nsk + k];
+    }
+    assert(s.sig == expected_sig);
     vector<int> counts(s.np, 0);
     for (int o = 0; o < I.no; ++o) {
         assert(!s.dirty[o]);
@@ -79,7 +86,7 @@ int main(int argc, char** argv) {
         for (int o = 0; o < I.no; ++o) E.doOpen(o);
         for (int it = 0; it < 400; ++it) {
             int x = rng() % I.ns, o = rng() % I.no;
-            switch (rng() % 10) {
+            switch (rng() % 11) {
             case 0: case 1: case 2: additions += E.doAdd(x, o); break;
             case 3: E.doRemove(x); break;
             case 4: E.doClose(o); break;
@@ -110,6 +117,11 @@ int main(int argc, char** argv) {
                 s.load_state(old, opened);
                 break;
             }
+            case 10:
+                s.close_office(o); // resize_dp uses this direct path.
+                check_state(s); ++checks;
+                s.open_office(o);
+                break;
             }
             check_state(s); ++checks;
         }

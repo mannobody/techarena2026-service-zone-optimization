@@ -141,9 +141,14 @@ static void polish(Sol& s, mt19937_64& rng, double tend, double dp_deadline, boo
     Engine E(s);
     E.rec = false;
     Guide G0(s, 0.0);   // чистая цель, без сглаживания
+    const int exchange = getenv("EXCHANGE") ? max(0,min(2,atoi(getenv("EXCHANGE")))) : 0;
     int maxr = I.ns > 2000 ? 3 : 12;
     for (int round = 0; round < maxr; round++) {
         bool improved = false;
+        if(exchange && elapsed()<tend) {
+            double ed=min(tend,elapsed()+min(0.25,0.1*max(0.0,tend-elapsed())));
+            if(exchange_descent(s,rng,ed,exchange)) improved=true;
+        }
         vector<int> op;
         for (int o = 0; o < I.no; o++) if (s.isopen[o] && s.size_[o] > 0) op.push_back(o);
         if (op.size() >= 2) {
