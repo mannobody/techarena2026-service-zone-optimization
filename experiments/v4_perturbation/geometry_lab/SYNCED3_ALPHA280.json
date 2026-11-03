@@ -1,0 +1,42 @@
+{
+  "destination": "experiments/v4_perturbation/geometry_lab/logs/synced3_alpha280",
+  "seconds": 3,
+  "cpu_pairs": [
+    [
+      12,
+      13
+    ]
+  ],
+  "seeds": [
+    2101,
+    2102
+  ],
+  "cases": {
+    "alphabig": "experiments/v4_perturbation/shared/inputs/dev/alphabig.json"
+  },
+  "checkpoints": {
+    "alphabig": "experiments/v4_perturbation/shared/logs/checkpoint280/alphabig_1902_v4.solution.json"
+  },
+  "variants": {
+    "boundary": {
+      "binary": "experiments/v4_perturbation/geometry_lab/post_synced",
+      "source": "experiments/v4_perturbation/geometry_lab/src/post_synced.cpp",
+      "env": {},
+      "mode": 5
+    },
+    "support": {
+      "binary": "experiments/v4_perturbation/geometry_lab/post_synced",
+      "source": "experiments/v4_perturbation/geometry_lab/src/post_synced.cpp",
+      "env": {},
+      "mode": 12
+    },
+    "monotone_support": {
+      "binary": "experiments/v4_perturbation/geometry_lab/post_synced",
+      "source": "experiments/v4_perturbation/geometry_lab/src/post_synced.cpp",
+      "env": {
+        "GEOMETRY_MONOTONE": "1"
+      },
+      "mode": 12
+    }
+  }
+}

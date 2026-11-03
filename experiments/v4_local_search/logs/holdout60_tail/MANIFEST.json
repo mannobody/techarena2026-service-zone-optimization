@@ -1,0 +1,78 @@
+{
+  "spec": {
+    "name": "holdout60_tail",
+    "seconds": 60,
+    "jobs": 8,
+    "seeds": [
+      401,
+      402,
+      403
+    ],
+    "cases": {
+      "anti": "experiments/v4_local_search/data/holdout/anti.json",
+      "alphabig": "experiments/v4_local_search/data/holdout/alphabig.json",
+      "tightA": "experiments/v4_local_search/data/holdout/tightA.json",
+      "multiskill": "experiments/v4_local_search/data/holdout/multiskill.json",
+      "grid": "experiments/v4_local_search/data/holdout/grid.json",
+      "cluster": "experiments/v4_local_search/data/holdout/cluster.json",
+      "large": "experiments/v4_local_search/data/holdout/large.json",
+      "huge": "experiments/v4_local_search/data/holdout/huge.json"
+    },
+    "variants": {
+      "base": {
+        "binary": "experiments/v4_local_search/artifacts/candidate_v3",
+        "env": {
+          "SEARCH_TRACE": "1",
+          "DBG": "1"
+        }
+      },
+      "tail": {
+        "binary": "experiments/v4_local_search/artifacts/candidate_v3",
+        "env": {
+          "SEARCH_TRACE": "1",
+          "DBG": "1",
+          "FINAL_EXCHANGE": "2"
+        }
+      }
+    }
+  },
+  "affinity": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21
+  ],
+  "jobs": 8,
+  "binaries": {
+    "base": "5213b3a6373b158c43c288aa5beaaa2d2d2042471fbf657884cf4bb2dcf63d77",
+    "tail": "5213b3a6373b158c43c288aa5beaaa2d2d2042471fbf657884cf4bb2dcf63d77"
+  },
+  "inputs": {
+    "anti": "aa699a502e1bec70c1fbd7ec724987775f509103522b36b023699b91ba0bbf07",
+    "alphabig": "7dae94ab650e67c23af994e9feab89804cdec05c52549c1ff506932c32b3971d",
+    "tightA": "437890f044b92a3086384aa0583e53b5b5003bf9755536ae8fa525735ebcdcc5",
+    "multiskill": "5bf369e7d1b8e28db2c183fe898bd85a18b6a73a755a418e84cb728a37de7ca3",
+    "grid": "af3c3a4fc13d8237afb0b5eb7f26305ee3f86077a14fc462b66a61b2baa2c177",
+    "cluster": "641dafb941ee787b6a1a5607555fc6308e9905ce7784c6df0f2316aa1b2e82fd",
+    "large": "896b062920c02980f0a70a2a2454e05ba7e5db63ab9bdddfd3921cbc2b11597e",
+    "huge": "5bd59d8cdfa8de70a1219de20ea087bebe63fe9a279fb6ba613ee077e324c845"
+  }
+}

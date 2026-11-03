@@ -1,0 +1,56 @@
+{
+  "spec": {
+    "destination": "experiments/v4_deep_parallel/integration/logs/mature_v4_280",
+    "seconds": 280,
+    "cpu_pairs": [
+      [
+        16,
+        17
+      ],
+      [
+        18,
+        19
+      ],
+      [
+        20,
+        21
+      ]
+    ],
+    "cases": {
+      "alphabig": "experiments/v4_deep_parallel/integration/inputs/alphabig.json",
+      "tightA": "experiments/v4_deep_parallel/integration/inputs/tightA.json",
+      "multiskill": "experiments/v4_deep_parallel/integration/inputs/multiskill.json",
+      "anti": "experiments/v4_deep_parallel/integration/inputs/anti.json",
+      "large": "experiments/v4_deep_parallel/integration/inputs/large.json",
+      "huge": "experiments/v4_deep_parallel/integration/inputs/huge.json"
+    },
+    "seeds": [
+      1301,
+      1302
+    ],
+    "snapshots": [
+      60,
+      120,
+      240
+    ],
+    "variants": {
+      "v4": {
+        "binary": "experiments/v4_deep_parallel/shared/v4"
+      }
+    }
+  },
+  "spec_sha256": "330f4b067473fc98e7d242c5e65152cec09d1115994607882c1a5bedde91e011",
+  "runner_sha256": "aaf7208fa2af32c2cf702fc0ed6016bd2c72a59c1248fee2506fee40ba54ac65",
+  "binaries": {
+    "v4": "5cc54b6ad0f02a3d6d471d0e2f9129c229b4925aaa2b2c01ce26bd5305a4963c"
+  },
+  "inputs": {
+    "alphabig": "4d4ee2680c77534031835e6c4e48a2249a042dd5df9fc5a37fdb02b8762dcdda",
+    "tightA": "9145c9d9319464f1b39700eed8a22fa35a20704020965f73dae2467acdcdeaa0",
+    "multiskill": "cbd229132726dacacec41955fdb734d7372f20cf90d4875f07a755ce85c29d70",
+    "anti": "f2c2e805c9f6789c13ab62b6934d85f4ee1ef486d41025c50f682a7ae3f1e9fa",
+    "large": "9c0b772627cfebe4d68f04d7b62cbc41f106c7a73970a1b2ac8abab663c0a3ea",
+    "huge": "83a4af12c7d3bdced9020021687b7fff059d8469e44cd48b482a8f6a1e02d940"
+  },
+  "topology": "<local-host-omitted>"
+}

@@ -1,0 +1,49 @@
+{
+  "case": "huge",
+  "seed": 1901,
+  "variant": "v4",
+  "started_unix": 1792397804.735488,
+  "ended_unix": 1792397864.2847912,
+  "rc": 0,
+  "timeout": false,
+  "wall": 59.54929530700247,
+  "valid": true,
+  "objective": 552362.2692373352,
+  "validation_error": null,
+  "actual_nt": 2,
+  "error_log": false,
+  "affinity": [
+    16,
+    17
+  ],
+  "success": true,
+  "solution_sha256": "31c2803eff223a3c12fd0de45f5c9ca48945c1cc7320f30ffc88d95f6b49fb6b",
+  "source_sha256": "5b3914fa9791cb879f3232fb2876a915de83b848ad4b353b0dbf25b574998c25",
+  "resource": "rss_kb=18144 user=104.76 sys=0.05\n",
+  "snapshots": [
+    {
+      "target_seconds": 10,
+      "observed_seconds": 10.02676166600213,
+      "file": "experiments/v4_perturbation/shared/logs/checkpoint60/huge_1901_v4.t10.solution.json",
+      "sha256": "f7157907fb0bf2798f7dcbdfa1e9bff99c2f265481965fc19a6bcfcf60f96185",
+      "valid": true,
+      "objective": 274891.4683995497
+    },
+    {
+      "target_seconds": 30,
+      "observed_seconds": 30.061872827001935,
+      "file": "experiments/v4_perturbation/shared/logs/checkpoint60/huge_1901_v4.t30.solution.json",
+      "sha256": "5d506fa2ecc291b4cf605fc5b49310ee00e5235b1946dddeb762e9d34854180b",
+      "valid": true,
+      "objective": 550583.1152154212
+    },
+    {
+      "target_seconds": 50,
+      "observed_seconds": 50.01266045500233,
+      "file": "experiments/v4_perturbation/shared/logs/checkpoint60/huge_1901_v4.t50.solution.json",
+      "sha256": "31c2803eff223a3c12fd0de45f5c9ca48945c1cc7320f30ffc88d95f6b49fb6b",
+      "valid": true,
+      "objective": 552362.2692373352
+    }
+  ]
+}

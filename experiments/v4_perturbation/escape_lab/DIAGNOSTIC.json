@@ -1,0 +1,57 @@
+{
+  "destination": "experiments/v4_perturbation/escape_lab/logs/diagnostic",
+  "seconds": 4,
+  "cpu_pairs": [
+    [
+      14,
+      15
+    ]
+  ],
+  "seeds": [
+    2401,
+    2402
+  ],
+  "cases": {
+    "anti": "experiments/v4_perturbation/shared/inputs/dev/anti.json",
+    "tightA": "experiments/v4_perturbation/shared/inputs/dev/tightA.json",
+    "alphabig": "experiments/v4_perturbation/shared/inputs/dev/alphabig.json",
+    "multiskill": "experiments/v4_perturbation/shared/inputs/dev/multiskill.json",
+    "large": "experiments/v4_perturbation/shared/inputs/dev/large.json",
+    "huge": "experiments/v4_perturbation/shared/inputs/dev/huge.json"
+  },
+  "checkpoints": {
+    "anti": "experiments/v4_perturbation/shared/logs/checkpoint60/anti_1901_v4.solution.json",
+    "tightA": "experiments/v4_perturbation/shared/logs/checkpoint60/tightA_1901_v4.solution.json",
+    "alphabig": "experiments/v4_perturbation/shared/logs/checkpoint60/alphabig_1901_v4.solution.json",
+    "multiskill": "experiments/v4_perturbation/shared/logs/checkpoint60/multiskill_1901_v4.solution.json",
+    "large": "experiments/v4_perturbation/shared/logs/checkpoint60/large_1901_v4.solution.json",
+    "huge": "experiments/v4_perturbation/shared/logs/checkpoint60/huge_1901_v4.solution.json"
+  },
+  "variants": {
+    "kick": {
+      "binary": "experiments/v4_perturbation/escape_lab/bin/post_diagnostic",
+      "source": "experiments/v4_perturbation/escape_lab/src/post_diagnostic.cpp",
+      "mode": 1,
+      "env": {
+        "DBG": "1"
+      }
+    },
+    "late": {
+      "binary": "experiments/v4_perturbation/escape_lab/bin/post_diagnostic",
+      "source": "experiments/v4_perturbation/escape_lab/src/post_diagnostic.cpp",
+      "mode": 2,
+      "env": {
+        "DBG": "1"
+      }
+    },
+    "tabu": {
+      "binary": "experiments/v4_perturbation/escape_lab/bin/post_diagnostic",
+      "source": "experiments/v4_perturbation/escape_lab/src/post_diagnostic.cpp",
+      "mode": 3,
+      "env": {
+        "DBG": "1"
+      }
+    }
+  },
+  "order_seed": 871044
+}

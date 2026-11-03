@@ -1,0 +1,49 @@
+{
+  "case": "huge",
+  "seed": 2105,
+  "variant": "candidate",
+  "started_unix": 1792402328.6339338,
+  "ended_unix": 1792402388.167882,
+  "rc": 0,
+  "timeout": false,
+  "wall": 59.53394191899861,
+  "valid": true,
+  "objective": 6829.107891655094,
+  "validation_error": null,
+  "actual_nt": 2,
+  "error_log": false,
+  "affinity": [
+    12,
+    13
+  ],
+  "success": true,
+  "solution_sha256": "dd5aac874d04c49822f669a0f6ac89f09f29e11abd5ebcb62e9716cd5333a0be",
+  "source_sha256": "1857bec7e0882d15cf3091e79aeb0df1608ced5d4ee6883c1cb02656cfbd8e03",
+  "resource": "rss_kb=16700 user=104.64 sys=0.14\n",
+  "snapshots": [
+    {
+      "target_seconds": 10,
+      "observed_seconds": 10.018424043999403,
+      "file": "experiments/v4_perturbation/integration/logs/holdout60_variance/huge_2105_candidate.t10.solution.json",
+      "sha256": "a7b8df8c45b55d45fc63c32ec1e45c0857111385e9f4a65c672a793240b9258c",
+      "valid": true,
+      "objective": 1770.308312494642
+    },
+    {
+      "target_seconds": 30,
+      "observed_seconds": 30.053818696000235,
+      "file": "experiments/v4_perturbation/integration/logs/holdout60_variance/huge_2105_candidate.t30.solution.json",
+      "sha256": "bc7bcf52c1501161536978b51d96a724b725bd49de247e87f547bb193cba826a",
+      "valid": true,
+      "objective": 6829.008942294259
+    },
+    {
+      "target_seconds": 50,
+      "observed_seconds": 50.008311876001244,
+      "file": "experiments/v4_perturbation/integration/logs/holdout60_variance/huge_2105_candidate.t50.solution.json",
+      "sha256": "bc7bcf52c1501161536978b51d96a724b725bd49de247e87f547bb193cba826a",
+      "valid": true,
+      "objective": 6829.008942294259
+    }
+  ]
+}

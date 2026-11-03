@@ -1,0 +1,37 @@
+{
+  "initial": 65,
+  "ignoring_site_count_balance": [
+    135,
+    [
+      1,
+      2
+    ],
+    [
+      3,
+      4,
+      5
+    ]
+  ],
+  "after_size_repair": 10,
+  "joint_count_load_optimum": [
+    110,
+    [
+      0,
+      1
+    ],
+    [
+      4,
+      5
+    ]
+  ],
+  "claim": "Exact frozen v4 resize_dp + repair_sizes confirmed by native assertions. LNS and polish rollback protect their incumbent, but constructor path lacks that guard and joint optimum is missed.",
+  "native_confirmed": true,
+  "native_result": {
+    "initial": 65,
+    "load_dp": 135,
+    "repaired": 10,
+    "joint": 110,
+    "pass": true
+  },
+  "native_source_sha256": "7073e78854415ae1eb2f781c9fa2c4875c7b19305a4c9db9d24dd9a87b3b3823"
+}

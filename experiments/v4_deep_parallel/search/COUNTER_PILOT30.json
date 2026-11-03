@@ -1,0 +1,44 @@
+{
+  "name": "counter_pilot30",
+  "seconds": 30,
+  "jobs": 2,
+  "cases": {
+    "multiskill": "experiments/v4_deep_parallel/search/inputs/multiskill.json"
+  },
+  "seeds": [
+    1301,
+    1302
+  ],
+  "variants": {
+    "counter": {
+      "binary": "experiments/v4_deep_parallel/search/bin/counter",
+      "env": {
+        "DBG": "1",
+        "LAB_TRACE": "1",
+        "LAB_COUNTER": "1"
+      }
+    },
+    "wide": {
+      "binary": "experiments/v4_deep_parallel/search/bin/counter",
+      "env": {
+        "DBG": "1",
+        "LAB_TRACE": "1",
+        "LAB_WIDE": "1"
+      }
+    },
+    "trace_off": {
+      "binary": "experiments/v4_deep_parallel/search/bin/counter",
+      "env": {
+        "DBG": "1",
+        "LAB_TRACE": "1"
+      }
+    }
+  },
+  "cpus": [
+    8,
+    9,
+    10,
+    11
+  ],
+  "purpose": "Mechanism-only same-binary diagnostic. trace_off is an instrumented frozen-derived copy, not exact server v4; not used as a full-quality comparison."
+}

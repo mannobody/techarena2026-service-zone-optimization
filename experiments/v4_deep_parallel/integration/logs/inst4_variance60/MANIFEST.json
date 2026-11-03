@@ -1,0 +1,51 @@
+{
+  "spec": {
+    "destination": "experiments/v4_deep_parallel/integration/logs/inst4_variance60",
+    "seconds": 60,
+    "cpu_pairs": [
+      [
+        0,
+        5
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        6,
+        7
+      ]
+    ],
+    "cases": {
+      "inst4": "task/instance4/instance.json"
+    },
+    "seeds": [
+      1604,
+      1605,
+      1606,
+      1607
+    ],
+    "variants": {
+      "v4": {
+        "binary": "experiments/v4_deep_parallel/shared/v4"
+      },
+      "hybrid": {
+        "binary": "experiments/v4_deep_parallel/integration/bin/hybrid_frozen"
+      }
+    }
+  },
+  "spec_sha256": "d8cd07839875e462c90e4b694aaba0022d9f282203019545e70556597f22f28d",
+  "runner_sha256": "ec8046cbc71586e3388ce16b008076405991452c529424d9b6afd74e8288b6bc",
+  "binaries": {
+    "v4": "5cc54b6ad0f02a3d6d471d0e2f9129c229b4925aaa2b2c01ce26bd5305a4963c",
+    "hybrid": "e0e2aed21d02c91b5b8ddcbc1da2da25d7768c9864f77361d40113e9fb89390c"
+  },
+  "inputs": {
+    "inst4": "c1132c4ea260eebec47014e0c405a6ef41caeb6f6354f038532f428e3653a0f5"
+  },
+  "topology": "<local-host-omitted>"
+}

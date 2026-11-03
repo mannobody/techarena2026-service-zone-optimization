@@ -1,0 +1,30 @@
+{
+  "name": "huge180",
+  "seconds": 180,
+  "jobs": 8,
+  "seeds": [
+    301,
+    302,
+    303
+  ],
+  "cases": {
+    "huge": "experiments/v4_local_search/data/development/huge.json"
+  },
+  "variants": {
+    "base": {
+      "binary": "experiments/v4_local_search/artifacts/candidate_v3",
+      "env": {
+        "SEARCH_TRACE": "1",
+        "DBG": "1"
+      }
+    },
+    "tail": {
+      "binary": "experiments/v4_local_search/artifacts/candidate_v3",
+      "env": {
+        "SEARCH_TRACE": "1",
+        "DBG": "1",
+        "FINAL_EXCHANGE": "2"
+      }
+    }
+  }
+}

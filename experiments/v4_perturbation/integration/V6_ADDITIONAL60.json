@@ -1,0 +1,45 @@
+{
+  "destination": "experiments/v4_perturbation/integration/logs/v6_additional60",
+  "seconds": 60,
+  "cpu_pairs": [
+    [
+      0,
+      1
+    ],
+    [
+      3,
+      6
+    ],
+    [
+      8,
+      10
+    ]
+  ],
+  "seeds": [
+    1951
+  ],
+  "cases": {
+    "anti": "experiments/v4_perturbation/shared/inputs/dev/anti.json",
+    "tightA": "experiments/v4_perturbation/shared/inputs/dev/tightA.json",
+    "alphabig": "experiments/v4_perturbation/shared/inputs/dev/alphabig.json",
+    "multiskill": "experiments/v4_perturbation/shared/inputs/dev/multiskill.json",
+    "cluster": "experiments/v4_perturbation/shared/inputs/dev/cluster.json",
+    "huge": "experiments/v4_perturbation/shared/inputs/dev/huge.json"
+  },
+  "variants": {
+    "v4": {
+      "source": "experiments/v4_perturbation/baseline/frozen_v4.cpp",
+      "binary": "experiments/v4_perturbation/baseline/v4",
+      "env": {
+        "DBG": "1"
+      }
+    },
+    "v6": {
+      "source": "experiments/server_v6/artifacts/package/main.cpp",
+      "binary": "experiments/v4_deep_parallel/integration/bin/hybrid_frozen",
+      "env": {
+        "DBG": "1"
+      }
+    }
+  }
+}

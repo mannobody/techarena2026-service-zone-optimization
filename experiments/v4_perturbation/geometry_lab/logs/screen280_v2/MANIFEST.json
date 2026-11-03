@@ -1,0 +1,106 @@
+{
+  "spec": {
+    "destination": "experiments/v4_perturbation/geometry_lab/logs/screen280_v2",
+    "seconds": 4,
+    "cpu_pairs": [
+      [
+        12,
+        13
+      ]
+    ],
+    "seeds": [
+      2101,
+      2102
+    ],
+    "cases": {
+      "anti": "experiments/v4_perturbation/shared/inputs/dev/anti.json",
+      "tightA": "experiments/v4_perturbation/shared/inputs/dev/tightA.json",
+      "alphabig": "experiments/v4_perturbation/shared/inputs/dev/alphabig.json",
+      "multiskill": "experiments/v4_perturbation/shared/inputs/dev/multiskill.json",
+      "cluster": "experiments/v4_perturbation/shared/inputs/dev/cluster.json",
+      "huge": "experiments/v4_perturbation/shared/inputs/dev/huge.json"
+    },
+    "checkpoints": {
+      "anti": "experiments/v4_perturbation/shared/logs/checkpoint280/anti_1902_v4.solution.json",
+      "tightA": "experiments/v4_perturbation/shared/logs/checkpoint280/tightA_1902_v4.solution.json",
+      "alphabig": "experiments/v4_perturbation/shared/logs/checkpoint280/alphabig_1902_v4.solution.json",
+      "multiskill": "experiments/v4_perturbation/shared/logs/checkpoint280/multiskill_1902_v4.solution.json",
+      "cluster": "experiments/v4_perturbation/shared/logs/checkpoint280/cluster_1902_v4.solution.json",
+      "huge": "experiments/v4_perturbation/shared/logs/checkpoint280/huge_1902_v4.solution.json"
+    },
+    "variants": {
+      "lns": {
+        "binary": "experiments/v4_perturbation/geometry_lab/post_geometry_v2",
+        "source": "experiments/v4_perturbation/geometry_lab/src/post_geometry_v2.cpp",
+        "env": {},
+        "mode": 0
+      },
+      "packet": {
+        "binary": "experiments/v4_perturbation/geometry_lab/post_geometry_v2",
+        "source": "experiments/v4_perturbation/geometry_lab/src/post_geometry_v2.cpp",
+        "env": {},
+        "mode": 1
+      },
+      "support": {
+        "binary": "experiments/v4_perturbation/geometry_lab/post_geometry_v2",
+        "source": "experiments/v4_perturbation/geometry_lab/src/post_geometry_v2.cpp",
+        "env": {},
+        "mode": 2
+      },
+      "cycle": {
+        "binary": "experiments/v4_perturbation/geometry_lab/post_geometry_v2",
+        "source": "experiments/v4_perturbation/geometry_lab/src/post_geometry_v2.cpp",
+        "env": {},
+        "mode": 3
+      },
+      "polish": {
+        "binary": "experiments/v4_perturbation/geometry_lab/post_geometry_v2",
+        "source": "experiments/v4_perturbation/geometry_lab/src/post_geometry_v2.cpp",
+        "env": {},
+        "mode": 4
+      },
+      "support_v1": {
+        "binary": "experiments/v4_perturbation/geometry_lab/post_geometry",
+        "source": "experiments/v4_perturbation/geometry_lab/src/post_geometry.cpp",
+        "env": {},
+        "mode": 2
+      }
+    }
+  },
+  "spec_sha256": "0910b6232a48d32a0b4ff09921652531782164e768764714ddafc195c54cae38",
+  "runner_sha256": "b8cefa81d00bf83e8a4d046ab449bfdc6b024a8076b5a039e22ccd813b3eacc3",
+  "sources": {
+    "lns": "e1fc5d0e8caf5a8a2695f082db7b278a64b7478f2fcd77412de32bd149686eda",
+    "packet": "e1fc5d0e8caf5a8a2695f082db7b278a64b7478f2fcd77412de32bd149686eda",
+    "support": "e1fc5d0e8caf5a8a2695f082db7b278a64b7478f2fcd77412de32bd149686eda",
+    "cycle": "e1fc5d0e8caf5a8a2695f082db7b278a64b7478f2fcd77412de32bd149686eda",
+    "polish": "e1fc5d0e8caf5a8a2695f082db7b278a64b7478f2fcd77412de32bd149686eda",
+    "support_v1": "a1aca648bd371c93b7b53f17041a72105b0f13bfd6bd94bbd14c1e16134f4d5b"
+  },
+  "validator_sha256": "6dd5948ebe72977976acf1b8dcaf7c819274c79addfb82328c0ec9a012ed56e0",
+  "checkpoints": {
+    "anti": "216b2cd5afedcd4d97b35e3f0068e74a341eaa825bc4a0802ef8fa58ba4edd81",
+    "tightA": "80779b8be9c85580c887adc41a47eb4946fd1b788151eda7a24a99668d2b5a1c",
+    "alphabig": "6e868637deafdbcbe4106feaa7368c64854d62f69fe0dcef411d03b52c7296ec",
+    "multiskill": "21e90a8a35263a6b6a5e775e4b88cee89e8297cebbb347a57ddb4ce2e383d6c4",
+    "cluster": "c028dfa52b8717c379daca73cd61fa76df57f573dd5ad60a1d604ec57acad8f8",
+    "huge": "1bfdd85cef5cd70b6b52e9f99959d4b08822bab11bb7b2347fb4d5e17b4acc38"
+  },
+  "binaries": {
+    "lns": "da36dd42218537248364f22a1ac63b1e7a2bbd47dde4816dcd3eed816a0c585d",
+    "packet": "da36dd42218537248364f22a1ac63b1e7a2bbd47dde4816dcd3eed816a0c585d",
+    "support": "da36dd42218537248364f22a1ac63b1e7a2bbd47dde4816dcd3eed816a0c585d",
+    "cycle": "da36dd42218537248364f22a1ac63b1e7a2bbd47dde4816dcd3eed816a0c585d",
+    "polish": "da36dd42218537248364f22a1ac63b1e7a2bbd47dde4816dcd3eed816a0c585d",
+    "support_v1": "129858f0934cc13b4a2f87a5dca1c5f92296a39426c5d48825fc1a4a162651db"
+  },
+  "inputs": {
+    "anti": "28d3a2c81a0ef0bfa8e1ec588da62bd48122f37d9cd4952e413303f84d80d278",
+    "tightA": "1ae28e2cd6ea7c5c1c26e3f782a77f79f24bf0f562b09b3f7708aa6cc4c0df9a",
+    "alphabig": "15b841e52b8c4d71fa1dbb819566f48098a90b7b3db6871071f8f2a09ee58ffe",
+    "multiskill": "57f605ad34775503df27145009291f70a1079e69f4a3e4f6c55c729817131201",
+    "cluster": "31198c78efc75b7acd54ff2112ffed47674336fb38f642cbf736f064262dd078",
+    "huge": "cfab2ecaa9c6e7c5edf007d2353d172dcf36b1a47ab2c13664ecfe5b88d0f7c3"
+  },
+  "topology": "<local-host-omitted>"
+}

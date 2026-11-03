@@ -1,0 +1,49 @@
+{
+  "destination": "experiments/v4_deep_parallel/integration/logs/holdout_confirmation280",
+  "seconds": 280,
+  "cpu_pairs": [
+    [
+      0,
+      5
+    ],
+    [
+      1,
+      2
+    ],
+    [
+      3,
+      4
+    ],
+    [
+      6,
+      7
+    ],
+    [
+      16,
+      17
+    ],
+    [
+      18,
+      19
+    ]
+  ],
+  "cases": {
+    "alphabig": "experiments/v4_deep_parallel/integration/inputs/holdout/alphabig.json",
+    "tightA": "experiments/v4_deep_parallel/integration/inputs/holdout/tightA.json",
+    "multiskill": "experiments/v4_deep_parallel/integration/inputs/holdout/multiskill.json",
+    "anti": "experiments/v4_deep_parallel/integration/inputs/holdout/anti.json",
+    "large": "experiments/v4_deep_parallel/integration/inputs/holdout/large.json",
+    "huge": "experiments/v4_deep_parallel/integration/inputs/holdout/huge.json"
+  },
+  "seeds": [
+    1504
+  ],
+  "variants": {
+    "v4": {
+      "binary": "experiments/v4_deep_parallel/shared/v4"
+    },
+    "hybrid": {
+      "binary": "experiments/v4_deep_parallel/integration/bin/hybrid_frozen"
+    }
+  }
+}

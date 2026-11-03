@@ -1,0 +1,19 @@
+{
+  "seconds": 60,
+  "runs": 144,
+  "success": 144,
+  "checks": {
+    "primary_criteria_pass": false,
+    "all_primary_and_extra_runs_successful": true,
+    "freeze_and_record_hash_checks_pass": true,
+    "all_percentage_pairs_defined_finite": true,
+    "combined_input_weighted_mean_at_least_0.1": true,
+    "combined_pair_median_nonnegative": true,
+    "combined_every_input_median_nonnegative": false,
+    "combined_worst_at_least_minus1": false,
+    "combined_bootstrap_lower_nonnegative": false,
+    "combined_mean_vs_off_nonnegative": true
+  },
+  "accepted_at_this_budget": false,
+  "note": "Primary and extras remain separately reported. Combined mean gives each input equal weight; individual-pair distribution is descriptive only. No failed run is removed."
+}

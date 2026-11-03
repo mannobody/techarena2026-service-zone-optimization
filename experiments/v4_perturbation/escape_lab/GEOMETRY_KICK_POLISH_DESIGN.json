@@ -1,0 +1,31 @@
+{
+  "registered": 1792399658.0721455,
+  "change": "After retained V1 support kick, run native polish with the same absolute episode_end before local-best rollback; no extra time; refresh elapsed after tick to avoid one additional heavy move. Independent kick RNG unchanged. No boundary, late acceptance, tabu, support tail or parameter tuning.",
+  "mode": 5,
+  "default": 0,
+  "cpu": [
+    18,
+    19
+  ],
+  "seconds": 4,
+  "seeds": [
+    2701,
+    2702
+  ],
+  "cases": [
+    "anti",
+    "tightA",
+    "alphabig",
+    "multiskill",
+    "huge",
+    "cluster"
+  ],
+  "variants": [
+    "v4",
+    "off",
+    "retain",
+    "geometry_kick_polish"
+  ],
+  "prior_sources_unchanged": true,
+  "soft_deadline_limitation": "native polish/resplit/verification may overrun individual soft deadline; actual process wall checked"
+}

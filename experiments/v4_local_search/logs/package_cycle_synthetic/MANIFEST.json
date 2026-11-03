@@ -1,0 +1,92 @@
+{
+  "spec": {
+    "name": "package_cycle_synthetic",
+    "seconds": 10,
+    "jobs": 2,
+    "seeds": [
+      101
+    ],
+    "cases": {
+      "edge_empty": "results/local/synth/edge_empty.json",
+      "edge_no_offices": "results/local/synth/edge_no_offices.json",
+      "edge_one_site": "results/local/synth/edge_one_site.json",
+      "edge_no_workers": "results/local/synth/edge_no_workers.json",
+      "edge_skill_missing": "results/local/synth/edge_skill_missing.json",
+      "edge_maxsize0": "results/local/synth/edge_maxsize0.json",
+      "edge_same_point": "results/local/synth/edge_same_point.json",
+      "edge_collinear": "results/local/synth/edge_collinear.json",
+      "edge_alpha0": "results/local/synth/edge_alpha0.json",
+      "edge_alpha_huge": "results/local/synth/edge_alpha_huge.json",
+      "edge_A0": "results/local/synth/edge_A0.json",
+      "edge_A_big": "results/local/synth/edge_A_big.json",
+      "edge_multiskill": "results/local/synth/edge_multiskill.json",
+      "edge_no_tasks": "results/local/synth/edge_no_tasks.json",
+      "edge_unit_coords_big_dist": "results/local/synth/edge_unit_coords_big_dist.json",
+      "edge_big10k": "results/local/synth/edge_big10k.json",
+      "gen0": "results/local/synth/gen0.json",
+      "gen1": "results/local/synth/gen1.json",
+      "gen2": "results/local/synth/gen2.json",
+      "gen3": "results/local/synth/gen3.json",
+      "gen4": "results/local/synth/gen4.json",
+      "gen5": "results/local/synth/gen5.json",
+      "gen6": "results/local/synth/gen6.json",
+      "gen7": "results/local/synth/gen7.json",
+      "gen8": "results/local/synth/gen8.json",
+      "gen9": "results/local/synth/gen9.json",
+      "gen10": "results/local/synth/gen10.json",
+      "gen11": "results/local/synth/gen11.json"
+    },
+    "variants": {
+      "cycle": {
+        "binary": "experiments/v4_local_search/artifacts/package_cycle_safe/solution",
+        "env": {
+          "DBG": "1",
+          "SEARCH_TRACE": "1"
+        }
+      }
+    },
+    "cpu_offset": 16
+  },
+  "affinity": [
+    16,
+    17,
+    18,
+    19,
+    20,
+    21
+  ],
+  "jobs": 2,
+  "binaries": {
+    "cycle": "27eed2e62997c2f468e50d5a0f4836fa37ae5b89b67daf57fd3e5457098b5cf7"
+  },
+  "inputs": {
+    "edge_empty": "2fc960586fbbbc43fe222b255b460d1762df84a9682f1ebd4e3e8d4c0524afa7",
+    "edge_no_offices": "385af94841a7e22c2cc54b4ab8b6055c171da3a4f8522abe5c86789f165921c8",
+    "edge_one_site": "c40b23bc350da2401e2dca29a5713cf9a23def24f5a017cb12ef40f1bdd5bfa8",
+    "edge_no_workers": "dddd620bf28872d9cd641ae6136ba0338a9c262f468b817930799e93c9364dbc",
+    "edge_skill_missing": "1ab65c467cb85dfd25bee43c6fb5fa69218861785789e2514d014d5b0c0a1a68",
+    "edge_maxsize0": "4e6adaccf2711913235365c581e02b32df30f8368d38dfe8bd1ea7c042804347",
+    "edge_same_point": "96504042db5417184e10fa7826c0be1d4a84d110353b5f973aa01f9cc37dc81b",
+    "edge_collinear": "f4a97fecc9be5a871b046d1f62233d72cca6ff6e57e0d195e62d39194d8b8879",
+    "edge_alpha0": "52908dc1cfa69cd2a8420c7f8d525ee350ad3ac4bf3005c6ab777e4f339f1b8a",
+    "edge_alpha_huge": "90befb082af1218a0497a34514a40dc2720a04240eb171f33c005ab6c4ff0273",
+    "edge_A0": "3ac99fd35ec008e1076a8feaa39d2a25e406e6b0ce4b1eb4147bb65d3bd9ec0e",
+    "edge_A_big": "b36cae7fb5b4076cdda6a5e0eba662eb67c8df637b0f0e716c1704bd384cada9",
+    "edge_multiskill": "369647a499e6b4e718904028375b526d9014689bfc2b3e64e2d5e7821234936b",
+    "edge_no_tasks": "d45fbf1228c21d7a835de43cdf859fcd613f9d156f78bf63a26498e3c7554152",
+    "edge_unit_coords_big_dist": "815f5f049a105195565155cc1f084d03691a034ed4f553fc10c78a50e3db6a6a",
+    "edge_big10k": "d070111d1326d1731c2dfb63491855a85080cf54b183fccfea84249ed5ca73a8",
+    "gen0": "bc3229598b207d0ff48ff65d317cd36b2a5faf21f937f61d9878383bc054970b",
+    "gen1": "06c364eff4ca7396544ba9dd95320401d8c77ca1e76e79325990ccd6d9d4b49a",
+    "gen2": "592e123bae6ceda904816a04dbf1f3e951cde2683a123f321c923b62ce3f08ee",
+    "gen3": "09ded043d40512adbbcff966180b9e2632da50870557af0042a83c1e14a7c667",
+    "gen4": "6515979c54c9950e8a03e8ff2c420c8e8a5f0ea08cc097c84c086c3ffaca5376",
+    "gen5": "1de38be8bbcaad68e54ab5bba1a599a8dc91b6505be10206bc190e803e7ee37e",
+    "gen6": "eac6c0bd96b5d1241da5922c8055bc4885aa7323b242bf576e0e746e170cb6ff",
+    "gen7": "3fe83e8e3013d3eda4303453e294d221c927287752fd4976a57155a86c6e031c",
+    "gen8": "19af1fe1e277b889c65cecccaa4517b23ab90e832bf983517cc922d9386ce72c",
+    "gen9": "9f71cd732c0a52258d007c7c9a0d0d8c7381254c3d380b87abcf91b5db14006f",
+    "gen10": "e83b31c5f14f7913624f35ca804bd6ac3f712abcc397e833d9032c9bc8b0f1ac",
+    "gen11": "f9ede6f02b7e93971d6dee2aac7adaa590123d257533c65976d3ea1380cde7b8"
+  }
+}

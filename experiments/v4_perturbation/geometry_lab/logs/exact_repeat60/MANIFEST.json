@@ -1,0 +1,66 @@
+{
+  "spec": {
+    "destination": "experiments/v4_perturbation/geometry_lab/logs/exact_repeat60",
+    "seconds": 4,
+    "cpu_pairs": [
+      [
+        12,
+        13
+      ]
+    ],
+    "seeds": [
+      2101,
+      2102
+    ],
+    "cases": {
+      "alphabig": "experiments/v4_perturbation/shared/inputs/dev/alphabig.json",
+      "huge": "experiments/v4_perturbation/shared/inputs/dev/huge.json"
+    },
+    "checkpoints": {
+      "alphabig": "experiments/v4_perturbation/shared/logs/checkpoint60/alphabig_1901_v4.solution.json",
+      "huge": "experiments/v4_perturbation/shared/logs/checkpoint60/huge_1901_v4.solution.json"
+    },
+    "variants": {
+      "support": {
+        "binary": "experiments/v4_perturbation/geometry_lab/post_tail",
+        "source": "experiments/v4_perturbation/geometry_lab/src/post_tail.cpp",
+        "mode": 2,
+        "env": {}
+      },
+      "alloff_repeat": {
+        "binary": "experiments/v4_perturbation/geometry_lab/post_tail",
+        "source": "experiments/v4_perturbation/geometry_lab/src/post_tail.cpp",
+        "mode": 0,
+        "env": {}
+      },
+      "lns": {
+        "binary": "experiments/v4_perturbation/geometry_lab/exact_repeat",
+        "source": "experiments/v4_perturbation/geometry_lab/src/exact_repeat.cpp",
+        "env": {},
+        "mode": 0
+      }
+    }
+  },
+  "spec_sha256": "dc8cbf70244c658e7bbd3c507e494ba137d4decfda3511343c8d2e7021a4afbe",
+  "runner_sha256": "b8cefa81d00bf83e8a4d046ab449bfdc6b024a8076b5a039e22ccd813b3eacc3",
+  "sources": {
+    "support": "bf3dca4b089504658eb10403bd396f5fa746151259d4c76816a209819809721a",
+    "alloff_repeat": "bf3dca4b089504658eb10403bd396f5fa746151259d4c76816a209819809721a",
+    "lns": "9f3ef4cfeb11ea9d5846850f73cd44a95e12c4b75e038b2137acd30006b7c747"
+  },
+  "validator_sha256": "6dd5948ebe72977976acf1b8dcaf7c819274c79addfb82328c0ec9a012ed56e0",
+  "checkpoints": {
+    "alphabig": "551c0e8166f93b0c0ee85f7834c09f450b2d1d3c5732359cebe9b62e9d3f22fe",
+    "huge": "31c2803eff223a3c12fd0de45f5c9ca48945c1cc7320f30ffc88d95f6b49fb6b"
+  },
+  "binaries": {
+    "support": "2e9448dd203dd14dd9cdf6ab0a0c28178c0bf37a66159388fc8f2b7aad72fff3",
+    "alloff_repeat": "2e9448dd203dd14dd9cdf6ab0a0c28178c0bf37a66159388fc8f2b7aad72fff3",
+    "lns": "834aedadba8c93462cd3632aeb25151e255a69b41a212a8d5c7fc71c97cb3cff"
+  },
+  "inputs": {
+    "alphabig": "15b841e52b8c4d71fa1dbb819566f48098a90b7b3db6871071f8f2a09ee58ffe",
+    "huge": "cfab2ecaa9c6e7c5edf007d2353d172dcf36b1a47ab2c13664ecfe5b88d0f7c3"
+  },
+  "topology": "<local-host-omitted>"
+}

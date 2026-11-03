@@ -1,0 +1,119 @@
+{
+  "spec": {
+    "destination": "experiments/v4_perturbation/escape_lab/logs/screen60",
+    "seconds": 4,
+    "cpu_pairs": [
+      [
+        14,
+        15
+      ]
+    ],
+    "seeds": [
+      2101,
+      2102
+    ],
+    "cases": {
+      "anti": "experiments/v4_perturbation/shared/inputs/dev/anti.json",
+      "tightA": "experiments/v4_perturbation/shared/inputs/dev/tightA.json",
+      "alphabig": "experiments/v4_perturbation/shared/inputs/dev/alphabig.json",
+      "multiskill": "experiments/v4_perturbation/shared/inputs/dev/multiskill.json",
+      "large": "experiments/v4_perturbation/shared/inputs/dev/large.json",
+      "huge": "experiments/v4_perturbation/shared/inputs/dev/huge.json"
+    },
+    "checkpoints": {
+      "anti": "experiments/v4_perturbation/shared/logs/checkpoint60/anti_1901_v4.solution.json",
+      "tightA": "experiments/v4_perturbation/shared/logs/checkpoint60/tightA_1901_v4.solution.json",
+      "alphabig": "experiments/v4_perturbation/shared/logs/checkpoint60/alphabig_1901_v4.solution.json",
+      "multiskill": "experiments/v4_perturbation/shared/logs/checkpoint60/multiskill_1901_v4.solution.json",
+      "large": "experiments/v4_perturbation/shared/logs/checkpoint60/large_1901_v4.solution.json",
+      "huge": "experiments/v4_perturbation/shared/logs/checkpoint60/huge_1901_v4.solution.json"
+    },
+    "variants": {
+      "v4": {
+        "binary": "experiments/v4_perturbation/escape_lab/bin/post_v4",
+        "source": "experiments/v4_perturbation/shared/post_v4.cpp",
+        "mode": 0,
+        "env": {
+          "DBG": "1"
+        }
+      },
+      "off": {
+        "binary": "experiments/v4_perturbation/escape_lab/bin/post_escape",
+        "source": "experiments/v4_perturbation/escape_lab/src/post_escape.cpp",
+        "mode": 0,
+        "env": {
+          "DBG": "1"
+        }
+      },
+      "retain": {
+        "binary": "experiments/v4_perturbation/escape_lab/bin/post_escape",
+        "source": "experiments/v4_perturbation/escape_lab/src/post_escape.cpp",
+        "mode": 4,
+        "env": {
+          "DBG": "1"
+        }
+      },
+      "kick": {
+        "binary": "experiments/v4_perturbation/escape_lab/bin/post_escape",
+        "source": "experiments/v4_perturbation/escape_lab/src/post_escape.cpp",
+        "mode": 1,
+        "env": {
+          "DBG": "1"
+        }
+      },
+      "late": {
+        "binary": "experiments/v4_perturbation/escape_lab/bin/post_escape",
+        "source": "experiments/v4_perturbation/escape_lab/src/post_escape.cpp",
+        "mode": 2,
+        "env": {
+          "DBG": "1"
+        }
+      },
+      "tabu": {
+        "binary": "experiments/v4_perturbation/escape_lab/bin/post_escape",
+        "source": "experiments/v4_perturbation/escape_lab/src/post_escape.cpp",
+        "mode": 3,
+        "env": {
+          "DBG": "1"
+        }
+      }
+    },
+    "order_seed": 871001
+  },
+  "spec_sha256": "3bafdb01934f0551ca759068e08cacd7f2c4b39deaa4a163ba41688efa6e38f7",
+  "runner_sha256": "b8cefa81d00bf83e8a4d046ab449bfdc6b024a8076b5a039e22ccd813b3eacc3",
+  "sources": {
+    "v4": "321cb7a8f022ec75e43433a6318c4c60eda9b2819d376d7354aba8a013612780",
+    "off": "5e975f98c6d8199f0f0b623b3fb49e60d35ef73e18bfa453b1dde7addec11f6f",
+    "retain": "5e975f98c6d8199f0f0b623b3fb49e60d35ef73e18bfa453b1dde7addec11f6f",
+    "kick": "5e975f98c6d8199f0f0b623b3fb49e60d35ef73e18bfa453b1dde7addec11f6f",
+    "late": "5e975f98c6d8199f0f0b623b3fb49e60d35ef73e18bfa453b1dde7addec11f6f",
+    "tabu": "5e975f98c6d8199f0f0b623b3fb49e60d35ef73e18bfa453b1dde7addec11f6f"
+  },
+  "validator_sha256": "6dd5948ebe72977976acf1b8dcaf7c819274c79addfb82328c0ec9a012ed56e0",
+  "checkpoints": {
+    "anti": "8afeb9c4127d0bc386c59e566cf1e59e257d4e791b572e4f6fc3de8f6a0c19d4",
+    "tightA": "eac0bf3f49eaf690c198dcd1c667adcf00c76d85bfcc25879844a0faeadb349e",
+    "alphabig": "551c0e8166f93b0c0ee85f7834c09f450b2d1d3c5732359cebe9b62e9d3f22fe",
+    "multiskill": "21e90a8a35263a6b6a5e775e4b88cee89e8297cebbb347a57ddb4ce2e383d6c4",
+    "large": "32a4414d284db55f136b9296745fa6abb3de6ce67acbb4bb4cf9fa654e8c6e0b",
+    "huge": "31c2803eff223a3c12fd0de45f5c9ca48945c1cc7320f30ffc88d95f6b49fb6b"
+  },
+  "binaries": {
+    "v4": "4f6bd4ffb0be297999125a188577dca71c1f7519b34fdf3eb53cb9dbfe8c01cd",
+    "off": "1d6608848c5e8b78d10ea7c192f66161d995c708f596d0e69d1d20e994168030",
+    "retain": "1d6608848c5e8b78d10ea7c192f66161d995c708f596d0e69d1d20e994168030",
+    "kick": "1d6608848c5e8b78d10ea7c192f66161d995c708f596d0e69d1d20e994168030",
+    "late": "1d6608848c5e8b78d10ea7c192f66161d995c708f596d0e69d1d20e994168030",
+    "tabu": "1d6608848c5e8b78d10ea7c192f66161d995c708f596d0e69d1d20e994168030"
+  },
+  "inputs": {
+    "anti": "28d3a2c81a0ef0bfa8e1ec588da62bd48122f37d9cd4952e413303f84d80d278",
+    "tightA": "1ae28e2cd6ea7c5c1c26e3f782a77f79f24bf0f562b09b3f7708aa6cc4c0df9a",
+    "alphabig": "15b841e52b8c4d71fa1dbb819566f48098a90b7b3db6871071f8f2a09ee58ffe",
+    "multiskill": "57f605ad34775503df27145009291f70a1079e69f4a3e4f6c55c729817131201",
+    "large": "4f975dbbc6612bc2235d7c4c7b5d27adb589dd6d1237d6301dd2416ffc606c7a",
+    "huge": "cfab2ecaa9c6e7c5edf007d2353d172dcf36b1a47ab2c13664ecfe5b88d0f7c3"
+  },
+  "topology": "<local-host-omitted>"
+}

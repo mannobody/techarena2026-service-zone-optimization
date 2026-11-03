@@ -1,0 +1,113 @@
+{
+  "spec": {
+    "destination": "experiments/v4_perturbation/integration/logs/boundary_development60_complete",
+    "seconds": 60,
+    "cpu_pairs": [
+      [
+        0,
+        1
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        8,
+        10
+      ],
+      [
+        12,
+        13
+      ],
+      [
+        16,
+        17
+      ],
+      [
+        20,
+        21
+      ]
+    ],
+    "seeds": [
+      2801,
+      2802
+    ],
+    "cases": {
+      "anti": "experiments/v4_perturbation/shared/inputs/dev/anti.json",
+      "tightA": "experiments/v4_perturbation/shared/inputs/dev/tightA.json",
+      "alphabig": "experiments/v4_perturbation/shared/inputs/dev/alphabig.json",
+      "multiskill": "experiments/v4_perturbation/shared/inputs/dev/multiskill.json",
+      "cluster": "experiments/v4_perturbation/shared/inputs/dev/cluster.json",
+      "huge": "experiments/v4_perturbation/shared/inputs/dev/huge.json"
+    },
+    "variants": {
+      "v4": {
+        "source": "experiments/v4_perturbation/baseline/frozen_v4.cpp",
+        "binary": "experiments/v4_perturbation/baseline/v4",
+        "env": {
+          "DBG": "1"
+        }
+      },
+      "off": {
+        "source": "experiments/v4_perturbation/integration/src/boundary_dev.cpp",
+        "binary": "experiments/v4_perturbation/integration/bin/boundary_dev",
+        "env": {
+          "DBG": "1",
+          "ESCAPE_MODE": "0"
+        }
+      },
+      "retain": {
+        "source": "experiments/v4_perturbation/integration/src/boundary_dev.cpp",
+        "binary": "experiments/v4_perturbation/integration/bin/boundary_dev",
+        "env": {
+          "DBG": "1",
+          "ESCAPE_MODE": "4"
+        }
+      },
+      "geometry_boundary": {
+        "source": "experiments/v4_perturbation/integration/src/boundary_dev.cpp",
+        "binary": "experiments/v4_perturbation/integration/bin/boundary_dev",
+        "env": {
+          "DBG": "1",
+          "ESCAPE_MODE": "5"
+        }
+      },
+      "boundary_only": {
+        "source": "experiments/v4_perturbation/integration/src/boundary_dev.cpp",
+        "binary": "experiments/v4_perturbation/integration/bin/boundary_dev",
+        "env": {
+          "DBG": "1",
+          "ESCAPE_MODE": "6"
+        }
+      }
+    },
+    "order_seed": 953281
+  },
+  "spec_sha256": "c72350beac9567d320cb858fc781ab282c02cb61ebc8efbdf4440b9be6d499f8",
+  "runner_sha256": "b8cefa81d00bf83e8a4d046ab449bfdc6b024a8076b5a039e22ccd813b3eacc3",
+  "sources": {
+    "v4": "5b3914fa9791cb879f3232fb2876a915de83b848ad4b353b0dbf25b574998c25",
+    "off": "44ae896a9eeb1cf618fa0e2d91136a676d0f91568c14d8bdef964a199f2977e8",
+    "retain": "44ae896a9eeb1cf618fa0e2d91136a676d0f91568c14d8bdef964a199f2977e8",
+    "geometry_boundary": "44ae896a9eeb1cf618fa0e2d91136a676d0f91568c14d8bdef964a199f2977e8",
+    "boundary_only": "44ae896a9eeb1cf618fa0e2d91136a676d0f91568c14d8bdef964a199f2977e8"
+  },
+  "validator_sha256": "6dd5948ebe72977976acf1b8dcaf7c819274c79addfb82328c0ec9a012ed56e0",
+  "checkpoints": {},
+  "binaries": {
+    "v4": "5cc54b6ad0f02a3d6d471d0e2f9129c229b4925aaa2b2c01ce26bd5305a4963c",
+    "off": "53485fb3a197b27433700fde3edcac436fa0e7f813b6f29f73b664709c213c4e",
+    "retain": "53485fb3a197b27433700fde3edcac436fa0e7f813b6f29f73b664709c213c4e",
+    "geometry_boundary": "53485fb3a197b27433700fde3edcac436fa0e7f813b6f29f73b664709c213c4e",
+    "boundary_only": "53485fb3a197b27433700fde3edcac436fa0e7f813b6f29f73b664709c213c4e"
+  },
+  "inputs": {
+    "anti": "28d3a2c81a0ef0bfa8e1ec588da62bd48122f37d9cd4952e413303f84d80d278",
+    "tightA": "1ae28e2cd6ea7c5c1c26e3f782a77f79f24bf0f562b09b3f7708aa6cc4c0df9a",
+    "alphabig": "15b841e52b8c4d71fa1dbb819566f48098a90b7b3db6871071f8f2a09ee58ffe",
+    "multiskill": "57f605ad34775503df27145009291f70a1079e69f4a3e4f6c55c729817131201",
+    "cluster": "31198c78efc75b7acd54ff2112ffed47674336fb38f642cbf736f064262dd078",
+    "huge": "cfab2ecaa9c6e7c5edf007d2353d172dcf36b1a47ab2c13664ecfe5b88d0f7c3"
+  },
+  "topology": "<local-host-omitted>"
+}

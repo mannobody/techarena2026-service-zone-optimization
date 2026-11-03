@@ -1,0 +1,26 @@
+{
+  "created_utc": "2026-10-19T08:57:51.910814+00:00",
+  "compile_exit_code": 0,
+  "command": "taskset -c 14,15 g++ -O3 -std=c++17 -pthread experiments/v4_perturbation/escape_lab/src/geometry_boundary_v4.cpp -o experiments/v4_perturbation/escape_lab/bin/geometry_boundary_full",
+  "compiler": "g++ (GCC) 16.2.1 20260819 (Red Hat 16.2.1-2)",
+  "source_default_mode": 0,
+  "runtime_modes": {
+    "0": "off",
+    "4": "best retention only",
+    "5": "geometry kick + bounded boundary repair",
+    "6": "bounded boundary repair without kick"
+  },
+  "full_binary_status": "compiled; checkpoint driver of identical solver source tested 60/60; full TL60/TL280 validation delegated to parent",
+  "known_deadline_limitation": "frozen hook refreshes now only when tick returns true; observe on false can cross tloop. Parent final freeze will document separate unconditional refresh/check. Native internal move deadlines remain soft.",
+  "resource_release": "CPU14,15 and18,19 released to parent after compilation, no further benchmark/compile scheduled",
+  "sha256": {
+    "src/geometry_boundary_v4.cpp": "141a42bd2219880fe41994d2f4c78aa8f88cbbe5d00a9b0063051f981536e425",
+    "src/escape_geometry_boundary.h": "8d976fde8bd1a2a0296694a88615ee705188c45d5bdc6f4f8c3f84bd52909857",
+    "src/geometry_perturb_only_v1.h": "b1877a90fdad4ebc5fed6bd21f53784889c369e4c69bc7223543646623d504b2",
+    "bin/geometry_boundary_full": "dd8855d9a115ea53386c79dccd3a062c535fc7a7e395e185d28bd17e48ead8f7",
+    "FREEZE_GEOMETRY_BOUNDARY.json": "c79071df62c5cee9eb020a358850b5f8a0f0578ff141015e75886883dd2a63f3",
+    "GEOMETRY_BOUNDARY60.json": "7fa9f1e3b7ad5ae5684e659ab9d9b8f834db17b90b1a80752f86cfe6c252e4b0",
+    "GEOMETRY_BOUNDARY60_SUMMARY.json": "08ee21f1f23e319e413bb228693cdbc8bfb07cbad6b71ac124bb37a686324682",
+    "GEOMETRY_BOUNDARY60_ANALYSIS.json": "e2c16fd13a2468f2a1384772e59ef2605b8927e7b748b1ea9c8084da8c3ded4a"
+  }
+}

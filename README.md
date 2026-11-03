@@ -14,6 +14,11 @@
 ранее подготовленному архиву, а также объединение с ALNS и кроссовером из обновлённого
 main описаны в [docs/v4.md](docs/v4.md).
 
+Экспериментальная посылка **v6** с batch-геометрией и финальными geometry/joint-DP
+стадиями подготовлена отдельно: [описание и сборка](experiments/server_v6/README.md),
+[ZIP для отправки](experiments/server_v6/artifacts/case03_cpp_server_v6_O3.zip). Это проверенный frozen-гибрид
+из глубокого исследования; устойчивое превосходство над v4 не установлено.
+
 ```sh
 python3 -m venv .venv && .venv/bin/pip install pydantic shapely   # для валидатора
 python3 bench.py 60                                                # все открытые инстансы

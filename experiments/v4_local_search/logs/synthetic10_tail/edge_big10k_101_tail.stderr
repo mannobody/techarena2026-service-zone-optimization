@@ -1,0 +1,31 @@
+trace_outer end=1.044708 deadline=1.000000 sets=20 threads=2
+trace_decode k=3 cost=0.035483 end=1.083333 deadline=2.200000 f=59429.066226976
+trace_decode k=2 cost=0.026170 end=1.112703 deadline=2.200000 f=46693.698901818
+trace_decode k=2 cost=0.029873 end=1.145714 deadline=2.200000 f=57023.007075827
+trace_decode k=4 cost=0.045143 end=1.194121 deadline=2.200000 f=73679.222660496
+wide_start mode=2 attempts=259 evaluated=252 decoded=4 best=73679.222660 t=2.203
+trace_build tid=1 ci=7 ctor=0 start=2.204002 end=2.286075 deadline=2.500000 refine=0 f=81237.520528449
+trace_build tid=1 ci=8 ctor=0 start=2.286111 end=2.393632 deadline=2.500000 refine=0 f=119762.001217062
+trace_build tid=0 ci=0 ctor=0 start=2.203133 end=2.408771 deadline=2.500000 refine=0 f=224339.425513073
+trace_build tid=1 ci=9 ctor=0 start=2.393671 end=2.494866 deadline=2.500000 refine=0 f=132988.183511935
+trace_build tid=1 ci=10 ctor=0 start=2.494928 end=2.503676 deadline=2.500000 refine=0 f=6623.326377713
+trace_rank tid=1 start=2.203999 end=2.503723 deadline=2.500000 sets=18 ranked=4 combos=108
+trace_build tid=0 ci=1 ctor=0 start=2.408810 end=2.517186 deadline=2.500000 refine=0 f=150962.613653542
+trace_rank tid=0 start=2.203130 end=2.517252 deadline=2.500000 sets=18 ranked=2 combos=108
+trace_build tid=1 ci=9 ctor=0 start=2.503743 end=4.062214 deadline=4.003738 refine=1 f=2478.411667569
+trace_round tid=1 round=0 rank=0 ci=9 ctor=0 t=4.062313
+trace_build tid=0 ci=0 ctor=0 start=2.517271 end=4.127433 deadline=4.017269 refine=1 f=3505.402196528
+trace_round tid=0 round=0 rank=0 ci=0 ctor=0 t=4.127498
+trace_build tid=1 ci=8 ctor=0 start=4.086530 end=5.660159 deadline=5.586530 refine=1 f=2488.197997819
+trace_round tid=1 round=1 rank=1 ci=8 ctor=0 t=5.660235
+trace_build tid=0 ci=1 ctor=0 start=4.150527 end=5.839839 deadline=5.650526 refine=1 f=2647.404459113
+trace_round tid=0 round=1 rank=1 ci=1 ctor=0 t=5.840002
+trace_build tid=1 ci=7 ctor=0 start=5.680489 end=7.092640 deadline=7.180487 refine=1 f=81651.603599386
+trace_round tid=1 round=2 rank=2 ci=7 ctor=0 t=7.092706
+trace_build tid=0 ci=0 ctor=0 start=5.911235 end=7.533159 deadline=7.411232 refine=1 f=3505.402196528
+trace_round tid=0 round=2 rank=0 ci=0 ctor=0 t=7.533223
+trace_build tid=1 ci=10 ctor=0 start=7.260692 end=8.865535 deadline=8.760690 refine=1 f=3662.417215381
+trace_round tid=1 round=3 rank=3 ci=10 ctor=0 t=8.865607
+trace_build tid=0 ci=1 ctor=0 start=7.556688 end=9.248339 deadline=9.000000 refine=1 f=-5961.348022995
+trace_round tid=0 round=3 rank=1 ci=1 ctor=0 t=9.248406
+objective=224339.425513 fast=0.000 sets=272 threads=2 t=9.8

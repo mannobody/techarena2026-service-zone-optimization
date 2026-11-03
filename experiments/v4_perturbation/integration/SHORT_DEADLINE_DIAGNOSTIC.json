@@ -1,0 +1,48 @@
+{
+  "destination": "experiments/v4_perturbation/integration/logs/short_deadline_diagnostic",
+  "seconds": 3,
+  "cpu_pairs": [
+    [
+      20,
+      21
+    ]
+  ],
+  "seeds": [
+    2451,
+    2452,
+    2453
+  ],
+  "cases": {
+    "gen10": "experiments/server_v6/logs/package_check/gen10/instance.json"
+  },
+  "variants": {
+    "v4": {
+      "source": "experiments/v4_perturbation/baseline/frozen_v4.cpp",
+      "binary": "experiments/v4_perturbation/baseline/v4",
+      "env": {
+        "DBG": "1"
+      }
+    },
+    "off": {
+      "source": "experiments/v4_perturbation/integration/src/combined_dev.cpp",
+      "binary": "experiments/v4_perturbation/integration/bin/combined_dev",
+      "env": {
+        "DBG": "1",
+        "ESCAPE_MODE": "0",
+        "GEOMETRY_PERTURB": "0",
+        "GEOMETRY_SECONDS": "0.8"
+      }
+    },
+    "tabu": {
+      "source": "experiments/v4_perturbation/integration/src/combined_dev.cpp",
+      "binary": "experiments/v4_perturbation/integration/bin/combined_dev",
+      "env": {
+        "DBG": "1",
+        "ESCAPE_MODE": "3",
+        "GEOMETRY_PERTURB": "0",
+        "GEOMETRY_SECONDS": "0.8"
+      }
+    }
+  },
+  "order_seed": 19743
+}

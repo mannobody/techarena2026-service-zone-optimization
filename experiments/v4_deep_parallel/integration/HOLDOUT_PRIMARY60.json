@@ -1,0 +1,49 @@
+{
+  "destination": "experiments/v4_deep_parallel/integration/logs/holdout_primary60",
+  "seconds": 60,
+  "cpu_pairs": [
+    [
+      8,
+      9
+    ],
+    [
+      10,
+      11
+    ],
+    [
+      12,
+      13
+    ],
+    [
+      14,
+      15
+    ]
+  ],
+  "cases": {
+    "small": "experiments/v4_deep_parallel/integration/inputs/holdout/small.json",
+    "medium": "experiments/v4_deep_parallel/integration/inputs/holdout/medium.json",
+    "large": "experiments/v4_deep_parallel/integration/inputs/holdout/large.json",
+    "huge": "experiments/v4_deep_parallel/integration/inputs/holdout/huge.json",
+    "multiskill": "experiments/v4_deep_parallel/integration/inputs/holdout/multiskill.json",
+    "deficit": "experiments/v4_deep_parallel/integration/inputs/holdout/deficit.json",
+    "alphazero": "experiments/v4_deep_parallel/integration/inputs/holdout/alphazero.json",
+    "alphabig": "experiments/v4_deep_parallel/integration/inputs/holdout/alphabig.json",
+    "tightA": "experiments/v4_deep_parallel/integration/inputs/holdout/tightA.json",
+    "cluster": "experiments/v4_deep_parallel/integration/inputs/holdout/cluster.json",
+    "anti": "experiments/v4_deep_parallel/integration/inputs/holdout/anti.json",
+    "grid": "experiments/v4_deep_parallel/integration/inputs/holdout/grid.json"
+  },
+  "seeds": [
+    1501,
+    1502,
+    1503
+  ],
+  "variants": {
+    "v4": {
+      "binary": "experiments/v4_deep_parallel/shared/v4"
+    },
+    "hybrid": {
+      "binary": "experiments/v4_deep_parallel/integration/bin/hybrid_frozen"
+    }
+  }
+}

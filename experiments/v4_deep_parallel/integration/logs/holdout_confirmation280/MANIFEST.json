@@ -1,0 +1,66 @@
+{
+  "spec": {
+    "destination": "experiments/v4_deep_parallel/integration/logs/holdout_confirmation280",
+    "seconds": 280,
+    "cpu_pairs": [
+      [
+        0,
+        5
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        16,
+        17
+      ],
+      [
+        18,
+        19
+      ]
+    ],
+    "cases": {
+      "alphabig": "experiments/v4_deep_parallel/integration/inputs/holdout/alphabig.json",
+      "tightA": "experiments/v4_deep_parallel/integration/inputs/holdout/tightA.json",
+      "multiskill": "experiments/v4_deep_parallel/integration/inputs/holdout/multiskill.json",
+      "anti": "experiments/v4_deep_parallel/integration/inputs/holdout/anti.json",
+      "large": "experiments/v4_deep_parallel/integration/inputs/holdout/large.json",
+      "huge": "experiments/v4_deep_parallel/integration/inputs/holdout/huge.json"
+    },
+    "seeds": [
+      1504
+    ],
+    "variants": {
+      "v4": {
+        "binary": "experiments/v4_deep_parallel/shared/v4"
+      },
+      "hybrid": {
+        "binary": "experiments/v4_deep_parallel/integration/bin/hybrid_frozen"
+      }
+    }
+  },
+  "spec_sha256": "491a09125f9da683fc0098e70b5e2a0da72650f5e7c84c8f5139237c10c708cc",
+  "runner_sha256": "ec8046cbc71586e3388ce16b008076405991452c529424d9b6afd74e8288b6bc",
+  "binaries": {
+    "v4": "5cc54b6ad0f02a3d6d471d0e2f9129c229b4925aaa2b2c01ce26bd5305a4963c",
+    "hybrid": "e0e2aed21d02c91b5b8ddcbc1da2da25d7768c9864f77361d40113e9fb89390c"
+  },
+  "inputs": {
+    "alphabig": "5e677d4d3d7a96987590429b000d9e2f9e1368f91607af6c27b4486b08733416",
+    "tightA": "c149b7774b519bab65a0230afd227084428509ea5433980f3c9cce4d468e865b",
+    "multiskill": "8a1d91c7e8f65566094392a1d302249044b6105c18a02426fa2af74e6e692195",
+    "anti": "651e768168fc862652d55ac113b992c73e793bfb73f3a7720cd56f224eeb0865",
+    "large": "0c97a7613c3bd45ecc2bf4fa0239d6c402974ea68828e521b1ef9700b9516423",
+    "huge": "98fc0dbd9fade7f979133d43d1c8f5fba78d58cf95ff73cc129da024bd964c03"
+  },
+  "topology": "<local-host-omitted>"
+}

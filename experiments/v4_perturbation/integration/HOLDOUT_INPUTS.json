@@ -1,0 +1,177 @@
+{
+  "generated_unix": 1792401287.7498567,
+  "freeze_sha256": "bdee55da789793bb2251df54287c80f76fe9f122a525c4015f1cedaeb72d91db",
+  "generator_sha256": "f6f70fb0ec79c0d0fbdb5d670cb502feeb653a17f6e7c727c26637f7c91c5a36",
+  "gen_py_sha256": "f390366fcc6cf39f6a2ab51ac6189b3c9e6e2a5f94673f13f8a4f9ce2e22892a",
+  "inputs": {
+    "anti": {
+      "path": "experiments/v4_perturbation/integration/inputs/holdout/anti.json",
+      "generator_seed": 951000,
+      "parameters": {
+        "ns": 600,
+        "no": 10,
+        "nw": 20,
+        "nsk": 3,
+        "dist": "anti",
+        "offices": "perimeter"
+      },
+      "transforms": [],
+      "sha256": "0fb10040e665bede8bcb824d0dadd6f78a084fad14919dbf750fb85ae281ed19"
+    },
+    "tightA": {
+      "path": "experiments/v4_perturbation/integration/inputs/holdout/tightA.json",
+      "generator_seed": 951100,
+      "parameters": {
+        "ns": 150,
+        "no": 8,
+        "nw": 16,
+        "nsk": 4,
+        "A": 0,
+        "capf": 1.0
+      },
+      "transforms": [],
+      "sha256": "a112a42787bb59b2f4a30fa92d61b9047cd7d20056bfe5bfc90997662bb0ad97"
+    },
+    "alphabig": {
+      "path": "experiments/v4_perturbation/integration/inputs/holdout/alphabig.json",
+      "generator_seed": 951200,
+      "parameters": {
+        "ns": 600,
+        "no": 8,
+        "nw": 30,
+        "nsk": 4,
+        "span": 1.0,
+        "dscale": 100000.0,
+        "af": 2.0,
+        "tmax": 6
+      },
+      "transforms": [],
+      "sha256": "60db593c4e2dd79d4196c49c268e6eaaf0220b641aed8a0cb7a11ae0657ade6e"
+    },
+    "multiskill": {
+      "path": "experiments/v4_perturbation/integration/inputs/holdout/multiskill.json",
+      "generator_seed": 951300,
+      "parameters": {
+        "ns": 150,
+        "no": 8,
+        "nw": 12,
+        "nsk": 8,
+        "wsk": 3,
+        "tmax": 3
+      },
+      "transforms": [],
+      "sha256": "450669cda33d01524cea36ee83eb2524b87bef2a37a7d3bda358b2012bfeb2fd"
+    },
+    "cluster": {
+      "path": "experiments/v4_perturbation/integration/inputs/holdout/cluster.json",
+      "generator_seed": 951400,
+      "parameters": {
+        "ns": 200,
+        "no": 10,
+        "nw": 20,
+        "nsk": 4,
+        "layout": "cluster",
+        "offices": "random"
+      },
+      "transforms": [],
+      "sha256": "333af696e543ed111239bcd1d0c842158de7f1788e9662d3942ad5759089399c"
+    },
+    "grid": {
+      "path": "experiments/v4_perturbation/integration/inputs/holdout/grid.json",
+      "generator_seed": 951500,
+      "parameters": {
+        "ns": 300,
+        "no": 3,
+        "nw": 12,
+        "nsk": 3,
+        "layout": "grid",
+        "offices": "onsite"
+      },
+      "transforms": [],
+      "sha256": "25f4b11f4377975d2fe32c2e880a2579b92d5187a266b317a29363071b17421a"
+    },
+    "large": {
+      "path": "experiments/v4_perturbation/integration/inputs/holdout/large.json",
+      "generator_seed": 951600,
+      "parameters": {
+        "ns": 3500,
+        "no": 10,
+        "nw": 40,
+        "nsk": 5,
+        "dist": "euclid"
+      },
+      "transforms": [],
+      "sha256": "a25de43a6b916e4a864870c378636b79e8f5f6b6534658456e042d4886f94d01"
+    },
+    "huge": {
+      "path": "experiments/v4_perturbation/integration/inputs/holdout/huge.json",
+      "generator_seed": 951700,
+      "parameters": {
+        "ns": 10000,
+        "no": 20,
+        "nw": 50,
+        "nsk": 5,
+        "dist": "road"
+      },
+      "transforms": [],
+      "sha256": "0516ecab56386d67c7bee21fc7c64f8002068e0168ef3e06680b6f78ef47cf83"
+    },
+    "deficit": {
+      "path": "experiments/v4_perturbation/integration/inputs/holdout/deficit.json",
+      "generator_seed": 951800,
+      "parameters": {
+        "ns": 150,
+        "no": 6,
+        "nw": 6,
+        "nsk": 5,
+        "deficit": 3
+      },
+      "transforms": [],
+      "sha256": "fa7d9f44574d31233ab7fce479ecf7c1de5523dddaa191ca048fffbdfd5de49a"
+    },
+    "alphazero": {
+      "path": "experiments/v4_perturbation/integration/inputs/holdout/alphazero.json",
+      "generator_seed": 951900,
+      "parameters": {
+        "ns": 600,
+        "no": 10,
+        "nw": 20,
+        "nsk": 4,
+        "af": 0.0
+      },
+      "transforms": [],
+      "sha256": "c4a8423fe59c9a330b6b398a4ad64558d7e3b7c23a5bd8650d6833c0a0c7b50b"
+    },
+    "elongated": {
+      "path": "experiments/v4_perturbation/integration/inputs/holdout/elongated.json",
+      "generator_seed": 952000,
+      "parameters": {
+        "ns": 600,
+        "no": 8,
+        "nw": 20,
+        "nsk": 4,
+        "dist": "road"
+      },
+      "transforms": [
+        "y *= .005; original distances retained (coordinate/road mismatch)"
+      ],
+      "sha256": "61e15873160af787ddcb4b6f45be43d47265a31233d5f4aa9dada17452f7a7ba"
+    },
+    "negative": {
+      "path": "experiments/v4_perturbation/integration/inputs/holdout/negative.json",
+      "generator_seed": 952100,
+      "parameters": {
+        "ns": 600,
+        "no": 5,
+        "nw": 20,
+        "nsk": 4,
+        "dist": "road",
+        "A": 10000
+      },
+      "transforms": [
+        "every third reward *= .03; A=10000"
+      ],
+      "sha256": "a23c87ba87e09cede4d65aa30f2afe97c4137759a9b2a867b5b34edfa38088a7"
+    }
+  }
+}

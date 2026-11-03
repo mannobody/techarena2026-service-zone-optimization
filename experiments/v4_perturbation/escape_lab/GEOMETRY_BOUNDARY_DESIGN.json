@@ -1,0 +1,37 @@
+{
+  "registered": 1792399767.9739618,
+  "change": "Final additional prototype: frozen V1 geometry support kick then single native boundary(q24, max .04s within same episode_end), observe/offer before rollback. Mode6 omits kick and performs the identical bounded boundary repair under the same plateau and best retention policy. Failed kicks restore best then still receive the same repair. Refresh elapsed after tick. No native polish, late acceptance, tabu or tail.",
+  "modes": {
+    "geometry_boundary": 5,
+    "boundary_only": 6,
+    "retain": 4,
+    "off": 0
+  },
+  "default": 0,
+  "cpu_pairs": [
+    [
+      14,
+      15
+    ],
+    [
+      18,
+      19
+    ]
+  ],
+  "seconds": 4,
+  "seeds": [
+    2701,
+    2702
+  ],
+  "cases": [
+    "anti",
+    "tightA",
+    "alphabig",
+    "multiskill",
+    "huge",
+    "cluster"
+  ],
+  "prior_sources_unchanged": true,
+  "polish_prototype": "Superseded before freeze/benchmark; compile preserved as unbenchmarked",
+  "soft_deadline_limitation": "boundary setup/verification still uninterruptible; process wall checked; no extra budget"
+}

@@ -1,0 +1,106 @@
+{
+  "seconds": 280,
+  "checks": {
+    "all_processes_successful": true,
+    "all_hash_checks_pass": true,
+    "all_percentage_pairs_defined_finite": true,
+    "mean_at_least_0.1_percent": true,
+    "median_nonnegative": true,
+    "every_input_median_nonnegative": false,
+    "worst_at_least_minus_1_percent": false,
+    "input_bootstrap_lower95_nonnegative": false,
+    "mean_vs_off_nonnegative": true
+  },
+  "primary_criteria_pass": false,
+  "percentage_pair_counts": {
+    "off_vs_v4": {
+      "expected": 12,
+      "defined_finite": 12
+    },
+    "candidate_vs_v4": {
+      "expected": 12,
+      "defined_finite": 12
+    },
+    "v4_vs_off": {
+      "expected": 12,
+      "defined_finite": 12
+    },
+    "candidate_vs_off": {
+      "expected": 12,
+      "defined_finite": 12
+    }
+  },
+  "variance_extension_reasons": {
+    "anti": [
+      {
+        "comparison": "candidate_vs_v4",
+        "sample_sd": 17.170885187819877,
+        "range": 24.28329871056616
+      },
+      {
+        "comparison": "candidate_vs_off",
+        "sample_sd": 17.23673179411989,
+        "range": 24.37641987423188
+      },
+      {
+        "comparison": "off_vs_v4",
+        "sample_sd": 0.5006457196615189,
+        "range": 0.7080199666893585
+      }
+    ],
+    "tightA": [
+      {
+        "comparison": "candidate_vs_v4",
+        "sample_sd": 0.9393962819196208,
+        "range": 1.3285069623335872
+      },
+      {
+        "comparison": "candidate_vs_off",
+        "sample_sd": 1.5827451069183591,
+        "range": 2.238339595983598
+      },
+      {
+        "comparison": "off_vs_v4",
+        "sample_sd": 0.686733509422188,
+        "range": 0.97118784276093
+      }
+    ],
+    "cluster": [
+      {
+        "comparison": "candidate_vs_v4",
+        "sample_sd": 1.1358086278564823,
+        "range": 1.606275965775013
+      },
+      {
+        "comparison": "off_vs_v4",
+        "sample_sd": 1.575096321068941,
+        "range": 2.2275225792996634
+      }
+    ],
+    "huge": [
+      {
+        "comparison": "candidate_vs_v4",
+        "sample_sd": 0.83197224040576,
+        "range": 1.176586425899755
+      },
+      {
+        "comparison": "candidate_vs_off",
+        "sample_sd": 1.6811046770545304,
+        "range": 2.377441034059359
+      },
+      {
+        "comparison": "off_vs_v4",
+        "sample_sd": 0.8698169781683085,
+        "range": 1.2301069673080043
+      }
+    ],
+    "alphabig": [
+      {
+        "comparison": "candidate_vs_off",
+        "sample_sd": 0.5778996696933814,
+        "range": 0.8172735505713118
+      }
+    ]
+  },
+  "note": "Provisional primary decision only. Final acceptance also checks every extension run, all freeze hashes and both budgets. Multiple seeds of one input are not independent instances."
+}

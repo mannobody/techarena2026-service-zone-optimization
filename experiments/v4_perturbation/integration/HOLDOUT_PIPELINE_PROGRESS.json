@@ -1,0 +1,94 @@
+{
+  "started_unix": 1792401287.8100746,
+  "events": [
+    {
+      "label": "holdout60",
+      "command": [
+        "./.venv/bin/python",
+        "./experiments/v4_perturbation/shared/run_blocks.py",
+        "./experiments/v4_perturbation/integration/HOLDOUT60.json"
+      ],
+      "started_unix": 1792401287.824734,
+      "returncode": 0,
+      "ended_unix": 1792402324.7204125
+    },
+    {
+      "label": "evaluate60",
+      "command": [
+        "./.venv/bin/python",
+        "./experiments/v4_perturbation/integration/evaluate_holdout.py",
+        "60"
+      ],
+      "started_unix": 1792402324.7208438,
+      "returncode": 0,
+      "ended_unix": 1792402328.2789507
+    },
+    {
+      "label": "variance60",
+      "command": [
+        "./.venv/bin/python",
+        "./experiments/v4_perturbation/shared/run_blocks.py",
+        "./experiments/v4_perturbation/integration/HOLDOUT60_VARIANCE.json"
+      ],
+      "started_unix": 1792402328.2923853,
+      "returncode": 0,
+      "ended_unix": 1792402732.8701878
+    },
+    {
+      "label": "analyze_variance60",
+      "command": [
+        "./.venv/bin/python",
+        "./experiments/v4_perturbation/shared/analyze.py",
+        "./experiments/v4_perturbation/integration/logs/holdout60_variance",
+        "./experiments/v4_perturbation/integration/HOLDOUT60_VARIANCE_SUMMARY.json"
+      ],
+      "started_unix": 1792402732.870738,
+      "returncode": 0,
+      "ended_unix": 1792402734.9271095
+    },
+    {
+      "label": "finalize60",
+      "command": [
+        "./.venv/bin/python",
+        "./experiments/v4_perturbation/integration/finalize_holdout.py",
+        "60"
+      ],
+      "started_unix": 1792402734.9275177,
+      "returncode": 0,
+      "ended_unix": 1792402741.5035934
+    },
+    {
+      "label": "holdout280",
+      "command": [
+        "./.venv/bin/python",
+        "./experiments/v4_perturbation/shared/run_blocks.py",
+        "./experiments/v4_perturbation/integration/HOLDOUT280.json"
+      ],
+      "started_unix": 1792402741.5139112,
+      "returncode": 0,
+      "ended_unix": 1792405463.2732093
+    },
+    {
+      "label": "evaluate280",
+      "command": [
+        "./.venv/bin/python",
+        "./experiments/v4_perturbation/integration/evaluate_holdout.py",
+        "280"
+      ],
+      "started_unix": 1792405463.2737932,
+      "returncode": 0,
+      "ended_unix": 1792405465.430133
+    },
+    {
+      "label": "variance280",
+      "command": [
+        "./.venv/bin/python",
+        "./experiments/v4_perturbation/shared/run_blocks.py",
+        "./experiments/v4_perturbation/integration/HOLDOUT280_VARIANCE.json"
+      ],
+      "started_unix": 1792405465.4421337,
+      "interrupted_by_user": true
+    }
+  ],
+  "stopped_by_user_unix": 1792406172.3548424
+}

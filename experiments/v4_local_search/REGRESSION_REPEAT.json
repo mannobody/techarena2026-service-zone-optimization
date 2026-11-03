@@ -1,0 +1,29 @@
+{
+  "name": "regression60_repeat",
+  "seconds": 60,
+  "jobs": 3,
+  "cases": {
+    "open4": "task/instance4/instance.json"
+  },
+  "seeds": [
+    11,
+    12,
+    13,
+    14,
+    15,
+    16
+  ],
+  "variants": {
+    "base": {
+      "binary": "experiments/v4_local_search/artifacts/premerge",
+      "env": {}
+    },
+    "merged": {
+      "binary": "experiments/v4_local_search/artifacts/baseline",
+      "env": {}
+    }
+  },
+  "purpose": "Expand variance check against premerge main; no tuning on open test.",
+  "cpu_offset": 16,
+  "repeat_reason": "Prior coordinator exited 143; preserve partial logs and repeat full predeclared series without parameter changes."
+}

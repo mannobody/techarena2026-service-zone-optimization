@@ -1,0 +1,167 @@
+[
+  {
+    "case": "small",
+    "generator_seed": 751000,
+    "parameters": {
+      "ns": 150,
+      "no": 3,
+      "nw": 6,
+      "nsk": 3,
+      "tmax": 2,
+      "dist": "euclid"
+    },
+    "path": "experiments/v4_deep_parallel/integration/inputs/holdout/small.json",
+    "sha256": "32bc0ef0a3edf7ec400e2dcc4db64e2e2759e1953c585e13eb89388c2b0b1cde"
+  },
+  {
+    "case": "medium",
+    "generator_seed": 751100,
+    "parameters": {
+      "ns": 600,
+      "no": 5,
+      "nw": 20,
+      "nsk": 4,
+      "dist": "road"
+    },
+    "path": "experiments/v4_deep_parallel/integration/inputs/holdout/medium.json",
+    "sha256": "c608e450fdb13a3bdb23955c34eb28fdbc148435c755b92cbca91afffe96a038"
+  },
+  {
+    "case": "large",
+    "generator_seed": 751200,
+    "parameters": {
+      "ns": 2000,
+      "no": 15,
+      "nw": 40,
+      "nsk": 5,
+      "dist": "road"
+    },
+    "path": "experiments/v4_deep_parallel/integration/inputs/holdout/large.json",
+    "sha256": "0c97a7613c3bd45ecc2bf4fa0239d6c402974ea68828e521b1ef9700b9516423"
+  },
+  {
+    "case": "huge",
+    "generator_seed": 751300,
+    "parameters": {
+      "ns": 10000,
+      "no": 20,
+      "nw": 50,
+      "nsk": 5,
+      "dist": "road"
+    },
+    "path": "experiments/v4_deep_parallel/integration/inputs/holdout/huge.json",
+    "sha256": "98fc0dbd9fade7f979133d43d1c8f5fba78d58cf95ff73cc129da024bd964c03"
+  },
+  {
+    "case": "multiskill",
+    "generator_seed": 751400,
+    "parameters": {
+      "ns": 150,
+      "no": 6,
+      "nw": 12,
+      "nsk": 6,
+      "wsk": 3,
+      "tmax": 3
+    },
+    "path": "experiments/v4_deep_parallel/integration/inputs/holdout/multiskill.json",
+    "sha256": "8a1d91c7e8f65566094392a1d302249044b6105c18a02426fa2af74e6e692195"
+  },
+  {
+    "case": "deficit",
+    "generator_seed": 751500,
+    "parameters": {
+      "ns": 150,
+      "no": 6,
+      "nw": 6,
+      "nsk": 5,
+      "deficit": 3
+    },
+    "path": "experiments/v4_deep_parallel/integration/inputs/holdout/deficit.json",
+    "sha256": "b472f01cf0ed6b7368ad766de011b2fcea2a3e1ee4850fa41531ef3740e07806"
+  },
+  {
+    "case": "alphazero",
+    "generator_seed": 751600,
+    "parameters": {
+      "ns": 600,
+      "no": 5,
+      "nw": 20,
+      "nsk": 4,
+      "af": 0.0
+    },
+    "path": "experiments/v4_deep_parallel/integration/inputs/holdout/alphazero.json",
+    "sha256": "1eef93e2c5c4010a2d0b9e2358874021fd95efbb1cc50ab74b7d49ad44dbef8d"
+  },
+  {
+    "case": "alphabig",
+    "generator_seed": 751700,
+    "parameters": {
+      "ns": 600,
+      "no": 15,
+      "nw": 30,
+      "nsk": 4,
+      "span": 1.0,
+      "dscale": 100000.0,
+      "af": 5.0,
+      "tmax": 6
+    },
+    "path": "experiments/v4_deep_parallel/integration/inputs/holdout/alphabig.json",
+    "sha256": "5e677d4d3d7a96987590429b000d9e2f9e1368f91607af6c27b4486b08733416"
+  },
+  {
+    "case": "tightA",
+    "generator_seed": 751800,
+    "parameters": {
+      "ns": 400,
+      "no": 8,
+      "nw": 16,
+      "nsk": 4,
+      "A": 2,
+      "capf": 1.0
+    },
+    "path": "experiments/v4_deep_parallel/integration/inputs/holdout/tightA.json",
+    "sha256": "c149b7774b519bab65a0230afd227084428509ea5433980f3c9cce4d468e865b"
+  },
+  {
+    "case": "cluster",
+    "generator_seed": 751900,
+    "parameters": {
+      "ns": 1500,
+      "no": 10,
+      "nw": 20,
+      "nsk": 4,
+      "layout": "cluster",
+      "offices": "random"
+    },
+    "path": "experiments/v4_deep_parallel/integration/inputs/holdout/cluster.json",
+    "sha256": "6c9e24a681813e93b0bbcc274dea4ffb4a75c046e6cfdf379da9ba9ca6f9da03"
+  },
+  {
+    "case": "anti",
+    "generator_seed": 752000,
+    "parameters": {
+      "ns": 600,
+      "no": 10,
+      "nw": 20,
+      "nsk": 3,
+      "dist": "anti",
+      "offices": "random"
+    },
+    "path": "experiments/v4_deep_parallel/integration/inputs/holdout/anti.json",
+    "sha256": "651e768168fc862652d55ac113b992c73e793bfb73f3a7720cd56f224eeb0865"
+  },
+  {
+    "case": "grid",
+    "generator_seed": 752100,
+    "parameters": {
+      "ns": 300,
+      "no": 3,
+      "nw": 12,
+      "nsk": 3,
+      "layout": "grid",
+      "offices": "onsite"
+    },
+    "path": "experiments/v4_deep_parallel/integration/inputs/holdout/grid.json",
+    "sha256": "e83b1a2da7168a59203c862ede32680d616012f2261f0c053db4e19f5a865585"
+  }
+]

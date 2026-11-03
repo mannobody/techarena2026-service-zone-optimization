@@ -1,0 +1,201 @@
+{
+  "series": "./experiments/v4_deep_parallel/integration/logs/open60",
+  "completed_marker": true,
+  "runs": 20,
+  "successful": 20,
+  "variants": {
+    "hybrid": {
+      "pairs": 10,
+      "nonzero_reference_pairs": 10,
+      "mean_pct": -0.08796921458835483,
+      "median_pct": 0.0,
+      "min_pct": -4.519008853532915,
+      "max_pct": 3.6393167076493667,
+      "stdev_pct": 1.9318580949073578,
+      "wins": 1,
+      "ties": 8,
+      "losses": 1,
+      "same_affinity": true,
+      "cases": {
+        "inst0": {
+          "pairs": 2,
+          "baseline_median": 5164995.26668519,
+          "candidate_median": 5164995.26668519,
+          "median_objective_ratio_pct": 0.0,
+          "paired_mean_pct": 0.0,
+          "paired_min_pct": 0.0,
+          "paired_max_pct": 0.0
+        },
+        "inst1": {
+          "pairs": 2,
+          "baseline_median": 32.229957487864645,
+          "candidate_median": 32.229957487864645,
+          "median_objective_ratio_pct": 0.0,
+          "paired_mean_pct": 0.0,
+          "paired_min_pct": 0.0,
+          "paired_max_pct": 0.0
+        },
+        "inst2": {
+          "pairs": 2,
+          "baseline_median": 5.626351596202081,
+          "candidate_median": 5.626351596202081,
+          "median_objective_ratio_pct": 0.0,
+          "paired_mean_pct": 0.0,
+          "paired_min_pct": 0.0,
+          "paired_max_pct": 0.0
+        },
+        "inst3": {
+          "pairs": 2,
+          "baseline_median": 136605.7430503447,
+          "candidate_median": 136605.7430503447,
+          "median_objective_ratio_pct": 0.0,
+          "paired_mean_pct": 0.0,
+          "paired_min_pct": 0.0,
+          "paired_max_pct": 0.0
+        },
+        "inst4": {
+          "pairs": 2,
+          "baseline_median": 18559.21455136389,
+          "candidate_median": 18464.003792623487,
+          "median_objective_ratio_pct": -0.5130107121554108,
+          "paired_mean_pct": -0.43984607294177414,
+          "paired_min_pct": -4.519008853532915,
+          "paired_max_pct": 3.6393167076493667
+        }
+      },
+      "paired": [
+        {
+          "case": "inst1",
+          "seed": 1602,
+          "base": 32.229957487864645,
+          "candidate": 32.229957487864645,
+          "delta": 0.0,
+          "pct": 0.0,
+          "status": "tie",
+          "same_affinity": true
+        },
+        {
+          "case": "inst4",
+          "seed": 1602,
+          "base": 18226.332950462875,
+          "candidate": 18889.64693072087,
+          "delta": 663.3139802579972,
+          "pct": 3.6393167076493667,
+          "status": "win",
+          "same_affinity": true
+        },
+        {
+          "case": "inst2",
+          "seed": 1602,
+          "base": 5.626351596202081,
+          "candidate": 5.626351596202081,
+          "delta": 0.0,
+          "pct": 0.0,
+          "status": "tie",
+          "same_affinity": true
+        },
+        {
+          "case": "inst2",
+          "seed": 1603,
+          "base": 5.626351596202081,
+          "candidate": 5.626351596202081,
+          "delta": 0.0,
+          "pct": 0.0,
+          "status": "tie",
+          "same_affinity": true
+        },
+        {
+          "case": "inst3",
+          "seed": 1603,
+          "base": 136605.7430503447,
+          "candidate": 136605.7430503447,
+          "delta": 0.0,
+          "pct": 0.0,
+          "status": "tie",
+          "same_affinity": true
+        },
+        {
+          "case": "inst0",
+          "seed": 1603,
+          "base": 5164995.26668519,
+          "candidate": 5164995.26668519,
+          "delta": 0.0,
+          "pct": 0.0,
+          "status": "tie",
+          "same_affinity": true
+        },
+        {
+          "case": "inst3",
+          "seed": 1602,
+          "base": 136605.7430503447,
+          "candidate": 136605.7430503447,
+          "delta": 0.0,
+          "pct": 0.0,
+          "status": "tie",
+          "same_affinity": true
+        },
+        {
+          "case": "inst0",
+          "seed": 1602,
+          "base": 5164995.26668519,
+          "candidate": 5164995.26668519,
+          "delta": 0.0,
+          "pct": 0.0,
+          "status": "tie",
+          "same_affinity": true
+        },
+        {
+          "case": "inst4",
+          "seed": 1603,
+          "base": 18892.096152264905,
+          "candidate": 18038.360654526103,
+          "delta": -853.7354977388022,
+          "pct": -4.519008853532915,
+          "status": "loss",
+          "same_affinity": true
+        },
+        {
+          "case": "inst1",
+          "seed": 1603,
+          "base": 32.229957487864645,
+          "candidate": 32.229957487864645,
+          "delta": 0.0,
+          "pct": 0.0,
+          "status": "tie",
+          "same_affinity": true
+        }
+      ]
+    }
+  },
+  "max_wall": 59.874195070000496,
+  "runtime": {
+    "v4": {
+      "runs": 10,
+      "successful": 10,
+      "max_wall": 59.860253496999576,
+      "median_wall": 59.81092150350014,
+      "max_rss_mib": 26.015625,
+      "missing_rss_records": 0,
+      "nonzero_exit": 0,
+      "timeout": 0,
+      "invalid": 0,
+      "wall_exceeded": 0,
+      "error_log": 0,
+      "wrong_or_missing_nt": 0
+    },
+    "hybrid": {
+      "runs": 10,
+      "successful": 10,
+      "max_wall": 59.874195070000496,
+      "median_wall": 59.823541926499274,
+      "max_rss_mib": 27.26171875,
+      "missing_rss_records": 0,
+      "nonzero_exit": 0,
+      "timeout": 0,
+      "invalid": 0,
+      "wall_exceeded": 0,
+      "error_log": 0,
+      "wrong_or_missing_nt": 0
+    }
+  }
+}

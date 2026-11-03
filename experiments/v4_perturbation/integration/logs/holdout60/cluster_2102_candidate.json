@@ -1,0 +1,49 @@
+{
+  "case": "cluster",
+  "seed": 2102,
+  "variant": "candidate",
+  "started_unix": 1792401889.4970706,
+  "ended_unix": 1792401949.2579732,
+  "rc": 0,
+  "timeout": false,
+  "wall": 59.76089976100047,
+  "valid": true,
+  "objective": 56.690166463526374,
+  "validation_error": null,
+  "actual_nt": 2,
+  "error_log": false,
+  "affinity": [
+    8,
+    10
+  ],
+  "success": true,
+  "solution_sha256": "db209fcda71d3857e2a803e7e6d2755b01e5cdc8d04f8bc8649dfcdd4d43601f",
+  "source_sha256": "1857bec7e0882d15cf3091e79aeb0df1608ced5d4ee6883c1cb02656cfbd8e03",
+  "resource": "rss_kb=5768 user=117.46 sys=0.01\n",
+  "snapshots": [
+    {
+      "target_seconds": 10,
+      "observed_seconds": 10.024694460000319,
+      "file": "experiments/v4_perturbation/integration/logs/holdout60/cluster_2102_candidate.t10.solution.json",
+      "sha256": "24614812f43d9a8f9746e60f7433063d2c091b8c99d4b9d1cd7e324cffaeb015",
+      "valid": true,
+      "objective": 56.4952600650591
+    },
+    {
+      "target_seconds": 30,
+      "observed_seconds": 30.049746151002182,
+      "file": "experiments/v4_perturbation/integration/logs/holdout60/cluster_2102_candidate.t30.solution.json",
+      "sha256": "5ca8a1ec5ded5e81ca002b25e1199f0c1244a3a9212c3b2a40a908d596c12854",
+      "valid": true,
+      "objective": 56.628567837621766
+    },
+    {
+      "target_seconds": 50,
+      "observed_seconds": 50.07061214500209,
+      "file": "experiments/v4_perturbation/integration/logs/holdout60/cluster_2102_candidate.t50.solution.json",
+      "sha256": "5ca8a1ec5ded5e81ca002b25e1199f0c1244a3a9212c3b2a40a908d596c12854",
+      "valid": true,
+      "objective": 56.628567837621766
+    }
+  ]
+}

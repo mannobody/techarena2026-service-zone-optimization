@@ -1,0 +1,61 @@
+{
+  "spec": {
+    "destination": "experiments/v4_perturbation/geometry_lab/logs/deadline_mid",
+    "seconds": 0.15,
+    "cpu_pairs": [
+      [
+        12,
+        13
+      ]
+    ],
+    "seeds": [
+      2201
+    ],
+    "cases": {
+      "anti": "experiments/v4_perturbation/shared/inputs/dev/anti.json",
+      "alphabig": "experiments/v4_perturbation/shared/inputs/dev/alphabig.json",
+      "huge": "experiments/v4_perturbation/shared/inputs/dev/huge.json"
+    },
+    "checkpoints": {
+      "anti": "experiments/v4_perturbation/shared/logs/checkpoint280/anti_1902_v4.solution.json",
+      "alphabig": "experiments/v4_perturbation/shared/logs/checkpoint280/alphabig_1902_v4.solution.json",
+      "huge": "experiments/v4_perturbation/shared/logs/checkpoint280/huge_1902_v4.solution.json"
+    },
+    "variants": {
+      "packet": {
+        "binary": "experiments/v4_perturbation/geometry_lab/post_geometry",
+        "source": "experiments/v4_perturbation/geometry_lab/src/post_geometry.cpp",
+        "env": {},
+        "mode": 1
+      },
+      "support": {
+        "binary": "experiments/v4_perturbation/geometry_lab/post_geometry",
+        "source": "experiments/v4_perturbation/geometry_lab/src/post_geometry.cpp",
+        "env": {},
+        "mode": 2
+      }
+    }
+  },
+  "spec_sha256": "ff4fe0ab9e44c87334d6f53b636d564c2319e1601604561fc19eeef9e63ddca2",
+  "runner_sha256": "b8cefa81d00bf83e8a4d046ab449bfdc6b024a8076b5a039e22ccd813b3eacc3",
+  "sources": {
+    "packet": "a1aca648bd371c93b7b53f17041a72105b0f13bfd6bd94bbd14c1e16134f4d5b",
+    "support": "a1aca648bd371c93b7b53f17041a72105b0f13bfd6bd94bbd14c1e16134f4d5b"
+  },
+  "validator_sha256": "6dd5948ebe72977976acf1b8dcaf7c819274c79addfb82328c0ec9a012ed56e0",
+  "checkpoints": {
+    "anti": "216b2cd5afedcd4d97b35e3f0068e74a341eaa825bc4a0802ef8fa58ba4edd81",
+    "alphabig": "6e868637deafdbcbe4106feaa7368c64854d62f69fe0dcef411d03b52c7296ec",
+    "huge": "1bfdd85cef5cd70b6b52e9f99959d4b08822bab11bb7b2347fb4d5e17b4acc38"
+  },
+  "binaries": {
+    "packet": "129858f0934cc13b4a2f87a5dca1c5f92296a39426c5d48825fc1a4a162651db",
+    "support": "129858f0934cc13b4a2f87a5dca1c5f92296a39426c5d48825fc1a4a162651db"
+  },
+  "inputs": {
+    "anti": "28d3a2c81a0ef0bfa8e1ec588da62bd48122f37d9cd4952e413303f84d80d278",
+    "alphabig": "15b841e52b8c4d71fa1dbb819566f48098a90b7b3db6871071f8f2a09ee58ffe",
+    "huge": "cfab2ecaa9c6e7c5edf007d2353d172dcf36b1a47ab2c13664ecfe5b88d0f7c3"
+  },
+  "topology": "<local-host-omitted>"
+}

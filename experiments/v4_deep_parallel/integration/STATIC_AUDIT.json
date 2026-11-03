@@ -1,0 +1,20 @@
+{
+  "kind": "independent static review by geometry_lab; no runtime tests or source changes",
+  "critical_findings": 0,
+  "quality_limitations": [
+    {
+      "file": "solver/joint_territory.h",
+      "line": 99,
+      "severity": "P2",
+      "finding": "DP discards any found candidate if enumeration reaches its local deadline; incumbent remains unchanged. A recovery/publication reserve could preserve partial improvements.",
+      "disposition": "Recorded; frozen evaluation source unchanged. Current conservative abort protects time budget."
+    },
+    {
+      "file": "solver/joint_territory.h",
+      "line": 133,
+      "severity": "P2",
+      "finding": "offer searches worker certificate again instead of reusing the fixed feasible staff. If load_state crosses local deadline, worker DFS may be disabled and a valid gain can be rejected.",
+      "disposition": "Recorded; no invalid output. Reuse would need a separately verified publication API, not an untested change after freeze."
+    }
+  ]
+}

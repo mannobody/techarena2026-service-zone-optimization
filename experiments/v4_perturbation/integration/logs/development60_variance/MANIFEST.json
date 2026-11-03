@@ -1,0 +1,105 @@
+{
+  "spec": {
+    "destination": "experiments/v4_perturbation/integration/logs/development60_variance",
+    "seconds": 60,
+    "cpu_pairs": [
+      [
+        0,
+        1
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        8,
+        10
+      ],
+      [
+        16,
+        17
+      ]
+    ],
+    "seeds": [
+      2003,
+      2004
+    ],
+    "cases": {
+      "anti": "experiments/v4_perturbation/shared/inputs/dev/anti.json",
+      "huge": "experiments/v4_perturbation/shared/inputs/dev/huge.json"
+    },
+    "variants": {
+      "v4": {
+        "source": "experiments/v4_perturbation/baseline/frozen_v4.cpp",
+        "binary": "experiments/v4_perturbation/baseline/v4",
+        "env": {
+          "DBG": "1"
+        }
+      },
+      "off": {
+        "source": "experiments/v4_perturbation/integration/src/combined_dev.cpp",
+        "binary": "experiments/v4_perturbation/integration/bin/combined_dev",
+        "env": {
+          "DBG": "1",
+          "ESCAPE_MODE": "0",
+          "GEOMETRY_PERTURB": "0",
+          "GEOMETRY_SECONDS": "0.8"
+        }
+      },
+      "retain": {
+        "source": "experiments/v4_perturbation/integration/src/combined_dev.cpp",
+        "binary": "experiments/v4_perturbation/integration/bin/combined_dev",
+        "env": {
+          "DBG": "1",
+          "ESCAPE_MODE": "4",
+          "GEOMETRY_PERTURB": "0",
+          "GEOMETRY_SECONDS": "0.8"
+        }
+      },
+      "support": {
+        "source": "experiments/v4_perturbation/integration/src/combined_dev.cpp",
+        "binary": "experiments/v4_perturbation/integration/bin/combined_dev",
+        "env": {
+          "DBG": "1",
+          "ESCAPE_MODE": "0",
+          "GEOMETRY_PERTURB": "2",
+          "GEOMETRY_SECONDS": "0.8"
+        }
+      },
+      "tabu": {
+        "source": "experiments/v4_perturbation/integration/src/combined_dev.cpp",
+        "binary": "experiments/v4_perturbation/integration/bin/combined_dev",
+        "env": {
+          "DBG": "1",
+          "ESCAPE_MODE": "3",
+          "GEOMETRY_PERTURB": "0",
+          "GEOMETRY_SECONDS": "0.8"
+        }
+      }
+    },
+    "order_seed": 853193
+  },
+  "spec_sha256": "696f38223fd7b2d52730be27185c739cd384410fefeb68c37bb1a7a83e7daa9b",
+  "runner_sha256": "b8cefa81d00bf83e8a4d046ab449bfdc6b024a8076b5a039e22ccd813b3eacc3",
+  "sources": {
+    "v4": "5b3914fa9791cb879f3232fb2876a915de83b848ad4b353b0dbf25b574998c25",
+    "off": "b084a437cd7f1a7a62da4577badde0f5d7f63dbb96af4d72f08dc39c0889ab80",
+    "retain": "b084a437cd7f1a7a62da4577badde0f5d7f63dbb96af4d72f08dc39c0889ab80",
+    "support": "b084a437cd7f1a7a62da4577badde0f5d7f63dbb96af4d72f08dc39c0889ab80",
+    "tabu": "b084a437cd7f1a7a62da4577badde0f5d7f63dbb96af4d72f08dc39c0889ab80"
+  },
+  "validator_sha256": "6dd5948ebe72977976acf1b8dcaf7c819274c79addfb82328c0ec9a012ed56e0",
+  "checkpoints": {},
+  "binaries": {
+    "v4": "5cc54b6ad0f02a3d6d471d0e2f9129c229b4925aaa2b2c01ce26bd5305a4963c",
+    "off": "3215c44f78f88b36cfee5ee0846a6f9f679f83eed10d1d90d04f5e7f2f15460a",
+    "retain": "3215c44f78f88b36cfee5ee0846a6f9f679f83eed10d1d90d04f5e7f2f15460a",
+    "support": "3215c44f78f88b36cfee5ee0846a6f9f679f83eed10d1d90d04f5e7f2f15460a",
+    "tabu": "3215c44f78f88b36cfee5ee0846a6f9f679f83eed10d1d90d04f5e7f2f15460a"
+  },
+  "inputs": {
+    "anti": "28d3a2c81a0ef0bfa8e1ec588da62bd48122f37d9cd4952e413303f84d80d278",
+    "huge": "cfab2ecaa9c6e7c5edf007d2353d172dcf36b1a47ab2c13664ecfe5b88d0f7c3"
+  },
+  "topology": "<local-host-omitted>"
+}

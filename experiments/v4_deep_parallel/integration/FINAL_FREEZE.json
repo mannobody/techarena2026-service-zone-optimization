@@ -1,0 +1,36 @@
+{
+  "source": "experiments/v4_deep_parallel/integration/src/hybrid_frozen.cpp",
+  "sha256": "c7ae1602c35d8d41d7791bbc8a296b3396675d6e858767c7cb69b0a9dd039366",
+  "selection": "GJ order selected from completed 36-run development ablation; no tuning after this freeze",
+  "defaults": {
+    "GEOM_TAIL": 15,
+    "JOINT_TERRITORY": 1,
+    "HYBRID_ORDER": 0
+  },
+  "new_source_change": "only tail default flags relative to hybrid_v2; exact frozen artifact is tested in 280s and untouched holdout",
+  "primary_holdout": {
+    "classes": [
+      "small",
+      "medium",
+      "large",
+      "huge",
+      "multiskill",
+      "deficit",
+      "alphazero",
+      "alphabig",
+      "tightA",
+      "cluster",
+      "anti",
+      "grid"
+    ],
+    "generator_seeds": "751000+100*j",
+    "solver_seeds": [
+      1501,
+      1502,
+      1503
+    ],
+    "seconds": 60
+  },
+  "promotion_rule": "Report all outcomes; do not replace v4 baseline if material regressions remain.",
+  "binary_sha256": "e0e2aed21d02c91b5b8ddcbc1da2da25d7768c9864f77361d40113e9fb89390c"
+}

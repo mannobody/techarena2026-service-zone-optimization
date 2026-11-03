@@ -1,0 +1,79 @@
+{
+  "spec": {
+    "name": "holdout60_cycle",
+    "seconds": 60,
+    "jobs": 8,
+    "seeds": [
+      501,
+      502,
+      503
+    ],
+    "cases": {
+      "anti": "experiments/v4_local_search/data/holdout_cycle/anti.json",
+      "alphabig": "experiments/v4_local_search/data/holdout_cycle/alphabig.json",
+      "tightA": "experiments/v4_local_search/data/holdout_cycle/tightA.json",
+      "multiskill": "experiments/v4_local_search/data/holdout_cycle/multiskill.json",
+      "grid": "experiments/v4_local_search/data/holdout_cycle/grid.json",
+      "cluster": "experiments/v4_local_search/data/holdout_cycle/cluster.json",
+      "large": "experiments/v4_local_search/data/holdout_cycle/large.json",
+      "huge": "experiments/v4_local_search/data/holdout_cycle/huge.json"
+    },
+    "variants": {
+      "base": {
+        "binary": "experiments/v4_local_search/artifacts/candidate_v4",
+        "env": {
+          "SEARCH_TRACE": "1",
+          "DBG": "1"
+        }
+      },
+      "cycle": {
+        "binary": "experiments/v4_local_search/artifacts/candidate_v4",
+        "env": {
+          "SEARCH_TRACE": "1",
+          "DBG": "1",
+          "FINAL_EXCHANGE": "2",
+          "BALANCED_CYCLE": "1"
+        }
+      }
+    }
+  },
+  "affinity": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21
+  ],
+  "jobs": 8,
+  "binaries": {
+    "base": "c13882a54312ae4ed2281e2c6991497618e919e561bad18428adda3e72e57aec",
+    "cycle": "c13882a54312ae4ed2281e2c6991497618e919e561bad18428adda3e72e57aec"
+  },
+  "inputs": {
+    "anti": "58f91802b0cd535c6835375780a90604feebcfa52fd53ec5becf118834f8a088",
+    "alphabig": "9f8332c4258dd1f00b2a30792a64b5cece3cdc3f79a203056082e3bad7bbf44f",
+    "tightA": "60de06daa35861edbb06d5b14a179b4d812a86a30136ed2b8e588ecaad938bb1",
+    "multiskill": "9f5035cfbc4e7f42861999b3801fecb3347fcfa14c94de6d822aea52a5835e72",
+    "grid": "905d8301d350c086075382371aa434e145bb45852eb03bfb164ff79d162e8967",
+    "cluster": "ba1d9697efb4528bde299a0b7a78bfeae984133d61650db4895e1664539f4a5e",
+    "large": "49e55e061214d65051312866e9020f53e18b834e10cadac7af2e31cab992653e",
+    "huge": "fa4569e22c02dea460ac3e2971f1dc8d51705c9f661186c4da9e8862af8c4428"
+  }
+}

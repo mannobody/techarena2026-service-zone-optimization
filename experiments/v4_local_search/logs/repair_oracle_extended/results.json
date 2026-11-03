@@ -1,0 +1,1027 @@
+[
+  {
+    "seed": 0,
+    "backend": "highs",
+    "expected": 3.0,
+    "ok": true,
+    "solution": [
+      {
+        "officeId": 0,
+        "sites": [
+          3
+        ],
+        "workers": []
+      },
+      {
+        "officeId": 1,
+        "sites": [
+          1
+        ],
+        "workers": []
+      }
+    ],
+    "value": 3.0,
+    "before": 0.0,
+    "gain": 3.0,
+    "conditional_optimal": true,
+    "bound": 3.0,
+    "status": "HighsModelStatus.kOptimal",
+    "seconds": 0.08769860699976562,
+    "prep": 0.05101203199956217,
+    "iterations": 1,
+    "nodes": 1,
+    "cuts": 0,
+    "max_cut_support": 0,
+    "variables": 19,
+    "rows": 31,
+    "selected": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "joint": true,
+    "events": []
+  },
+  {
+    "seed": 0,
+    "backend": "scip",
+    "expected": 3.0,
+    "ok": true,
+    "solution": [
+      {
+        "officeId": 0,
+        "sites": [
+          3
+        ],
+        "workers": []
+      },
+      {
+        "officeId": 1,
+        "sites": [
+          1
+        ],
+        "workers": []
+      }
+    ],
+    "value": 3.0,
+    "before": 0.0,
+    "gain": 3.0,
+    "conditional_optimal": true,
+    "bound": 3.0,
+    "status": "optimal",
+    "seconds": 0.11362759700023162,
+    "prep": 0.08441207000032591,
+    "iterations": 1,
+    "nodes": 1,
+    "cuts": 0,
+    "max_cut_support": 0,
+    "variables": 19,
+    "rows": 31,
+    "selected": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "joint": true,
+    "events": []
+  },
+  {
+    "seed": 1,
+    "backend": "highs",
+    "expected": 35.0,
+    "ok": true,
+    "solution": [
+      {
+        "officeId": 2,
+        "sites": [
+          0,
+          2,
+          3
+        ],
+        "workers": [
+          2,
+          3
+        ]
+      }
+    ],
+    "value": 35.0,
+    "before": 0.0,
+    "gain": 35.0,
+    "conditional_optimal": true,
+    "bound": 35.0,
+    "status": "HighsModelStatus.kOptimal",
+    "seconds": 0.1559766390000732,
+    "prep": 0.003152130999296787,
+    "iterations": 2,
+    "nodes": 2,
+    "cuts": 1,
+    "max_cut_support": 5,
+    "variables": 28,
+    "rows": 58,
+    "selected": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "joint": true,
+    "events": [
+      {
+        "iteration": 1,
+        "conflicts": 1,
+        "added": 1,
+        "bound": 36.0,
+        "seconds": 0.07553154999914113
+      }
+    ]
+  },
+  {
+    "seed": 1,
+    "backend": "scip",
+    "expected": 35.0,
+    "ok": true,
+    "solution": [
+      {
+        "officeId": 2,
+        "sites": [
+          0,
+          2,
+          3
+        ],
+        "workers": [
+          2,
+          3
+        ]
+      }
+    ],
+    "value": 35.0,
+    "before": 0.0,
+    "gain": 35.0,
+    "conditional_optimal": true,
+    "bound": 35.0,
+    "status": "optimal",
+    "seconds": 0.07487395300086064,
+    "prep": 0.010212825000053272,
+    "iterations": 2,
+    "nodes": 2,
+    "cuts": 1,
+    "max_cut_support": 5,
+    "variables": 28,
+    "rows": 58,
+    "selected": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "joint": true,
+    "events": [
+      {
+        "iteration": 1,
+        "conflicts": 1,
+        "added": 1,
+        "bound": 36.0,
+        "seconds": 0.042736638000860694
+      }
+    ]
+  },
+  {
+    "seed": 2,
+    "backend": "highs",
+    "expected": 15.0,
+    "ok": true,
+    "solution": [
+      {
+        "officeId": 0,
+        "sites": [
+          0,
+          3
+        ],
+        "workers": [
+          0
+        ]
+      }
+    ],
+    "value": 15.0,
+    "before": 0.0,
+    "gain": 15.0,
+    "conditional_optimal": true,
+    "bound": 15.0,
+    "status": "HighsModelStatus.kOptimal",
+    "seconds": 0.023196653000923106,
+    "prep": 0.002546858000641805,
+    "iterations": 1,
+    "nodes": 1,
+    "cuts": 0,
+    "max_cut_support": 0,
+    "variables": 28,
+    "rows": 46,
+    "selected": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "joint": true,
+    "events": []
+  },
+  {
+    "seed": 2,
+    "backend": "scip",
+    "expected": 15.0,
+    "ok": true,
+    "solution": [
+      {
+        "officeId": 0,
+        "sites": [
+          0,
+          3
+        ],
+        "workers": [
+          3
+        ]
+      }
+    ],
+    "value": 15.0,
+    "before": 0.0,
+    "gain": 15.0,
+    "conditional_optimal": true,
+    "bound": 15.0,
+    "status": "optimal",
+    "seconds": 0.02089723800054344,
+    "prep": 0.009473039999647881,
+    "iterations": 1,
+    "nodes": 1,
+    "cuts": 0,
+    "max_cut_support": 0,
+    "variables": 28,
+    "rows": 46,
+    "selected": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "joint": true,
+    "events": []
+  },
+  {
+    "seed": 3,
+    "backend": "highs",
+    "expected": 17.0,
+    "ok": true,
+    "solution": [
+      {
+        "officeId": 1,
+        "sites": [
+          0,
+          2
+        ],
+        "workers": [
+          0
+        ]
+      }
+    ],
+    "value": 17.0,
+    "before": 0.0,
+    "gain": 17.0,
+    "conditional_optimal": true,
+    "bound": 17.0,
+    "status": "HighsModelStatus.kOptimal",
+    "seconds": 0.041117370999927516,
+    "prep": 0.0026954379991366295,
+    "iterations": 1,
+    "nodes": 1,
+    "cuts": 0,
+    "max_cut_support": 0,
+    "variables": 28,
+    "rows": 55,
+    "selected": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "joint": true,
+    "events": []
+  },
+  {
+    "seed": 3,
+    "backend": "scip",
+    "expected": 17.0,
+    "ok": true,
+    "solution": [
+      {
+        "officeId": 1,
+        "sites": [
+          0,
+          2
+        ],
+        "workers": [
+          2,
+          3
+        ]
+      }
+    ],
+    "value": 17.0,
+    "before": 0.0,
+    "gain": 17.0,
+    "conditional_optimal": true,
+    "bound": 17.0,
+    "status": "optimal",
+    "seconds": 0.05064548699920124,
+    "prep": 0.00966400099969178,
+    "iterations": 1,
+    "nodes": 1,
+    "cuts": 0,
+    "max_cut_support": 0,
+    "variables": 28,
+    "rows": 55,
+    "selected": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "joint": true,
+    "events": []
+  },
+  {
+    "seed": 4,
+    "backend": "highs",
+    "expected": 24.0,
+    "ok": true,
+    "solution": [
+      {
+        "officeId": 1,
+        "sites": [
+          1,
+          2,
+          3
+        ],
+        "workers": [
+          0,
+          2
+        ]
+      }
+    ],
+    "value": 24.0,
+    "before": 0.0,
+    "gain": 24.0,
+    "conditional_optimal": true,
+    "bound": 24.0,
+    "status": "HighsModelStatus.kOptimal",
+    "seconds": 0.059248617999401176,
+    "prep": 0.0024359340004593832,
+    "iterations": 1,
+    "nodes": 1,
+    "cuts": 0,
+    "max_cut_support": 0,
+    "variables": 28,
+    "rows": 46,
+    "selected": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "joint": true,
+    "events": []
+  },
+  {
+    "seed": 4,
+    "backend": "scip",
+    "expected": 24.0,
+    "ok": true,
+    "solution": [
+      {
+        "officeId": 1,
+        "sites": [
+          1,
+          2,
+          3
+        ],
+        "workers": [
+          0
+        ]
+      }
+    ],
+    "value": 24.0,
+    "before": 0.0,
+    "gain": 24.0,
+    "conditional_optimal": true,
+    "bound": 24.0,
+    "status": "optimal",
+    "seconds": 0.03788729199914087,
+    "prep": 0.009430185000383062,
+    "iterations": 1,
+    "nodes": 1,
+    "cuts": 0,
+    "max_cut_support": 0,
+    "variables": 28,
+    "rows": 46,
+    "selected": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "joint": true,
+    "events": []
+  },
+  {
+    "seed": 5,
+    "backend": "highs",
+    "expected": 7.0,
+    "ok": true,
+    "solution": [
+      {
+        "officeId": 1,
+        "sites": [
+          0,
+          1
+        ],
+        "workers": [
+          0
+        ]
+      }
+    ],
+    "value": 7.0,
+    "before": 0.0,
+    "gain": 7.0,
+    "conditional_optimal": true,
+    "bound": 7.0,
+    "status": "HighsModelStatus.kOptimal",
+    "seconds": 0.0560548640005436,
+    "prep": 0.002763022001090576,
+    "iterations": 2,
+    "nodes": 2,
+    "cuts": 1,
+    "max_cut_support": 4,
+    "variables": 28,
+    "rows": 52,
+    "selected": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "joint": true,
+    "events": [
+      {
+        "iteration": 1,
+        "conflicts": 2,
+        "added": 1,
+        "bound": 9.0,
+        "seconds": 0.026356108000982204
+      }
+    ]
+  },
+  {
+    "seed": 5,
+    "backend": "scip",
+    "expected": 7.0,
+    "ok": true,
+    "solution": [
+      {
+        "officeId": 1,
+        "sites": [
+          0,
+          1
+        ],
+        "workers": [
+          2,
+          3
+        ]
+      }
+    ],
+    "value": 7.0,
+    "before": 0.0,
+    "gain": 7.0,
+    "conditional_optimal": true,
+    "bound": 7.0,
+    "status": "optimal",
+    "seconds": 0.03158825200080173,
+    "prep": 0.00985661400045501,
+    "iterations": 2,
+    "nodes": 2,
+    "cuts": 1,
+    "max_cut_support": 4,
+    "variables": 28,
+    "rows": 52,
+    "selected": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "joint": true,
+    "events": [
+      {
+        "iteration": 1,
+        "conflicts": 2,
+        "added": 1,
+        "bound": 9.0,
+        "seconds": 0.02155467600096017
+      }
+    ]
+  },
+  {
+    "seed": 6,
+    "backend": "highs",
+    "expected": 32.0,
+    "ok": true,
+    "solution": [
+      {
+        "officeId": 2,
+        "sites": [
+          0,
+          2
+        ],
+        "workers": [
+          0,
+          2,
+          3
+        ]
+      }
+    ],
+    "value": 32.0,
+    "before": 0.0,
+    "gain": 32.0,
+    "conditional_optimal": true,
+    "bound": 32.0,
+    "status": "HighsModelStatus.kOptimal",
+    "seconds": 0.04751958799897693,
+    "prep": 0.004713117999926908,
+    "iterations": 1,
+    "nodes": 1,
+    "cuts": 0,
+    "max_cut_support": 0,
+    "variables": 28,
+    "rows": 49,
+    "selected": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "joint": true,
+    "events": []
+  },
+  {
+    "seed": 6,
+    "backend": "scip",
+    "expected": 32.0,
+    "ok": true,
+    "solution": [
+      {
+        "officeId": 2,
+        "sites": [
+          0,
+          2
+        ],
+        "workers": [
+          0
+        ]
+      }
+    ],
+    "value": 32.0,
+    "before": 0.0,
+    "gain": 32.0,
+    "conditional_optimal": true,
+    "bound": 32.0,
+    "status": "optimal",
+    "seconds": 0.029205136001110077,
+    "prep": 0.01084690100105945,
+    "iterations": 1,
+    "nodes": 1,
+    "cuts": 0,
+    "max_cut_support": 0,
+    "variables": 28,
+    "rows": 49,
+    "selected": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "joint": true,
+    "events": []
+  },
+  {
+    "seed": 7,
+    "backend": "highs",
+    "expected": 9.0,
+    "ok": true,
+    "solution": [
+      {
+        "officeId": 0,
+        "sites": [
+          0,
+          2
+        ],
+        "workers": [
+          0
+        ]
+      }
+    ],
+    "value": 9.0,
+    "before": 0.0,
+    "gain": 9.0,
+    "conditional_optimal": true,
+    "bound": 9.0,
+    "status": "HighsModelStatus.kOptimal",
+    "seconds": 0.025119914000242716,
+    "prep": 0.002803901001243503,
+    "iterations": 1,
+    "nodes": 1,
+    "cuts": 0,
+    "max_cut_support": 0,
+    "variables": 22,
+    "rows": 38,
+    "selected": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "joint": true,
+    "events": []
+  },
+  {
+    "seed": 7,
+    "backend": "scip",
+    "expected": 9.0,
+    "ok": true,
+    "solution": [
+      {
+        "officeId": 0,
+        "sites": [
+          0,
+          2
+        ],
+        "workers": [
+          0
+        ]
+      }
+    ],
+    "value": 9.0,
+    "before": 0.0,
+    "gain": 9.0,
+    "conditional_optimal": true,
+    "bound": 9.0,
+    "status": "optimal",
+    "seconds": 0.018105594999724417,
+    "prep": 0.010291520000464516,
+    "iterations": 1,
+    "nodes": 1,
+    "cuts": 0,
+    "max_cut_support": 0,
+    "variables": 22,
+    "rows": 38,
+    "selected": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "joint": true,
+    "events": []
+  },
+  {
+    "seed": 8,
+    "backend": "highs",
+    "expected": 17.0,
+    "ok": true,
+    "solution": [
+      {
+        "officeId": 1,
+        "sites": [
+          0
+        ],
+        "workers": [
+          0
+        ]
+      }
+    ],
+    "value": 17.0,
+    "before": 0.0,
+    "gain": 17.0,
+    "conditional_optimal": true,
+    "bound": 17.0,
+    "status": "HighsModelStatus.kOptimal",
+    "seconds": 0.024663661999511532,
+    "prep": 0.002593655999589828,
+    "iterations": 1,
+    "nodes": 1,
+    "cuts": 0,
+    "max_cut_support": 0,
+    "variables": 28,
+    "rows": 52,
+    "selected": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "joint": true,
+    "events": []
+  },
+  {
+    "seed": 8,
+    "backend": "scip",
+    "expected": 17.0,
+    "ok": true,
+    "solution": [
+      {
+        "officeId": 1,
+        "sites": [
+          0
+        ],
+        "workers": [
+          0,
+          2,
+          3
+        ]
+      }
+    ],
+    "value": 17.0,
+    "before": 0.0,
+    "gain": 17.0,
+    "conditional_optimal": true,
+    "bound": 17.0,
+    "status": "optimal",
+    "seconds": 0.01965498400022625,
+    "prep": 0.010701419001634349,
+    "iterations": 1,
+    "nodes": 1,
+    "cuts": 0,
+    "max_cut_support": 0,
+    "variables": 28,
+    "rows": 52,
+    "selected": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "joint": true,
+    "events": []
+  },
+  {
+    "seed": 9,
+    "backend": "highs",
+    "expected": 10.0,
+    "ok": true,
+    "solution": [
+      {
+        "officeId": 1,
+        "sites": [
+          1
+        ],
+        "workers": [
+          3
+        ]
+      }
+    ],
+    "value": 10.0,
+    "before": 0.0,
+    "gain": 10.0,
+    "conditional_optimal": true,
+    "bound": 10.0,
+    "status": "HighsModelStatus.kOptimal",
+    "seconds": 0.02184876300088945,
+    "prep": 0.0025069900002563372,
+    "iterations": 1,
+    "nodes": 1,
+    "cuts": 0,
+    "max_cut_support": 0,
+    "variables": 28,
+    "rows": 46,
+    "selected": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "joint": true,
+    "events": []
+  },
+  {
+    "seed": 9,
+    "backend": "scip",
+    "expected": 10.0,
+    "ok": true,
+    "solution": [
+      {
+        "officeId": 1,
+        "sites": [
+          1
+        ],
+        "workers": [
+          0,
+          2,
+          3
+        ]
+      }
+    ],
+    "value": 10.0,
+    "before": 0.0,
+    "gain": 10.0,
+    "conditional_optimal": true,
+    "bound": 10.0,
+    "status": "optimal",
+    "seconds": 0.016743828999096877,
+    "prep": 0.009851027998593054,
+    "iterations": 1,
+    "nodes": 1,
+    "cuts": 0,
+    "max_cut_support": 0,
+    "variables": 28,
+    "rows": 46,
+    "selected": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "joint": true,
+    "events": []
+  },
+  {
+    "seed": 10,
+    "backend": "highs",
+    "expected": 25.0,
+    "ok": true,
+    "solution": [
+      {
+        "officeId": 0,
+        "sites": [
+          2
+        ],
+        "workers": [
+          0
+        ]
+      },
+      {
+        "officeId": 1,
+        "sites": [
+          0
+        ],
+        "workers": [
+          2
+        ]
+      }
+    ],
+    "value": 25.0,
+    "before": 0.0,
+    "gain": 25.0,
+    "conditional_optimal": true,
+    "bound": 25.0,
+    "status": "HighsModelStatus.kOptimal",
+    "seconds": 0.02577196200036269,
+    "prep": 0.00286718600000313,
+    "iterations": 1,
+    "nodes": 1,
+    "cuts": 0,
+    "max_cut_support": 0,
+    "variables": 28,
+    "rows": 55,
+    "selected": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "joint": true,
+    "events": []
+  },
+  {
+    "seed": 10,
+    "backend": "scip",
+    "expected": 25.0,
+    "ok": true,
+    "solution": [
+      {
+        "officeId": 0,
+        "sites": [
+          2
+        ],
+        "workers": [
+          0,
+          2,
+          3
+        ]
+      },
+      {
+        "officeId": 1,
+        "sites": [
+          0
+        ],
+        "workers": [
+          1
+        ]
+      }
+    ],
+    "value": 25.0,
+    "before": 0.0,
+    "gain": 25.0,
+    "conditional_optimal": true,
+    "bound": 25.0,
+    "status": "optimal",
+    "seconds": 0.0253733760000614,
+    "prep": 0.011097300000983523,
+    "iterations": 1,
+    "nodes": 1,
+    "cuts": 0,
+    "max_cut_support": 0,
+    "variables": 28,
+    "rows": 55,
+    "selected": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "joint": true,
+    "events": []
+  },
+  {
+    "seed": 11,
+    "backend": "highs",
+    "expected": 12.0,
+    "ok": true,
+    "solution": [
+      {
+        "officeId": 0,
+        "sites": [
+          0,
+          3
+        ],
+        "workers": []
+      }
+    ],
+    "value": 12.0,
+    "before": 0.0,
+    "gain": 12.0,
+    "conditional_optimal": true,
+    "bound": 12.0,
+    "status": "HighsModelStatus.kOptimal",
+    "seconds": 0.012322020998908556,
+    "prep": 0.002833101998476195,
+    "iterations": 1,
+    "nodes": 1,
+    "cuts": 0,
+    "max_cut_support": 0,
+    "variables": 19,
+    "rows": 28,
+    "selected": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "joint": true,
+    "events": []
+  },
+  {
+    "seed": 11,
+    "backend": "scip",
+    "expected": 12.0,
+    "ok": true,
+    "solution": [
+      {
+        "officeId": 0,
+        "sites": [
+          0,
+          3
+        ],
+        "workers": []
+      }
+    ],
+    "value": 12.0,
+    "before": 0.0,
+    "gain": 12.0,
+    "conditional_optimal": true,
+    "bound": 12.0,
+    "status": "optimal",
+    "seconds": 0.016242329998931382,
+    "prep": 0.010061398999823723,
+    "iterations": 1,
+    "nodes": 0,
+    "cuts": 0,
+    "max_cut_support": 0,
+    "variables": 19,
+    "rows": 28,
+    "selected": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "joint": true,
+    "events": []
+  }
+]

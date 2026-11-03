@@ -1,0 +1,92 @@
+--- frozen_v4.cpp
++++ geometry_candidate.cpp
+@@ -1895,6 +1895,7 @@
+                          int fo1 = -1, int fo2 = -1, int ndir = 9, double hard = 1e18) {
+     Sol& s = E.s;
+     const Inst& I = E.I;
++    static const int gm = getenv("GEO_SPLIT") ? atoi(getenv("GEO_SPLIT")) : 0;
+     vector<int> op;
+     for (int o = 0; o < I.no; o++) if (s.isopen[o]) op.push_back(o);
+     if (op.size() < 2) return false;
+@@ -1909,12 +1910,27 @@
+     const Pt& q1 = I.P[I.ns + o1];
+     const Pt& q2 = I.P[I.ns + o2];
+ 
++    int cap1=I.maxsize[o1],cap2=I.maxsize[o2];
++    if(gm&1){
++        int othermin=INT_MAX;
++        for(int o:op)if(o!=o1&&o!=o2&&s.size_[o]>0)othermin=min(othermin,s.size_[o]);
++        if(othermin<INT_MAX){
++            long long lim=(long long)othermin+I.A;
++            cap1=(int)min((long long)cap1,lim);cap2=(int)min((long long)cap2,lim);
++        }
++    }
++    auto cap=[&](int o){return o==o1?cap1:cap2;};
+     // кандидаты: сайты обеих зон плюс свободные, чей ближайший открытый офис — один из двух
+     vector<int> U = s.members[o1];
+     U.insert(U.end(), s.members[o2].begin(), s.members[o2].end());
+     for (int x = 0; x < I.ns; x++) {
+         if (s.asg[x] >= 0 || !I.servable[x]) continue;
+-        for (int o : I.cand[x]) if (s.isopen[o]) { if (o == o1 || o == o2) U.push_back(x); break; }
++        if(gm&2){
++            // Other hulls stay fixed. A site covered by a third zone cannot join this pair.
++            bool blocked=false;
++            if(s.cov[x])for(int o:op)if(o!=o1&&o!=o2&&geo_exact_covers(s.hull[o],I.P[x])){blocked=true;break;}
++            if(!blocked && (I.pr(o1,x)>0 || I.pr(o2,x)>0))U.push_back(x);
++        }else for (int o : I.cand[x]) if (s.isopen[o]) { if (o == o1 || o == o2) U.push_back(x); break; }
+     }
+     if (U.size() < 2) return false;
+ 
+@@ -1948,7 +1964,7 @@
+     double base = sqrt(vx * vx + vy * vy) < 1e-15 ? 0.0 : atan2(vy, vx);
+     double bestAll = NEG, bDx = 1, bDy = 0, bTh = base;
+     size_t bestkAll = 0;
+-    int bLo = o1, bHi = o2;
++    int bLo = o1, bHi = o2, bestCapLo=cap1, bestCapHi=cap2;
+     vector<pair<double, int>> pr;
+     pr.reserve(U.size());
+     TopSum L, H;
+@@ -1961,8 +1977,8 @@
+         pr.clear();
+         for (int x : U) pr.push_back({I.P[x].x * dx + I.P[x].y * dy, x});
+         sort(pr.begin(), pr.end());
+-        L.init(I.maxsize[lo_off], I.ntask);
+-        H.init(I.maxsize[hi_off], I.ntask);
++        L.init(cap(lo_off), I.ntask);
++        H.init(cap(hi_off), I.ntask);
+         size_t start = 0;
+         while (start < pr.size() && pr[start].first <= p1) {
+             int x = pr[start].second;
+@@ -1976,6 +1992,12 @@
+             if (v > 0 && fits(x, hi_off)) H.insert(v, x);
+         }
+         for (size_t k = start;; k++) {
++            if(gm&4){
++                int availableL=L.top.size()+L.rest.size(),availableH=H.top.size()+H.rest.size();
++                L.m=(int)min((long long)cap(lo_off),(long long)min(availableH,cap(hi_off))+I.A);
++                H.m=(int)min((long long)cap(hi_off),(long long)min(availableL,cap(lo_off))+I.A);
++                L.balance();H.balance();
++            }
+             int szL = L.size(), szH = H.size();
+             // истинная прибыль = сумма эффективных + pi_o * нагрузка
+             double trueL = L.psum + Gd.pi[lo_off] * (double)L.lsum;
+@@ -1991,7 +2013,7 @@
+                 }
+                 if (mx == INT_MIN || (long long)(mx - mn) <= I.A) {
+                     bestAll = v; bestkAll = k; bDx = dx; bDy = dy; bTh = th;
+-                    bLo = lo_off; bHi = hi_off;
++                    bLo = lo_off; bHi = hi_off; bestCapLo=L.size(); bestCapHi=H.size();
+                 }
+             }
+             if (k >= pr.size() || pr[k].first > p2) break;
+@@ -2029,8 +2051,8 @@
+     }
+     sort(sl.rbegin(), sl.rend());
+     sort(sh.rbegin(), sh.rend());
+-    if ((int)sl.size() > I.maxsize[bLo]) sl.resize(I.maxsize[bLo]);
+-    if ((int)sh.size() > I.maxsize[bHi]) sh.resize(I.maxsize[bHi]);
++    if ((int)sl.size() > bestCapLo) sl.resize(bestCapLo);
++    if ((int)sh.size() > bestCapHi) sh.resize(bestCapHi);
+     vector<pair<double, pair<int, int>>> ord;
+     for (auto& e : sl) ord.push_back({e.first, {e.second, bLo}});
+     for (auto& e : sh) ord.push_back({e.first, {e.second, bHi}});

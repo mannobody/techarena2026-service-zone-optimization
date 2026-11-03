@@ -1,0 +1,25 @@
+{
+  "name": "warm_checkpoints5",
+  "seconds": 5,
+  "jobs": 3,
+  "seeds": [
+    301
+  ],
+  "cases": {
+    "anti": "experiments/v4_local_search/data/development/anti.json",
+    "alphabig": "experiments/v4_local_search/data/development/alphabig.json",
+    "tightA": "experiments/v4_local_search/data/development/tightA.json",
+    "multiskill": "experiments/v4_local_search/data/development/multiskill.json",
+    "grid": "experiments/v4_local_search/data/development/grid.json",
+    "cluster": "experiments/v4_local_search/data/development/cluster.json",
+    "large": "experiments/v4_local_search/data/development/large.json",
+    "huge": "experiments/v4_local_search/data/development/huge.json"
+  },
+  "variants": {
+    "base": {
+      "binary": "experiments/v4_local_search/artifacts/baseline",
+      "env": {}
+    }
+  },
+  "cpu_offset": 16
+}

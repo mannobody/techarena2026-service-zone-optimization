@@ -1,0 +1,100 @@
+{
+  "spec": {
+    "name": "screen60",
+    "seconds": 60,
+    "jobs": 4,
+    "cpu_offset": 8,
+    "cases": {
+      "anti": "experiments/v4_deep_parallel/search/inputs/anti.json",
+      "alphabig": "experiments/v4_deep_parallel/search/inputs/alphabig.json",
+      "tightA": "experiments/v4_deep_parallel/search/inputs/tightA.json",
+      "multiskill": "experiments/v4_deep_parallel/search/inputs/multiskill.json",
+      "grid": "experiments/v4_deep_parallel/search/inputs/grid.json",
+      "cluster": "experiments/v4_deep_parallel/search/inputs/cluster.json",
+      "large": "experiments/v4_deep_parallel/search/inputs/large.json",
+      "huge": "experiments/v4_deep_parallel/search/inputs/huge.json"
+    },
+    "seeds": [
+      1101,
+      1102
+    ],
+    "variants": {
+      "v4": {
+        "binary": "experiments/v4_deep_parallel/shared/v4",
+        "env": {
+          "DBG": "1"
+        }
+      },
+      "batch": {
+        "binary": "experiments/v4_deep_parallel/search/bin/lab",
+        "env": {
+          "DBG": "1",
+          "LAB_BATCH": "1"
+        }
+      },
+      "alns": {
+        "binary": "experiments/v4_deep_parallel/search/bin/lab",
+        "env": {
+          "DBG": "1",
+          "LAB_ALNS": "1"
+        }
+      },
+      "archive": {
+        "binary": "experiments/v4_deep_parallel/search/bin/lab",
+        "env": {
+          "DBG": "1",
+          "LAB_ARCHIVE": "1"
+        }
+      },
+      "wide": {
+        "binary": "experiments/v4_deep_parallel/search/bin/lab",
+        "env": {
+          "DBG": "1",
+          "LAB_WIDE": "1"
+        }
+      },
+      "memo": {
+        "binary": "experiments/v4_deep_parallel/search/bin/lab",
+        "env": {
+          "DBG": "1",
+          "LAB_MEMO": "1"
+        }
+      }
+    }
+  },
+  "affinity": [
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21
+  ],
+  "jobs": 4,
+  "binaries": {
+    "v4": "5cc54b6ad0f02a3d6d471d0e2f9129c229b4925aaa2b2c01ce26bd5305a4963c",
+    "batch": "77f35955508fea69cae61dbb93a8854ea84a7e082ffc2aff7c28aa83598ed3a5",
+    "alns": "77f35955508fea69cae61dbb93a8854ea84a7e082ffc2aff7c28aa83598ed3a5",
+    "archive": "77f35955508fea69cae61dbb93a8854ea84a7e082ffc2aff7c28aa83598ed3a5",
+    "wide": "77f35955508fea69cae61dbb93a8854ea84a7e082ffc2aff7c28aa83598ed3a5",
+    "memo": "77f35955508fea69cae61dbb93a8854ea84a7e082ffc2aff7c28aa83598ed3a5"
+  },
+  "inputs": {
+    "anti": "e7de95c41c9eebeeedd15b07b0fe00fa21d32fd3c282e1a5107bd95e710b250d",
+    "alphabig": "accfbcd892c89457097fbd321d11d41b58f172dd306094e141748a58c2aa3022",
+    "tightA": "aa282145809278033c3137b462c11c776295601346893a3b5a2b668985c58928",
+    "multiskill": "deb4572c3d3ba4b1dd3be79b8e41ab6fcfe200475ff22a319f8bf0d438dce6e7",
+    "grid": "23defc0d13d7d2e0e7470627cbfeb9f3f6b6f4c777c8660a903c198d6ee0d683",
+    "cluster": "4ae3d2bac9eee656dffe6aeb024cd8a97202a0dc31d9b37a8e43c0b9cb5ce21a",
+    "large": "7f328e32de04fdd0014a7c8b385fec0f7a35d844f7c3863280900d434d8d5c36",
+    "huge": "ad129c4c5e6c4cc3fa1b6d69be2e7da5f72e94fcf066794651b3668bcba3f9bf"
+  }
+}

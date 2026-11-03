@@ -1,0 +1,80 @@
+{
+  "alphabig": {
+    "generator_seed": 731000,
+    "parameters": {
+      "ns": 300,
+      "no": 15,
+      "nw": 30,
+      "nsk": 4,
+      "span": 1.0,
+      "dscale": 100000.0,
+      "af": 5.0,
+      "tmax": 6
+    },
+    "path": "experiments/v4_deep_parallel/integration/inputs/alphabig.json",
+    "sha256": "4d4ee2680c77534031835e6c4e48a2249a042dd5df9fc5a37fdb02b8762dcdda"
+  },
+  "tightA": {
+    "generator_seed": 731100,
+    "parameters": {
+      "ns": 150,
+      "no": 4,
+      "nw": 16,
+      "nsk": 4,
+      "A": 0,
+      "capf": 0.5
+    },
+    "path": "experiments/v4_deep_parallel/integration/inputs/tightA.json",
+    "sha256": "9145c9d9319464f1b39700eed8a22fa35a20704020965f73dae2467acdcdeaa0"
+  },
+  "multiskill": {
+    "generator_seed": 731200,
+    "parameters": {
+      "ns": 150,
+      "no": 4,
+      "nw": 12,
+      "nsk": 6,
+      "wsk": 3,
+      "tmax": 3
+    },
+    "path": "experiments/v4_deep_parallel/integration/inputs/multiskill.json",
+    "sha256": "cbd229132726dacacec41955fdb734d7372f20cf90d4875f07a755ce85c29d70"
+  },
+  "anti": {
+    "generator_seed": 731300,
+    "parameters": {
+      "ns": 600,
+      "no": 5,
+      "nw": 20,
+      "nsk": 3,
+      "dist": "anti",
+      "offices": "perimeter"
+    },
+    "path": "experiments/v4_deep_parallel/integration/inputs/anti.json",
+    "sha256": "f2c2e805c9f6789c13ab62b6934d85f4ee1ef486d41025c50f682a7ae3f1e9fa"
+  },
+  "large": {
+    "generator_seed": 731400,
+    "parameters": {
+      "ns": 5000,
+      "no": 10,
+      "nw": 40,
+      "nsk": 5,
+      "dist": "euclid"
+    },
+    "path": "experiments/v4_deep_parallel/integration/inputs/large.json",
+    "sha256": "9c0b772627cfebe4d68f04d7b62cbc41f106c7a73970a1b2ac8abab663c0a3ea"
+  },
+  "huge": {
+    "generator_seed": 731500,
+    "parameters": {
+      "ns": 10000,
+      "no": 20,
+      "nw": 50,
+      "nsk": 5,
+      "dist": "road"
+    },
+    "path": "experiments/v4_deep_parallel/integration/inputs/huge.json",
+    "sha256": "83a4af12c7d3bdced9020021687b7fff059d8469e44cd48b482a8f6a1e02d940"
+  }
+}

@@ -1,0 +1,336 @@
+{
+  "seconds": 60,
+  "runs": 24,
+  "success": 23,
+  "checks": {
+    "primary_criteria_pass": true,
+    "all_primary_and_extra_runs_successful": false,
+    "freeze_and_record_hash_checks_pass": true,
+    "all_percentage_pairs_defined_finite": true,
+    "combined_input_weighted_mean_at_least_0.1": true,
+    "combined_pair_median_nonnegative": true,
+    "combined_every_input_median_nonnegative": true,
+    "combined_worst_at_least_minus1": true,
+    "combined_bootstrap_lower_nonnegative": true,
+    "combined_mean_vs_off_nonnegative": true
+  },
+  "accepted_at_this_budget": false,
+  "comparisons": {
+    "candidate_vs_v4": {
+      "pairs": [
+        {
+          "case": "A",
+          "seed": 1,
+          "pct": 10,
+          "success": true,
+          "result": "win"
+        },
+        {
+          "case": "A",
+          "seed": 2,
+          "pct": 10,
+          "success": true,
+          "result": "win"
+        },
+        {
+          "case": "A",
+          "seed": 3,
+          "pct": 10,
+          "success": true,
+          "result": "win"
+        },
+        {
+          "case": "B",
+          "seed": 1,
+          "pct": 0,
+          "success": true,
+          "result": "tie"
+        },
+        {
+          "case": "B",
+          "seed": 2,
+          "pct": 0,
+          "success": true,
+          "result": "tie"
+        },
+        {
+          "case": "B",
+          "seed": 3,
+          "pct": 0,
+          "success": true,
+          "result": "tie"
+        },
+        {
+          "case": "A",
+          "seed": 4,
+          "pct": 100,
+          "success": false,
+          "result": "win"
+        },
+        {
+          "case": "A",
+          "seed": 5,
+          "pct": 100,
+          "success": false,
+          "result": "win"
+        }
+      ],
+      "by_case": {
+        "A": {
+          "n": 5,
+          "mean": 46,
+          "median": 10,
+          "min": 10,
+          "max": 100,
+          "sample_sd": 49.29503017546495
+        },
+        "B": {
+          "n": 3,
+          "mean": 0,
+          "median": 0,
+          "min": 0,
+          "max": 0,
+          "sample_sd": 0.0
+        }
+      },
+      "pair_distribution_descriptive_only": {
+        "n": 8,
+        "mean": 28.75,
+        "median": 10.0,
+        "min": 0,
+        "max": 100,
+        "sample_sd": 44.219420426517836
+      },
+      "input_weighted_mean": 23,
+      "input_mean_distribution": {
+        "n": 2,
+        "mean": 23,
+        "median": 23.0,
+        "min": 0,
+        "max": 46,
+        "sample_sd": 32.526911934581186
+      },
+      "input_bootstrap95_mean": [
+        0,
+        46
+      ],
+      "wtl": {
+        "win": 5,
+        "tie": 3,
+        "loss": 0
+      },
+      "failed_pairs": 2
+    },
+    "candidate_vs_off": {
+      "pairs": [
+        {
+          "case": "A",
+          "seed": 1,
+          "pct": 10,
+          "success": true,
+          "result": "win"
+        },
+        {
+          "case": "A",
+          "seed": 2,
+          "pct": 10,
+          "success": true,
+          "result": "win"
+        },
+        {
+          "case": "A",
+          "seed": 3,
+          "pct": 10,
+          "success": true,
+          "result": "win"
+        },
+        {
+          "case": "B",
+          "seed": 1,
+          "pct": 0,
+          "success": true,
+          "result": "tie"
+        },
+        {
+          "case": "B",
+          "seed": 2,
+          "pct": 0,
+          "success": true,
+          "result": "tie"
+        },
+        {
+          "case": "B",
+          "seed": 3,
+          "pct": 0,
+          "success": true,
+          "result": "tie"
+        },
+        {
+          "case": "A",
+          "seed": 4,
+          "pct": 100,
+          "success": false,
+          "result": "win"
+        },
+        {
+          "case": "A",
+          "seed": 5,
+          "pct": 100,
+          "success": false,
+          "result": "win"
+        }
+      ],
+      "by_case": {
+        "A": {
+          "n": 5,
+          "mean": 46,
+          "median": 10,
+          "min": 10,
+          "max": 100,
+          "sample_sd": 49.29503017546495
+        },
+        "B": {
+          "n": 3,
+          "mean": 0,
+          "median": 0,
+          "min": 0,
+          "max": 0,
+          "sample_sd": 0.0
+        }
+      },
+      "pair_distribution_descriptive_only": {
+        "n": 8,
+        "mean": 28.75,
+        "median": 10.0,
+        "min": 0,
+        "max": 100,
+        "sample_sd": 44.219420426517836
+      },
+      "input_weighted_mean": 23,
+      "input_mean_distribution": {
+        "n": 2,
+        "mean": 23,
+        "median": 23.0,
+        "min": 0,
+        "max": 46,
+        "sample_sd": 32.526911934581186
+      },
+      "input_bootstrap95_mean": [
+        0,
+        46
+      ],
+      "wtl": {
+        "win": 5,
+        "tie": 3,
+        "loss": 0
+      },
+      "failed_pairs": 2
+    },
+    "off_vs_v4": {
+      "pairs": [
+        {
+          "case": "A",
+          "seed": 1,
+          "pct": 10,
+          "success": true,
+          "result": "win"
+        },
+        {
+          "case": "A",
+          "seed": 2,
+          "pct": 10,
+          "success": true,
+          "result": "win"
+        },
+        {
+          "case": "A",
+          "seed": 3,
+          "pct": 10,
+          "success": true,
+          "result": "win"
+        },
+        {
+          "case": "B",
+          "seed": 1,
+          "pct": 0,
+          "success": true,
+          "result": "tie"
+        },
+        {
+          "case": "B",
+          "seed": 2,
+          "pct": 0,
+          "success": true,
+          "result": "tie"
+        },
+        {
+          "case": "B",
+          "seed": 3,
+          "pct": 0,
+          "success": true,
+          "result": "tie"
+        },
+        {
+          "case": "A",
+          "seed": 4,
+          "pct": 100,
+          "success": false,
+          "result": "win"
+        },
+        {
+          "case": "A",
+          "seed": 5,
+          "pct": 100,
+          "success": false,
+          "result": "win"
+        }
+      ],
+      "by_case": {
+        "A": {
+          "n": 5,
+          "mean": 46,
+          "median": 10,
+          "min": 10,
+          "max": 100,
+          "sample_sd": 49.29503017546495
+        },
+        "B": {
+          "n": 3,
+          "mean": 0,
+          "median": 0,
+          "min": 0,
+          "max": 0,
+          "sample_sd": 0.0
+        }
+      },
+      "pair_distribution_descriptive_only": {
+        "n": 8,
+        "mean": 28.75,
+        "median": 10.0,
+        "min": 0,
+        "max": 100,
+        "sample_sd": 44.219420426517836
+      },
+      "input_weighted_mean": 23,
+      "input_mean_distribution": {
+        "n": 2,
+        "mean": 23,
+        "median": 23.0,
+        "min": 0,
+        "max": 46,
+        "sample_sd": 32.526911934581186
+      },
+      "input_bootstrap95_mean": [
+        0,
+        46
+      ],
+      "wtl": {
+        "win": 5,
+        "tie": 3,
+        "loss": 0
+      },
+      "failed_pairs": 2
+    }
+  },
+  "note": "Primary and extras remain separately reported. Combined mean gives each input equal weight; individual-pair distribution is descriptive only. No failed run is removed."
+}

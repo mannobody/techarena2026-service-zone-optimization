@@ -1,0 +1,113 @@
+{
+  "spec": {
+    "destination": "experiments/v4_perturbation/escape_lab/logs/geometry_boundary60",
+    "seconds": 4,
+    "cpu_pairs": [
+      [
+        14,
+        15
+      ],
+      [
+        18,
+        19
+      ]
+    ],
+    "seeds": [
+      2701,
+      2702
+    ],
+    "cases": {
+      "anti": "experiments/v4_perturbation/shared/inputs/dev/anti.json",
+      "tightA": "experiments/v4_perturbation/shared/inputs/dev/tightA.json",
+      "alphabig": "experiments/v4_perturbation/shared/inputs/dev/alphabig.json",
+      "multiskill": "experiments/v4_perturbation/shared/inputs/dev/multiskill.json",
+      "huge": "experiments/v4_perturbation/shared/inputs/dev/huge.json",
+      "cluster": "experiments/v4_perturbation/shared/inputs/dev/cluster.json"
+    },
+    "checkpoints": {
+      "anti": "experiments/v4_perturbation/shared/logs/checkpoint60/anti_1901_v4.solution.json",
+      "tightA": "experiments/v4_perturbation/shared/logs/checkpoint60/tightA_1901_v4.solution.json",
+      "alphabig": "experiments/v4_perturbation/shared/logs/checkpoint60/alphabig_1901_v4.solution.json",
+      "multiskill": "experiments/v4_perturbation/shared/logs/checkpoint60/multiskill_1901_v4.solution.json",
+      "huge": "experiments/v4_perturbation/shared/logs/checkpoint60/huge_1901_v4.solution.json",
+      "cluster": "experiments/v4_perturbation/shared/logs/checkpoint60/cluster_1901_v4.solution.json"
+    },
+    "variants": {
+      "v4": {
+        "binary": "experiments/v4_perturbation/escape_lab/bin/post_repeat_v4",
+        "source": "experiments/v4_perturbation/escape_lab/src/post_repeat_v4.cpp",
+        "mode": 0,
+        "env": {
+          "DBG": "1"
+        }
+      },
+      "off": {
+        "binary": "experiments/v4_perturbation/escape_lab/bin/post_geometry_boundary",
+        "source": "experiments/v4_perturbation/escape_lab/src/post_geometry_boundary.cpp",
+        "mode": 0,
+        "env": {
+          "DBG": "1"
+        }
+      },
+      "retain": {
+        "binary": "experiments/v4_perturbation/escape_lab/bin/post_geometry_boundary",
+        "source": "experiments/v4_perturbation/escape_lab/src/post_geometry_boundary.cpp",
+        "mode": 4,
+        "env": {
+          "DBG": "1"
+        }
+      },
+      "geometry_boundary": {
+        "binary": "experiments/v4_perturbation/escape_lab/bin/post_geometry_boundary",
+        "source": "experiments/v4_perturbation/escape_lab/src/post_geometry_boundary.cpp",
+        "mode": 5,
+        "env": {
+          "DBG": "1"
+        }
+      },
+      "boundary_only": {
+        "binary": "experiments/v4_perturbation/escape_lab/bin/post_geometry_boundary",
+        "source": "experiments/v4_perturbation/escape_lab/src/post_geometry_boundary.cpp",
+        "mode": 6,
+        "env": {
+          "DBG": "1"
+        }
+      }
+    },
+    "order_seed": 871088
+  },
+  "spec_sha256": "7fa9f1e3b7ad5ae5684e659ab9d9b8f834db17b90b1a80752f86cfe6c252e4b0",
+  "runner_sha256": "b8cefa81d00bf83e8a4d046ab449bfdc6b024a8076b5a039e22ccd813b3eacc3",
+  "sources": {
+    "v4": "9cbc3ab56c0fcb3d01c50ce231ea3622ef78847bf7677180356e6c92dd283c93",
+    "off": "460a56c92d2493026ddd6d9c7dfac89161e831158d32e7e9329cdb61f94b77a8",
+    "retain": "460a56c92d2493026ddd6d9c7dfac89161e831158d32e7e9329cdb61f94b77a8",
+    "geometry_boundary": "460a56c92d2493026ddd6d9c7dfac89161e831158d32e7e9329cdb61f94b77a8",
+    "boundary_only": "460a56c92d2493026ddd6d9c7dfac89161e831158d32e7e9329cdb61f94b77a8"
+  },
+  "validator_sha256": "6dd5948ebe72977976acf1b8dcaf7c819274c79addfb82328c0ec9a012ed56e0",
+  "checkpoints": {
+    "anti": "8afeb9c4127d0bc386c59e566cf1e59e257d4e791b572e4f6fc3de8f6a0c19d4",
+    "tightA": "eac0bf3f49eaf690c198dcd1c667adcf00c76d85bfcc25879844a0faeadb349e",
+    "alphabig": "551c0e8166f93b0c0ee85f7834c09f450b2d1d3c5732359cebe9b62e9d3f22fe",
+    "multiskill": "21e90a8a35263a6b6a5e775e4b88cee89e8297cebbb347a57ddb4ce2e383d6c4",
+    "huge": "31c2803eff223a3c12fd0de45f5c9ca48945c1cc7320f30ffc88d95f6b49fb6b",
+    "cluster": "eacc40df8f0f0cad1e144988b6ee0e83f8973b01189f3a86fd9bd493fc70e2ed"
+  },
+  "binaries": {
+    "v4": "bda6bea3f25956f00a199258909107d79b98385ccb2e85bd8fca94a00b16ed70",
+    "off": "900ce454f4f55c69ac2e161432cafa361d0fe215433cbb591e1a97fcb67282e5",
+    "retain": "900ce454f4f55c69ac2e161432cafa361d0fe215433cbb591e1a97fcb67282e5",
+    "geometry_boundary": "900ce454f4f55c69ac2e161432cafa361d0fe215433cbb591e1a97fcb67282e5",
+    "boundary_only": "900ce454f4f55c69ac2e161432cafa361d0fe215433cbb591e1a97fcb67282e5"
+  },
+  "inputs": {
+    "anti": "28d3a2c81a0ef0bfa8e1ec588da62bd48122f37d9cd4952e413303f84d80d278",
+    "tightA": "1ae28e2cd6ea7c5c1c26e3f782a77f79f24bf0f562b09b3f7708aa6cc4c0df9a",
+    "alphabig": "15b841e52b8c4d71fa1dbb819566f48098a90b7b3db6871071f8f2a09ee58ffe",
+    "multiskill": "57f605ad34775503df27145009291f70a1079e69f4a3e4f6c55c729817131201",
+    "huge": "cfab2ecaa9c6e7c5edf007d2353d172dcf36b1a47ab2c13664ecfe5b88d0f7c3",
+    "cluster": "31198c78efc75b7acd54ff2112ffed47674336fb38f642cbf736f064262dd078"
+  },
+  "topology": "<local-host-omitted>"
+}

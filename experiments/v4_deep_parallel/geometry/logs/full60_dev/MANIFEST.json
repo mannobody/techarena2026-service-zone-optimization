@@ -1,0 +1,72 @@
+{
+  "spec": {
+    "destination": "experiments/v4_deep_parallel/geometry/logs/full60_dev",
+    "seconds": 60,
+    "cpu_pairs": [
+      [
+        0,
+        5
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        3,
+        4
+      ]
+    ],
+    "cases": {
+      "anti": "experiments/v4_deep_parallel/geometry/inputs/dev_anti.json",
+      "cluster": "experiments/v4_deep_parallel/geometry/inputs/dev_cluster.json",
+      "tightA": "experiments/v4_deep_parallel/geometry/inputs/dev_tightA.json",
+      "alphabig": "experiments/v4_deep_parallel/geometry/inputs/dev_alphabig.json",
+      "multiskill": "experiments/v4_deep_parallel/geometry/inputs/dev_multiskill.json",
+      "large": "experiments/v4_deep_parallel/geometry/inputs/dev_large.json"
+    },
+    "seeds": [
+      711,
+      712
+    ],
+    "variants": {
+      "v4": {
+        "binary": "experiments/v4_deep_parallel/shared/v4"
+      },
+      "count": {
+        "binary": "experiments/v4_deep_parallel/geometry/bin/candidate_v3",
+        "env": {
+          "GEO_SPLIT": "5"
+        }
+      },
+      "pool": {
+        "binary": "experiments/v4_deep_parallel/geometry/bin/candidate_v3",
+        "env": {
+          "GEO_SPLIT": "2"
+        }
+      },
+      "both": {
+        "binary": "experiments/v4_deep_parallel/geometry/bin/candidate_v3",
+        "env": {
+          "GEO_SPLIT": "7"
+        }
+      }
+    }
+  },
+  "spec_sha256": "0d2969b1f3dbe6d86bacf9183b4c622c0c78f951288b9f2f627ba6c18b89d3a3",
+  "runner_sha256": "aaf7208fa2af32c2cf702fc0ed6016bd2c72a59c1248fee2506fee40ba54ac65",
+  "binaries": {
+    "v4": "5cc54b6ad0f02a3d6d471d0e2f9129c229b4925aaa2b2c01ce26bd5305a4963c",
+    "count": "8c37a84ac2aa735c5cef5e20e874a925261863495926bace5078d2edb1017cba",
+    "pool": "8c37a84ac2aa735c5cef5e20e874a925261863495926bace5078d2edb1017cba",
+    "both": "8c37a84ac2aa735c5cef5e20e874a925261863495926bace5078d2edb1017cba"
+  },
+  "inputs": {
+    "anti": "dd921006e56d674d323d2ca616d3f65dc57f18e00d35c251e0f3c3c44755df8a",
+    "cluster": "0a816ff6519d8a6af55eac6f8190cea5f4f7c36edf85b8be12197742d44f1a2b",
+    "tightA": "27b60841893caa73eca80289b646a861f328efd707f8fea2ee6256be3c96918f",
+    "alphabig": "ae5529cbdf60e4a0736597cb2d09edbd2d4170826ae057cf12b6daa40c6dbac3",
+    "multiskill": "b9e1c7e950c0cc13b416eaa7ad8dc7f2cb2153369dded470881872149e6f0a65",
+    "large": "07244bd38fa4450d5515fcf83c4938b8a1596f19b331dc7575cffea8a94a820e"
+  },
+  "topology": "<local-host-omitted>"
+}

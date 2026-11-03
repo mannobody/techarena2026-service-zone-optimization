@@ -1,0 +1,99 @@
+{
+  "spec": {
+    "destination": "experiments/v4_perturbation/escape_lab/logs/repeat280",
+    "seconds": 4,
+    "cpu_pairs": [
+      [
+        14,
+        15
+      ]
+    ],
+    "seeds": [
+      2601,
+      2602
+    ],
+    "cases": {
+      "anti": "experiments/v4_perturbation/shared/inputs/dev/anti.json",
+      "tightA": "experiments/v4_perturbation/shared/inputs/dev/tightA.json",
+      "alphabig": "experiments/v4_perturbation/shared/inputs/dev/alphabig.json",
+      "multiskill": "experiments/v4_perturbation/shared/inputs/dev/multiskill.json",
+      "cluster": "experiments/v4_perturbation/shared/inputs/dev/cluster.json",
+      "huge": "experiments/v4_perturbation/shared/inputs/dev/huge.json"
+    },
+    "checkpoints": {
+      "anti": "experiments/v4_perturbation/shared/logs/checkpoint280/anti_1902_v4.solution.json",
+      "tightA": "experiments/v4_perturbation/shared/logs/checkpoint280/tightA_1902_v4.solution.json",
+      "alphabig": "experiments/v4_perturbation/shared/logs/checkpoint280/alphabig_1902_v4.solution.json",
+      "multiskill": "experiments/v4_perturbation/shared/logs/checkpoint280/multiskill_1902_v4.solution.json",
+      "cluster": "experiments/v4_perturbation/shared/logs/checkpoint280/cluster_1902_v4.solution.json",
+      "huge": "experiments/v4_perturbation/shared/logs/checkpoint280/huge_1902_v4.solution.json"
+    },
+    "variants": {
+      "v4": {
+        "binary": "experiments/v4_perturbation/escape_lab/bin/post_repeat_v4",
+        "source": "experiments/v4_perturbation/escape_lab/src/post_repeat_v4.cpp",
+        "mode": 0,
+        "env": {
+          "DBG": "1"
+        }
+      },
+      "off": {
+        "binary": "experiments/v4_perturbation/escape_lab/bin/post_repeat_escape",
+        "source": "experiments/v4_perturbation/escape_lab/src/post_repeat_escape.cpp",
+        "mode": 0,
+        "env": {
+          "DBG": "1"
+        }
+      },
+      "retain": {
+        "binary": "experiments/v4_perturbation/escape_lab/bin/post_repeat_escape",
+        "source": "experiments/v4_perturbation/escape_lab/src/post_repeat_escape.cpp",
+        "mode": 4,
+        "env": {
+          "DBG": "1"
+        }
+      },
+      "tabu": {
+        "binary": "experiments/v4_perturbation/escape_lab/bin/post_repeat_escape",
+        "source": "experiments/v4_perturbation/escape_lab/src/post_repeat_escape.cpp",
+        "mode": 3,
+        "env": {
+          "DBG": "1"
+        }
+      }
+    },
+    "order_seed": 871055
+  },
+  "spec_sha256": "551415ef7309c66bfbeb3a90eb1b72e54c18fbdd0b3534cccc0bc8210ab45696",
+  "runner_sha256": "b8cefa81d00bf83e8a4d046ab449bfdc6b024a8076b5a039e22ccd813b3eacc3",
+  "sources": {
+    "v4": "9cbc3ab56c0fcb3d01c50ce231ea3622ef78847bf7677180356e6c92dd283c93",
+    "off": "b71de450b5e535cc2d894da7806b3a52915151cda761ca79cb6eb035d4322ee4",
+    "retain": "b71de450b5e535cc2d894da7806b3a52915151cda761ca79cb6eb035d4322ee4",
+    "tabu": "b71de450b5e535cc2d894da7806b3a52915151cda761ca79cb6eb035d4322ee4"
+  },
+  "validator_sha256": "6dd5948ebe72977976acf1b8dcaf7c819274c79addfb82328c0ec9a012ed56e0",
+  "checkpoints": {
+    "anti": "216b2cd5afedcd4d97b35e3f0068e74a341eaa825bc4a0802ef8fa58ba4edd81",
+    "tightA": "80779b8be9c85580c887adc41a47eb4946fd1b788151eda7a24a99668d2b5a1c",
+    "alphabig": "6e868637deafdbcbe4106feaa7368c64854d62f69fe0dcef411d03b52c7296ec",
+    "multiskill": "21e90a8a35263a6b6a5e775e4b88cee89e8297cebbb347a57ddb4ce2e383d6c4",
+    "cluster": "c028dfa52b8717c379daca73cd61fa76df57f573dd5ad60a1d604ec57acad8f8",
+    "huge": "1bfdd85cef5cd70b6b52e9f99959d4b08822bab11bb7b2347fb4d5e17b4acc38"
+  },
+  "binaries": {
+    "v4": "bda6bea3f25956f00a199258909107d79b98385ccb2e85bd8fca94a00b16ed70",
+    "off": "7420d77f1ebc41aaa5d0a7eb54ba0c8bcaadd9c1e92df2223bfa03ebb21e178e",
+    "retain": "7420d77f1ebc41aaa5d0a7eb54ba0c8bcaadd9c1e92df2223bfa03ebb21e178e",
+    "tabu": "7420d77f1ebc41aaa5d0a7eb54ba0c8bcaadd9c1e92df2223bfa03ebb21e178e"
+  },
+  "inputs": {
+    "anti": "28d3a2c81a0ef0bfa8e1ec588da62bd48122f37d9cd4952e413303f84d80d278",
+    "tightA": "1ae28e2cd6ea7c5c1c26e3f782a77f79f24bf0f562b09b3f7708aa6cc4c0df9a",
+    "alphabig": "15b841e52b8c4d71fa1dbb819566f48098a90b7b3db6871071f8f2a09ee58ffe",
+    "multiskill": "57f605ad34775503df27145009291f70a1079e69f4a3e4f6c55c729817131201",
+    "cluster": "31198c78efc75b7acd54ff2112ffed47674336fb38f642cbf736f064262dd078",
+    "huge": "cfab2ecaa9c6e7c5edf007d2353d172dcf36b1a47ab2c13664ecfe5b88d0f7c3"
+  },
+  "topology": "<local-host-omitted>"
+}

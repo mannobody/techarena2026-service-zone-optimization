@@ -1,0 +1,38 @@
+{
+  "name": "development60_cycle",
+  "seconds": 60,
+  "jobs": 8,
+  "seeds": [
+    301,
+    302,
+    303
+  ],
+  "cases": {
+    "anti": "experiments/v4_local_search/data/development/anti.json",
+    "alphabig": "experiments/v4_local_search/data/development/alphabig.json",
+    "tightA": "experiments/v4_local_search/data/development/tightA.json",
+    "multiskill": "experiments/v4_local_search/data/development/multiskill.json",
+    "grid": "experiments/v4_local_search/data/development/grid.json",
+    "cluster": "experiments/v4_local_search/data/development/cluster.json",
+    "large": "experiments/v4_local_search/data/development/large.json",
+    "huge": "experiments/v4_local_search/data/development/huge.json"
+  },
+  "variants": {
+    "base": {
+      "binary": "experiments/v4_local_search/artifacts/candidate_v4",
+      "env": {
+        "SEARCH_TRACE": "1",
+        "DBG": "1"
+      }
+    },
+    "cycle": {
+      "binary": "experiments/v4_local_search/artifacts/candidate_v4",
+      "env": {
+        "SEARCH_TRACE": "1",
+        "DBG": "1",
+        "FINAL_EXCHANGE": "2",
+        "BALANCED_CYCLE": "1"
+      }
+    }
+  }
+}

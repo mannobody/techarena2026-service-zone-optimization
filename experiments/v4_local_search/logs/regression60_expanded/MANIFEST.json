@@ -1,0 +1,61 @@
+{
+  "spec": {
+    "name": "regression60_expanded",
+    "seconds": 60,
+    "jobs": 8,
+    "cases": {
+      "open4": "task/instance4/instance.json"
+    },
+    "seeds": [
+      11,
+      12,
+      13,
+      14,
+      15,
+      16
+    ],
+    "variants": {
+      "base": {
+        "binary": "experiments/v4_local_search/artifacts/premerge",
+        "env": {}
+      },
+      "merged": {
+        "binary": "experiments/v4_local_search/artifacts/baseline",
+        "env": {}
+      }
+    },
+    "purpose": "Expand variance check against premerge main; no tuning on open test."
+  },
+  "affinity": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21
+  ],
+  "jobs": 8,
+  "binaries": {
+    "base": "17340966397183989461df39ec913a98f09055c1945a75c4ff95502df31366fa",
+    "merged": "06720aabb99ba13115e55ec43136562c37e911781354d207e4c0813ce485298b"
+  },
+  "inputs": {
+    "open4": "c1132c4ea260eebec47014e0c405a6ef41caeb6f6354f038532f428e3653a0f5"
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "destination": "experiments/v4_deep_parallel/integration/logs/open60",
+  "seconds": 60,
+  "cpu_pairs": [
+    [
+      0,
+      5
+    ],
+    [
+      1,
+      2
+    ],
+    [
+      3,
+      4
+    ],
+    [
+      6,
+      7
+    ],
+    [
+      16,
+      17
+    ],
+    [
+      18,
+      19
+    ]
+  ],
+  "cases": {
+    "inst0": "task/instance0/instance.json",
+    "inst1": "task/instance1/instance.json",
+    "inst2": "task/instance2/instance.json",
+    "inst3": "task/instance3/instance.json",
+    "inst4": "task/instance4/instance.json"
+  },
+  "seeds": [
+    1602,
+    1603
+  ],
+  "variants": {
+    "v4": {
+      "binary": "experiments/v4_deep_parallel/shared/v4"
+    },
+    "hybrid": {
+      "binary": "experiments/v4_deep_parallel/integration/bin/hybrid_frozen"
+    }
+  }
+}

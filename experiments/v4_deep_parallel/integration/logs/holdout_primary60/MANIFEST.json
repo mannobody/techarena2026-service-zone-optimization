@@ -1,0 +1,72 @@
+{
+  "spec": {
+    "destination": "experiments/v4_deep_parallel/integration/logs/holdout_primary60",
+    "seconds": 60,
+    "cpu_pairs": [
+      [
+        8,
+        9
+      ],
+      [
+        10,
+        11
+      ],
+      [
+        12,
+        13
+      ],
+      [
+        14,
+        15
+      ]
+    ],
+    "cases": {
+      "small": "experiments/v4_deep_parallel/integration/inputs/holdout/small.json",
+      "medium": "experiments/v4_deep_parallel/integration/inputs/holdout/medium.json",
+      "large": "experiments/v4_deep_parallel/integration/inputs/holdout/large.json",
+      "huge": "experiments/v4_deep_parallel/integration/inputs/holdout/huge.json",
+      "multiskill": "experiments/v4_deep_parallel/integration/inputs/holdout/multiskill.json",
+      "deficit": "experiments/v4_deep_parallel/integration/inputs/holdout/deficit.json",
+      "alphazero": "experiments/v4_deep_parallel/integration/inputs/holdout/alphazero.json",
+      "alphabig": "experiments/v4_deep_parallel/integration/inputs/holdout/alphabig.json",
+      "tightA": "experiments/v4_deep_parallel/integration/inputs/holdout/tightA.json",
+      "cluster": "experiments/v4_deep_parallel/integration/inputs/holdout/cluster.json",
+      "anti": "experiments/v4_deep_parallel/integration/inputs/holdout/anti.json",
+      "grid": "experiments/v4_deep_parallel/integration/inputs/holdout/grid.json"
+    },
+    "seeds": [
+      1501,
+      1502,
+      1503
+    ],
+    "variants": {
+      "v4": {
+        "binary": "experiments/v4_deep_parallel/shared/v4"
+      },
+      "hybrid": {
+        "binary": "experiments/v4_deep_parallel/integration/bin/hybrid_frozen"
+      }
+    }
+  },
+  "spec_sha256": "8e1cbc336c08af74d33b4b6ebce3126273734fd1b7731bfe55df79d22ed3acdb",
+  "runner_sha256": "ec8046cbc71586e3388ce16b008076405991452c529424d9b6afd74e8288b6bc",
+  "binaries": {
+    "v4": "5cc54b6ad0f02a3d6d471d0e2f9129c229b4925aaa2b2c01ce26bd5305a4963c",
+    "hybrid": "e0e2aed21d02c91b5b8ddcbc1da2da25d7768c9864f77361d40113e9fb89390c"
+  },
+  "inputs": {
+    "small": "32bc0ef0a3edf7ec400e2dcc4db64e2e2759e1953c585e13eb89388c2b0b1cde",
+    "medium": "c608e450fdb13a3bdb23955c34eb28fdbc148435c755b92cbca91afffe96a038",
+    "large": "0c97a7613c3bd45ecc2bf4fa0239d6c402974ea68828e521b1ef9700b9516423",
+    "huge": "98fc0dbd9fade7f979133d43d1c8f5fba78d58cf95ff73cc129da024bd964c03",
+    "multiskill": "8a1d91c7e8f65566094392a1d302249044b6105c18a02426fa2af74e6e692195",
+    "deficit": "b472f01cf0ed6b7368ad766de011b2fcea2a3e1ee4850fa41531ef3740e07806",
+    "alphazero": "1eef93e2c5c4010a2d0b9e2358874021fd95efbb1cc50ab74b7d49ad44dbef8d",
+    "alphabig": "5e677d4d3d7a96987590429b000d9e2f9e1368f91607af6c27b4486b08733416",
+    "tightA": "c149b7774b519bab65a0230afd227084428509ea5433980f3c9cce4d468e865b",
+    "cluster": "6c9e24a681813e93b0bbcc274dea4ffb4a75c046e6cfdf379da9ba9ca6f9da03",
+    "anti": "651e768168fc862652d55ac113b992c73e793bfb73f3a7720cd56f224eeb0865",
+    "grid": "e83b1a2da7168a59203c862ede32680d616012f2261f0c053db4e19f5a865585"
+  },
+  "topology": "<local-host-omitted>"
+}

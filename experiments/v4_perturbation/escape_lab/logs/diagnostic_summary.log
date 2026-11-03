@@ -1,0 +1,110 @@
+{
+  "runs": 36,
+  "success": 36,
+  "modes": {
+    "kick": {
+      "episodes": 62,
+      "failed": 50.0,
+      "feasibility_rejected": 16,
+      "loss_rejected": 34,
+      "effective_changed_kicks": 8,
+      "effective_recovered": 0.0,
+      "effective_censored": 8,
+      "effective_first_return": {
+        "n": 0
+      },
+      "effective_censor_duration": {
+        "n": 8,
+        "min": 0.297958978,
+        "median": 0.32486791800000003,
+        "max": 0.428784292,
+        "mean": 0.35500573012500003
+      },
+      "all_recovered": 54.0,
+      "all_first_return": {
+        "n": 54,
+        "min": 0.000518822,
+        "median": 0.001380039,
+        "max": 0.131801748,
+        "mean": 0.01670543448148148
+      },
+      "all_censor_duration": {
+        "n": 8,
+        "min": 0.297958978,
+        "median": 0.32486791800000003,
+        "max": 0.428784292,
+        "mean": 0.35500573012500003
+      }
+    },
+    "late": {
+      "episodes": 66,
+      "failed": 0.0,
+      "feasibility_rejected": 0,
+      "loss_rejected": 0,
+      "effective_changed_kicks": 0,
+      "effective_recovered": 0,
+      "effective_censored": 0,
+      "effective_first_return": {
+        "n": 0
+      },
+      "effective_censor_duration": {
+        "n": 0
+      },
+      "all_recovered": 60.0,
+      "all_first_return": {
+        "n": 60,
+        "min": 0.000359254,
+        "median": 0.0550844685,
+        "max": 0.292206361,
+        "mean": 0.08101673241666667
+      },
+      "all_censor_duration": {
+        "n": 6,
+        "min": 0.283009835,
+        "median": 0.305482868,
+        "max": 0.352016154,
+        "mean": 0.3093385356666667
+      }
+    },
+    "tabu": {
+      "episodes": 65,
+      "failed": 61.0,
+      "feasibility_rejected": 22,
+      "loss_rejected": 39,
+      "effective_changed_kicks": 3,
+      "effective_recovered": 0.0,
+      "effective_censored": 3,
+      "effective_first_return": {
+        "n": 0
+      },
+      "effective_censor_duration": {
+        "n": 3,
+        "min": 0.323996914,
+        "median": 0.338818742,
+        "max": 0.341806497,
+        "mean": 0.334874051
+      },
+      "all_recovered": 62.0,
+      "all_first_return": {
+        "n": 62,
+        "min": 0.000644877,
+        "median": 0.0018089885,
+        "max": 0.089087364,
+        "mean": 0.014863828983870968
+      },
+      "all_censor_duration": {
+        "n": 3,
+        "min": 0.323996914,
+        "median": 0.338818742,
+        "max": 0.341806497,
+        "mean": 0.334874051
+      }
+    }
+  },
+  "quality_freeze_unchanged": {
+    "src/escape.h": true,
+    "src/escape_v4.cpp": true,
+    "bin/escape_v4": true,
+    "bin/post_escape": true
+  }
+}

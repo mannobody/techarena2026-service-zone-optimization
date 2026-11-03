@@ -1,0 +1,37 @@
+{
+  "destination": "experiments/v4_perturbation/geometry_lab/logs/deadline_mid",
+  "seconds": 0.15,
+  "cpu_pairs": [
+    [
+      12,
+      13
+    ]
+  ],
+  "seeds": [
+    2201
+  ],
+  "cases": {
+    "anti": "experiments/v4_perturbation/shared/inputs/dev/anti.json",
+    "alphabig": "experiments/v4_perturbation/shared/inputs/dev/alphabig.json",
+    "huge": "experiments/v4_perturbation/shared/inputs/dev/huge.json"
+  },
+  "checkpoints": {
+    "anti": "experiments/v4_perturbation/shared/logs/checkpoint280/anti_1902_v4.solution.json",
+    "alphabig": "experiments/v4_perturbation/shared/logs/checkpoint280/alphabig_1902_v4.solution.json",
+    "huge": "experiments/v4_perturbation/shared/logs/checkpoint280/huge_1902_v4.solution.json"
+  },
+  "variants": {
+    "packet": {
+      "binary": "experiments/v4_perturbation/geometry_lab/post_geometry",
+      "source": "experiments/v4_perturbation/geometry_lab/src/post_geometry.cpp",
+      "env": {},
+      "mode": 1
+    },
+    "support": {
+      "binary": "experiments/v4_perturbation/geometry_lab/post_geometry",
+      "source": "experiments/v4_perturbation/geometry_lab/src/post_geometry.cpp",
+      "env": {},
+      "mode": 2
+    }
+  }
+}

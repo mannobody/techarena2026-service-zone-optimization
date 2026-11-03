@@ -1,0 +1,171 @@
+{
+  "anti": {
+    "path": "experiments/v4_perturbation/shared/inputs/dev/anti.json",
+    "generator_seed": 851000,
+    "parameters": {
+      "ns": 150,
+      "no": 5,
+      "nw": 20,
+      "nsk": 3,
+      "dist": "anti",
+      "offices": "random"
+    },
+    "transforms": [],
+    "sha256": "28d3a2c81a0ef0bfa8e1ec588da62bd48122f37d9cd4952e413303f84d80d278"
+  },
+  "tightA": {
+    "path": "experiments/v4_perturbation/shared/inputs/dev/tightA.json",
+    "generator_seed": 851100,
+    "parameters": {
+      "ns": 400,
+      "no": 8,
+      "nw": 16,
+      "nsk": 4,
+      "A": 0,
+      "capf": 1.0
+    },
+    "transforms": [],
+    "sha256": "1ae28e2cd6ea7c5c1c26e3f782a77f79f24bf0f562b09b3f7708aa6cc4c0df9a"
+  },
+  "alphabig": {
+    "path": "experiments/v4_perturbation/shared/inputs/dev/alphabig.json",
+    "generator_seed": 851200,
+    "parameters": {
+      "ns": 600,
+      "no": 8,
+      "nw": 30,
+      "nsk": 4,
+      "span": 1.0,
+      "dscale": 100000.0,
+      "af": 2.0,
+      "tmax": 6
+    },
+    "transforms": [],
+    "sha256": "15b841e52b8c4d71fa1dbb819566f48098a90b7b3db6871071f8f2a09ee58ffe"
+  },
+  "multiskill": {
+    "path": "experiments/v4_perturbation/shared/inputs/dev/multiskill.json",
+    "generator_seed": 851300,
+    "parameters": {
+      "ns": 150,
+      "no": 8,
+      "nw": 8,
+      "nsk": 8,
+      "wsk": 3,
+      "tmax": 3
+    },
+    "transforms": [],
+    "sha256": "57f605ad34775503df27145009291f70a1079e69f4a3e4f6c55c729817131201"
+  },
+  "cluster": {
+    "path": "experiments/v4_perturbation/shared/inputs/dev/cluster.json",
+    "generator_seed": 851400,
+    "parameters": {
+      "ns": 200,
+      "no": 10,
+      "nw": 20,
+      "nsk": 4,
+      "layout": "cluster",
+      "offices": "random"
+    },
+    "transforms": [],
+    "sha256": "31198c78efc75b7acd54ff2112ffed47674336fb38f642cbf736f064262dd078"
+  },
+  "grid": {
+    "path": "experiments/v4_perturbation/shared/inputs/dev/grid.json",
+    "generator_seed": 851500,
+    "parameters": {
+      "ns": 300,
+      "no": 3,
+      "nw": 12,
+      "nsk": 3,
+      "layout": "grid",
+      "offices": "onsite"
+    },
+    "transforms": [],
+    "sha256": "0306bf511ce4b28e1985ad311311034aad696f020a440ddfe5aa0a02ec0072e3"
+  },
+  "large": {
+    "path": "experiments/v4_perturbation/shared/inputs/dev/large.json",
+    "generator_seed": 851600,
+    "parameters": {
+      "ns": 3500,
+      "no": 10,
+      "nw": 40,
+      "nsk": 5,
+      "dist": "road"
+    },
+    "transforms": [],
+    "sha256": "4f975dbbc6612bc2235d7c4c7b5d27adb589dd6d1237d6301dd2416ffc606c7a"
+  },
+  "huge": {
+    "path": "experiments/v4_perturbation/shared/inputs/dev/huge.json",
+    "generator_seed": 851700,
+    "parameters": {
+      "ns": 10000,
+      "no": 25,
+      "nw": 50,
+      "nsk": 5,
+      "dist": "road"
+    },
+    "transforms": [],
+    "sha256": "cfab2ecaa9c6e7c5edf007d2353d172dcf36b1a47ab2c13664ecfe5b88d0f7c3"
+  },
+  "deficit": {
+    "path": "experiments/v4_perturbation/shared/inputs/dev/deficit.json",
+    "generator_seed": 851800,
+    "parameters": {
+      "ns": 150,
+      "no": 4,
+      "nw": 6,
+      "nsk": 5,
+      "deficit": 3
+    },
+    "transforms": [],
+    "sha256": "f4b3c3a47eefe5e7d09f1c73b3cda00c83b62390ac74fc6d98a5b97c8fbdb2d0"
+  },
+  "alphazero": {
+    "path": "experiments/v4_perturbation/shared/inputs/dev/alphazero.json",
+    "generator_seed": 851900,
+    "parameters": {
+      "ns": 200,
+      "no": 5,
+      "nw": 20,
+      "nsk": 4,
+      "af": 0.0
+    },
+    "transforms": [],
+    "sha256": "64748cc11cf27e937e178ec52e58ba76cfc4284504ae5769d6c60ccb23674467"
+  },
+  "elongated": {
+    "path": "experiments/v4_perturbation/shared/inputs/dev/elongated.json",
+    "generator_seed": 852000,
+    "parameters": {
+      "ns": 350,
+      "no": 5,
+      "nw": 20,
+      "nsk": 4,
+      "dist": "manhattan"
+    },
+    "transforms": [
+      "y *= .005; original distances retained (coordinate/road mismatch)"
+    ],
+    "sha256": "5b6b6d56038d594264f3c529735e5140442ddfa104589ceff2fdcf1359aadac1"
+  },
+  "negative": {
+    "path": "experiments/v4_perturbation/shared/inputs/dev/negative.json",
+    "generator_seed": 852100,
+    "parameters": {
+      "ns": 200,
+      "no": 8,
+      "nw": 20,
+      "nsk": 4,
+      "dist": "road",
+      "A": 10000
+    },
+    "transforms": [
+      "every third reward *= .03; A=10000"
+    ],
+    "sha256": "6013cf3d9dbe0fb91ef813a92d6c781c30586585f155579e65de1daf760b5fe8"
+  }
+}

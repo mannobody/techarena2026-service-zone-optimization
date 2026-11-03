@@ -1,0 +1,97 @@
+{
+  "spec": {
+    "name": "development60_v1",
+    "seconds": 60,
+    "jobs": 8,
+    "seeds": [
+      301,
+      302,
+      303
+    ],
+    "cases": {
+      "anti": "experiments/v4_local_search/data/development/anti.json",
+      "alphabig": "experiments/v4_local_search/data/development/alphabig.json",
+      "tightA": "experiments/v4_local_search/data/development/tightA.json",
+      "multiskill": "experiments/v4_local_search/data/development/multiskill.json",
+      "grid": "experiments/v4_local_search/data/development/grid.json",
+      "cluster": "experiments/v4_local_search/data/development/cluster.json",
+      "large": "experiments/v4_local_search/data/development/large.json",
+      "huge": "experiments/v4_local_search/data/development/huge.json"
+    },
+    "variants": {
+      "base": {
+        "binary": "experiments/v4_local_search/artifacts/exchange_v1",
+        "env": {
+          "SEARCH_TRACE": "1",
+          "DBG": "1"
+        }
+      },
+      "local": {
+        "binary": "experiments/v4_local_search/artifacts/exchange_v1",
+        "env": {
+          "SEARCH_TRACE": "1",
+          "DBG": "1",
+          "LOCAL_BUDGET": "1"
+        }
+      },
+      "fair": {
+        "binary": "experiments/v4_local_search/artifacts/exchange_v1",
+        "env": {
+          "SEARCH_TRACE": "1",
+          "DBG": "1",
+          "LOCAL_BUDGET": "1",
+          "RANK_FAIR": "1"
+        }
+      },
+      "exchange": {
+        "binary": "experiments/v4_local_search/artifacts/exchange_v1",
+        "env": {
+          "SEARCH_TRACE": "1",
+          "DBG": "1",
+          "EXCHANGE": "2"
+        }
+      }
+    }
+  },
+  "affinity": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21
+  ],
+  "jobs": 8,
+  "binaries": {
+    "base": "b106544c083369f83bd32830f886d5c3fb730ef3f73f5e02f844d739ffab23a2",
+    "local": "b106544c083369f83bd32830f886d5c3fb730ef3f73f5e02f844d739ffab23a2",
+    "fair": "b106544c083369f83bd32830f886d5c3fb730ef3f73f5e02f844d739ffab23a2",
+    "exchange": "b106544c083369f83bd32830f886d5c3fb730ef3f73f5e02f844d739ffab23a2"
+  },
+  "inputs": {
+    "anti": "f3e7811ca83de68e7d312c3f552667576bca2aadcb2528341830b2b8d2620e20",
+    "alphabig": "f6456f8f2d4637102dc20056e3a1b43603305ac6ff50866dd45fd58bdced5bfb",
+    "tightA": "2fbb97e6681453ba0ddd1aba2d5886718277557937e8714aa5313d9f6151186c",
+    "multiskill": "9edb006088825b4967cf4c9a5eaf73fa60a011c004e35efc1b7e4b7c17db4ffc",
+    "grid": "780b6e54d2a847746d7af6a26d6e9f6c7a1f5e74a612ac35362c097acfae0732",
+    "cluster": "a7041634ab5c2ce6620f2afbb8fbe0c1a7d3219f887fe425f1d417b4cfb5f733",
+    "large": "86b627db37c41021605aa6f96ddf80c1249828116daaffed60423a06869e6e55",
+    "huge": "dd81fd6c232963d5288febadb18e5b80300222fa0cee09c27b1e9b3caf52e286"
+  }
+}

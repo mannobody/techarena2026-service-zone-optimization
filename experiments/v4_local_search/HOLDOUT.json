@@ -1,0 +1,37 @@
+{
+  "name": "holdout60_tail",
+  "seconds": 60,
+  "jobs": 8,
+  "seeds": [
+    401,
+    402,
+    403
+  ],
+  "cases": {
+    "anti": "experiments/v4_local_search/data/holdout/anti.json",
+    "alphabig": "experiments/v4_local_search/data/holdout/alphabig.json",
+    "tightA": "experiments/v4_local_search/data/holdout/tightA.json",
+    "multiskill": "experiments/v4_local_search/data/holdout/multiskill.json",
+    "grid": "experiments/v4_local_search/data/holdout/grid.json",
+    "cluster": "experiments/v4_local_search/data/holdout/cluster.json",
+    "large": "experiments/v4_local_search/data/holdout/large.json",
+    "huge": "experiments/v4_local_search/data/holdout/huge.json"
+  },
+  "variants": {
+    "base": {
+      "binary": "experiments/v4_local_search/artifacts/candidate_v3",
+      "env": {
+        "SEARCH_TRACE": "1",
+        "DBG": "1"
+      }
+    },
+    "tail": {
+      "binary": "experiments/v4_local_search/artifacts/candidate_v3",
+      "env": {
+        "SEARCH_TRACE": "1",
+        "DBG": "1",
+        "FINAL_EXCHANGE": "2"
+      }
+    }
+  }
+}

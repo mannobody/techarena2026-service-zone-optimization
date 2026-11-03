@@ -1,0 +1,57 @@
+{
+  "destination": "experiments/v4_perturbation/escape_lab/logs/geometry_kick60",
+  "seconds": 4,
+  "cpu_pairs": [
+    [
+      14,
+      15
+    ]
+  ],
+  "seeds": [
+    2701,
+    2702
+  ],
+  "cases": {
+    "anti": "experiments/v4_perturbation/shared/inputs/dev/anti.json",
+    "tightA": "experiments/v4_perturbation/shared/inputs/dev/tightA.json",
+    "alphabig": "experiments/v4_perturbation/shared/inputs/dev/alphabig.json",
+    "multiskill": "experiments/v4_perturbation/shared/inputs/dev/multiskill.json",
+    "huge": "experiments/v4_perturbation/shared/inputs/dev/huge.json",
+    "cluster": "experiments/v4_perturbation/shared/inputs/dev/cluster.json"
+  },
+  "checkpoints": {
+    "anti": "experiments/v4_perturbation/shared/logs/checkpoint60/anti_1901_v4.solution.json",
+    "tightA": "experiments/v4_perturbation/shared/logs/checkpoint60/tightA_1901_v4.solution.json",
+    "alphabig": "experiments/v4_perturbation/shared/logs/checkpoint60/alphabig_1901_v4.solution.json",
+    "multiskill": "experiments/v4_perturbation/shared/logs/checkpoint60/multiskill_1901_v4.solution.json",
+    "huge": "experiments/v4_perturbation/shared/logs/checkpoint60/huge_1901_v4.solution.json",
+    "cluster": "experiments/v4_perturbation/shared/logs/checkpoint60/cluster_1901_v4.solution.json"
+  },
+  "variants": {
+    "v4": {
+      "binary": "experiments/v4_perturbation/escape_lab/bin/post_repeat_v4",
+      "source": "experiments/v4_perturbation/escape_lab/src/post_repeat_v4.cpp",
+      "mode": 0,
+      "env": {
+        "DBG": "1"
+      }
+    },
+    "off": {
+      "binary": "experiments/v4_perturbation/escape_lab/bin/post_geometry_kick",
+      "source": "experiments/v4_perturbation/escape_lab/src/post_geometry_kick.cpp",
+      "mode": 0,
+      "env": {
+        "DBG": "1"
+      }
+    },
+    "geometry_kick": {
+      "binary": "experiments/v4_perturbation/escape_lab/bin/post_geometry_kick",
+      "source": "experiments/v4_perturbation/escape_lab/src/post_geometry_kick.cpp",
+      "mode": 5,
+      "env": {
+        "DBG": "1"
+      }
+    }
+  },
+  "order_seed": 871066
+}

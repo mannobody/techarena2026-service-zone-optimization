@@ -1,0 +1,55 @@
+{
+  "spec": {
+    "name": "counter_pilot30",
+    "seconds": 30,
+    "jobs": 2,
+    "cases": {
+      "multiskill": "experiments/v4_deep_parallel/search/inputs/multiskill.json"
+    },
+    "seeds": [
+      1301,
+      1302
+    ],
+    "variants": {
+      "counter": {
+        "binary": "experiments/v4_deep_parallel/search/bin/counter",
+        "env": {
+          "DBG": "1",
+          "LAB_TRACE": "1",
+          "LAB_COUNTER": "1"
+        }
+      },
+      "wide": {
+        "binary": "experiments/v4_deep_parallel/search/bin/counter",
+        "env": {
+          "DBG": "1",
+          "LAB_TRACE": "1",
+          "LAB_WIDE": "1"
+        }
+      },
+      "trace_off": {
+        "binary": "experiments/v4_deep_parallel/search/bin/counter",
+        "env": {
+          "DBG": "1",
+          "LAB_TRACE": "1"
+        }
+      }
+    },
+    "cpus": [
+      8,
+      9,
+      10,
+      11
+    ],
+    "purpose": "Mechanism-only same-binary diagnostic. trace_off is an instrumented frozen-derived copy, not exact server v4; not used as a full-quality comparison."
+  },
+  "blocking": "All variants of each case/seed run sequentially on the same affinity; independently randomized order. Shared pair locks include compile/microbench jobs.",
+  "binaries": {
+    "counter": "c5959b5f2daa9d24f34a0689044a1a7279003bbaa11e282ebc204a7d52771430",
+    "wide": "c5959b5f2daa9d24f34a0689044a1a7279003bbaa11e282ebc204a7d52771430",
+    "trace_off": "c5959b5f2daa9d24f34a0689044a1a7279003bbaa11e282ebc204a7d52771430"
+  },
+  "inputs": {
+    "multiskill": "deb4572c3d3ba4b1dd3be79b8e41ab6fcfe200475ff22a319f8bf0d438dce6e7"
+  }
+}

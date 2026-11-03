@@ -1,0 +1,69 @@
+{
+  "development_generator_seed_range": "731000+100*j; six fixed classes as DEVELOPMENT_INPUTS.json",
+  "mature_diagnostic": {
+    "destination": "experiments/v4_deep_parallel/integration/logs/mature_v4_280",
+    "seconds": 280,
+    "cpu_pairs": [
+      [
+        16,
+        17
+      ],
+      [
+        18,
+        19
+      ],
+      [
+        20,
+        21
+      ]
+    ],
+    "cases": {
+      "alphabig": "experiments/v4_deep_parallel/integration/inputs/alphabig.json",
+      "tightA": "experiments/v4_deep_parallel/integration/inputs/tightA.json",
+      "multiskill": "experiments/v4_deep_parallel/integration/inputs/multiskill.json",
+      "anti": "experiments/v4_deep_parallel/integration/inputs/anti.json",
+      "large": "experiments/v4_deep_parallel/integration/inputs/large.json",
+      "huge": "experiments/v4_deep_parallel/integration/inputs/huge.json"
+    },
+    "seeds": [
+      1301,
+      1302
+    ],
+    "snapshots": [
+      60,
+      120,
+      240
+    ],
+    "variants": {
+      "v4": {
+        "binary": "experiments/v4_deep_parallel/shared/v4"
+      }
+    }
+  },
+  "final_holdout_reserved": {
+    "start": 751000,
+    "status": "not generated or evaluated; generate only after source freeze",
+    "classes": [
+      "small",
+      "medium",
+      "large",
+      "huge",
+      "multiskill",
+      "deficit",
+      "alphazero",
+      "alphabig",
+      "tightA",
+      "cluster",
+      "anti",
+      "grid"
+    ],
+    "solver_seeds": [
+      1501,
+      1502,
+      1503
+    ]
+  },
+  "comparison": "exact frozen v4; complete case+seed A/B block stays on same CPU pair; order randomized",
+  "selection": "combine independently supported operators, check ablations; no general promotion if material regressions",
+  "git": "no staging, commits, pushes, merge or submission"
+}

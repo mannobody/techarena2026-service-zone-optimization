@@ -1,0 +1,62 @@
+{
+  "version": "v7",
+  "status": "exact v4 baseline; no new algorithmic improvement claimed",
+  "packaged_unix": 1792406282.0437355,
+  "zip": "experiments/server_v7/artifacts/case03_cpp_server_v7_O3.zip",
+  "zip_sha256": "f1dc62332bf378eb4ff40326bfd4542ef5a724b394ec0de29f9690bffe1e6772",
+  "zip_entries": [
+    "main.cpp",
+    "Makefile"
+  ],
+  "source_sha256": "5b3914fa9791cb879f3232fb2876a915de83b848ad4b353b0dbf25b574998c25",
+  "makefile_sha256": "686f7e7ea2e82edb376de1c42925dcc45d74db4504c6366a4273e6222f472ce5",
+  "binary_rebuilt_from_zip_sha256": "5cc54b6ad0f02a3d6d471d0e2f9129c229b4925aaa2b2c01ce26bd5305a4963c",
+  "identical_to_independently_tested_binary": true,
+  "baseline_source": "experiments/v4_perturbation/baseline/frozen_v4.cpp",
+  "default_seconds": 280,
+  "make_run_nt": 2,
+  "make_run_entrypoint_smoke": {
+    "rc": 0,
+    "timeout": false,
+    "wall": 1.2678738559989142,
+    "valid": true,
+    "objective_or_error": 7.585786437626904,
+    "actual_nt": 2,
+    "DBG": "unset",
+    "TL": 1,
+    "input_sha256": "c40b23bc350da2401e2dca29a5713cf9a23def24f5a017cb12ef40f1bdd5bfa8",
+    "solution_sha256": "d3c61705a0a1c9d6f5515bb687587b6b4e1dc1ee900f045f163ca914c965f472"
+  },
+  "evidence": "This exact binary is the v4 control in every primary and extra independent TL60/TL280 run.",
+  "selection": "No new combination passed the registered stability gate. User requested experimental +24% candidate in v8, stable-only v7. Therefore v7 retains exact v4.",
+  "build_source_basename": "Makefile creates an identical frozen_v4.cpp build copy to preserve ELF source-name metadata; runtime reads no source file.",
+  "experimental_candidate": "experiments/server_v8",
+  "experimental_decision": {
+    "accepted": false,
+    "budgets": {
+      "60": {
+        "primary_criteria_pass": false,
+        "all_primary_and_extra_runs_successful": true,
+        "freeze_and_record_hash_checks_pass": true,
+        "all_percentage_pairs_defined_finite": true,
+        "combined_input_weighted_mean_at_least_0.1": true,
+        "combined_pair_median_nonnegative": true,
+        "combined_every_input_median_nonnegative": false,
+        "combined_worst_at_least_minus1": false,
+        "combined_bootstrap_lower_nonnegative": false,
+        "combined_mean_vs_off_nonnegative": true
+      },
+      "280": {
+        "primary_criteria_pass": false,
+        "mandatory_extension_complete": false
+      }
+    },
+    "independent_inputs": 12,
+    "protocol_complete": false,
+    "note": "Both primary budgets complete and fail stability criteria. Long variance extension stopped at user request; no claim of complete protocol or pooled TL280 result.",
+    "final_contract_pass": true,
+    "final_record_audit_pass": true,
+    "recommended_as_replacement": false
+  },
+  "no_upload_or_git_mutation": true
+}

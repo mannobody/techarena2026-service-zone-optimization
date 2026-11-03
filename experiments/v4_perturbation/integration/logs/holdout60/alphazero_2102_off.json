@@ -1,0 +1,49 @@
+{
+  "case": "alphazero",
+  "seed": 2102,
+  "variant": "off",
+  "started_unix": 1792401349.1212137,
+  "ended_unix": 1792401408.8957636,
+  "rc": 0,
+  "timeout": false,
+  "wall": 59.7745474939984,
+  "valid": true,
+  "objective": 21690.792931619835,
+  "validation_error": null,
+  "actual_nt": 2,
+  "error_log": false,
+  "affinity": [
+    0,
+    1
+  ],
+  "success": true,
+  "solution_sha256": "98c212c49519a761255f4d9189a622271c5bc9fdc457f37a95a2196668149d65",
+  "source_sha256": "1857bec7e0882d15cf3091e79aeb0df1608ced5d4ee6883c1cb02656cfbd8e03",
+  "resource": "rss_kb=6136 user=117.84 sys=0.00\n",
+  "snapshots": [
+    {
+      "target_seconds": 10,
+      "observed_seconds": 10.00049800999841,
+      "file": "experiments/v4_perturbation/integration/logs/holdout60/alphazero_2102_off.t10.solution.json",
+      "sha256": "fc1fc90197ffc023e87206f871acd7e27c58018639bb255d8ae0092a99539724",
+      "valid": true,
+      "objective": 21635.33243909695
+    },
+    {
+      "target_seconds": 30,
+      "observed_seconds": 30.007581777997984,
+      "file": "experiments/v4_perturbation/integration/logs/holdout60/alphazero_2102_off.t30.solution.json",
+      "sha256": "fc1fc90197ffc023e87206f871acd7e27c58018639bb255d8ae0092a99539724",
+      "valid": true,
+      "objective": 21635.33243909695
+    },
+    {
+      "target_seconds": 50,
+      "observed_seconds": 50.02547836299709,
+      "file": "experiments/v4_perturbation/integration/logs/holdout60/alphazero_2102_off.t50.solution.json",
+      "sha256": "98c212c49519a761255f4d9189a622271c5bc9fdc457f37a95a2196668149d65",
+      "valid": true,
+      "objective": 21690.792931619835
+    }
+  ]
+}

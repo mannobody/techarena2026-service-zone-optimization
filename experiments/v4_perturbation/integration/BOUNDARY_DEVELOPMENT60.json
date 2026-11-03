@@ -1,0 +1,84 @@
+{
+  "destination": "experiments/v4_perturbation/integration/logs/boundary_development60_complete",
+  "seconds": 60,
+  "cpu_pairs": [
+    [
+      0,
+      1
+    ],
+    [
+      3,
+      6
+    ],
+    [
+      8,
+      10
+    ],
+    [
+      12,
+      13
+    ],
+    [
+      16,
+      17
+    ],
+    [
+      20,
+      21
+    ]
+  ],
+  "seeds": [
+    2801,
+    2802
+  ],
+  "cases": {
+    "anti": "experiments/v4_perturbation/shared/inputs/dev/anti.json",
+    "tightA": "experiments/v4_perturbation/shared/inputs/dev/tightA.json",
+    "alphabig": "experiments/v4_perturbation/shared/inputs/dev/alphabig.json",
+    "multiskill": "experiments/v4_perturbation/shared/inputs/dev/multiskill.json",
+    "cluster": "experiments/v4_perturbation/shared/inputs/dev/cluster.json",
+    "huge": "experiments/v4_perturbation/shared/inputs/dev/huge.json"
+  },
+  "variants": {
+    "v4": {
+      "source": "experiments/v4_perturbation/baseline/frozen_v4.cpp",
+      "binary": "experiments/v4_perturbation/baseline/v4",
+      "env": {
+        "DBG": "1"
+      }
+    },
+    "off": {
+      "source": "experiments/v4_perturbation/integration/src/boundary_dev.cpp",
+      "binary": "experiments/v4_perturbation/integration/bin/boundary_dev",
+      "env": {
+        "DBG": "1",
+        "ESCAPE_MODE": "0"
+      }
+    },
+    "retain": {
+      "source": "experiments/v4_perturbation/integration/src/boundary_dev.cpp",
+      "binary": "experiments/v4_perturbation/integration/bin/boundary_dev",
+      "env": {
+        "DBG": "1",
+        "ESCAPE_MODE": "4"
+      }
+    },
+    "geometry_boundary": {
+      "source": "experiments/v4_perturbation/integration/src/boundary_dev.cpp",
+      "binary": "experiments/v4_perturbation/integration/bin/boundary_dev",
+      "env": {
+        "DBG": "1",
+        "ESCAPE_MODE": "5"
+      }
+    },
+    "boundary_only": {
+      "source": "experiments/v4_perturbation/integration/src/boundary_dev.cpp",
+      "binary": "experiments/v4_perturbation/integration/bin/boundary_dev",
+      "env": {
+        "DBG": "1",
+        "ESCAPE_MODE": "6"
+      }
+    }
+  },
+  "order_seed": 953281
+}

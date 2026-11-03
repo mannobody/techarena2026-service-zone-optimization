@@ -1,0 +1,64 @@
+{
+  "spec": {
+    "name": "huge180",
+    "seconds": 180,
+    "jobs": 8,
+    "seeds": [
+      301,
+      302,
+      303
+    ],
+    "cases": {
+      "huge": "experiments/v4_local_search/data/development/huge.json"
+    },
+    "variants": {
+      "base": {
+        "binary": "experiments/v4_local_search/artifacts/candidate_v3",
+        "env": {
+          "SEARCH_TRACE": "1",
+          "DBG": "1"
+        }
+      },
+      "tail": {
+        "binary": "experiments/v4_local_search/artifacts/candidate_v3",
+        "env": {
+          "SEARCH_TRACE": "1",
+          "DBG": "1",
+          "FINAL_EXCHANGE": "2"
+        }
+      }
+    }
+  },
+  "affinity": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21
+  ],
+  "jobs": 8,
+  "binaries": {
+    "base": "5213b3a6373b158c43c288aa5beaaa2d2d2042471fbf657884cf4bb2dcf63d77",
+    "tail": "5213b3a6373b158c43c288aa5beaaa2d2d2042471fbf657884cf4bb2dcf63d77"
+  },
+  "inputs": {
+    "huge": "dd81fd6c232963d5288febadb18e5b80300222fa0cee09c27b1e9b3caf52e286"
+  }
+}

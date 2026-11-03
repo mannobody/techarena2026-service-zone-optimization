@@ -1,0 +1,35 @@
+{
+  "development": {
+    "generator_base": 461000,
+    "solver_seeds": [
+      301,
+      302,
+      303
+    ]
+  },
+  "holdout": {
+    "generator_base": 491000,
+    "solver_seeds": [
+      401,
+      402,
+      403
+    ]
+  },
+  "classes": [
+    "anti",
+    "alphabig",
+    "tightA",
+    "multiskill",
+    "grid",
+    "cluster",
+    "large",
+    "huge"
+  ],
+  "quality": {
+    "TL": 60,
+    "NT": 2,
+    "flags": "O3 C++17"
+  },
+  "huge_followup_TL": 180,
+  "acceptance": "No per-instance median regression; report all failures and pair distributions. Freeze candidate before holdout, no tuning afterward."
+}

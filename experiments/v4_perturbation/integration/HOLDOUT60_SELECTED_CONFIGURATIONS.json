@@ -1,0 +1,590 @@
+[
+  {
+    "case": "huge",
+    "seed": 2102,
+    "success": true,
+    "baseline": 6626.994262593833,
+    "candidate": 6489.968620291391,
+    "delta": -137.02564230244207,
+    "pct": -2.067689164541538,
+    "result": "loss",
+    "configuration": {
+      "base": {
+        "objective": 6626.994262594894,
+        "reward": 8038.705467265857,
+        "distance": 948.4895782900886,
+        "office_cost": 454.8538510991599,
+        "penalty": 8.367775281714232,
+        "offices": [
+          0,
+          3,
+          7,
+          8,
+          10,
+          11,
+          12,
+          15,
+          16,
+          17,
+          18,
+          19
+        ],
+        "counts": {
+          "0": 575,
+          "3": 583,
+          "7": 335,
+          "8": 574,
+          "10": 500,
+          "11": 392,
+          "12": 402,
+          "15": 353,
+          "16": 542,
+          "17": 585,
+          "18": 559,
+          "19": 585
+        },
+        "loads": {
+          "0": 720,
+          "3": 910,
+          "7": 293,
+          "8": 856,
+          "10": 625,
+          "11": 383,
+          "12": 412,
+          "15": 349,
+          "16": 681,
+          "17": 752,
+          "18": 685,
+          "19": 916
+        }
+      },
+      "candidate": {
+        "objective": 6489.9686202924,
+        "reward": 7866.783278492222,
+        "distance": 913.5930318189476,
+        "office_cost": 454.8538510991599,
+        "penalty": 8.367775281714232,
+        "offices": [
+          0,
+          3,
+          7,
+          8,
+          10,
+          11,
+          12,
+          15,
+          16,
+          17,
+          18,
+          19
+        ],
+        "counts": {
+          "0": 568,
+          "3": 583,
+          "7": 335,
+          "8": 574,
+          "10": 376,
+          "11": 392,
+          "12": 402,
+          "15": 353,
+          "16": 542,
+          "17": 585,
+          "18": 562,
+          "19": 585
+        },
+        "loads": {
+          "0": 718,
+          "3": 893,
+          "7": 293,
+          "8": 856,
+          "10": 361,
+          "11": 381,
+          "12": 401,
+          "15": 349,
+          "16": 824,
+          "17": 734,
+          "18": 692,
+          "19": 916
+        }
+      },
+      "delta": {
+        "objective": -137.0256423024939,
+        "reward": -171.92218877363484,
+        "distance": -34.89654647114105,
+        "office_cost": 0.0,
+        "penalty": 0.0
+      },
+      "assignment_changes": 837,
+      "additions": 340,
+      "removals": 468,
+      "reassignments": 29,
+      "office_set_changed": false,
+      "worker_changes": 2,
+      "hulls_changed_common_offices": 10,
+      "hull_symmetric_difference_area": 0.05264800790158925,
+      "base_sha256": "1914acf1fc136022c4d44224a28e20f71186fb66a9fb1b4bc6689754aa5e3c70",
+      "candidate_sha256": "bf58573124adffd1976926529c3cf890d198e89d1555d915a0e27e3459792f76",
+      "input_sha256": "0516ecab56386d67c7bee21fc7c64f8002068e0168ef3e06680b6f78ef47cf83"
+    }
+  },
+  {
+    "case": "tightA",
+    "seed": 2101,
+    "success": true,
+    "baseline": 33.69231077494555,
+    "candidate": 36.23340858454788,
+    "delta": 2.5410978096023342,
+    "pct": 7.542070434337673,
+    "result": "win",
+    "configuration": {
+      "base": {
+        "objective": 33.69231077494559,
+        "reward": 49.20605816186926,
+        "distance": 12.234044157037125,
+        "office_cost": 3.2073413796484957,
+        "penalty": 0.07236185023804297,
+        "offices": [
+          1,
+          4,
+          5,
+          6
+        ],
+        "counts": {
+          "1": 17,
+          "4": 17,
+          "5": 17,
+          "6": 17
+        },
+        "loads": {
+          "1": 18,
+          "4": 12,
+          "5": 22,
+          "6": 16
+        }
+      },
+      "candidate": {
+        "objective": 36.233408584547924,
+        "reward": 50.65329516663012,
+        "distance": 10.66763052303643,
+        "office_cost": 3.7016027638791367,
+        "penalty": 0.05065329516663008,
+        "offices": [
+          1,
+          2,
+          3,
+          4,
+          6
+        ],
+        "counts": {
+          "1": 14,
+          "2": 14,
+          "3": 14,
+          "4": 14,
+          "6": 14
+        },
+        "loads": {
+          "1": 14,
+          "2": 10,
+          "3": 15,
+          "4": 17,
+          "6": 16
+        }
+      },
+      "delta": {
+        "objective": 2.5410978096023342,
+        "reward": 1.447237004760865,
+        "distance": -1.5664136340006962,
+        "office_cost": 0.4942613842306409,
+        "penalty": -0.021708555071412887
+      },
+      "assignment_changes": 47,
+      "additions": 12,
+      "removals": 10,
+      "reassignments": 25,
+      "office_set_changed": true,
+      "worker_changes": 10,
+      "hulls_changed_common_offices": 3,
+      "hull_symmetric_difference_area": 0.13384611348399664,
+      "base_sha256": "6a0308b845b1741dfcb7ee6a4ab08f944d10221d62a5efeb2093f0084219e9b9",
+      "candidate_sha256": "5ccfeb5197cdd49dddba33b9e36cc23b7387cf15495f5ac08d887f05ba64c12a",
+      "input_sha256": "a112a42787bb59b2f4a30fa92d61b9047cd7d20056bfe5bfc90997662bb0ad97"
+    }
+  },
+  {
+    "case": "multiskill",
+    "seed": 2101,
+    "success": true,
+    "baseline": 24.197540906555037,
+    "candidate": 23.880409352495853,
+    "delta": -0.31713155405918414,
+    "pct": -1.3105941437762967,
+    "result": "loss",
+    "configuration": {
+      "base": {
+        "objective": 24.19754090655505,
+        "reward": 46.00363727853284,
+        "distance": 18.445438820867334,
+        "office_cost": 3.245648457914124,
+        "penalty": 0.11500909319633208,
+        "offices": [
+          0,
+          1,
+          3,
+          4,
+          6
+        ],
+        "counts": {
+          "0": 12,
+          "1": 21,
+          "3": 19,
+          "4": 15,
+          "6": 21
+        },
+        "loads": {
+          "0": 12,
+          "1": 29,
+          "3": 21,
+          "4": 16,
+          "6": 34
+        }
+      },
+      "candidate": {
+        "objective": 23.88040935249586,
+        "reward": 43.91256285678134,
+        "distance": 16.655812895011888,
+        "office_cost": 3.245648457914124,
+        "penalty": 0.13069215135946827,
+        "offices": [
+          0,
+          1,
+          3,
+          4,
+          6
+        ],
+        "counts": {
+          "0": 12,
+          "1": 21,
+          "3": 15,
+          "4": 15,
+          "6": 21
+        },
+        "loads": {
+          "0": 12,
+          "1": 31,
+          "3": 10,
+          "4": 18,
+          "6": 35
+        }
+      },
+      "delta": {
+        "objective": -0.31713155405919125,
+        "reward": -2.0910744217515003,
+        "distance": -1.7896259258554466,
+        "office_cost": 0.0,
+        "penalty": 0.015683058163136185
+      },
+      "assignment_changes": 17,
+      "additions": 4,
+      "removals": 8,
+      "reassignments": 5,
+      "office_set_changed": false,
+      "worker_changes": 3,
+      "hulls_changed_common_offices": 4,
+      "hull_symmetric_difference_area": 0.11857022462242509,
+      "base_sha256": "3c8df99abaa75a80786d71e77878113fad3c6c668932e01005d6552d497737ce",
+      "candidate_sha256": "c8ee650cb52b27771690d5e1090fcdbd0808f5bf57af4bec726e710880cbf386",
+      "input_sha256": "450669cda33d01524cea36ee83eb2524b87bef2a37a7d3bda358b2012bfeb2fd"
+    }
+  },
+  {
+    "case": "cluster",
+    "seed": 2103,
+    "success": true,
+    "baseline": 56.8459990724932,
+    "candidate": 56.66096253176546,
+    "delta": -0.18503654072773656,
+    "pct": -0.32550494977099026,
+    "result": "loss",
+    "configuration": {
+      "base": {
+        "objective": 56.845999072493065,
+        "reward": 98.57832382263258,
+        "distance": 36.59516884153617,
+        "office_cost": 4.897139120165633,
+        "penalty": 0.2400167884377144,
+        "offices": [
+          1,
+          2,
+          3,
+          4,
+          6,
+          7,
+          8
+        ],
+        "counts": {
+          "1": 21,
+          "2": 16,
+          "3": 12,
+          "4": 17,
+          "6": 15,
+          "7": 12,
+          "8": 22
+        },
+        "loads": {
+          "1": 34,
+          "2": 25,
+          "3": 9,
+          "4": 10,
+          "6": 15,
+          "7": 15,
+          "8": 37
+        }
+      },
+      "candidate": {
+        "objective": 56.66096253176534,
+        "reward": 102.86433790187748,
+        "distance": 41.08336351782577,
+        "office_cost": 4.897139120165633,
+        "penalty": 0.2228727321207348,
+        "offices": [
+          1,
+          2,
+          3,
+          4,
+          6,
+          7,
+          8
+        ],
+        "counts": {
+          "1": 21,
+          "2": 16,
+          "3": 12,
+          "4": 22,
+          "6": 15,
+          "7": 12,
+          "8": 22
+        },
+        "loads": {
+          "1": 34,
+          "2": 26,
+          "3": 8,
+          "4": 20,
+          "6": 17,
+          "7": 10,
+          "8": 33
+        }
+      },
+      "delta": {
+        "objective": -0.18503654072772235,
+        "reward": 4.286014079244893,
+        "distance": 4.488194676289595,
+        "office_cost": 0.0,
+        "penalty": -0.0171440563169796
+      },
+      "assignment_changes": 45,
+      "additions": 18,
+      "removals": 13,
+      "reassignments": 14,
+      "office_set_changed": false,
+      "worker_changes": 2,
+      "hulls_changed_common_offices": 7,
+      "hull_symmetric_difference_area": 0.10863119545278206,
+      "base_sha256": "e54827b42116a21d50814a3d43c83a9de7d19b0900cbc5b410c619f5e1d8ebd5",
+      "candidate_sha256": "969bb12ec432b234575a1503cf83f1c9831732a510d2acd98ec4d07cb9702609",
+      "input_sha256": "333af696e543ed111239bcd1d0c842158de7f1788e9662d3942ad5759089399c"
+    }
+  },
+  {
+    "case": "large",
+    "seed": 2102,
+    "success": true,
+    "baseline": 1305386.1299784007,
+    "candidate": 1300921.7441378578,
+    "delta": -4464.385840542847,
+    "pct": -0.34199733994543946,
+    "result": "loss",
+    "configuration": {
+      "base": {
+        "objective": 1305386.1299785278,
+        "reward": 1896697.3030492677,
+        "distance": 464337.3274558112,
+        "office_cost": 124785.87468134661,
+        "penalty": 2187.970933582283,
+        "offices": [
+          0,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "counts": {
+          "0": 227,
+          "2": 289,
+          "3": 348,
+          "4": 385,
+          "5": 237,
+          "6": 275,
+          "7": 346,
+          "8": 265,
+          "9": 402
+        },
+        "loads": {
+          "0": 287,
+          "2": 429,
+          "3": 523,
+          "4": 607,
+          "5": 304,
+          "6": 362,
+          "7": 423,
+          "8": 353,
+          "9": 584
+        }
+      },
+      "candidate": {
+        "objective": 1300921.744137973,
+        "reward": 1832425.6568752779,
+        "distance": 420238.3442337213,
+        "office_cost": 108858.800476643,
+        "penalty": 2406.7680269405114,
+        "offices": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "counts": {
+          "2": 289,
+          "3": 348,
+          "4": 440,
+          "5": 277,
+          "6": 275,
+          "7": 346,
+          "8": 265,
+          "9": 440
+        },
+        "loads": {
+          "2": 407,
+          "3": 528,
+          "4": 696,
+          "5": 368,
+          "6": 407,
+          "7": 525,
+          "8": 344,
+          "9": 649
+        }
+      },
+      "delta": {
+        "objective": -4464.385840554722,
+        "reward": -64271.646173989866,
+        "distance": -44098.98322208988,
+        "office_cost": -15927.074204703618,
+        "penalty": 218.79709335822827
+      },
+      "assignment_changes": 887,
+      "additions": 188,
+      "removals": 282,
+      "reassignments": 417,
+      "office_set_changed": true,
+      "worker_changes": 29,
+      "hulls_changed_common_offices": 8,
+      "hull_symmetric_difference_area": 327282.0875983856,
+      "base_sha256": "3bcfa6823b1da6a13f21b159df6e7a05ab69101ae1dc78b73ae70e093887c0aa",
+      "candidate_sha256": "624e0d8b772ce9a2b46aa69e51b23f76e2e54473d88b075ad56a179b9e2c9bdc",
+      "input_sha256": "a25de43a6b916e4a864870c378636b79e8f5f6b6534658456e042d4886f94d01"
+    }
+  },
+  {
+    "case": "elongated",
+    "seed": 2103,
+    "success": true,
+    "baseline": 290047.39662701177,
+    "candidate": 290727.51219238347,
+    "delta": 680.1155653716996,
+    "pct": 0.23448428542397795,
+    "result": "win",
+    "configuration": {
+      "base": {
+        "objective": 290047.3966270146,
+        "reward": 433587.5736936873,
+        "distance": 123760.1002766062,
+        "office_cost": 19037.995368096847,
+        "penalty": 742.0814219696312,
+        "offices": [
+          1,
+          2,
+          3,
+          5,
+          6
+        ],
+        "counts": {
+          "1": 77,
+          "2": 90,
+          "3": 87,
+          "5": 75,
+          "6": 80
+        },
+        "loads": {
+          "1": 116,
+          "2": 102,
+          "3": 130,
+          "5": 60,
+          "6": 106
+        }
+      },
+      "candidate": {
+        "objective": 290727.5121923863,
+        "reward": 433587.5736936873,
+        "distance": 122931.56842684057,
+        "office_cost": 19037.995368096847,
+        "penalty": 890.4977063635574,
+        "offices": [
+          1,
+          2,
+          3,
+          5,
+          6
+        ],
+        "counts": {
+          "1": 77,
+          "2": 90,
+          "3": 87,
+          "5": 75,
+          "6": 80
+        },
+        "loads": {
+          "1": 113,
+          "2": 142,
+          "3": 110,
+          "5": 58,
+          "6": 105
+        }
+      },
+      "delta": {
+        "objective": 680.1155653716996,
+        "reward": 0.0,
+        "distance": -828.5318497656262,
+        "office_cost": 0.0,
+        "penalty": 148.41628439392628
+      },
+      "assignment_changes": 156,
+      "additions": 58,
+      "removals": 58,
+      "reassignments": 40,
+      "office_set_changed": false,
+      "worker_changes": 1,
+      "hulls_changed_common_offices": 5,
+      "hull_symmetric_difference_area": 1504.7115070927987,
+      "base_sha256": "ebba5043ba4a54a44b5df152f5f63da7b24870dafee54640cb735729711af916",
+      "candidate_sha256": "3f7087a9957b533126a4978c90c4f7c77ef79a537bebfc3cb46da4563ee5675d",
+      "input_sha256": "61e15873160af787ddcb4b6f45be43d47265a31233d5f4aa9dada17452f7a7ba"
+    }
+  }
+]

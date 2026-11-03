@@ -1,0 +1,101 @@
+wide_start mode=2 attempts=6412 evaluated=207 decoded=3 best=6731.706598 t=0.812
+rank_owner tid=0
+cand0 f=9403.17 ops=0,2,4,6,7,
+cand1 f=9137.77 ops=0,1,4,6,7,
+cand2 f=9034.89 ops=0,2,3,6,7,
+cand3 f=8788.51 ops=0,1,3,6,7,
+cand4 f=8513.01 ops=0,4,5,6,7,
+cand5 f=2824.82 ops=0,
+cand6 f=5104.50 ops=0,3,
+cand7 f=6613.02 ops=0,4,6,
+cand8 f=8241.38 ops=0,4,6,7,
+cand9 f=8352.16 ops=0,1,2,4,6,7,
+cand10 f=6687.39 ops=0,1,3,4,5,6,7,
+cand11 f=6522.32 ops=0,1,2,3,4,5,6,7,
+cand12 f=6731.71 ops=0,2,3,4,5,6,7,
+  rank0 val=9407.93 cand=0 ctor=0
+  rank1 val=9137.77 cand=1 ctor=0
+  rank2 val=9034.89 cand=2 ctor=0
+  rank3 val=8583.86 cand=3 ctor=0
+  rank4 val=8513.01 cand=4 ctor=0
+  rank5 val=8352.16 cand=9 ctor=0
+  rank6 val=8241.38 cand=8 ctor=0
+  rank7 val=7107.01 cand=10 ctor=0
+schedule tid=0 round=0 fromBest=1 starts=0 time=1.184959
+rank_owner tid=1
+cand0 f=9403.17 ops=0,2,4,6,7,
+cand1 f=9137.77 ops=0,1,4,6,7,
+cand2 f=9034.89 ops=0,2,3,6,7,
+cand3 f=8788.51 ops=0,1,3,6,7,
+cand4 f=8513.01 ops=0,4,5,6,7,
+cand5 f=2824.82 ops=0,
+cand6 f=5104.50 ops=0,3,
+cand7 f=6613.02 ops=0,4,6,
+cand8 f=8241.38 ops=0,4,6,7,
+cand9 f=8352.16 ops=0,1,2,4,6,7,
+cand10 f=6687.39 ops=0,1,3,4,5,6,7,
+cand11 f=6522.32 ops=0,1,2,3,4,5,6,7,
+cand12 f=6731.71 ops=0,2,3,4,5,6,7,
+  rank0 val=9407.93 cand=0 ctor=0
+  rank1 val=9137.77 cand=1 ctor=0
+  rank2 val=9034.89 cand=2 ctor=0
+  rank3 val=8583.86 cand=3 ctor=1
+  rank4 val=8513.01 cand=4 ctor=0
+  rank5 val=8352.16 cand=9 ctor=0
+  rank6 val=8241.38 cand=8 ctor=0
+  rank7 val=7107.01 cand=10 ctor=0
+schedule tid=1 round=0 fromBest=0 starts=0 selected=0 old_rank=0 counter_rank=0 wide_rank=0 combo=0 time=1.188171
+   lns it=768 acc=84 dp=8 obj=9478.1785 best=9478.1785 | split 224/49/0/50  single 191/173/2/0  ruin 190/0/0/34  skill 140/34/82/0
+   lns it=2752 acc=318 dp=4 obj=7792.6532 best=9478.1785 | split 807/419/8/197  single 724/630/20/0  ruin 724/0/235/118  skill 467/0/391/3
+schedule tid=0 round=1 fromBest=1 starts=0 time=3.805833
+   lns it=832 acc=93 dp=1 obj=9478.1785 best=9478.1785 | split 230/63/0/44  single 214/188/0/0  ruin 250/0/0/49  skill 138/30/82/0
+schedule tid=1 round=1 fromBest=0 starts=1 selected=1 old_rank=1 counter_rank=1 wide_rank=1 combo=1 time=4.373811
+   lns it=960 acc=80 dp=1 obj=9434.5662 best=9478.1785 | split 290/105/0/12  single 273/233/1/0  ruin 229/0/0/67  skill 138/15/101/1
+   lns it=1472 acc=109 dp=2 obj=9478.1785 best=9478.1785 | split 409/122/0/65  single 431/369/1/0  ruin 408/0/0/44  skill 224/50/146/0
+schedule tid=0 round=2 fromBest=1 starts=0 time=6.574636
+   lns it=960 acc=90 dp=2 obj=9436.1978 best=9481.8841 | split 288/124/0/17  single 238/202/1/0  ruin 285/0/0/73  skill 149/19/120/0
+schedule tid=1 round=2 fromBest=0 starts=2 selected=2 old_rank=2 counter_rank=2 wide_rank=2 combo=2 time=7.480123
+   lns it=960 acc=158 dp=1 obj=9095.5795 best=9481.8841 | split 283/97/26/27  single 256/223/1/0  ruin 246/0/0/131  skill 143/38/19/0
+   lns it=1216 acc=79 dp=3 obj=9481.8841 best=9481.8841 | split 385/108/0/53  single 343/297/0/0  ruin 302/0/0/26  skill 186/29/128/0
+schedule tid=0 round=3 fromBest=0 starts=0 selected=3 old_rank=3 counter_rank=0 wide_rank=0 combo=3 time=9.177306
+   lns it=896 acc=146 dp=2 obj=9103.6661 best=9481.8841 | split 241/69/23/16  single 252/221/0/0  ruin 270/0/0/130  skill 133/38/18/0
+schedule tid=1 round=3 fromBest=0 starts=3 selected=3 old_rank=3 counter_rank=3 wide_rank=3 combo=16 time=10.603300
+   lns it=896 acc=88 dp=1 obj=9200.3472 best=9481.8841 | split 237/103/0/22  single 246/214/0/0  ruin 240/0/2/66  skill 143/38/78/0
+   lns it=832 acc=123 dp=1 obj=9308.1469 best=9481.8841 | split 237/65/22/49  single 245/213/0/0  ruin 202/0/63/73  skill 123/28/34/1
+   lns it=960 acc=73 dp=1 obj=9200.3472 best=9481.8841 | split 239/107/0/22  single 266/227/0/0  ruin 293/0/2/51  skill 162/44/102/0
+schedule tid=0 round=4 fromBest=0 starts=1 selected=4 old_rank=4 counter_rank=1 wide_rank=1 combo=4 time=12.260100
+   lns it=832 acc=165 dp=2 obj=9308.1469 best=9481.8841 | split 270/107/0/49  single 203/172/0/0  ruin 231/0/0/116  skill 128/34/18/0
+schedule tid=1 round=4 fromBest=0 starts=4 selected=4 old_rank=4 counter_rank=4 wide_rank=4 combo=4 time=13.650494
+   lns it=896 acc=33 dp=1 obj=8590.8294 best=9481.8841 | split 254/131/9/32  single 247/216/4/0  ruin 235/0/119/1  skill 138/16/106/0
+   lns it=960 acc=28 dp=1 obj=8592.5372 best=9481.8841 | split 281/138/11/23  single 264/235/7/0  ruin 242/0/92/5  skill 145/16/110/0
+   lns it=960 acc=28 dp=1 obj=8590.8294 best=9481.8841 | split 286/151/14/28  single 254/224/6/0  ruin 270/0/124/0  skill 150/16/114/0
+schedule tid=0 round=5 fromBest=0 starts=2 selected=5 old_rank=5 counter_rank=2 wide_rank=2 combo=9 time=15.288665
+   lns it=1088 acc=29 dp=1 obj=8592.5372 best=9481.8841 | split 324/174/19/24  single 299/261/12/0  ruin 314/0/94/5  skill 151/13/122/0
+schedule tid=1 round=5 fromBest=0 starts=5 selected=5 old_rank=5 counter_rank=5 wide_rank=5 combo=9 time=16.760396
+   lns it=1088 acc=83 dp=1 obj=8797.4628 best=9481.8841 | split 302/106/0/23  single 292/256/7/1  ruin 270/0/97/56  skill 197/27/137/3
+   lns it=1024 acc=97 dp=1 obj=8901.6367 best=9481.8841 | split 299/87/0/21  single 276/233/8/0  ruin 264/0/89/74  skill 147/36/86/2
+   lns it=1024 acc=73 dp=1 obj=9420.4213 best=9481.8841 | split 283/112/0/13  single 279/241/2/0  ruin 296/0/1/60  skill 166/21/46/0
+schedule tid=0 round=6 fromBest=1 starts=3 time=18.358707
+   lns it=960 acc=61 dp=7 obj=9636.3410 best=9636.3410 | split 287/119/0/28  single 248/210/3/0  ruin 263/0/27/32  skill 162/33/109/1
+schedule tid=1 round=6 fromBest=0 starts=6 selected=0 old_rank=0 counter_rank=0 wide_rank=6 combo=0 time=19.922358
+   lns it=1344 acc=98 dp=2 obj=9481.8841 best=9636.3410 | split 405/137/0/67  single 354/300/0/0  ruin 376/0/0/31  skill 209/35/144/0
+schedule tid=0 round=7 fromBest=1 starts=3 time=20.960543
+   lns it=832 acc=61 dp=1 obj=9453.3516 best=9636.3410 | split 242/49/0/38  single 246/213/0/0  ruin 187/0/0/23  skill 125/27/27/0
+   lns it=832 acc=80 dp=1 obj=9472.1365 best=9636.3410 | split 240/59/0/44  single 233/201/1/0  ruin 226/0/0/36  skill 133/29/45/0
+schedule tid=1 round=7 fromBest=0 starts=7 selected=1 old_rank=1 counter_rank=1 wide_rank=7 combo=1 time=23.092297
+   lns it=1600 acc=56 dp=1 obj=9636.3410 best=9636.3410 | split 446/230/0/47  single 416/362/0/0  ruin 485/0/0/9  skill 253/38/181/0
+schedule tid=0 round=8 fromBest=0 starts=3 selected=2 old_rank=2 counter_rank=3 wide_rank=3 combo=2 time=23.580574
+   lns it=832 acc=135 dp=1 obj=9449.5182 best=9636.3410 | split 244/74/0/41  single 216/183/2/0  ruin 224/0/0/93  skill 127/17/42/1
+   lns it=768 acc=85 dp=1 obj=9103.7326 best=9636.3410 | split 239/83/29/29  single 191/160/1/0  ruin 200/0/3/56  skill 115/27/20/0
+   lns it=832 acc=145 dp=2 obj=9449.5182 best=9636.3410 | split 245/60/0/45  single 220/192/2/0  ruin 244/0/0/100  skill 123/16/65/0
+schedule tid=1 round=8 fromBest=1 starts=8 time=26.096067
+   lns it=896 acc=77 dp=1 obj=9103.7326 best=9636.3410 | split 239/97/14/20  single 258/220/0/0  ruin 260/0/2/57  skill 139/30/22/0
+schedule tid=0 round=9 fromBest=1 starts=4 time=26.349606
+   lns it=1920 acc=88 dp=1 obj=9634.6682 best=9636.3410 | split 527/264/0/56  single 549/459/0/0  ruin 534/0/1/32  skill 310/39/227/0
+schedule tid=1 round=9 fromBest=1 starts=8 time=28.880118
+   lns it=1600 acc=54 dp=0 obj=9636.3410 best=9636.3410 | split 478/239/0/47  single 460/390/0/0  ruin 422/0/0/7  skill 240/38/165/0
+schedule tid=0 round=10 fromBest=1 starts=4 time=28.958949
+   lns it=512 acc=21 dp=0 obj=9634.4053 best=9641.0082 | split 156/80/17/12  single 129/113/3/0  ruin 146/0/35/9  skill 81/8/66/0
+   lns it=704 acc=29 dp=0 obj=9641.0082 best=9641.0082 | split 189/137/14/20  single 218/191/3/0  ruin 201/0/63/9  skill 96/14/69/0
+worker_dfs calls=7158 solved=4836 nodes=109539
+objective=9641.008173 fast=9403.170 sets=255 threads=2 t=29.8

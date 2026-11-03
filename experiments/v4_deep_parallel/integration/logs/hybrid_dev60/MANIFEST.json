@@ -1,0 +1,85 @@
+{
+  "spec": {
+    "destination": "experiments/v4_deep_parallel/integration/logs/hybrid_dev60",
+    "seconds": 60,
+    "cpu_pairs": [
+      [
+        16,
+        17
+      ],
+      [
+        18,
+        19
+      ],
+      [
+        20,
+        21
+      ]
+    ],
+    "cases": {
+      "alphabig": "experiments/v4_deep_parallel/integration/inputs/alphabig.json",
+      "tightA": "experiments/v4_deep_parallel/integration/inputs/tightA.json",
+      "multiskill": "experiments/v4_deep_parallel/integration/inputs/multiskill.json",
+      "anti": "experiments/v4_deep_parallel/integration/inputs/anti.json",
+      "large": "experiments/v4_deep_parallel/integration/inputs/large.json",
+      "huge": "experiments/v4_deep_parallel/integration/inputs/huge.json"
+    },
+    "seeds": [
+      1401
+    ],
+    "variants": {
+      "v4": {
+        "binary": "experiments/v4_deep_parallel/shared/v4"
+      },
+      "batch": {
+        "binary": "experiments/v4_deep_parallel/integration/bin/hybrid_v2"
+      },
+      "geom": {
+        "binary": "experiments/v4_deep_parallel/integration/bin/hybrid_v2",
+        "env": {
+          "GEOM_TAIL": "15"
+        }
+      },
+      "joint": {
+        "binary": "experiments/v4_deep_parallel/integration/bin/hybrid_v2",
+        "env": {
+          "JOINT_TERRITORY": "1"
+        }
+      },
+      "hybrid_gj": {
+        "binary": "experiments/v4_deep_parallel/integration/bin/hybrid_v2",
+        "env": {
+          "GEOM_TAIL": "15",
+          "JOINT_TERRITORY": "1"
+        }
+      },
+      "hybrid_jgj": {
+        "binary": "experiments/v4_deep_parallel/integration/bin/hybrid_v2",
+        "env": {
+          "GEOM_TAIL": "15",
+          "JOINT_TERRITORY": "1",
+          "HYBRID_ORDER": "1"
+        }
+      }
+    }
+  },
+  "spec_sha256": "66f75426588b481d2045842ff658e4f46b902dfeeb9a50059a2ac18bb49d51e3",
+  "runner_sha256": "ec8046cbc71586e3388ce16b008076405991452c529424d9b6afd74e8288b6bc",
+  "binaries": {
+    "v4": "5cc54b6ad0f02a3d6d471d0e2f9129c229b4925aaa2b2c01ce26bd5305a4963c",
+    "batch": "0d4557749fe5753ecc084d1381248199744a1ac1e169eb81011ea065922ec5eb",
+    "geom": "0d4557749fe5753ecc084d1381248199744a1ac1e169eb81011ea065922ec5eb",
+    "joint": "0d4557749fe5753ecc084d1381248199744a1ac1e169eb81011ea065922ec5eb",
+    "hybrid_gj": "0d4557749fe5753ecc084d1381248199744a1ac1e169eb81011ea065922ec5eb",
+    "hybrid_jgj": "0d4557749fe5753ecc084d1381248199744a1ac1e169eb81011ea065922ec5eb"
+  },
+  "inputs": {
+    "alphabig": "4d4ee2680c77534031835e6c4e48a2249a042dd5df9fc5a37fdb02b8762dcdda",
+    "tightA": "9145c9d9319464f1b39700eed8a22fa35a20704020965f73dae2467acdcdeaa0",
+    "multiskill": "cbd229132726dacacec41955fdb734d7372f20cf90d4875f07a755ce85c29d70",
+    "anti": "f2c2e805c9f6789c13ab62b6934d85f4ee1ef486d41025c50f682a7ae3f1e9fa",
+    "large": "9c0b772627cfebe4d68f04d7b62cbc41f106c7a73970a1b2ac8abab663c0a3ea",
+    "huge": "83a4af12c7d3bdced9020021687b7fff059d8469e44cd48b482a8f6a1e02d940"
+  },
+  "topology": "<local-host-omitted>"
+}

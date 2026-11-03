@@ -1,0 +1,24 @@
+{
+  "checked_unix": 1792401489.671583,
+  "source_sha256": "1857bec7e0882d15cf3091e79aeb0df1608ced5d4ee6883c1cb02656cfbd8e03",
+  "included_local_headers": false,
+  "io_and_entry_points": [
+    {
+      "line": 222,
+      "text": "ifstream f(path, ios::binary);"
+    },
+    {
+      "line": 3564,
+      "text": "int main(int argc, char** argv) {"
+    },
+    {
+      "line": 3567,
+      "text": "double limit = argc > 3 ? atof(argv[3]) : (getenv(\"TL\") ? atof(getenv(\"TL\")) : 280.0);"
+    },
+    {
+      "line": 3571,
+      "text": "g_fd = open(outp.c_str(), O_WRONLY | O_CREAT | O_TRUNC, 0644);"
+    }
+  ],
+  "review": "Input parser reads selected input path, default instance.json; global incumbent writes selected output path, default solution.json. No checkpoint driver, shell/subprocess/network API or persistent cache introduced. Environment knobs are research overrides; default mode5/default TL280. Final no-argument test executes in fresh two-file directories. Static inspection is not a syscall sandbox proof."
+}

@@ -1,0 +1,13 @@
+{
+  "source_sha256": "d6f8606f67515a41da163187ca835bfb883b0b11fdd9b3a30a4857f3b2e6ad41",
+  "components": [
+    "exact frozen v4 base",
+    "search minimal batch plus direct Sol.close batching",
+    "sig_open invariant correction",
+    "geometry tail with negative-padding option and batched removals",
+    "joint fixed-territory count/load DP"
+  ],
+  "default_flags": "all new tails off; batch/sig fixes always active",
+  "source": "experiments/v4_deep_parallel/integration/src/hybrid_v2.cpp",
+  "selection": "development ablation, not final holdout freeze"
+}

@@ -1,0 +1,22 @@
+{
+  "command": [
+    "g++",
+    "-O3",
+    "-std=c++17",
+    "-pthread",
+    "./experiments/v4_perturbation/geometry_lab/src/post_geometry_v2.cpp",
+    "-o",
+    "./experiments/v4_perturbation/geometry_lab/post_geometry_v2"
+  ],
+  "affinity": [
+    12,
+    13
+  ],
+  "sources": {
+    "experiments/v4_local_search/baseline/frozen_v4.cpp": "5b3914fa9791cb879f3232fb2876a915de83b848ad4b353b0dbf25b574998c25",
+    "experiments/v4_perturbation/geometry_lab/src/geometry_perturb_v2.h": "b25046da0f4fbc9c7b99144c8113c92a935981fd69c0bb1a3dea51873f10ab44",
+    "experiments/v4_perturbation/shared/checkpoint.h": "e52f535b0eff548e0272eeee0d496e98dd5f1ce4e5fc1e1e33a0b1f877e3843e",
+    "experiments/v4_perturbation/geometry_lab/src/post_geometry_v2.cpp": "e1fc5d0e8caf5a8a2695f082db7b278a64b7478f2fcd77412de32bd149686eda"
+  },
+  "binary_sha256": "da36dd42218537248364f22a1ac63b1e7a2bbd47dde4816dcd3eed816a0c585d"
+}

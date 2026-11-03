@@ -1,0 +1,39 @@
+{
+  "destination": "experiments/v4_deep_parallel/integration/logs/inst4_variance60",
+  "seconds": 60,
+  "cpu_pairs": [
+    [
+      0,
+      5
+    ],
+    [
+      1,
+      2
+    ],
+    [
+      3,
+      4
+    ],
+    [
+      6,
+      7
+    ]
+  ],
+  "cases": {
+    "inst4": "task/instance4/instance.json"
+  },
+  "seeds": [
+    1604,
+    1605,
+    1606,
+    1607
+  ],
+  "variants": {
+    "v4": {
+      "binary": "experiments/v4_deep_parallel/shared/v4"
+    },
+    "hybrid": {
+      "binary": "experiments/v4_deep_parallel/integration/bin/hybrid_frozen"
+    }
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "case": "anti",
+  "seed": 2101,
+  "variant": "candidate",
+  "started_unix": 1792401711.239688,
+  "ended_unix": 1792401771.0856702,
+  "rc": 0,
+  "timeout": false,
+  "wall": 59.84597741900143,
+  "valid": true,
+  "objective": 72462.4880164069,
+  "validation_error": null,
+  "actual_nt": 2,
+  "error_log": false,
+  "affinity": [
+    12,
+    13
+  ],
+  "success": true,
+  "solution_sha256": "563330ca2d88166a85f9fe1a956d6f55f16525236e5228d2b1c3a8593f0f65fd",
+  "source_sha256": "1857bec7e0882d15cf3091e79aeb0df1608ced5d4ee6883c1cb02656cfbd8e03",
+  "resource": "rss_kb=6468 user=117.65 sys=0.03\n",
+  "snapshots": [
+    {
+      "target_seconds": 10,
+      "observed_seconds": 10.004362293999293,
+      "file": "experiments/v4_perturbation/integration/logs/holdout60/anti_2101_candidate.t10.solution.json",
+      "sha256": "6b8afdff1a5f2143976e45da5ef2527a6b7b01a3668414a01024a4365bd267cc",
+      "valid": true,
+      "objective": 70272.29853281614
+    },
+    {
+      "target_seconds": 30,
+      "observed_seconds": 30.02791144100047,
+      "file": "experiments/v4_perturbation/integration/logs/holdout60/anti_2101_candidate.t30.solution.json",
+      "sha256": "879ec7d92d771144c170f3821b024a854f210e633c2c3460ccac60e243398a9a",
+      "valid": true,
+      "objective": 71338.27738054114
+    },
+    {
+      "target_seconds": 50,
+      "observed_seconds": 50.06501669999852,
+      "file": "experiments/v4_perturbation/integration/logs/holdout60/anti_2101_candidate.t50.solution.json",
+      "sha256": "208d3e9104465913ebf0bc367fc9f849032e909788f99a29333360c4f04ed51f",
+      "valid": true,
+      "objective": 71541.56940734226
+    }
+  ]
+}

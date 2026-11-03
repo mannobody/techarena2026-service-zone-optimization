@@ -1,0 +1,88 @@
+{
+  "spec": {
+    "destination": "experiments/v4_perturbation/shared/logs/checkpoint60",
+    "seconds": 60,
+    "cpu_pairs": [
+      [
+        0,
+        1
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        8,
+        10
+      ],
+      [
+        16,
+        17
+      ],
+      [
+        18,
+        19
+      ],
+      [
+        20,
+        21
+      ]
+    ],
+    "seeds": [
+      1901
+    ],
+    "cases": {
+      "anti": "experiments/v4_perturbation/shared/inputs/dev/anti.json",
+      "tightA": "experiments/v4_perturbation/shared/inputs/dev/tightA.json",
+      "alphabig": "experiments/v4_perturbation/shared/inputs/dev/alphabig.json",
+      "multiskill": "experiments/v4_perturbation/shared/inputs/dev/multiskill.json",
+      "cluster": "experiments/v4_perturbation/shared/inputs/dev/cluster.json",
+      "grid": "experiments/v4_perturbation/shared/inputs/dev/grid.json",
+      "large": "experiments/v4_perturbation/shared/inputs/dev/large.json",
+      "huge": "experiments/v4_perturbation/shared/inputs/dev/huge.json",
+      "deficit": "experiments/v4_perturbation/shared/inputs/dev/deficit.json",
+      "alphazero": "experiments/v4_perturbation/shared/inputs/dev/alphazero.json",
+      "elongated": "experiments/v4_perturbation/shared/inputs/dev/elongated.json",
+      "negative": "experiments/v4_perturbation/shared/inputs/dev/negative.json"
+    },
+    "variants": {
+      "v4": {
+        "binary": "experiments/v4_perturbation/baseline/v4",
+        "source": "experiments/v4_perturbation/baseline/frozen_v4.cpp",
+        "env": {
+          "DBG": "1"
+        }
+      }
+    },
+    "snapshots": [
+      10,
+      30,
+      50
+    ]
+  },
+  "spec_sha256": "a8b1a28a9a010b9f8f378f94417c4f313cf7008d2c6a409b82d9eb6db09c8e5c",
+  "runner_sha256": "b8cefa81d00bf83e8a4d046ab449bfdc6b024a8076b5a039e22ccd813b3eacc3",
+  "sources": {
+    "v4": "5b3914fa9791cb879f3232fb2876a915de83b848ad4b353b0dbf25b574998c25"
+  },
+  "validator_sha256": "6dd5948ebe72977976acf1b8dcaf7c819274c79addfb82328c0ec9a012ed56e0",
+  "checkpoints": {},
+  "binaries": {
+    "v4": "5cc54b6ad0f02a3d6d471d0e2f9129c229b4925aaa2b2c01ce26bd5305a4963c"
+  },
+  "inputs": {
+    "anti": "28d3a2c81a0ef0bfa8e1ec588da62bd48122f37d9cd4952e413303f84d80d278",
+    "tightA": "1ae28e2cd6ea7c5c1c26e3f782a77f79f24bf0f562b09b3f7708aa6cc4c0df9a",
+    "alphabig": "15b841e52b8c4d71fa1dbb819566f48098a90b7b3db6871071f8f2a09ee58ffe",
+    "multiskill": "57f605ad34775503df27145009291f70a1079e69f4a3e4f6c55c729817131201",
+    "cluster": "31198c78efc75b7acd54ff2112ffed47674336fb38f642cbf736f064262dd078",
+    "grid": "0306bf511ce4b28e1985ad311311034aad696f020a440ddfe5aa0a02ec0072e3",
+    "large": "4f975dbbc6612bc2235d7c4c7b5d27adb589dd6d1237d6301dd2416ffc606c7a",
+    "huge": "cfab2ecaa9c6e7c5edf007d2353d172dcf36b1a47ab2c13664ecfe5b88d0f7c3",
+    "deficit": "f4b3c3a47eefe5e7d09f1c73b3cda00c83b62390ac74fc6d98a5b97c8fbdb2d0",
+    "alphazero": "64748cc11cf27e937e178ec52e58ba76cfc4284504ae5769d6c60ccb23674467",
+    "elongated": "5b6b6d56038d594264f3c529735e5140442ddfa104589ceff2fdcf1359aadac1",
+    "negative": "6013cf3d9dbe0fb91ef813a92d6c781c30586585f155579e65de1daf760b5fe8"
+  },
+  "topology": "<local-host-omitted>"
+}

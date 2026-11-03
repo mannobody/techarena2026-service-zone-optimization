@@ -1,0 +1,72 @@
+{
+  "name": "phase2_block60",
+  "seconds": 60,
+  "jobs": 4,
+  "cases": {
+    "anti": "experiments/v4_deep_parallel/search/inputs/anti.json",
+    "alphabig": "experiments/v4_deep_parallel/search/inputs/alphabig.json",
+    "tightA": "experiments/v4_deep_parallel/search/inputs/tightA.json",
+    "multiskill": "experiments/v4_deep_parallel/search/inputs/multiskill.json",
+    "grid": "experiments/v4_deep_parallel/search/inputs/grid.json",
+    "cluster": "experiments/v4_deep_parallel/search/inputs/cluster.json",
+    "large": "experiments/v4_deep_parallel/search/inputs/large.json",
+    "huge": "experiments/v4_deep_parallel/search/inputs/huge.json"
+  },
+  "seeds": [
+    1103
+  ],
+  "variants": {
+    "v4": {
+      "binary": "experiments/v4_deep_parallel/shared/v4",
+      "env": {
+        "DBG": "1"
+      }
+    },
+    "batch": {
+      "binary": "experiments/v4_deep_parallel/search/bin/lab2",
+      "env": {
+        "DBG": "1",
+        "LAB_BATCH": "1"
+      }
+    },
+    "adaptive": {
+      "binary": "experiments/v4_deep_parallel/search/bin/lab2",
+      "env": {
+        "DBG": "1",
+        "LAB_BATCH": "1",
+        "LAB_ALNS": "1"
+      }
+    },
+    "niche_cross": {
+      "binary": "experiments/v4_deep_parallel/search/bin/lab2",
+      "env": {
+        "DBG": "1",
+        "LAB_BATCH": "1",
+        "LAB_ALNS": "1",
+        "LAB_XOVER": "1",
+        "LAB_NICHES": "1"
+      }
+    },
+    "persistent_cross": {
+      "binary": "experiments/v4_deep_parallel/search/bin/lab2",
+      "env": {
+        "DBG": "1",
+        "LAB_BATCH": "1",
+        "LAB_ALNS": "1",
+        "LAB_XOVER": "1",
+        "LAB_NICHES": "1",
+        "LAB_ARCHIVE": "1"
+      }
+    }
+  },
+  "cpus": [
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+  ]
+}

@@ -1,0 +1,215 @@
+trace_outer end=6.046664 deadline=6.000000 sets=33 threads=2
+trace_decode k=6 cost=0.031708 end=6.087611 deadline=13.200000 f=185540.855369054
+trace_decode k=7 cost=0.063222 end=6.157729 deadline=13.200000 f=222836.575799225
+trace_decode k=13 cost=0.166891 end=6.329816 deadline=13.200000 f=274275.763350811
+trace_decode k=8 cost=0.038956 end=6.373752 deadline=13.200000 f=266236.303835148
+trace_decode k=18 cost=0.258434 end=6.636064 deadline=13.200000 f=230840.322198787
+wide_start mode=2 attempts=2646 evaluated=2569 decoded=5 best=274275.763351 t=13.200
+phase1 t=13.20 sets=2602 ops=5 f=200045.16
+trace_build tid=1 ci=7 ctor=0 start=13.202114 end=13.266330 deadline=15.000000 refine=0 f=123640.476316626
+trace_build tid=1 ci=8 ctor=0 start=13.266404 end=13.332630 deadline=15.000000 refine=0 f=162554.842995916
+trace_build tid=1 ci=9 ctor=0 start=13.332707 end=13.378715 deadline=15.000000 refine=0 f=200045.159242283
+trace_build tid=1 ci=10 ctor=0 start=13.378787 end=13.431872 deadline=15.000000 refine=0 f=235220.096119027
+trace_build tid=1 ci=11 ctor=0 start=13.431944 end=13.525105 deadline=15.000000 refine=0 f=266106.006047999
+trace_build tid=1 ci=12 ctor=0 start=13.525206 end=13.852623 deadline=15.000000 refine=0 f=294457.397644339
+trace_build tid=0 ci=0 ctor=0 start=13.201950 end=13.928824 deadline=15.000000 refine=0 f=357571.066288148
+trace_build tid=0 ci=1 ctor=0 start=13.928884 end=14.308829 deadline=15.000000 refine=0 f=349613.040217932
+trace_build tid=1 ci=13 ctor=0 start=13.852675 end=14.355770 deadline=15.000000 refine=0 f=320014.364504529
+trace_build tid=1 ci=14 ctor=0 start=14.355846 end=14.577174 deadline=15.000000 refine=0 f=338028.521088056
+trace_build tid=0 ci=2 ctor=0 start=14.308908 end=14.616249 deadline=15.000000 refine=0 f=349015.222501483
+trace_build tid=0 ci=3 ctor=0 start=14.616344 end=14.805100 deadline=15.000000 refine=0 f=344997.649349745
+trace_build tid=1 ci=15 ctor=0 start=14.577246 end=14.863471 deadline=15.000000 refine=0 f=328830.310546307
+trace_build tid=0 ci=4 ctor=0 start=14.805181 end=15.000086 deadline=15.000000 refine=0 f=351512.796694004
+trace_rank tid=0 start=13.201949 end=15.000158 deadline=15.000000 sets=21 ranked=5 combos=126
+cand0 f=355102.30 ops=3,12,13,14,15,17,18,19,20,23,24,trace_build tid=1 ci=16 ctor=0 start=14.863583 end=15.000168 deadline=15.000000 refine=0 f=261028.076233049
+trace_rank tid=1 start=13.202112 end=15.000237 deadline=15.000000 sets=21 ranked=10 combos=126
+
+cand1 f=348317.07 ops=2,3,7,9,10,12,14,15,17,18,21,23,
+cand2 f=345363.25 ops=3,10,12,13,14,15,17,18,19,20,23,
+cand3 f=344997.65 ops=2,3,5,7,9,12,14,15,17,18,21,
+cand4 f=342544.85 ops=2,3,5,7,12,14,15,17,20,23,24,
+cand5 f=41827.22 ops=3,
+cand6 f=83390.49 ops=3,14,
+cand7 f=123640.48 ops=3,14,23,
+cand8 f=162554.84 ops=3,14,15,23,
+cand9 f=200045.16 ops=3,14,15,17,23,
+cand10 f=235220.10 ops=3,7,14,15,17,23,
+cand11 f=266106.01 ops=3,7,13,14,15,17,23,
+cand12 f=293149.43 ops=3,7,14,15,17,18,19,23,
+cand13 f=319589.04 ops=3,5,7,12,13,14,15,17,23,
+cand14 f=337597.82 ops=3,5,12,13,14,15,17,19,20,23,
+cand15 f=327717.51 ops=2,3,5,7,11,12,14,15,17,18,21,23,24,
+cand16 f=274275.76 ops=0,1,2,4,5,7,9,11,12,16,18,20,22,
+cand17 f=266236.30 ops=2,3,12,14,15,16,17,23,
+cand18 f=230840.32 ops=0,1,2,4,5,6,7,8,9,10,12,13,14,16,18,21,22,23,
+cand19 f=222836.58 ops=1,3,11,12,14,17,20,
+cand20 f=185540.86 ops=3,4,5,13,17,21,
+  rank0 val=357571.07 cand=0 ctor=0
+  rank1 val=351512.80 cand=4 ctor=0
+  rank2 val=349613.04 cand=1 ctor=0
+  rank3 val=349015.22 cand=2 ctor=0
+  rank4 val=344997.65 cand=3 ctor=0
+trace_exchange proposed=33670 positive=308 rejected=127 accepted=1 gain=32.776089724 seconds=0.107687 depth=2
+trace_exchange proposed=36900 positive=1070 rejected=111 accepted=1 gain=60.227919185 seconds=0.111370 depth=2
+trace_exchange proposed=73000 positive=2487 rejected=127 accepted=0 gain=0.000000000 seconds=0.113273 depth=2
+trace_exchange proposed=73000 positive=6675 rejected=132 accepted=0 gain=0.000000000 seconds=0.114439 depth=2
+trace_exchange proposed=33670 positive=386 rejected=128 accepted=1 gain=34.945916642 seconds=0.112151 depth=2
+trace_build tid=1 ci=14 ctor=0 start=15.000249 end=18.107615 deadline=22.200245 refine=1 f=348694.641528010
+trace_round tid=1 round=0 rank=0 ci=14 ctor=0 t=18.107731
+trace_exchange proposed=219780 positive=356 rejected=42 accepted=1 gain=61.657696018 seconds=0.066320 depth=2
+trace_exchange proposed=400 positive=164 rejected=104 accepted=0 gain=0.000000000 seconds=0.113592 depth=2
+trace_exchange proposed=73380 positive=79 rejected=64 accepted=0 gain=0.000000000 seconds=0.066054 depth=2
+trace_exchange proposed=36880 positive=127 rejected=119 accepted=0 gain=0.000000000 seconds=0.115532 depth=2
+trace_exchange proposed=380 positive=109 rejected=68 accepted=0 gain=0.000000000 seconds=0.065087 depth=2
+trace_exchange proposed=73400 positive=102 rejected=69 accepted=0 gain=0.000000000 seconds=0.067576 depth=2
+trace_exchange proposed=400 positive=217 rejected=128 accepted=0 gain=0.000000000 seconds=0.118227 depth=2
+trace_exchange proposed=105870 positive=334 rejected=59 accepted=0 gain=0.000000000 seconds=0.065823 depth=2
+trace_exchange proposed=400 positive=118 rejected=66 accepted=0 gain=0.000000000 seconds=0.061951 depth=2
+trace_exchange proposed=109500 positive=2888 rejected=109 accepted=0 gain=0.000000000 seconds=0.115787 depth=2
+trace_exchange proposed=400 positive=113 rejected=67 accepted=0 gain=0.000000000 seconds=0.060430 depth=2
+trace_exchange proposed=36900 positive=179 rejected=59 accepted=0 gain=0.000000000 seconds=0.063514 depth=2
+trace_exchange proposed=143170 positive=994 rejected=85 accepted=2 gain=36.024036882 seconds=0.110781 depth=2
+trace_exchange proposed=57400 positive=742 rejected=45 accepted=0 gain=0.000000000 seconds=0.065505 depth=2
+trace_exchange proposed=36880 positive=129 rejected=119 accepted=0 gain=0.000000000 seconds=0.115534 depth=2
+trace_exchange proposed=286130 positive=361 rejected=40 accepted=2 gain=72.767632383 seconds=0.066878 depth=2
+trace_exchange proposed=136100 positive=375 rejected=36 accepted=1 gain=54.081840163 seconds=0.062593 depth=2
+trace_exchange proposed=148000 positive=728 rejected=10 accepted=4 gain=146.758525744 seconds=0.033185 depth=2
+trace_search mode=1 iterations=11 accepted=2 clones=0 cycles=0 gain=0.000000000 seconds=4.108593
+trace_search mode=1 iterations=12 accepted=6 clones=0 cycles=0 gain=11140.801104513 seconds=7.247371
+trace_exchange proposed=249840 positive=641 rejected=123 accepted=3 gain=112.940850616 seconds=0.091987 depth=2
+trace_exchange proposed=36500 positive=12372 rejected=186 accepted=0 gain=0.000000000 seconds=0.090179 depth=2
+trace_exchange proposed=179270 positive=12727 rejected=183 accepted=1 gain=40.818375483 seconds=0.108436 depth=2
+trace_exchange proposed=73380 positive=137 rejected=101 accepted=0 gain=0.000000000 seconds=0.115285 depth=2
+trace_exchange proposed=106270 positive=104 rejected=93 accepted=0 gain=0.000000000 seconds=0.114819 depth=2
+trace_build tid=1 ci=15 ctor=0 start=22.216445 end=25.630473 deadline=29.416444 refine=1 f=390113.717540897
+trace_round tid=1 round=1 rank=1 ci=15 ctor=0 t=25.630493
+trace_exchange proposed=249440 positive=396 rejected=61 accepted=2 gain=74.220805262 seconds=0.106238 depth=2
+trace_exchange proposed=310750 positive=97 rejected=20 accepted=0 gain=0.000000000 seconds=0.048009 depth=2
+trace_exchange proposed=135490 positive=112 rejected=42 accepted=0 gain=0.000000000 seconds=0.047758 depth=2
+trace_exchange proposed=36500 positive=3926 rejected=123 accepted=0 gain=0.000000000 seconds=0.119460 depth=2
+trace_exchange proposed=73380 positive=64 rejected=43 accepted=0 gain=0.000000000 seconds=0.043485 depth=2
+trace_exchange proposed=36900 positive=146 rejected=60 accepted=0 gain=0.000000000 seconds=0.059013 depth=2
+trace_exchange proposed=36900 positive=127 rejected=116 accepted=0 gain=0.000000000 seconds=0.115711 depth=2
+trace_exchange proposed=400 positive=184 rejected=60 accepted=0 gain=0.000000000 seconds=0.058838 depth=2
+trace_exchange proposed=292780 positive=211 rejected=27 accepted=1 gain=17.688543517 seconds=0.056008 depth=2
+trace_exchange proposed=102430 positive=1645 rejected=85 accepted=0 gain=0.000000000 seconds=0.113372 depth=2
+trace_exchange proposed=36900 positive=212 rejected=51 accepted=0 gain=0.000000000 seconds=0.052839 depth=2
+trace_exchange proposed=33270 positive=200 rejected=90 accepted=0 gain=0.000000000 seconds=0.062001 depth=2
+trace_exchange proposed=380 positive=167 rejected=106 accepted=0 gain=0.000000000 seconds=0.109027 depth=2
+trace_exchange proposed=400 positive=100 rejected=77 accepted=0 gain=0.000000000 seconds=0.058883 depth=2
+trace_exchange proposed=800 positive=314 rejected=62 accepted=1 gain=35.282188616 seconds=0.052865 depth=2
+trace_exchange proposed=37300 positive=344 rejected=33 accepted=1 gain=78.342036611 seconds=0.111065 depth=2
+trace_exchange proposed=36900 positive=123 rejected=49 accepted=0 gain=0.000000000 seconds=0.051987 depth=2
+trace_exchange proposed=33670 positive=328 rejected=15 accepted=1 gain=47.024847849 seconds=0.022788 depth=2
+trace_search mode=1 iterations=11 accepted=3 clones=0 cycles=0 gain=0.000000000 seconds=3.820579
+trace_search mode=1 iterations=12 accepted=6 clones=0 cycles=0 gain=2109.994986770 seconds=7.289034
+trace_exchange proposed=36500 positive=15599 rejected=214 accepted=0 gain=0.000000000 seconds=0.093486 depth=2
+trace_exchange proposed=36500 positive=3317 rejected=113 accepted=0 gain=0.000000000 seconds=0.100737 depth=2
+trace_exchange proposed=69370 positive=14101 rejected=130 accepted=0 gain=0.000000000 seconds=0.090324 depth=2
+trace_exchange proposed=73000 positive=3355 rejected=132 accepted=0 gain=0.000000000 seconds=0.115533 depth=2
+trace_exchange proposed=32870 positive=3210 rejected=116 accepted=0 gain=0.000000000 seconds=0.112013 depth=2
+trace_build tid=1 ci=13 ctor=0 start=29.451189 end=32.601748 deadline=36.651187 refine=1 f=322579.210891455
+trace_round tid=1 round=2 rank=2 ci=13 ctor=0 t=32.601800
+trace_exchange proposed=249840 positive=317 rejected=33 accepted=3 gain=66.127097236 seconds=0.064882 depth=2
+trace_exchange proposed=75490 positive=2302 rejected=128 accepted=1 gain=34.168574303 seconds=0.115382 depth=2
+trace_exchange proposed=109900 positive=139 rejected=61 accepted=0 gain=0.000000000 seconds=0.066319 depth=2
+trace_exchange proposed=146800 positive=336 rejected=51 accepted=1 gain=65.114887980 seconds=0.065489 depth=2
+trace_exchange proposed=103440 positive=561 rejected=90 accepted=2 gain=60.147387148 seconds=0.110464 depth=2
+trace_exchange proposed=73380 positive=134 rejected=57 accepted=0 gain=0.000000000 seconds=0.061561 depth=2
+trace_exchange proposed=139520 positive=379 rejected=116 accepted=1 gain=29.261615267 seconds=0.115235 depth=2
+trace_exchange proposed=400 positive=137 rejected=67 accepted=0 gain=0.000000000 seconds=0.065673 depth=2
+trace_exchange proposed=15790 positive=3339 rejected=128 accepted=0 gain=0.000000000 seconds=0.063227 depth=2
+trace_exchange proposed=69750 positive=204 rejected=126 accepted=0 gain=0.000000000 seconds=0.117846 depth=2
+trace_exchange proposed=36900 positive=133 rejected=63 accepted=0 gain=0.000000000 seconds=0.064109 depth=2
+trace_exchange proposed=142770 positive=204 rejected=121 accepted=0 gain=0.000000000 seconds=0.117072 depth=2
+trace_exchange proposed=254250 positive=894 rejected=25 accepted=5 gain=88.995850942 seconds=0.057968 depth=2
+trace_exchange proposed=740 positive=283 rejected=60 accepted=1 gain=33.052986015 seconds=0.063425 depth=2
+trace_exchange proposed=168248 positive=3251 rejected=111 accepted=1 gain=26.355125979 seconds=0.112389 depth=2
+trace_exchange proposed=315940 positive=682 rejected=23 accepted=5 gain=215.942537686 seconds=0.064088 depth=2
+trace_exchange proposed=73380 positive=141 rejected=45 accepted=0 gain=0.000000000 seconds=0.052084 depth=2
+trace_exchange proposed=400 positive=54 rejected=49 accepted=0 gain=0.000000000 seconds=0.045904 depth=2
+trace_search mode=1 iterations=11 accepted=5 clones=0 cycles=0 gain=0.000000000 seconds=4.097153
+trace_search mode=1 iterations=12 accepted=4 clones=0 cycles=0 gain=0.000000000 seconds=7.223136
+trace_exchange proposed=33270 positive=205 rejected=126 accepted=0 gain=0.000000000 seconds=0.111226 depth=2
+trace_exchange proposed=36900 positive=140 rejected=117 accepted=0 gain=0.000000000 seconds=0.113223 depth=2
+trace_exchange proposed=32870 positive=201 rejected=143 accepted=0 gain=0.000000000 seconds=0.115109 depth=2
+trace_exchange proposed=36900 positive=877 rejected=122 accepted=1 gain=22.110091594 seconds=0.113128 depth=2
+trace_exchange proposed=400 positive=189 rejected=127 accepted=0 gain=0.000000000 seconds=0.118310 depth=2
+trace_exchange proposed=36500 positive=96 rejected=83 accepted=0 gain=0.000000000 seconds=0.116071 depth=2
+trace_build tid=1 ci=12 ctor=0 start=36.699071 end=40.092508 deadline=43.899070 refine=1 f=298559.026462868
+trace_round tid=1 round=3 rank=3 ci=12 ctor=0 t=40.092612
+trace_exchange proposed=66482 positive=12 rejected=12 accepted=0 gain=0.000000000 seconds=0.059733 depth=2
+trace_exchange proposed=69750 positive=193 rejected=25 accepted=0 gain=0.000000000 seconds=0.055519 depth=2
+trace_exchange proposed=73400 positive=146 rejected=70 accepted=0 gain=0.000000000 seconds=0.106975 depth=2
+trace_exchange proposed=400 positive=51 rejected=26 accepted=0 gain=0.000000000 seconds=0.048877 depth=2
+trace_exchange proposed=69750 positive=258 rejected=85 accepted=0 gain=0.000000000 seconds=0.116975 depth=2
+trace_exchange proposed=139540 positive=189 rejected=44 accepted=1 gain=2.777547717 seconds=0.053535 depth=2
+trace_exchange proposed=139140 positive=503 rejected=46 accepted=1 gain=64.701573428 seconds=0.061377 depth=2
+trace_exchange proposed=73000 positive=657 rejected=87 accepted=0 gain=0.000000000 seconds=0.108637 depth=2
+trace_exchange proposed=36900 positive=1295 rejected=50 accepted=1 gain=64.701573428 seconds=0.059499 depth=2
+trace_exchange proposed=182900 positive=137 rejected=40 accepted=0 gain=0.000000000 seconds=0.055960 depth=2
+trace_exchange proposed=69370 positive=7508 rejected=131 accepted=0 gain=0.000000000 seconds=0.116274 depth=2
+trace_exchange proposed=400 positive=203 rejected=61 accepted=0 gain=0.000000000 seconds=0.059232 depth=2
+trace_exchange proposed=36900 positive=482 rejected=40 accepted=1 gain=64.701573428 seconds=0.059476 depth=2
+trace_exchange proposed=36880 positive=958 rejected=100 accepted=1 gain=10.882409476 seconds=0.115783 depth=2
+trace_exchange proposed=143170 positive=164 rejected=40 accepted=1 gain=20.794696880 seconds=0.058907 depth=2
+trace_exchange proposed=32870 positive=251 rejected=27 accepted=0 gain=0.000000000 seconds=0.027665 depth=2
+trace_search mode=1 iterations=10 accepted=3 clones=0 cycles=0 gain=0.000000000 seconds=3.848063
+trace_search mode=1 iterations=12 accepted=4 clones=0 cycles=0 gain=3461.555793805 seconds=7.231647
+trace_build tid=1 ci=11 ctor=0 start=43.940809 end=46.791472 deadline=51.140807 refine=1 f=267090.183277555
+trace_round tid=1 round=4 rank=4 ci=11 ctor=0 t=46.791522
+trace_exchange proposed=73400 positive=118 rejected=64 accepted=0 gain=0.000000000 seconds=0.070191 depth=2
+trace_build tid=0 ci=3 ctor=0 start=44.003208 end=47.089798 deadline=51.203206 refine=1 f=346049.628730616
+trace_round tid=0 round=4 rank=4 ci=3 ctor=0 t=47.089848
+trace_exchange proposed=219800 positive=136 rejected=52 accepted=1 gain=9.988235300 seconds=0.065968 depth=2
+trace_exchange proposed=36500 positive=7759 rejected=142 accepted=0 gain=0.000000000 seconds=0.068945 depth=2
+trace_exchange proposed=183280 positive=214 rejected=57 accepted=1 gain=8.193840453 seconds=0.066962 depth=2
+trace_exchange proposed=36880 positive=173 rejected=65 accepted=0 gain=0.000000000 seconds=0.066849 depth=2
+trace_exchange proposed=103000 positive=235 rejected=68 accepted=1 gain=8.608249803 seconds=0.059513 depth=2
+trace_exchange proposed=73380 positive=164 rejected=57 accepted=0 gain=0.000000000 seconds=0.066473 depth=2
+trace_exchange proposed=70170 positive=352 rejected=120 accepted=1 gain=23.086327715 seconds=0.059759 depth=2
+trace_exchange proposed=73780 positive=377 rejected=100 accepted=1 gain=22.315838743 seconds=0.069866 depth=2
+trace_exchange proposed=73000 positive=334 rejected=73 accepted=0 gain=0.000000000 seconds=0.065244 depth=2
+trace_exchange proposed=33270 positive=97 rejected=49 accepted=0 gain=0.000000000 seconds=0.070562 depth=2
+trace_exchange proposed=36500 positive=388 rejected=63 accepted=0 gain=0.000000000 seconds=0.063311 depth=2
+trace_exchange proposed=36900 positive=107 rejected=42 accepted=0 gain=0.000000000 seconds=0.069358 depth=2
+trace_exchange proposed=73380 positive=120 rejected=68 accepted=0 gain=0.000000000 seconds=0.061965 depth=2
+trace_exchange proposed=36900 positive=125 rejected=37 accepted=0 gain=0.000000000 seconds=0.069467 depth=2
+trace_exchange proposed=180050 positive=508 rejected=48 accepted=2 gain=44.616001482 seconds=0.066952 depth=2
+trace_exchange proposed=109900 positive=86 rejected=53 accepted=0 gain=0.000000000 seconds=0.070681 depth=2
+trace_exchange proposed=73400 positive=50 rejected=35 accepted=0 gain=0.000000000 seconds=0.066120 depth=2
+trace_exchange proposed=780 positive=190 rejected=13 accepted=1 gain=35.520251075 seconds=0.073909 depth=2
+trace_exchange proposed=400 positive=137 rejected=51 accepted=0 gain=0.000000000 seconds=0.062359 depth=2
+trace_exchange proposed=400 positive=104 rejected=25 accepted=0 gain=0.000000000 seconds=0.057344 depth=2
+trace_exchange proposed=69770 positive=162 rejected=90 accepted=0 gain=0.000000000 seconds=0.050898 depth=2
+trace_exchange proposed=380 positive=10 rejected=1 accepted=0 gain=0.000000000 seconds=0.001614 depth=2
+trace_search mode=1 iterations=12 accepted=5 clones=0 cycles=1 gain=0.000000000 seconds=4.416802
+trace_search mode=1 iterations=11 accepted=2 clones=0 cycles=0 gain=0.000000000 seconds=4.119240
+trace_exchange proposed=400 positive=127 rejected=119 accepted=0 gain=0.000000000 seconds=0.110034 depth=2
+trace_exchange proposed=142750 positive=114 rejected=103 accepted=0 gain=0.000000000 seconds=0.110424 depth=2
+trace_exchange proposed=109900 positive=200 rejected=91 accepted=0 gain=0.000000000 seconds=0.110176 depth=2
+trace_exchange proposed=36500 positive=16918 rejected=239 accepted=0 gain=0.000000000 seconds=0.109935 depth=2
+trace_exchange proposed=208510 positive=184 rejected=97 accepted=0 gain=0.000000000 seconds=0.110355 depth=2
+trace_exchange proposed=139500 positive=460 rejected=117 accepted=1 gain=30.734071365 seconds=0.110676 depth=2
+trace_exchange proposed=36880 positive=19018 rejected=258 accepted=0 gain=0.000000000 seconds=0.131987 depth=2
+trace_exchange proposed=36500 positive=8212 rejected=154 accepted=0 gain=0.000000000 seconds=0.119108 depth=2
+trace_exchange proposed=36500 positive=17282 rejected=224 accepted=0 gain=0.000000000 seconds=0.133791 depth=2
+trace_exchange proposed=400 positive=111 rejected=111 accepted=0 gain=0.000000000 seconds=0.118674 depth=2
+trace_exchange proposed=128310 positive=265 rejected=47 accepted=1 gain=40.932056363 seconds=0.142124 depth=2
+trace_exchange proposed=400 positive=113 rejected=94 accepted=0 gain=0.000000000 seconds=0.124487 depth=2
+trace_exchange proposed=36500 positive=17856 rejected=234 accepted=0 gain=0.000000000 seconds=0.120551 depth=2
+trace_exchange proposed=69370 positive=9184 rejected=131 accepted=0 gain=0.000000000 seconds=0.136236 depth=2
+trace_exchange proposed=69370 positive=3574 rejected=153 accepted=0 gain=0.000000000 seconds=0.144918 depth=2
+trace_exchange proposed=109500 positive=1733 rejected=201 accepted=0 gain=0.000000000 seconds=0.140916 depth=2
+trace_exchange proposed=143550 positive=349 rejected=144 accepted=2 gain=35.794201335 seconds=0.143211 depth=2
+trace_exchange proposed=69370 positive=369 rejected=149 accepted=0 gain=0.000000000 seconds=0.141083 depth=2
+trace_exchange proposed=32870 positive=574 rejected=74 accepted=0 gain=0.000000000 seconds=0.142323 depth=2
+trace_exchange proposed=146380 positive=88 rejected=35 accepted=0 gain=0.000000000 seconds=0.131660 depth=2
+trace_exchange proposed=110300 positive=286 rejected=144 accepted=1 gain=12.861305292 seconds=0.135868 depth=2
+trace_exchange proposed=73000 positive=11751 rejected=171 accepted=0 gain=0.000000000 seconds=0.135356 depth=2
+trace_exchange proposed=109880 positive=123 rejected=78 accepted=0 gain=0.000000000 seconds=0.088905 depth=2
+trace_exchange proposed=380 positive=219 rejected=74 accepted=0 gain=0.000000000 seconds=0.067219 depth=2
+trace_search mode=1 iterations=12 accepted=7 clones=0 cycles=0 gain=0.000000000 seconds=8.836037
+trace_search mode=1 iterations=12 accepted=6 clones=0 cycles=0 gain=0.000000000 seconds=8.849731
+worker_dfs calls=0 solved=0 nodes=0
+objective=390113.717541 fast=200045.159 sets=2602 threads=2 t=60.1

@@ -1,0 +1,27 @@
+{
+  "name": "regression60_expanded",
+  "seconds": 60,
+  "jobs": 8,
+  "cases": {
+    "open4": "task/instance4/instance.json"
+  },
+  "seeds": [
+    11,
+    12,
+    13,
+    14,
+    15,
+    16
+  ],
+  "variants": {
+    "base": {
+      "binary": "experiments/v4_local_search/artifacts/premerge",
+      "env": {}
+    },
+    "merged": {
+      "binary": "experiments/v4_local_search/artifacts/baseline",
+      "env": {}
+    }
+  },
+  "purpose": "Expand variance check against premerge main; no tuning on open test."
+}

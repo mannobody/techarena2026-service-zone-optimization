@@ -1,0 +1,113 @@
+{
+  "anti": {
+    "seed": 721000,
+    "parameters": {
+      "ns": 150,
+      "no": 10,
+      "nw": 20,
+      "nsk": 3,
+      "dist": "anti",
+      "offices": "perimeter",
+      "A": null
+    },
+    "path": "experiments/v4_deep_parallel/search/inputs/anti.json",
+    "sha256": "e7de95c41c9eebeeedd15b07b0fe00fa21d32fd3c282e1a5107bd95e710b250d"
+  },
+  "alphabig": {
+    "seed": 721100,
+    "parameters": {
+      "ns": 600,
+      "no": 8,
+      "nw": 30,
+      "nsk": 4,
+      "span": 1.0,
+      "dscale": 100000.0,
+      "af": 2.0,
+      "tmax": 6,
+      "A": null
+    },
+    "path": "experiments/v4_deep_parallel/search/inputs/alphabig.json",
+    "sha256": "accfbcd892c89457097fbd321d11d41b58f172dd306094e141748a58c2aa3022"
+  },
+  "tightA": {
+    "seed": 721200,
+    "parameters": {
+      "ns": 150,
+      "no": 4,
+      "nw": 16,
+      "nsk": 4,
+      "A": 0,
+      "capf": 1.0
+    },
+    "path": "experiments/v4_deep_parallel/search/inputs/tightA.json",
+    "sha256": "aa282145809278033c3137b462c11c776295601346893a3b5a2b668985c58928"
+  },
+  "multiskill": {
+    "seed": 721300,
+    "parameters": {
+      "ns": 400,
+      "no": 8,
+      "nw": 12,
+      "nsk": 6,
+      "wsk": 3,
+      "tmax": 3,
+      "A": null
+    },
+    "path": "experiments/v4_deep_parallel/search/inputs/multiskill.json",
+    "sha256": "deb4572c3d3ba4b1dd3be79b8e41ab6fcfe200475ff22a319f8bf0d438dce6e7"
+  },
+  "grid": {
+    "seed": 721400,
+    "parameters": {
+      "ns": 100,
+      "no": 6,
+      "nw": 12,
+      "nsk": 3,
+      "layout": "grid",
+      "offices": "onsite",
+      "A": null
+    },
+    "path": "experiments/v4_deep_parallel/search/inputs/grid.json",
+    "sha256": "23defc0d13d7d2e0e7470627cbfeb9f3f6b6f4c777c8660a903c198d6ee0d683"
+  },
+  "cluster": {
+    "seed": 721500,
+    "parameters": {
+      "ns": 1500,
+      "no": 5,
+      "nw": 20,
+      "nsk": 4,
+      "layout": "cluster",
+      "offices": "random",
+      "A": null
+    },
+    "path": "experiments/v4_deep_parallel/search/inputs/cluster.json",
+    "sha256": "4ae3d2bac9eee656dffe6aeb024cd8a97202a0dc31d9b37a8e43c0b9cb5ce21a"
+  },
+  "large": {
+    "seed": 721600,
+    "parameters": {
+      "ns": 3500,
+      "no": 15,
+      "nw": 40,
+      "nsk": 5,
+      "dist": "road",
+      "A": null
+    },
+    "path": "experiments/v4_deep_parallel/search/inputs/large.json",
+    "sha256": "7f328e32de04fdd0014a7c8b385fec0f7a35d844f7c3863280900d434d8d5c36"
+  },
+  "huge": {
+    "seed": 721700,
+    "parameters": {
+      "ns": 10000,
+      "no": 20,
+      "nw": 50,
+      "nsk": 5,
+      "dist": "road",
+      "A": null
+    },
+    "path": "experiments/v4_deep_parallel/search/inputs/huge.json",
+    "sha256": "ad129c4c5e6c4cc3fa1b6d69be2e7da5f72e94fcf066794651b3668bcba3f9bf"
+  }
+}

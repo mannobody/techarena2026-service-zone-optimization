@@ -1,0 +1,53 @@
+{
+  "destination": "experiments/v4_deep_parallel/geometry/logs/full60_dev",
+  "seconds": 60,
+  "cpu_pairs": [
+    [
+      0,
+      5
+    ],
+    [
+      1,
+      2
+    ],
+    [
+      3,
+      4
+    ]
+  ],
+  "cases": {
+    "anti": "experiments/v4_deep_parallel/geometry/inputs/dev_anti.json",
+    "cluster": "experiments/v4_deep_parallel/geometry/inputs/dev_cluster.json",
+    "tightA": "experiments/v4_deep_parallel/geometry/inputs/dev_tightA.json",
+    "alphabig": "experiments/v4_deep_parallel/geometry/inputs/dev_alphabig.json",
+    "multiskill": "experiments/v4_deep_parallel/geometry/inputs/dev_multiskill.json",
+    "large": "experiments/v4_deep_parallel/geometry/inputs/dev_large.json"
+  },
+  "seeds": [
+    711,
+    712
+  ],
+  "variants": {
+    "v4": {
+      "binary": "experiments/v4_deep_parallel/shared/v4"
+    },
+    "count": {
+      "binary": "experiments/v4_deep_parallel/geometry/bin/candidate_v3",
+      "env": {
+        "GEO_SPLIT": "5"
+      }
+    },
+    "pool": {
+      "binary": "experiments/v4_deep_parallel/geometry/bin/candidate_v3",
+      "env": {
+        "GEO_SPLIT": "2"
+      }
+    },
+    "both": {
+      "binary": "experiments/v4_deep_parallel/geometry/bin/candidate_v3",
+      "env": {
+        "GEO_SPLIT": "7"
+      }
+    }
+  }
+}

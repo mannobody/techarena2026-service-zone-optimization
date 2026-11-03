@@ -1,0 +1,62 @@
+{
+  "destination": "experiments/v4_perturbation/geometry_lab/logs/screen280",
+  "seconds": 4,
+  "cpu_pairs": [
+    [
+      12,
+      13
+    ]
+  ],
+  "seeds": [
+    2101,
+    2102
+  ],
+  "cases": {
+    "anti": "experiments/v4_perturbation/shared/inputs/dev/anti.json",
+    "tightA": "experiments/v4_perturbation/shared/inputs/dev/tightA.json",
+    "alphabig": "experiments/v4_perturbation/shared/inputs/dev/alphabig.json",
+    "multiskill": "experiments/v4_perturbation/shared/inputs/dev/multiskill.json",
+    "cluster": "experiments/v4_perturbation/shared/inputs/dev/cluster.json",
+    "huge": "experiments/v4_perturbation/shared/inputs/dev/huge.json"
+  },
+  "checkpoints": {
+    "anti": "experiments/v4_perturbation/shared/logs/checkpoint280/anti_1902_v4.solution.json",
+    "tightA": "experiments/v4_perturbation/shared/logs/checkpoint280/tightA_1902_v4.solution.json",
+    "alphabig": "experiments/v4_perturbation/shared/logs/checkpoint280/alphabig_1902_v4.solution.json",
+    "multiskill": "experiments/v4_perturbation/shared/logs/checkpoint280/multiskill_1902_v4.solution.json",
+    "cluster": "experiments/v4_perturbation/shared/logs/checkpoint280/cluster_1902_v4.solution.json",
+    "huge": "experiments/v4_perturbation/shared/logs/checkpoint280/huge_1902_v4.solution.json"
+  },
+  "variants": {
+    "lns": {
+      "binary": "experiments/v4_perturbation/geometry_lab/post_geometry",
+      "source": "experiments/v4_perturbation/geometry_lab/src/post_geometry.cpp",
+      "env": {},
+      "mode": 0
+    },
+    "packet": {
+      "binary": "experiments/v4_perturbation/geometry_lab/post_geometry",
+      "source": "experiments/v4_perturbation/geometry_lab/src/post_geometry.cpp",
+      "env": {},
+      "mode": 1
+    },
+    "support": {
+      "binary": "experiments/v4_perturbation/geometry_lab/post_geometry",
+      "source": "experiments/v4_perturbation/geometry_lab/src/post_geometry.cpp",
+      "env": {},
+      "mode": 2
+    },
+    "cycle": {
+      "binary": "experiments/v4_perturbation/geometry_lab/post_geometry",
+      "source": "experiments/v4_perturbation/geometry_lab/src/post_geometry.cpp",
+      "env": {},
+      "mode": 3
+    },
+    "polish": {
+      "binary": "experiments/v4_perturbation/geometry_lab/post_geometry",
+      "source": "experiments/v4_perturbation/geometry_lab/src/post_geometry.cpp",
+      "env": {},
+      "mode": 4
+    }
+  }
+}

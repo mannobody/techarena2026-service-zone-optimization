@@ -1,0 +1,230 @@
+{
+  "series": "./experiments/v4_deep_parallel/integration/logs/hybrid_280",
+  "completed_marker": true,
+  "runs": 24,
+  "successful": 24,
+  "variants": {
+    "hybrid": {
+      "pairs": 12,
+      "nonzero_reference_pairs": 12,
+      "mean_pct": 0.8896170227881198,
+      "median_pct": 0.02974823261601884,
+      "min_pct": -0.9609603261525486,
+      "max_pct": 4.91009485203447,
+      "stdev_pct": 1.9381867797719818,
+      "wins": 6,
+      "ties": 4,
+      "losses": 2,
+      "same_affinity": true,
+      "cases": {
+        "alphabig": {
+          "pairs": 2,
+          "baseline_median": 4971789.004555343,
+          "candidate_median": 4984814.671664457,
+          "median_objective_ratio_pct": 0.2619915506707848,
+          "paired_mean_pct": 0.2619438537623488,
+          "paired_min_pct": -0.13892554842375718,
+          "paired_max_pct": 0.6628132559484547
+        },
+        "anti": {
+          "pairs": 2,
+          "baseline_median": 245574.4944070226,
+          "candidate_median": 257618.58796687287,
+          "median_objective_ratio_pct": 4.904456217626584,
+          "paired_mean_pct": 4.9044565206716815,
+          "paired_min_pct": 4.898818189308894,
+          "paired_max_pct": 4.91009485203447
+        },
+        "huge": {
+          "pairs": 2,
+          "baseline_median": 7802.410957414095,
+          "candidate_median": 7807.080901247547,
+          "median_objective_ratio_pct": 0.059852574530377796,
+          "paired_mean_pct": 0.09330084969393881,
+          "paired_min_pct": -0.9609603261525486,
+          "paired_max_pct": 1.1475620255404262
+        },
+        "large": {
+          "pairs": 2,
+          "baseline_median": 3256515.3800052432,
+          "candidate_median": 3259054.9682757193,
+          "median_objective_ratio_pct": 0.07798483882707777,
+          "paired_mean_pct": 0.07800091260074951,
+          "paired_min_pct": 0.05949646523203768,
+          "paired_max_pct": 0.09650535996946134
+        },
+        "multiskill": {
+          "pairs": 2,
+          "baseline_median": 68512.71012351403,
+          "candidate_median": 68512.71012351403,
+          "median_objective_ratio_pct": 0.0,
+          "paired_mean_pct": 0.0,
+          "paired_min_pct": 0.0,
+          "paired_max_pct": 0.0
+        },
+        "tightA": {
+          "pairs": 2,
+          "baseline_median": 23.07570347850314,
+          "candidate_median": 23.07570347850314,
+          "median_objective_ratio_pct": 0.0,
+          "paired_mean_pct": 0.0,
+          "paired_min_pct": 0.0,
+          "paired_max_pct": 0.0
+        }
+      },
+      "paired": [
+        {
+          "case": "multiskill",
+          "seed": 1402,
+          "base": 68512.71012351403,
+          "candidate": 68512.71012351403,
+          "delta": 0.0,
+          "pct": 0.0,
+          "status": "tie",
+          "same_affinity": true
+        },
+        {
+          "case": "multiskill",
+          "seed": 1403,
+          "base": 68512.71012351403,
+          "candidate": 68512.71012351403,
+          "delta": 0.0,
+          "pct": 0.0,
+          "status": "tie",
+          "same_affinity": true
+        },
+        {
+          "case": "anti",
+          "seed": 1403,
+          "base": 245587.6933732023,
+          "candidate": 257618.58796687287,
+          "delta": 12030.894593670586,
+          "pct": 4.898818189308894,
+          "status": "win",
+          "same_affinity": true
+        },
+        {
+          "case": "large",
+          "seed": 1402,
+          "base": 3253686.628076922,
+          "candidate": 3256826.610069626,
+          "delta": 3139.9819927038625,
+          "pct": 0.09650535996946134,
+          "status": "win",
+          "same_affinity": true
+        },
+        {
+          "case": "tightA",
+          "seed": 1402,
+          "base": 23.07570347850314,
+          "candidate": 23.07570347850314,
+          "delta": 0.0,
+          "pct": 0.0,
+          "status": "tie",
+          "same_affinity": true
+        },
+        {
+          "case": "anti",
+          "seed": 1402,
+          "base": 245561.2954408429,
+          "candidate": 257618.58796687287,
+          "delta": 12057.292526029982,
+          "pct": 4.91009485203447,
+          "status": "win",
+          "same_affinity": true
+        },
+        {
+          "case": "alphabig",
+          "seed": 1403,
+          "base": 4971197.442905655,
+          "candidate": 4964291.179594871,
+          "delta": -6906.263310784474,
+          "pct": -0.13892554842375718,
+          "status": "loss",
+          "same_affinity": true
+        },
+        {
+          "case": "huge",
+          "seed": 1403,
+          "base": 7554.865856995054,
+          "candidate": 7641.5626286504485,
+          "delta": 86.69677165539451,
+          "pct": 1.1475620255404262,
+          "status": "win",
+          "same_affinity": true
+        },
+        {
+          "case": "alphabig",
+          "seed": 1402,
+          "base": 4972380.566205031,
+          "candidate": 5005338.163734043,
+          "delta": 32957.59752901178,
+          "pct": 0.6628132559484547,
+          "status": "win",
+          "same_affinity": true
+        },
+        {
+          "case": "large",
+          "seed": 1403,
+          "base": 3259344.1319335643,
+          "candidate": 3261283.3264818126,
+          "delta": 1939.1945482483134,
+          "pct": 0.05949646523203768,
+          "status": "win",
+          "same_affinity": true
+        },
+        {
+          "case": "tightA",
+          "seed": 1403,
+          "base": 23.07570347850314,
+          "candidate": 23.07570347850314,
+          "delta": 0.0,
+          "pct": 0.0,
+          "status": "tie",
+          "same_affinity": true
+        },
+        {
+          "case": "huge",
+          "seed": 1402,
+          "base": 8049.956057833137,
+          "candidate": 7972.599173844646,
+          "delta": -77.35688398849015,
+          "pct": -0.9609603261525486,
+          "status": "loss",
+          "same_affinity": true
+        }
+      ]
+    }
+  },
+  "max_wall": 279.54791561399907,
+  "runtime": {
+    "v4": {
+      "runs": 12,
+      "successful": 12,
+      "max_wall": 279.54791561399907,
+      "median_wall": 279.5009869654996,
+      "max_rss_mib": 28.0,
+      "missing_rss_records": 0,
+      "nonzero_exit": 0,
+      "timeout": 0,
+      "invalid": 0,
+      "wall_exceeded": 0,
+      "error_log": 0,
+      "wrong_or_missing_nt": 0
+    },
+    "hybrid": {
+      "runs": 12,
+      "successful": 12,
+      "max_wall": 279.54287579599986,
+      "median_wall": 279.4939631824991,
+      "max_rss_mib": 27.65625,
+      "missing_rss_records": 0,
+      "nonzero_exit": 0,
+      "timeout": 0,
+      "invalid": 0,
+      "wall_exceeded": 0,
+      "error_log": 0,
+      "wrong_or_missing_nt": 0
+    }
+  }
+}

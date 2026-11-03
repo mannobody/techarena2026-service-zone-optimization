@@ -1,0 +1,59 @@
+{
+  "spec": {
+    "destination": "experiments/v4_deep_parallel/integration/logs/guard_dev60_repeat",
+    "seconds": 60,
+    "cpu_pairs": [
+      [
+        0,
+        5
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        3,
+        4
+      ]
+    ],
+    "cases": {
+      "alphabig": "experiments/v4_deep_parallel/integration/inputs/alphabig.json",
+      "tightA": "experiments/v4_deep_parallel/integration/inputs/tightA.json",
+      "multiskill": "experiments/v4_deep_parallel/integration/inputs/multiskill.json",
+      "anti": "experiments/v4_deep_parallel/integration/inputs/anti.json",
+      "large": "experiments/v4_deep_parallel/integration/inputs/large.json",
+      "huge": "experiments/v4_deep_parallel/integration/inputs/huge.json"
+    },
+    "seeds": [
+      1303,
+      1304
+    ],
+    "variants": {
+      "v4": {
+        "binary": "experiments/v4_deep_parallel/shared/v4"
+      },
+      "guard": {
+        "binary": "experiments/v4_deep_parallel/integration/bin/guard_v1",
+        "env": {
+          "DP_GUARD": "1",
+          "DP_TRACE": "1"
+        }
+      }
+    }
+  },
+  "spec_sha256": "742dcf72ec78edd1bac1f0eb891c3743923cf878dba623533a1143b26931a76d",
+  "runner_sha256": "ec8046cbc71586e3388ce16b008076405991452c529424d9b6afd74e8288b6bc",
+  "binaries": {
+    "v4": "5cc54b6ad0f02a3d6d471d0e2f9129c229b4925aaa2b2c01ce26bd5305a4963c",
+    "guard": "abc4c46e698e7bdb8a9049b21d2a5baa60a8d606ce1c6988b575dd3d7a477001"
+  },
+  "inputs": {
+    "alphabig": "4d4ee2680c77534031835e6c4e48a2249a042dd5df9fc5a37fdb02b8762dcdda",
+    "tightA": "9145c9d9319464f1b39700eed8a22fa35a20704020965f73dae2467acdcdeaa0",
+    "multiskill": "cbd229132726dacacec41955fdb734d7372f20cf90d4875f07a755ce85c29d70",
+    "anti": "f2c2e805c9f6789c13ab62b6934d85f4ee1ef486d41025c50f682a7ae3f1e9fa",
+    "large": "9c0b772627cfebe4d68f04d7b62cbc41f106c7a73970a1b2ac8abab663c0a3ea",
+    "huge": "83a4af12c7d3bdced9020021687b7fff059d8469e44cd48b482a8f6a1e02d940"
+  },
+  "topology": "<local-host-omitted>"
+}

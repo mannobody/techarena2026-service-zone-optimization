@@ -1,0 +1,213 @@
+{
+  "series": {
+    "screen60": {
+      "runs": 72,
+      "success": 72,
+      "max_wall": 4.0900567210010195,
+      "runner_sha256": "b8cefa81d00bf83e8a4d046ab449bfdc6b024a8076b5a039e22ccd813b3eacc3",
+      "affinities": [
+        [
+          14,
+          15
+        ]
+      ]
+    },
+    "mature280": {
+      "runs": 72,
+      "success": 72,
+      "max_wall": 4.181696596999245,
+      "runner_sha256": "b8cefa81d00bf83e8a4d046ab449bfdc6b024a8076b5a039e22ccd813b3eacc3",
+      "affinities": [
+        [
+          14,
+          15
+        ]
+      ]
+    },
+    "diagnostic": {
+      "runs": 36,
+      "success": 36,
+      "max_wall": 4.09199835400068,
+      "runner_sha256": "b8cefa81d00bf83e8a4d046ab449bfdc6b024a8076b5a039e22ccd813b3eacc3",
+      "affinities": [
+        [
+          14,
+          15
+        ]
+      ]
+    },
+    "repeat280": {
+      "runs": 48,
+      "success": 48,
+      "max_wall": 4.25003611899956,
+      "runner_sha256": "b8cefa81d00bf83e8a4d046ab449bfdc6b024a8076b5a039e22ccd813b3eacc3",
+      "affinities": [
+        [
+          14,
+          15
+        ]
+      ]
+    },
+    "geometry_kick60": {
+      "runs": 36,
+      "success": 36,
+      "max_wall": 4.2477126749981835,
+      "runner_sha256": "b8cefa81d00bf83e8a4d046ab449bfdc6b024a8076b5a039e22ccd813b3eacc3",
+      "affinities": [
+        [
+          14,
+          15
+        ]
+      ]
+    },
+    "geometry_boundary60": {
+      "runs": 60,
+      "success": 60,
+      "max_wall": 4.248363098999107,
+      "runner_sha256": "b8cefa81d00bf83e8a4d046ab449bfdc6b024a8076b5a039e22ccd813b3eacc3",
+      "affinities": [
+        [
+          14,
+          15
+        ],
+        [
+          18,
+          19
+        ]
+      ]
+    }
+  },
+  "total_runs": 324,
+  "total_success": 324,
+  "freeze_audit": {
+    "FREEZE_SCREEN.json": {
+      "experiments/v4_local_search/baseline/frozen_v4.cpp": true,
+      "experiments/v4_perturbation/shared/checkpoint.h": true,
+      "experiments/v4_perturbation/shared/post_v4.cpp": true,
+      "experiments/v4_perturbation/escape_lab/src/escape.h": true,
+      "experiments/v4_perturbation/escape_lab/src/escape_v4.cpp": true,
+      "experiments/v4_perturbation/escape_lab/src/integration.patch": true,
+      "experiments/v4_perturbation/escape_lab/src/post_escape.cpp": true,
+      "experiments/v4_perturbation/escape_lab/src/escape_initial.h": true,
+      "experiments/v4_perturbation/escape_lab/src/property.cpp": true,
+      "experiments/v4_perturbation/escape_lab/bin/post_v4": true,
+      "experiments/v4_perturbation/escape_lab/bin/post_escape_initial": true,
+      "experiments/v4_perturbation/escape_lab/bin/escape_v4_initial": true,
+      "experiments/v4_perturbation/escape_lab/bin/post_escape": true,
+      "experiments/v4_perturbation/escape_lab/bin/escape_v4": true,
+      "experiments/v4_perturbation/escape_lab/bin/property": true
+    },
+    "FREEZE_DIAGNOSTIC.json": {
+      "experiments/v4_perturbation/escape_lab/src/escape_diagnostic.h": true,
+      "experiments/v4_perturbation/escape_lab/src/escape_diagnostic_v4.cpp": true,
+      "experiments/v4_perturbation/escape_lab/src/post_diagnostic.cpp": true,
+      "experiments/v4_perturbation/escape_lab/bin/post_diagnostic": true
+    },
+    "FREEZE_REPEAT.json": {
+      "experiments/v4_perturbation/escape_lab/src/post_repeat_v4.cpp": true,
+      "experiments/v4_perturbation/escape_lab/src/post_repeat_escape.cpp": true,
+      "experiments/v4_perturbation/escape_lab/src/escape.h": true,
+      "experiments/v4_perturbation/escape_lab/src/escape_v4.cpp": true,
+      "experiments/v4_perturbation/escape_lab/bin/post_repeat_v4": true,
+      "experiments/v4_perturbation/escape_lab/bin/post_repeat_escape": true,
+      "experiments/v4_perturbation/shared/checkpoint.h": true,
+      "experiments/v4_local_search/baseline/frozen_v4.cpp": true
+    },
+    "FREEZE_GEOMETRY_KICK.json": {
+      "experiments/v4_perturbation/escape_lab/src/escape_geometry_kick.h": true,
+      "experiments/v4_perturbation/escape_lab/src/geometry_perturb_only_v1.h": true,
+      "experiments/v4_perturbation/escape_lab/src/geometry_kick_v4.cpp": true,
+      "experiments/v4_perturbation/escape_lab/src/post_geometry_kick.cpp": true,
+      "experiments/v4_perturbation/escape_lab/bin/post_geometry_kick": true,
+      "experiments/v4_perturbation/escape_lab/src/escape.h": true,
+      "experiments/v4_perturbation/escape_lab/src/escape_v4.cpp": true,
+      "experiments/v4_perturbation/escape_lab/bin/post_repeat_v4": true,
+      "experiments/v4_perturbation/escape_lab/src/post_repeat_v4.cpp": true,
+      "experiments/v4_perturbation/shared/checkpoint.h": true
+    },
+    "FREEZE_GEOMETRY_BOUNDARY.json": {
+      "experiments/v4_perturbation/escape_lab/src/escape_geometry_boundary.h": true,
+      "experiments/v4_perturbation/escape_lab/src/geometry_boundary_v4.cpp": true,
+      "experiments/v4_perturbation/escape_lab/src/post_geometry_boundary.cpp": true,
+      "experiments/v4_perturbation/escape_lab/src/geometry_perturb_only_v1.h": true,
+      "experiments/v4_perturbation/escape_lab/bin/post_geometry_boundary": true,
+      "experiments/v4_perturbation/escape_lab/bin/post_repeat_v4": true,
+      "experiments/v4_perturbation/escape_lab/src/post_repeat_v4.cpp": true,
+      "experiments/v4_perturbation/shared/checkpoint.h": true
+    }
+  },
+  "mode5_vs_mode6": [
+    {
+      "case": "anti",
+      "seed": 2701,
+      "delta": 0.0,
+      "pct": 0.0
+    },
+    {
+      "case": "anti",
+      "seed": 2702,
+      "delta": 0.0,
+      "pct": 0.0
+    },
+    {
+      "case": "tightA",
+      "seed": 2701,
+      "delta": 0.0,
+      "pct": 0.0
+    },
+    {
+      "case": "tightA",
+      "seed": 2702,
+      "delta": 0.0,
+      "pct": 0.0
+    },
+    {
+      "case": "alphabig",
+      "seed": 2701,
+      "delta": -5756.80706448853,
+      "pct": -0.030487966336364084
+    },
+    {
+      "case": "alphabig",
+      "seed": 2702,
+      "delta": 801.8572504557669,
+      "pct": 0.004247919419528218
+    },
+    {
+      "case": "multiskill",
+      "seed": 2701,
+      "delta": 0.0,
+      "pct": 0.0
+    },
+    {
+      "case": "multiskill",
+      "seed": 2702,
+      "delta": 0.0,
+      "pct": 0.0
+    },
+    {
+      "case": "huge",
+      "seed": 2701,
+      "delta": 0.0,
+      "pct": 0.0
+    },
+    {
+      "case": "huge",
+      "seed": 2702,
+      "delta": 9.086202577338554,
+      "pct": 0.0016449716215925056
+    },
+    {
+      "case": "cluster",
+      "seed": 2701,
+      "delta": 0.0,
+      "pct": 0.0
+    },
+    {
+      "case": "cluster",
+      "seed": 2702,
+      "delta": 0.0,
+      "pct": 0.0
+    }
+  ]
+}

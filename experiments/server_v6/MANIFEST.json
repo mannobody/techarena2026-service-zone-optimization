@@ -1,0 +1,22 @@
+{
+  "version": "v6",
+  "status": "experimental server candidate, not submitted",
+  "source_sha256": "c7ae1602c35d8d41d7791bbc8a296b3396675d6e858767c7cb69b0a9dd039366",
+  "zip_sha256": "dba049d786ef5cb72829fa4355ae63bb119a1c5d6b48ea85587fbefa9a945a9a",
+  "source": "experiments/server_v6/artifacts/package/main.cpp",
+  "archives": [
+    "experiments/server_v6/artifacts/case03_cpp_server_v6_O3.zip",
+    "dist/case03_cpp_server_v6_O3.zip"
+  ],
+  "defaults": {
+    "TL": 280,
+    "GEOM_TAIL": 15,
+    "JOINT_TERRITORY": 1,
+    "HYBRID_ORDER": 0
+  },
+  "threads": "automatic CPU-affinity detection, NT override supported; benchmarks NT=2",
+  "runtime": "C++17/Linux; no SCIP/HiGHS dependency",
+  "provenance": "experiments/v4_deep_parallel/integration/FINAL_FREEZE.json",
+  "quality": "Same tested frozen hybrid: holdout60 mean +0.1332%; holdout280 mean -0.1765%, worst -2.0007%. No new quality claim.",
+  "identity": "ZIP and source are byte-identical to the tested research candidate; only the archive filename is versioned."
+}

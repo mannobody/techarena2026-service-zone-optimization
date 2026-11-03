@@ -1,0 +1,86 @@
+{
+  "packaged_unix": 1792406350.268824,
+  "version": "v8",
+  "status": "experimental; NOT recommended as a stable replacement for v4",
+  "zip": "experiments/server_v8/artifacts/case03_cpp_server_v8_O3.zip",
+  "zip_sha256": "333c93719fa5372b37f0adeffc678ef84dcc6171e7e863ecb3b3807e11c9b881",
+  "zip_entries": [
+    "main.cpp",
+    "Makefile"
+  ],
+  "source_sha256": "1857bec7e0882d15cf3091e79aeb0df1608ced5d4ee6883c1cb02656cfbd8e03",
+  "makefile_sha256": "094a3b3b44fa0b6b16eff942a0b3dfad293d0541da6d96c9083a950339e67abe",
+  "binary_rebuilt_from_zip_sha256": "cdf65483f9452e9aed4abd6f7fd2e722d566aed891872cde3ddbb1eef181c79a",
+  "identical_to_independently_tested_binary": true,
+  "freeze_manifest": "experiments/v4_perturbation/integration/FINAL_FREEZE.json",
+  "freeze_manifest_sha256": "bdee55da789793bb2251df54287c80f76fe9f122a525c4015f1cedaeb72d91db",
+  "decision": {
+    "accepted": false,
+    "budgets": {
+      "60": {
+        "primary_criteria_pass": false,
+        "all_primary_and_extra_runs_successful": true,
+        "freeze_and_record_hash_checks_pass": true,
+        "all_percentage_pairs_defined_finite": true,
+        "combined_input_weighted_mean_at_least_0.1": true,
+        "combined_pair_median_nonnegative": true,
+        "combined_every_input_median_nonnegative": false,
+        "combined_worst_at_least_minus1": false,
+        "combined_bootstrap_lower_nonnegative": false,
+        "combined_mean_vs_off_nonnegative": true
+      },
+      "280": {
+        "primary_criteria_pass": false,
+        "mandatory_extension_complete": false
+      }
+    },
+    "independent_inputs": 12,
+    "protocol_complete": false,
+    "note": "Both primary budgets complete and fail stability criteria. Long variance extension stopped at user request; no claim of complete protocol or pooled TL280 result.",
+    "final_contract_pass": true,
+    "final_record_audit_pass": true,
+    "recommended_as_replacement": false
+  },
+  "build_command": [
+    "taskset",
+    "-c",
+    "14,15",
+    "make",
+    "-C",
+    "./experiments/server_v8/artifacts/zip_check",
+    "build"
+  ],
+  "default_seconds": 280,
+  "default_escape_mode": 5,
+  "contract": "Without argv: instance.json -> solution.json. Archive contains only main.cpp and Makefile. No runtime checkpoint/network/external solver dependency.",
+  "no_arg_validation": {
+    "expected": 28,
+    "completed": 28,
+    "success": 28
+  },
+  "make_run_entrypoint_smoke": {
+    "rc": 0,
+    "timeout": false,
+    "wall": 1.2658179290010594,
+    "valid": true,
+    "objective_or_error": 7.585786437626904,
+    "actual_nt": 2,
+    "DBG": "unset",
+    "TL": 1,
+    "input_sha256": "c40b23bc350da2401e2dca29a5713cf9a23def24f5a017cb12ef40f1bdd5bfa8",
+    "solution_sha256": "d3c61705a0a1c9d6f5515bb687587b6b4e1dc1ee900f045f163ca914c965f472"
+  },
+  "makefile_adapter": "Contest targets build/run and executable solution, matching v4/v6 interface; run explicitly sets NT=2, matching all comparisons. Same flags and byte-identical tested binary. Original frozen research Makefile retained unchanged.",
+  "note": "Exact byte-identical rebuild links the ZIP to all already completed frozen-binary tests. No package upload or Git mutation performed.",
+  "requested_single_pair_highlight": {
+    "case": "anti",
+    "seed": 2202,
+    "success": true,
+    "baseline": 69391.17729540623,
+    "candidate": 86215.38745176612,
+    "delta": 16824.210156359884,
+    "pct": 24.2454600312332,
+    "result": "win"
+  },
+  "highlight_note": "Observed single pair at TL280/NT2/DBG1; not a general +24% improvement or guaranteed rerun result. V7 separately retains exact v4."
+}

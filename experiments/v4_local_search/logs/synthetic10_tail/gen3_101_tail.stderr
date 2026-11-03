@@ -1,0 +1,35 @@
+trace_outer end=1.007380 deadline=1.000000 sets=12 threads=2
+trace_decode k=2 cost=0.043936 end=1.052938 deadline=2.200000 f=39847.514892661
+trace_decode k=5 cost=0.076951 end=1.131048 deadline=2.200000 f=35931.727146218
+trace_decode k=2 cost=0.052082 end=1.184580 deadline=2.200000 f=41498.454666716
+wide_start mode=2 attempts=1179 evaluated=856 decoded=3 best=41498.454667 t=2.201
+trace_build tid=1 ci=7 ctor=0 start=2.201650 end=2.265536 deadline=2.500000 refine=0 f=28829.601774924
+trace_build tid=1 ci=8 ctor=0 start=2.265596 end=2.323216 deadline=2.500000 refine=0 f=28021.139049109
+trace_build tid=0 ci=0 ctor=0 start=2.201385 end=2.339905 deadline=2.500000 refine=0 f=66568.593040276
+trace_build tid=1 ci=9 ctor=0 start=2.323269 end=2.391874 deadline=2.500000 refine=0 f=29016.587696578
+trace_build tid=0 ci=1 ctor=0 start=2.339943 end=2.418886 deadline=2.500000 refine=0 f=74599.510958023
+trace_build tid=0 ci=2 ctor=0 start=2.418916 end=2.446852 deadline=2.500000 refine=0 f=38759.456568232
+trace_build tid=1 ci=10 ctor=0 start=2.391948 end=2.453277 deadline=2.500000 refine=0 f=27190.847102924
+trace_build tid=0 ci=3 ctor=0 start=2.446927 end=2.500734 deadline=2.500000 refine=0 f=39546.497052271
+trace_rank tid=0 start=2.201382 end=2.500804 deadline=2.500000 sets=14 ranked=4 combos=84
+trace_build tid=1 ci=11 ctor=0 start=2.453332 end=2.503411 deadline=2.500000 refine=0 f=39782.680364871
+trace_rank tid=1 start=2.201647 end=2.503465 deadline=2.500000 sets=14 ranked=5 combos=84
+trace_build tid=1 ci=11 ctor=0 start=2.503483 end=3.005878 deadline=4.003480 refine=1 f=41466.107361989
+trace_round tid=1 round=0 rank=0 ci=11 ctor=0 t=3.005952
+trace_build tid=0 ci=1 ctor=0 start=2.500828 end=3.051266 deadline=4.000821 refine=1 f=74599.510958023
+trace_round tid=0 round=0 rank=0 ci=1 ctor=0 t=3.051328
+trace_build tid=0 ci=0 ctor=0 start=4.038274 end=4.476481 deadline=5.538271 refine=1 f=67325.651336698
+trace_round tid=0 round=1 rank=1 ci=0 ctor=0 t=4.476552
+trace_build tid=1 ci=9 ctor=0 start=4.110038 end=4.935378 deadline=5.610036 refine=1 f=28977.209654709
+trace_round tid=1 round=1 rank=1 ci=9 ctor=0 t=4.935446
+trace_build tid=0 ci=3 ctor=0 start=5.707952 end=6.088124 deadline=7.207951 refine=1 f=45426.603209379
+trace_round tid=0 round=2 rank=2 ci=3 ctor=0 t=6.088179
+trace_build tid=1 ci=7 ctor=0 start=5.635970 end=6.310316 deadline=7.135969 refine=1 f=28767.146572900
+trace_round tid=1 round=2 rank=2 ci=7 ctor=0 t=6.310376
+trace_build tid=0 ci=2 ctor=0 start=7.292228 end=7.477868 deadline=8.792227 refine=1 f=38759.456568232
+trace_round tid=0 round=3 rank=3 ci=2 ctor=0 t=7.477932
+trace_build tid=1 ci=8 ctor=0 start=7.197554 end=7.939047 deadline=8.697552 refine=1 f=27926.636953202
+trace_round tid=1 round=3 rank=3 ci=8 ctor=0 t=7.939117
+trace_exchange proposed=139120 positive=1 rejected=0 accepted=1 gain=0.072237313 seconds=0.017680 depth=2
+trace_exchange_finish before=74666.966491472 after=74667.038728785 end=9.718226 deadline=9.724964
+objective=74667.038729 fast=0.000 sets=868 threads=2 t=9.7

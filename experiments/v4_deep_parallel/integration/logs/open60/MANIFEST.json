@@ -1,0 +1,65 @@
+{
+  "spec": {
+    "destination": "experiments/v4_deep_parallel/integration/logs/open60",
+    "seconds": 60,
+    "cpu_pairs": [
+      [
+        0,
+        5
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        16,
+        17
+      ],
+      [
+        18,
+        19
+      ]
+    ],
+    "cases": {
+      "inst0": "task/instance0/instance.json",
+      "inst1": "task/instance1/instance.json",
+      "inst2": "task/instance2/instance.json",
+      "inst3": "task/instance3/instance.json",
+      "inst4": "task/instance4/instance.json"
+    },
+    "seeds": [
+      1602,
+      1603
+    ],
+    "variants": {
+      "v4": {
+        "binary": "experiments/v4_deep_parallel/shared/v4"
+      },
+      "hybrid": {
+        "binary": "experiments/v4_deep_parallel/integration/bin/hybrid_frozen"
+      }
+    }
+  },
+  "spec_sha256": "9337a892c24d246d712fc4325d397a0e9717f2c5b93ddd6de0b8ae73828cb618",
+  "runner_sha256": "ec8046cbc71586e3388ce16b008076405991452c529424d9b6afd74e8288b6bc",
+  "binaries": {
+    "v4": "5cc54b6ad0f02a3d6d471d0e2f9129c229b4925aaa2b2c01ce26bd5305a4963c",
+    "hybrid": "e0e2aed21d02c91b5b8ddcbc1da2da25d7768c9864f77361d40113e9fb89390c"
+  },
+  "inputs": {
+    "inst0": "e3fdbee4c48b444431f155f0df5cc369c7c58edc8e5305aa9c863265cc8a25a4",
+    "inst1": "eefb6b7e4c814dd61e638e121dfccbb517dc1d160550d0164fc28ccd59174957",
+    "inst2": "d88a5b61ce6069c6b7dfdf0f8ff43437042ff0fd83db1997f24618188a278b3e",
+    "inst3": "dd3f95826ed3b9fd6fca9b1be1b98fb1326419feb630bc2cabf37e56bef5dcc1",
+    "inst4": "c1132c4ea260eebec47014e0c405a6ef41caeb6f6354f038532f428e3653a0f5"
+  },
+  "topology": "<local-host-omitted>"
+}

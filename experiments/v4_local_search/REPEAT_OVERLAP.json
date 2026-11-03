@@ -1,0 +1,105 @@
+{
+  "name": "development60_repeat_overlap",
+  "seconds": 60,
+  "jobs": 8,
+  "seeds": [
+    301,
+    302,
+    303
+  ],
+  "cases": {
+    "anti": "experiments/v4_local_search/data/development/anti.json",
+    "alphabig": "experiments/v4_local_search/data/development/alphabig.json",
+    "tightA": "experiments/v4_local_search/data/development/tightA.json",
+    "multiskill": "experiments/v4_local_search/data/development/multiskill.json",
+    "grid": "experiments/v4_local_search/data/development/grid.json",
+    "cluster": "experiments/v4_local_search/data/development/cluster.json",
+    "large": "experiments/v4_local_search/data/development/large.json",
+    "huge": "experiments/v4_local_search/data/development/huge.json"
+  },
+  "variants": {
+    "base": {
+      "binary": "experiments/v4_local_search/artifacts/exchange_v1",
+      "env": {
+        "SEARCH_TRACE": "1",
+        "DBG": "1"
+      }
+    },
+    "local": {
+      "binary": "experiments/v4_local_search/artifacts/exchange_v1",
+      "env": {
+        "SEARCH_TRACE": "1",
+        "DBG": "1",
+        "LOCAL_BUDGET": "1"
+      }
+    },
+    "fair": {
+      "binary": "experiments/v4_local_search/artifacts/exchange_v1",
+      "env": {
+        "SEARCH_TRACE": "1",
+        "DBG": "1",
+        "LOCAL_BUDGET": "1",
+        "RANK_FAIR": "1"
+      }
+    },
+    "exchange": {
+      "binary": "experiments/v4_local_search/artifacts/exchange_v1",
+      "env": {
+        "SEARCH_TRACE": "1",
+        "DBG": "1",
+        "EXCHANGE": "2"
+      }
+    }
+  },
+  "pairs": [
+    [
+      "alphabig",
+      301
+    ],
+    [
+      "alphabig",
+      303
+    ],
+    [
+      "anti",
+      301
+    ],
+    [
+      "anti",
+      302
+    ],
+    [
+      "anti",
+      303
+    ],
+    [
+      "cluster",
+      303
+    ],
+    [
+      "grid",
+      301
+    ],
+    [
+      "grid",
+      303
+    ],
+    [
+      "large",
+      302
+    ],
+    [
+      "multiskill",
+      301
+    ],
+    [
+      "multiskill",
+      303
+    ],
+    [
+      "tightA",
+      301
+    ]
+  ],
+  "reason": "Diagnostic60 overlapped first two waves of development. Repeat all four variants of each affected case/seed block; retain original results."
+}

@@ -1,0 +1,77 @@
+trace_outer end=1.019768 deadline=1.000000 sets=12 threads=2
+trace_decode k=2 cost=0.085095 end=1.106597 deadline=2.200000 f=39847.514892661
+trace_decode k=5 cost=0.130684 end=1.239118 deadline=2.200000 f=35931.727146218
+trace_decode k=2 cost=0.075213 end=1.320499 deadline=2.200000 f=41498.454666716
+wide_start mode=2 attempts=689 evaluated=551 decoded=3 best=41498.454667 t=2.201
+phase1 t=2.20 sets=563 ops=0 f=0.00
+trace_build tid=1 ci=7 ctor=0 start=2.201838 end=2.336523 deadline=2.500000 refine=0 f=28174.885515187
+trace_build tid=0 ci=0 ctor=0 start=2.201498 end=2.391314 deadline=2.500000 refine=0 f=66568.593040276
+trace_build tid=1 ci=8 ctor=0 start=2.336613 end=2.440527 deadline=2.500000 refine=0 f=28021.139049109
+trace_build tid=1 ci=9 ctor=0 start=2.440632 end=2.502384 deadline=2.500000 refine=0 f=25307.446859800
+trace_rank tid=1 start=2.201834 end=2.502470 deadline=2.500000 sets=14 ranked=3 combos=84
+trace_build tid=0 ci=1 ctor=0 start=2.391349 end=2.512995 deadline=2.500000 refine=0 f=74599.510958023
+trace_rank tid=0 start=2.201495 end=2.513027 deadline=2.500000 sets=14 ranked=2 combos=84
+cand0 f=52227.08 ops=3,4,
+cand1 f=51758.64 ops=4,9,
+cand2 f=38759.46 ops=4,
+cand3 f=37475.68 ops=1,5,
+cand4 f=36911.34 ops=8,11,
+cand5 f=10574.08 ops=4,7,10,
+cand6 f=14903.22 ops=1,2,6,10,
+cand7 f=18192.04 ops=2,4,6,10,11,
+cand8 f=19111.52 ops=2,4,6,8,10,11,
+cand9 f=20271.63 ops=1,2,5,6,7,10,11,
+cand10 f=19746.55 ops=0,1,4,5,6,7,10,11,
+cand11 f=41498.45 ops=0,10,
+cand12 f=39847.51 ops=6,8,
+cand13 f=35931.73 ops=2,3,7,8,11,
+  rank0 val=74599.51 cand=1 ctor=0
+  rank1 val=66568.59 cand=0 ctor=0
+trace_build tid=0 ci=1 ctor=0 start=2.513581 end=3.149532 deadline=4.013579 refine=1 f=74599.510958023
+trace_round tid=0 round=0 rank=0 ci=1 ctor=0 t=3.149631
+trace_build tid=1 ci=7 ctor=0 start=2.502496 end=3.395875 deadline=4.002489 refine=1 f=28100.666934382
+trace_round tid=1 round=0 rank=0 ci=7 ctor=0 t=3.396008
+   lns it=0 acc=0 dp=1 obj=28100.6669 best=74599.5110 | split 0/0/0/0  single 0/0/0/0  ruin 0/0/0/0  skill 0/0/0/0
+   time split 0.00 single 0.00 ruin 0.00 skill 0.00 dp 0.01 | alns p 0.07 0.09 0.29 0.27 0.28
+   lns it=3 acc=0 dp=1 obj=74599.5110 best=74599.5110 | split 1/0/0/0  single 1/1/0/0  ruin 1/0/0/0  skill 0/0/0/0
+   time split 0.00 single 0.00 ruin 0.01 skill 0.00 dp 0.01 | alns p 0.07 0.09 0.29 0.27 0.28
+   lns it=8 acc=0 dp=1 obj=28100.6669 best=74666.9665 | split 4/2/0/0  single 1/1/0/0  ruin 3/0/1/0  skill 0/0/0/0
+   time split 0.26 single 0.00 ruin 0.12 skill 0.00 dp 0.01 | alns p 0.07 0.09 0.29 0.27 0.28
+   lns it=5 acc=1 dp=2 obj=74666.9665 best=74666.9665 | split 1/0/0/1  single 1/1/0/0  ruin 1/0/0/0  skill 2/0/1/0
+   time split 0.00 single 0.00 ruin 0.02 skill 0.12 dp 0.03 | alns p 0.07 0.09 0.29 0.27 0.28
+trace_build tid=1 ci=8 ctor=0 start=4.040344 end=4.761538 deadline=5.540343 refine=1 f=27926.636953202
+trace_round tid=1 round=1 rank=1 ci=8 ctor=0 t=4.761612
+   lns it=2 acc=0 dp=1 obj=27926.6370 best=74666.9665 | split 1/1/0/0  single 0/0/0/0  ruin 0/0/0/0  skill 1/0/0/0
+   time split 0.00 single 0.00 ruin 0.00 skill 0.04 dp 0.01 | alns p 0.07 0.09 0.29 0.27 0.28
+   lns it=17 acc=0 dp=1 obj=27926.6370 best=74666.9665 | split 5/4/0/0  single 3/2/0/0  ruin 7/0/2/0  skill 2/0/1/0
+   time split 0.25 single 0.00 ruin 0.15 skill 0.06 dp 0.01 | alns p 0.07 0.09 0.29 0.27 0.28
+   lns it=6 acc=1 dp=1 obj=74666.9665 best=74666.9665 | split 5/4/0/1  single 0/0/0/0  ruin 1/0/0/0  skill 0/0/0/0
+   time split 0.85 single 0.00 ruin 0.00 skill 0.00 dp 0.01 | alns p 0.04 0.04 0.65 0.14 0.14
+trace_build tid=1 ci=9 ctor=0 start=5.546497 end=6.365016 deadline=7.046496 refine=1 f=28977.209654709
+trace_round tid=1 round=2 rank=2 ci=9 ctor=0 t=6.365122
+   lns it=1 acc=0 dp=1 obj=28977.2097 best=74666.9665 | split 0/0/0/0  single 0/0/0/0  ruin 0/0/0/0  skill 1/0/1/0
+   time split 0.00 single 0.00 ruin 0.00 skill 0.00 dp 0.01 | alns p 0.07 0.09 0.29 0.27 0.28
+   lns it=25 acc=1 dp=1 obj=74666.9665 best=74666.9665 | split 5/4/0/1  single 7/7/0/0  ruin 6/0/0/0  skill 7/3/3/0
+   time split 0.81 single 0.00 ruin 0.03 skill 0.09 dp 0.01 | alns p 0.04 0.04 0.65 0.14 0.14
+   lns it=22 acc=0 dp=1 obj=28977.2097 best=74666.9665 | split 10/6/0/0  single 6/3/0/0  ruin 6/0/0/0  skill 0/0/0/0
+   time split 0.36 single 0.00 ruin 0.09 skill 0.00 dp 0.01 | alns p 0.07 0.09 0.29 0.27 0.28
+trace_build tid=1 ci=7 ctor=0 start=7.087551 end=7.686340 deadline=8.587550 refine=1 f=28100.666934382
+trace_round tid=1 round=3 rank=0 ci=7 ctor=0 t=7.686410
+   lns it=6 acc=0 dp=1 obj=28100.6669 best=74666.9665 | split 1/0/0/0  single 0/0/0/0  ruin 3/0/0/0  skill 2/0/0/0
+   time split 0.06 single 0.00 ruin 0.07 skill 0.02 dp 0.01 | alns p 0.07 0.09 0.29 0.27 0.28
+   lns it=28 acc=0 dp=1 obj=41498.4547 best=74666.9665 | split 6/4/0/0  single 8/8/0/0  ruin 8/0/0/0  skill 6/3/0/0
+   time split 0.97 single 0.00 ruin 0.03 skill 0.03 dp 0.02 | alns p 0.07 0.09 0.29 0.27 0.28
+trace_build tid=0 ci=1 ctor=0 start=8.174565 end=8.584072 deadline=9.000000 refine=1 f=74599.510958023
+trace_round tid=0 round=4 rank=0 ci=1 ctor=0 t=8.584146
+   lns it=11 acc=0 dp=1 obj=28100.6669 best=74666.9665 | split 4/4/0/0  single 1/0/0/0  ruin 3/0/2/0  skill 3/0/0/0
+   time split 0.26 single 0.00 ruin 0.04 skill 0.11 dp 0.01 | alns p 0.07 0.09 0.29 0.27 0.28
+   lns it=3 acc=1 dp=0 obj=74666.9665 best=74666.9665 | split 2/1/0/1  single 0/0/0/0  ruin 0/0/0/0  skill 0/0/0/0
+   time split 0.22 single 0.00 ruin 0.00 skill 0.00 dp 0.00 | alns p 0.04 0.04 0.65 0.14 0.14
+   lns it=4 acc=0 dp=0 obj=74666.9665 best=74666.9665 | split 3/3/0/0  single 0/0/0/0  ruin 1/0/0/0  skill 0/0/0/0
+   time split 0.40 single 0.00 ruin 0.01 skill 0.00 dp 0.00 | alns p 0.07 0.09 0.29 0.27 0.28
+   lns it=15 acc=1 dp=0 obj=74666.9665 best=74666.9665 | split 4/3/0/1  single 5/5/0/0  ruin 1/0/0/0  skill 5/2/3/0
+   time split 0.71 single 0.00 ruin 0.00 skill 0.09 dp 0.00 | alns p 0.07 0.09 0.29 0.27 0.28
+trace_cycle proposals=3264 checks=0 accepted=0 gain=0.000000000 seconds=0.004583
+trace_exchange_finish before=74666.966491472 after=74666.966491472 end=9.746615 deadline=9.745642
+worker_dfs calls=0 solved=0 nodes=0
+objective=74666.966491 fast=0.000 sets=563 threads=2 t=9.7

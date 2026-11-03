@@ -1,0 +1,65 @@
+{
+  "destination": "experiments/v4_perturbation/escape_lab/logs/repeat280",
+  "seconds": 4,
+  "cpu_pairs": [
+    [
+      14,
+      15
+    ]
+  ],
+  "seeds": [
+    2601,
+    2602
+  ],
+  "cases": {
+    "anti": "experiments/v4_perturbation/shared/inputs/dev/anti.json",
+    "tightA": "experiments/v4_perturbation/shared/inputs/dev/tightA.json",
+    "alphabig": "experiments/v4_perturbation/shared/inputs/dev/alphabig.json",
+    "multiskill": "experiments/v4_perturbation/shared/inputs/dev/multiskill.json",
+    "cluster": "experiments/v4_perturbation/shared/inputs/dev/cluster.json",
+    "huge": "experiments/v4_perturbation/shared/inputs/dev/huge.json"
+  },
+  "checkpoints": {
+    "anti": "experiments/v4_perturbation/shared/logs/checkpoint280/anti_1902_v4.solution.json",
+    "tightA": "experiments/v4_perturbation/shared/logs/checkpoint280/tightA_1902_v4.solution.json",
+    "alphabig": "experiments/v4_perturbation/shared/logs/checkpoint280/alphabig_1902_v4.solution.json",
+    "multiskill": "experiments/v4_perturbation/shared/logs/checkpoint280/multiskill_1902_v4.solution.json",
+    "cluster": "experiments/v4_perturbation/shared/logs/checkpoint280/cluster_1902_v4.solution.json",
+    "huge": "experiments/v4_perturbation/shared/logs/checkpoint280/huge_1902_v4.solution.json"
+  },
+  "variants": {
+    "v4": {
+      "binary": "experiments/v4_perturbation/escape_lab/bin/post_repeat_v4",
+      "source": "experiments/v4_perturbation/escape_lab/src/post_repeat_v4.cpp",
+      "mode": 0,
+      "env": {
+        "DBG": "1"
+      }
+    },
+    "off": {
+      "binary": "experiments/v4_perturbation/escape_lab/bin/post_repeat_escape",
+      "source": "experiments/v4_perturbation/escape_lab/src/post_repeat_escape.cpp",
+      "mode": 0,
+      "env": {
+        "DBG": "1"
+      }
+    },
+    "retain": {
+      "binary": "experiments/v4_perturbation/escape_lab/bin/post_repeat_escape",
+      "source": "experiments/v4_perturbation/escape_lab/src/post_repeat_escape.cpp",
+      "mode": 4,
+      "env": {
+        "DBG": "1"
+      }
+    },
+    "tabu": {
+      "binary": "experiments/v4_perturbation/escape_lab/bin/post_repeat_escape",
+      "source": "experiments/v4_perturbation/escape_lab/src/post_repeat_escape.cpp",
+      "mode": 3,
+      "env": {
+        "DBG": "1"
+      }
+    }
+  },
+  "order_seed": 871055
+}

@@ -1,0 +1,57 @@
+{
+  "spec": {
+    "name": "open60_tail",
+    "seconds": 60,
+    "jobs": 2,
+    "seeds": [
+      1,
+      2,
+      3
+    ],
+    "cases": {
+      "0": "task/instance0/instance.json",
+      "1": "task/instance1/instance.json",
+      "2": "task/instance2/instance.json",
+      "3": "task/instance3/instance.json",
+      "4": "task/instance4/instance.json"
+    },
+    "variants": {
+      "base": {
+        "binary": "experiments/v4_local_search/artifacts/candidate_v3",
+        "env": {
+          "SEARCH_TRACE": "1",
+          "DBG": "1"
+        }
+      },
+      "tail": {
+        "binary": "experiments/v4_local_search/artifacts/candidate_v3",
+        "env": {
+          "SEARCH_TRACE": "1",
+          "DBG": "1",
+          "FINAL_EXCHANGE": "2"
+        }
+      }
+    },
+    "cpu_offset": 16
+  },
+  "affinity": [
+    16,
+    17,
+    18,
+    19,
+    20,
+    21
+  ],
+  "jobs": 2,
+  "binaries": {
+    "base": "5213b3a6373b158c43c288aa5beaaa2d2d2042471fbf657884cf4bb2dcf63d77",
+    "tail": "5213b3a6373b158c43c288aa5beaaa2d2d2042471fbf657884cf4bb2dcf63d77"
+  },
+  "inputs": {
+    "0": "e3fdbee4c48b444431f155f0df5cc369c7c58edc8e5305aa9c863265cc8a25a4",
+    "1": "eefb6b7e4c814dd61e638e121dfccbb517dc1d160550d0164fc28ccd59174957",
+    "2": "d88a5b61ce6069c6b7dfdf0f8ff43437042ff0fd83db1997f24618188a278b3e",
+    "3": "dd3f95826ed3b9fd6fca9b1be1b98fb1326419feb630bc2cabf37e56bef5dcc1",
+    "4": "c1132c4ea260eebec47014e0c405a6ef41caeb6f6354f038532f428e3653a0f5"
+  }
+}

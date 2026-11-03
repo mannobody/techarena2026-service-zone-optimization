@@ -1,0 +1,13 @@
+{
+  "registered_unix": 1792401026.8293328,
+  "eligible_variants": {
+    "geometry_boundary": 5,
+    "boundary_only": 6
+  },
+  "rule": "Select larger mean paired percent versus exact v4, first averaging all primary+supplemental seeds within each of six development inputs, then giving inputs equal weight. Tie within1e-9 -> simpler boundary_only. Selection is exploratory, not evidence of superiority. Report primary, supplemental, versus off/retain and direct5vs6 separately.",
+  "unchanged_parameters": true,
+  "additional_series_complete_at_registration": false,
+  "full_source": "experiments/v4_perturbation/integration/src/boundary_dev.cpp",
+  "source_sha256": "44ae896a9eeb1cf618fa0e2d91136a676d0f91568c14d8bdef964a199f2977e8",
+  "reason": "Both policies had positive full-solver mean but large regressions; compare the two final compatible hypotheses without adding more prototypes or tuning parameters. Independent acceptance remains preregistered."
+}

@@ -1,0 +1,35 @@
+{
+  "name": "open60_tail",
+  "seconds": 60,
+  "jobs": 2,
+  "seeds": [
+    1,
+    2,
+    3
+  ],
+  "cases": {
+    "0": "task/instance0/instance.json",
+    "1": "task/instance1/instance.json",
+    "2": "task/instance2/instance.json",
+    "3": "task/instance3/instance.json",
+    "4": "task/instance4/instance.json"
+  },
+  "variants": {
+    "base": {
+      "binary": "experiments/v4_local_search/artifacts/candidate_v3",
+      "env": {
+        "SEARCH_TRACE": "1",
+        "DBG": "1"
+      }
+    },
+    "tail": {
+      "binary": "experiments/v4_local_search/artifacts/candidate_v3",
+      "env": {
+        "SEARCH_TRACE": "1",
+        "DBG": "1",
+        "FINAL_EXCHANGE": "2"
+      }
+    }
+  },
+  "cpu_offset": 16
+}

@@ -1,0 +1,42 @@
+{
+  "destination": "experiments/v4_perturbation/geometry_lab/logs/exact_repeat280",
+  "seconds": 4,
+  "cpu_pairs": [
+    [
+      12,
+      13
+    ]
+  ],
+  "seeds": [
+    2101,
+    2102
+  ],
+  "cases": {
+    "alphabig": "experiments/v4_perturbation/shared/inputs/dev/alphabig.json",
+    "huge": "experiments/v4_perturbation/shared/inputs/dev/huge.json"
+  },
+  "checkpoints": {
+    "alphabig": "experiments/v4_perturbation/shared/logs/checkpoint280/alphabig_1902_v4.solution.json",
+    "huge": "experiments/v4_perturbation/shared/logs/checkpoint280/huge_1902_v4.solution.json"
+  },
+  "variants": {
+    "support": {
+      "binary": "experiments/v4_perturbation/geometry_lab/post_tail",
+      "source": "experiments/v4_perturbation/geometry_lab/src/post_tail.cpp",
+      "mode": 2,
+      "env": {}
+    },
+    "alloff_repeat": {
+      "binary": "experiments/v4_perturbation/geometry_lab/post_tail",
+      "source": "experiments/v4_perturbation/geometry_lab/src/post_tail.cpp",
+      "mode": 0,
+      "env": {}
+    },
+    "lns": {
+      "binary": "experiments/v4_perturbation/geometry_lab/exact_repeat",
+      "source": "experiments/v4_perturbation/geometry_lab/src/exact_repeat.cpp",
+      "env": {},
+      "mode": 0
+    }
+  }
+}

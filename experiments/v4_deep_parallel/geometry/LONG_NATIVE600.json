@@ -1,0 +1,30 @@
+{
+  "destination": "experiments/v4_deep_parallel/geometry/logs/v4_anti600",
+  "seconds": 600,
+  "cpu_pairs": [
+    [
+      6,
+      7
+    ]
+  ],
+  "cases": {
+    "anti": "experiments/v4_deep_parallel/geometry/inputs/dev_anti.json"
+  },
+  "seeds": [
+    713
+  ],
+  "variants": {
+    "v4": {
+      "binary": "experiments/v4_deep_parallel/shared/v4",
+      "env": {
+        "DBG": "1"
+      }
+    }
+  },
+  "snapshots": [
+    60,
+    120,
+    280,
+    450
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "spec": {
+    "name": "control280",
+    "seconds": 280,
+    "jobs": 4,
+    "cases": {
+      "anti": "experiments/v4_deep_parallel/search/inputs/anti.json",
+      "large": "experiments/v4_deep_parallel/search/inputs/large.json"
+    },
+    "seeds": [
+      1201,
+      1202
+    ],
+    "variants": {
+      "v4": {
+        "binary": "experiments/v4_deep_parallel/shared/v4",
+        "env": {
+          "DBG": "1"
+        }
+      },
+      "lab_off": {
+        "binary": "experiments/v4_deep_parallel/search/bin/lab2",
+        "env": {
+          "DBG": "1"
+        }
+      },
+      "batch": {
+        "binary": "experiments/v4_deep_parallel/search/bin/lab2",
+        "env": {
+          "DBG": "1",
+          "LAB_BATCH": "1"
+        }
+      },
+      "wide": {
+        "binary": "experiments/v4_deep_parallel/search/bin/lab2",
+        "env": {
+          "DBG": "1",
+          "LAB_WIDE": "1"
+        }
+      }
+    },
+    "cpus": [
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ]
+  },
+  "blocking": "All variants of each case/seed run sequentially on the same affinity; independently randomized order. Shared pair locks include compile/microbench jobs.",
+  "binaries": {
+    "v4": "5cc54b6ad0f02a3d6d471d0e2f9129c229b4925aaa2b2c01ce26bd5305a4963c",
+    "lab_off": "1da73e9483a9f2d3c66c10cadbd946ac503a4ad655413bef7f6e992a5453e01c",
+    "batch": "1da73e9483a9f2d3c66c10cadbd946ac503a4ad655413bef7f6e992a5453e01c",
+    "wide": "1da73e9483a9f2d3c66c10cadbd946ac503a4ad655413bef7f6e992a5453e01c"
+  },
+  "inputs": {
+    "anti": "e7de95c41c9eebeeedd15b07b0fe00fa21d32fd3c282e1a5107bd95e710b250d",
+    "large": "7f328e32de04fdd0014a7c8b385fec0f7a35d844f7c3863280900d434d8d5c36"
+  }
+}

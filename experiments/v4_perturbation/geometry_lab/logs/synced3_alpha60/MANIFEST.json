@@ -1,0 +1,64 @@
+{
+  "spec": {
+    "destination": "experiments/v4_perturbation/geometry_lab/logs/synced3_alpha60",
+    "seconds": 3,
+    "cpu_pairs": [
+      [
+        12,
+        13
+      ]
+    ],
+    "seeds": [
+      2101,
+      2102
+    ],
+    "cases": {
+      "alphabig": "experiments/v4_perturbation/shared/inputs/dev/alphabig.json"
+    },
+    "checkpoints": {
+      "alphabig": "experiments/v4_perturbation/shared/logs/checkpoint60/alphabig_1901_v4.solution.json"
+    },
+    "variants": {
+      "boundary": {
+        "binary": "experiments/v4_perturbation/geometry_lab/post_synced",
+        "source": "experiments/v4_perturbation/geometry_lab/src/post_synced.cpp",
+        "env": {},
+        "mode": 5
+      },
+      "support": {
+        "binary": "experiments/v4_perturbation/geometry_lab/post_synced",
+        "source": "experiments/v4_perturbation/geometry_lab/src/post_synced.cpp",
+        "env": {},
+        "mode": 12
+      },
+      "monotone_support": {
+        "binary": "experiments/v4_perturbation/geometry_lab/post_synced",
+        "source": "experiments/v4_perturbation/geometry_lab/src/post_synced.cpp",
+        "env": {
+          "GEOMETRY_MONOTONE": "1"
+        },
+        "mode": 12
+      }
+    }
+  },
+  "spec_sha256": "60e419e8c2c3c82eb292fbe76739bf417e1bccc2448146cc4346df9783fa1b28",
+  "runner_sha256": "b8cefa81d00bf83e8a4d046ab449bfdc6b024a8076b5a039e22ccd813b3eacc3",
+  "sources": {
+    "boundary": "6e255c4a5b3ab177f33a59ad061dc532795176768fdac690ec635451470dd798",
+    "support": "6e255c4a5b3ab177f33a59ad061dc532795176768fdac690ec635451470dd798",
+    "monotone_support": "6e255c4a5b3ab177f33a59ad061dc532795176768fdac690ec635451470dd798"
+  },
+  "validator_sha256": "6dd5948ebe72977976acf1b8dcaf7c819274c79addfb82328c0ec9a012ed56e0",
+  "checkpoints": {
+    "alphabig": "551c0e8166f93b0c0ee85f7834c09f450b2d1d3c5732359cebe9b62e9d3f22fe"
+  },
+  "binaries": {
+    "boundary": "930ab8e7adb77920fbbf068dfbd55f5c136b640061e92c674d69797026048800",
+    "support": "930ab8e7adb77920fbbf068dfbd55f5c136b640061e92c674d69797026048800",
+    "monotone_support": "930ab8e7adb77920fbbf068dfbd55f5c136b640061e92c674d69797026048800"
+  },
+  "inputs": {
+    "alphabig": "15b841e52b8c4d71fa1dbb819566f48098a90b7b3db6871071f8f2a09ee58ffe"
+  },
+  "topology": "<local-host-omitted>"
+}

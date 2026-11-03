@@ -1,0 +1,94 @@
+--- frozen_v4.cpp
++++ batch_only.cpp
+@@ -396,6 +396,8 @@
+ // Допустимо, пока cov[i] <= 1 для всех i.
+ struct Sol {
+     const Inst* I = nullptr;
++    bool defer = false;
++    vector<char> dirty;
+     vector<char> isopen;
+     vector<int> asg, pos, size_;
+     vector<long long> load;
+@@ -414,6 +416,7 @@
+     void init(const Inst& In) {
+         I = &In;
+         np = I->ns + I->no;
++        defer=false; dirty.assign(I->no,0);
+         isopen.assign(I->no, 0);
+         asg.assign(I->ns, -1);
+         pos.assign(I->ns, -1);
+@@ -489,7 +492,10 @@
+         hull[o] = h;
+         apply_cov(o, hull[o]);
+     }
++    void begin_defer() { defer=true; }
++    void end_defer() { defer=false; for(int o=0;o<I->no;o++) if(dirty[o]) {dirty[o]=0;rebuild_hull(o);} }
+     void rebuild_hull(int o) {
++        if(defer) {dirty[o]=1;return;}
+         static thread_local vector<Pt> pts;
+         pts.clear(); pts.reserve(members[o].size() + 1);
+         for (int s : members[o]) pts.push_back(I->P[s]);
+@@ -766,6 +772,7 @@
+     vector<int> state() const { return asg; }
+     void load_state(const vector<int>& st, const vector<char>& op) {
+         // полная пересборка
++        defer=false; fill(dirty.begin(),dirty.end(),0);
+         for (int o = 0; o < I->no; o++) {
+             members[o].clear(); size_[o] = 0; load[o] = 0;
+             fill(need[o].begin(), need[o].end(), 0);
+@@ -1442,7 +1449,9 @@
+     }
+     void doClose(int o) {
+         if (!s.isopen[o]) return;
++        bool wasdefer=s.defer; s.begin_defer();
+         while (!s.members[o].empty()) doRemove(s.members[o].back());
++        s.defer=wasdefer; s.dirty[o]=0;
+         s.isopen[o] = 0;
+         s.sig_open(o);
+         s.clear_cov(o);
+@@ -1450,6 +1459,7 @@
+         if (rec) jr.push_back({3, -1, o});
+     }
+     void undo(size_t mark) {
++        s.begin_defer();
+         while (jr.size() > mark) {
+             Op op = jr.back();
+             jr.pop_back();
+@@ -1460,6 +1470,7 @@
+             else { s.isopen[op.o] = 1; s.sig_open(op.o); s.rebuild_hull(op.o); }
+             rec = r;
+         }
++        s.end_defer();
+     }
+ };
+ 
+@@ -2018,7 +2029,9 @@
+     pr.clear();
+     for (int x : U) pr.push_back({I.P[x].x * bDx + I.P[x].y * bDy, x});
+     sort(pr.begin(), pr.end());
++    s.begin_defer();
+     for (int x : U) if (s.asg[x] >= 0) E.doRemove(x);
++    s.end_defer();
+     vector<pair<double, int>> sl, sh;
+     for (size_t i = 0; i < pr.size(); i++) {
+         int x = pr[i].second;
+@@ -2655,6 +2668,7 @@
+         assigned.clear();
+         for (int x = 0; x < I.ns; x++) if (s.asg[x] >= 0) assigned.push_back(x);
+         int mode = rng() % 100;
++        s.begin_defer();
+         if (mode < 40 && !assigned.empty()) {
+             int c = assigned[rng() % assigned.size()];
+             int q = max(1, (int)((3 + rng() % 25) * ruin_scale));
+@@ -2700,8 +2714,9 @@
+             int k = min((int)v.size(), 10 + (int)(rng() % 40));
+             if ((int)v.size() > k) nth_element(v.begin(), v.begin() + k, v.end());
+             for (int i = 0; i < k; i++) E.doRemove(v[i].second);
+-            E.doOpen(o);
+-        }
++            s.end_defer(); E.doOpen(o);
++        }
++        s.end_defer();
+         cnt[2][0]++;
+         recreate(E, Gd, rng, U(rng) < 0.3, 5, hardcap);
+         if (!feasible()) { cnt[2][2]++; E.undo(mark); continue; }

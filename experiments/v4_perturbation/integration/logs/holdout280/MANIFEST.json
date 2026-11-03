@@ -1,0 +1,106 @@
+{
+  "spec": {
+    "destination": "experiments/v4_perturbation/integration/logs/holdout280",
+    "seconds": 280,
+    "seeds": [
+      2201,
+      2202
+    ],
+    "cpu_pairs": [
+      [
+        0,
+        1
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        8,
+        10
+      ],
+      [
+        12,
+        13
+      ],
+      [
+        14,
+        15
+      ],
+      [
+        16,
+        17
+      ],
+      [
+        18,
+        19
+      ],
+      [
+        20,
+        21
+      ]
+    ],
+    "cases": {
+      "anti": "experiments/v4_perturbation/integration/inputs/holdout/anti.json",
+      "tightA": "experiments/v4_perturbation/integration/inputs/holdout/tightA.json",
+      "alphabig": "experiments/v4_perturbation/integration/inputs/holdout/alphabig.json",
+      "multiskill": "experiments/v4_perturbation/integration/inputs/holdout/multiskill.json",
+      "cluster": "experiments/v4_perturbation/integration/inputs/holdout/cluster.json",
+      "huge": "experiments/v4_perturbation/integration/inputs/holdout/huge.json"
+    },
+    "variants": {
+      "v4": {
+        "binary": "experiments/v4_perturbation/baseline/v4",
+        "source": "experiments/v4_perturbation/baseline/frozen_v4.cpp",
+        "env": {
+          "DBG": "1"
+        }
+      },
+      "off": {
+        "binary": "experiments/v4_perturbation/integration/final_candidate/solve",
+        "source": "experiments/v4_perturbation/integration/final_candidate/main.cpp",
+        "env": {
+          "DBG": "1",
+          "ESCAPE_MODE": "0"
+        }
+      },
+      "candidate": {
+        "binary": "experiments/v4_perturbation/integration/final_candidate/solve",
+        "source": "experiments/v4_perturbation/integration/final_candidate/main.cpp",
+        "env": {
+          "DBG": "1"
+        }
+      }
+    },
+    "order_seed": 421,
+    "snapshots": [
+      60,
+      120,
+      200,
+      260
+    ]
+  },
+  "spec_sha256": "9e87911141e9076c76f43516ca3a398e5f375d7b4032c5a995cbc850873fb9c7",
+  "runner_sha256": "b8cefa81d00bf83e8a4d046ab449bfdc6b024a8076b5a039e22ccd813b3eacc3",
+  "sources": {
+    "v4": "5b3914fa9791cb879f3232fb2876a915de83b848ad4b353b0dbf25b574998c25",
+    "off": "1857bec7e0882d15cf3091e79aeb0df1608ced5d4ee6883c1cb02656cfbd8e03",
+    "candidate": "1857bec7e0882d15cf3091e79aeb0df1608ced5d4ee6883c1cb02656cfbd8e03"
+  },
+  "validator_sha256": "6dd5948ebe72977976acf1b8dcaf7c819274c79addfb82328c0ec9a012ed56e0",
+  "checkpoints": {},
+  "binaries": {
+    "v4": "5cc54b6ad0f02a3d6d471d0e2f9129c229b4925aaa2b2c01ce26bd5305a4963c",
+    "off": "cdf65483f9452e9aed4abd6f7fd2e722d566aed891872cde3ddbb1eef181c79a",
+    "candidate": "cdf65483f9452e9aed4abd6f7fd2e722d566aed891872cde3ddbb1eef181c79a"
+  },
+  "inputs": {
+    "anti": "0fb10040e665bede8bcb824d0dadd6f78a084fad14919dbf750fb85ae281ed19",
+    "tightA": "a112a42787bb59b2f4a30fa92d61b9047cd7d20056bfe5bfc90997662bb0ad97",
+    "alphabig": "60db593c4e2dd79d4196c49c268e6eaaf0220b641aed8a0cb7a11ae0657ade6e",
+    "multiskill": "450669cda33d01524cea36ee83eb2524b87bef2a37a7d3bda358b2012bfeb2fd",
+    "cluster": "333af696e543ed111239bcd1d0c842158de7f1788e9662d3942ad5759089399c",
+    "huge": "0516ecab56386d67c7bee21fc7c64f8002068e0168ef3e06680b6f78ef47cf83"
+  },
+  "topology": "<local-host-omitted>"
+}

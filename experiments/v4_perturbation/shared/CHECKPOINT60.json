@@ -1,0 +1,61 @@
+{
+  "destination": "experiments/v4_perturbation/shared/logs/checkpoint60",
+  "seconds": 60,
+  "cpu_pairs": [
+    [
+      0,
+      1
+    ],
+    [
+      3,
+      6
+    ],
+    [
+      8,
+      10
+    ],
+    [
+      16,
+      17
+    ],
+    [
+      18,
+      19
+    ],
+    [
+      20,
+      21
+    ]
+  ],
+  "seeds": [
+    1901
+  ],
+  "cases": {
+    "anti": "experiments/v4_perturbation/shared/inputs/dev/anti.json",
+    "tightA": "experiments/v4_perturbation/shared/inputs/dev/tightA.json",
+    "alphabig": "experiments/v4_perturbation/shared/inputs/dev/alphabig.json",
+    "multiskill": "experiments/v4_perturbation/shared/inputs/dev/multiskill.json",
+    "cluster": "experiments/v4_perturbation/shared/inputs/dev/cluster.json",
+    "grid": "experiments/v4_perturbation/shared/inputs/dev/grid.json",
+    "large": "experiments/v4_perturbation/shared/inputs/dev/large.json",
+    "huge": "experiments/v4_perturbation/shared/inputs/dev/huge.json",
+    "deficit": "experiments/v4_perturbation/shared/inputs/dev/deficit.json",
+    "alphazero": "experiments/v4_perturbation/shared/inputs/dev/alphazero.json",
+    "elongated": "experiments/v4_perturbation/shared/inputs/dev/elongated.json",
+    "negative": "experiments/v4_perturbation/shared/inputs/dev/negative.json"
+  },
+  "variants": {
+    "v4": {
+      "binary": "experiments/v4_perturbation/baseline/v4",
+      "source": "experiments/v4_perturbation/baseline/frozen_v4.cpp",
+      "env": {
+        "DBG": "1"
+      }
+    }
+  },
+  "snapshots": [
+    10,
+    30,
+    50
+  ]
+}

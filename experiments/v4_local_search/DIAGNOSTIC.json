@@ -1,0 +1,62 @@
+{
+  "name": "diagnostic60_v1",
+  "seconds": 60,
+  "jobs": 6,
+  "seeds": [
+    1,
+    2,
+    3
+  ],
+  "cases": {
+    "open4": "task/instance4/instance.json"
+  },
+  "variants": {
+    "base": {
+      "binary": "experiments/v4_local_search/artifacts/diagnostic",
+      "env": {
+        "SEARCH_TRACE": "1",
+        "DBG": "1"
+      }
+    },
+    "old": {
+      "binary": "experiments/v4_local_search/artifacts/premerge",
+      "env": {
+        "DBG": "1"
+      }
+    },
+    "warm0": {
+      "binary": "experiments/v4_local_search/artifacts/diagnostic",
+      "env": {
+        "SEARCH_TRACE": "1",
+        "DBG": "1",
+        "WARM_START": "0"
+      }
+    },
+    "decode0": {
+      "binary": "experiments/v4_local_search/artifacts/diagnostic",
+      "env": {
+        "SEARCH_TRACE": "1",
+        "DBG": "1",
+        "WARM_DECODE": "0"
+      }
+    },
+    "local": {
+      "binary": "experiments/v4_local_search/artifacts/diagnostic",
+      "env": {
+        "SEARCH_TRACE": "1",
+        "DBG": "1",
+        "LOCAL_BUDGET": "1"
+      }
+    },
+    "fair": {
+      "binary": "experiments/v4_local_search/artifacts/diagnostic",
+      "env": {
+        "SEARCH_TRACE": "1",
+        "DBG": "1",
+        "LOCAL_BUDGET": "1",
+        "RANK_FAIR": "1"
+      }
+    }
+  },
+  "purpose": "Compatibility regression diagnosis only; do not select algorithm coefficients using open4."
+}

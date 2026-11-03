@@ -1,0 +1,19 @@
+{
+  "time": 1792397769.9620144,
+  "original": "experiments/v4_local_search/baseline/frozen_v4.cpp",
+  "source_sha256": "5b3914fa9791cb879f3232fb2876a915de83b848ad4b353b0dbf25b574998c25",
+  "binary_sha256": "5cc54b6ad0f02a3d6d471d0e2f9129c229b4925aaa2b2c01ce26bd5305a4963c",
+  "zip": "experiments/server_v4/artifacts/case03_cpp_server_v4_O3.zip",
+  "zip_sha256": "b4e9ace4ed6cffe53b932bb1d10f7ecdfdcc4170458afaf05e16b3068ebae953",
+  "zip_payload_exact": true,
+  "command": [
+    "g++",
+    "-O3",
+    "-std=c++17",
+    "-pthread",
+    "./experiments/v4_perturbation/baseline/frozen_v4.cpp",
+    "-o",
+    "./experiments/v4_perturbation/baseline/v4"
+  ],
+  "compiler": "g++ (GCC) 16.2.1 20260819 (Red Hat 16.2.1-2)\nCopyright (C) 2026 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\n"
+}
